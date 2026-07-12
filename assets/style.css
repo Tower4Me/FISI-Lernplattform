@@ -220,10 +220,12 @@ code, kbd, pre {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap;
 }
+.quiz__option { padding: 0; }
 .quiz__option .quiz__label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.6rem;
-  width: 100%;
+  flex: 1;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
 }

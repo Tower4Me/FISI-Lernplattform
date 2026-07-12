@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lernplan FISI – AP1 & AP2</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li aria-current="page">Lernplan</li>
+      </ol>
+    </nav>
+    <h1>Lernplan FISI – AP1 &amp; AP2</h1>
+    <p class="progress-label" id="global-progress-label">Fortschritt wird geladen …</p>
+    <div class="progress" id="global-progress"><div class="progress__bar"></div></div>
+  </header>
+
+  <main class="site-main">
+    <ul class="module-list" id="module-list">
+      <li class="module-card__empty">Module werden geladen …</li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    Fortschritt lokal im Browser gespeichert (localStorage). Kein Server, keine Anmeldung.
+  </footer>
+
+  <script src="assets/quiz-engine.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    var Progress = window.FISIProgress;
+
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+
+    function badge(type) {
+      var map = {
+        kern: ["badge--kern", "Kern"],
+        randwissen: ["badge--randwissen", "Randwissen"],
+        ap1: ["badge--ap1", "AP1"],
+        ap2: ["badge--ap2", "AP2"]
+      };
+      var m = map[type];
+      return m ? el("span", "badge " + m[0], m[1]) : null;
+    }
+
+    function renderModule(mod) {
+      var card = el("li", "module-card");
+      card.id = mod.slug;
+
+      var units = mod.units || [];
+      var doneCount = units.filter(function (u) {
+        var p = Progress.get(mod.slug + "/" + u.slug);
+        return p && p.done;
+      }).length;
+
+      var head = el("div", "module-card__head");
+      head.appendChild(el("h2", "module-card__title", mod.name));
+      head.appendChild(el("span", "module-card__count",
+        units.length ? (doneCount + " / " + units.length + " erledigt") : "keine Einheiten"));
+      card.appendChild(head);
+
+      if (units.length) {
+        var pct = Math.round((doneCount / units.length) * 100);
+        var bar = el("div", "progress");
+        var inner = el("div", "progress__bar");
+        inner.style.width = pct + "%";
+        bar.appendChild(inner);
+        card.appendChild(bar);
+
+        var ul = el("ul", "module-card__units");
+        units.forEach(function (u) {
+          var li = el("li", "module-card__unit");
+          var p = Progress.get(mod.slug + "/" + u.slug);
+          var done = p && p.done;
+
+          li.appendChild(el("span", done ? "unit-done" : "unit-open", done ? "✓" : "○"));
+          var link = el("a", null, u.name);
+          link.href = "module/" + mod.slug + "/" + u.slug + ".html";
+          li.appendChild(link);
+
+          var badges = el("span", "badges");
+          var a = badge(u.importance);
+          if (a) badges.appendChild(a);
+          (u.exams || []).forEach(function (ex) {
+            var b = badge(ex);
+            if (b) badges.appendChild(b);
+          });
+          li.appendChild(badges);
+          ul.appendChild(li);
+        });
+        card.appendChild(ul);
+      } else {
+        card.appendChild(el("p", "module-card__empty", "Noch keine Einheiten angelegt."));
+      }
+      return card;
+    }
+
+    function renderGlobalProgress(modules) {
+      var total = 0, done = 0;
+      modules.forEach(function (m) {
+        (m.units || []).forEach(function (u) {
+          total++;
+          var p = Progress.get(m.slug + "/" + u.slug);
+          if (p && p.done) done++;
+        });
+      });
+      var pct = total ? Math.round((done / total) * 100) : 0;
+      document.querySelector("#global-progress .progress__bar").style.width = pct + "%";
+      document.getElementById("global-progress-label").textContent =
+        total ? (done + " / " + total + " Einheiten erledigt (" + pct + "%)")
+               : "Noch keine Einheiten angelegt.";
+    }
+
+    fetch("data/manifest.json")
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        var modules = data.modules || [];
+        var list = document.getElementById("module-list");
+        list.innerHTML = "";
+        modules.forEach(function (m) { list.appendChild(renderModule(m)); });
+        renderGlobalProgress(modules);
+      })
+      .catch(function (err) {
+        document.getElementById("module-list").innerHTML =
+          "<li class='module-card__empty'>Manifest konnte nicht geladen werden (" +
+          err.message + "). Bei file:// ggf. lokalen Server nutzen.</li>";
+        document.getElementById("global-progress-label").textContent = "";
+      });
+  })();
+  </script>
+</body>
+</html>

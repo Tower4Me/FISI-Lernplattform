@@ -1,0 +1,222 @@
+/* ==========================================================================
+   style.css — Dunkles Theme fuer FISI-Lerneinheiten
+   Farbwerte gemaess CONVENTIONS.md §5. Aenderungen NUR hier vornehmen.
+   ========================================================================== */
+
+:root {
+  /* Basis / UI */
+  --bg: #0f1720;
+  --surface: #1b2530;
+  --surface-2: #223042;
+  --text: #e6edf3;
+  --text-muted: #9fb0c0;
+  --border: #2b3947;
+  --link: #4aa3ff;
+
+  /* Badge Gruppe A — Wichtigkeit */
+  --badge-kern-bg: #3fb950;
+  --badge-kern-fg: #0f1720;
+  --badge-rand-bg: #4b5563;
+  --badge-rand-fg: #e6edf3;
+
+  /* Badge Gruppe B — Pruefungsteil */
+  --badge-ap1-bg: #e3b341;
+  --badge-ap1-fg: #0f1720;
+  --badge-ap2-bg: #a371f7;
+  --badge-ap2-fg: #0f1720;
+
+  /* Abschnitts-Akzente */
+  --acc-einstieg: #4aa3ff;
+  --acc-konzept: #e6edf3;
+  --acc-praxis: #3fb950;
+  --acc-merksatz: #e3b341;
+  --acc-quiz: #a371f7;
+
+  /* Quiz-Feedback */
+  --ok: #3fb950;
+  --fail: #f85149;
+
+  /* Layout */
+  --maxw: 820px;
+  --radius: 10px;
+  --gap: 1rem;
+}
+
+/* ------------------------------------------------------------------ Reset */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { line-height: 1.25; }
+code, kbd, pre {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+/* --------------------------------------------------------------- Layout */
+.site-header, .site-main, .site-footer {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+.site-header { padding-block: 1.5rem 0.5rem; }
+.site-main { padding-block: 1rem 3rem; }
+.site-footer {
+  padding-block: 2rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ---------------------------------------------------------- Breadcrumbs */
+.breadcrumbs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.breadcrumbs ol {
+  list-style: none; display: flex; flex-wrap: wrap;
+  gap: 0.4rem; margin: 0; padding: 0;
+}
+.breadcrumbs li::after { content: "›"; margin-left: 0.4rem; color: var(--border); }
+.breadcrumbs li:last-child::after { content: ""; }
+.breadcrumbs li[aria-current="page"] { color: var(--text); }
+
+/* -------------------------------------------------------------- Badges */
+.badges { display: inline-flex; gap: 0.4rem; flex-wrap: wrap; vertical-align: middle; }
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.badge--kern { background: var(--badge-kern-bg); color: var(--badge-kern-fg); }
+.badge--randwissen { background: var(--badge-rand-bg); color: var(--badge-rand-fg); }
+.badge--ap1 { background: var(--badge-ap1-bg); color: var(--badge-ap1-fg); }
+.badge--ap2 { background: var(--badge-ap2-bg); color: var(--badge-ap2-fg); }
+
+/* ------------------------------------------------------- Modul-Uebersicht */
+.module-list { display: grid; gap: var(--gap); margin: 0; padding: 0; list-style: none; }
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.module-card__head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.module-card__title { margin: 0; font-size: 1.1rem; }
+.module-card__count { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
+.module-card__units { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; }
+.module-card__unit { display: flex; align-items: center; gap: 0.5rem; }
+.module-card__empty { color: var(--text-muted); font-style: italic; font-size: 0.9rem; }
+
+/* ------------------------------------------------------- Fortschritt */
+.progress {
+  --pct: 0%;
+  height: 8px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress__bar {
+  height: 100%;
+  width: var(--pct);
+  background: var(--badge-kern-bg);
+  transition: width 0.3s ease;
+}
+.progress-label { font-size: 0.8rem; color: var(--text-muted); }
+
+.unit-done { color: var(--ok); }
+.unit-open { color: var(--text-muted); }
+
+/* ------------------------------------------------------ Einheit-Sektionen */
+.unit-title { margin: 0.2rem 0 0.75rem; font-size: 1.5rem; }
+.unit-title .badges { margin-left: 0.5rem; }
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-block: 1rem;
+}
+.section > h2 { margin-top: 0; font-size: 1.15rem; }
+.section--einstieg { border-left-color: var(--acc-einstieg); }
+.section--konzept  { border-left-color: var(--acc-konzept); }
+.section--praxis   { border-left-color: var(--acc-praxis); }
+.section--merksatz { border-left-color: var(--acc-merksatz); background: var(--surface-2); }
+.section--quiz     { border-left-color: var(--acc-quiz); }
+
+.section--merksatz p { font-weight: 600; }
+
+.section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 0.75rem;
+  font-size: 0.92rem;
+}
+.section th, .section td {
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.section th { color: var(--text); font-weight: 600; }
+.section tbody tr:last-child td { border-bottom: 0; }
+.section ul { padding-left: 1.2rem; }
+.section li { margin-block: 0.25rem; }
+
+/* ------------------------------------------------------------- Quiz UI */
+.quiz__q { margin-block: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+.quiz__q:last-of-type { border-bottom: 0; }
+.quiz__question { font-weight: 600; margin-bottom: 0.5rem; }
+.quiz__options { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.quiz__option {
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+}
+.quiz__option:hover { border-color: var(--link); }
+.quiz__option input { margin-top: 0.25rem; }
+.quiz__option--correct { border-color: var(--ok); }
+.quiz__option--wrong { border-color: var(--fail); }
+.quiz__feedback { margin-top: 0.5rem; font-size: 0.9rem; min-height: 1.2em; }
+.quiz__feedback--ok { color: var(--ok); }
+.quiz__feedback--fail { color: var(--fail); }
+
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--link); }
+.btn--primary { background: var(--link); color: var(--bg); border-color: var(--link); }
+
+.quiz__result { margin-top: 1rem; font-weight: 600; }
+
+/* --------------------------------------------------------------- Utility */
+.muted { color: var(--text-muted); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}

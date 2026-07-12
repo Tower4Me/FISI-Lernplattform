@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: TOMs</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">TOMs</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      TOMs
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir eine Arztpraxis vor. Die Patientenakten sind hochsensibel,
+        also verlaesst sich die Praxis nicht auf eine einzige Vorkehrung. Am
+        Eingang ist ein Schloss (nicht jeder kommt ins Gebaeude). Der
+        Aktenschrank ist abschliessbar (nicht jeder im Gebaeude kommt an die
+        Akten). Jede Mitarbeiterin hat nur einen Schluessel fuer die Akten,
+        die sie wirklich braucht (die Empfangskraft kommt nicht an die
+        Diagnosen des Chefarztes). Und es gibt eine Kopie im Tresor, falls es
+        brennt.
+      </p>
+      <p>
+        Genau dieses gestaffelte Prinzip aus mehreren, ineinandergreifenden
+        Massnahmen sind die <strong>technischen und organisatorischen
+        Massnahmen</strong> (TOMs) im Datenschutz: nicht ein grosser Schutz,
+        sondern viele kleine, die zusammen ein sinnvolles Ganzes ergeben.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>TOMs</strong> sind alle Vorkehrungen, mit denen ein
+        Verantwortlicher personenbezogene Daten schuetzt. Sie sind in
+        <strong>Art. 32 DSGVO</strong> („Sicherheit der Verarbeitung")
+        gefordert. Das Ziel: ein Schutzniveau, das dem Risiko der Verarbeitung
+        angemessen ist. Je hoeher der moegliche Schaden fuer die Betroffenen,
+        desto staerker muessen die Massnahmen sein.
+      </p>
+
+      <p>Der Name benennt bereits die zwei Arten:</p>
+      <ul>
+        <li>
+          <strong>Technische Massnahmen</strong> stecken in Technik/Hardware/
+          Software: Verschluesselung, Firewall, Zutrittssysteme mit Chipkarte,
+          Backups, automatische Bildschirmsperre.
+        </li>
+        <li>
+          <strong>Organisatorische Massnahmen</strong> sind Regeln, Prozesse
+          und Zustaendigkeiten: Berechtigungskonzept, Besucherregelung,
+          Schulungen, Vier-Augen-Prinzip, Loeschkonzept.
+        </li>
+      </ul>
+
+      <p>
+        Art. 32 nennt beispielhaft vier Massnahmen ausdruecklich:
+        <strong>Pseudonymisierung</strong> und <strong>Verschluesselung</strong>,
+        die Sicherstellung von <strong>Vertraulichkeit, Integritaet,
+        Verfuegbarkeit und Belastbarkeit</strong> der Systeme, die
+        <strong>Wiederherstellbarkeit</strong> nach einem Zwischenfall sowie
+        ein <strong>regelmaessiges Ueberpruefen</strong> der Wirksamkeit.
+      </p>
+
+      <p>
+        Fuer die Pruefung wichtig ist zusaetzlich die klassische Systematik der
+        <strong>acht Kontrollen</strong> (aus der Anlage zum alten BDSG; sie ist
+        in der DSGVO nicht mehr wortgleich vorgeschrieben, wird aber weiterhin
+        als Ordnungsraster verlangt und geprueft):
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Kontrolle</th><th>Frage</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zutrittskontrolle</td><td>Wer kommt in den Raum?</td><td>Chipkarte, Alarmanlage, Pfoertner</td></tr>
+          <tr><td>Zugangskontrolle</td><td>Wer kommt ins System?</td><td>Passwort, 2FA, Bildschirmsperre</td></tr>
+          <tr><td>Zugriffskontrolle</td><td>Wer darf welche Daten?</td><td>Berechtigungskonzept, Rollen (RBAC)</td></tr>
+          <tr><td>Weitergabekontrolle</td><td>Wie werden Daten sicher uebertragen?</td><td>VPN, TLS, verschluesselte USB-Sticks</td></tr>
+          <tr><td>Eingabekontrolle</td><td>Wer hat was geaendert?</td><td>Protokollierung, Logging</td></tr>
+          <tr><td>Auftragskontrolle</td><td>Haelt sich der Dienstleister an Vorgaben?</td><td>Auftragsverarbeitungsvertrag, Kontrollen</td></tr>
+          <tr><td>Verfuegbarkeitskontrolle</td><td>Sind Daten gegen Verlust geschuetzt?</td><td>Backup, USV, RAID, Brandschutz</td></tr>
+          <tr><td>Trennungskontrolle</td><td>Werden Daten je Zweck getrennt?</td><td>getrennte Datenbanken, Mandantentrennung</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Merke die Abgrenzung, die oft verwechselt wird:
+        <strong>Zutritt</strong> = Raum betreten,
+        <strong>Zugang</strong> = System/Geraet nutzen,
+        <strong>Zugriff</strong> = konkrete Daten sehen/bearbeiten.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Eine Steuerkanzlei richtet Telearbeitsplaetze ein. Die
+        Datenschutzbeauftragte verlangt „geeignete TOMs". Ordne die getroffenen
+        Massnahmen den Kontrollen zu:
+      </p>
+      <ul>
+        <li>Die Wohnungstuer und der Arbeitsraum sind abschliessbar → <strong>Zutrittskontrolle</strong>.</li>
+        <li>Login am Laptop nur mit Passwort und Chipkarte (2FA) → <strong>Zugangskontrolle</strong>.</li>
+        <li>Der Mitarbeiter sieht nur die Mandanten, die ihm zugewiesen sind → <strong>Zugriffskontrolle</strong>.</li>
+        <li>Die Verbindung ins Kanzleinetz laeuft ueber VPN → <strong>Weitergabekontrolle</strong>.</li>
+        <li>Die SSD des Laptops ist vollverschluesselt → technische Massnahme (Vertraulichkeit nach Art. 32).</li>
+        <li>Jede Nacht laeuft ein automatisches Backup auf den Kanzleiserver → <strong>Verfuegbarkeitskontrolle</strong>.</li>
+      </ul>
+      <p>
+        Typische Pruefungsfrage dazu: „Nennen Sie zwei technische und zwei
+        organisatorische Massnahmen." Antwort z. B. technisch: Festplatten-
+        verschluesselung, VPN; organisatorisch: Berechtigungskonzept,
+        Mitarbeiterschulung.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        TOMs = technisch (in der Technik) + organisatorisch (in den Regeln),
+        gefordert von Art. 32 DSGVO und angemessen zum Risiko. Zutritt (Raum),
+        Zugang (System), Zugriff (Daten) sauber auseinanderhalten.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/toms.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurueck zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

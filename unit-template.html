@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE fuer eine Lerneinheit. Kopieren nach module/<modul-slug>/<einheit-slug>.html
+  Platzhalter {{...}} ersetzen. Struktur/Reihenfolge der 5 Abschnitte NICHT aendern
+  (CONVENTIONS.md §3). Relative Pfade (../../) gelten fuer Tiefe module/<x>/<y>.html.
+-->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Titel = "Modul: Einheit" (CONVENTIONS §2) -->
+  <title>{{MODUL_NAME}}: {{EINHEIT_NAME}}</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <!-- Breadcrumbs: 3 Ebenen, letzte aktiv (CONVENTIONS §2) -->
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#{{MODUL_SLUG}}">{{MODUL_NAME}}</a></li>
+        <li aria-current="page">{{EINHEIT_NAME}}</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      {{EINHEIT_NAME}}
+      <!-- Badges: 1x Wichtigkeit + 1-2x Pruefungsteil (CONVENTIONS §4). Nicht Zutreffendes loeschen. -->
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <!-- oder: <span class="badge badge--randwissen">Randwissen</span> -->
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) — kein Fachjargon vor der Analogie -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>{{ANALOGIE}}</p>
+    </section>
+
+    <!-- 2. KONZEPT — fachliche Erklaerung, ggf. Tabelle/Abbildung -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>{{KONZEPT}}</p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL — pruefungsnahes Szenario -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>{{PRAXIS}}</p>
+    </section>
+
+    <!-- 4. MERKSATZ — 1-2 Saetze, optisch abgesetzt -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>{{MERKSATZ}}</p>
+    </section>
+
+    <!-- 5. QUIZ — Fragen aus JSON, data-quiz-src auf Quizdatei zeigen -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/{{MODUL_SLUG}}/{{EINHEIT_SLUG}}.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurueck zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

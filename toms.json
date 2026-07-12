@@ -1,0 +1,101 @@
+{
+  "unit": "it-sicherheit/toms",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofuer steht die Abkuerzung TOM im Datenschutz?",
+      "options": [
+        "Technische oder manuelle Massnahmen",
+        "Technische und organisatorische Massnahmen",
+        "Tabellarische Objekt-Modelle",
+        "Transport- und Ordnungsmerkmale"
+      ],
+      "answer": 1,
+      "explanation": "TOM = technische und organisatorische Massnahmen, gefordert von Art. 32 DSGVO."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Vorschrift fordert die TOMs ausdruecklich?",
+      "options": [
+        "Art. 32 DSGVO (Sicherheit der Verarbeitung)",
+        "Art. 6 DSGVO (Rechtmaessigkeit)",
+        "Paragraf 202a StGB",
+        "Art. 17 DSGVO (Recht auf Loeschung)"
+      ],
+      "answer": 0,
+      "explanation": "Art. 32 DSGVO regelt die Sicherheit der Verarbeitung und verlangt ein risikoangemessenes Schutzniveau."
+    },
+    {
+      "id": "q3",
+      "question": "Eine Festplattenverschluesselung des Notebooks ist welche Art von Massnahme?",
+      "options": [
+        "Organisatorische Massnahme",
+        "Technische Massnahme",
+        "Keine TOM",
+        "Auftragskontrolle"
+      ],
+      "answer": 1,
+      "explanation": "Verschluesselung steckt in der Technik selbst und ist damit eine technische Massnahme."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Berechtigungskonzept, das regelt wer welche Daten sehen darf, gehoert zu welcher Kontrolle?",
+      "options": [
+        "Zutrittskontrolle",
+        "Zugangskontrolle",
+        "Zugriffskontrolle",
+        "Weitergabekontrolle"
+      ],
+      "answer": 2,
+      "explanation": "Zugriffskontrolle steuert, wer welche konkreten Daten sehen oder bearbeiten darf (z. B. per Rollen/RBAC)."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist der Unterschied zwischen Zugang und Zutritt?",
+      "options": [
+        "Zugang = Raum betreten, Zutritt = System nutzen",
+        "Zugang = System/Geraet nutzen, Zutritt = Raum betreten",
+        "Beides bedeutet dasselbe",
+        "Zugang betrifft nur Papierakten"
+      ],
+      "answer": 1,
+      "explanation": "Zutritt = physisch in den Raum. Zugang = in das System/Geraet. Zugriff = an die konkreten Daten."
+    },
+    {
+      "id": "q6",
+      "question": "Ein taegliches automatisches Backup dient vor allem welcher Kontrolle?",
+      "options": [
+        "Trennungskontrolle",
+        "Eingabekontrolle",
+        "Verfuegbarkeitskontrolle",
+        "Zutrittskontrolle"
+      ],
+      "answer": 2,
+      "explanation": "Backups schuetzen Daten gegen Verlust und sichern die Verfuegbarkeit (Verfuegbarkeitskontrolle)."
+    },
+    {
+      "id": "q7",
+      "question": "Welche der vier in Art. 32 DSGVO ausdruecklich genannten Massnahmen ist korrekt?",
+      "options": [
+        "Pseudonymisierung und Verschluesselung",
+        "Kuendigung und Abmahnung",
+        "Inventur und Skontierung",
+        "Normalisierung und Indizierung"
+      ],
+      "answer": 0,
+      "explanation": "Art. 32 nennt u. a. Pseudonymisierung und Verschluesselung sowie Vertraulichkeit, Integritaet, Verfuegbarkeit und Belastbarkeit."
+    },
+    {
+      "id": "q8",
+      "question": "Ein Auftragsverarbeitungsvertrag mit einem Cloud-Anbieter ist Teil welcher Kontrolle?",
+      "options": [
+        "Auftragskontrolle",
+        "Eingabekontrolle",
+        "Zugangskontrolle",
+        "Trennungskontrolle"
+      ],
+      "answer": 0,
+      "explanation": "Die Auftragskontrolle stellt sicher, dass ein Dienstleister Daten nur weisungsgemaess verarbeitet (AV-Vertrag, Kontrollen)."
+    }
+  ]
+}

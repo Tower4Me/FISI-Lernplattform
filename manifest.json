@@ -1,0 +1,68 @@
+{
+  "title": "Lernplan FISI – AP1 & AP2",
+  "modules": [
+    {
+      "slug": "projektmanagement",
+      "name": "Projektmanagement",
+      "units": []
+    },
+    {
+      "slug": "kalkulation",
+      "name": "Kalkulation & Grundrechnen",
+      "units": []
+    },
+    {
+      "slug": "hardware",
+      "name": "Hardware & Technologien",
+      "units": []
+    },
+    {
+      "slug": "netzwerktechnik",
+      "name": "Netzwerktechnik",
+      "units": []
+    },
+    {
+      "slug": "it-sicherheit",
+      "name": "IT-Sicherheit",
+      "units": [
+        {
+          "slug": "toms",
+          "name": "TOMs",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/toms.json"
+        }
+      ]
+    },
+    {
+      "slug": "datenschutz-recht",
+      "name": "Datenschutz & Recht",
+      "units": []
+    },
+    {
+      "slug": "software-os-web",
+      "name": "Software, OS & Web",
+      "units": []
+    },
+    {
+      "slug": "datenbanken-sql",
+      "name": "Datenbanken & SQL",
+      "units": []
+    },
+    {
+      "slug": "qualitaetssicherung",
+      "name": "Qualitätssicherung",
+      "units": []
+    },
+    {
+      "slug": "kaufmaennisches",
+      "name": "Kaufmännisches & Auftragsabwicklung",
+      "units": []
+    },
+    {
+      "slug": "wiso",
+      "name": "WiSo",
+      "units": []
+    }
+  ]
+}

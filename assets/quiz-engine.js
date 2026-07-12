@@ -107,6 +107,9 @@
 label.appendChild(input);
 label.appendChild(el("span", null, opt));
 li.appendChild(label);
+li.addEventListener("click", function (e) {
+  if (e.target === li) input.click();
+});
         list.appendChild(li);
       });
       block.appendChild(list);

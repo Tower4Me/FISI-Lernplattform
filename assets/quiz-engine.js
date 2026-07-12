@@ -94,17 +94,19 @@
 
       var list = el("ul", "quiz__options");
       q.options.forEach(function (opt, oi) {
-        var li = el("li", "quiz__option");
-        var input = el("input");
-        input.type = "radio";
-        input.name = unit + "-" + q.id;
-        input.value = String(oi);
-        input.addEventListener("change", function () {
-          if (state[qi].locked) return;
-          state[qi].chosen = oi;
-        });
-        li.appendChild(input);
-        li.appendChild(el("span", null, opt));
+      var li = el("li", "quiz__option");
+      var label = el("label", "quiz__label");
+      var input = el("input");
+      input.type = "radio";
+      input.name = unit + "-" + q.id;
+      input.value = String(oi);
+      input.addEventListener("change", function () {
+  if (state[qi].locked) return;
+  state[qi].chosen = oi;
+});
+label.appendChild(input);
+label.appendChild(el("span", null, opt));
+li.appendChild(label);
         list.appendChild(li);
       });
       block.appendChild(list);

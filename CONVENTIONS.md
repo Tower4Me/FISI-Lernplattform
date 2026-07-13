@@ -305,3 +305,107 @@ und Druckansicht später als reiner Variablen-Swap umsetzbar sind.
 - Diese Abschnittsstruktur ist rein clientseitiges HTML/CSS, keine
   JS-Logik nötig; `index.html` befüllt weiterhin nur Titel, Zähler,
   Fortschrittsbalken und Einheiten-Links aus `manifest.json`.
+
+---
+
+## 14. Format von data/manifest.json
+
+`data/manifest.json` ist die einzige Quelle, aus der `index.html` die
+Modulübersicht rendert (Titel, Fortschrittszähler, Einheiten-Links,
+Badges). Kein anderer Ort im Projekt bestimmt Reihenfolge oder Anzeige.
+
+### Felder
+
+Top-Level:
+- `title` (String) — Seitentitel, angezeigt in `<h1>` von index.html.
+- `modules` (Array) — alle 11 Module, siehe unten.
+
+Pro Modul-Objekt:
+- `slug` (String) — fixer Modul-Slug aus Abschnitt 1 (z. B. `it-sicherheit`).
+  Wird als `id` auf dem `<details class="module-card">` verwendet
+  (Sprungziel für `index.html#<slug>`-Links aus den Breadcrumbs).
+- `name` (String) — Anzeigename des Moduls (mit Umlauten, siehe Abschnitt 2).
+- `units` (Array) — die Einheiten dieses Moduls, siehe unten. Leeres Array
+  `[]`, solange keine Einheit gebaut ist (rendert „Noch keine Einheiten
+  angelegt.“).
+
+Pro Unit-Objekt (Eintrag in `units`):
+- `slug` (String) — Einheiten-Slug, identisch mit dem Dateinamen ohne
+  `.html` (siehe Abschnitt 1).
+- `name` (String) — Anzeigename der Einheit (Umlaute erlaubt).
+- `importance` (String) — `"kern"` oder `"randwissen"`, steuert Badge
+  Gruppe A (Abschnitt 4).
+- `exams` (Array von Strings) — ein oder zwei Werte aus `"ap1"` / `"ap2"`,
+  steuert Badge Gruppe B. Kein kombinierter Wert, immer als Array mit
+  1–2 Einträgen.
+- `quiz` (String) — Pfad zur Quiz-JSON relativ zum Repo-Root
+  (`data/<modul-slug>/<einheit-slug>.json`), identisch mit dem Pfad, der
+  in der Einheit als `data-quiz-src` (dort relativ von der Einheit aus)
+  eingebunden ist.
+
+### Reihenfolge-Logik
+
+- Die Reihenfolge der `modules` im Array ist die feste Katalogreihenfolge
+  Modul 1–11 aus PLAN.md — nicht alphabetisch nach Slug.
+- Die Reihenfolge der `units` innerhalb eines Moduls ist die
+  Lern-/Anzeigereihenfolge (i. d. R. Themenreihenfolge aus PLAN.md) — nicht
+  alphabetisch nach Slug. Genau das meint CONVENTIONS §1 mit „Reihenfolge
+  steuert das Manifest, nicht der Dateiname“.
+- Neue Einheiten werden also durch Einfügen an der richtigen Position im
+  `units`-Array einsortiert, nicht angehängt, wenn sie thematisch früher
+  gehören.
+
+### Beispiel
+
+```json
+{
+  "title": "Lernplan FISI – AP1 & AP2",
+  "modules": [
+    {
+      "slug": "it-sicherheit",
+      "name": "IT-Sicherheit",
+      "units": [
+        {
+          "slug": "schutzziele-cia",
+          "name": "Schutzziele (CIA)",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/schutzziele-cia.json"
+        }
+      ]
+    },
+    {
+      "slug": "hardware",
+      "name": "Hardware & Technologien",
+      "units": []
+    }
+  ]
+}
+```
+
+---
+
+## 15. Konsistenzprüfung (tools/check.js)
+
+Ein Node-Skript ohne externe Abhängigkeiten prüft die drei häufigsten
+Inkonsistenzquellen zwischen HTML, Manifest und Quiz-JSON:
+
+1. Jeder `data-quiz-src`-Pfad in einer `module/**/*.html`-Datei muss auf
+   eine tatsächlich existierende JSON-Datei zeigen.
+2. Jeder `quiz`-Pfad und jede Einheit in `data/manifest.json` muss auf eine
+   tatsächlich existierende `module/<modul-slug>/<einheit-slug>.html`
+   zeigen.
+3. Jede referenzierte Quiz-Datei muss syntaktisch valides JSON sein.
+
+Aufruf (aus dem Repo-Root, benötigt nur Node.js, kein `npm install`):
+
+```
+node tools/check.js
+```
+
+Ausgabe: entweder `Alles ok. Keine Inkonsistenzen gefunden.` oder eine
+Liste der gefundenen Fehler mit Datei- und Pfadangabe. Exit-Code `1` bei
+Fehlern, `0` wenn alles ok ist (damit das Skript auch in einem
+Pre-Commit-Hook oder CI-Schritt nutzbar ist).
+
+Vor jedem größeren Commit (neue Einheiten-Batches) ausführen.

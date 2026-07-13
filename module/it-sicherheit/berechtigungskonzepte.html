@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Berechtigungskonzepte</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Berechtigungskonzepte</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Berechtigungskonzepte
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In einem Krankenhaus hat die Reinigungskraft einen Schlüssel für
+        alle Flure, aber keinen für den Medikamentenschrank. Eine
+        Krankenschwester kommt an die Medikamente ihrer Station, aber nicht
+        an die Patientenakten einer anderen Station. Niemand bekommt „auf
+        Vorrat“ mehr Schlüssel, als er für seine Aufgabe braucht. Genau
+        dieses Prinzip steckt hinter Berechtigungskonzepten in der IT.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Authentifizierung klärt, <em>wer</em> jemand ist. Das
+        <strong>Berechtigungskonzept</strong> klärt, <em>was</em> diese
+        Person darf. Falsch gesetzte Rechte sind eine der häufigsten
+        Ursachen für Datenlecks.
+      </p>
+
+      <h3>Die zwei Grundprinzipien</h3>
+      <table>
+        <thead>
+          <tr><th>Prinzip</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Least Privilege</strong></td><td>So wenig Rechte wie möglich – nur was für die Aufgabe nötig ist. Begrenzt den Schaden bei einer Kontoübernahme.</td></tr>
+          <tr><td><strong>Need-to-know</strong></td><td>Zugriff nur auf Daten, die man wirklich braucht, auch wenn eine Berechtigung theoretisch möglich wäre. Klassisch im Umgang mit sensiblen Daten.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Rechtemodelle</h3>
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Prinzip</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>DAC</strong> (Discretionary Access Control)</td><td>Der Eigentümer einer Ressource vergibt Rechte selbst</td><td>Dateifreigabe unter Windows</td></tr>
+          <tr><td><strong>MAC</strong> (Mandatory Access Control)</td><td>Das System erzwingt feste Regeln, Nutzer können sie nicht ändern</td><td>Behörden, Verschlusssachen</td></tr>
+          <tr><td><strong>RBAC</strong> (Role Based Access Control)</td><td>Rechte hängen an Rollen, nicht an einzelnen Personen</td><td>Rolle „Buchhaltung“ statt Einzelvergabe</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Warum RBAC in Firmen Standard ist:</strong> Wechselt ein
+        Mitarbeiter die Abteilung, ändert man nur seine Rolle, nicht
+        hunderte Einzelrechte. Neue Buchhalter bekommen automatisch die
+        Rolle „Buchhaltung“ mit allen passenden Rechten. Das ist wartbar,
+        nachvollziehbar und reduziert Fehler.
+      </p>
+
+      <p>
+        In Windows-Umgebungen setzt man RBAC-nahe Rechtevergabe praktisch
+        über <strong>Gruppenrichtlinien (GPO, Group Policy Objects)</strong>
+        um: Statt jeden Rechner einzeln zu konfigurieren, definiert man
+        Regeln zentral auf Domänenebene und weist sie Gruppen von Nutzern
+        oder Rechnern zu.
+      </p>
+
+      <p>
+        Ein verwandtes Konzept ist das <strong>Schalenmodell</strong>
+        (auch Zwiebelschalen-Prinzip): Sicherheit wird in mehreren
+        ineinander verschachtelten Schichten aufgebaut – physischer Zugang
+        zum Gebäude, Netzwerkzugang, Betriebssystem-Login,
+        Anwendungsberechtigung, konkrete Datenfreigabe. Jede Schale muss
+        einzeln überwunden werden; wer eine äußere Schale durchbricht, hat
+        noch lange nicht die innerste erreicht.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Praktikant beginnt in der IT-Abteilung eines mittelständischen
+        Unternehmens:
+      </p>
+      <ul>
+        <li>Er bekommt versehentlich Domänen-Administratorrechte zugewiesen, obwohl er nur Tickets im Support-System bearbeiten soll → klarer Verstoß gegen <strong>Least Privilege</strong>.</li>
+        <li>Nach Korrektur erhält er stattdessen die Rolle „Support-Mitarbeiter“ über eine <strong>RBAC</strong>-Gruppe, die per GPO automatisch die passenden Rechte auf die Ticket-Software erhält – ohne dass jemand einzelne Berechtigungen von Hand setzen muss.</li>
+        <li>Auch mit dieser Rolle sieht er Kundendaten nur, wenn ein Ticket dazu vorliegt, nicht die komplette Kundendatenbank auf Vorrat → <strong>Need-to-know</strong>.</li>
+        <li>Verlässt der Praktikant später die Abteilung, entfernt man nur seine Rollenzugehörigkeit – alle damit verbundenen Einzelrechte entfallen automatisch.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Ein Auszubildender hat versehentlich
+        Administratorrechte erhalten. Welches Prinzip wurde verletzt und
+        wie sollte richtig vorgegangen werden?“ – Antwort: Verstoß gegen
+        Least Privilege; Rechte über eine passende RBAC-Rolle mit minimal
+        nötigen Berechtigungen vergeben.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Least Privilege: so wenig Rechte wie nötig. Need-to-know: nur
+        Zugriff auf wirklich benötigte Daten. RBAC bindet Rechte an Rollen
+        statt an Personen und ist deshalb der Firmenstandard – DAC und MAC
+        sind die Gegenpole (Eigentümer entscheidet vs. System erzwingt).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/berechtigungskonzepte.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

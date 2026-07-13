@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/berechtigungskonzepte",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was besagt das Prinzip 'Least Privilege'?",
+      "options": [
+        "Jeder Nutzer sollte möglichst viele Rechte auf Vorrat erhalten",
+        "Ein Nutzer sollte nur so viele Rechte erhalten, wie für seine Aufgabe nötig sind",
+        "Nur Administratoren dürfen Rechte vergeben",
+        "Rechte werden ausschließlich nach Betriebszugehörigkeit vergeben"
+      ],
+      "answer": 1,
+      "explanation": "Least Privilege begrenzt Rechte auf das für die Aufgabe notwendige Minimum und reduziert so den Schaden bei Missbrauch oder Kontoübernahme."
+    },
+    {
+      "id": "q2",
+      "question": "Ein Support-Mitarbeiter darf Kundendaten nur einsehen, wenn ein konkretes Ticket dazu vorliegt, nicht die komplette Kundendatenbank. Welches Prinzip ist das?",
+      "options": [
+        "Need-to-know",
+        "Security by Default",
+        "Separation of Duties",
+        "Fail-Safe-Prinzip"
+      ],
+      "answer": 0,
+      "explanation": "Need-to-know beschränkt den Zugriff auf Daten, die für die konkrete Aufgabe wirklich gebraucht werden."
+    },
+    {
+      "id": "q3",
+      "question": "Bei welchem Rechtemodell entscheidet der Eigentümer einer Ressource selbst über die Rechtevergabe?",
+      "options": [
+        "MAC (Mandatory Access Control)",
+        "RBAC (Role Based Access Control)",
+        "DAC (Discretionary Access Control)",
+        "AAA (Authentication, Authorization, Accounting)"
+      ],
+      "answer": 2,
+      "explanation": "Bei DAC vergibt der Eigentümer einer Datei/Ressource die Rechte selbst, z. B. bei einer Windows-Dateifreigabe."
+    },
+    {
+      "id": "q4",
+      "question": "Warum gilt RBAC als Standard in größeren Unternehmen?",
+      "options": [
+        "Weil jeder Mitarbeiter individuell konfigurierte Einzelrechte erhält",
+        "Weil Rechte an Rollen statt an einzelne Personen gebunden sind und sich so leichter warten lassen",
+        "Weil RBAC keine Administratoren mehr benötigt",
+        "Weil RBAC ausschließlich für Datenbanken verwendet wird"
+      ],
+      "answer": 1,
+      "explanation": "Bei RBAC ändert sich bei einem Abteilungswechsel nur die Rollenzuweisung, nicht hunderte Einzelrechte — das ist wartbar und nachvollziehbar."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Praktikant erhält versehentlich Domänen-Administratorrechte, obwohl er nur Support-Tickets bearbeiten soll. Welches Prinzip wurde verletzt?",
+      "options": [
+        "Need-to-know",
+        "Least Privilege",
+        "Security by Design",
+        "Verfügbarkeitskontrolle"
+      ],
+      "answer": 1,
+      "explanation": "Er erhielt deutlich mehr Rechte, als für seine Aufgabe nötig — ein klarer Verstoß gegen Least Privilege."
+    },
+    {
+      "id": "q6",
+      "question": "Wofür werden Gruppenrichtlinien (GPO) in Windows-Domänen typischerweise genutzt?",
+      "options": [
+        "Um Rechte zentral auf Domänenebene für Gruppen von Nutzern/Rechnern zu definieren",
+        "Um Passwörter im Klartext zu speichern",
+        "Um Firewalls komplett zu deaktivieren",
+        "Um SQL-Injection-Angriffe zu erkennen"
+      ],
+      "answer": 0,
+      "explanation": "GPOs erlauben es, Regeln zentral zu definieren und automatisch auf zugewiesene Gruppen anzuwenden, statt jeden Rechner einzeln zu konfigurieren."
+    },
+    {
+      "id": "q7",
+      "question": "Was beschreibt das Schalenmodell (Zwiebelschalen-Prinzip) in der IT-Sicherheit?",
+      "options": [
+        "Nur eine einzige, sehr starke Schutzmaßnahme reicht aus",
+        "Sicherheit besteht aus mehreren ineinander verschachtelten Schichten, die einzeln überwunden werden müssen",
+        "Ein Modell ausschließlich für die Verschlüsselung von Datenbanken",
+        "Ein Synonym für RAID-Level"
+      ],
+      "answer": 1,
+      "explanation": "Das Schalenmodell staffelt Sicherheit in mehreren Schichten (physisch, Netzwerk, OS, Anwendung, Daten) — jede muss einzeln durchbrochen werden."
+    }
+  ]
+}

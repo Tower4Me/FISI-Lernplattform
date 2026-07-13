@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Schadsoftware-Typen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Schadsoftware-Typen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Schadsoftware-Typen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Denk an Krankheitserreger: Manche brauchen einen Wirt und breiten
+        sich erst aus, wenn jemand hustet oder Hände schüttelt. Andere
+        springen von selbst von Person zu Person, ganz ohne bewusstes
+        Zutun. Wieder andere tarnen sich als harmlose Süßigkeit, sind aber
+        vergiftet. Genau diese Unterschiede in der Verbreitung
+        unterscheiden auch die Typen von <strong>Schadsoftware</strong>
+        (Malware).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>Malware</strong> (malicious software) ist der Oberbegriff
+        für jede Software, die Schaden anrichten soll. Die Typen
+        unterscheiden sich vor allem darin, <strong>wie sie sich
+        verbreiten</strong> und ob sie einen Wirt brauchen:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Verbreitung</th><th>Braucht Wirt?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Virus</strong></td><td>Hängt sich an Dateien, braucht Nutzeraktion zum Ausführen</td><td>Ja</td></tr>
+          <tr><td><strong>Wurm</strong></td><td>Verbreitet sich selbstständig über das Netzwerk</td><td>Nein</td></tr>
+          <tr><td><strong>Trojaner</strong></td><td>Tarnt sich als nützliches Programm</td><td>Nein</td></tr>
+          <tr><td><strong>Ransomware</strong></td><td>Verschlüsselt Daten, fordert Lösegeld</td><td>Nein</td></tr>
+          <tr><td><strong>Spyware</strong></td><td>Sammelt heimlich Daten</td><td>Nein</td></tr>
+          <tr><td><strong>Rootkit</strong></td><td>Versteckt sich tief im System, verschleiert andere Malware</td><td>Nein</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Der Klassiker unter den Verwechslungen ist <strong>Virus vs.
+        Wurm</strong>: Der Virus braucht einen Wirt und eine Aktion des
+        Nutzers (z. B. eine Datei öffnen). Der Wurm kriecht selbstständig
+        durchs Netz und nutzt Sicherheitslücken aus, ganz ohne Zutun des
+        Nutzers.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die IT-Abteilung der Softwarefirma „Nordkomm GmbH“ untersucht drei
+        Vorfälle aus dem letzten Quartal und muss den jeweiligen
+        Malware-Typ bestimmen:
+      </p>
+      <ul>
+        <li>Ein Mitarbeiter öffnet einen infizierten Dateianhang, danach hängt sich der Schadcode an weitere Office-Dateien im Unternehmen an, sobald diese geöffnet werden → <strong>Virus</strong> (braucht Wirtsdatei und Nutzeraktion).</li>
+        <li>Über Nacht verbreitet sich ein Schädling eigenständig von Rechner zu Rechner im Firmennetz, ohne dass jemand etwas anklickt, indem er eine ungepatchte Sicherheitslücke ausnutzt → <strong>Wurm</strong>.</li>
+        <li>Am Montagmorgen sind alle Dateien auf dem Fileserver verschlüsselt, eine Textdatei fordert eine Zahlung in Kryptowährung für den Entschlüsselungscode → <strong>Ransomware</strong>.</li>
+        <li>Eine vermeintlich nützliche PDF-Reader-Alternative aus einem inoffiziellen Download-Portal installiert im Hintergrund zusätzliche Schadsoftware → <strong>Trojaner</strong> (tarnt sich als nützliches Programm).</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Virus braucht Wirt + Nutzeraktion. Wurm verbreitet sich selbstständig
+        übers Netz. Trojaner tarnt sich als nützliches Programm. Ransomware
+        verschlüsselt und erpresst. Spyware spioniert heimlich. Rootkit
+        versteckt sich tief im System.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/schadsoftware-typen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

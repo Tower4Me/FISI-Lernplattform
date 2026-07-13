@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/firewall-dmz",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was prüft ein einfacher Paketfilter?",
+      "options": [
+        "Nur den Inhalt von Anwendungsdaten (Deep Packet Inspection)",
+        "Quelle, Ziel, Port und Protokoll (Schicht 3/4)",
+        "Ausschließlich den Verbindungszustand",
+        "Nur die Signatur bekannter Schadsoftware"
+      ],
+      "answer": 1,
+      "explanation": "Ein Paketfilter arbeitet auf Schicht 3/4 und prüft Quelle, Ziel, Port und Protokoll."
+    },
+    {
+      "id": "q2",
+      "question": "Was kann eine Stateful-Inspection-Firewall zusätzlich zu einem reinen Paketfilter?",
+      "options": [
+        "Sie erkennt, ob ein Paket zu einer bereits bestehenden Verbindung gehört",
+        "Sie verschlüsselt automatisch alle Daten",
+        "Sie ersetzt einen Virenscanner vollständig",
+        "Sie kann nur auf Schicht 7 arbeiten"
+      ],
+      "answer": 0,
+      "explanation": "Stateful Inspection merkt sich den Verbindungszustand und erkennt, ob ein Paket zu einer bestehenden, legitimen Verbindung gehört."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist eine DMZ?",
+      "options": [
+        "Ein Verschlüsselungsverfahren für E-Mails",
+        "Ein Puffernetz zwischen Internet und internem LAN für von außen erreichbare Server",
+        "Ein Backup-Rechenzentrum an einem zweiten Standort",
+        "Ein Protokoll zur Passwortübertragung"
+      ],
+      "answer": 1,
+      "explanation": "Die DMZ (Demilitarisierte Zone) ist ein Puffernetz, in dem von außen erreichbare Server wie Web- oder Mailserver stehen."
+    },
+    {
+      "id": "q4",
+      "question": "Warum stehen Webserver typischerweise in der DMZ statt im internen LAN?",
+      "options": [
+        "Weil dort schnellere Internetleitungen verfügbar sind",
+        "Damit ein kompromittierter Webserver nicht automatisch Zugriff auf das interne LAN gibt",
+        "Weil DMZ-Server keine Firewall-Regeln benötigen",
+        "Weil das interne LAN keine Server verwalten darf"
+      ],
+      "answer": 1,
+      "explanation": "Zwischen DMZ und internem LAN liegt eine zweite Firewall — ein gehackter DMZ-Server hat damit noch keinen direkten Zugriff aufs interne Netz."
+    },
+    {
+      "id": "q5",
+      "question": "Was kann eine Next-Generation-Firewall (NGFW) zusätzlich zu Stateful Inspection leisten?",
+      "options": [
+        "Nur Ports blockieren, sonst nichts",
+        "Application Control und Deep Packet Inspection bis Schicht 7",
+        "Ausschließlich WLAN-Verschlüsselung verwalten",
+        "Datenbank-Backups automatisch erstellen"
+      ],
+      "answer": 1,
+      "explanation": "NGFW/WAF arbeiten bis Schicht 7 und erkennen Anwendung und Inhalt, nicht nur IP/Port."
+    },
+    {
+      "id": "q6",
+      "question": "Wie viele Firewall-Grenzen liegen in einer typischen DMZ-Architektur zwischen Internet und internem LAN?",
+      "options": [
+        "Keine",
+        "Genau eine, zwischen Internet und DMZ",
+        "Zwei — eine zwischen Internet und DMZ, eine zwischen DMZ und internem LAN",
+        "Mindestens vier"
+      ],
+      "answer": 2,
+      "explanation": "Typisch sind zwei Firewall-Grenzen: Internet–DMZ und DMZ–internes LAN."
+    }
+  ]
+}

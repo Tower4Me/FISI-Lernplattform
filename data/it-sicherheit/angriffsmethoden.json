@@ -1,0 +1,101 @@
+{
+  "unit": "it-sicherheit/angriffsmethoden",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Eine gefälschte E-Mail gibt vor, von der Bank zu stammen, und fordert zur Eingabe von Zugangsdaten auf einer Fake-Seite auf. Wie heißt dieser Angriff?",
+      "options": [
+        "SQL-Injection",
+        "Phishing",
+        "DDoS",
+        "Brute Force"
+      ],
+      "answer": 1,
+      "explanation": "Phishing nutzt gefälschte E-Mails oder Webseiten, um Zugangsdaten zu erschleichen — der Mensch ist das Ziel."
+    },
+    {
+      "id": "q2",
+      "question": "Ein Angreifer schleust über ein Formularfeld einer Website Code ein, der ungefiltert in eine Datenbankabfrage gelangt. Wie heißt dieser Angriff?",
+      "options": [
+        "Cross-Site-Scripting (XSS)",
+        "SQL-Injection",
+        "Man-in-the-Middle",
+        "Spoofing"
+      ],
+      "answer": 1,
+      "explanation": "SQL-Injection schleust SQL-Befehle über ungefilterte Eingabefelder ein."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist die wichtigste Gegenmaßnahme gegen SQL-Injection?",
+      "options": [
+        "Ein längeres Datenbankpasswort",
+        "Prepared Statements (SQL-Struktur und Daten getrennt übergeben)",
+        "Regelmäßiges Ändern des Tabellennamens",
+        "Eine zusätzliche Firewall vor dem Webserver"
+      ],
+      "answer": 1,
+      "explanation": "Prepared Statements trennen SQL-Struktur und Daten strikt, sodass Eingaben nie als SQL-Befehl interpretiert werden."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Angreifer schaltet sich unbemerkt zwischen Client und Server, um die Kommunikation mitzulesen oder zu manipulieren. Wie heißt dieser Angriff?",
+      "options": [
+        "Man-in-the-Middle",
+        "Whaling",
+        "Baiting",
+        "Ransomware"
+      ],
+      "answer": 0,
+      "explanation": "Beim Man-in-the-Middle-Angriff schaltet sich der Angreifer in die Kommunikation zweier Parteien ein."
+    },
+    {
+      "id": "q5",
+      "question": "Ein gezielter Phishing-Angriff, der speziell auf die Geschäftsführung eines Unternehmens abzielt, heißt wie?",
+      "options": [
+        "Spear-Phishing",
+        "Whaling",
+        "Baiting",
+        "Pretexting"
+      ],
+      "answer": 1,
+      "explanation": "Whaling ist Phishing speziell gegen hochrangige Ziele wie die Führungsebene (\"große Fische\")."
+    },
+    {
+      "id": "q6",
+      "question": "Viele kompromittierte Rechner (ein Botnet) überfluten gleichzeitig einen Server mit Anfragen, bis er nicht mehr erreichbar ist. Wie heißt dieser Angriff?",
+      "options": [
+        "DDoS (Distributed Denial of Service)",
+        "Brute Force",
+        "Spoofing",
+        "XSS"
+      ],
+      "answer": 0,
+      "explanation": "DDoS verteilt die Überlastungsangriffe über viele Rechner (Botnet), im Gegensatz zu DoS von einer einzelnen Quelle."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Best Practice schützt zusätzlich zu Prepared Statements gegen die Folgen eines erfolgreichen Datenbankangriffs?",
+      "options": [
+        "Minimale Rechte pro Datenbanknutzer (Least Privilege)",
+        "Alle Nutzer erhalten Administratorrechte",
+        "Fehlermeldungen der Datenbank vollständig an den Browser weitergeben",
+        "Auf Backups verzichten, um Speicherplatz zu sparen"
+      ],
+      "answer": 0,
+      "explanation": "Least Privilege begrenzt den Schaden, falls ein Angriff dennoch gelingt. Backups und das Verstecken von Fehlermeldungen sind ebenfalls Best Practices, nicht deren Gegenteil."
+    },
+    {
+      "id": "q8",
+      "question": "Eine E-Mail wird so gefälscht, dass sie scheinbar vom Geschäftsführer stammt, um eine Überweisung anzuweisen (CEO-Fraud). Welche Angriffstechnik steckt typischerweise dahinter?",
+      "options": [
+        "Reines DDoS ohne Social Engineering",
+        "Spear-Phishing kombiniert mit Absender-Spoofing",
+        "SQL-Injection auf das E-Mail-Postfach",
+        "Brute-Force-Angriff auf das E-Mail-Passwort"
+      ],
+      "answer": 1,
+      "explanation": "CEO-Fraud kombiniert gezieltes Spear-Phishing mit gefälschtem Absender (Spoofing), um Vertrauen vorzutäuschen."
+    }
+  ]
+}

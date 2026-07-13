@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Angriffsmethoden</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Angriffsmethoden</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Angriffsmethoden
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Einbrecher hat mehrere Möglichkeiten, in ein Haus zu kommen: Er
+        kann die Tür aufbrechen (Technik angreifen), sich als Handwerker
+        ausgeben und einfach hereingebeten werden (den Menschen täuschen),
+        oder so lange am Klingelbrett drücken, bis jemand entnervt öffnet
+        (das System überlasten). Genau diese drei Grundmuster – Technik
+        angreifen, Menschen täuschen, System überlasten – finden sich auch
+        bei Angriffen auf IT-Systeme wieder.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Nicht jeder Angriff nutzt Schadsoftware. Viele zielen direkt auf den
+        Menschen oder auf Schwächen in Anwendungen und Netzwerken:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Kategorie</th><th>Angriff</th><th>Kurzbeschreibung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Social Engineering</td><td><strong>Phishing</strong></td><td>Gefälschte E-Mails/Seiten erschleichen Zugangsdaten. Der Mensch ist das Ziel, nicht die Technik.</td></tr>
+          <tr><td>Web</td><td><strong>SQL-Injection</strong></td><td>Schädlicher SQL-Code wird über Eingabefelder eingeschleust.</td></tr>
+          <tr><td>Web</td><td><strong>XSS</strong></td><td>Cross-Site-Scripting: fremdes JavaScript läuft im Browser des Opfers.</td></tr>
+          <tr><td>Netzwerk</td><td><strong>Man-in-the-Middle</strong></td><td>Angreifer schaltet sich unbemerkt in die Kommunikation zweier Parteien.</td></tr>
+          <tr><td>Netzwerk</td><td><strong>Spoofing</strong></td><td>Absender/Adresse wird gefälscht (IP-, ARP- oder E-Mail-Spoofing), um sich als jemand anderes auszugeben.</td></tr>
+          <tr><td>Verfügbarkeit</td><td><strong>DoS / DDoS</strong></td><td>Überlastung durch Anfrageflut. DDoS = verteilt über viele (Botnet-)Rechner.</td></tr>
+          <tr><td>Authentifizierung</td><td><strong>Brute Force</strong></td><td>Systematisches Durchprobieren von Passwörtern.</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Bei Social Engineering lohnt sich die feinere Unterscheidung:
+        <strong>Phishing</strong> (Massenmail), <strong>Spear-Phishing</strong>
+        (gezielt auf eine Person zugeschnitten), <strong>Whaling</strong>
+        (Ziel ist die Führungsebene), <strong>Pretexting</strong> (erfundener
+        Vorwand, z. B. angeblicher IT-Support) und <strong>Baiting</strong>
+        (präparierter USB-Stick, der „zufällig“ herumliegt). Alle nutzen den
+        Menschen als Schwachstelle, nicht die Technik.
+      </p>
+
+      <h3>SQL-Injection im Detail</h3>
+      <p>
+        SQL-Injection steht seit Jahren auf Platz 1 der OWASP Top 10 der
+        Web-Sicherheitslücken und entsteht, wenn Benutzereingaben
+        ungefiltert in einen SQL-Befehl eingebaut werden:
+      </p>
+      <pre><code>// Unsicher: Eingabe direkt in SQL eingebaut
+$sql = "SELECT * FROM users WHERE name='" . $_POST['name'] . "'";
+
+// Angreifer gibt ein: ' OR '1'='1
+// Ergebnis: SELECT * FROM users WHERE name='' OR '1'='1'
+// '1'='1' ist immer wahr -&gt; gibt ALLE Benutzer zurück!</code></pre>
+      <p>
+        Die wichtigste Gegenmaßnahme sind <strong>Prepared Statements</strong>
+        (vorbereitete Anweisungen): SQL-Struktur und Daten werden getrennt
+        übergeben, sodass Benutzereingaben niemals als SQL-Befehl
+        interpretiert werden können.
+      </p>
+      <pre><code>// Sicher mit Prepared Statement (PDO)
+$stmt = $pdo->prepare("SELECT * FROM users WHERE name = ?");
+$stmt->execute([$_POST['name']]);
+// ' OR '1'='1 wird nur als Suchtext behandelt, nicht als SQL-Befehl</code></pre>
+      <p>
+        Weitere Best Practices gegen SQL-Injection und ähnliche Angriffe:
+        minimale Rechte pro Datenbanknutzer (Least Privilege), regelmäßige
+        Backups nach der 3-2-1-Regel, keine Datenbankfehlermeldungen nach
+        außen zeigen (Angreifer lernen sonst die Tabellenstruktur) und
+        Eingaben zusätzlich validieren (eine E-Mail-Adresse muss wie eine
+        aussehen, eine ID muss eine Zahl sein).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Freitagnachmittag im IT-Support der „Rheinfeld Elektrotechnik
+        GmbH“: Eine Mitarbeiterin aus der Buchhaltung ruft an.
+      </p>
+      <ul>
+        <li><strong>Schritt 1:</strong> Sie hat eine E-Mail erhalten, angeblich vom Geschäftsführer, mit der dringenden Bitte, eine Rechnung über 8.500 € an ein „neues“ Konto zu überweisen. Die Absenderadresse sieht auf den ersten Blick korrekt aus. → Richtige Reaktion: Nicht sofort überweisen, sondern die Anfrage über einen zweiten Kanal (Telefonanruf beim Geschäftsführer) verifizieren. Das ist ein klassischer <strong>CEO-Fraud</strong>, eine Form von Spear-Phishing kombiniert mit Absender-Spoofing.</li>
+        <li><strong>Schritt 2:</strong> Kurz darauf lässt sich die Buchhaltungssoftware nicht mehr öffnen, eine Meldung fordert Lösegeld in Kryptowährung. → Das ist Ransomware; sofort den Rechner vom Netz trennen (nicht ausschalten, um Spuren zu sichern) und die IT-Notfallkette informieren, statt selbst zu zahlen.</li>
+        <li><strong>Schritt 3:</strong> Eine Analyse zeigt: Der Angreifer kam über eine Kontaktformular-Eingabe auf der Firmenwebsite herein, die ungefiltert in eine SQL-Abfrage eingebaut wurde. → Klassische SQL-Injection; die Website hatte keine Prepared Statements verwendet.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Nennen Sie den Angriffstyp und eine
+        passende Gegenmaßnahme.“ Antwort z. B.: SQL-Injection → Prepared
+        Statements; Phishing/CEO-Fraud → Schulung, Verifikation über
+        zweiten Kanal, Spam-Filter, MFA.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Angriffe zielen auf Technik (SQL-Injection, XSS), auf Menschen
+        (Phishing-Varianten) oder auf Verfügbarkeit (DoS/DDoS). Zu jedem
+        Angriff gehört eine bekannte Gegenmaßnahme: Prepared Statements
+        gegen SQL-Injection, Verifikation über zweiten Kanal gegen
+        Phishing/CEO-Fraud.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/angriffsmethoden.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

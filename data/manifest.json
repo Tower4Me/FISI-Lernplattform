@@ -73,6 +73,27 @@
           "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/zertifikate-tls-pki.json"
+        },
+        {
+          "slug": "schadsoftware-typen",
+          "name": "Schadsoftware-Typen",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/schadsoftware-typen.json"
+        },
+        {
+          "slug": "angriffsmethoden",
+          "name": "Angriffsmethoden",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/angriffsmethoden.json"
+        },
+        {
+          "slug": "firewall-dmz",
+          "name": "Firewall & DMZ",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/firewall-dmz.json"
         }
       ]
     },

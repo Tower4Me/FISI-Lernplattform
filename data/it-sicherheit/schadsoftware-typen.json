@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/schadsoftware-typen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was unterscheidet einen Virus am deutlichsten von einem Wurm?",
+      "options": [
+        "Ein Virus verschlüsselt immer Daten, ein Wurm nie",
+        "Ein Virus braucht einen Wirt und eine Nutzeraktion, ein Wurm verbreitet sich selbstständig",
+        "Ein Wurm braucht einen Wirt, ein Virus nicht",
+        "Beide sind technisch identisch, nur der Name unterscheidet sich"
+      ],
+      "answer": 1,
+      "explanation": "Der Virus hängt sich an eine Datei und braucht eine Nutzeraktion (z. B. Öffnen). Der Wurm verbreitet sich eigenständig über das Netzwerk."
+    },
+    {
+      "id": "q2",
+      "question": "Eine Schadsoftware verschlüsselt den gesamten Fileserver und fordert eine Zahlung für die Entschlüsselung. Wie heißt dieser Malware-Typ?",
+      "options": [
+        "Spyware",
+        "Rootkit",
+        "Ransomware",
+        "Trojaner"
+      ],
+      "answer": 2,
+      "explanation": "Ransomware verschlüsselt Daten und fordert Lösegeld (englisch: ransom) für die Entschlüsselung."
+    },
+    {
+      "id": "q3",
+      "question": "Eine als nützliches Programm getarnte Anwendung installiert im Hintergrund weitere Schadsoftware. Um welchen Typ handelt es sich?",
+      "options": [
+        "Wurm",
+        "Trojaner",
+        "Virus",
+        "Ransomware"
+      ],
+      "answer": 1,
+      "explanation": "Ein Trojaner tarnt sich als nützliches Programm, um unbemerkt Schadfunktionen einzuschleusen."
+    },
+    {
+      "id": "q4",
+      "question": "Welcher Malware-Typ versteckt sich tief im Betriebssystem, um andere Schadsoftware zu verschleiern?",
+      "options": [
+        "Rootkit",
+        "Spyware",
+        "Virus",
+        "Wurm"
+      ],
+      "answer": 0,
+      "explanation": "Ein Rootkit nistet sich tief im System ein und verschleiert die Existenz weiterer Malware."
+    },
+    {
+      "id": "q5",
+      "question": "Welcher Malware-Typ sammelt heimlich Daten über den Nutzer, ohne dessen Wissen?",
+      "options": [
+        "Spyware",
+        "Ransomware",
+        "Wurm",
+        "Rootkit"
+      ],
+      "answer": 0,
+      "explanation": "Spyware spioniert im Hintergrund Nutzerdaten aus, ohne dass der Nutzer davon erfährt."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Aussage zur Verbreitung von Würmern trifft zu?",
+      "options": [
+        "Würmer benötigen zwingend eine geöffnete Datei durch den Nutzer",
+        "Würmer verbreiten sich selbstständig über das Netzwerk, oft über Sicherheitslücken",
+        "Würmer können sich nur über USB-Sticks verbreiten",
+        "Würmer sind eine veraltete Bezeichnung für Viren"
+      ],
+      "answer": 1,
+      "explanation": "Würmer nutzen Sicherheitslücken aus und verbreiten sich eigenständig im Netzwerk, ganz ohne Zutun des Nutzers."
+    }
+  ]
+}

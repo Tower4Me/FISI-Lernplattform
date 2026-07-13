@@ -283,3 +283,25 @@ und Druckansicht später als reiner Variablen-Swap umsetzbar sind.
 - Umbruchregeln: `break-inside: avoid` für Abbildungen, Merksatz-Box und
   Quiz-Fragen; nach Überschriften `break-after: avoid`.
 - Hintergrund weiß, Text schwarz.
+
+---
+
+## 13. Modulübersicht (Index-Seite)
+
+- Jede Modul-Karte auf `index.html` ist ein natives `<details class="module-card">`
+  — kein JS-Toggle. Standard: `open` gesetzt (aufgeklappt).
+- Der Modul-Header (Titel + Fortschrittsanzeige rechts) ist das
+  `<summary class="module-card__head">`. Fortschrittsbalken und
+  Einheiten-Liste stehen als Inhalt danach im selben `<details>`.
+- Struktur: `<ul class="module-list"><li><details class="module-card">…</details></li></ul>`
+  — das `<li>` bleibt als gültiger Listen-Wrapper erhalten, die Klasse
+  `module-card` sitzt direkt auf dem `<details>`.
+- Default-Dreieck-Marker wird entfernt:
+  `summary::-webkit-details-marker { display: none; }` (WebKit/Blink) plus
+  `list-style: none;` auf dem Summary-Element (Firefox).
+- Stattdessen ein eigener Chevron-Indikator per `::after`-Pseudoelement
+  (Border-Ecke, 45°-Rotation), der beim Öffnen über
+  `.module-card[open] > .module-card__head::after` seine Rotation ändert.
+- Diese Abschnittsstruktur ist rein clientseitiges HTML/CSS, keine
+  JS-Logik nötig; `index.html` befüllt weiterhin nur Titel, Zähler,
+  Fortschrittsbalken und Einheiten-Links aus `manifest.json`.

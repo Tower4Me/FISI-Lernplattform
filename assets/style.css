@@ -113,7 +113,31 @@ code, kbd, pre {
   padding: 1rem 1.25rem;
   display: flex; flex-direction: column; gap: 0.6rem;
 }
-.module-card__head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.module-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+.module-card__head::-webkit-details-marker { display: none; }
+.module-card__head::after {
+  content: "";
+  position: absolute;
+  right: 0.1rem;
+  top: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: -0.3rem;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+.module-card[open] > .module-card__head::after { transform: rotate(45deg); }
 .module-card__title { margin: 0; font-size: 1.1rem; }
 .module-card__count { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
 .module-card__units { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; }

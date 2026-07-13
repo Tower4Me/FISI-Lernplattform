@@ -54,8 +54,11 @@
     }
 
     function renderModule(mod) {
-      var card = el("li", "module-card");
+      var wrapper = el("li");
+      var card = el("details", "module-card");
       card.id = mod.slug;
+      card.open = true;
+      wrapper.appendChild(card);
 
       var units = mod.units || [];
       var doneCount = units.filter(function (u) {
@@ -63,7 +66,7 @@
         return p && p.done;
       }).length;
 
-      var head = el("div", "module-card__head");
+      var head = el("summary", "module-card__head");
       head.appendChild(el("h2", "module-card__title", mod.name));
       head.appendChild(el("span", "module-card__count",
         units.length ? (doneCount + " / " + units.length + " erledigt") : "keine Einheiten"));
@@ -102,7 +105,7 @@
       } else {
         card.appendChild(el("p", "module-card__empty", "Noch keine Einheiten angelegt."));
       }
-      return card;
+      return wrapper;
     }
 
     function renderGlobalProgress(modules) {

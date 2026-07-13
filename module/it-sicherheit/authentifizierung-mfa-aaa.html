@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Authentifizierung, MFA & AAA</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Authentifizierung, MFA & AAA</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Authentifizierung, MFA & AAA
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Türsteher an einem Vereinsheim könnte den Ausweis prüfen (etwas,
+        das du <em>hast</em>), das Vereins-Passwort abfragen (etwas, das du
+        <em>weißt</em>) oder dein Gesicht mit einer Mitgliederliste
+        abgleichen (etwas, das du <em>bist</em>). Verlangt er zwei
+        unterschiedliche Nachweise gleichzeitig, kommt selbst ein Dieb mit
+        gestohlenem Ausweis nicht hinein, wenn er nicht zusätzlich das
+        Passwort kennt. Genau das ist das Prinzip hinter starker
+        Authentifizierung.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>Authentifizierung</strong> beweist eine Identität. Sie
+        stützt sich auf drei Arten von Faktoren:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Faktor</th><th>Beschreibung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Wissen</strong></td><td>Etwas, das man weiß</td><td>Passwort, PIN, Sicherheitsfrage</td></tr>
+          <tr><td><strong>Besitz</strong></td><td>Etwas, das man hat</td><td>Smartphone (TAN-App), Hardware-Token, Smartcard</td></tr>
+          <tr><td><strong>Sein / Inhärenz</strong></td><td>Etwas, das man ist</td><td>Fingerabdruck, Gesicht, Iris (Biometrie)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Werden zwei unterschiedliche Faktorarten kombiniert, spricht man von
+        <strong>Zwei-Faktor-Authentifizierung (2FA)</strong> bzw. allgemein
+        <strong>Multi-Faktor-Authentifizierung (MFA)</strong>. Ein häufiger
+        Fehler: Passwort <strong>plus</strong> Sicherheitsfrage ist
+        <strong>keine</strong> echte 2FA – beides ist der Faktor „Wissen“.
+        Echte MFA kombiniert verschiedene Faktorarten, z. B. Passwort
+        (Wissen) plus Code aus einer App (Besitz).
+      </p>
+
+      <p>
+        Bei Passwörtern gilt: <strong>Länge schlägt Komplexität</strong>.
+        Ein langer, gut merkbarer Satz ist oft sicherer als ein kurzes,
+        kompliziertes Kunstwort. Wichtiger als starre Regeln: für jeden
+        Dienst ein eigenes Passwort, idealerweise verwaltet in einem
+        Passwort-Manager, dazu MFA wo immer möglich.
+      </p>
+
+      <h3>AAA: Authentication, Authorization, Accounting</h3>
+      <p>
+        In Netzwerken fasst man Zugangskontrolle oft als <strong>AAA</strong>
+        zusammen:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Frage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Authentication</strong></td><td>Wer bist du? (Identität prüfen)</td></tr>
+          <tr><td><strong>Authorization</strong></td><td>Was darfst du? (Rechte zuweisen)</td></tr>
+          <tr><td><strong>Accounting</strong></td><td>Was hast du getan? (Protokollieren)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>RADIUS</strong> und <strong>TACACS+</strong> sind bekannte
+        AAA-Protokolle. RADIUS verschlüsselt nur das Passwort und wird oft
+        für Netzwerkzugang (802.1X, WLAN) genutzt. TACACS+ verschlüsselt das
+        gesamte Paket und trennt die drei A sauber – beliebt für die
+        Geräte-Administration (z. B. Cisco-Umgebungen).
+      </p>
+
+      <h3>Single Sign-On (SSO)</h3>
+      <p>
+        Bei <strong>SSO</strong> meldet sich der Nutzer einmal an und erhält
+        Zugang zu mehreren Diensten, ohne sich erneut anzumelden. Vorteil:
+        weniger Passwörter, zentrale Verwaltung. Risiko: Fällt das eine
+        Konto, fallen potenziell alle angebundenen Dienste – deshalb gehört
+        zu SSO praktisch immer MFA. Bekannte Standards sind SAML,
+        OAuth 2.0 und OpenID Connect.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus führt für einen Kunden ein neues Login-Konzept
+        ein:
+      </p>
+      <ul>
+        <li>Mitarbeiter melden sich künftig mit Passwort <strong>und</strong> einer Push-Benachrichtigung auf dem Diensthandy an → echte MFA, weil Wissen (Passwort) und Besitz (Smartphone) kombiniert werden.</li>
+        <li>Ein Kollege schlägt vor, stattdessen Passwort plus eine zusätzliche Sicherheitsfrage zu verlangen → wird abgelehnt, da beides derselbe Faktor „Wissen“ ist und keine echte MFA darstellt.</li>
+        <li>Über einen zentralen Login-Dienst (SSO) erhalten Mitarbeiter nach einer Anmeldung automatisch Zugriff auf E-Mail, Zeiterfassung und internes Wiki. Weil ein einziges kompromittiertes Konto damit mehrere Systeme öffnen würde, wird SSO verpflichtend mit MFA kombiniert.</li>
+        <li>Für den Zugang der Netzwerk-Switches zur zentralen Administration wird TACACS+ eingesetzt, weil es Authentifizierung, Autorisierung und Accounting sauber trennt und jede Konfigurationsänderung protokolliert (Accounting).</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Drei Faktorarten: Wissen, Besitz, Sein. Echte MFA kombiniert
+        unterschiedliche Faktorarten, nicht zweimal denselben. AAA = wer
+        bist du, was darfst du, was hast du getan. SSO spart Logins,
+        braucht aber zwingend MFA als Ausgleich für das erhöhte Risiko.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/authentifizierung-mfa-aaa.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

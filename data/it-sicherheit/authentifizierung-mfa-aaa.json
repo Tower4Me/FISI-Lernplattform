@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/authentifizierung-mfa-aaa",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche drei Faktorarten gibt es bei der Authentifizierung?",
+      "options": [
+        "Wissen, Besitz, Sein",
+        "Passwort, PIN, Muster",
+        "Online, Offline, Hybrid",
+        "Lokal, Remote, Cloud"
+      ],
+      "answer": 0,
+      "explanation": "Die drei Faktorarten sind Wissen (etwas, das man weiß), Besitz (etwas, das man hat) und Sein/Inhärenz (etwas, das man ist)."
+    },
+    {
+      "id": "q2",
+      "question": "Ein Login verlangt ein Passwort und zusätzlich die Antwort auf eine Sicherheitsfrage. Ist das echte Zwei-Faktor-Authentifizierung?",
+      "options": [
+        "Ja, weil zwei Angaben nötig sind",
+        "Nein, weil beides zum Faktor Wissen gehört",
+        "Ja, weil Sicherheitsfragen als Besitzfaktor gelten",
+        "Nein, weil Sicherheitsfragen kein gültiger Faktor sind"
+      ],
+      "answer": 1,
+      "explanation": "Echte MFA braucht unterschiedliche Faktorarten. Passwort und Sicherheitsfrage sind beide 'Wissen', also keine echte 2FA."
+    },
+    {
+      "id": "q3",
+      "question": "Was besagt die Faustregel 'Länge schlägt Komplexität' bei Passwörtern?",
+      "options": [
+        "Ein kurzes, komplexes Passwort ist immer am sichersten",
+        "Ein langer, gut merkbarer Satz ist oft sicherer als ein kurzes Kunstwort",
+        "Komplexitätsregeln sind bedeutungslos und können ignoriert werden",
+        "Passwörter sollten möglichst kurz gehalten werden, um sie sich zu merken"
+      ],
+      "answer": 1,
+      "explanation": "Lange, merkbare Passphrasen bieten oft mehr Sicherheit als kurze, hochkomplexe Passwörter."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür steht das zweite A in AAA (Authentication, Authorization, Accounting)?",
+      "options": [
+        "Authorization — was darf ich?",
+        "Automation — was wird automatisiert?",
+        "Availability — ist das System erreichbar?",
+        "Anonymization — werden Daten anonymisiert?"
+      ],
+      "answer": 0,
+      "explanation": "Authorization klärt, welche Rechte eine bereits authentifizierte Person hat."
+    },
+    {
+      "id": "q5",
+      "question": "Welches AAA-Protokoll verschlüsselt das gesamte Datenpaket und ist beliebt für die Geräte-Administration?",
+      "options": [
+        "RADIUS",
+        "TACACS+",
+        "SAML",
+        "OpenID Connect"
+      ],
+      "answer": 1,
+      "explanation": "TACACS+ verschlüsselt das komplette Paket und trennt die drei A sauber — häufig für Netzwerkgeräte-Administration genutzt."
+    },
+    {
+      "id": "q6",
+      "question": "Warum gehört zu Single Sign-On (SSO) praktisch immer MFA dazu?",
+      "options": [
+        "Weil SSO ohne MFA technisch gar nicht funktioniert",
+        "Weil ein kompromittiertes SSO-Konto sonst Zugriff auf alle angebundenen Dienste öffnen würde",
+        "Weil MFA die Anzahl der benötigten Logins weiter erhöht",
+        "Weil SSO ausschließlich für Administratoren gedacht ist"
+      ],
+      "answer": 1,
+      "explanation": "SSO bündelt den Zugang zu vielen Diensten hinter einem Login — MFA gleicht das dadurch erhöhte Risiko aus."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Standards werden häufig für Single Sign-On eingesetzt?",
+      "options": [
+        "SAML, OAuth 2.0, OpenID Connect",
+        "RAID, JBOD, iSCSI",
+        "SMTP, IMAP, POP3",
+        "TCP, UDP, ICMP"
+      ],
+      "answer": 0,
+      "explanation": "SAML, OAuth 2.0 und OpenID Connect sind verbreitete SSO-/Föderations-Standards."
+    }
+  ]
+}

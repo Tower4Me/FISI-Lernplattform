@@ -52,6 +52,27 @@
           "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/toms.json"
+        },
+        {
+          "slug": "kryptographie-sym-asym",
+          "name": "Kryptographie (symmetrisch/asymmetrisch)",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/kryptographie-sym-asym.json"
+        },
+        {
+          "slug": "hash-signatur",
+          "name": "Hashverfahren & digitale Signatur",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/hash-signatur.json"
+        },
+        {
+          "slug": "zertifikate-tls-pki",
+          "name": "Zertifikate, PKI & TLS",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/zertifikate-tls-pki.json"
         }
       ]
     },

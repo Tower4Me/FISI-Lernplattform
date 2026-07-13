@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Hashverfahren & digitale Signatur</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Hashverfahren & digitale Signatur</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Hashverfahren & digitale Signatur
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen Fingerabdruck vor: Aus dem Fingerabdruck kannst du
+        nicht auf das Aussehen der Person zurückschließen, aber zwei
+        verschiedene Personen haben (praktisch) nie denselben Abdruck, und
+        schon eine winzige Verletzung am Finger verändert ihn spürbar. Genau
+        so funktioniert ein <strong>Hash</strong> – ein digitaler
+        Fingerabdruck für Daten.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein <strong>Hash</strong> ist eine Einbahnstraße: Aus Daten lässt
+        sich der Hashwert berechnen, aber nicht umgekehrt aus dem Hashwert
+        die ursprünglichen Daten. Schon ein einziges geändertes Zeichen
+        erzeugt einen komplett anderen Hash. Genau das schützt das
+        Schutzziel <strong>Integrität</strong>.
+      </p>
+
+      <p>Drei Eigenschaften machen ein Hashverfahren brauchbar:</p>
+      <ul>
+        <li><strong>Einwegfunktion</strong> – aus dem Hash lässt sich die Eingabe nicht zurückrechnen.</li>
+        <li><strong>Lawineneffekt</strong> – die kleinste Änderung der Eingabe führt zu einem völlig anderen Hash.</li>
+        <li><strong>Kollisionssicherheit</strong> – zwei verschiedene Eingaben sollen praktisch nie denselben Hash ergeben.</li>
+      </ul>
+
+      <p>
+        Passwörter werden deshalb <strong>nie im Klartext</strong>
+        gespeichert, sondern als Hash (zusätzlich mit einem „Salt“ versehen,
+        um vorberechnete Rainbow-Table-Angriffe zu erschweren). Beim Login
+        wird der eingegebene Wert erneut gehasht und mit dem gespeicherten
+        Hash verglichen. <strong>MD5</strong> und <strong>SHA-1</strong>
+        gelten heute als gebrochen bzw. unsicher; Standard ist mindestens
+        <strong>SHA-256</strong>, für Passwörter speziell entwickelte
+        Verfahren wie <strong>bcrypt</strong> oder <strong>Argon2</strong>.
+      </p>
+
+      <p>Probiere den Lawineneffekt direkt aus:</p>
+      <div class="tool" data-tool="hash-demo">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+
+      <h3>Digitale Signatur</h3>
+      <p>
+        Die digitale Signatur dreht die asymmetrische Verschlüsselung um und
+        kombiniert sie mit einem Hash. Sie sichert gleich drei Schutzziele
+        auf einmal: <strong>Integrität</strong>, <strong>Authentizität</strong>
+        und <strong>Verbindlichkeit</strong>.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Schritt</th><th>Sender (signiert)</th><th>Empfänger (prüft)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Hash der Nachricht berechnen</td><td>Hash der empfangenen Nachricht selbst berechnen</td></tr>
+          <tr><td>2</td><td>Hash mit <strong>privatem</strong> Schlüssel verschlüsseln = Signatur</td><td>Signatur mit <strong>öffentlichem</strong> Schlüssel des Senders entschlüsseln</td></tr>
+          <tr><td>3</td><td>Nachricht + Signatur senden</td><td>Beide Hashes vergleichen: gleich → echt &amp; unverändert</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Merke die Schlüssel-Logik: <strong>Verschlüsseln</strong>
+        (Vertraulichkeit) erfolgt mit dem öffentlichen Schlüssel des
+        Empfängers. <strong>Signieren</strong> (Authentizität) erfolgt mit
+        dem privaten Schlüssel des Senders. Faustregel: Was nur eine Person
+        können soll, macht man mit deren privatem Schlüssel.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Eine Personalabteilung erhält ein digital signiertes PDF-Angebot von
+        einem Lieferanten:
+      </p>
+      <ul>
+        <li>Der Lieferant berechnet den Hash des Dokuments und verschlüsselt ihn mit seinem <strong>privaten</strong> Schlüssel – das ist die Signatur.</li>
+        <li>Die Personalabteilung berechnet den Hash des empfangenen Dokuments selbst und entschlüsselt die mitgeschickte Signatur mit dem <strong>öffentlichen</strong> Schlüssel des Lieferanten.</li>
+        <li>Stimmen beide Hashwerte überein, steht fest: Das Dokument stammt wirklich vom Lieferanten (Authentizität) und wurde seit der Signatur nicht verändert (Integrität). Der Lieferant kann später auch nicht bestreiten, das Angebot abgegeben zu haben (Verbindlichkeit).</li>
+        <li>Wäre auch nur eine Zahl im Angebot nachträglich geändert worden, würde der neu berechnete Hash nicht mehr zur Signatur passen – der Betrug fällt sofort auf.</li>
+      </ul>
+      <p>
+        Für gespeicherte Zugangsdaten gilt entsprechend: Ein Mitarbeiter-Login
+        vergleicht beim Anmelden nur Hashwerte, niemals das Passwort selbst
+        – so bleibt das Passwort auch bei einem Datenbank-Diebstahl nicht
+        im Klartext lesbar.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Hash = digitaler Fingerabdruck: Einweg, Lawineneffekt, kollisionssicher
+        – schützt Integrität. Digitale Signatur = Hash + privater Schlüssel
+        des Senders – schützt zusätzlich Authentizität und Verbindlichkeit.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/hash-signatur.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/hash-demo.js"></script>
+</body>
+</html>

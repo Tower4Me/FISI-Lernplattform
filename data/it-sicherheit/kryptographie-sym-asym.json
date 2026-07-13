@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/kryptographie-sym-asym",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist das zentrale Merkmal symmetrischer Verschlüsselung?",
+      "options": [
+        "Ein Schlüsselpaar aus öffentlich und privat",
+        "Ein einziger Schlüssel zum Ver- und Entschlüsseln",
+        "Es wird gar kein Schlüssel benötigt",
+        "Der Schlüssel ändert sich bei jeder Nachricht automatisch"
+      ],
+      "answer": 1,
+      "explanation": "Bei symmetrischer Verschlüsselung wird derselbe Schlüssel zum Ver- und Entschlüsseln verwendet."
+    },
+    {
+      "id": "q2",
+      "question": "Wie viele Schlüssel werden bei 10 Teilnehmern für vollständig vernetzte symmetrische Verschlüsselung benötigt?",
+      "options": [
+        "10",
+        "20",
+        "45",
+        "100"
+      ],
+      "answer": 2,
+      "explanation": "n × (n − 1) / 2 = 10 × 9 / 2 = 45 Schlüssel."
+    },
+    {
+      "id": "q3",
+      "question": "Warum braucht asymmetrische Verschlüsselung keinen sicheren Schlüsselaustausch im Vorfeld?",
+      "options": [
+        "Weil der öffentliche Schlüssel frei verteilt werden darf, ohne die Sicherheit zu gefährden",
+        "Weil beide Seiten denselben geheimen Schlüssel bereits kennen",
+        "Weil asymmetrische Verfahren gar keine Schlüssel verwenden",
+        "Weil der private Schlüssel öffentlich einsehbar ist"
+      ],
+      "answer": 0,
+      "explanation": "Der öffentliche Schlüssel kann frei verteilt werden. Nur der private Schlüssel muss geheim bleiben und verlässt nie den Besitzer."
+    },
+    {
+      "id": "q4",
+      "question": "Was mit dem öffentlichen Schlüssel eines Empfängers verschlüsselt wurde, kann nur womit entschlüsselt werden?",
+      "options": [
+        "Mit demselben öffentlichen Schlüssel",
+        "Mit dem privaten Schlüssel des Empfängers",
+        "Mit dem privaten Schlüssel des Senders",
+        "Mit einem beliebigen symmetrischen Schlüssel"
+      ],
+      "answer": 1,
+      "explanation": "Nur der zum öffentlichen Schlüssel passende private Schlüssel des Empfängers kann die Nachricht wieder entschlüsseln."
+    },
+    {
+      "id": "q5",
+      "question": "Warum nutzt TLS (HTTPS) eine hybride Verschlüsselung statt nur eines Verfahrens?",
+      "options": [
+        "Asymmetrisch löst den Schlüsselaustausch, symmetrisch liefert die Geschwindigkeit für die Datenübertragung",
+        "Symmetrisch ist sicherer, asymmetrisch ist nur ein Backup",
+        "Hybrid ist gesetzlich vorgeschrieben und hat keinen technischen Grund",
+        "Asymmetrisch wird für die komplette Datenübertragung genutzt, symmetrisch nur zum Login"
+      ],
+      "answer": 0,
+      "explanation": "Asymmetrische Verschlüsselung tauscht sicher einen symmetrischen Sitzungsschlüssel aus; die eigentliche Übertragung läuft dann schnell symmetrisch."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Verfahren ist typischerweise deutlich langsamer bei großen Datenmengen?",
+      "options": [
+        "Symmetrische Verschlüsselung (z. B. AES)",
+        "Asymmetrische Verschlüsselung (z. B. RSA)",
+        "Beide sind gleich schnell",
+        "Hashfunktionen"
+      ],
+      "answer": 1,
+      "explanation": "Asymmetrische Verfahren sind rechenintensiver und deutlich langsamer als symmetrische Verfahren wie AES."
+    },
+    {
+      "id": "q7",
+      "question": "Welche zwei Beispielalgorithmen gehören zur asymmetrischen Verschlüsselung?",
+      "options": [
+        "AES und ChaCha20",
+        "RSA und ECC",
+        "SHA-256 und MD5",
+        "DES und 3DES"
+      ],
+      "answer": 1,
+      "explanation": "RSA und ECC sind klassische asymmetrische Verfahren. AES/ChaCha20 sind symmetrisch, SHA-256/MD5 sind Hashfunktionen."
+    }
+  ]
+}

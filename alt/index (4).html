@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sec.learn – IT-Sicherheit & Datenschutz · FiSi Lernplattform</title>
+<style>
+:root{
+  --bg:#0d1117; --bg-soft:#161b22; --bg-card:#1c2230; --border:#2a3140;
+  --txt:#e6edf3; --txt-dim:#9aa6b2; --txt-faint:#6b7686;
+  --accent:#3ddc97; --accent-2:#ffb454; --danger:#ff6b6b; --info:#5ab0ff;
+  --shield:#3ddc97; --radius:14px;
+  --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+html[data-theme="light"]{
+  --bg:#f5f7fa; --bg-soft:#ffffff; --bg-card:#ffffff; --border:#e1e6ec;
+  --txt:#1a2230; --txt-dim:#566273; --txt-faint:#8a96a6;
+  --accent:#0f9d6b; --accent-2:#d98318; --danger:#d64545; --info:#2b7fd4;
+  --shield:#0f9d6b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.65;font-size:16px}
+.layout{display:flex;min-height:100vh}
+
+/* Sidebar */
+.sidebar{width:280px;background:var(--bg-soft);border-right:1px solid var(--border);
+  position:fixed;top:0;bottom:0;left:0;overflow-y:auto;padding:0 0 40px;z-index:40}
+.brand{padding:22px 22px 14px}
+.brand h1{font-size:20px;letter-spacing:.5px;display:flex;align-items:center;gap:9px}
+.brand .logo{width:24px;height:24px;flex:none}
+.brand .sub{font-size:12px;color:var(--txt-faint);letter-spacing:1.5px;text-transform:uppercase;margin-top:2px}
+.progress-wrap{padding:0 22px 16px}
+.progress-label{font-size:12px;color:var(--txt-dim);display:flex;justify-content:space-between;margin-bottom:6px}
+.progress-bar{height:6px;background:var(--border);border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--info));transition:width .4s}
+.nav-mod{border-top:1px solid var(--border)}
+.nav-mod-head{padding:12px 22px;font-size:13px;font-weight:600;cursor:pointer;display:flex;
+  justify-content:space-between;align-items:center;color:var(--txt-dim);user-select:none}
+.nav-mod-head:hover{color:var(--txt)}
+.nav-mod-head .num{color:var(--accent);font-family:var(--mono);font-size:12px;margin-right:8px}
+.nav-mod-head .done{color:var(--accent);font-size:13px}
+.nav-sub{display:none;padding:0 0 8px}
+.nav-mod.open .nav-sub{display:block}
+.nav-sub a{display:block;padding:7px 22px 7px 46px;font-size:13.5px;color:var(--txt-faint);
+  text-decoration:none;border-left:2px solid transparent;cursor:pointer}
+.nav-sub a:hover{color:var(--txt);background:var(--bg-card)}
+.nav-sub a.active{color:var(--accent);border-left-color:var(--accent);background:var(--bg-card)}
+.reset-btn{margin:18px 22px 0;font-size:12px;color:var(--txt-faint);background:none;border:1px solid var(--border);
+  padding:7px 12px;border-radius:8px;cursor:pointer;width:calc(100% - 44px)}
+.reset-btn:hover{color:var(--danger);border-color:var(--danger)}
+
+/* Main */
+.main{margin-left:280px;flex:1;min-width:0}
+.topbar{position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:12px 36px;
+  display:flex;justify-content:space-between;align-items:center;z-index:30}
+.crumb{font-size:13px;color:var(--txt-dim)}
+.topbar-right{display:flex;gap:10px;align-items:center}
+.theme-btn,.menu-btn{background:none;border:1px solid var(--border);color:var(--txt-dim);
+  padding:6px 12px;border-radius:8px;cursor:pointer;font-size:13px}
+.theme-btn:hover,.menu-btn:hover{color:var(--txt);border-color:var(--accent)}
+.menu-btn{display:none}
+.content{max-width:880px;margin:0 auto;padding:42px 36px 120px}
+.section{display:none}
+.section.active{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+h2.title{font-size:32px;line-height:1.2;margin-bottom:18px;letter-spacing:-.5px}
+h3{font-size:21px;margin:34px 0 14px;letter-spacing:-.3px}
+h4{font-size:15px;margin-bottom:6px}
+p{margin-bottom:14px;color:var(--txt)}
+p.lead{font-size:18px;color:var(--txt-dim)}
+strong{color:var(--txt);font-weight:600}
+code{font-family:var(--mono);background:var(--bg-card);padding:2px 6px;border-radius:5px;font-size:13.5px;color:var(--accent-2)}
+
+/* cards grid */
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:18px 0}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.card .tag{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:600}
+.card h4{margin:8px 0 6px;font-size:16px}
+.card p{font-size:14px;color:var(--txt-dim);margin:0}
+
+/* boxes */
+.box{border-radius:var(--radius);padding:16px 18px;margin:20px 0;border:1px solid var(--border);font-size:14.5px}
+.box .bx-head{font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.box.prax{background:color-mix(in srgb,var(--info) 12%,transparent);border-color:color-mix(in srgb,var(--info) 35%,transparent)}
+.box.prax .bx-head{color:var(--info)}
+.box.merk{background:color-mix(in srgb,var(--accent) 12%,transparent);border-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+.box.merk .bx-head{color:var(--accent)}
+.box.warn{background:color-mix(in srgb,var(--danger) 12%,transparent);border-color:color-mix(in srgb,var(--danger) 35%,transparent)}
+.box.warn .bx-head{color:var(--danger)}
+.box.ihk{background:color-mix(in srgb,var(--accent-2) 12%,transparent);border-color:color-mix(in srgb,var(--accent-2) 35%,transparent)}
+.box.ihk .bx-head{color:var(--accent-2)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;background:var(--bg-card);
+  border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border)}
+th{background:var(--bg-soft);font-size:12.5px;letter-spacing:.5px;color:var(--txt-dim);text-transform:uppercase}
+tr:last-child td{border-bottom:none}
+td code{font-size:12.5px}
+
+/* compare two-col */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.compare>div{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.compare h4{font-size:15px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.compare ul{list-style:none;font-size:13.5px}
+.compare li{padding:4px 0 4px 20px;position:relative;color:var(--txt-dim)}
+.compare li::before{position:absolute;left:0}
+.compare .good li::before{content:"+";color:var(--accent);font-weight:700}
+.compare .bad li::before{content:"−";color:var(--danger);font-weight:700}
+@media(max-width:680px){.compare{grid-template-columns:1fr}}
+
+/* nav buttons */
+.pager{display:flex;justify-content:space-between;margin-top:48px;gap:12px}
+.pager button{flex:1;background:var(--bg-card);border:1px solid var(--border);color:var(--txt);
+  padding:14px 18px;border-radius:var(--radius);cursor:pointer;font-size:14px;text-align:left;transition:.2s}
+.pager button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.pager button:disabled{opacity:.3;cursor:default}
+.pager .nxt{text-align:right}
+.pager .lbl{display:block;font-size:11px;color:var(--txt-faint);text-transform:uppercase;letter-spacing:1px}
+
+/* interactive generic */
+.interactive{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin:22px 0}
+.interactive label{font-size:13px;color:var(--txt-dim);display:block;margin-bottom:6px}
+.interactive input[type=text],.interactive input[type=number],.interactive select{
+  width:100%;background:var(--bg-soft);border:1px solid var(--border);color:var(--txt);
+  padding:10px 12px;border-radius:9px;font-size:14px;font-family:var(--sans);margin-bottom:12px}
+.interactive input:focus,.interactive select:focus{outline:none;border-color:var(--accent)}
+.btn{background:var(--accent);color:#05130c;border:none;padding:10px 18px;border-radius:9px;
+  font-weight:600;cursor:pointer;font-size:14px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:none;border:1px solid var(--border);color:var(--txt-dim)}
+.btn.ghost:hover{color:var(--txt);border-color:var(--accent)}
+.io-out{font-family:var(--mono);font-size:13px;background:var(--bg-soft);border:1px solid var(--border);
+  border-radius:9px;padding:12px 14px;margin-top:12px;white-space:pre-wrap;word-break:break-all;min-height:20px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+.row>div{flex:1;min-width:140px}
+
+/* clickable diagram chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{background:var(--bg-card);border:1px solid var(--border);border-radius:9px;padding:9px 14px;
+  font-size:13.5px;cursor:pointer;transition:.18s}
+.chip:hover{border-color:var(--accent)}
+.chip.sel{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.chip-detail{background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px;margin-top:6px;font-size:14px;color:var(--txt-dim);min-height:40px}
+
+/* CIA triangle */
+.cia{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.cia .c{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;cursor:pointer;text-align:center;transition:.2s}
+.cia .c:hover{border-color:var(--accent);transform:translateY(-3px)}
+.cia .c .big{font-size:34px;font-weight:800;color:var(--accent);font-family:var(--mono)}
+.cia .c h4{margin:6px 0 4px}
+.cia .c p{font-size:12.5px;color:var(--txt-faint);margin:0}
+@media(max-width:680px){.cia{grid-template-columns:1fr}}
+
+/* quiz */
+.quiz{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:20px}
+.quiz-q{font-size:12px;color:var(--txt-faint);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.quiz-question{font-size:17px;margin-bottom:18px;font-weight:500}
+.quiz-opt{display:block;width:100%;text-align:left;background:var(--bg-soft);border:1px solid var(--border);
+  color:var(--txt);padding:13px 16px;border-radius:10px;margin-bottom:10px;cursor:pointer;font-size:14.5px;transition:.15s}
+.quiz-opt:hover:not(:disabled){border-color:var(--accent)}
+.quiz-opt .ltr{display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;
+  background:var(--border);border-radius:6px;margin-right:10px;font-size:12px;font-weight:600}
+.quiz-opt.correct{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.quiz-opt.correct .ltr{background:var(--accent);color:#05130c}
+.quiz-opt.wrong{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 16%,transparent)}
+.quiz-opt.wrong .ltr{background:var(--danger);color:#fff}
+.quiz-opt:disabled{cursor:default}
+.quiz-explain{font-size:13.5px;color:var(--txt-dim);background:var(--bg-soft);border-left:3px solid var(--accent);
+  padding:10px 14px;border-radius:0 8px 8px 0;margin-top:6px;display:none}
+.quiz-explain.show{display:block}
+.quiz-foot{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.quiz-score{font-size:14px;color:var(--txt-dim)}
+.quiz-score b{color:var(--accent)}
+
+/* mobile */
+.backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:39}
+@media(max-width:920px){
+  .sidebar{transform:translateX(-100%);transition:transform .3s}
+  .sidebar.open{transform:none}
+  .main{margin-left:0}
+  .menu-btn{display:inline-block}
+  .backdrop.show{display:block}
+  .content{padding:28px 18px 100px}
+  h2.title{font-size:26px}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h1>
+        <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="var(--shield)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        Sec.learn
+      </h1>
+      <div class="sub">IT-Sicherheit · FiSi</div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Fortschritt</span><span id="progPct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+    </div>
+    <nav id="nav"></nav>
+    <button class="reset-btn" onclick="resetProgress()">Fortschritt zurücksetzen</button>
+  </aside>
+  <div class="backdrop" id="backdrop" onclick="toggleNav()"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <span class="crumb" id="crumb">Modul 1 · Schutzziele</span>
+      <div class="topbar-right">
+        <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☾ Dunkel</button>
+        <button class="menu-btn" onclick="toggleNav()">☰ Menü</button>
+      </div>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+
+<script>
+/* ============ INHALT ============ */
+const MODULES = [
+{
+  num:"01", title:"Schutzziele", sections:[
+  {id:"m1s1", label:"Die CIA-Triade", html:`
+    <div class="eyebrow">Modul 01 · Schutzziele</div>
+    <h2 class="title">Worum geht es bei IT-Sicherheit?</h2>
+    <p class="lead">IT-Sicherheit lässt sich auf drei Grundziele herunterbrechen. Fast jede Maßnahme, von der Firewall bis zum Backup, lässt sich einem dieser Ziele zuordnen.</p>
+    <p>Diese drei Ziele heißen zusammen <strong>CIA-Triade</strong>. Kein Geheimdienst, sondern: Confidentiality, Integrity, Availability. Klick die Ziele an:</p>
+    <div class="cia">
+      <div class="c" onclick="ciaPick('c')"><div class="big">C</div><h4>Vertraulichkeit</h4><p>Confidentiality</p></div>
+      <div class="c" onclick="ciaPick('i')"><div class="big">I</div><h4>Integrität</h4><p>Integrity</p></div>
+      <div class="c" onclick="ciaPick('a')"><div class="big">A</div><h4>Verfügbarkeit</h4><p>Availability</p></div>
+    </div>
+    <div class="chip-detail" id="ciaDetail">Klick auf ein Schutzziel, um ein konkretes Beispiel und typische Maßnahmen zu sehen.</div>
+    <h3>Die drei Ziele im Detail</h3>
+    <div class="cards">
+      <div class="card"><span class="tag">Vertraulichkeit</span><h4>Nur Befugte sehen Daten</h4><p>Schutz vor unbefugtem Lesen. Maßnahmen: Verschlüsselung, Zugriffsrechte, Authentifizierung.</p></div>
+      <div class="card"><span class="tag">Integrität</span><h4>Daten sind unverändert</h4><p>Schutz vor unbemerkter Manipulation. Maßnahmen: Hashwerte, Prüfsummen, digitale Signaturen.</p></div>
+      <div class="card"><span class="tag">Verfügbarkeit</span><h4>Daten sind erreichbar</h4><p>System läuft, wenn es gebraucht wird. Maßnahmen: Redundanz, RAID, USV, Backups, DDoS-Schutz.</p></div>
+    </div>
+    <div class="box merk"><div class="bx-head">Merksatz</div>Jede Angriffsart verletzt mindestens eines dieser Ziele. Ein abgehörtes Passwort verletzt die Vertraulichkeit, eine manipulierte Überweisung die Integrität, ein DDoS-Angriff die Verfügbarkeit. Wer ein Schutzziel benennen kann, versteht den halben Angriff.</div>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Typische Aufgabe: "Ordnen Sie die folgende Maßnahme einem Schutzziel zu" oder "Welches Schutzziel wird bei einem Ransomware-Angriff verletzt?" (Antwort: meist Verfügbarkeit und Vertraulichkeit zugleich.) Die CIA-Triade ist Pflichtwissen in GA1.</div>`},
+  {id:"m1s2", label:"Erweiterte Ziele", html:`
+    <div class="eyebrow">Modul 01 · Schutzziele</div>
+    <h2 class="title">Über CIA hinaus</h2>
+    <p>Die klassische Triade reicht in der Praxis oft nicht. Drei weitere Ziele tauchen regelmäßig auf, besonders bei rechtlich relevanten Vorgängen wie Bestellungen oder Verträgen.</p>
+    <table>
+      <tr><th>Ziel</th><th>Bedeutung</th><th>Beispiel</th></tr>
+      <tr><td><strong>Authentizität</strong></td><td>Ist der Absender wirklich der, der er vorgibt zu sein?</td><td>Digitale Signatur einer E-Mail</td></tr>
+      <tr><td><strong>Verbindlichkeit</strong><br>(Nicht-Abstreitbarkeit)</td><td>Eine Handlung kann später nicht geleugnet werden</td><td>Signierter Vertrag, Logging</td></tr>
+      <tr><td><strong>Zurechenbarkeit</strong></td><td>Eine Aktion lässt sich einem Verursacher zuordnen</td><td>Audit-Log mit Benutzer-ID</td></tr>
+    </table>
+    <div class="box prax"><div class="bx-head">Authentizität vs. Integrität sauber trennen</div>Die beiden werden gern verwechselt. <strong>Integrität</strong> fragt: Wurden die Daten verändert? <strong>Authentizität</strong> fragt: Stammen die Daten wirklich von diesem Absender? Eine Nachricht kann integer sein (unverändert) und trotzdem gefälscht (vom falschen Absender). Erst die digitale Signatur sichert beides zusammen.</div>
+    <div class="box warn"><div class="bx-head">Drei Begriffe, die zusammengehören aber verschieden sind</div><strong>Authentifizierung</strong> ist der Vorgang (Passwort eingeben), <strong>Authentizität</strong> ist die Eigenschaft (Daten stammen echt von X), <strong>Autorisierung</strong> ist die Rechtevergabe danach. In der Prüfung gern vertauscht abgefragt.</div>`}
+]},
+
+{
+  num:"02", title:"Bedrohungen & Angriffe", sections:[
+  {id:"m2s1", label:"Schadsoftware", html:`
+    <div class="eyebrow">Modul 02 · Bedrohungen</div>
+    <h2 class="title">Malware-Typen</h2>
+    <p class="lead">Malware (malicious software) ist der Oberbegriff für jede Software, die Schaden anrichten soll. Die Typen unterscheiden sich vor allem darin, wie sie sich verbreiten.</p>
+    <div class="chips" id="malChips"></div>
+    <div class="chip-detail" id="malDetail">Klick einen Malware-Typ an.</div>
+    <table>
+      <tr><th>Typ</th><th>Verbreitung</th><th>Braucht Wirt?</th></tr>
+      <tr><td><strong>Virus</strong></td><td>Hängt sich an Dateien, braucht Nutzeraktion zum Ausführen</td><td>Ja</td></tr>
+      <tr><td><strong>Wurm</strong></td><td>Verbreitet sich selbstständig über das Netzwerk</td><td>Nein</td></tr>
+      <tr><td><strong>Trojaner</strong></td><td>Tarnt sich als nützliches Programm</td><td>Nein</td></tr>
+      <tr><td><strong>Ransomware</strong></td><td>Verschlüsselt Daten, fordert Lösegeld</td><td>Nein</td></tr>
+      <tr><td><strong>Spyware</strong></td><td>Sammelt heimlich Daten</td><td>Nein</td></tr>
+      <tr><td><strong>Rootkit</strong></td><td>Versteckt sich tief im System, verschleiert andere Malware</td><td>Nein</td></tr>
+    </table>
+    <div class="box merk"><div class="bx-head">Merksatz</div>Der Unterschied Virus vs. Wurm ist ein Klassiker: Der <strong>Virus</strong> braucht einen Wirt und eine Aktion des Nutzers (Datei öffnen). Der <strong>Wurm</strong> kriecht selbstständig durchs Netz und nutzt Sicherheitslücken aus, ganz ohne Zutun.</div>`},
+  {id:"m2s2", label:"Angriffsmethoden", html:`
+    <div class="eyebrow">Modul 02 · Bedrohungen</div>
+    <h2 class="title">Wie Angreifer vorgehen</h2>
+    <p>Nicht jeder Angriff nutzt Malware. Viele zielen direkt auf den Menschen oder auf Schwächen in Anwendungen.</p>
+    <div class="cards">
+      <div class="card"><span class="tag">Social Engineering</span><h4>Phishing</h4><p>Gefälschte E-Mails/Seiten erschleichen Zugangsdaten. Der Mensch ist das Ziel, nicht die Technik.</p></div>
+      <div class="card"><span class="tag">Web</span><h4>SQL-Injection</h4><p>Schädlicher SQL-Code wird über Eingabefelder eingeschleust. Schutz: Prepared Statements.</p></div>
+      <div class="card"><span class="tag">Web</span><h4>XSS</h4><p>Cross-Site-Scripting: fremdes JavaScript läuft im Browser des Opfers. Schutz: Eingaben escapen.</p></div>
+      <div class="card"><span class="tag">Netzwerk</span><h4>Man-in-the-Middle</h4><p>Angreifer schaltet sich in die Kommunikation. Schutz: TLS/Verschlüsselung.</p></div>
+      <div class="card"><span class="tag">Verfügbarkeit</span><h4>DoS / DDoS</h4><p>Überlastung durch Anfrageflut. DDoS = verteilt über viele (Botnet-)Rechner.</p></div>
+      <div class="card"><span class="tag">Authentifizierung</span><h4>Brute Force</h4><p>Systematisches Durchprobieren von Passwörtern. Schutz: lange Passwörter, Sperren, MFA.</p></div>
+    </div>
+    <div class="box prax"><div class="bx-head">Social-Engineering-Varianten unterscheiden</div><strong>Phishing</strong> (Massenmail), <strong>Spear-Phishing</strong> (gezielt auf eine Person zugeschnitten), <strong>Whaling</strong> (Ziel ist die Führungsebene), <strong>Pretexting</strong> (erfundener Vorwand, z.B. angeblicher IT-Support), <strong>Baiting</strong> (präparierter USB-Stick auf dem Parkplatz). Alle nutzen den Menschen als Schwachstelle, nicht die Technik.</div>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>SQL-Injection und Phishing sind die Dauerbrenner. Du solltest jeweils <strong>Angriff erklären und Gegenmaßnahme nennen</strong> können. SQL-Injection: Prepared Statements / parametrisierte Abfragen. Phishing: Schulung, Spam-Filter, kein Klick auf Links, MFA.</div>`},
+  {id:"m2s3", label:"▶ Szenario durchspielen", html:`
+    <div class="eyebrow">Modul 02 · Praxis</div>
+    <h2 class="title">Der Freitagnachmittag-Angriff</h2>
+    <p>Du bist im IT-Support. Eine Mitarbeiterin meldet sich. Triff bei jedem Schritt die richtige Entscheidung. Falsche Wege werden erklärt, du verlierst nur Zeit, nicht den Fortschritt.</p>
+    <div class="interactive" id="scenario"></div>`}
+]},
+
+{
+  num:"03", title:"Kryptografie", sections:[
+  {id:"m3s1", label:"Symmetrisch vs. Asymmetrisch", html:`
+    <div class="eyebrow">Modul 03 · Kryptografie</div>
+    <h2 class="title">Verschlüsselung verstehen</h2>
+    <p class="lead">Verschlüsselung macht Daten für Unbefugte unlesbar (Schutzziel: Vertraulichkeit). Es gibt zwei grundlegend verschiedene Verfahren.</p>
+    <div class="compare">
+      <div><h4>Symmetrisch</h4><ul class="good">
+        <li>Ein Schlüssel zum Ver- und Entschlüsseln</li>
+        <li>Sehr schnell, auch für große Datenmengen</li>
+        <li>Beispiele: AES, ChaCha20</li></ul>
+        <ul class="bad"><li>Schlüssel muss sicher ausgetauscht werden</li>
+        <li>Bei n Teilnehmern: viele Schlüssel nötig</li></ul></div>
+      <div><h4>Asymmetrisch</h4><ul class="good">
+        <li>Schlüsselpaar: öffentlich + privat</li>
+        <li>Kein geheimer Austausch nötig</li>
+        <li>Beispiele: RSA, ECC</li></ul>
+        <ul class="bad"><li>Deutlich langsamer</li>
+        <li>Rechenintensiv bei großen Daten</li></ul></div>
+    </div>
+    <div class="box merk"><div class="bx-head">Das Briefkasten-Bild</div><strong>Asymmetrisch:</strong> Der öffentliche Schlüssel ist der Briefkastenschlitz, jeder kann etwas einwerfen (verschlüsseln). Nur du hast den Schlüssel zum Leeren (privater Schlüssel, entschlüsseln). Was mit dem öffentlichen Schlüssel verschlüsselt wurde, öffnet nur der private, und umgekehrt.</div>
+    <h3>Schlüsselanzahl: das n-Problem</h3>
+    <p>Bei symmetrischer Verschlüsselung braucht jedes Paar einen eigenen Schlüssel. Für n Teilnehmer sind das <strong>n × (n−1) / 2</strong> Schlüssel. Bei 10 Personen schon 45, bei 100 fast 5000. Asymmetrik braucht nur <strong>2 × n</strong> Schlüssel (je ein Paar pro Person). Das ist einer der Hauptgründe für asymmetrische Verfahren.</p>
+    <h3>Hybride Verschlüsselung</h3>
+    <p>In der Praxis (z.B. HTTPS) kombiniert man beides: <strong>asymmetrisch</strong> wird nur genutzt, um einmalig einen <strong>symmetrischen Sitzungsschlüssel</strong> sicher auszutauschen. Danach läuft die schnelle symmetrische Verschlüsselung. So hat man die Sicherheit des einen und die Geschwindigkeit des anderen.</p>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Frage-Klassiker: "Warum nutzt TLS hybride Verschlüsselung?" Antwort: Asymmetrik löst das Schlüsselaustausch-Problem, Symmetrik liefert die Geschwindigkeit für die eigentliche Datenübertragung.</div>`},
+  {id:"m3s2", label:"▶ Verschlüsselungs-Simulator", html:`
+    <div class="eyebrow">Modul 03 · Praxis</div>
+    <h2 class="title">Verschlüsselung ausprobieren</h2>
+    <div class="box warn"><div class="bx-head">Wichtig</div>Dies ist eine stark vereinfachte Demonstration (Cäsar-Prinzip), um das <strong>Konzept</strong> sichtbar zu machen. Echte Verfahren wie AES funktionieren mathematisch völlig anders und sind nicht so leicht zu knacken. Verwende für echte Verschlüsselung niemals selbstgebaute Algorithmen.</div>
+    <div class="interactive">
+      <label>Klartext</label>
+      <input type="text" id="symPlain" value="Geheime Nachricht" />
+      <label>Schlüssel (Zahl, "geteilt" zwischen Sender & Empfänger)</label>
+      <input type="number" id="symKey" value="7" min="1" max="25" />
+      <div class="row">
+        <button class="btn" onclick="symEnc()">Verschlüsseln →</button>
+        <button class="btn ghost" onclick="symDec()">← Entschlüsseln</button>
+      </div>
+      <div class="io-out" id="symOut">Ergebnis erscheint hier…</div>
+    </div>
+    <p>Beobachte: Mit <strong>demselben</strong> Schlüssel wird ver- und entschlüsselt. Das ist symmetrisch. Wer den Schlüssel abfängt, kann alles mitlesen, deshalb ist der sichere Schlüsselaustausch das Kernproblem.</p>`},
+  {id:"m3s3", label:"▶ Hash-Demonstrator", html:`
+    <div class="eyebrow">Modul 03 · Praxis</div>
+    <h2 class="title">Hashfunktionen</h2>
+    <p>Ein <strong>Hash</strong> ist ein digitaler Fingerabdruck. Er ist eine Einbahnstraße: aus den Daten lässt sich der Hash berechnen, aber nicht umgekehrt. Schon ein einziges geändertes Zeichen erzeugt einen komplett anderen Hash. Genau das schützt die <strong>Integrität</strong>.</p>
+    <div class="interactive">
+      <label>Eingabe (ändere ein einziges Zeichen und beobachte)</label>
+      <input type="text" id="hashIn" value="Passwort123" oninput="doHash()" />
+      <label>Verfahren</label>
+      <select id="hashAlg" onchange="doHash()">
+        <option value="SHA-256">SHA-256 (Standard heute)</option>
+        <option value="SHA-1">SHA-1 (veraltet, unsicher)</option>
+        <option value="SHA-512">SHA-512</option>
+      </select>
+      <div class="io-out" id="hashOut">…</div>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="tag">Eigenschaft 1</span><h4>Einwegfunktion</h4><p>Aus dem Hash kann man die Eingabe nicht zurückrechnen.</p></div>
+      <div class="card"><span class="tag">Eigenschaft 2</span><h4>Lawineneffekt</h4><p>Kleinste Änderung → völlig anderer Hash.</p></div>
+      <div class="card"><span class="tag">Eigenschaft 3</span><h4>Kollisionssicher</h4><p>Zwei verschiedene Eingaben sollen nie denselben Hash ergeben.</p></div>
+    </div>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Passwörter werden <strong>nie im Klartext</strong> gespeichert, sondern als Hash (plus "Salt" gegen Rainbow-Tables). Beim Login wird der eingegebene Wert gehasht und mit dem gespeicherten Hash verglichen. MD5 und SHA-1 gelten als gebrochen, heute nimmt man mindestens SHA-256 bzw. für Passwörter bcrypt/Argon2.</div>`},
+  {id:"m3s4", label:"Digitale Signatur", html:`
+    <div class="eyebrow">Modul 03 · Kryptografie</div>
+    <h2 class="title">Digitale Signatur</h2>
+    <p>Die Signatur dreht die asymmetrische Verschlüsselung um und kombiniert sie mit einem Hash. Sie sichert <strong>Integrität</strong>, <strong>Authentizität</strong> und <strong>Verbindlichkeit</strong> auf einmal.</p>
+    <h3>So funktioniert sie</h3>
+    <table>
+      <tr><th>Schritt</th><th>Sender (signiert)</th><th>Empfänger (prüft)</th></tr>
+      <tr><td>1</td><td>Hash der Nachricht berechnen</td><td>Hash der empfangenen Nachricht selbst berechnen</td></tr>
+      <tr><td>2</td><td>Hash mit <strong>privatem</strong> Schlüssel verschlüsseln = Signatur</td><td>Signatur mit <strong>öffentlichem</strong> Schlüssel des Senders entschlüsseln</td></tr>
+      <tr><td>3</td><td>Nachricht + Signatur senden</td><td>Beide Hashes vergleichen: gleich → echt & unverändert</td></tr>
+    </table>
+    <div class="box merk"><div class="bx-head">Schlüssel-Logik merken</div><strong>Verschlüsseln (Vertraulichkeit):</strong> öffentlicher Schlüssel des Empfängers. <strong>Signieren (Authentizität):</strong> privater Schlüssel des Senders. Faustregel: Was nur einer können soll, macht man mit dem privaten Schlüssel.</div>
+    <div class="box prax"><div class="bx-head">Zertifikate und PKI</div>Woher weiß man, dass ein öffentlicher Schlüssel wirklich zu "firma.de" gehört? Eine <strong>Zertifizierungsstelle (CA)</strong> bestätigt das mit einem signierten <strong>Zertifikat</strong>. Dein Browser vertraut einer Liste von CAs. Diese Vertrauenskette nennt man <strong>PKI</strong> (Public Key Infrastructure). Das Schloss in der Adressleiste prüft genau diese Kette.</div>`}
+]},
+
+{
+  num:"04", title:"Authentifizierung & Rechte", sections:[
+  {id:"m4s1", label:"Faktoren & MFA", html:`
+    <div class="eyebrow">Modul 04 · Authentifizierung</div>
+    <h2 class="title">Wer bist du?</h2>
+    <p class="lead">Authentifizierung beweist eine Identität. Sie stützt sich auf drei Arten von Faktoren. Werden zwei davon kombiniert, spricht man von Zwei-Faktor-Authentifizierung (2FA / MFA).</p>
+    <div class="cards">
+      <div class="card"><span class="tag">Faktor 1</span><h4>Wissen</h4><p>Etwas, das du weißt: Passwort, PIN, Antwort auf Sicherheitsfrage.</p></div>
+      <div class="card"><span class="tag">Faktor 2</span><h4>Besitz</h4><p>Etwas, das du hast: Smartphone (TAN-App), Hardware-Token, Smartcard.</p></div>
+      <div class="card"><span class="tag">Faktor 3</span><h4>Sein / Inhärenz</h4><p>Etwas, das du bist: Fingerabdruck, Gesicht, Iris (Biometrie).</p></div>
+    </div>
+    <div class="box warn"><div class="bx-head">Häufiger Fehler</div>Passwort + Sicherheitsfrage ist <strong>keine</strong> echte 2FA, beides ist der Faktor "Wissen". Echte MFA kombiniert <strong>verschiedene</strong> Faktorarten, z.B. Passwort (Wissen) + Code aus der App (Besitz).</div>
+    <h3>Was macht ein gutes Passwort aus?</h3>
+    <p>Länge schlägt Komplexität. Ein langer, gut merkbarer Satz ist oft sicherer als <code>P@ss1!</code>. Wichtiger als alle Regeln: für jeden Dienst ein eigenes Passwort, verwaltet in einem Passwort-Manager, plus MFA wo möglich.</p>`},
+  {id:"m4s2", label:"AAA & SSO", html:`
+    <div class="eyebrow">Modul 04 · Authentifizierung</div>
+    <h2 class="title">Authentifizierung, Autorisierung, Accounting</h2>
+    <p>In Netzwerken (z.B. bei deinen Cisco/RADIUS-Themen) fasst man die Zugangskontrolle als <strong>AAA</strong> zusammen.</p>
+    <table>
+      <tr><th>A</th><th>Begriff</th><th>Frage</th></tr>
+      <tr><td>1</td><td><strong>Authentication</strong></td><td>Wer bist du? (Identität prüfen)</td></tr>
+      <tr><td>2</td><td><strong>Authorization</strong></td><td>Was darfst du? (Rechte zuweisen)</td></tr>
+      <tr><td>3</td><td><strong>Accounting</strong></td><td>Was hast du getan? (Protokollieren)</td></tr>
+    </table>
+    <div class="box prax"><div class="bx-head">Praxis</div>RADIUS und TACACS+ sind AAA-Protokolle. RADIUS verschlüsselt nur das Passwort und wird oft für Netzwerkzugang (802.1X, WLAN) genutzt. TACACS+ verschlüsselt das gesamte Paket und trennt die drei A sauber, beliebt für Geräte-Administration (Cisco). Das passt direkt zu deinem CCNA-Stoff.</div>
+    <h3>Single Sign-On (SSO)</h3>
+    <p>Bei SSO meldet sich der Nutzer einmal an und erhält Zugang zu mehreren Diensten, ohne sich erneut anzumelden. Vorteil: weniger Passwörter, zentrale Verwaltung. Risiko: Fällt das eine Konto, fallen alle. Deshalb gehört zu SSO praktisch immer MFA. Bekannte Standards: SAML, OAuth 2.0, OpenID Connect.</p>`},
+  {id:"m4s3", label:"Berechtigungskonzepte", html:`
+    <div class="eyebrow">Modul 04 · Rechte</div>
+    <h2 class="title">Berechtigungskonzepte</h2>
+    <p class="lead">Authentifizierung klärt, wer jemand ist. Das Berechtigungskonzept klärt, was er darf. Falsch gesetzte Rechte sind eine der häufigsten Ursachen für Datenlecks.</p>
+    <h3>Die zwei Grundprinzipien</h3>
+    <div class="compare">
+      <div><h4>Least Privilege</h4><ul class="good">
+        <li>So wenig Rechte wie möglich</li>
+        <li>Nur was für die Aufgabe nötig ist</li>
+        <li>Begrenzt den Schaden bei Kontoübernahme</li></ul></div>
+      <div><h4>Need-to-know</h4><ul class="good">
+        <li>Zugriff nur auf Daten, die man wirklich braucht</li>
+        <li>Auch wenn die Berechtigung theoretisch da wäre</li>
+        <li>Klassisch im Umgang mit sensiblen Daten</li></ul></div>
+    </div>
+    <h3>Rechtemodelle</h3>
+    <table>
+      <tr><th>Modell</th><th>Prinzip</th><th>Beispiel</th></tr>
+      <tr><td><strong>DAC</strong></td><td>Eigentümer vergibt Rechte selbst</td><td>Dateifreigabe unter Windows</td></tr>
+      <tr><td><strong>MAC</strong></td><td>System erzwingt Regeln, Nutzer kann nicht ändern</td><td>Behörden, Verschlusssachen</td></tr>
+      <tr><td><strong>RBAC</strong></td><td>Rechte hängen an Rollen, nicht an Personen</td><td>Rolle "Buchhaltung" statt Einzelvergabe</td></tr>
+    </table>
+    <div class="box prax"><div class="bx-head">Warum RBAC in Firmen Standard ist</div>Wechselt ein Mitarbeiter die Abteilung, ändert man nur seine Rolle, nicht hunderte Einzelrechte. Neue Buchhalter bekommen automatisch die Rolle "Buchhaltung" mit allen passenden Rechten. Das ist wartbar, nachvollziehbar (gut fürs Accounting) und reduziert Fehler.</div>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Häufig: "Erläutern Sie das Least-Privilege-Prinzip" oder ein Fall, in dem ein Praktikant Admin-Rechte hat (Verstoß gegen Least Privilege). RBAC vs. DAC vs. MAC unterscheiden können.</div>`}
+]},
+
+{
+  num:"05", title:"Netzwerksicherheit", sections:[
+  {id:"m5s1", label:"Firewall & DMZ", html:`
+    <div class="eyebrow">Modul 05 · Netzwerksicherheit</div>
+    <h2 class="title">Grenzen ziehen</h2>
+    <p class="lead">Eine Firewall kontrolliert den Datenverkehr zwischen Netzen anhand von Regeln. Sie ist die wichtigste Grenze zwischen "innen" (vertrauenswürdig) und "außen" (Internet).</p>
+    <table>
+      <tr><th>Typ</th><th>Arbeitet auf</th><th>Erkennt</th></tr>
+      <tr><td>Paketfilter</td><td>L3/L4 (IP, Port)</td><td>Quelle, Ziel, Port, Protokoll</td></tr>
+      <tr><td>Stateful Inspection</td><td>L3/L4 + Zustand</td><td>Gehört Paket zu bestehender Verbindung?</td></tr>
+      <tr><td>Application Firewall / NGFW</td><td>bis L7</td><td>Anwendung, Inhalt, IPS, Deep Packet Inspection</td></tr>
+    </table>
+    <div class="box prax"><div class="bx-head">Praxis: FortiGate</div>Deine FortiGate ist eine Next-Generation-Firewall (NGFW): Sie macht Stateful Inspection, kann aber zusätzlich Application Control, IPS und SSL-Inspection bis Layer 7. Eine reine Paketfilter-Regel (Port 443 erlauben) ist nur die unterste Stufe.</div>
+    <h3>Die DMZ</h3>
+    <p>Eine <strong>DMZ</strong> (Demilitarisierte Zone) ist ein Puffernetz zwischen Internet und internem LAN. Server, die von außen erreichbar sein müssen (Webserver, Mailserver), stehen hier. Wird ein DMZ-Server gehackt, hat der Angreifer noch keinen Zugriff auf das interne Netz, dazwischen liegt eine zweite Firewall-Grenze.</p>
+    <div class="interactive">
+      <h4 style="margin-bottom:10px">Netzwerk-Zonen</h4>
+      <pre class="io-out" style="line-height:1.7">  INTERNET
+     │
+  [ Firewall 1 ]
+     │
+   ┌─ DMZ ───────────────┐
+   │  Webserver, Mail     │  ← von außen erreichbar
+   └─────────┬───────────┘
+     [ Firewall 2 ]
+     │
+   ┌─ INTERNES LAN ──────┐
+   │  Clients, Fileserver │  ← maximal geschützt
+   └─────────────────────┘</pre>
+    </div>`},
+  {id:"m5s2", label:"VPN & TLS", html:`
+    <div class="eyebrow">Modul 05 · Netzwerksicherheit</div>
+    <h2 class="title">Sichere Verbindungen</h2>
+    <p>Ein <strong>VPN</strong> (Virtual Private Network) baut einen verschlüsselten "Tunnel" durch ein unsicheres Netz (Internet). So wirkt ein entfernter Rechner, als säße er im lokalen Netz, und niemand dazwischen kann mitlesen.</p>
+    <div class="compare">
+      <div><h4>Site-to-Site VPN</h4><ul class="good">
+        <li>Verbindet ganze Standorte/Netze</li>
+        <li>Tunnel zwischen zwei Firewalls/Gateways</li>
+        <li>Nutzer merken nichts davon</li></ul></div>
+      <div><h4>Client-to-Site (Remote Access)</h4><ul class="good">
+        <li>Einzelner Nutzer ins Firmennetz</li>
+        <li>VPN-Client auf dem Gerät</li>
+        <li>Typisch fürs Homeoffice</li></ul></div>
+    </div>
+    <div class="box prax"><div class="bx-head">Praxis</div>IPsec ist der Klassiker für Site-to-Site (zwei FortiGates koppeln). SSL-VPN nutzt TLS und läuft oft über den Browser oder einen Client, praktisch fürs Homeoffice, weil meist nur Port 443 nötig ist. Cato Networks setzt das Prinzip als SASE in der Cloud um.</div>
+    <h3>TLS und HTTPS</h3>
+    <p>HTTPS ist HTTP über <strong>TLS</strong>. Beim Verbindungsaufbau (Handshake) prüft der Client per Zertifikat, ob der Server echt ist (Authentizität), und es wird ein symmetrischer Sitzungsschlüssel ausgehandelt, exakt die hybride Verschlüsselung aus Modul 3. Das Schloss-Symbol im Browser bedeutet: verschlüsselt und Zertifikat gültig, nicht automatisch "vertrauenswürdige Seite".</p>`}
+]},
+
+{
+  num:"06", title:"Verfügbarkeit & Backup", sections:[
+  {id:"m6s1", label:"RAID-Level", html:`
+    <div class="eyebrow">Modul 06 · Verfügbarkeit</div>
+    <h2 class="title">RAID</h2>
+    <p class="lead">RAID (Redundant Array of Independent Disks) verbindet mehrere Festplatten zu einem Verbund, für mehr Geschwindigkeit, mehr Ausfallsicherheit oder beides. Wichtig: RAID ist <strong>kein Backup</strong>.</p>
+    <table>
+      <tr><th>Level</th><th>Prinzip</th><th>Ausfalltoleranz</th><th>Nutzkapazität</th></tr>
+      <tr><td>RAID 0</td><td>Striping (Daten verteilt)</td><td>Keine (riskanter!)</td><td>100 %</td></tr>
+      <tr><td>RAID 1</td><td>Mirroring (Spiegelung)</td><td>1 Platte</td><td>50 %</td></tr>
+      <tr><td>RAID 5</td><td>Striping + Parität</td><td>1 Platte</td><td>(n−1)/n</td></tr>
+      <tr><td>RAID 6</td><td>Striping + doppelte Parität</td><td>2 Platten</td><td>(n−2)/n</td></tr>
+      <tr><td>RAID 10</td><td>Spiegel + Striping kombiniert</td><td>je Spiegel 1</td><td>50 %</td></tr>
+    </table>
+    <div class="box warn"><div class="bx-head">Der wichtigste Satz zu RAID</div>RAID schützt vor <strong>Hardware-Ausfall</strong> einer Platte, nicht vor versehentlichem Löschen, Ransomware oder Brand. Eine gelöschte Datei ist auf allen gespiegelten Platten gelöscht. Backup bleibt Pflicht.</div>`},
+  {id:"m6s2", label:"▶ RAID-Kalkulator", html:`
+    <div class="eyebrow">Modul 06 · Praxis</div>
+    <h2 class="title">RAID-Kapazität berechnen</h2>
+    <p>Typische IHK-Rechenaufgabe: "Gegeben sind X Platten à Y TB im RAID-Level Z, wie viel Nutzkapazität ergibt sich?"</p>
+    <div class="interactive">
+      <div class="row">
+        <div><label>Anzahl Platten</label><input type="number" id="raidN" value="4" min="2" max="24"></div>
+        <div><label>Kapazität je Platte (TB)</label><input type="number" id="raidC" value="4" min="1" step="0.5"></div>
+        <div><label>RAID-Level</label>
+          <select id="raidLvl">
+            <option value="0">RAID 0</option>
+            <option value="1">RAID 1</option>
+            <option value="5" selected>RAID 5</option>
+            <option value="6">RAID 6</option>
+            <option value="10">RAID 10</option>
+          </select></div>
+      </div>
+      <button class="btn" onclick="calcRaid()">Berechnen</button>
+      <div class="io-out" id="raidOut">…</div>
+    </div>`},
+  {id:"m6s3", label:"Backup-Strategien", html:`
+    <div class="eyebrow">Modul 06 · Verfügbarkeit</div>
+    <h2 class="title">Backups richtig machen</h2>
+    <h3>Backup-Arten</h3>
+    <table>
+      <tr><th>Art</th><th>Sichert</th><th>Restore</th><th>Speicher/Zeit</th></tr>
+      <tr><td><strong>Voll</strong></td><td>Alle Daten jedes Mal</td><td>Schnell (1 Satz)</td><td>Hoch</td></tr>
+      <tr><td><strong>Differenziell</strong></td><td>Alles seit letztem Vollbackup</td><td>Voll + 1 diff.</td><td>Mittel</td></tr>
+      <tr><td><strong>Inkrementell</strong></td><td>Nur Änderungen seit letztem Backup</td><td>Voll + alle inkr. (langsam)</td><td>Gering</td></tr>
+    </table>
+    <div class="box merk"><div class="bx-head">Die 3-2-1-Regel</div><strong>3</strong> Kopien der Daten, auf <strong>2</strong> verschiedenen Medien, davon <strong>1</strong> außer Haus (offsite). Ergänzt heute oft um eine "1" offline/unveränderlich (gegen Ransomware): 3-2-1-1-0.</div>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Verstehe den Restore-Unterschied: Differenziell braucht zum Wiederherstellen nur das letzte Vollbackup + das letzte differenzielle. Inkrementell braucht das Vollbackup + lückenlos alle inkrementellen, fehlt eins, ist die Kette kaputt. Begriffe RTO (wie schnell wieder online?) und RPO (wie viel Datenverlust ist tolerierbar?) gehören oft dazu.</div>`}
+]},
+
+{
+  num:"07", title:"Notfallmanagement", sections:[
+  {id:"m7s1", label:"BCM & Notfallplan", html:`
+    <div class="eyebrow">Modul 07 · Notfallmanagement</div>
+    <h2 class="title">Wenn es trotzdem passiert</h2>
+    <p class="lead">Kein Schutz ist perfekt. Notfallmanagement (Business Continuity Management, BCM) sorgt dafür, dass der Betrieb nach einem Vorfall schnell und geordnet weiterläuft.</p>
+    <h3>Der Ablauf eines Vorfalls</h3>
+    <div class="cards">
+      <div class="card"><span class="tag">1 · Vorbereitung</span><h4>Notfallplan</h4><p>Wer macht was? Kontaktlisten, Zuständigkeiten, Wiederanlaufpläne, regelmäßig geübt.</p></div>
+      <div class="card"><span class="tag">2 · Erkennung</span><h4>Detektion</h4><p>Vorfall bemerken: Monitoring, Alarme, Meldungen von Nutzern.</p></div>
+      <div class="card"><span class="tag">3 · Eindämmung</span><h4>Containment</h4><p>Schaden begrenzen: betroffenes System isolieren, vom Netz nehmen.</p></div>
+      <div class="card"><span class="tag">4 · Behebung</span><h4>Recovery</h4><p>Ursache beseitigen, Systeme aus sauberem Backup wiederherstellen.</p></div>
+      <div class="card"><span class="tag">5 · Nachbereitung</span><h4>Lessons Learned</h4><p>Was ist passiert, wie verhindern wir das künftig? Dokumentation.</p></div>
+    </div>
+    <div class="box prax"><div class="bx-head">Praxis</div>Ein Notfallplan, der in der Schublade liegt und nie geübt wurde, ist im Ernstfall wertlos. Genau wie eine Brandschutzübung muss der Wiederanlauf regelmäßig getestet werden, sonst stellt man im Ernstfall fest, dass das Backup gar nicht wiederherstellbar war.</div>`},
+  {id:"m7s2", label:"RTO, RPO & USV", html:`
+    <div class="eyebrow">Modul 07 · Notfallmanagement</div>
+    <h2 class="title">Kennzahlen der Verfügbarkeit</h2>
+    <p>Zwei Kennzahlen bestimmen, wie eine Backup- und Notfallstrategie ausgelegt werden muss. Sie werden gern verwechselt.</p>
+    <table>
+      <tr><th>Kennzahl</th><th>Frage</th><th>Bestimmt</th></tr>
+      <tr><td><strong>RTO</strong><br>Recovery Time Objective</td><td>Wie lange darf der Ausfall maximal dauern?</td><td>Wie schnell muss der Wiederanlauf gehen (Redundanz, Ersatzhardware)</td></tr>
+      <tr><td><strong>RPO</strong><br>Recovery Point Objective</td><td>Wie viel Datenverlust ist tolerierbar?</td><td>Wie oft gesichert werden muss (Backup-Frequenz)</td></tr>
+    </table>
+    <div class="box merk"><div class="bx-head">RTO vs. RPO merken</div><strong>RTO</strong> = <u>Zeit</u> nach dem Ausfall, bis wieder alles läuft (Blick nach vorn). <strong>RPO</strong> = <u>Zeit</u> vor dem Ausfall, bis zu der Daten gerettet sind (Blick zurück). RPO von 1 Stunde bedeutet: stündliches Backup, maximal 1 Stunde Daten verloren.</div>
+    <h3>USV (Unterbrechungsfreie Stromversorgung)</h3>
+    <p>Eine <strong>USV</strong> überbrückt Stromausfälle per Akku, lange genug, um Systeme geordnet herunterzufahren oder bis ein Notstromaggregat anspringt. Sie schützt die Verfügbarkeit und verhindert Datenverlust durch plötzliches Abschalten. In Serverräumen Pflicht.</p>
+    <h3>Hochverfügbarkeit</h3>
+    <p>Verfügbarkeit wird in Prozent angegeben. "Drei Neunen" (99,9 %) erlauben rund 8,8 Stunden Ausfall pro Jahr, "fünf Neunen" (99,999 %) nur etwa 5 Minuten. Erreicht wird das durch Redundanz: doppelte Hardware, Cluster, Failover.</p>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Klassische Falle: RTO und RPO vertauschen. Merke dir RPO über die Backup-Frequenz (Datenverlust) und RTO über die Wiederanlaufzeit (Ausfalldauer). Verfügbarkeit in % auf Ausfallzeit umrechnen kommt ebenfalls vor.</div>`}
+]},
+
+{
+  num:"08", title:"Datenschutz / DSGVO", sections:[
+  {id:"m8s1", label:"Grundlagen DSGVO", html:`
+    <div class="eyebrow">Modul 08 · Datenschutz</div>
+    <h2 class="title">DSGVO im Überblick</h2>
+    <p class="lead">IT-Sicherheit schützt Daten technisch. Datenschutz regelt rechtlich, welche personenbezogenen Daten überhaupt verarbeitet werden dürfen. In der EU gilt die DSGVO (Datenschutz-Grundverordnung), ergänzt in Deutschland durch das BDSG.</p>
+    <h3>Was sind personenbezogene Daten?</h3>
+    <p>Alle Informationen, die sich auf eine identifizierbare natürliche Person beziehen: Name, Adresse, E-Mail, IP-Adresse, Standortdaten, Kundennummer. <strong>Besondere Kategorien</strong> (Gesundheit, Religion, Biometrie, politische Meinung) sind besonders streng geschützt.</p>
+    <h3>Die Grundprinzipien (Art. 5)</h3>
+    <div class="cards">
+      <div class="card"><span class="tag">Prinzip</span><h4>Zweckbindung</h4><p>Daten nur für den Zweck nutzen, für den sie erhoben wurden.</p></div>
+      <div class="card"><span class="tag">Prinzip</span><h4>Datenminimierung</h4><p>Nur so viele Daten wie nötig erheben.</p></div>
+      <div class="card"><span class="tag">Prinzip</span><h4>Speicherbegrenzung</h4><p>Daten löschen, wenn der Zweck wegfällt.</p></div>
+      <div class="card"><span class="tag">Prinzip</span><h4>Integrität & Vertraulichkeit</h4><p>Angemessen technisch absichern (Bezug zur CIA-Triade!).</p></div>
+    </div>
+    <div class="box merk"><div class="bx-head">Rechtsgrundlage nötig</div>Jede Verarbeitung braucht eine Rechtsgrundlage (Art. 6), z.B. Einwilligung, Vertragserfüllung oder berechtigtes Interesse. Ohne Rechtsgrundlage ist die Verarbeitung unzulässig.</div>
+    <div class="box prax"><div class="bx-head">Pseudonymisierung vs. Anonymisierung</div><strong>Pseudonymisiert:</strong> der Personenbezug ist mit einem Zusatzschlüssel wiederherstellbar (z.B. Kundennummer statt Name), bleibt also personenbezogenes Datum unter der DSGVO. <strong>Anonymisiert:</strong> der Personenbezug ist endgültig entfernt, die DSGVO gilt nicht mehr. Ein wichtiger Unterschied, der gern geprüft wird.</div>`},
+  {id:"m8s2", label:"Betroffenenrechte & Rollen", html:`
+    <div class="eyebrow">Modul 08 · Datenschutz</div>
+    <h2 class="title">Rechte & Verantwortliche</h2>
+    <h3>Rechte der betroffenen Person</h3>
+    <table>
+      <tr><th>Recht</th><th>Bedeutung</th></tr>
+      <tr><td>Auskunft (Art. 15)</td><td>Welche Daten werden über mich gespeichert?</td></tr>
+      <tr><td>Berichtigung (Art. 16)</td><td>Falsche Daten korrigieren lassen</td></tr>
+      <tr><td>Löschung (Art. 17)</td><td>"Recht auf Vergessenwerden"</td></tr>
+      <tr><td>Datenübertragbarkeit (Art. 20)</td><td>Daten in maschinenlesbarem Format mitnehmen</td></tr>
+      <tr><td>Widerspruch (Art. 21)</td><td>Verarbeitung widersprechen</td></tr>
+    </table>
+    <h3>Wer ist wer? (Rollen der DSGVO)</h3>
+    <table>
+      <tr><th>Rolle</th><th>Aufgabe</th></tr>
+      <tr><td><strong>Verantwortlicher</strong></td><td>Entscheidet über Zweck und Mittel der Verarbeitung (das Unternehmen)</td></tr>
+      <tr><td><strong>Auftragsverarbeiter</strong></td><td>Verarbeitet im Auftrag, z.B. ein Cloud-Anbieter (AV-Vertrag nötig, Art. 28)</td></tr>
+      <tr><td><strong>Datenschutzbeauftragter (DSB)</strong></td><td>Überwacht die Einhaltung, ab bestimmter Unternehmensgröße Pflicht</td></tr>
+      <tr><td><strong>Aufsichtsbehörde</strong></td><td>Staatliche Kontrolle (in DE je Bundesland), Anlaufstelle für Beschwerden und Meldungen</td></tr>
+    </table>
+    <div class="box prax"><div class="bx-head">Praxis: Auftragsverarbeitung</div>Nutzt deine Firma einen externen Cloud-Dienst oder ein Monitoring-Tool, das Kundendaten verarbeitet, braucht es einen <strong>Auftragsverarbeitungsvertrag (AVV)</strong>. Verantwortlich bleibt trotzdem deine Firma, nicht der Dienstleister. Das ist direkt relevant, wenn du Dienste wie Cato oder PRTG betreust.</div>`},
+  {id:"m8s3", label:"TOM im Detail", html:`
+    <div class="eyebrow">Modul 08 · Datenschutz</div>
+    <h2 class="title">Technische & organisatorische Maßnahmen</h2>
+    <p class="lead">Die DSGVO verlangt in Art. 32 "angemessene" Schutzmaßnahmen. TOM sind die konkrete Umsetzung, und genau hier trifft Datenschutz auf IT-Sicherheit. Die klassische Gliederung kennt acht Kontrollbereiche.</p>
+    <div class="box warn"><div class="bx-head">Erst die Grundunterscheidung</div><strong>Technisch</strong> = mit Technik umgesetzt (Verschlüsselung, Firewall, Schloss am Serverraum). <strong>Organisatorisch</strong> = durch Regeln, Prozesse, Menschen (Schulung, Berechtigungskonzept, Vier-Augen-Prinzip). Diese Zuordnung ist die häufigste Prüfungsfrage zum Thema.</div>
+    <h3>Die acht Kontrollbereiche</h3>
+    <table>
+      <tr><th>Kontrolle</th><th>Ziel</th><th>Beispielmaßnahme</th></tr>
+      <tr><td><strong>Zutritts</strong>kontrolle</td><td>Kein physischer Zutritt für Unbefugte</td><td>Schließanlage, Chipkarte, Alarmanlage</td></tr>
+      <tr><td><strong>Zugangs</strong>kontrolle</td><td>Keine Systemnutzung durch Unbefugte</td><td>Passwort, MFA, Bildschirmsperre</td></tr>
+      <tr><td><strong>Zugriffs</strong>kontrolle</td><td>Nur erlaubte Daten/Aktionen</td><td>Berechtigungskonzept, Rollen (RBAC)</td></tr>
+      <tr><td><strong>Weitergabe</strong>kontrolle</td><td>Sicherer Transport/Übertragung</td><td>Verschlüsselung, VPN, sicheres Löschen</td></tr>
+      <tr><td><strong>Eingabe</strong>kontrolle</td><td>Nachvollziehbar, wer was geändert hat</td><td>Protokollierung, Logging (Accounting)</td></tr>
+      <tr><td><strong>Auftrags</strong>kontrolle</td><td>Auftragsverarbeiter hält sich an Vorgaben</td><td>AV-Vertrag, Kontrolle des Dienstleisters</td></tr>
+      <tr><td><strong>Verfügbarkeits</strong>kontrolle</td><td>Schutz vor Verlust/Zerstörung</td><td>Backup, RAID, USV, Notfallplan</td></tr>
+      <tr><td><strong>Trennungs</strong>gebot</td><td>Daten verschiedener Zwecke getrennt</td><td>Getrennte Datenbanken, Mandantentrennung</td></tr>
+    </table>
+    <div class="box merk"><div class="bx-head">Zutritt, Zugang, Zugriff: die drei Z trennen</div>Eine beliebte Stolperfalle. <strong>Zutritt</strong> = physisch ins Gebäude/in den Raum. <strong>Zugang</strong> = ins System einloggen. <strong>Zugriff</strong> = auf konkrete Daten zugreifen dürfen. Drei verschiedene Ebenen, von außen nach innen.</div>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Typisch: "Ordnen Sie folgende Maßnahmen den Kontrollbereichen zu" oder "Nennen Sie je zwei technische und organisatorische Maßnahmen". Auch beliebt: Meldepflicht einer Datenpanne an die Aufsichtsbehörde innerhalb von <strong>72 Stunden</strong> (Art. 33), bei hohem Risiko zusätzlich an die Betroffenen.</div>`}
+]},
+
+{
+  num:"09", title:"Normen & Konzepte", sections:[
+  {id:"m9s1", label:"BSI-Grundschutz & ISO 27001", html:`
+    <div class="eyebrow">Modul 09 · Normen</div>
+    <h2 class="title">Sicherheit nach Standard</h2>
+    <p class="lead">Sicherheit lässt sich nicht improvisieren. Etablierte Standards geben ein Gerüst vor, wie man Informationssicherheit systematisch aufbaut und nachweist. Im Zentrum steht das ISMS.</p>
+    <div class="box merk"><div class="bx-head">ISMS</div>Ein <strong>Informationssicherheits-Managementsystem (ISMS)</strong> ist kein Produkt, sondern ein fortlaufender Prozess: Risiken erkennen, Maßnahmen festlegen, umsetzen, prüfen, verbessern. Es folgt dem PDCA-Zyklus (Plan, Do, Check, Act).</div>
+    <h3>Die zwei wichtigsten Standards</h3>
+    <div class="compare">
+      <div><h4>BSI IT-Grundschutz</h4><ul class="good">
+        <li>Vom Bundesamt für Sicherheit in der Informationstechnik</li>
+        <li>Sehr konkrete Bausteine und Maßnahmenkataloge</li>
+        <li>Standards 200-1 bis 200-3</li>
+        <li>In DE besonders bei Behörden verbreitet</li></ul></div>
+      <div><h4>ISO/IEC 27001</h4><ul class="good">
+        <li>Internationale Norm für ein ISMS</li>
+        <li>Zertifizierbar (Audit durch externe Stelle)</li>
+        <li>Eher Rahmen als konkrete Einzelmaßnahmen</li>
+        <li>International anerkannt</li></ul></div>
+    </div>
+    <div class="box prax"><div class="bx-head">Praxis</div>Eine ISO-27001-Zertifizierung ist oft Voraussetzung, um als Dienstleister für große Kunden arbeiten zu dürfen, sie ist ein Vertrauensnachweis. Der BSI-Grundschutz kann als Weg zur ISO-27001-Zertifizierung dienen ("ISO 27001 auf Basis von IT-Grundschutz").</div>`},
+  {id:"m9s2", label:"Schutzbedarf & Risiko", html:`
+    <div class="eyebrow">Modul 09 · Normen</div>
+    <h2 class="title">Schutzbedarfsfeststellung</h2>
+    <p>Nicht alles muss gleich stark geschützt werden. Die <strong>Schutzbedarfsfeststellung</strong> klärt für jedes System und jede Datenart, wie kritisch ein Schaden bei Verlust von Vertraulichkeit, Integrität oder Verfügbarkeit wäre.</p>
+    <table>
+      <tr><th>Schutzbedarf</th><th>Bedeutung</th><th>Beispiel</th></tr>
+      <tr><td><strong>Normal</strong></td><td>Schaden überschaubar</td><td>Öffentliche Speisekarte</td></tr>
+      <tr><td><strong>Hoch</strong></td><td>Schaden beträchtlich</td><td>Kundendaten, Buchhaltung</td></tr>
+      <tr><td><strong>Sehr hoch</strong></td><td>Existenzbedrohend</td><td>Patientendaten, Steuerung kritischer Infrastruktur</td></tr>
+    </table>
+    <h3>Risiko bewerten</h3>
+    <div class="box merk"><div class="bx-head">Die Risikoformel</div><strong>Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe.</strong> Ein unwahrscheinlicher, aber katastrophaler Schaden kann genauso behandelt werden müssen wie ein häufiger kleiner. So priorisiert man, wo Schutzmaßnahmen zuerst hingehören.</div>
+    <h3>Wie man mit einem Risiko umgeht</h3>
+    <div class="cards">
+      <div class="card"><span class="tag">Strategie 1</span><h4>Vermeiden</h4><p>Die riskante Tätigkeit ganz unterlassen.</p></div>
+      <div class="card"><span class="tag">Strategie 2</span><h4>Vermindern</h4><p>Maßnahmen ergreifen (Firewall, Backup), um Wahrscheinlichkeit/Schaden zu senken.</p></div>
+      <div class="card"><span class="tag">Strategie 3</span><h4>Übertragen</h4><p>Risiko abgeben, z.B. Cyber-Versicherung, Outsourcing.</p></div>
+      <div class="card"><span class="tag">Strategie 4</span><h4>Akzeptieren</h4><p>Restrisiko bewusst tragen, wenn Aufwand unverhältnismäßig wäre.</p></div>
+    </div>
+    <div class="box ihk"><div class="bx-head">Prüfungsrelevanz</div>Die vier Strategien (vermeiden, vermindern, übertragen, akzeptieren) und die Risikoformel werden gern abgefragt. Auch: Schutzbedarf einer gegebenen Datenart einschätzen und begründen.</div>`}
+]},
+
+{
+  num:"10", title:"Abschluss", isFinal:true, sections:[
+  {id:"m10s1", label:"Gesamtquiz", html:`
+    <div class="eyebrow">Modul 10 · Abschluss</div>
+    <h2 class="title">Gesamtquiz IT-Sicherheit</h2>
+    <p>25 Fragen quer durch alle Module, auf Prüfungsniveau mit Fallszenarien. Zeigt, wo noch Lücken sind.</p>
+    <div id="finalQuiz"></div>`}
+]}
+];
+
+/* ============ QUIZZES (mind. 5 Fragen, Prüfungsniveau mit Distraktoren) ============ */
+const QUIZZES = {
+m1s2:[
+  {q:"Ein Angreifer ändert auf dem Übertragungsweg unbemerkt den Betrag einer Online-Überweisung. Welches Schutzziel ist verletzt?",o:["Integrität","Vertraulichkeit","Verfügbarkeit"],a:0,e:"Die Daten wurden manipuliert. Das verletzt die Integrität, nicht die Verfügbarkeit (das System lief ja) und nicht primär die Vertraulichkeit."},
+  {q:"Ein Webshop ist durch eine Anfrageflut stundenlang nicht erreichbar. Welches Schutzziel ist betroffen?",o:["Vertraulichkeit","Verfügbarkeit","Integrität"],a:1,e:"Der Dienst ist nicht erreichbar, also Verfügbarkeit. Die Daten selbst sind weder gelesen noch verändert worden."},
+  {q:"Eine Backup-Tape-Rotation mit Offsite-Lagerung dient primär welchem Schutzziel?",o:["Vertraulichkeit","Integrität","Verfügbarkeit"],a:2,e:"Backups stellen sicher, dass Daten nach einem Verlust wieder verfügbar sind. Verschlüsselung der Tapes würde zusätzlich Vertraulichkeit adressieren, gefragt war aber das primäre Ziel."},
+  {q:"Eine Mitarbeiterin liest über die Schulter eines Kollegen dessen Passwort ab (Shoulder Surfing). Welches Schutzziel wird zuerst gefährdet?",o:["Vertraulichkeit","Integrität","Verfügbarkeit"],a:0,e:"Unbefugtes Lesen einer geheimen Information ist eine Verletzung der Vertraulichkeit."},
+  {q:"Eine signierte Bestellung kann vom Kunden später nicht abgestritten werden. Welcher Begriff beschreibt das?",o:["Verbindlichkeit (Nicht-Abstreitbarkeit)","Authentizität des Absenders","Zurechenbarkeit einer Aktion","Vertraulichkeit der Daten"],a:0,e:"Verbindlichkeit verhindert das nachträgliche Leugnen. Authentizität wäre die Echtheit des Absenders, Zurechenbarkeit die Zuordnung einer Aktion zu einem Verursacher."},
+  {q:"Eine E-Mail kommt unverändert an, stammt aber in Wahrheit von einem Betrüger, der sich als Chef ausgibt. Welches Ziel ist verletzt, welches nicht?",o:["Integrität verletzt, Authentizität erfüllt","Authentizität verletzt, Integrität erfüllt","Beide verletzt","Verfügbarkeit verletzt"],a:1,e:"Die Nachricht wurde nicht verändert (Integrität erfüllt), stammt aber nicht vom echten Absender (Authentizität verletzt). Genau hier liegt der Unterschied der beiden Begriffe."}
+],
+m2s1:[
+  {q:"Eine Schadsoftware verbreitet sich über Nacht selbstständig auf hunderte Rechner im Firmennetz, ohne dass jemand etwas angeklickt hat. Worum handelt es sich am wahrscheinlichsten?",o:["Virus","Trojaner","Wurm","Spyware"],a:2,e:"Selbstständige Verbreitung ohne Nutzeraktion ist das Kennzeichen eines Wurms. Ein Virus bräuchte einen Wirt und eine Ausführung."},
+  {q:"Ein scheinbar nützliches Tool installiert im Hintergrund eine Backdoor. Welcher Typ ist das, und welches Merkmal ist entscheidend?",o:["Wurm, weil es sich verbreitet","Rootkit, weil es eine Backdoor öffnet","Ransomware, weil es heimlich agiert","Trojaner, weil es sich als nützlich tarnt"],a:3,e:"Das entscheidende Merkmal des Trojaners ist die Tarnung als nützliches Programm. Dass er eine Backdoor öffnet, ist die Nutzlast, nicht die Typdefinition."},
+  {q:"Warum ist ein Rootkit besonders gefährlich?",o:["Es nistet sich tief im System ein und verschleiert sich und andere Malware","Es verschlüsselt sofort sämtliche Daten auf der Festplatte des Opfers","Es verbreitet sich von allen Schadprogrammen mit Abstand am schnellsten","Es fordert direkt nach der Infektion ein hohes Lösegeld vom Nutzer"],a:0,e:"Das Rootkit verbirgt sich (oft im Kernel) und macht andere Malware für Scanner unsichtbar. Verschlüsselung wäre Ransomware."},
+  {q:"Ransomware verschlüsselt die Fileserver eines Betriebs. Welche Schutzziele sind betroffen?",o:["Ausschließlich die Integrität","Verfügbarkeit, oft zusätzlich Vertraulichkeit","Ausschließlich die Authentizität","Ausschließlich die Verbindlichkeit"],a:1,e:"Die Daten sind nicht mehr verfügbar. Moderne Ransomware stiehlt zusätzlich Daten (Double Extortion), womit auch die Vertraulichkeit verletzt wird."},
+  {q:"Was ist die wirksamste Vorsorge gegen Datenverlust durch Ransomware?",o:["Ein aktueller Virenscanner allein","Ein stärkeres Passwort","Regelmäßige, getestete und offline/unveränderliche Backups","Eine zweite Festplatte im selben Server (RAID 1)"],a:2,e:"Offline-Backups lassen sich nicht mitverschlüsseln. RAID hilft nicht, weil die Verschlüsselung auf beide gespiegelten Platten wirkt. Ein Scanner erkennt neue Varianten oft zu spät."}
+],
+m2s2:[
+  {q:"In ein Login-Formular gibt ein Angreifer ' OR '1'='1 ein und umgeht so die Anmeldung. Wie heißt der Angriff und die beste Gegenmaßnahme?",o:["XSS, Eingaben escapen","Brute Force, Konto sperren","CSRF, Token einsetzen","SQL-Injection, Prepared Statements"],a:3,e:"Eingeschleuster SQL-Code ist SQL-Injection. Prepared Statements trennen Code von Daten, sodass die Eingabe nie als Befehl interpretiert wird."},
+  {q:"Eine gezielte, persönlich zugeschnittene Phishing-Mail an genau einen Finanzvorstand nennt man...",o:["Spear-Phishing bzw. Whaling","Breit gestreutes Phishing","Pharming per DNS-Umleitung","Vishing per Telefonanruf"],a:0,e:"Gezielt auf eine Person ist Spear-Phishing, richtet es sich gegen die Führungsebene, spricht man von Whaling. Einfaches Phishing geht breit gestreut an viele."},
+  {q:"Fremdes JavaScript wird über ein Kommentarfeld eingeschleust und läuft anschließend im Browser anderer Besucher. Welcher Angriff ist das?",o:["Eingeschleustes SQL (Injection)","Cross-Site-Scripting (XSS)","Man-in-the-Middle-Angriff","Verteilter DDoS-Angriff"],a:1,e:"Schadcode, der im Browser des Opfers ausgeführt wird, ist XSS. Gegenmaßnahme: Ein- und Ausgaben escapen/filtern."},
+  {q:"Worin unterscheiden sich DoS und DDoS?",o:["DDoS ist grundsätzlich deutlich langsamer als ein einfacher DoS","DDoS verschlüsselt dabei zusätzlich die Daten des Ziels","DDoS kommt verteilt von vielen Rechnern (Botnet), DoS von einer Quelle","Zwischen einem DoS und einem DDoS besteht gar kein Unterschied"],a:2,e:"Das erste D steht für Distributed. Der verteilte Ursprung macht DDoS schwerer abzuwehren, weil man nicht einfach eine IP sperren kann."},
+  {q:"Ein Anrufer gibt sich als IT-Support aus und bittet um das Passwort zur 'Wartung'. Welche Angriffsart, welche Gegenmaßnahme?",o:["Brute Force, Abwehr durch ein deutlich längeres Passwort","Trojaner, Abwehr durch einen aktuellen Virenscanner","XSS, Abwehr durch konsequentes Escapen der Eingabe","Pretexting (Social Engineering), Abwehr durch Schulung und Rückruf"],a:3,e:"Ein erfundener Vorwand zur Manipulation ist Pretexting. Technik hilft hier wenig, entscheidend sind Awareness/Schulung und Verifikation über bekannte Kanäle."},
+  {q:"Welche Maßnahme schützt NICHT direkt gegen Phishing?",o:["Ein größeres RAID","Mitarbeiterschulung","Spam-/Mailfilter","MFA"],a:0,e:"RAID betrifft Speicherausfallsicherheit, nicht Phishing. Schulung, Filter und MFA setzen dagegen genau am Phishing-Risiko an."}
+],
+m3s1:[
+  {q:"Warum verwendet TLS eine Kombination aus asymmetrischer und symmetrischer Verschlüsselung?",o:["Weil symmetrische Verschlüsselung grundsätzlich unsicher ist","Asymmetrik löst den Schlüsselaustausch, danach ist Symmetrik schnell","Weil zwei kombinierte Verfahren automatisch doppelt sicher sind","Weil die Zertifikatsnormen diese Kombination zwingend vorschreiben"],a:1,e:"Asymmetrik tauscht nur den Sitzungsschlüssel sicher aus, die eigentliche Übertragung läuft schnell symmetrisch. 'Doppelt = sicherer' ist ein Trugschluss."},
+  {q:"Du willst eine vertrauliche Nachricht an einen Empfänger schicken (asymmetrisch). Welchen Schlüssel nutzt du?",o:["Deinen privaten Schlüssel","Den privaten Schlüssel des Empfängers","Den öffentlichen Schlüssel des Empfängers","Deinen öffentlichen Schlüssel"],a:2,e:"Verschlüsseln für Vertraulichkeit: öffentlicher Schlüssel des Empfängers. Nur dessen privater Schlüssel kann es wieder öffnen."},
+  {q:"In einem Team sollen 10 Personen paarweise symmetrisch verschlüsselt kommunizieren. Wie viele Schlüssel sind nötig?",o:["10","20","100","45"],a:3,e:"n × (n−1) / 2 = 10 × 9 / 2 = 45. Genau dieses Wachstum ist ein Hauptnachteil rein symmetrischer Verfahren."},
+  {q:"Welche Aussage zu asymmetrischer Verschlüsselung ist korrekt?",o:["Was der öffentliche Schlüssel verschlüsselt, öffnet nur der private","Sie ist deutlich schneller als symmetrische Verschlüsselung","Auch der öffentliche Schlüssel muss unbedingt geheim bleiben","Beide Schlüssel des Paares sind exakt identisch"],a:0,e:"Genau das ist das Prinzip des Schlüsselpaars. Asymmetrik ist langsamer, und der öffentliche Schlüssel darf bekannt sein."},
+  {q:"Eine CA (Zertifizierungsstelle) hat im PKI-Modell welche Aufgabe?",o:["Die eigentlich übertragenen Nutzdaten selbst verschlüsseln","Bestätigen, dass ein öffentlicher Schlüssel zu einer Identität gehört","Die Passwörter sämtlicher Nutzer an zentraler Stelle speichern","Den gesamten Datenverkehr im Netz spürbar beschleunigen"],a:1,e:"Die CA signiert Zertifikate und stellt so die Vertrauenskette her, dass ein öffentlicher Schlüssel echt zur angegebenen Stelle gehört."}
+],
+m3s3:[
+  {q:"Warum ist eine kryptografische Hashfunktion eine 'Einbahnstraße'?",o:["Sie arbeitet bewusst sehr langsam","Sie funktioniert nur ein einziges Mal pro Eingabe","Aus dem Hashwert lässt sich die Eingabe praktisch nicht zurückrechnen","Sie benötigt dafür einen zusätzlichen geheimen Schlüssel"],a:2,e:"Die Nicht-Umkehrbarkeit ist der Kern. Genau deshalb eignet sich Hashing zum Speichern von Passwörtern."},
+  {q:"Wie sollte ein System Benutzerpasswörter ablegen?",o:["Im Klartext, aber in einer geschützten Datenbank","Symmetrisch mit AES verschlüsselt","Gar nicht, nur im Speicher halten","Als gesalzener Hash (z.B. bcrypt oder Argon2)"],a:3,e:"Gesalzener Hash. Salt verhindert Rainbow-Table-Angriffe. AES wäre umkehrbar (Schlüssel-Risiko), Klartext ist tabu."},
+  {q:"Wozu dient ein 'Salt' beim Passwort-Hashing?",o:["Gleiche Passwörter ergeben verschiedene Hashes, Rainbow Tables verlieren","Den erzeugten Hashwert anschließend zusätzlich zu verschlüsseln","Den Login-Vorgang für den Nutzer spürbar zu beschleunigen","Das eingegebene Passwort künstlich deutlich länger zu machen"],a:0,e:"Der Salt ist ein zufälliger Zusatz pro Nutzer. Zwei identische Passwörter erzeugen so verschiedene Hashes, vorberechnete Tabellen helfen dem Angreifer nicht mehr."},
+  {q:"Du lädst eine Datei herunter und vergleichst ihren SHA-256-Hash mit dem auf der Herstellerseite. Was prüfst du damit?",o:["Die Vertraulichkeit der heruntergeladenen Datei","Die Integrität der Datei (unverändert/unbeschädigt)","Die Verfügbarkeit des bereitstellenden Servers","Die Verschlüsselung der genutzten Verbindung"],a:1,e:"Stimmen die Hashes überein, wurde die Datei nicht verändert. Das ist eine Integritätsprüfung."},
+  {q:"Warum gelten MD5 und SHA-1 heute als unsicher?",o:["Sie arbeiten nach heutigen Maßstäben viel zu langsam","Sie brauchen im laufenden Betrieb deutlich zu viel Speicher","Es sind praktikable Kollisionen bekannt (zwei Eingaben, ein Hash)","Sie sind inzwischen sogar direkt wieder umkehrbar geworden"],a:2,e:"Praktische Kollisionsangriffe untergraben die Kollisionssicherheit. Daher heute mindestens SHA-256."}
+],
+m4s1:[
+  {q:"Welche Kombination ist eine echte Zwei-Faktor-Authentifizierung?",o:["Passwort plus eine zusätzliche Sicherheitsfrage","PIN plus ein weiteres frei gewähltes Passwort","Geburtsdatum plus das übliche Login-Passwort","Passwort plus Einmalcode aus der Authenticator-App"],a:3,e:"Echte 2FA kombiniert verschiedene Faktorarten: Wissen (Passwort) + Besitz (App). Alle anderen Optionen sind zweimal 'Wissen'."},
+  {q:"Ein Fingerabdruckscanner gehört zu welchem Faktor?",o:["Sein / Inhärenz (Biometrie)","Faktor Wissen (etwas, das man kennt)","Faktor Besitz (etwas, das man hat)","Faktor Standort (wo man sich befindet)"],a:0,e:"Biometrie ist 'etwas, das du bist'."},
+  {q:"Welche Maßnahme schützt am wirksamsten gegen Brute-Force auf einen Login?",o:["Ein häufig erzwungener Wechsel des Passworts","Langes Passwort plus Sperre nach Fehlversuchen plus MFA","Das Verstecken des verwendeten Benutzernamens","Allein hohe Passwortkomplexität mit Sonderzeichen"],a:1,e:"Mehrere Ebenen wirken zusammen. Reine Komplexitätsregeln oder verstecke Namen helfen wenig, MFA macht ein erratenes Passwort fast wertlos."},
+  {q:"Ein moderner Ansatz empfiehlt eher lange Passphrasen statt erzwungener Sonderzeichen-Regeln. Warum?",o:["Sonderzeichen gelten technisch grundsätzlich als unsicher","Lange Passphrasen lassen sich technisch nicht hashen","Länge erhöht die Entropie stärker, und lange Phrasen bleiben merkbar","Sonderzeichen sind in den meisten Datenbanken schlicht verboten"],a:2,e:"Länge schlägt erzwungene Komplexität, die oft zu Mustern wie 'P@ssw0rt1!' führt. Eine lange Passphrase ist merkbar und schwerer zu knacken."},
+  {q:"Warum ist MFA gerade bei SSO besonders wichtig?",o:["Weil SSO an sich technisch unsicher gebaut ist","Weil bei SSO gar kein Passwort zum Einsatz kommt","Weil der Login über SSO spürbar langsamer ist","Weil ein gekapertes Konto sonst Zugang zu allen Diensten gibt"],a:3,e:"SSO bündelt den Zugang. Fällt das eine Konto, fällt alles, daher MFA als zweite Hürde."}
+],
+m4s3:[
+  {q:"Ein Praktikant erhält am ersten Tag Domänen-Administratorrechte 'zur Sicherheit, falls er sie braucht'. Gegen welches Prinzip verstößt das?",o:["Least Privilege","Need-to-know","Vier-Augen-Prinzip","Trennungsgebot"],a:0,e:"Least Privilege verlangt nur die für die Aufgabe nötigen Rechte. Admin-Rechte auf Vorrat sind ein klarer Verstoß und ein großes Risiko."},
+  {q:"In welchem Rechtemodell hängen Berechtigungen an Rollen statt an einzelnen Personen?",o:["DAC","RBAC","MAC","ACL pro Nutzer"],a:1,e:"RBAC (Role Based Access Control). Mitarbeiter erben Rechte über ihre Rolle, das ist wartbar und nachvollziehbar."},
+  {q:"Was beschreibt das Need-to-know-Prinzip?",o:["Grundsätzlich darf jeder alles im Betrieb wissen","Alle relevanten Passwörter müssen bekannt sein","Zugriff nur auf Daten, die für die Aufgabe nötig sind","Sämtliche Daten müssen zwingend verschlüsselt sein"],a:2,e:"Need-to-know begrenzt den Zugriff auf das für die Aufgabe Notwendige, selbst wenn jemand grundsätzlich höhere Rechte hätte."},
+  {q:"Bei welchem Modell entscheidet das System zwingend über die Rechte und der Nutzer kann sie nicht selbst ändern?",o:["DAC","RBAC","Kein Modell","MAC"],a:3,e:"MAC (Mandatory Access Control) erzwingt zentral festgelegte Regeln, typisch im Hochsicherheits-/Behördenumfeld. Bei DAC vergibt der Eigentümer selbst."},
+  {q:"Ein Mitarbeiter wechselt von der Buchhaltung in den Vertrieb. Warum ist RBAC hier praktisch?",o:["Man tauscht nur die Rolle, statt viele Einzelrechte umzustellen","An den Berechtigungen muss man gar nichts ändern","RBAC löscht beim Wechsel automatisch das Konto","RBAC verschlüsselt die Daten des Mitarbeiters"],a:0,e:"Rollenwechsel statt Einzelrechte-Pflege: weniger Fehler, schneller, nachvollziehbar. Wichtig ist, die alte Rolle auch wirklich zu entziehen."}
+],
+m5s1:[
+  {q:"Was kann eine Stateful-Inspection-Firewall, was ein reiner Paketfilter nicht kann?",o:["Den eigentlichen Dateiinhalt der Pakete scannen","Erkennen, ob ein Paket zu einer bestehenden Verbindung gehört","Die Passwörter der Nutzer aktiv prüfen","Gefundene Viren aus dem Verkehr entfernen"],a:1,e:"Stateful Inspection verfolgt den Verbindungszustand und lässt nur zu bestehenden Verbindungen passende Pakete durch. Inhaltsanalyse wäre erst L7/NGFW."},
+  {q:"Ein öffentlich erreichbarer Webserver soll so platziert werden, dass ein erfolgreicher Angriff nicht sofort das interne LAN gefährdet. Wohin?",o:["Direkt ins interne LAN","Hinter die letzte Firewall zu den Clients","In die DMZ zwischen zwei Firewall-Grenzen","Auf den Client eines Admins"],a:2,e:"Die DMZ ist genau dafür da: öffentlich erreichbar, aber durch eine weitere Grenze vom internen Netz getrennt."},
+  {q:"Bis zu welcher OSI-Schicht analysiert eine Next-Generation-Firewall typischerweise?",o:["Bis Layer 2 (Sicherungsschicht)","Bis Layer 4 (Transportschicht)","Bis Layer 1 (Bitübertragung)","Bis Layer 7 (Anwendungsebene)"],a:3,e:"NGFW reicht bis Layer 7, inkl. Application Control, IPS und teils SSL-Inspection. Das ist mehr als reines L3/L4."},
+  {q:"Eine Firewall-Regel erlaubt eingehend nur Port 443 auf den Webserver in der DMZ. Was ist das Prinzip dahinter?",o:["Standardmäßig alles sperren, nur Benötigtes freigeben (Default Deny)","Grundsätzlich alles erlauben und nur Gefährliches sperren","Benötigte Ports werden zufällig geöffnet","Es wird nur der ausgehende Verkehr gefiltert"],a:0,e:"Default Deny: was nicht ausdrücklich erlaubt ist, wird blockiert. Das ist sicherer als eine Blacklist, bei der man nichts vergessen darf."},
+  {q:"Was ist der zentrale Unterschied zwischen IDS und IPS?",o:["IDS verschlüsselt den Verkehr, IPS dagegen nicht","IDS erkennt und meldet nur, IPS blockiert zusätzlich aktiv","IPS arbeitet generell langsamer als ein IDS","Zwischen IDS und IPS besteht kein Unterschied"],a:1,e:"IDS (Detection) alarmiert, IPS (Prevention) greift aktiv ein und blockiert. Ein NGFW-IPS sitzt inline im Datenstrom."}
+],
+m5s2:[
+  {q:"Zwei Firmenstandorte sollen ihre kompletten Netze dauerhaft sicher über das Internet verbinden. Welche VPN-Art?",o:["Client-to-Site","SSL-VPN für einen Nutzer","Site-to-Site","Kein VPN nötig"],a:2,e:"Site-to-Site koppelt ganze Netze über zwei Gateways, typisch zwei Firewalls. Nutzer merken davon nichts."},
+  {q:"Ein Außendienstmitarbeiter braucht vom Hotel-WLAN aus Zugriff auf das Firmennetz. Was ist passend, worauf achten?",o:["Ein Site-to-Site VPN zwischen zwei Netzen","Ein offenes RDP direkt ins Internet","Die Daten unverschlüsselt übertragen","Client-to-Site (Remote Access) VPN mit MFA"],a:3,e:"Remote-Access-VPN bringt den einzelnen Client sicher ins Netz. MFA ist wichtig, da das Gerät außerhalb steht. Offenes RDP wäre grob fahrlässig."},
+  {q:"Was bedeutet das Schloss-Symbol bei HTTPS tatsächlich?",o:["Die Verbindung ist verschlüsselt und das Zertifikat gültig","Die Website ist seriös und in jedem Fall vertrauenswürdig","Die aufgerufene Seite ist garantiert virenfrei","Der Betreiber wurde nachweislich als echt verifiziert"],a:0,e:"Es bestätigt nur verschlüsselte Verbindung und gültiges Zertifikat. Auch eine Phishing-Seite kann ein gültiges Zertifikat haben."},
+  {q:"Warum nutzt man für Homeoffice oft SSL-VPN statt IPsec?",o:["SSL-VPN ist in jedem Fall sicherer als IPsec","SSL-VPN läuft über Port 443 und kommt durch fast jede Firewall","IPsec gilt heute schlicht als veraltet","SSL-VPN benötigt überhaupt keine Verschlüsselung"],a:1,e:"Port 443 ist praktisch überall offen, das macht SSL-VPN aus fremden Netzen unkompliziert. Sicherheit hängt von der Konfiguration ab, nicht pauschal vom Verfahren."},
+  {q:"Welche Aussage zum TLS-Handshake ist korrekt?",o:["Es wird durchgehend ausschließlich asymmetrisch verschlüsselt","Während des Handshakes wird noch gar nichts verschlüsselt","Asymmetrik handelt sicher einen symmetrischen Sitzungsschlüssel aus","Der Server prüft dabei zwingend das Zertifikat des Clients"],a:2,e:"Genau die hybride Logik: asymmetrisch den Sitzungsschlüssel aushandeln, dann symmetrisch übertragen. Client-Zertifikate sind die Ausnahme, nicht die Regel."}
+],
+m6s1:[
+  {q:"Welches RAID-Level bietet KEINE Ausfalltoleranz, aber maximale Kapazität und Geschwindigkeit?",o:["RAID 1","RAID 5","RAID 6","RAID 0"],a:3,e:"RAID 0 (Striping) nutzt 100 % der Kapazität, verliert aber bei einem einzigen Plattenausfall alle Daten."},
+  {q:"Ein RAID 5 besteht aus 5 Platten. Wie viele dürfen gleichzeitig ausfallen, ohne Datenverlust?",o:["1","0","2","5"],a:0,e:"RAID 5 verträgt genau eine ausgefallene Platte (eine Parität). Erst RAID 6 schafft zwei."},
+  {q:"Warum ersetzt selbst ein RAID 6 kein Backup?",o:["RAID 6 arbeitet im Betrieb schlicht zu langsam","Löschen, Ransomware oder Brand treffen den gesamten Verbund","RAID 6 verwendet überhaupt keine Parität","RAID 6 speichert die Daten nur ein einziges Mal"],a:1,e:"RAID schützt nur vor physischem Plattenausfall. Logische Fehler und Katastrophen betreffen den ganzen Verbund, dagegen hilft nur ein echtes Backup."},
+  {q:"Ein Datenbankserver braucht hohe Schreib-/Leseleistung UND Ausfalltoleranz. Welches Level wird oft gewählt?",o:["RAID 0","RAID 1","RAID 10","JBOD"],a:2,e:"RAID 10 kombiniert Spiegelung (Sicherheit) und Striping (Leistung). Preis: nur 50 % Nutzkapazität."},
+  {q:"RAID 5 mit 4 Platten à 6 TB: Wie groß ist die Nutzkapazität?",o:["24 TB","12 TB","6 TB","18 TB"],a:3,e:"(n−1) × Kapazität = 3 × 6 TB = 18 TB. Eine Platte 'kostet' die Parität."},
+  {q:"Welche Aussage ist korrekt?",o:["RAID 6 verträgt zwei Ausfälle, Nutzkapazität (n−2)/n","RAID 1 bietet volle 100 % Nutzkapazität","RAID 0 ist von allen Leveln am sichersten","RAID 10 benötigt mindestens drei Platten"],a:0,e:"RAID 6 mit doppelter Parität verträgt zwei Ausfälle. RAID 1 hat 50 %, RAID 0 ist am unsichersten, RAID 10 braucht mindestens 4 Platten."}
+],
+m6s3:[
+  {q:"Was sichert ein inkrementelles Backup?",o:["Bei jedem Lauf immer alle Daten","Nur die Änderungen seit dem letzten Backup","Alles seit dem letzten vollständigen Vollbackup","Gar keine Daten, nur einen reinen Index"],a:1,e:"Inkrementell sichert nur Änderungen seit dem unmittelbar letzten Backup. Das spart Platz und Zeit, macht den Restore aber kettenabhängig."},
+  {q:"Worin unterscheidet sich differenziell von inkrementell beim Restore?",o:["Differenziell braucht beim Restore alle Zwischensicherungen","Inkrementell ist beim Restore grundsätzlich schneller","Differenziell braucht nur das Vollbackup plus eine differenzielle","Beim Restore gibt es zwischen beiden keinen Unterschied"],a:2,e:"Differenziell: Voll + letzte differenzielle. Inkrementell: Voll + lückenlos alle inkrementellen, fehlt eine, bricht die Kette."},
+  {q:"Was besagt die 3-2-1-Regel?",o:["Drei vollständige Backups an jedem Tag","Drei Faktoren, zwei Passwörter und ein Token","Drei RAID-Platten, zwei Server und eine Cloud","3 Kopien, 2 verschiedene Medien, 1 davon außer Haus"],a:3,e:"3 Kopien, 2 Medientypen, 1 offsite. Moderne Erweiterung 3-2-1-1-0 ergänzt eine offline/unveränderliche Kopie gegen Ransomware."},
+  {q:"Ein Betrieb sichert stündlich und akzeptiert maximal 1 Stunde Datenverlust. Welche Kennzahl wird damit festgelegt?",o:["RPO","RTO","TDP","MTBF"],a:0,e:"RPO (Recovery Point Objective) beschreibt den tolerierbaren Datenverlust und bestimmt damit die Backup-Frequenz."},
+  {q:"Warum gehört zu einer Backup-Strategie zwingend das regelmäßige Testen der Wiederherstellung?",o:["Im Wesentlichen nur aus formalen rechtlichen Gründen","Ein nicht wiederherstellbares Backup ist wertlos, das zeigt nur der Test","Um beim belegten Speicherplatz spürbar einzusparen","Damit die Backups danach merklich schneller laufen"],a:1,e:"Ungetestete Backups versagen erstaunlich oft (defekte Medien, unvollständige Ketten). Nur ein erfolgreicher Test-Restore beweist, dass es funktioniert."}
+],
+m7s1:[
+  {q:"In welcher Phase eines Sicherheitsvorfalls wird das betroffene System vom Netz isoliert?",o:["In der Phase der Erkennung","In der Phase der Nachbereitung","In der Phase Eindämmung (Containment)","In der Phase der Vorbereitung"],a:2,e:"Containment begrenzt die Ausbreitung, z.B. durch Isolieren des Systems, bevor man behebt und wiederherstellt."},
+  {q:"Warum ist ein nie geübter Notfallplan im Ernstfall oft wertlos?",o:["Er ist im Ernstfall schlicht zu lang zum Anwenden","Er ist rechtlich am Ende gar nicht wirksam gültig","Notfallpläne werden in ihrem Nutzen generell überschätzt","Unklare Zuständigkeiten und untestete Annahmen fallen erst im Ernstfall auf"],a:3,e:"Erst die Übung deckt Lücken auf. Genau wie eine Brandübung muss der Wiederanlauf real getestet werden."},
+  {q:"Was ist das Ziel der Phase 'Lessons Learned' nach einem Vorfall?",o:["Ursachen dokumentieren und Maßnahmen gegen Wiederholung ableiten","Die Schuldigen für den Vorfall im Nachhinein bestrafen","Das betroffene System ohne weitere Prüfung sofort starten","Den gesamten Vorfall nach außen hin konsequent verschweigen"],a:0,e:"Die Nachbereitung verbessert die Sicherheit nachhaltig. Eine Schuldkultur verhindert eher offene Aufarbeitung."},
+  {q:"Business Continuity Management (BCM) verfolgt primär welches Ziel?",o:["In erster Linie die laufenden Betriebskosten senken","Den Geschäftsbetrieb auch nach schweren Störungen aufrechterhalten","Die Mitarbeiter dauerhaft am Arbeitsplatz überwachen","Neue Software für den Betrieb selbst entwickeln"],a:1,e:"BCM sorgt für Fortführung und schnellen Wiederanlauf kritischer Prozesse nach Störungen."},
+  {q:"Welche Reihenfolge der Vorfallsbehandlung ist sinnvoll?",o:["Behebung → Erkennung → Eindämmung","Nachbereitung → Behebung → Erkennung","Erkennung → Eindämmung → Behebung → Nachbereitung","Eindämmung → Vorbereitung → Erkennung"],a:2,e:"Erst erkennen, dann eindämmen (Schaden begrenzen), dann beheben/wiederherstellen, zuletzt aufarbeiten."}
+],
+m7s2:[
+  {q:"Ein Betrieb darf nach einem Ausfall maximal 2 Stunden offline sein. Welche Kennzahl beschreibt das?",o:["RPO","MTBF","TTL","RTO"],a:3,e:"RTO (Recovery Time Objective) ist die maximal tolerierbare Ausfalldauer und bestimmt Wiederanlauf-Mittel wie Redundanz."},
+  {q:"RTO und RPO werden gern verwechselt. Welche Zuordnung stimmt?",o:["RTO = tolerierte Ausfalldauer, RPO = tolerierter Datenverlust","RTO = Datenverlust, RPO = Ausfalldauer (genau umgekehrt)","Beide Kennzahlen messen denselben Datenverlust","Beide Kennzahlen messen dieselbe Ausfalldauer"],a:0,e:"RTO blickt nach vorn (wie schnell wieder online), RPO blickt zurück (bis wann sind Daten gesichert)."},
+  {q:"Wozu dient eine USV im Serverraum?",o:["Die auf den Servern gespeicherten Daten verschlüsseln","Stromausfälle überbrücken, damit Systeme geordnet weiterlaufen","Die Temperatur im gesamten Serverraum aktiv senken","Regelmäßig automatische Backups aller Systeme erstellen"],a:1,e:"Die USV liefert Akkustrom zur Überbrückung und schützt so vor Datenverlust und Hardwareschäden durch plötzliches Abschalten."},
+  {q:"Eine Verfügbarkeit von 99,9 % pro Jahr entspricht etwa welcher maximalen Ausfallzeit?",o:["Rund 5 Minuten","Rund 3,7 Tage","Rund 8,8 Stunden","Rund 1 Stunde"],a:2,e:"99,9 % ('drei Neunen') erlauben ca. 8,8 Stunden Ausfall pro Jahr. 99,999 % ('fünf Neunen') wären rund 5 Minuten."},
+  {q:"Wie erreicht man hohe Verfügbarkeit technisch?",o:["Durch ein einziges, sehr teures System","Durch häufigere Passwörter","Durch Verzicht auf Backups","Durch Redundanz: doppelte Hardware, Cluster, Failover"],a:3,e:"Redundanz verhindert einen Single Point of Failure. Fällt eine Komponente aus, übernimmt die andere (Failover)."}
+],
+m8s1:[
+  {q:"Welche der folgenden gilt unter der DSGVO als personenbezogenes Datum?",o:["Eine dynamische IP-Adresse mit Personenbezug","Eine aggregierte, vollständig anonyme Statistik","Eine allgemeine Wettervorhersage","Ein restlos anonymisierter Datensatz"],a:0,e:"Eine IP-Adresse kann eine Person identifizierbar machen und ist dann personenbezogen. Echt anonymisierte Daten fallen nicht mehr unter die DSGVO."},
+  {q:"Was verlangt das Prinzip der Datenminimierung (Art. 5)?",o:["Die erhobenen Daten technisch komprimieren","Nur so viele Daten erheben, wie der Zweck wirklich erfordert","Die gespeicherten Daten regelmäßig löschen","Alle erhobenen Daten zwingend verschlüsseln"],a:1,e:"Datenminimierung bezieht sich auf Menge und Erforderlichkeit der Erhebung, nicht auf Komprimierung oder Verschlüsselung."},
+  {q:"Eine Firma speichert Kundennummern statt Klarnamen, kann den Bezug aber über eine separate Tabelle wiederherstellen. Wie heißt das, und was folgt daraus?",o:["Anonymisierung, die DSGVO gilt nicht mehr","Verschlüsselung, damit entfällt der Personenbezug","Pseudonymisierung, es bleibt ein personenbezogenes Datum","Aggregation, die Daten sind frei verwendbar"],a:2,e:"Wiederherstellbarer Bezug = Pseudonymisierung. Der Personenbezug besteht weiter, die DSGVO gilt also."},
+  {q:"Worauf muss sich jede Verarbeitung personenbezogener Daten stützen?",o:["Grundsätzlich immer auf eine Einwilligung","Auf die ausdrückliche Zustimmung des Betriebsrats","Auf eine technische Verschlüsselung der Daten","Auf eine Rechtsgrundlage nach Art. 6 (z.B. Vertrag, Einwilligung)"],a:3,e:"Es braucht eine Rechtsgrundlage. Einwilligung ist nur eine von mehreren möglichen, nicht die einzige."},
+  {q:"Was besagt die Zweckbindung?",o:["Daten dürfen nur für den Erhebungszweck genutzt werden","Erhobene Daten dürfen zeitlich unbegrenzt gespeichert werden","Personenbezogene Daten müssen immer verschlüsselt sein","Die erhobenen Daten gehören dem Unternehmen"],a:0,e:"Erhobene Daten dürfen nicht beliebig zweckentfremdet werden. Ein neuer Zweck braucht eine neue Grundlage."}
+],
+m8s2:[
+  {q:"Ein Kunde verlangt Löschung all seiner Daten. Auf welches Recht beruft er sich?",o:["Recht auf Auskunft (Art. 15)","Löschung / Recht auf Vergessenwerden (Art. 17)","Recht auf Berichtigung (Art. 16)","Recht auf Datenübertragbarkeit (Art. 20)"],a:1,e:"Das ist Art. 17. Achtung: Löschung kann durch gesetzliche Aufbewahrungspflichten (z.B. steuerlich) eingeschränkt sein."},
+  {q:"Eine Firma lässt Kundendaten von einem externen Cloud-Anbieter verarbeiten. Wer ist datenschutzrechtlich verantwortlich?",o:["Allein der externe Cloud-Anbieter","Dafür ist rechtlich niemand verantwortlich","Die Firma selbst, der Anbieter ist nur Auftragsverarbeiter","Die zuständige Datenschutz-Aufsichtsbehörde"],a:2,e:"Verantwortlich bleibt die Firma. Der Dienstleister ist Auftragsverarbeiter, dafür braucht es einen AV-Vertrag (Art. 28)."},
+  {q:"Welches Dokument ist beim Einsatz eines Auftragsverarbeiters Pflicht?",o:["Eine reine Geheimhaltungsvereinbarung (NDA)","Ein gewöhnlicher Arbeitsvertrag","Eine interne Betriebsvereinbarung","Ein Auftragsverarbeitungsvertrag (AVV, Art. 28)"],a:3,e:"Der AVV regelt verbindlich, wie der Auftragsverarbeiter mit den Daten umgehen darf."},
+  {q:"Was ist die zentrale Aufgabe eines betrieblichen Datenschutzbeauftragten?",o:["Die Einhaltung der DSGVO überwachen und dazu beraten","Die personenbezogenen Daten selbst verarbeiten","Die Passwörter der Mitarbeiter vergeben","Die regelmäßigen Backups erstellen"],a:0,e:"Der DSB überwacht und berät, ist aber nicht selbst der Verantwortliche. Ab bestimmter Größe/Tätigkeit ist er Pflicht."},
+  {q:"Wohin wendet sich eine betroffene Person bei einer Beschwerde über Datenverarbeitung?",o:["An die örtliche Polizei","An die zuständige Datenschutz-Aufsichtsbehörde","An das zuständige Finanzamt","An den beauftragten Auftragsverarbeiter"],a:1,e:"Die Aufsichtsbehörde (in Deutschland je Bundesland) ist Anlaufstelle für Beschwerden und nimmt auch Datenpannen-Meldungen entgegen."}
+],
+m8s3:[
+  {q:"Ordne zu: Eine verschlüsselte Festplatte ist eine ...",o:["organisatorische Maßnahme","rechtliche Maßnahme","technische Maßnahme","keine TOM"],a:2,e:"Mit Technik umgesetzt = technische Maßnahme. Eine Schulung oder ein Berechtigungskonzept wäre organisatorisch."},
+  {q:"Eine Chipkarten-Schließanlage am Serverraum gehört zu welchem Kontrollbereich?",o:["Zugangskontrolle","Zugriffskontrolle","Eingabekontrolle","Zutrittskontrolle"],a:3,e:"Physischer Zutritt zum Raum = Zutrittskontrolle. Zugang wäre das Einloggen ins System, Zugriff der Zugriff auf Daten."},
+  {q:"Die Protokollierung, wer welchen Datensatz geändert hat, dient welcher Kontrolle?",o:["Eingabekontrolle","Weitergabekontrolle","Trennungsgebot","Auftragskontrolle"],a:0,e:"Nachvollziehbarkeit von Eingaben/Änderungen = Eingabekontrolle (eng verwandt mit dem Accounting aus AAA)."},
+  {q:"Welche Zuordnung ist FALSCH?",o:["Backup → Verfügbarkeitskontrolle","Mitarbeiterschulung → technische Maßnahme","VPN beim Datentransfer → Weitergabekontrolle","Getrennte Datenbanken je Zweck → Trennungsgebot"],a:1,e:"Eine Schulung ist organisatorisch, nicht technisch. Die übrigen Zuordnungen stimmen."},
+  {q:"Was unterscheidet 'Zugang' von 'Zugriff' im TOM-Sinn?",o:["Nichts, beide Begriffe sind Synonyme","Zugang = physischer Raum, Zugriff = die Anmeldung","Zugang = sich am System anmelden, Zugriff = auf Daten zugreifen","Zugang = Daten lesen, Zugriff = das Gebäude betreten"],a:2,e:"Reihenfolge von außen nach innen: Zutritt (Raum) → Zugang (Login) → Zugriff (Datenrechte)."},
+  {q:"Innerhalb welcher Frist ist eine meldepflichtige Datenpanne der Aufsichtsbehörde zu melden?",o:["24 Stunden","7 Tage","30 Tage","72 Stunden"],a:3,e:"Art. 33 DSGVO: grundsätzlich binnen 72 Stunden. Bei hohem Risiko sind zusätzlich die Betroffenen zu informieren (Art. 34)."}
+],
+m9s1:[
+  {q:"Was ist ein ISMS?",o:["Ein fortlaufender Management-Prozess für Informationssicherheit","Ein klassisches Antivirenprogramm für alle Rechner","Eine dedizierte Firewall-Appliance im Rechenzentrum","Ein spezielles Backup-Medium für lange Aufbewahrung"],a:0,e:"Ein Informationssicherheits-Managementsystem ist ein Prozess (Plan-Do-Check-Act), kein einzelnes Produkt."},
+  {q:"Worin unterscheiden sich BSI IT-Grundschutz und ISO/IEC 27001 am ehesten?",o:["BSI ist international, ISO 27001 dagegen national","BSI liefert konkrete Bausteine, ISO 27001 einen generellen Rahmen","ISO 27001 ist kostenlos, der BSI-Grundschutz nicht","BSI-Grundschutz und ISO 27001 sind faktisch identisch"],a:1,e:"Der BSI-Grundschutz ist konkreter und in DE verbreitet, ISO 27001 ist international und zertifizierbar. Man kann ISO 27001 auf Basis von IT-Grundschutz umsetzen."},
+  {q:"Wofür steht der PDCA-Zyklus eines ISMS?",o:["Protect, Detect, Control, Audit","Prepare, Deploy, Configure, Apply","Plan, Do, Check, Act","Policy, Data, Control, Access"],a:2,e:"Plan-Do-Check-Act: planen, umsetzen, prüfen, verbessern, ein kontinuierlicher Verbesserungskreislauf."},
+  {q:"Warum verlangen große Auftraggeber von Dienstleistern oft eine ISO-27001-Zertifizierung?",o:["Weil das Zertifikat gesetzlich vorgeschrieben ist","Weil das Zertifikat die laufenden Kosten senkt","Weil das Zertifikat regelmäßige Backups ersetzt","Als nachprüfbaren Nachweis systematischer Informationssicherheit"],a:3,e:"Die Zertifizierung ist ein extern auditierter Nachweis und oft Voraussetzung in Ausschreibungen, nicht generell gesetzlich verpflichtend."},
+  {q:"Welche Aussage zum ISMS ist korrekt?",o:["Es ist ein fortlaufender, regelmäßig verbesserter Prozess","Einmal eingerichtet ist ein ISMS dauerhaft fertig","Ein ISMS betrifft ausschließlich die IT-Abteilung","Ein ISMS besteht nur aus technischen Maßnahmen"],a:0,e:"Ein ISMS lebt vom kontinuierlichen Verbesserungsprozess und umfasst Technik, Organisation und Menschen."}
+],
+m9s2:[
+  {q:"Wie ist Risiko in der Sicherheitsbewertung üblicherweise definiert?",o:["Allein die mögliche Schadenshöhe","Eintrittswahrscheinlichkeit × Schadenshöhe","Die schiere Anzahl der Angriffe","Die Kosten der jeweiligen Gegenmaßnahme"],a:1,e:"Risiko = Wahrscheinlichkeit × Schaden. So lassen sich seltene Katastrophen und häufige Kleinschäden vergleichbar bewerten."},
+  {q:"Eine Firma schließt eine Cyber-Versicherung ab. Welche Risikostrategie ist das?",o:["Vermeiden","Vermindern","Übertragen","Akzeptieren"],a:2,e:"Das Risiko (bzw. dessen finanzielle Folge) wird auf einen Dritten übertragen. Es verschwindet nicht, aber der Schaden wird abgefedert."},
+  {q:"Patientendaten in einer Klinik haben typischerweise welchen Schutzbedarf?",o:["Normal","Kein Schutzbedarf","Nur Verfügbarkeit relevant","Hoch bis sehr hoch"],a:3,e:"Gesundheitsdaten sind besondere Kategorien personenbezogener Daten, der Schutzbedarf ist hoch bis sehr hoch."},
+  {q:"Eine Maßnahme würde 50.000 € kosten, das Restrisiko verursacht im Schnitt 500 € Schaden alle paar Jahre. Welche Strategie ist vertretbar?",o:["Akzeptieren des Restrisikos","Vermeiden um jeden Preis","Übertragen per teurer Versicherung","Sofort vermindern"],a:0,e:"Wenn die Gegenmaßnahme unverhältnismäßig teurer ist als der mögliche Schaden, kann man das Restrisiko bewusst akzeptieren."},
+  {q:"Was ist das Ziel der Schutzbedarfsfeststellung?",o:["Alle Systeme grundsätzlich gleich stark schützen","Je System festlegen, wie kritisch ein Schaden bei C, I oder A wäre","Die billigsten verfügbaren Maßnahmen finden","Die vorhandenen Backups durchzählen"],a:1,e:"Sie differenziert den Schutzbedarf, damit Maßnahmen dorthin fließen, wo sie am wichtigsten sind, statt pauschal alles gleich zu behandeln."}
+]
+};
+
+const FINAL = [
+  {q:"Ein DDoS legt einen Onlineshop lahm. Welches Schutzziel ist primär verletzt?",o:["Vertraulichkeit","Integrität","Verfügbarkeit","Authentizität"],a:2,e:"Der Dienst ist nicht erreichbar: Verfügbarkeit."},
+  {q:"Eine unverändert angekommene Mail stammt in Wahrheit von einem Hochstapler. Was ist verletzt?",o:["Integrität","Verfügbarkeit","Zurechenbarkeit","Authentizität"],a:3,e:"Inhalt unverändert (Integrität ok), aber falscher Absender: Authentizität verletzt."},
+  {q:"Schadsoftware verbreitet sich nachts selbstständig übers Netz ohne Nutzeraktion. Typ?",o:["Wurm","Virus","Trojaner","Spyware"],a:0,e:"Selbstständige Verbreitung ohne Wirt/Aktion ist ein Wurm."},
+  {q:"Eingabe ' OR '1'='1 umgeht ein Login. Angriff und Gegenmaßnahme?",o:["XSS / Eingaben escapen","SQL-Injection / Prepared Statements","Brute Force / Konto sperren","Man-in-the-Middle / TLS"],a:1,e:"SQL-Injection, abgewehrt durch parametrisierte Abfragen."},
+  {q:"Eine gezielte Phishing-Mail nur an den Finanzchef heißt...",o:["Breites Massen-Phishing","Pharming per DNS","Spear-Phishing / Whaling","Baiting per Köder"],a:2,e:"Gezielt auf eine (hochrangige) Person: Spear-Phishing bzw. Whaling."},
+  {q:"10 Personen, paarweise symmetrische Schlüssel. Wie viele Schlüssel?",o:["10","20","90","45"],a:3,e:"n(n−1)/2 = 45."},
+  {q:"Vertrauliche Nachricht an einen Empfänger (asymmetrisch) verschlüsselst du mit...",o:["dem öffentlichen Schlüssel des Empfängers","deinem eigenen privaten Schlüssel","deinem eigenen öffentlichen Schlüssel","einem einfachen Hashwert"],a:0,e:"Öffentlicher Schlüssel des Empfängers, nur dessen privater öffnet es."},
+  {q:"Beim Signieren nutzt der Sender...",o:["den öffentlichen Schlüssel des Empfängers","seinen privaten Schlüssel","einen symmetrischen Schlüssel","keinen Schlüssel"],a:1,e:"Signieren mit privatem Schlüssel des Senders, Prüfung mit dessen öffentlichem."},
+  {q:"Wozu dient ein Salt beim Passwort-Hashing?",o:["Er beschleunigt spürbar den ganzen Login-Vorgang","Er verschlüsselt zusätzlich den erzeugten Hashwert","Gleiche Passwörter ergeben verschiedene Hashes, Rainbow Tables fallen","Er verlängert die gültige Sitzung des Nutzers"],a:2,e:"Pro-Nutzer-Zufallswert macht vorberechnete Tabellen nutzlos."},
+  {q:"Echte 2FA ist...",o:["Passwort + Sicherheitsfrage","PIN + Passwort","zwei Passwörter","Passwort + App-Code"],a:3,e:"Wissen + Besitz, also verschiedene Faktorarten."},
+  {q:"Ein Praktikant bekommt vorsorglich Admin-Rechte. Verletztes Prinzip?",o:["Least Privilege","Need-to-know","Trennungsgebot","Vier-Augen-Prinzip"],a:0,e:"Least Privilege: nur die nötigen Rechte, keine auf Vorrat."},
+  {q:"Rechte hängen an Rollen statt an Personen. Modell?",o:["DAC","RBAC","MAC","ACL"],a:1,e:"Role Based Access Control."},
+  {q:"Was kann eine Stateful-Firewall mehr als ein reiner Paketfilter?",o:["Den Dateiinhalt scannen","Gefundene Viren entfernen","Den Verbindungszustand verfolgen","Die Passwörter prüfen"],a:2,e:"Sie erkennt, ob ein Paket zu einer bestehenden Verbindung gehört."},
+  {q:"Öffentlicher Webserver gehört platziert in die...",o:["interne Client-Zone","Admin-Zone","Backup-Zone","DMZ"],a:3,e:"DMZ als Puffer zwischen Internet und LAN."},
+  {q:"Unterschied IDS vs. IPS?",o:["IDS meldet nur, IPS blockiert aktiv","IDS blockiert, IPS meldet nur","Es gibt keinen Unterschied","IPS ist deutlich langsamer"],a:0,e:"Detection meldet, Prevention greift aktiv ein."},
+  {q:"Das Schloss bei HTTPS bedeutet...",o:["Die aufgerufene Seite ist seriös","verschlüsselte Verbindung + gültiges Zertifikat","Die aufgerufene Seite ist virenfrei","Der Betreiber wurde echt verifiziert"],a:1,e:"Nur Verschlüsselung und gültiges Zertifikat, kein Seriositätssiegel."},
+  {q:"RAID 5 mit 6 Platten à 2 TB. Nutzkapazität?",o:["12 TB","8 TB","10 TB","6 TB"],a:2,e:"(6−1) × 2 TB = 10 TB."},
+  {q:"Welches RAID verträgt zwei gleichzeitige Plattenausfälle?",o:["RAID 0","RAID 1","RAID 5","RAID 6"],a:3,e:"RAID 6 mit doppelter Parität."},
+  {q:"Warum ersetzt RAID kein Backup?",o:["Löschen/Ransomware/Brand treffen den ganzen Verbund","RAID ist dafür im Betrieb zu langsam","RAID hat dafür gar keine Parität","RAID ist für den Zweck schlicht zu teuer"],a:0,e:"RAID schützt nur vor Plattenausfall, nicht vor logischen Fehlern oder Katastrophen."},
+  {q:"Inkrementelles Backup sichert...",o:["jedes Mal alle Daten","nur Änderungen seit letztem Backup","alles seit dem Vollbackup","nur einen reinen Index"],a:1,e:"Nur Änderungen seit dem letzten Backup; Restore braucht die lückenlose Kette."},
+  {q:"Stündliches Backup, max. 1 h Datenverlust akzeptiert. Welche Kennzahl?",o:["RTO","MTBF","RPO","TTL"],a:2,e:"RPO beschreibt den tolerierbaren Datenverlust."},
+  {q:"Max. tolerierbare Ausfalldauer nach einem Crash. Kennzahl?",o:["RPO","TDP","SLA","RTO"],a:3,e:"RTO (Recovery Time Objective)."},
+  {q:"Eine verschlüsselte Festplatte ist im TOM-Sinn eine...",o:["technische Maßnahme","organisatorische Maßnahme","rechtliche Pflicht","keine TOM"],a:0,e:"Technisch umgesetzt. Schulungen wären organisatorisch."},
+  {q:"Chipkarten-Schließanlage am Serverraum = welche Kontrolle?",o:["Zugangskontrolle","Zutrittskontrolle","Zugriffskontrolle","Eingabekontrolle"],a:1,e:"Physischer Zutritt zum Raum: Zutrittskontrolle."},
+  {q:"Frist zur Meldung einer Datenpanne an die Aufsichtsbehörde?",o:["24 Stunden","7 Tage","72 Stunden","30 Tage"],a:2,e:"Art. 33 DSGVO: in der Regel 72 Stunden."}
+];
+/* ============ STATE / RENDER ============ */
+let visited = {};
+try{ visited = JSON.parse(localStorage.getItem('sec_visited')||'{}'); }catch(e){ visited={}; }
+let curSec = MODULES[0].sections[0].id;
+let totalSecs = MODULES.reduce((a,m)=>a+m.sections.length,0);
+
+function saveVisited(){ try{localStorage.setItem('sec_visited',JSON.stringify(visited));}catch(e){} }
+function flat(){ const r=[]; MODULES.forEach(m=>m.sections.forEach(s=>r.push({m,s}))); return r; }
+
+function buildNav(){
+  const nav=document.getElementById('nav'); nav.innerHTML='';
+  MODULES.forEach((m,mi)=>{
+    const allDone=m.sections.every(s=>visited[s.id]);
+    const wrap=document.createElement('div'); wrap.className='nav-mod'+(mi===0?' open':'');
+    wrap.innerHTML=`<div class="nav-mod-head"><span><span class="num">${m.num}</span>${m.title}</span><span class="done">${allDone?'✓':''}</span></div><div class="nav-sub"></div>`;
+    const sub=wrap.querySelector('.nav-sub');
+    m.sections.forEach(s=>{
+      const a=document.createElement('a'); a.textContent=s.label; a.dataset.id=s.id;
+      if(s.id===curSec) a.className='active';
+      a.onclick=()=>{goto(s.id);if(window.innerWidth<=920)toggleNav();};
+      sub.appendChild(a);
+    });
+    wrap.querySelector('.nav-mod-head').onclick=()=>wrap.classList.toggle('open');
+    nav.appendChild(wrap);
+  });
+}
+
+function updateProgress(){
+  const done=Object.keys(visited).filter(k=>visited[k]).length;
+  const pct=Math.round(done/totalSecs*100);
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('progPct').textContent=pct+'%';
+}
+
+function render(){
+  const content=document.getElementById('content'); content.innerHTML='';
+  flat().forEach(({m,s})=>{
+    const div=document.createElement('div'); div.className='section'+(s.id===curSec?' active':''); div.id='sec-'+s.id;
+    div.innerHTML=s.html;
+    // pager
+    const all=flat(); const idx=all.findIndex(x=>x.s.id===s.id);
+    const prev=all[idx-1], next=all[idx+1];
+    const pager=document.createElement('div'); pager.className='pager';
+    pager.innerHTML=`
+      <button ${prev?'':'disabled'} onclick="${prev?`goto('${prev.s.id}')`:''}"><span class="lbl">Zurück</span>${prev?prev.s.label:'—'}</button>
+      <button class="nxt" ${next?'':'disabled'} onclick="${next?`goto('${next.s.id}')`:''}"><span class="lbl">Weiter</span>${next?next.s.label:'Fertig'}</button>`;
+    div.appendChild(pager);
+    content.appendChild(div);
+  });
+  mountInteractive();
+}
+
+function goto(id){
+  curSec=id; visited[id]=true; saveVisited();
+  document.querySelectorAll('.section').forEach(e=>e.classList.remove('active'));
+  const el=document.getElementById('sec-'+id); if(el)el.classList.add('active');
+  document.querySelectorAll('.nav-sub a').forEach(a=>a.classList.toggle('active',a.dataset.id===id));
+  const found=flat().find(x=>x.s.id===id);
+  document.getElementById('crumb').textContent=`Modul ${found.m.num} · ${found.s.label}`;
+  // open the right module group
+  document.querySelectorAll('.nav-mod').forEach((w,i)=>{ if(MODULES[i].sections.some(s=>s.id===id)) w.classList.add('open'); });
+  buildNav(); updateProgress();
+  document.querySelector('.main').scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
+  mountInteractive();
+}
+
+function resetProgress(){ visited={}; saveVisited(); buildNav(); updateProgress(); }
+
+/* theme */
+function toggleTheme(){
+  const h=document.documentElement; const cur=h.getAttribute('data-theme')==='light'?'dark':'light';
+  h.setAttribute('data-theme',cur);
+  document.getElementById('themeBtn').textContent=cur==='light'?'☀ Hell':'☾ Dunkel';
+  try{localStorage.setItem('sec_theme',cur);}catch(e){}
+}
+(function(){try{const t=localStorage.getItem('sec_theme');if(t){document.documentElement.setAttribute('data-theme',t);
+  document.getElementById('themeBtn');}}catch(e){}})();
+
+function toggleNav(){ document.getElementById('sidebar').classList.toggle('open'); document.getElementById('backdrop').classList.toggle('show'); }
+
+/* ============ INTERACTIVE MOUNTING ============ */
+function mountInteractive(){
+  if(document.getElementById('malChips')) buildMalChips();
+  if(document.getElementById('scenario')) buildScenario();
+  if(document.getElementById('hashOut')) doHash();
+  if(document.getElementById('finalQuiz')) buildFinal();
+  // per-section quizzes
+  Object.keys(QUIZZES).forEach(id=>{
+    const host=document.getElementById('sec-'+id);
+    if(host && !host.querySelector('.quiz')) renderQuiz(host,id,QUIZZES[id]);
+  });
+  // theme btn label sync
+  const isLight=document.documentElement.getAttribute('data-theme')==='light';
+  document.getElementById('themeBtn').textContent=isLight?'☀ Hell':'☾ Dunkel';
+}
+
+/* CIA interactive */
+const CIA={
+  c:{t:"Vertraulichkeit (Confidentiality)",d:"Beispiel: Eine Gehaltsliste darf nur die Personalabteilung lesen. Maßnahmen: Verschlüsselung (AES), Zugriffsrechte, Authentifizierung. Verletzt durch: abgehörte Verbindung, gestohlene Datenbank, Schultersurfen."},
+  i:{t:"Integrität (Integrity)",d:"Beispiel: Ein Überweisungsbetrag darf auf dem Weg nicht verändert werden. Maßnahmen: Hashwerte, Prüfsummen, digitale Signaturen. Verletzt durch: Man-in-the-Middle-Manipulation, fehlerhafte Übertragung."},
+  a:{t:"Verfügbarkeit (Availability)",d:"Beispiel: Der Online-Shop muss erreichbar sein, sonst kein Umsatz. Maßnahmen: Redundanz, RAID, USV, Lastverteilung, DDoS-Schutz, Backups. Verletzt durch: DDoS, Hardware-Ausfall, Stromausfall, Ransomware."}
+};
+function ciaPick(k){ const d=document.getElementById('ciaDetail'); if(!d)return;
+  d.innerHTML=`<strong style="color:var(--accent)">${CIA[k].t}</strong><br>${CIA[k].d}`;
+  document.querySelectorAll('.cia .c').forEach(c=>c.style.borderColor='');
+}
+
+/* Malware chips */
+const MAL=[
+  ["Virus","Hängt sich an eine Wirtsdatei an. Wird erst aktiv, wenn der Nutzer die infizierte Datei ausführt. Verbreitet sich über kopierte/geteilte Dateien."],
+  ["Wurm","Verbreitet sich selbstständig über Netzwerke, ohne Wirt und ohne Nutzeraktion. Nutzt Sicherheitslücken aus und kann sich rasend schnell vervielfältigen."],
+  ["Trojaner","Tarnt sich als nützliche Software. Im Hintergrund öffnet er z.B. eine Hintertür (Backdoor) für den Angreifer."],
+  ["Ransomware","Verschlüsselt die Daten des Opfers und fordert Lösegeld für den Schlüssel. Verletzt Verfügbarkeit und oft Vertraulichkeit. Schutz: aktuelle, offline Backups."],
+  ["Spyware","Sammelt heimlich Informationen (Tastatureingaben, Surfverhalten) und sendet sie an den Angreifer."],
+  ["Rootkit","Nistet sich tief im System ein (teils im Kernel), versteckt sich und andere Malware vor Virenscannern. Sehr schwer zu entfernen."]
+];
+function buildMalChips(){
+  const c=document.getElementById('malChips'); if(c.dataset.built)return; c.dataset.built=1; c.innerHTML='';
+  MAL.forEach((m,i)=>{ const b=document.createElement('div'); b.className='chip'; b.textContent=m[0];
+    b.onclick=()=>{document.querySelectorAll('#malChips .chip').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
+      document.getElementById('malDetail').innerHTML=`<strong style="color:var(--accent)">${m[0]}</strong><br>${m[1]}`;};
+    c.appendChild(b);});
+}
+
+/* Symmetric cipher demo (Caesar) */
+function caesar(str,k){return str.replace(/[a-zA-ZäöüÄÖÜ]/g,ch=>{
+  const c=ch.charCodeAt(0);
+  if(c>=65&&c<=90)return String.fromCharCode((c-65+k+26)%26+65);
+  if(c>=97&&c<=122)return String.fromCharCode((c-97+k+26)%26+97);
+  return ch;});}
+function symEnc(){const t=document.getElementById('symPlain').value;const k=+document.getElementById('symKey').value||0;
+  document.getElementById('symOut').textContent='Verschlüsselt (Schlüssel '+k+'):\n'+caesar(t,k);}
+function symDec(){const t=document.getElementById('symOut').textContent.split('\n').pop();const k=+document.getElementById('symKey').value||0;
+  document.getElementById('symOut').textContent='Entschlüsselt (Schlüssel '+k+'):\n'+caesar(t,-k);}
+
+/* Hash demo (real SHA via SubtleCrypto) */
+async function doHash(){
+  const inEl=document.getElementById('hashIn'),outEl=document.getElementById('hashOut'),alg=document.getElementById('hashAlg').value;
+  if(!inEl||!outEl)return;
+  try{
+    const data=new TextEncoder().encode(inEl.value);
+    const buf=await crypto.subtle.digest(alg,data);
+    const hex=[...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+    outEl.textContent=alg+' ('+(hex.length*4)+' Bit):\n'+hex;
+  }catch(e){ outEl.textContent='Hashing in diesem Kontext nicht verfügbar.'; }
+}
+
+/* RAID calc */
+function calcRaid(){
+  const n=+document.getElementById('raidN').value,c=+document.getElementById('raidC').value,l=document.getElementById('raidLvl').value;
+  const out=document.getElementById('raidOut'); let usable=0,tol='',need=2,note='';
+  if(l==='0'){usable=n*c;tol='keine';need=2;}
+  else if(l==='1'){usable=n>=2?c:0;tol='n−1 Platten (mind. eine bleibt)';need=2;note=' (klassisch 2 Platten gespiegelt)';}
+  else if(l==='5'){if(n<3){out.textContent='RAID 5 braucht mindestens 3 Platten.';return;}usable=(n-1)*c;tol='1 Platte';need=3;}
+  else if(l==='6'){if(n<4){out.textContent='RAID 6 braucht mindestens 4 Platten.';return;}usable=(n-2)*c;tol='2 Platten';need=4;}
+  else if(l==='10'){if(n<4||n%2!==0){out.textContent='RAID 10 braucht eine gerade Anzahl (mind. 4).';return;}usable=(n/2)*c;tol='1 je Spiegelpaar';need=4;}
+  out.textContent=
+`RAID ${l}${note}
+Platten: ${n} × ${c} TB = ${n*c} TB brutto
+Nutzkapazität: ${usable} TB
+Ausfalltoleranz: ${tol}
+Effizienz: ${Math.round(usable/(n*c)*100)} %`;
+}
+
+/* Quiz renderer */
+function renderQuiz(host,id,qs){
+  const wrap=document.createElement('div'); wrap.className='quiz'; let score=0,answered=0;
+  wrap.innerHTML=`<div id="qbody-${id}"></div>
+    <div class="quiz-foot"><span class="quiz-score">Punkte: <b id="qsc-${id}">0</b> / ${qs.length}</span>
+    <button class="btn ghost" onclick="redoQuiz('${id}')">Quiz wiederholen</button></div>`;
+  // insert before pager
+  const pager=host.querySelector('.pager'); host.insertBefore(wrap,pager);
+  const body=wrap.querySelector('#qbody-'+id);
+  qs.forEach((item,qi)=>{
+    const qd=document.createElement('div'); qd.style.marginBottom='26px';
+    qd.innerHTML=`<div class="quiz-q">Frage ${qi+1} von ${qs.length}</div><div class="quiz-question">${item.q}</div>`;
+    item.o.forEach((opt,oi)=>{
+      const b=document.createElement('button'); b.className='quiz-opt';
+      b.innerHTML=`<span class="ltr">${String.fromCharCode(65+oi)}</span>${opt}`;
+      b.onclick=()=>{
+        if(qd.dataset.done)return; qd.dataset.done=1; answered++;
+        const btns=qd.querySelectorAll('.quiz-opt'); btns.forEach(x=>x.disabled=true);
+        if(oi===item.a){b.classList.add('correct');score++;}
+        else{b.classList.add('wrong');btns[item.a].classList.add('correct');}
+        document.getElementById('qsc-'+id).textContent=score;
+        qd.querySelector('.quiz-explain').classList.add('show');
+      };
+      qd.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='quiz-explain'; ex.textContent=item.e; qd.appendChild(ex);
+    body.appendChild(qd);
+  });
+}
+function redoQuiz(id){
+  const host=document.getElementById('sec-'+id); const q=host.querySelector('.quiz'); if(q)q.remove();
+  renderQuiz(host,id,QUIZZES[id]);
+}
+
+/* Final quiz */
+function buildFinal(){
+  const host=document.getElementById('finalQuiz'); if(host.dataset.built)return; host.dataset.built=1;
+  let score=0;
+  const sc=document.createElement('div'); sc.className='quiz';
+  sc.innerHTML=`<div id="finBody"></div>
+    <div class="quiz-foot"><span class="quiz-score">Punkte: <b id="finSc">0</b> / ${FINAL.length}</span>
+    <button class="btn ghost" onclick="redoFinal()">Quiz wiederholen</button></div>`;
+  host.appendChild(sc);
+  const body=sc.querySelector('#finBody');
+  FINAL.forEach((item,qi)=>{
+    const qd=document.createElement('div'); qd.style.marginBottom='26px';
+    qd.innerHTML=`<div class="quiz-q">Frage ${qi+1} von ${FINAL.length}</div><div class="quiz-question">${item.q}</div>`;
+    item.o.forEach((opt,oi)=>{
+      const b=document.createElement('button'); b.className='quiz-opt';
+      b.innerHTML=`<span class="ltr">${String.fromCharCode(65+oi)}</span>${opt}`;
+      b.onclick=()=>{
+        if(qd.dataset.done)return; qd.dataset.done=1;
+        qd.querySelectorAll('.quiz-opt').forEach(x=>x.disabled=true);
+        if(oi===item.a){b.classList.add('correct');score++;}
+        else{b.classList.add('wrong');qd.querySelectorAll('.quiz-opt')[item.a].classList.add('correct');}
+        document.getElementById('finSc').textContent=score;
+        qd.querySelector('.quiz-explain').classList.add('show');
+      };
+      qd.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='quiz-explain'; ex.textContent=item.e; qd.appendChild(ex);
+    body.appendChild(qd);
+  });
+}
+function redoFinal(){const h=document.getElementById('finalQuiz');h.dataset.built='';h.innerHTML='';buildFinal();}
+
+/* Scenario */
+const SCN={
+ start:{txt:"Anruf: 'Hallo, ich habe gerade eine E-Mail von der Geschäftsführung bekommen, ich soll dringend auf einen Link klicken und mein Passwort bestätigen. Soll ich das machen?' Was sagst du?",
+   opts:[["Ja, wenn es von der Geschäftsführung kommt, mach das ruhig.","bad1"],
+         ["Nein, bitte noch nicht klicken. Leite mir die Mail weiter, ich schaue sie mir an.","step2"],
+         ["Ist mir egal, mach was du willst.","bad2"]]},
+ bad1:{txt:"Stopp. Genau so funktioniert Phishing: angebliche Autorität (Geschäftsführung) + Dringlichkeit + Aufforderung zur Passworteingabe. Niemals zum Klicken raten, ohne die Mail geprüft zu haben.",back:true},
+ bad2:{txt:"Das ist dein Job im Support. Eine Phishing-Mail kann das ganze Netz gefährden. Bleib dran und hilf.",back:true},
+ step2:{txt:"Du siehst die Mail: Absenderadresse endet auf '@geschaeftsfuhrung-firma.co', der Link führt auf 'firma-login-verify.ru'. Anrede: 'Sehr geehrte/r Mitarbeiter/in'. Wie bewertest du das?",
+   opts:[["Sieht echt aus, die Domain ist nur etwas lang.","bad3"],
+         ["Klare Phishing-Merkmale: gefälschte Domain, fremde TLD, unpersönliche Anrede.","step3"]]},
+ bad3:{txt:"Schau genau hin: '.ru'-Link, Tippfehler-Domain, unpersönliche Anrede. Das sind klassische Phishing-Indikatoren.",back:true},
+ step3:{txt:"Richtig erkannt. Was sind jetzt die richtigen nächsten Schritte?",
+   opts:[["Mail löschen und nichts weiter tun.","bad4"],
+         ["Mitarbeiterin informieren (nicht klicken/keine Daten eingeben), Mail an IT-Security/Phishing-Postfach melden, ggf. Absender blocken, Kollegen warnen.","step4"]]},
+ bad4:{txt:"Nur löschen reicht nicht. Andere haben die Mail vielleicht auch bekommen. Melden und warnen gehört dazu.",back:true},
+ step4:{txt:"Sehr gut. Letzter Punkt: Die Mitarbeiterin sagt, sie habe bei einer ähnlichen Mail letzte Woche vielleicht doch ihr Passwort eingegeben. Was tun?",
+   opts:[["Abwarten, wird schon nichts passiert sein.","bad5"],
+         ["Sofort betroffenes Passwort überall ändern lassen, MFA prüfen/aktivieren, Konto auf verdächtige Aktivität checken, Vorfall dokumentieren.","win"]]},
+ bad5:{txt:"Bei kompromittierten Zugangsdaten zählt jede Minute. Passwort sofort ändern, MFA, Konto prüfen.",back:true},
+ win:{txt:"Perfekt gelöst. Du hast Phishing erkannt, eingedämmt und auf einen möglichen Vorfall reagiert. Genau dieser Ablauf, erkennen, melden, eindämmen, reagieren, ist prüfungs- und praxisrelevant.",done:true}
+};
+let scnState='start';
+function buildScenario(){ scnState='start'; renderScn(); }
+function renderScn(){
+  const host=document.getElementById('scenario'); if(!host)return;
+  const node=SCN[scnState]; let html=`<p style="margin-bottom:14px">${node.txt}</p>`;
+  if(node.opts){ node.opts.forEach((o,i)=>{ html+=`<button class="quiz-opt" onclick="scnGo('${o[1]}')"><span class="ltr">${String.fromCharCode(65+i)}</span>${o[0]}</button>`; }); }
+  if(node.back){ html+=`<button class="btn ghost" onclick="scnGo('${scnPrev}')">← Zurück und neu versuchen</button>`; }
+  if(node.done){ html+=`<button class="btn" onclick="scnGo('start')">Szenario neu starten</button>`; }
+  host.innerHTML=html;
+}
+let scnPrev='start';
+function scnGo(s){ const prevNode=SCN[scnState]; if(prevNode.opts) scnPrev=scnState; scnState=s; renderScn(); }
+
+/* init */
+buildNav(); render(); goto(curSec); updateProgress();
+</script>
+</body>
+</html>

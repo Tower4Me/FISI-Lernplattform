@@ -3,43 +3,43 @@
   "questions": [
     {
       "id": "q1",
-      "question": "Wofuer steht die Abkuerzung TOM im Datenschutz?",
+      "question": "Wofür steht die Abkürzung TOM im Datenschutz?",
       "options": [
-        "Technische oder manuelle Massnahmen",
-        "Technische und organisatorische Massnahmen",
+        "Technische oder manuelle Maßnahmen",
+        "Technische und organisatorische Maßnahmen",
         "Tabellarische Objekt-Modelle",
         "Transport- und Ordnungsmerkmale"
       ],
       "answer": 1,
-      "explanation": "TOM = technische und organisatorische Massnahmen, gefordert von Art. 32 DSGVO."
+      "explanation": "TOM = technische und organisatorische Maßnahmen, gefordert von Art. 32 DSGVO."
     },
     {
       "id": "q2",
-      "question": "Welche Vorschrift fordert die TOMs ausdruecklich?",
+      "question": "Welche Vorschrift fordert die TOMs ausdrücklich?",
       "options": [
         "Art. 32 DSGVO (Sicherheit der Verarbeitung)",
-        "Art. 6 DSGVO (Rechtmaessigkeit)",
+        "Art. 6 DSGVO (Rechtmäßigkeit)",
         "Paragraf 202a StGB",
-        "Art. 17 DSGVO (Recht auf Loeschung)"
+        "Art. 17 DSGVO (Recht auf Löschung)"
       ],
       "answer": 0,
       "explanation": "Art. 32 DSGVO regelt die Sicherheit der Verarbeitung und verlangt ein risikoangemessenes Schutzniveau."
     },
     {
       "id": "q3",
-      "question": "Eine Festplattenverschluesselung des Notebooks ist welche Art von Massnahme?",
+      "question": "Eine Festplattenverschlüsselung des Notebooks ist welche Art von Maßnahme?",
       "options": [
-        "Organisatorische Massnahme",
-        "Technische Massnahme",
+        "Organisatorische Maßnahme",
+        "Technische Maßnahme",
         "Keine TOM",
         "Auftragskontrolle"
       ],
       "answer": 1,
-      "explanation": "Verschluesselung steckt in der Technik selbst und ist damit eine technische Massnahme."
+      "explanation": "Verschlüsselung steckt in der Technik selbst und ist damit eine technische Maßnahme."
     },
     {
       "id": "q4",
-      "question": "Ein Berechtigungskonzept, das regelt wer welche Daten sehen darf, gehoert zu welcher Kontrolle?",
+      "question": "Ein Berechtigungskonzept, das regelt wer welche Daten sehen darf, gehört zu welcher Kontrolle?",
       "options": [
         "Zutrittskontrolle",
         "Zugangskontrolle",
@@ -54,36 +54,36 @@
       "question": "Was ist der Unterschied zwischen Zugang und Zutritt?",
       "options": [
         "Zugang = Raum betreten, Zutritt = System nutzen",
-        "Zugang = System/Geraet nutzen, Zutritt = Raum betreten",
+        "Zugang = System/Gerät nutzen, Zutritt = Raum betreten",
         "Beides bedeutet dasselbe",
         "Zugang betrifft nur Papierakten"
       ],
       "answer": 1,
-      "explanation": "Zutritt = physisch in den Raum. Zugang = in das System/Geraet. Zugriff = an die konkreten Daten."
+      "explanation": "Zutritt = physisch in den Raum. Zugang = in das System/Gerät. Zugriff = an die konkreten Daten."
     },
     {
       "id": "q6",
-      "question": "Ein taegliches automatisches Backup dient vor allem welcher Kontrolle?",
+      "question": "Ein tägliches automatisches Backup dient vor allem welcher Kontrolle?",
       "options": [
         "Trennungskontrolle",
         "Eingabekontrolle",
-        "Verfuegbarkeitskontrolle",
+        "Verfügbarkeitskontrolle",
         "Zutrittskontrolle"
       ],
       "answer": 2,
-      "explanation": "Backups schuetzen Daten gegen Verlust und sichern die Verfuegbarkeit (Verfuegbarkeitskontrolle)."
+      "explanation": "Backups schützen Daten gegen Verlust und sichern die Verfügbarkeit (Verfügbarkeitskontrolle)."
     },
     {
       "id": "q7",
-      "question": "Welche der vier in Art. 32 DSGVO ausdruecklich genannten Massnahmen ist korrekt?",
+      "question": "Welche der vier in Art. 32 DSGVO ausdrücklich genannten Maßnahmen ist korrekt?",
       "options": [
-        "Pseudonymisierung und Verschluesselung",
-        "Kuendigung und Abmahnung",
+        "Pseudonymisierung und Verschlüsselung",
+        "Kündigung und Abmahnung",
         "Inventur und Skontierung",
         "Normalisierung und Indizierung"
       ],
       "answer": 0,
-      "explanation": "Art. 32 nennt u. a. Pseudonymisierung und Verschluesselung sowie Vertraulichkeit, Integritaet, Verfuegbarkeit und Belastbarkeit."
+      "explanation": "Art. 32 nennt u. a. Pseudonymisierung und Verschlüsselung sowie Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit."
     },
     {
       "id": "q8",
@@ -95,7 +95,19 @@
         "Trennungskontrolle"
       ],
       "answer": 0,
-      "explanation": "Die Auftragskontrolle stellt sicher, dass ein Dienstleister Daten nur weisungsgemaess verarbeitet (AV-Vertrag, Kontrollen)."
+      "explanation": "Die Auftragskontrolle stellt sicher, dass ein Dienstleister Daten nur weisungsgemäß verarbeitet (AV-Vertrag, Kontrollen)."
+    },
+    {
+      "id": "q9",
+      "question": "Innerhalb welcher Frist muss eine Datenpanne in der Regel der Aufsichtsbehörde gemeldet werden?",
+      "options": [
+        "24 Stunden",
+        "72 Stunden",
+        "7 Tage",
+        "1 Monat"
+      ],
+      "answer": 1,
+      "explanation": "Nach Art. 33 DSGVO gilt in der Regel eine Meldefrist von 72 Stunden an die zuständige Aufsichtsbehörde."
     }
   ]
 }

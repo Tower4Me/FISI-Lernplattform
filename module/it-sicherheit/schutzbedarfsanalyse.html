@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Schutzbedarfsanalyse</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Schutzbedarfsanalyse</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Schutzbedarfsanalyse
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Versicherung schließt nicht für jeden Gegenstand im Haus die
+        gleiche Police ab. Der Gartenzwerg wird nicht extra versichert, das
+        Familienerbstück im Tresor schon. Der Aufwand richtet sich danach,
+        wie schlimm der Schaden wäre, wenn etwas passiert – und wie
+        wahrscheinlich das ist. Genauso funktioniert der Schutz von
+        IT-Systemen: Nicht jedes System verdient denselben Aufwand.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Die <strong>Schutzbedarfsfeststellung</strong> klärt für jedes
+        System und jede Datenart, wie kritisch ein Schaden bei Verlust von
+        Vertraulichkeit, Integrität oder Verfügbarkeit wäre. Üblich sind
+        drei Kategorien:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Schutzbedarf</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Normal</strong></td><td>Schaden überschaubar</td><td>Öffentliche Speisekarte</td></tr>
+          <tr><td><strong>Hoch</strong></td><td>Schaden beträchtlich</td><td>Kundendaten, Buchhaltung</td></tr>
+          <tr><td><strong>Sehr hoch</strong></td><td>Existenzbedrohend</td><td>Patientendaten, Steuerung kritischer Infrastruktur</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Auf die Einstufung folgt die <strong>Risikobewertung</strong>. Die
+        Grundformel dafür lautet:
+      </p>
+      <p style="text-align:center;">
+        <strong>Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe</strong>
+      </p>
+      <p>
+        Ein unwahrscheinlicher, aber katastrophaler Schaden kann damit
+        genauso hoch priorisiert werden müssen wie ein häufiger, aber
+        kleiner Schaden. So lässt sich entscheiden, wo Schutzmaßnahmen
+        zuerst ansetzen sollten.
+      </p>
+
+      <p>Für den Umgang mit einem erkannten Risiko gibt es vier Strategien:</p>
+      <ul>
+        <li><strong>Vermeiden</strong> – die riskante Tätigkeit ganz unterlassen.</li>
+        <li><strong>Vermindern</strong> – Maßnahmen ergreifen (Firewall, Backup), um Wahrscheinlichkeit oder Schaden zu senken.</li>
+        <li><strong>Übertragen</strong> – Risiko abgeben, z. B. über eine Cyber-Versicherung oder Outsourcing.</li>
+        <li><strong>Akzeptieren</strong> – das Restrisiko bewusst tragen, wenn der Aufwand einer Maßnahme unverhältnismäßig wäre.</li>
+      </ul>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus stuft die Systeme eines Kunden ein und entscheidet
+        über die Risikostrategie:
+      </p>
+      <ul>
+        <li>Die öffentliche Produktbroschüre auf der Website → Schutzbedarf <strong>normal</strong>, ein Ausfall über Nacht wird <strong>akzeptiert</strong>.</li>
+        <li>Die Kundendatenbank mit Adressen und Zahlungsdaten → Schutzbedarf <strong>hoch</strong>, Maßnahme: Verschlüsselung, Zugriffskonzept, tägliches Backup (<strong>vermindern</strong>).</li>
+        <li>Das Patienteninformationssystem einer angeschlossenen Arztpraxis → Schutzbedarf <strong>sehr hoch</strong>, zusätzlich wird eine Cyber-Versicherung abgeschlossen (<strong>übertragen</strong>), um das Restrisiko eines Datenverlusts finanziell abzufedern.</li>
+        <li>Ein veraltetes Testsystem ohne produktive Daten wird komplett abgeschaltet, statt es abzusichern → <strong>vermeiden</strong>.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Begründen Sie den Schutzbedarf der
+        Kundendatenbank und nennen Sie eine passende Risikostrategie." –
+        Antwort: hoher Schutzbedarf wegen personenbezogener und finanzieller
+        Daten, Strategie „vermindern" durch Verschlüsselung und
+        Berechtigungskonzept.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Schutzbedarf (normal/hoch/sehr hoch) richtet sich nach der Schadenshöhe
+        bei Verlust von Vertraulichkeit, Integrität oder Verfügbarkeit.
+        Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe. Auf ein Risiko
+        reagiert man mit: vermeiden, vermindern, übertragen oder akzeptieren.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/schutzbedarfsanalyse.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

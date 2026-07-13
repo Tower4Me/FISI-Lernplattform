@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Kryptographie (symmetrisch/asymmetrisch)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Kryptographie (symmetrisch/asymmetrisch)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Kryptographie (symmetrisch/asymmetrisch)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen Briefkasten mit einem Einwurfschlitz vor. Jeder kann
+        einen Brief einwerfen (verschlüsseln), aber nur der Besitzer mit dem
+        passenden Schlüssel kann den Kasten öffnen und die Briefe lesen
+        (entschlüsseln). Diesen Schlüssel muss der Besitzer niemandem
+        verraten. Ganz anders ein Zahlenschloss, das zwei Freunde gemeinsam
+        nutzen: Beide kennen dieselbe Zahlenkombination, mit der sie
+        wechselseitig auf- und zusperren. Beide Prinzipien gibt es auch in
+        der Verschlüsselung – und sie lösen unterschiedliche Probleme.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Verschlüsselung macht Daten für Unbefugte unlesbar und schützt damit
+        das Schutzziel <strong>Vertraulichkeit</strong>. Es gibt zwei
+        grundlegend verschiedene Verfahren:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>Symmetrisch</th><th>Asymmetrisch</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Schlüssel</td><td>Ein Schlüssel zum Ver- und Entschlüsseln</td><td>Schlüsselpaar: öffentlich + privat</td></tr>
+          <tr><td>Geschwindigkeit</td><td>Sehr schnell, auch für große Datenmengen</td><td>Deutlich langsamer, rechenintensiv</td></tr>
+          <tr><td>Schlüsselaustausch</td><td>Muss sicher erfolgen (Schwachstelle)</td><td>Kein geheimer Austausch nötig</td></tr>
+          <tr><td>Beispiele</td><td>AES, ChaCha20</td><td>RSA, ECC</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Das Briefkasten-Bild für asymmetrisch:</strong> Der
+        öffentliche Schlüssel ist der Einwurfschlitz – jeder kann etwas
+        einwerfen (verschlüsseln). Nur der Besitzer hat den Schlüssel zum
+        Leeren (privater Schlüssel, entschlüsseln). Was mit dem öffentlichen
+        Schlüssel verschlüsselt wurde, öffnet nur der private Schlüssel –
+        und umgekehrt.
+      </p>
+
+      <h3>Schlüsselanzahl: das n-Problem</h3>
+      <p>
+        Bei symmetrischer Verschlüsselung braucht jedes Kommunikationspaar
+        einen eigenen Schlüssel. Für n Teilnehmer sind das
+        <strong>n × (n − 1) / 2</strong> Schlüssel: Bei 10 Personen schon 45,
+        bei 100 Personen fast 5000. Asymmetrische Verschlüsselung braucht nur
+        <strong>2 × n</strong> Schlüssel (ein Schlüsselpaar pro Person). Das
+        ist einer der Hauptgründe, warum asymmetrische Verfahren für den
+        Schlüsselaustausch verwendet werden.
+      </p>
+
+      <h3>Hybride Verschlüsselung</h3>
+      <p>
+        In der Praxis (z. B. bei HTTPS) kombiniert man beide Verfahren:
+        <strong>Asymmetrisch</strong> wird nur genutzt, um einmalig einen
+        <strong>symmetrischen Sitzungsschlüssel</strong> sicher
+        auszutauschen. Danach läuft die schnelle symmetrische
+        Verschlüsselung für die eigentlichen Daten. So bekommt man die
+        Sicherheit des einen Verfahrens und die Geschwindigkeit des anderen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Auszubildender soll erklären, warum eine Online-Banking-Verbindung
+        hybrid verschlüsselt wird:
+      </p>
+      <ul>
+        <li>Beim Verbindungsaufbau tauschen Bank-Server und Browser über <strong>asymmetrische</strong> Verschlüsselung sicher einen einmaligen Sitzungsschlüssel aus – ohne dass dieser Schlüssel jemals unverschlüsselt über das Netz muss.</li>
+        <li>Ab diesem Moment läuft die eigentliche Übertragung (Kontostände, Überweisungen) über <strong>symmetrische</strong> Verschlüsselung mit genau diesem Sitzungsschlüssel – deutlich schneller als durchgehend asymmetrisch zu verschlüsseln.</li>
+        <li>Würde die Bank nur symmetrisch verschlüsseln, müsste sie mit jedem einzelnen Kunden vorher einen Schlüssel sicher austauschen – bei Millionen Kunden praktisch nicht handhabbar (n-Problem).</li>
+      </ul>
+      <p>
+        Probiere unten das Prinzip der symmetrischen Verschlüsselung selbst
+        aus (stark vereinfacht nach dem Caesar-Prinzip):
+      </p>
+      <div class="tool" data-tool="verschluesselung-demo">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Symmetrisch: ein Schlüssel, schnell, Austauschproblem. Asymmetrisch:
+        Schlüsselpaar (öffentlich/privat), langsam, kein Austauschproblem.
+        Hybrid (z. B. TLS) nutzt asymmetrisch für den Schlüsseltausch und
+        symmetrisch für die schnelle Datenübertragung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/kryptographie-sym-asym.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/verschluesselung-demo.js"></script>
+</body>
+</html>

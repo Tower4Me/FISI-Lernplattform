@@ -214,6 +214,53 @@ code, kbd, pre {
 
 .quiz__result { margin-top: 1rem; font-weight: 600; }
 
+/* ------------------------------------------------------ Tools (interaktiv) */
+.tool {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-block: 1rem;
+}
+.tool__label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+.tool__input, .tool__select {
+  width: 100%;
+  font: inherit;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 0.75rem;
+}
+.tool__row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.tool__output {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+  min-height: 1.5em;
+}
+.tool__hint { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+.tool__cards { display: grid; gap: 0.6rem; margin-top: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.tool__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+}
+.tool__card strong { display: block; margin-bottom: 0.2rem; }
+
 /* --------------------------------------------------------------- Utility */
 .muted { color: var(--text-muted); }
 .visually-hidden {

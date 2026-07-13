@@ -1,0 +1,101 @@
+{
+  "unit": "it-sicherheit/hash-signatur",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Schutzziel sichert ein Hashwert in erster Linie ab?",
+      "options": [
+        "Verfügbarkeit",
+        "Integrität",
+        "Verbindlichkeit",
+        "Zurechenbarkeit"
+      ],
+      "answer": 1,
+      "explanation": "Ein Hash zeigt zuverlässig an, ob Daten unverändert (integer) sind."
+    },
+    {
+      "id": "q2",
+      "question": "Wie nennt man die Eigenschaft, dass schon eine winzige Änderung der Eingabe einen völlig anderen Hash erzeugt?",
+      "options": [
+        "Kollisionssicherheit",
+        "Einwegfunktion",
+        "Lawineneffekt",
+        "Salting"
+      ],
+      "answer": 2,
+      "explanation": "Der Lawineneffekt beschreibt, dass kleinste Eingabeänderungen zu einem komplett anderen Hash führen."
+    },
+    {
+      "id": "q3",
+      "question": "Warum werden Passwörter nicht im Klartext, sondern als Hash gespeichert?",
+      "options": [
+        "Weil Hashes weniger Speicherplatz brauchen",
+        "Damit beim Login ein direkter Textvergleich schneller geht",
+        "Damit bei einem Datenbank-Diebstahl die echten Passwörter nicht direkt lesbar sind",
+        "Weil Hashwerte sich leicht zurückrechnen lassen"
+      ],
+      "answer": 2,
+      "explanation": "Da ein Hash eine Einwegfunktion ist, bleibt das ursprüngliche Passwort auch bei gestohlenen Hash-Werten geschützt (zusätzlich mit Salt gegen Rainbow-Tables)."
+    },
+    {
+      "id": "q4",
+      "question": "Welche zwei Hashverfahren gelten heute als gebrochen bzw. unsicher?",
+      "options": [
+        "SHA-256 und SHA-512",
+        "MD5 und SHA-1",
+        "AES und RSA",
+        "bcrypt und Argon2"
+      ],
+      "answer": 1,
+      "explanation": "MD5 und SHA-1 gelten als gebrochen bzw. unsicher. Aktueller Standard ist mindestens SHA-256, für Passwörter bcrypt/Argon2."
+    },
+    {
+      "id": "q5",
+      "question": "Mit welchem Schlüssel erstellt der Sender eine digitale Signatur?",
+      "options": [
+        "Mit seinem eigenen öffentlichen Schlüssel",
+        "Mit seinem eigenen privaten Schlüssel",
+        "Mit dem öffentlichen Schlüssel des Empfängers",
+        "Mit einem gemeinsamen symmetrischen Schlüssel"
+      ],
+      "answer": 1,
+      "explanation": "Signieren erfolgt mit dem privaten Schlüssel des Senders — nur er kann diese Signatur erzeugen."
+    },
+    {
+      "id": "q6",
+      "question": "Welche drei Schutzziele sichert eine digitale Signatur gleichzeitig ab?",
+      "options": [
+        "Vertraulichkeit, Verfügbarkeit, Integrität",
+        "Integrität, Authentizität, Verbindlichkeit",
+        "Nur Vertraulichkeit",
+        "Verfügbarkeit, Zurechenbarkeit, Authentizität"
+      ],
+      "answer": 1,
+      "explanation": "Eine digitale Signatur sichert Integrität (unverändert), Authentizität (echter Absender) und Verbindlichkeit (nicht abstreitbar)."
+    },
+    {
+      "id": "q7",
+      "question": "Der Empfänger prüft eine Signatur, indem er sie mit welchem Schlüssel entschlüsselt?",
+      "options": [
+        "Mit seinem eigenen privaten Schlüssel",
+        "Mit dem privaten Schlüssel des Senders",
+        "Mit dem öffentlichen Schlüssel des Senders",
+        "Mit einem beliebigen Hashwert"
+      ],
+      "answer": 2,
+      "explanation": "Die Signatur wurde mit dem privaten Schlüssel des Senders erstellt und lässt sich nur mit dessen öffentlichem Schlüssel prüfen."
+    },
+    {
+      "id": "q8",
+      "question": "Ein Angebot wird nachträglich manipuliert, nachdem es signiert wurde. Was passiert bei der Prüfung?",
+      "options": [
+        "Die Signatur bleibt trotzdem gültig",
+        "Der neu berechnete Hash stimmt nicht mehr mit der entschlüsselten Signatur überein — die Manipulation fällt auf",
+        "Der Empfänger kann die Manipulation nicht erkennen",
+        "Die Signatur wird automatisch korrigiert"
+      ],
+      "answer": 1,
+      "explanation": "Schon eine minimale Änderung ändert den Hash (Lawineneffekt), wodurch der Vergleich mit der Signatur fehlschlägt."
+    }
+  ]
+}

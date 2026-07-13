@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/zertifikate-tls-pki",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bestätigt ein digitales Zertifikat?",
+      "options": [
+        "Dass eine Website keine Fehler in der Software hat",
+        "Dass ein öffentlicher Schlüssel wirklich zu einer bestimmten Domain/Person gehört",
+        "Dass eine Website kostenlos nutzbar ist",
+        "Dass ein Server niemals ausfällt"
+      ],
+      "answer": 1,
+      "explanation": "Ein Zertifikat bindet einen öffentlichen Schlüssel nachweislich an eine Identität (z. B. eine Domain)."
+    },
+    {
+      "id": "q2",
+      "question": "Wer signiert ein Website-Zertifikat und bürgt damit für dessen Echtheit?",
+      "options": [
+        "Der Website-Betreiber selbst, ohne weitere Prüfung",
+        "Eine Zertifizierungsstelle (Certificate Authority, CA)",
+        "Der Internetprovider des Nutzers",
+        "Der Webbrowser des Nutzers"
+      ],
+      "answer": 1,
+      "explanation": "Eine CA prüft die Identität und signiert das Zertifikat. Der Browser vertraut einer festen Liste bekannter CAs."
+    },
+    {
+      "id": "q3",
+      "question": "Wie nennt man die gesamte Vertrauenskette aus Root-CA, Zwischen- und Endzertifikaten?",
+      "options": [
+        "PKI (Public Key Infrastructure)",
+        "DNS (Domain Name System)",
+        "VPN (Virtual Private Network)",
+        "DMZ (Demilitarisierte Zone)"
+      ],
+      "answer": 0,
+      "explanation": "PKI bezeichnet die gesamte Infrastruktur aus Zertifikaten, CAs und Vertrauensketten."
+    },
+    {
+      "id": "q4",
+      "question": "Was bedeutet das Schloss-Symbol in der Browser-Adressleiste genau?",
+      "options": [
+        "Die Website ist auf jeden Fall seriös und vertrauenswürdig",
+        "Die Verbindung ist verschlüsselt und das Zertifikat ist gültig",
+        "Die Website hat keine Werbung",
+        "Der Server steht in Deutschland"
+      ],
+      "answer": 1,
+      "explanation": "Das Schloss bestätigt nur verschlüsselte Übertragung und ein gültiges Zertifikat — nicht die Seriosität des Angebots."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür steht die Abkürzung TLS?",
+      "options": [
+        "Total Link Security",
+        "Transport Layer Security",
+        "Trusted Login System",
+        "Transfer List Service"
+      ],
+      "answer": 1,
+      "explanation": "TLS = Transport Layer Security, das Protokoll hinter HTTPS."
+    },
+    {
+      "id": "q6",
+      "question": "Was passiert beim TLS-Handshake unter anderem?",
+      "options": [
+        "Der Client prüft das Server-Zertifikat und beide handeln einen symmetrischen Sitzungsschlüssel aus",
+        "Der Server sendet sein Passwort im Klartext",
+        "Es wird ausschließlich asymmetrisch für die gesamte Datenübertragung verschlüsselt",
+        "Der Browser lädt automatisch alle Cookies der Seite"
+      ],
+      "answer": 0,
+      "explanation": "Beim Handshake wird die Serveridentität per Zertifikat geprüft und anschließend ein symmetrischer Sitzungsschlüssel für die schnelle weitere Übertragung ausgehandelt."
+    },
+    {
+      "id": "q7",
+      "question": "HTTPS lässt sich am treffendsten wie beschreiben?",
+      "options": [
+        "HTTPS ist ein komplett eigenständiges Protokoll ohne Bezug zu HTTP",
+        "HTTPS ist HTTP über TLS",
+        "HTTPS ist nur eine schnellere Version von HTTP ohne Verschlüsselung",
+        "HTTPS ersetzt DNS vollständig"
+      ],
+      "answer": 1,
+      "explanation": "HTTPS ist schlicht HTTP, das über eine TLS-verschlüsselte Verbindung läuft."
+    }
+  ]
+}

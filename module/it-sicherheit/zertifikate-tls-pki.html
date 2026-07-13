@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Zertifikate, PKI & TLS</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Zertifikate, PKI & TLS</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Zertifikate, PKI & TLS
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Notar beglaubigt eine Unterschrift: Er bestätigt mit seinem
+        eigenen guten Namen, dass eine bestimmte Unterschrift wirklich zu
+        einer bestimmten Person gehört. Ohne diese Beglaubigung könnte
+        jeder behaupten, eine beliebige Unterschrift zu besitzen. Im Internet
+        übernimmt eine <strong>Zertifizierungsstelle</strong> genau diese
+        Rolle: Sie bestätigt, dass ein öffentlicher Schlüssel wirklich zu
+        einer bestimmten Website gehört.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Asymmetrische Verschlüsselung und digitale Signaturen lösen viele
+        Probleme – aber ein Problem bleibt: Woher weiß man, dass ein
+        öffentlicher Schlüssel wirklich zu „firma.de“ gehört und nicht zu
+        einem Angreifer, der sich als „firma.de“ ausgibt?
+      </p>
+
+      <p>
+        Eine <strong>Zertifizierungsstelle</strong> (Certificate Authority,
+        <strong>CA</strong>) prüft die Identität eines Antragstellers und
+        bestätigt die Zuordnung „dieser öffentliche Schlüssel gehört zu
+        dieser Domain“ mit einem digital signierten
+        <strong>Zertifikat</strong>. Der Browser vertraut einer festen Liste
+        bekannter CAs. Diese gesamte Vertrauenskette – von der Root-CA über
+        Zwischenzertifikate bis zum Website-Zertifikat – nennt man
+        <strong>PKI</strong> (Public Key Infrastructure).
+      </p>
+
+      <h3>TLS und HTTPS</h3>
+      <p>
+        <strong>HTTPS</strong> ist HTTP über <strong>TLS</strong> (Transport
+        Layer Security). Beim Verbindungsaufbau (TLS-Handshake) prüft der
+        Client anhand des Zertifikats, ob der Server echt ist
+        (Authentizität), und beide Seiten handeln einen symmetrischen
+        Sitzungsschlüssel aus – genau die hybride Verschlüsselung, die
+        auch bei symmetrischer/asymmetrischer Kryptographie beschrieben
+        wird.
+      </p>
+
+      <p>
+        Das <strong>Schloss-Symbol</strong> im Browser bedeutet: Die
+        Verbindung ist verschlüsselt und das Zertifikat ist gültig. Es
+        bedeutet <strong>nicht</strong> automatisch, dass die Website
+        selbst vertrauenswürdig oder seriös ist – auch Phishing-Seiten
+        können ein gültiges Zertifikat besitzen.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Rolle</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zertifikat</td><td>Digital signierte Bestätigung: „Dieser öffentliche Schlüssel gehört zu dieser Domain“</td></tr>
+          <tr><td>CA (Certificate Authority)</td><td>Stelle, die die Identität prüft und das Zertifikat signiert</td></tr>
+          <tr><td>PKI (Public Key Infrastructure)</td><td>Gesamte Vertrauenskette aus Root-CA, Zwischen- und Endzertifikaten</td></tr>
+          <tr><td>TLS</td><td>Protokoll, das Zertifikatsprüfung + hybride Verschlüsselung für sichere Verbindungen kombiniert</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde ruft den Online-Shop „musterhandel.de“ auf und sieht ein
+        Schloss-Symbol in der Adressleiste.
+      </p>
+      <ul>
+        <li>Der Browser hat beim TLS-Handshake das Zertifikat von „musterhandel.de“ geprüft und festgestellt, dass es von einer vertrauenswürdigen CA signiert wurde – der Server ist also authentisch.</li>
+        <li>Client und Server haben dabei einen symmetrischen Sitzungsschlüssel ausgehandelt, mit dem die Bestelldaten anschließend schnell und verschlüsselt übertragen werden.</li>
+        <li>Ein IT-Azubi im Support erklärt einem verunsicherten Kunden: „Das Schloss bedeutet, dass niemand die Übertragung mitlesen kann und der Server nachweislich der ist, für den er sich ausgibt. Ob der Shop selbst seriös ist, sagt das Schloss allein nicht aus.“</li>
+        <li>Läuft das Zertifikat ab oder wurde es von keiner vertrauten CA signiert, zeigt der Browser eine Warnung – ein typisches Zeichen für eine mögliche Phishing-Seite oder ein Konfigurationsproblem.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Zertifikat bestätigt (signiert von einer CA), dass ein
+        öffentlicher Schlüssel zu einer bestimmten Domain gehört. Die
+        gesamte Vertrauenskette heißt PKI. TLS nutzt Zertifikate zur
+        Serverprüfung und danach hybride Verschlüsselung für die
+        Datenübertragung (HTTPS = HTTP über TLS).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/zertifikate-tls-pki.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

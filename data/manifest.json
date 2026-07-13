@@ -26,6 +26,27 @@
       "name": "IT-Sicherheit",
       "units": [
         {
+          "slug": "schutzziele-cia",
+          "name": "Schutzziele (CIA)",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/schutzziele-cia.json"
+        },
+        {
+          "slug": "sicherheitsstandards-isms",
+          "name": "Sicherheitsstandards (ISMS, BSI, ISO 27001)",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/sicherheitsstandards-isms.json"
+        },
+        {
+          "slug": "schutzbedarfsanalyse",
+          "name": "Schutzbedarfsanalyse",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/schutzbedarfsanalyse.json"
+        },
+        {
           "slug": "toms",
           "name": "TOMs",
           "importance": "kern",

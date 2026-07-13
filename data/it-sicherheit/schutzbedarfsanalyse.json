@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/schutzbedarfsanalyse",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche drei Kategorien nutzt die klassische Schutzbedarfsfeststellung?",
+      "options": [
+        "Niedrig, mittel, hoch",
+        "Normal, hoch, sehr hoch",
+        "Öffentlich, intern, geheim",
+        "Grün, gelb, rot"
+      ],
+      "answer": 1,
+      "explanation": "Die Schutzbedarfsfeststellung unterscheidet üblicherweise normal, hoch und sehr hoch."
+    },
+    {
+      "id": "q2",
+      "question": "Wie lautet die Grundformel zur Risikobewertung?",
+      "options": [
+        "Risiko = Schadenshöhe − Eintrittswahrscheinlichkeit",
+        "Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe",
+        "Risiko = Schadenshöhe / Anzahl Maßnahmen",
+        "Risiko = Anzahl Vorfälle pro Jahr"
+      ],
+      "answer": 1,
+      "explanation": "Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe. So werden auch seltene, aber katastrophale Schäden richtig priorisiert."
+    },
+    {
+      "id": "q3",
+      "question": "Ein Unternehmen schließt eine Cyber-Versicherung ab, um die finanziellen Folgen eines Datenverlusts abzufedern. Welche Risikostrategie ist das?",
+      "options": [
+        "Vermeiden",
+        "Vermindern",
+        "Übertragen",
+        "Akzeptieren"
+      ],
+      "answer": 2,
+      "explanation": "Beim Übertragen wird das Risiko an einen Dritten abgegeben, z. B. über eine Versicherung oder Outsourcing."
+    },
+    {
+      "id": "q4",
+      "question": "Ein veraltetes Testsystem ohne produktive Daten wird komplett abgeschaltet statt abgesichert. Welche Risikostrategie liegt vor?",
+      "options": [
+        "Vermeiden",
+        "Vermindern",
+        "Akzeptieren",
+        "Übertragen"
+      ],
+      "answer": 0,
+      "explanation": "Beim Vermeiden wird die riskante Tätigkeit (hier: Betrieb des unsicheren Systems) ganz unterlassen."
+    },
+    {
+      "id": "q5",
+      "question": "Welchen Schutzbedarf hat typischerweise eine Kundendatenbank mit Zahlungsdaten?",
+      "options": [
+        "Normal",
+        "Hoch",
+        "Keinen, da öffentlich",
+        "Nur bei Bankunternehmen relevant"
+      ],
+      "answer": 1,
+      "explanation": "Personenbezogene und finanzielle Daten gelten in der Regel als hoher Schutzbedarf, da ein Schaden beträchtlich wäre."
+    },
+    {
+      "id": "q6",
+      "question": "Eine Firma investiert in Verschlüsselung und ein Berechtigungskonzept, um Wahrscheinlichkeit und Schaden eines Datenlecks zu senken. Welche Strategie ist das?",
+      "options": [
+        "Akzeptieren",
+        "Vermeiden",
+        "Vermindern",
+        "Übertragen"
+      ],
+      "answer": 2,
+      "explanation": "Vermindern bedeutet, aktiv Maßnahmen zu ergreifen, die Eintrittswahrscheinlichkeit oder Schadenshöhe senken."
+    }
+  ]
+}

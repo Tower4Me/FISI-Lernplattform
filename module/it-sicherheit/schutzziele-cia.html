@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Schutzziele (CIA)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Schutzziele (CIA)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Schutzziele (CIA)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen verschlossenen Briefumschlag mit einem Siegel vor, den
+        du per Post verschickst. Drei Dinge sollen dabei sichergestellt sein:
+        Erstens soll niemand außer dem Empfänger den Inhalt lesen können
+        (der Umschlag ist zu). Zweitens soll niemand den Inhalt unbemerkt
+        verändern können, ohne dass es auffällt (das Siegel ist gebrochen,
+        wenn manipuliert wurde). Drittens soll der Brief überhaupt ankommen
+        und nicht spurlos verschwinden.
+      </p>
+      <p>
+        Genau diese drei Eigenschaften – geheim bleiben, unverändert bleiben,
+        ankommen – sind in der IT-Sicherheit die drei zentralen
+        <strong>Schutzziele</strong>. Fast jede Sicherheitsmaßnahme, von der
+        Firewall bis zum Backup, lässt sich einem dieser Ziele zuordnen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Die drei Grundziele heißen zusammen <strong>CIA-Triade</strong> –
+        kein Geheimdienst, sondern die Anfangsbuchstaben von
+        <strong>Confidentiality, Integrity, Availability</strong>:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Ziel</th><th>Bedeutung</th><th>Typische Maßnahmen</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Vertraulichkeit</strong> (Confidentiality)</td><td>Nur Befugte können Daten lesen</td><td>Verschlüsselung, Zugriffsrechte, Authentifizierung</td></tr>
+          <tr><td><strong>Integrität</strong> (Integrity)</td><td>Daten sind vollständig und unverändert</td><td>Hashwerte, Prüfsummen, digitale Signaturen</td></tr>
+          <tr><td><strong>Verfügbarkeit</strong> (Availability)</td><td>Systeme und Daten sind erreichbar, wenn sie gebraucht werden</td><td>Redundanz, RAID, USV, Backups, DDoS-Schutz</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Jede Angriffsart verletzt mindestens eines dieser Ziele: Ein
+        abgehörtes Passwort verletzt die Vertraulichkeit, eine manipulierte
+        Überweisung die Integrität, ein DDoS-Angriff die Verfügbarkeit.
+        Manche Angriffe treffen mehrere Ziele gleichzeitig – ein
+        Ransomware-Angriff etwa verletzt sowohl Verfügbarkeit (Daten sind
+        verschlüsselt und nicht mehr nutzbar) als auch Vertraulichkeit
+        (oft werden Daten zusätzlich abgezogen).
+      </p>
+
+      <p>
+        Die klassische Triade reicht in der Praxis oft nicht aus, besonders
+        bei rechtlich relevanten Vorgängen wie Bestellungen oder Verträgen.
+        Drei erweiterte Ziele kommen dazu:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Ziel</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Authentizität</strong></td><td>Ist der Absender wirklich der, der er vorgibt zu sein?</td><td>Digitale Signatur einer E-Mail</td></tr>
+          <tr><td><strong>Verbindlichkeit</strong> (Nicht-Abstreitbarkeit)</td><td>Eine Handlung kann später nicht geleugnet werden</td><td>Signierter Vertrag, Logging</td></tr>
+          <tr><td><strong>Zurechenbarkeit</strong></td><td>Eine Aktion lässt sich einem Verursacher zuordnen</td><td>Audit-Log mit Benutzer-ID</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Zwei Verwechslungspaare tauchen in der Prüfung besonders häufig auf.
+        Erstens <strong>Integrität vs. Authentizität</strong>: Integrität
+        fragt, ob Daten verändert wurden. Authentizität fragt, ob die Daten
+        wirklich von diesem Absender stammen. Eine Nachricht kann integer
+        (unverändert) und trotzdem gefälscht (falscher Absender) sein – erst
+        die digitale Signatur sichert beides zusammen. Zweitens
+        <strong>Authentifizierung, Authentizität und Autorisierung</strong>:
+        Authentifizierung ist der Vorgang (Passwort eingeben), Authentizität
+        ist die Eigenschaft (Daten stammen echt von X), Autorisierung ist die
+        anschließende Rechtevergabe.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein mittelständisches Unternehmen meldet folgende Vorfälle. Ordne
+        jeweils das verletzte Schutzziel zu:
+      </p>
+      <ul>
+        <li>Ein Mitarbeiter liest versehentlich Gehaltsdaten eines Kollegen, auf die er keinen Zugriff haben sollte → <strong>Vertraulichkeit</strong>.</li>
+        <li>Ein Angreifer verändert unbemerkt den Kontostand in einer Datenbank → <strong>Integrität</strong>.</li>
+        <li>Ein DDoS-Angriff legt den Webshop drei Stunden lahm → <strong>Verfügbarkeit</strong>.</li>
+        <li>Eine E-Mail mit gefälschtem Absender gibt sich als Geschäftsführung aus, um eine Überweisung anzuweisen (CEO-Fraud) → <strong>Authentizität</strong>.</li>
+        <li>Ransomware verschlüsselt den Fileserver und die Angreifer drohen zusätzlich, gestohlene Daten zu veröffentlichen → <strong>Verfügbarkeit und Vertraulichkeit</strong> gleichzeitig.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welches Schutzziel wird bei einem
+        Ransomware-Angriff in erster Linie verletzt?" – Antwort: meist
+        Verfügbarkeit, häufig zusätzlich Vertraulichkeit, wenn Daten
+        zusätzlich exfiltriert wurden.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        CIA = Vertraulichkeit, Integrität, Verfügbarkeit – jede Angriffsart
+        verletzt mindestens eines davon. Authentizität, Verbindlichkeit und
+        Zurechenbarkeit ergänzen die Triade um Herkunfts- und
+        Nachweisfragen. Integrität ≠ Authentizität: verändert vs. gefälscht.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/schutzziele-cia.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/sicherheitsstandards-isms",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht die Abkürzung ISMS?",
+      "options": [
+        "Informationssicherheits-Managementsystem",
+        "Internes Server-Monitoring-System",
+        "IT-Sicherheits-Meldesystem",
+        "Integriertes Speicher-Management-System"
+      ],
+      "answer": 0,
+      "explanation": "ISMS = Informationssicherheits-Managementsystem, ein fortlaufender Prozess nach PDCA."
+    },
+    {
+      "id": "q2",
+      "question": "Welchem Zyklus folgt ein ISMS typischerweise?",
+      "options": [
+        "Wasserfall-Modell",
+        "PDCA-Zyklus (Plan, Do, Check, Act)",
+        "V-Modell",
+        "Scrum-Sprintzyklus"
+      ],
+      "answer": 1,
+      "explanation": "Ein ISMS ist kein einmaliges Projekt, sondern ein fortlaufender PDCA-Zyklus: Plan, Do, Check, Act."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet ISO/IEC 27001 vom BSI IT-Grundschutz am deutlichsten?",
+      "options": [
+        "ISO 27001 gilt nur für Behörden in Deutschland",
+        "ISO 27001 ist international anerkannt und extern zertifizierbar, der BSI-Grundschutz liefert sehr konkrete, in Deutschland verbreitete Bausteine",
+        "Der BSI-Grundschutz ist nur für private Haushalte gedacht",
+        "Beide Standards sind inhaltlich identisch"
+      ],
+      "answer": 1,
+      "explanation": "ISO 27001 ist ein international anerkanntes, zertifizierbares Rahmenwerk. BSI IT-Grundschutz liefert konkrete Maßnahmenkataloge, vor allem im deutschen Behördenumfeld."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Server wird ab Werk mit deaktivierten, nicht benötigten Diensten und einer aktiven Firewall ausgeliefert. Welches Prinzip ist das?",
+      "options": [
+        "Security by Design",
+        "Security by Default",
+        "Zero Trust",
+        "Least Privilege"
+      ],
+      "answer": 1,
+      "explanation": "Security by Default bedeutet, dass die Werkseinstellung bereits möglichst sicher ist, ohne dass Nutzer manuell nachbessern müssen."
+    },
+    {
+      "id": "q5",
+      "question": "Eine Software wird von Beginn der Architekturplanung an mit Sicherheitsanforderungen entworfen, statt Sicherheit nachträglich zu ergänzen. Welches Prinzip beschreibt das?",
+      "options": [
+        "Security by Default",
+        "Security by Design",
+        "PDCA-Zyklus",
+        "Schutzbedarfsfeststellung"
+      ],
+      "answer": 1,
+      "explanation": "Security by Design bedeutet, Sicherheit von Anfang an in die Systemarchitektur einzuplanen."
+    },
+    {
+      "id": "q6",
+      "question": "Wie lässt sich BSI IT-Grundschutz und ISO/IEC 27001 sinnvoll kombinieren?",
+      "options": [
+        "Gar nicht, die Standards schließen sich gegenseitig aus",
+        "Der BSI-Grundschutz kann als Weg zur ISO-27001-Zertifizierung dienen",
+        "ISO 27001 ersetzt den BSI-Grundschutz vollständig ohne Unterschiede",
+        "Beide dürfen nur einzeln in unterschiedlichen Unternehmen verwendet werden"
+      ],
+      "answer": 1,
+      "explanation": "Bekannt als \"ISO 27001 auf Basis von IT-Grundschutz\": Der BSI-Grundschutz liefert die konkreten Bausteine, die Zertifizierung erfolgt nach ISO 27001."
+    }
+  ]
+}

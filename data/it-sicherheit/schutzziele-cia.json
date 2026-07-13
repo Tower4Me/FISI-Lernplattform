@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/schutzziele-cia",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht das C in der CIA-Triade der IT-Sicherheit?",
+      "options": [
+        "Confidentiality (Vertraulichkeit)",
+        "Compliance",
+        "Continuity",
+        "Certification"
+      ],
+      "answer": 0,
+      "explanation": "CIA = Confidentiality (Vertraulichkeit), Integrity (Integrität), Availability (Verfügbarkeit)."
+    },
+    {
+      "id": "q2",
+      "question": "Ein Angreifer verändert unbemerkt einen Kontostand in einer Datenbank. Welches Schutzziel ist in erster Linie verletzt?",
+      "options": [
+        "Verfügbarkeit",
+        "Vertraulichkeit",
+        "Integrität",
+        "Verbindlichkeit"
+      ],
+      "answer": 2,
+      "explanation": "Integrität bedeutet, dass Daten vollständig und unverändert bleiben. Eine unbemerkte Manipulation verletzt genau dieses Ziel."
+    },
+    {
+      "id": "q3",
+      "question": "Ein DDoS-Angriff legt einen Webshop für mehrere Stunden lahm. Welches Schutzziel ist betroffen?",
+      "options": [
+        "Integrität",
+        "Verfügbarkeit",
+        "Authentizität",
+        "Zurechenbarkeit"
+      ],
+      "answer": 1,
+      "explanation": "Verfügbarkeit bedeutet, dass Systeme erreichbar sind, wenn sie gebraucht werden. DDoS-Angriffe zielen genau darauf."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist der Unterschied zwischen Integrität und Authentizität?",
+      "options": [
+        "Integrität und Authentizität bedeuten dasselbe",
+        "Integrität prüft, ob Daten verändert wurden; Authentizität prüft, ob sie wirklich vom angegebenen Absender stammen",
+        "Integrität betrifft nur Passwörter, Authentizität nur Dateien",
+        "Authentizität prüft, ob Daten verändert wurden; Integrität prüft die Herkunft"
+      ],
+      "answer": 1,
+      "explanation": "Integrität = unverändert. Authentizität = echte Herkunft vom angegebenen Absender. Eine Nachricht kann integer und trotzdem gefälscht sein."
+    },
+    {
+      "id": "q5",
+      "question": "Eine gefälschte E-Mail gibt vor, von der Geschäftsführung zu stammen, um eine Überweisung anzuweisen (CEO-Fraud). Welches Schutzziel wird primär verletzt?",
+      "options": [
+        "Verfügbarkeit",
+        "Authentizität",
+        "Zutrittskontrolle",
+        "Verfügbarkeitskontrolle"
+      ],
+      "answer": 1,
+      "explanation": "Der vorgetäuschte Absender verletzt die Authentizität: Der wirkliche Urheber der Nachricht ist nicht der angegebene Absender."
+    },
+    {
+      "id": "q6",
+      "question": "Welche drei Ziele erweitern die klassische CIA-Triade um Herkunfts- und Nachweisfragen?",
+      "options": [
+        "Verschlüsselung, Signatur, Hashwert",
+        "Authentizität, Verbindlichkeit, Zurechenbarkeit",
+        "Backup, RAID, USV",
+        "Zutritt, Zugang, Zugriff"
+      ],
+      "answer": 1,
+      "explanation": "Authentizität (echter Absender), Verbindlichkeit (nicht abstreitbar) und Zurechenbarkeit (einem Verursacher zuordenbar) ergänzen die CIA-Triade."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Ransomware-Angriff verschlüsselt Firmendaten und die Angreifer drohen zusätzlich, gestohlene Daten zu veröffentlichen. Welche Schutzziele sind verletzt?",
+      "options": [
+        "Nur Verfügbarkeit",
+        "Nur Vertraulichkeit",
+        "Verfügbarkeit und Vertraulichkeit",
+        "Nur Zurechenbarkeit"
+      ],
+      "answer": 2,
+      "explanation": "Die Verschlüsselung verletzt die Verfügbarkeit (Daten nicht mehr nutzbar), der Datenabfluss zusätzlich die Vertraulichkeit."
+    }
+  ]
+}

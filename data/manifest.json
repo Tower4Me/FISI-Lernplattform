@@ -122,6 +122,27 @@
           "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/betriebssystem-haertung.json"
+        },
+        {
+          "slug": "physische-sicherheit",
+          "name": "Physische Sicherheit & Redundanz",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/physische-sicherheit.json"
+        },
+        {
+          "slug": "backup-arten",
+          "name": "Backup-Arten",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/backup-arten.json"
+        },
+        {
+          "slug": "rto-rpo-verfuegbarkeit",
+          "name": "RTO, RPO & Verfügbarkeit",
+          "importance": "kern",
+          "exams": ["ap2"],
+          "quiz": "data/it-sicherheit/rto-rpo-verfuegbarkeit.json"
         }
       ]
     },

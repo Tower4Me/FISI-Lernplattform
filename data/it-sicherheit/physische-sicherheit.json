@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/physische-sicherheit",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür dient eine Vereinzelungsanlage (Mantrap) am Eingang eines Serverraums?",
+      "options": [
+        "Sie verhindert Tailgating, indem nur eine Person gleichzeitig durchgelassen wird",
+        "Sie kühlt die Zuluft für die Serverschränke",
+        "Sie löscht Brände mit Wasser",
+        "Sie verschlüsselt den Netzwerkverkehr im Serverraum"
+      ],
+      "answer": 0,
+      "explanation": "Eine Vereinzelungsanlage lässt jeweils nur eine Person durch und verhindert so, dass Unbefugte einer berechtigten Person unbemerkt hinterherlaufen (Tailgating)."
+    },
+    {
+      "id": "q2",
+      "question": "Warum werden in Serverräumen meist Gaslöschanlagen statt Wasser-Sprinkleranlagen eingesetzt?",
+      "options": [
+        "Gaslöschanlagen sind günstiger in der Anschaffung",
+        "Wasser würde die Hardware zusätzlich zum Brand zerstören",
+        "Gaslöschanlagen sind gesetzlich vorgeschrieben",
+        "Wasser lässt sich nicht schnell genug aktivieren"
+      ],
+      "answer": 1,
+      "explanation": "Löschwasser zerstört elektronische Geräte zuverlässig — Gaslöschanlagen ersticken das Feuer ohne diesen Zusatzschaden."
+    },
+    {
+      "id": "q3",
+      "question": "Welchen Zweck verfolgt das Kaltgang-/Warmgang-Prinzip in Rechenzentren?",
+      "options": [
+        "Es trennt kalte Zuluft und warme Abluft für effiziente Kühlung",
+        "Es regelt, welche Mitarbeiter Zutritt zu welchem Gang haben",
+        "Es beschreibt die Verkabelung zwischen zwei Serverräumen",
+        "Es ist ein Synonym für die 3-2-1-Backup-Regel"
+      ],
+      "answer": 0,
+      "explanation": "Serverschränke werden so ausgerichtet, dass kalte Zuluft und warme Abluft getrennt bleiben — das erhöht die Kühleffizienz deutlich."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Rechenzentrum betreibt zwei komplett unabhängige Stromzuführungen, jede für sich voll ausreichend. Welche Redundanzstufe ist das?",
+      "options": [
+        "N",
+        "N+1",
+        "2N",
+        "N-1"
+      ],
+      "answer": 2,
+      "explanation": "2N bezeichnet die vollständige Verdopplung eines Systems, sodass jede der beiden Zuführungen allein ausreicht."
+    },
+    {
+      "id": "q5",
+      "question": "Was bedeutet die Redundanzstufe N+1?",
+      "options": [
+        "Es gibt keinerlei Reserve, alles ist exakt bedarfsgerecht dimensioniert",
+        "Es gibt genau ein zusätzliches Reserve-Element über den Bedarf hinaus",
+        "Es gibt doppelt so viele Systeme wie nötig",
+        "Es beschreibt eine Verschlüsselungsstufe"
+      ],
+      "answer": 1,
+      "explanation": "N+1 bedeutet: der Bedarf plus genau eine zusätzliche Reserveeinheit, die bei Ausfall einer Komponente einspringen kann."
+    },
+    {
+      "id": "q6",
+      "question": "Warum ist eine zu trockene Luft im Serverraum problematisch?",
+      "options": [
+        "Sie begünstigt elektrostatische Entladungen (ESD)",
+        "Sie führt automatisch zu Bränden",
+        "Sie hat keinerlei Auswirkung auf die Hardware",
+        "Sie begünstigt Korrosion an Metallteilen"
+      ],
+      "answer": 0,
+      "explanation": "Zu trockene Luft erhöht das Risiko elektrostatischer Entladungen, die elektronische Bauteile beschädigen können. Zu feuchte Luft begünstigt dagegen Korrosion."
+    }
+  ]
+}

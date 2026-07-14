@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Backup-Arten</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Backup-Arten</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Backup-Arten
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Fotograf, der jedes Foto-Shooting komplett neu auf eine externe
+        Festplatte kopiert, braucht viel Platz und Zeit, kann aber im
+        Ernstfall sofort alles von einer einzigen Kopie zurückholen. Ein
+        anderer notiert sich stattdessen nur, welche Fotos seit dem letzten
+        Shooting neu dazugekommen sind – das spart Platz, macht die
+        Wiederherstellung aber komplizierter, wenn mehrere Notizzettel
+        zusammenpassen müssen. Genau diese Abwägung steckt hinter den
+        verschiedenen <strong>Backup-Arten</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>Es gibt drei grundlegende Backup-Arten:</p>
+
+      <table>
+        <thead>
+          <tr><th>Art</th><th>Sichert</th><th>Wiederherstellung (Restore)</th><th>Speicher/Zeit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Vollbackup</strong></td><td>Alle Daten, jedes Mal komplett</td><td>Schnell (nur 1 Datensatz)</td><td>Hoch</td></tr>
+          <tr><td><strong>Differenziell</strong></td><td>Alles seit dem letzten Vollbackup</td><td>Vollbackup + letztes differenzielles</td><td>Mittel</td></tr>
+          <tr><td><strong>Inkrementell</strong></td><td>Nur Änderungen seit dem letzten Backup (egal welcher Art)</td><td>Vollbackup + lückenlos alle inkrementellen (langsamer)</td><td>Gering</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Der Unterschied beim Restore ist prüfungsrelevant: Ein
+        <strong>differenzielles</strong> Backup braucht zur Wiederherstellung
+        nur das letzte Vollbackup plus das letzte differenzielle Backup –
+        unabhängig davon, wie viele differenzielle Backups dazwischen
+        entstanden sind, jedes enthält ja bereits alle Änderungen seit dem
+        Vollbackup. Ein <strong>inkrementelles</strong> Backup dagegen
+        braucht das Vollbackup <em>und lückenlos jedes</em> nachfolgende
+        inkrementelle Backup in der richtigen Reihenfolge – fehlt eines,
+        ist die Kette unterbrochen und die Wiederherstellung unvollständig.
+      </p>
+
+      <h3>Die 3-2-1-Regel</h3>
+      <p>
+        Eine bewährte Faustregel für Backup-Strategien: <strong>3</strong>
+        Kopien der Daten (Original plus 2 Backups), auf <strong>2</strong>
+        verschiedenen Speichermedien, davon <strong>1</strong> Kopie
+        außerhalb des Standorts (offsite) – falls Feuer oder Diebstahl den
+        Hauptstandort komplett trifft. Gegen Ransomware wird die Regel
+        heute oft um eine weitere „1“ und eine „0“ ergänzt:
+        <strong>3-2-1-1-0</strong> – mindestens eine Kopie <em>offline
+        oder unveränderlich</em> (kann ein Verschlüsselungstrojaner nicht
+        erreichen), und „0“ steht für null Fehler bei regelmäßig
+        getesteten Wiederherstellungen.
+      </p>
+
+      <p>
+        Wichtig: RAID (Modul 3.2) ist <strong>kein</strong> Ersatz für ein
+        Backup. RAID schützt vor dem Ausfall einzelner Festplatten, aber
+        eine versehentlich gelöschte oder durch Ransomware verschlüsselte
+        Datei ist auf allen gespiegelten Platten gleichermaßen betroffen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus richtet für einen Kunden folgende Backup-Strategie
+        ein: Sonntags läuft ein Vollbackup, an den übrigen Wochentagen ein
+        inkrementelles Backup.
+      </p>
+      <ul>
+        <li>Fällt der Server am <strong>Mittwoch</strong> aus, braucht die Wiederherstellung das Vollbackup vom Sonntag <strong>plus</strong> die inkrementellen Backups von Montag und Dienstag – in dieser Reihenfolge.</li>
+        <li>Fehlt das inkrementelle Backup von Montag (z. B. wegen eines technischen Fehlers), lässt sich der Stand von Dienstag nicht mehr korrekt rekonstruieren – die Kette ist unterbrochen.</li>
+        <li>Bei einer differenziellen Strategie hätte man dagegen am Mittwoch nur das Vollbackup vom Sonntag plus das differenzielle Backup vom Dienstag gebraucht, da dieses bereits alle Änderungen seit Sonntag enthält.</li>
+        <li>Zusätzlich wird die 3-2-1-1-0-Regel umgesetzt: Originaldaten auf dem Server, eine Kopie auf einem lokalen NAS, eine weitere Kopie extern in einem Cloud-Speicher mit unveränderlichen (immutable) Snapshots gegen Ransomware. Die Wiederherstellung wird einmal im Quartal getestet.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Voll = alles, schnell zurück. Differenziell = seit letztem
+        Vollbackup, Restore braucht 2 Teile. Inkrementell = seit letztem
+        Backup, Restore braucht die lückenlose Kette. 3-2-1(-1-0)-Regel:
+        3 Kopien, 2 Medien, 1 offsite (optional 1 offline/unveränderlich).
+        RAID ersetzt kein Backup.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/backup-arten.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

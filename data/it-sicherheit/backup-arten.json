@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/backup-arten",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was sichert ein Vollbackup?",
+      "options": [
+        "Nur die Änderungen seit dem letzten Backup",
+        "Alle Daten, jedes Mal komplett",
+        "Nur die Daten seit dem letzten Vollbackup",
+        "Ausschließlich Systemdateien, keine Nutzerdaten"
+      ],
+      "answer": 1,
+      "explanation": "Ein Vollbackup sichert bei jedem Durchlauf sämtliche Daten neu, unabhängig von vorherigen Backups."
+    },
+    {
+      "id": "q2",
+      "question": "Was wird für die Wiederherstellung eines differenziellen Backups benötigt?",
+      "options": [
+        "Nur das letzte differenzielle Backup",
+        "Das letzte Vollbackup plus alle differenziellen Backups seither",
+        "Das letzte Vollbackup plus das letzte differenzielle Backup",
+        "Ausschließlich das allererste Vollbackup"
+      ],
+      "answer": 2,
+      "explanation": "Ein differenzielles Backup enthält bereits alle Änderungen seit dem letzten Vollbackup — daher reichen Vollbackup plus das letzte differenzielle Backup."
+    },
+    {
+      "id": "q3",
+      "question": "Warum ist ein inkrementelles Backup bei der Wiederherstellung anfälliger als ein differenzielles?",
+      "options": [
+        "Weil es generell mehr Speicherplatz benötigt",
+        "Weil die komplette, lückenlose Kette aller inkrementellen Backups vorhanden sein muss",
+        "Weil inkrementelle Backups nie wiederhergestellt werden können",
+        "Weil inkrementelle Backups nur einmal im Jahr laufen dürfen"
+      ],
+      "answer": 1,
+      "explanation": "Fehlt ein einziges inkrementelles Backup in der Kette, lässt sich der spätere Stand nicht mehr korrekt rekonstruieren."
+    },
+    {
+      "id": "q4",
+      "question": "Was besagt die 3-2-1-Regel für Backups?",
+      "options": [
+        "3 Administratoren, 2 Rechenzentren, 1 Cloud-Anbieter",
+        "3 Kopien der Daten, auf 2 verschiedenen Medien, davon 1 außerhalb des Standorts",
+        "3 Backups pro Tag, 2 Stunden Aufbewahrung, 1 Verantwortlicher",
+        "3 Jahre Aufbewahrungspflicht, 2 Kopien, 1 Verschlüsselung"
+      ],
+      "answer": 1,
+      "explanation": "3 Kopien, 2 verschiedene Medien, 1 Kopie offsite — die klassische Backup-Faustregel."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür stehen die zusätzliche '1' und '0' in der erweiterten Regel 3-2-1-1-0?",
+      "options": [
+        "1 zusätzlicher Administrator, 0 Kosten",
+        "1 Kopie offline/unveränderlich (z. B. gegen Ransomware), 0 Fehler bei getesteten Wiederherstellungen",
+        "1 Backup pro Woche, 0 Backups am Wochenende",
+        "1 Jahr Aufbewahrung, 0 Verschlüsselung"
+      ],
+      "answer": 1,
+      "explanation": "Die Erweiterung fordert eine offline/unveränderliche Kopie gegen Ransomware sowie regelmäßig fehlerfrei getestete Restores."
+    },
+    {
+      "id": "q6",
+      "question": "Warum ist RAID kein Ersatz für ein Backup?",
+      "options": [
+        "RAID schützt nur vor Netzwerkausfällen, nicht vor Festplattenausfällen",
+        "Eine versehentlich gelöschte oder durch Ransomware verschlüsselte Datei ist auf allen gespiegelten Platten gleichermaßen betroffen",
+        "RAID ist grundsätzlich langsamer als ein Backup",
+        "RAID kann nur auf externen Datenträgern eingesetzt werden"
+      ],
+      "answer": 1,
+      "explanation": "RAID schützt vor Hardware-Ausfall einzelner Platten, aber nicht vor Lösch- oder Verschlüsselungsfehlern, die sich sofort auf alle Spiegel auswirken."
+    }
+  ]
+}

@@ -75,8 +75,10 @@ Modul, zur Priorisierung von Phase 5:
 - [ ] **Modul 2 – Kalkulation**: Übertragungsdauer/Bandbreite/Durchsatz (2.1)
 - [ ] **Modul 3 – Hardware**: BIOS/UEFI/POST/S.M.A.R.T. (3.1); Drucker,
       Scanner-Typen (3.3); Geräteklassen/Dockingstation, USV-Klassen
-      VFD/VI/VFI nach IEC 62040-3, Auto-ID Barcode/QR/RFID/NFC (3.4);
-      Green IT/Energy Star, Ergonomie/Arbeitsstättenverordnung (3.5)
+      VFD/VI/VFI nach IEC 62040-3 + Scheinleistung (USV-Grundfunktion ist
+      bereits über `it-sicherheit/rto-rpo-verfuegbarkeit` abgedeckt),
+      Auto-ID Barcode/QR/RFID/NFC (3.4); Green IT/Energy Star,
+      Ergonomie/Arbeitsstättenverordnung (3.5)
 - [ ] **Modul 4 – Netzwerktechnik**: komplett kein Altmaterial außer dem
       VPN-Teilinhalt (Thema 4.4) — betrifft ISO/OSI vs. TCP/IP,
       Netzwerkkomponenten, Topologien/VLAN/PoE/QoS, IPv4/Subnetting, IPv6,
@@ -84,11 +86,12 @@ Modul, zur Priorisierung von Phase 5:
       Verkabelung, Internetzugang/DSL, Diagnose-Tools (ping/tracert/…),
       VPN-Grundlagen (eigene Einheit, TLS-Teil ist bereits migriert),
       Virtualisierung, Container, Cloud (Themen 4.1–4.5 komplett)
-- [ ] **Modul 5 – IT-Sicherheit**: physische Sicherheit/Redundanz/Klima (5.4,
-      Zutritt/Zugang/Zugriff-Teil bereits über TOMs abgedeckt);
-      Datensicherung vs. Datensicherheit vs. Datenschutz,
-      Datenträgerentsorgung (5.5). Erledigt: Endpoint-Security (5.3),
-      Betriebssystem-Härtung (5.4), Passwort-Komplexität/Captcha/PIN/TAN (5.4)
+- [ ] **Modul 5 – IT-Sicherheit**: Datensicherung vs. Datensicherheit vs.
+      Datenschutz, Datenträgerentsorgung (5.5) — letzte offene Lücke ohne
+      Quellmaterial im gesamten Modul 5. Erledigt: Endpoint-Security (5.3),
+      Betriebssystem-Härtung, Passwort-Komplexität/Captcha/PIN/TAN,
+      physische Sicherheit/Redundanz/Klima (5.4), Backup-Arten, RTO/RPO/
+      Verfügbarkeit (5.5)
 - [ ] **Modul 6 – Datenschutz & Recht**: Persönlichkeitsrechte (6.1);
       Thema 6.2 Verträge & Lizenzen komplett; Thema 6.3 Barrierefreiheit &
       Normen komplett

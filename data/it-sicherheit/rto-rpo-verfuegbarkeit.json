@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/rto-rpo-verfuegbarkeit",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "In welcher Reihenfolge laufen die fünf Phasen eines Vorfalls im Business Continuity Management ab?",
+      "options": [
+        "Erkennung → Vorbereitung → Behebung → Eindämmung → Nachbereitung",
+        "Vorbereitung → Erkennung → Eindämmung → Behebung → Nachbereitung",
+        "Nachbereitung → Vorbereitung → Erkennung → Eindämmung → Behebung",
+        "Eindämmung → Erkennung → Vorbereitung → Nachbereitung → Behebung"
+      ],
+      "answer": 1,
+      "explanation": "Der klassische Ablauf ist: Vorbereitung, Erkennung, Eindämmung, Behebung, Nachbereitung (Lessons Learned)."
+    },
+    {
+      "id": "q2",
+      "question": "Was beschreibt die Kennzahl RTO (Recovery Time Objective)?",
+      "options": [
+        "Wie viel Datenverlust maximal tolerierbar ist",
+        "Wie lange ein Ausfall maximal dauern darf, bis der Betrieb wiederhergestellt ist",
+        "Wie oft ein Backup durchgeführt werden muss",
+        "Die Anzahl der Redundanzstufen eines Systems"
+      ],
+      "answer": 1,
+      "explanation": "RTO legt fest, wie schnell nach einem Ausfall wieder alles laufen muss — der Blick nach vorn."
+    },
+    {
+      "id": "q3",
+      "question": "Was beschreibt die Kennzahl RPO (Recovery Point Objective)?",
+      "options": [
+        "Wie lange der Wiederanlauf maximal dauern darf",
+        "Wie viel Datenverlust maximal tolerierbar ist und wie oft entsprechend gesichert werden muss",
+        "Die maximale Anzahl gleichzeitiger Nutzer eines Systems",
+        "Die Kapazität einer USV in Kilowattstunden"
+      ],
+      "answer": 1,
+      "explanation": "RPO bestimmt die Backup-Frequenz: Ein RPO von 1 Stunde bedeutet maximal 1 Stunde Datenverlust — der Blick zurück."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Unternehmen fordert maximal 4 Stunden Ausfallzeit und maximal 1 Stunde Datenverlust. Wie lauten RTO und RPO?",
+      "options": [
+        "RTO = 1 Stunde, RPO = 4 Stunden",
+        "RTO = 4 Stunden, RPO = 1 Stunde",
+        "RTO = RPO = 4 Stunden",
+        "RTO und RPO lassen sich aus diesen Angaben nicht bestimmen"
+      ],
+      "answer": 1,
+      "explanation": "RTO betrifft die Ausfallzeit (4 Stunden), RPO den tolerierbaren Datenverlust (1 Stunde)."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür sorgt eine USV (Unterbrechungsfreie Stromversorgung) in erster Linie?",
+      "options": [
+        "Sie verschlüsselt Daten bei einem Stromausfall",
+        "Sie überbrückt kurze Stromausfälle per Akku, damit Systeme geordnet heruntergefahren werden können",
+        "Sie ersetzt vollständig ein Backup-System",
+        "Sie erhöht dauerhaft die Rechenleistung der Server"
+      ],
+      "answer": 1,
+      "explanation": "Eine USV überbrückt Stromausfälle, bis ein Notstromaggregat anspringt oder ein geordnetes Herunterfahren möglich ist."
+    },
+    {
+      "id": "q6",
+      "question": "Wie viel Ausfallzeit pro Jahr erlaubt eine Verfügbarkeit von 'fünf Neunen' (99,999 %) ungefähr?",
+      "options": [
+        "Etwa 5 Minuten",
+        "Etwa 8,8 Stunden",
+        "Etwa 5 Tage",
+        "Etwa 5 Wochen"
+      ],
+      "answer": 0,
+      "explanation": "99,999 % Verfügbarkeit ('fünf Neunen') erlaubt nur etwa 5 Minuten Ausfall pro Jahr, deutlich weniger als 'drei Neunen' (99,9 % ≈ 8,8 Stunden)."
+    },
+    {
+      "id": "q7",
+      "question": "Warum ist ein ungeübter Notfallplan riskant, selbst wenn er inhaltlich vollständig ist?",
+      "options": [
+        "Weil Notfallpläne rechtlich nach einem Jahr automatisch ungültig werden",
+        "Weil sich im Ernstfall erst zeigt, ob z. B. ein Backup überhaupt wiederherstellbar ist",
+        "Weil ungeübte Pläne die RTO automatisch verlängern",
+        "Weil Notfallpläne ausschließlich für Großunternehmen vorgeschrieben sind"
+      ],
+      "answer": 1,
+      "explanation": "Ohne regelmäßige Tests zeigt sich oft erst im Ernstfall, dass etwa ein Backup fehlerhaft oder unvollständig ist."
+    }
+  ]
+}

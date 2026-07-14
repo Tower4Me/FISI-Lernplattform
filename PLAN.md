@@ -183,9 +183,9 @@ Format je Zeile: **[Status] Einheit** — Prio · Tags
 - [ ] Desktop/Notebook/Tablet/Thin vs. Fat Client, Dockingstation — P2 · Kern · AP1
   → kein Quellmaterial in alt/, noch zu erstellen (siehe ROADMAP TODO)
 - [ ] USV (VFD/VI/VFI, Scheinleistung, IEC 62040-3) — P2 · Kern · beides
-  → Teilinhalt (USV allgemein) in alt SEC (m7s2 RTO/RPO&USV), primär migriert nach
-    `it-sicherheit/rto-rpo-verfuegbarkeit`; IEC-62040-3-Klassen (VFD/VI/VFI) fehlen,
-    beim Schreiben ergänzen
+  → USV-Grundfunktion bereits in `it-sicherheit/rto-rpo-verfuegbarkeit` behandelt
+    (Quelle: alt SEC m7s2); IEC-62040-3-Klassen (VFD/VI/VFI) und Scheinleistung
+    fehlen weiterhin, eigener Ergänzungsschritt nötig
 - [ ] Auto-ID: Barcode, QR, RFID, NFC, Asset/Service Tag — P3 · Kern · AP1
   → kein Quellmaterial in alt/, noch zu erstellen (siehe ROADMAP TODO)
 
@@ -288,16 +288,17 @@ Format je Zeile: **[Status] Einheit** — Prio · Tags
   → Einheit `it-sicherheit/berechtigungskonzepte` (Quelle: alt SEC m4s3)
 - [x] Betriebssystem-Härtung — P3 · Kern · beides
   → Einheit `it-sicherheit/betriebssystem-haertung` (kein Quellmaterial in alt/, originär verfasst)
-- [ ] Zutritt/Zugang/Zugriff, physische Sicherheit, Redundanz, Klima — P2 (AP1) · Kern · beides
+- [x] Zutritt/Zugang/Zugriff, physische Sicherheit, Redundanz, Klima — P2 (AP1) · Kern · beides
   → Zutritt/Zugang/Zugriff bereits über `it-sicherheit/toms` abgedeckt;
-    physische Sicherheit/Redundanz/Klima fehlen, noch zu erstellen
+    physische Sicherheit/Redundanz/Klima jetzt in Einheit
+    `it-sicherheit/physische-sicherheit` (kein Quellmaterial in alt/, originär verfasst)
 
 ## Thema 5.5 Datensicherung
-- [ ] Backup-Arten (Voll/inkrementell/differenziell), Generationenprinzip — P1 (AP2) · Kern · beides
+- [x] Backup-Arten (Voll/inkrementell/differenziell), Generationenprinzip — P1 (AP2) · Kern · beides
   → Einheit `it-sicherheit/backup-arten` (Quelle: alt SEC m6s3)
-- [ ] RTO/RPO, 3-2-1-Regel, Hot/Cold Backup, Medien — P1 (AP2) · Kern · AP2
+- [x] RTO/RPO, 3-2-1-Regel, Hot/Cold Backup, Medien — P1 (AP2) · Kern · AP2
   → Einheit `it-sicherheit/rto-rpo-verfuegbarkeit` (Quelle: alt SEC m7s1+m7s2,
-    inkl. USV-Teilinhalt aus Modul 3.4)
+    inkl. USV-Teilinhalt; VFD/VI/VFI-IEC-62040-3-Klassen aus Modul 3.4 fehlen weiterhin)
 - [ ] Datensicherung vs. Datensicherheit vs. Datenschutz, Datenträgerentsorgung — P3 · Kern · beides
   → kein Quellmaterial in alt/, noch zu erstellen (siehe ROADMAP TODO)
 

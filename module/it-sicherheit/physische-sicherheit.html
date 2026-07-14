@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Physische Sicherheit & Redundanz</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Physische Sicherheit & Redundanz</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Physische Sicherheit & Redundanz
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Bank-Tresorraum schützt sich nicht nur mit einer dicken Tür.
+        Bewegungsmelder, eine Löschanlage, die die Wertsachen nicht selbst
+        zerstört, ein Klimasystem, das Schimmel und Korrosion verhindert,
+        und eine zweite, unabhängige Stromversorgung für die Tresortür,
+        falls die erste ausfällt. Ein Serverraum braucht genau dieselbe
+        Denkweise: Die Firewall schützt vor Angriffen über das Netz, aber
+        gegen Einbruch, Feuer, Hitze oder Stromausfall helfen nur
+        <strong>physische</strong> Schutzmaßnahmen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Die Zutrittskontrolle als Kontrollbereich ist bereits aus den TOMs
+        bekannt (Zutritt = physisch in den Raum). Für Serverräume und
+        Rechenzentren kommen dazu vertiefte Maßnahmen, die über eine
+        einfache abschließbare Tür hinausgehen:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Maßnahme</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Vereinzelungsanlage (Mantrap)</strong></td><td>Schleuse, die nur eine Person gleichzeitig durchlässt — verhindert Tailgating (unbefugtes „Mitschlüpfen“ hinter einer berechtigten Person)</td></tr>
+          <tr><td><strong>Biometrische Verfahren</strong></td><td>Fingerabdruck, Iris-Scan — Faktor „Sein“, schwer zu kopieren</td></tr>
+          <tr><td><strong>Videoüberwachung</strong></td><td>Abschreckung und Nachvollziehbarkeit (Zurechenbarkeit) bei Vorfällen</td></tr>
+          <tr><td><strong>Zonenkonzept</strong></td><td>Mehrere Sicherheitszonen von außen nach innen (Empfang → Bürobereich → Serverraum), analog zum Schalenmodell</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Brandschutz</h3>
+      <p>
+        Klassische Sprinkleranlagen mit Wasser sind in Serverräumen
+        problematisch: Wasser zerstört Hardware genauso zuverlässig wie
+        das Feuer selbst. Rechenzentren setzen stattdessen auf
+        <strong>Gaslöschanlagen</strong> (Inertgase wie Argon/Stickstoff
+        oder chemische Löschmittel), die dem Feuer den Sauerstoff entziehen,
+        ohne die Geräte zu beschädigen. Sehr frühe Branderkennung
+        (Rauchansaugsysteme) erkennt Schwelbrände oft schon, bevor
+        sichtbarer Rauch entsteht.
+      </p>
+
+      <h3>Klimatisierung</h3>
+      <p>
+        Server erzeugen erhebliche Abwärme. Empfohlen wird ein
+        Temperaturbereich von etwa <strong>18–27 °C</strong> und eine
+        Luftfeuchtigkeit von etwa <strong>40–60 %</strong>: Zu trockene
+        Luft begünstigt elektrostatische Entladungen (ESD), zu feuchte
+        Luft Kondensation und Korrosion. Größere Rechenzentren nutzen das
+        <strong>Kaltgang-/Warmgang-Prinzip</strong> (Hot Aisle/Cold Aisle):
+        Serverschränke werden abwechselnd so ausgerichtet, dass kalte
+        Zuluft und warme Abluft getrennt bleiben und die Kühlung effizient
+        arbeitet.
+      </p>
+
+      <h3>Redundanz</h3>
+      <p>
+        Redundanz bedeutet, kritische Komponenten mehrfach vorzuhalten,
+        damit der Ausfall einer Komponente den Betrieb nicht unterbricht.
+        Üblich ist folgende Notation:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Stufe</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>N</strong></td><td>Genau bedarfsgerecht dimensioniert, kein Reserve-Element</td></tr>
+          <tr><td><strong>N+1</strong></td><td>Ein zusätzliches Reserve-Element über den Bedarf hinaus (z. B. eine zusätzliche USV)</td></tr>
+          <tr><td><strong>2N</strong></td><td>Vollständige Verdopplung, zwei komplett unabhängige Systeme (z. B. zwei getrennte Stromzuführungen)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Redundanz betrifft nicht nur Strom, sondern auch Kühlung und
+        Netzanbindung — eine redundante Internetanbindung über zwei
+        unabhängige Provider verhindert, dass der Ausfall eines einzelnen
+        Anbieters das Rechenzentrum vom Netz trennt.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus plant den neuen Serverraum für einen
+        mittelständischen Kunden:
+      </p>
+      <ul>
+        <li>Der Zugang erfolgt über eine <strong>Vereinzelungsanlage</strong> mit Chipkarte und PIN, damit niemand einer berechtigten Person unbemerkt hinterherlaufen kann.</li>
+        <li>Statt einer Wasser-Sprinkleranlage wird eine <strong>Gaslöschanlage</strong> installiert, um im Brandfall die Server nicht zusätzlich durch Löschwasser zu zerstören.</li>
+        <li>Die Klimaanlage hält Temperatur und Luftfeuchtigkeit im empfohlenen Bereich und ist nach dem <strong>Kaltgang-/Warmgang-Prinzip</strong> ausgerichtet.</li>
+        <li>Die Stromversorgung ist als <strong>N+1</strong> ausgelegt: Eine zusätzliche USV kann jederzeit eine ausgefallene Einheit übernehmen, ohne dass der Betrieb unterbrochen wird.</li>
+        <li>Zwei unabhängige Internetanbieter sorgen für redundante Netzanbindung, falls einer der Anbieter großflächig ausfällt.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Physische Sicherheit ergänzt IT-Sicherheit: Vereinzelungsanlage
+        gegen Tailgating, Gaslöschanlage statt Wasser, Klima im
+        18–27 °C-/40–60 %-Bereich mit Kaltgang-/Warmgang-Prinzip.
+        Redundanzstufen: N (kein Puffer), N+1 (eine Reserve), 2N
+        (vollständige Verdopplung).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/physische-sicherheit.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

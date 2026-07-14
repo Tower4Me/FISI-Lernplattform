@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Endpoint-Security</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Endpoint-Security</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Endpoint-Security
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Firewall ist wie die Pförtnerloge am Werkstor: Sie kontrolliert,
+        wer überhaupt aufs Gelände kommt. Aber was ist, wenn jemand mit
+        einem präparierten USB-Stick oder über ein infiziertes E-Mail-Anhang
+        trotzdem an einem einzelnen Schreibtisch landet? Dann braucht genau
+        dieser Schreibtisch – der <strong>Endpoint</strong> – eine eigene
+        Wache. Endpoint-Security ist der Schutz direkt am Gerät, nicht am
+        Netzwerkrand.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein <strong>Endpoint</strong> ist jedes Endgerät, das mit dem
+        Netzwerk verbunden ist und potenziell angegriffen werden kann:
+        Notebook, PC, Smartphone, Server, aber auch Drucker oder IoT-Geräte.
+        <strong>Endpoint-Security</strong> bündelt alle Schutzmaßnahmen, die
+        direkt auf diesen Geräten laufen – als Ergänzung zu Netzwerkschutz
+        wie Firewall und DMZ, nicht als Ersatz dafür.
+      </p>
+
+      <h3>Virenscanner: signaturbasiert vs. verhaltensbasiert</h3>
+      <table>
+        <thead>
+          <tr><th>Ansatz</th><th>Funktionsweise</th><th>Schwäche</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Signaturbasiert</strong></td><td>Vergleicht Dateien mit einer Datenbank bekannter Schadsoftware-„Fingerabdrücke“</td><td>Erkennt nur bereits bekannte Malware, braucht aktuelle Updates</td></tr>
+          <tr><td><strong>Heuristisch / verhaltensbasiert</strong></td><td>Beobachtet, was ein Programm tut (z. B. massenhaft Dateien verschlüsseln) und schlägt bei verdächtigem Verhalten Alarm</td><td>Kann auch Fehlalarme (False Positives) erzeugen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Moderne Lösungen kombinieren beides und heißen oft
+        <strong>EDR</strong> (Endpoint Detection and Response): Sie erkennen
+        nicht nur einen Befall, sondern protokollieren den Ablauf und können
+        automatisch reagieren, etwa ein Gerät vom Netz trennen, bevor sich
+        eine Ransomware weiter ausbreitet.
+      </p>
+
+      <h3>Datenträgerverschlüsselung</h3>
+      <p>
+        Ein Virenscanner schützt vor Schadsoftware – aber nicht davor, dass
+        ein gestohlenes oder verlorenes Gerät seine Daten preisgibt. Wird
+        die Festplatte ausgebaut und in ein anderes System eingebaut, ist
+        ein einfaches Windows-Passwort wirkungslos. Genau hier setzt
+        <strong>Datenträgerverschlüsselung</strong> an (Schutzziel:
+        Vertraulichkeit bei physischem Zugriff):
+      </p>
+      <table>
+        <thead>
+          <tr><th>System</th><th>Bordmittel-Verschlüsselung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Windows</td><td>BitLocker</td></tr>
+          <tr><td>macOS</td><td>FileVault</td></tr>
+          <tr><td>Linux</td><td>LUKS (Linux Unified Key Setup)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Ohne den passenden Schlüssel (meist an ein Nutzerpasswort oder ein
+        Trusted Platform Module, TPM, gekoppelt) bleiben die Daten auf der
+        Festplatte unlesbar, selbst wenn sie physisch entfernt wird.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Einem Außendienstmitarbeiter der „Kellner Consulting GmbH“ wird auf
+        einer Zugfahrt das Firmennotebook gestohlen.
+      </p>
+      <ul>
+        <li>Da <strong>BitLocker</strong> auf dem Gerät aktiv war, bleibt die gesamte Festplatte verschlüsselt – der Dieb kommt weder über das Windows-Login noch durch Ausbau der Festplatte an die Kundendaten.</li>
+        <li>Wäre die Festplatte unverschlüsselt gewesen, hätte der Dieb sie einfach ausbauen und in einem anderen Rechner als Zweitlaufwerk einbinden können – das Windows-Passwort schützt dabei nichts, da es nur den Login-Bildschirm sperrt, nicht die Daten selbst.</li>
+        <li>Der auf dem Notebook installierte EDR-Agent meldet den fehlenden Verbindungsaufbau zur Firmen-IT als Anomalie gemeldet und markiert das Gerät automatisch als „kompromittiert“, sodass IT-Zugänge dieses Nutzers zentral gesperrt werden können.</li>
+        <li>Ein klassischer, rein signaturbasierter Virenscanner hätte den Diebstahl selbst nicht erkannt – er schützt vor Schadsoftware, nicht vor physischem Verlust. Deshalb ergänzen sich Virenscanner/EDR und Datenträgerverschlüsselung.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Endpoint-Security schützt das einzelne Gerät, nicht nur den
+        Netzwerkrand. Virenscanner: signaturbasiert (bekannte Schädlinge)
+        vs. verhaltensbasiert/EDR (verdächtiges Verhalten). Datenträger-
+        verschlüsselung (BitLocker/FileVault/LUKS) schützt Daten bei
+        physischem Geräteverlust – das kann kein Virenscanner leisten.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/endpoint-security.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

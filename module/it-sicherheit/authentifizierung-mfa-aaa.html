@@ -82,6 +82,47 @@
         Passwort-Manager, dazu MFA wo immer möglich.
       </p>
 
+      <h3>Passwort-Komplexität berechnen</h3>
+      <p>
+        Wie lange ein systematisches Durchprobieren (Brute-Force) dauert,
+        hängt von der Anzahl möglicher Kombinationen ab. Diese ergibt sich
+        aus <strong>Zeichenraum<sup>Länge</sup></strong>: Je größer der
+        Zeichenraum (welche Zeichenarten erlaubt sind) und je länger das
+        Passwort, desto mehr Kombinationen muss ein Angreifer testen.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Zeichenraum</th><th>Länge</th><th>Mögliche Kombinationen</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nur Ziffern (10 Zeichen)</td><td>4</td><td>10<sup>4</sup> = 10.000</td></tr>
+          <tr><td>Kleinbuchstaben (26 Zeichen)</td><td>8</td><td>26<sup>8</sup> ≈ 209 Milliarden</td></tr>
+          <tr><td>Groß-/Kleinbuchstaben, Ziffern, Sonderzeichen (~94 Zeichen)</td><td>12</td><td>94<sup>12</sup> ≈ 4,7 · 10<sup>23</sup></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Jedes zusätzliche Zeichen in der <strong>Länge</strong> wirkt
+        multiplikativ und damit stärker auf die Kombinationszahl als ein
+        größerer Zeichenraum bei gleicher Länge – das erklärt, warum
+        „Länge schlägt Komplexität“ mehr ist als eine Faustregel.
+      </p>
+
+      <h3>Captcha, PIN und TAN</h3>
+      <p>
+        Drei Begriffe, die oft mit Authentifizierung verwechselt werden,
+        aber unterschiedliche Aufgaben haben:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Captcha</strong></td><td>Unterscheidet Mensch von Bot bei Formularen/Logins, um automatisierte Angriffe (Brute-Force, Massen-Registrierung) zu erschweren. Kein eigener Authentifizierungsfaktor.</td></tr>
+          <tr><td><strong>PIN</strong> (Persönliche Identifikationsnummer)</td><td>Kurzer Wissensfaktor, fast immer in Kombination mit einem Besitzfaktor genutzt (z. B. Bankkarte + PIN = Besitz + Wissen).</td></tr>
+          <tr><td><strong>TAN</strong> (Transaktionsnummer)</td><td>Einmalkennwort für genau eine Aktion (z. B. eine Überweisung). Nach einmaliger Nutzung wertlos, moderne Verfahren (mTAN/pushTAN) sind zusätzlich zeit- und transaktionsgebunden.</td></tr>
+        </tbody>
+      </table>
+
       <h3>AAA: Authentication, Authorization, Accounting</h3>
       <p>
         In Netzwerken fasst man Zugangskontrolle oft als <strong>AAA</strong>
@@ -128,6 +169,8 @@
         <li>Ein Kollege schlägt vor, stattdessen Passwort plus eine zusätzliche Sicherheitsfrage zu verlangen → wird abgelehnt, da beides derselbe Faktor „Wissen“ ist und keine echte MFA darstellt.</li>
         <li>Über einen zentralen Login-Dienst (SSO) erhalten Mitarbeiter nach einer Anmeldung automatisch Zugriff auf E-Mail, Zeiterfassung und internes Wiki. Weil ein einziges kompromittiertes Konto damit mehrere Systeme öffnen würde, wird SSO verpflichtend mit MFA kombiniert.</li>
         <li>Für den Zugang der Netzwerk-Switches zur zentralen Administration wird TACACS+ eingesetzt, weil es Authentifizierung, Autorisierung und Accounting sauber trennt und jede Konfigurationsänderung protokolliert (Accounting).</li>
+        <li>Beim Online-Banking-Portal des Kunden wird jede Überweisung zusätzlich mit einer <strong>pushTAN</strong> bestätigt → selbst ein abgefangenes Passwort reicht Angreifern nicht, da die TAN nur für diese eine Transaktion gilt.</li>
+        <li>Das Kontaktformular der Firmenwebsite bekommt ein <strong>Captcha</strong>, nachdem automatisierte Bots massenhaft Spam-Anfragen abgeschickt hatten → kein Authentifizierungsfaktor, aber wirksam gegen automatisierte Angriffe.</li>
       </ul>
     </section>
 
@@ -136,9 +179,12 @@
       <h2>Merksatz</h2>
       <p>
         Drei Faktorarten: Wissen, Besitz, Sein. Echte MFA kombiniert
-        unterschiedliche Faktorarten, nicht zweimal denselben. AAA = wer
-        bist du, was darfst du, was hast du getan. SSO spart Logins,
-        braucht aber zwingend MFA als Ausgleich für das erhöhte Risiko.
+        unterschiedliche Faktorarten, nicht zweimal denselben. Passwort-
+        Stärke = Zeichenraum<sup>Länge</sup>, Länge wirkt stärker als
+        Komplexität. Captcha erkennt Bots, PIN ist ein kurzer Wissensfaktor,
+        TAN ein Einmalkennwort pro Transaktion. AAA = wer bist du, was
+        darfst du, was hast du getan. SSO spart Logins, braucht aber
+        zwingend MFA als Ausgleich für das erhöhte Risiko.
       </p>
     </section>
 

@@ -96,6 +96,13 @@
           "quiz": "data/it-sicherheit/firewall-dmz.json"
         },
         {
+          "slug": "endpoint-security",
+          "name": "Endpoint-Security",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/endpoint-security.json"
+        },
+        {
           "slug": "authentifizierung-mfa-aaa",
           "name": "Authentifizierung, MFA & AAA",
           "importance": "kern",
@@ -108,6 +115,13 @@
           "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/berechtigungskonzepte.json"
+        },
+        {
+          "slug": "betriebssystem-haertung",
+          "name": "Betriebssystem-Härtung",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/betriebssystem-haertung.json"
         }
       ]
     },

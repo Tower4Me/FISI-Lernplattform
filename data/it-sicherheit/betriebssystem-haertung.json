@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/betriebssystem-haertung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist das Leitprinzip der Betriebssystem-Härtung?",
+      "options": [
+        "Möglichst viele Sicherheitsprogramme parallel installieren",
+        "Die minimale Angriffsfläche: alles Unnötige deaktivieren oder entfernen",
+        "Regelmäßiges Neuinstallieren des gesamten Systems",
+        "Alle Benutzerkonten mit Administratorrechten ausstatten"
+      ],
+      "answer": 1,
+      "explanation": "Härtung folgt dem Prinzip der minimalen Angriffsfläche: Alles, was nicht gebraucht wird, wird deaktiviert."
+    },
+    {
+      "id": "q2",
+      "question": "Warum werden Standardkonten wie 'Administrator' oder 'root' häufig umbenannt oder deaktiviert?",
+      "options": [
+        "Weil sie technisch nicht funktionieren",
+        "Weil sie Angreifern als bekanntes Angriffsziel dienen",
+        "Weil das Betriebssystem sie automatisch löscht",
+        "Weil sie ausschließlich für Backups genutzt werden"
+      ],
+      "answer": 1,
+      "explanation": "Standardkonten sind als Angriffsziel bekannt, deshalb werden sie umbenannt, deaktiviert oder zumindest mit starken Zugangsdaten abgesichert."
+    },
+    {
+      "id": "q3",
+      "question": "Was bezeichnen CIS Benchmarks?",
+      "options": [
+        "Geprüfte, dokumentierte Konfigurationsvorlagen für eine sichere Grundeinstellung",
+        "Eine Liste bekannter Schadsoftware-Signaturen",
+        "Ein Protokoll zur Verschlüsselung von Netzwerkverkehr",
+        "Ein Zertifizierungsverfahren ausschließlich für Firewalls"
+      ],
+      "answer": 0,
+      "explanation": "CIS Benchmarks sind vom Center for Internet Security veröffentlichte Baseline-Konfigurationen für verschiedene Betriebssysteme und Anwendungen."
+    },
+    {
+      "id": "q4",
+      "question": "Warum ist zeitnahes Patch-Management Teil der Betriebssystem-Härtung?",
+      "options": [
+        "Weil Updates die Leistung des Systems verringern und Angriffe dadurch erschweren",
+        "Weil bekannte, aber ungepatchte Sicherheitslücken ein offenes Einfallstor bleiben",
+        "Weil Patch-Management gesetzlich vorgeschrieben, aber sicherheitstechnisch irrelevant ist",
+        "Weil Updates automatisch alle offenen Ports schließen"
+      ],
+      "answer": 1,
+      "explanation": "Ungepatchte, öffentlich bekannte Schwachstellen sind ein häufiger Angriffsweg — zeitnahes Einspielen von Updates schließt sie."
+    },
+    {
+      "id": "q5",
+      "question": "Warum werden Server typischerweise strenger gehärtet als Client-Rechner?",
+      "options": [
+        "Weil Server keine Updates benötigen",
+        "Weil Server einen klar definierten Zweck haben und entsprechend mehr Funktionen abschalten können",
+        "Weil Client-Rechner grundsätzlich nicht gehärtet werden dürfen",
+        "Weil Server nie mit dem Internet verbunden sind"
+      ],
+      "answer": 1,
+      "explanation": "Ein Server mit klarem Einsatzzweck (z. B. nur Webserver) kann fast alles Unnötige deaktivieren, während ein Client-PC flexibler bleiben muss."
+    },
+    {
+      "id": "q6",
+      "question": "Ein neuer Webserver soll gehärtet werden. Welche Maßnahme passt NICHT zum Prinzip der minimalen Angriffsfläche?",
+      "options": [
+        "Nur Port 443 in der Firewall freigeben",
+        "Alle nicht benötigten vorinstallierten Dienste deaktivieren",
+        "Zusätzlich alle Standardports für Fernwartung dauerhaft offen lassen, falls sie mal gebraucht werden",
+        "Nicht benötigte Software deinstallieren"
+      ],
+      "answer": 2,
+      "explanation": "Offene, ungenutzte Ports „auf Vorrat“ widersprechen dem Prinzip der minimalen Angriffsfläche — nur tatsächlich benötigte Ports bleiben offen."
+    }
+  ]
+}

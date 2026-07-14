@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/endpoint-security",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was versteht man unter einem 'Endpoint' in der IT-Sicherheit?",
+      "options": [
+        "Nur den letzten Router vor dem Internet",
+        "Jedes Endgerät, das mit dem Netzwerk verbunden ist (PC, Notebook, Smartphone, Server, IoT)",
+        "Ausschließlich Webserver in einer DMZ",
+        "Eine Firewall-Regel am Netzwerkrand"
+      ],
+      "answer": 1,
+      "explanation": "Ein Endpoint ist jedes ans Netzwerk angeschlossene Endgerät, das potenziell angegriffen werden kann."
+    },
+    {
+      "id": "q2",
+      "question": "Worin unterscheidet sich ein signaturbasierter von einem verhaltensbasierten Virenscanner?",
+      "options": [
+        "Signaturbasiert erkennt nur bekannte Malware anhand bekannter Muster, verhaltensbasiert beobachtet verdächtiges Verhalten",
+        "Verhaltensbasiert braucht ständig neue Signatur-Updates, signaturbasiert nicht",
+        "Beide Ansätze funktionieren identisch, nur der Name unterscheidet sich",
+        "Signaturbasierte Scanner können nur auf Servern eingesetzt werden"
+      ],
+      "answer": 0,
+      "explanation": "Signaturbasierte Scanner vergleichen mit bekannten Mustern, verhaltensbasierte erkennen verdächtige Aktionen auch bei unbekannter Malware."
+    },
+    {
+      "id": "q3",
+      "question": "Wofür steht die Abkürzung EDR?",
+      "options": [
+        "Endpoint Detection and Response",
+        "External Data Recovery",
+        "Encrypted Disk Repository",
+        "Enterprise Domain Registration"
+      ],
+      "answer": 0,
+      "explanation": "EDR (Endpoint Detection and Response) erkennt Angriffe auf Endgeräten und kann automatisiert reagieren, z. B. ein Gerät isolieren."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Notebook wird gestohlen. Was schützt die Daten auf der Festplatte, selbst wenn diese ausgebaut wird?",
+      "options": [
+        "Ein signaturbasierter Virenscanner",
+        "Datenträgerverschlüsselung (z. B. BitLocker)",
+        "Ein starkes Windows-Anmeldepasswort allein",
+        "Eine aktivierte Firewall auf dem Notebook"
+      ],
+      "answer": 1,
+      "explanation": "Nur eine Verschlüsselung der gesamten Festplatte schützt Daten auch dann, wenn die Festplatte physisch ausgebaut und anderswo eingebaut wird."
+    },
+    {
+      "id": "q5",
+      "question": "Welches Bordmittel verschlüsselt Datenträger unter macOS?",
+      "options": [
+        "BitLocker",
+        "LUKS",
+        "FileVault",
+        "TPM"
+      ],
+      "answer": 2,
+      "explanation": "FileVault ist die Datenträgerverschlüsselung von macOS. BitLocker ist Windows, LUKS ist Linux."
+    },
+    {
+      "id": "q6",
+      "question": "Warum reicht ein reiner Virenscanner nicht aus, um Daten bei Diebstahl eines Notebooks zu schützen?",
+      "options": [
+        "Weil Virenscanner ausschließlich auf Servern laufen",
+        "Weil ein Virenscanner vor Schadsoftware schützt, nicht aber vor physischem Auslesen einer unverschlüsselten Festplatte",
+        "Weil Virenscanner Datenträger automatisch verschlüsseln",
+        "Weil Diebstahl kein Sicherheitsrisiko im Sinne der CIA-Triade darstellt"
+      ],
+      "answer": 1,
+      "explanation": "Virenscanner und Datenträgerverschlüsselung adressieren unterschiedliche Risiken und ergänzen sich, ersetzen sich aber nicht."
+    }
+  ]
+}

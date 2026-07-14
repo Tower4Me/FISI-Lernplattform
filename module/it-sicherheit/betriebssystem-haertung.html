@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Betriebssystem-Härtung</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Betriebssystem-Härtung</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Betriebssystem-Härtung
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Bevor eine Familie in den Urlaub fährt, geht sie die Wohnung durch:
+        alle Fenster zu, die selten genutzte Kellertür extra verriegeln, den
+        Ersatzschlüssel beim Nachbarn nicht mehr sichtbar unter der
+        Fußmatte liegen lassen. Nichts davon macht die Wohnung „sicherer im
+        Alltag“ – es reduziert nur die Anzahl der Wege, über die jemand
+        unbefugt hineinkommen könnte. Genau das ist <strong>Härtung</strong>
+        bei einem Betriebssystem: jede unnötige Tür schließen, bevor sie
+        zum Problem wird.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>Betriebssystem-Härtung</strong> (Hardening) bedeutet, ein
+        System so zu konfigurieren, dass es möglichst wenige Angriffsflächen
+        bietet. Leitprinzip ist die <strong>minimale Angriffsfläche</strong>
+        (Attack Surface Reduction): Alles, was nicht gebraucht wird, ist ein
+        potenzielles Risiko und wird deaktiviert oder entfernt.
+      </p>
+
+      <h3>Typische Härtungsmaßnahmen</h3>
+      <table>
+        <thead>
+          <tr><th>Maßnahme</th><th>Warum</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Unnötige Dienste/Prozesse deaktivieren</td><td>Jeder laufende Dienst ist ein möglicher Angriffspunkt, auch wenn er nie genutzt wird</td></tr>
+          <tr><td>Standardkonten umbenennen/deaktivieren</td><td>Konten wie „Administrator“ oder „root“ sind Angreifern als Ziel bekannt und werden zuerst angegriffen</td></tr>
+          <tr><td>Standardpasswörter sofort ändern</td><td>Werkseinstellungen sind öffentlich dokumentiert (Handbücher, Foren)</td></tr>
+          <tr><td>Nicht benötigte Software deinstallieren</td><td>Jede installierte Software kann eigene Schwachstellen mitbringen</td></tr>
+          <tr><td>Patch-Management: Updates zeitnah einspielen</td><td>Bekannte Sicherheitslücken werden sonst zum offenen Einfallstor</td></tr>
+          <tr><td>Nicht benötigte Netzwerk-Ports schließen</td><td>Jeder offene Port ist ein möglicher Angriffsvektor</td></tr>
+          <tr><td>Autostart-Programme prüfen</td><td>Schadsoftware nistet sich gern im Autostart ein, um Neustarts zu überleben</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Statt jede Maßnahme einzeln zu erfinden, orientieren sich
+        Unternehmen häufig an fertigen <strong>Baseline-Konfigurationen</strong>
+        wie den <strong>CIS Benchmarks</strong> (Center for Internet
+        Security) – dokumentierten, geprüften Konfigurationsvorlagen für
+        eine sichere Grundeinstellung verschiedener Betriebssysteme.
+      </p>
+
+      <p>
+        Server werden dabei in der Regel deutlich strenger gehärtet als
+        Client-Rechner: Ein Server hat einen klar definierten Zweck (z. B.
+        „nur Webserver“) und kann entsprechend fast alles Unnötige
+        abschalten, während ein Arbeitsplatz-PC flexibler bleiben muss, weil
+        Nutzer wechselnde Anwendungen brauchen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein neuer Server wird bei der „Vogler IT-Dienste GmbH“ für einen
+        Kunden aufgesetzt, der ausschließlich als Webserver dienen soll.
+      </p>
+      <ul>
+        <li>Der Administrator deaktiviert alle vorinstallierten Dienste, die nicht zum Webserver-Betrieb gehören (z. B. Dateifreigabe, Druckdienste).</li>
+        <li>Das Standardkonto „Administrator“ wird umbenannt und ein neues, individuelles Administrator-Konto mit langem Passwort und MFA angelegt.</li>
+        <li>Nur Port 443 (HTTPS) wird in der Firewall des Servers freigegeben, alle anderen Ports bleiben geschlossen – konsistent mit dem Prinzip der minimalen Angriffsfläche.</li>
+        <li>Ein automatisches Patch-Management-System spielt sicherheitsrelevante Updates innerhalb von 48 Stunden nach Veröffentlichung ein.</li>
+        <li>Die Konfiguration wird anschließend gegen einen CIS Benchmark für das eingesetzte Betriebssystem geprüft, um keine Standardeinstellung zu übersehen.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Nennen Sie drei Maßnahmen zur
+        Betriebssystem-Härtung eines neuen Servers.“ – Antwort z. B.:
+        unnötige Dienste deaktivieren, Standardkonten umbenennen,
+        zeitnahes Patch-Management.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Härtung = minimale Angriffsfläche: alles Unnötige deaktivieren,
+        entfernen oder schließen (Dienste, Konten, Ports, Software).
+        Baseline-Vorlagen wie CIS Benchmarks liefern geprüfte
+        Ausgangskonfigurationen. Server werden meist strenger gehärtet als
+        Client-Rechner.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/betriebssystem-haertung.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

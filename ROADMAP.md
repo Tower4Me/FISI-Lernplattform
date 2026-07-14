@@ -80,18 +80,16 @@ Modul, zur Priorisierung von Phase 5:
       Auto-ID Barcode/QR/RFID/NFC (3.4); Green IT/Energy Star,
       Ergonomie/Arbeitsstättenverordnung (3.5)
 - [ ] **Modul 4 – Netzwerktechnik**: komplett kein Altmaterial außer dem
-      VPN-Teilinhalt (Thema 4.4) — betrifft ISO/OSI vs. TCP/IP,
-      Netzwerkkomponenten, Topologien/VLAN/PoE/QoS, IPv4/Subnetting, IPv6,
-      MAC/ARP/APIPA, DHCP, DNS, TCP/UDP, Anwendungsprotokolle, WLAN,
-      Verkabelung, Internetzugang/DSL, Diagnose-Tools (ping/tracert/…),
-      VPN-Grundlagen (eigene Einheit, TLS-Teil ist bereits migriert),
-      Virtualisierung, Container, Cloud (Themen 4.1–4.5 komplett)
-- [ ] **Modul 5 – IT-Sicherheit**: Datensicherung vs. Datensicherheit vs.
-      Datenschutz, Datenträgerentsorgung (5.5) — letzte offene Lücke ohne
-      Quellmaterial im gesamten Modul 5. Erledigt: Endpoint-Security (5.3),
-      Betriebssystem-Härtung, Passwort-Komplexität/Captcha/PIN/TAN,
-      physische Sicherheit/Redundanz/Klima (5.4), Backup-Arten, RTO/RPO/
-      Verfügbarkeit (5.5)
+      VPN-Teilinhalt (Thema 4.4) — betrifft Topologien/VLAN/PoE/QoS,
+      IPv4/Subnetting, IPv6, MAC/ARP/APIPA, DHCP, DNS, TCP/UDP,
+      Anwendungsprotokolle, WLAN, Verkabelung, Internetzugang/DSL,
+      Diagnose-Tools (ping/tracert/…), VPN-Grundlagen (eigene Einheit,
+      TLS-Teil ist bereits migriert), Virtualisierung, Container, Cloud
+      (Themen 4.2–4.5). Erledigt: ISO/OSI vs. TCP/IP, Netzwerkkomponenten
+      (4.1, originär verfasst)
+- [x] **Modul 5 – IT-Sicherheit**: vollständig abgedeckt, keine offene
+      Lücke mehr. Datensicherung vs. Datensicherheit vs. Datenschutz (5.5)
+      war die letzte, jetzt originär verfasst.
 - [ ] **Modul 6 – Datenschutz & Recht**: Persönlichkeitsrechte (6.1);
       Thema 6.2 Verträge & Lizenzen komplett; Thema 6.3 Barrierefreiheit &
       Normen komplett

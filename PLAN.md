@@ -210,8 +210,10 @@ Format je Zeile: **[Status] Einheit** — Prio · Tags
 > (siehe ROADMAP TODO).
 
 ## Thema 4.1 Modelle & Grundlagen
-- [ ] ISO/OSI (7) vs. TCP/IP (4), Schichtzuordnung — P3 (AP1) / P2 (AP2) · Kern · beides
-- [ ] Netzwerkkomponenten (Hub/Bridge/Switch/Router) + Schichten — P2 (AP1) / P1 (AP2) · Kern · beides
+- [x] ISO/OSI (7) vs. TCP/IP (4), Schichtzuordnung — P3 (AP1) / P2 (AP2) · Kern · beides
+  → Einheit `netzwerktechnik/iso-osi-tcp-ip` (kein Quellmaterial in alt/, originär verfasst)
+- [x] Netzwerkkomponenten (Hub/Bridge/Switch/Router) + Schichten — P2 (AP1) / P1 (AP2) · Kern · beides
+  → Einheit `netzwerktechnik/netzwerkkomponenten` (kein Quellmaterial in alt/, originär verfasst)
 - [ ] Topologien, VLAN (tagged/untagged), PoE, QoS — P2 (AP2) · Kern · AP2
 
 ## Thema 4.2 Adressierung
@@ -299,8 +301,8 @@ Format je Zeile: **[Status] Einheit** — Prio · Tags
 - [x] RTO/RPO, 3-2-1-Regel, Hot/Cold Backup, Medien — P1 (AP2) · Kern · AP2
   → Einheit `it-sicherheit/rto-rpo-verfuegbarkeit` (Quelle: alt SEC m7s1+m7s2,
     inkl. USV-Teilinhalt; VFD/VI/VFI-IEC-62040-3-Klassen aus Modul 3.4 fehlen weiterhin)
-- [ ] Datensicherung vs. Datensicherheit vs. Datenschutz, Datenträgerentsorgung — P3 · Kern · beides
-  → kein Quellmaterial in alt/, noch zu erstellen (siehe ROADMAP TODO)
+- [x] Datensicherung vs. Datensicherheit vs. Datenschutz, Datenträgerentsorgung — P3 · Kern · beides
+  → Einheit `it-sicherheit/datensicherung-datenschutz` (kein Quellmaterial in alt/, originär verfasst)
 
 ---
 

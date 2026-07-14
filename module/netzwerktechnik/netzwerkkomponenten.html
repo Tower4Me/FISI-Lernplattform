@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Netzwerkkomponenten</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Netzwerkkomponenten</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Netzwerkkomponenten
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir ein Großraumbüro ohne Trennwände vor: Ruft jemand einen
+        Namen, hören ihn alle im Raum, auch wenn nur eine Person gemeint
+        ist – laut, ineffizient, aber einfach. Ein cleverer Empfangsmensch
+        dagegen merkt sich, an welchem Schreibtisch wer sitzt, und bringt
+        eine Nachricht gezielt nur dorthin. Und ein Paketdienst zwischen
+        zwei völlig verschiedenen Bürogebäuden in unterschiedlichen Städten
+        muss zusätzlich wissen, über welche Straßen und Städte er fahren
+        muss. Hub, Switch und Router unterscheiden sich in genau dieser
+        Weise – wie „intelligent“ sie Daten weiterleiten.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Netzwerkkomponenten lassen sich danach unterscheiden, auf welcher
+        OSI-Schicht sie arbeiten und wie gezielt sie Daten weiterleiten:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Komponente</th><th>OSI-Schicht</th><th>Adressierung</th><th>Funktionsweise</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Hub</strong></td><td>1 (Bitübertragung)</td><td>keine</td><td>Sendet jedes eingehende Signal an <em>alle</em> anderen Ports — reiner elektrischer Verteiler, keine Intelligenz</td></tr>
+          <tr><td><strong>Bridge</strong></td><td>2 (Sicherung)</td><td>MAC-Adresse</td><td>Verbindet zwei Netzsegmente und filtert Datenverkehr nach MAC-Adresse — Vorläufer des Switches</td></tr>
+          <tr><td><strong>Switch</strong></td><td>2 (Sicherung)</td><td>MAC-Adresse</td><td>„Intelligente“ Mehrport-Bridge: lernt, welche MAC-Adresse an welchem Port hängt, und sendet Frames gezielt nur dorthin</td></tr>
+          <tr><td><strong>Router</strong></td><td>3 (Vermittlung)</td><td>IP-Adresse</td><td>Verbindet unterschiedliche Netzwerke/Subnetze, trifft Routing-Entscheidungen anhand einer Routingtabelle</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Ein zentraler Unterschied betrifft <strong>Kollisionsdomänen</strong>
+        und <strong>Broadcast-Domänen</strong>:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Komponente</th><th>Trennt Kollisionsdomäne?</th><th>Trennt Broadcast-Domäne?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hub</td><td>Nein — alle Ports teilen sich eine gemeinsame Kollisionsdomäne</td><td>Nein</td></tr>
+          <tr><td>Switch</td><td>Ja — jeder Port ist eine eigene Kollisionsdomäne</td><td>Nein — ohne VLAN bleibt das gesamte Switch-Netz eine Broadcast-Domäne</td></tr>
+          <tr><td>Router</td><td>Ja</td><td>Ja — jedes angeschlossene Netz ist eine eigene Broadcast-Domäne</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Ein <strong>Broadcast</strong> („An alle!“) wird von einem Switch an
+        alle Ports weitergeleitet, von einem Router aber nicht über die
+        Netzgrenze hinaus geleitet — genau das trennt Netzwerke voneinander
+        und begrenzt „Broadcast-Sturm“-Risiken bei großen Netzen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus plant das Netzwerk für ein kleines Unternehmen
+        mit zwei Etagen und einer Internetanbindung.
+      </p>
+      <ul>
+        <li>Innerhalb jeder Etage werden die Arbeitsplätze über einen <strong>Switch</strong> verbunden — Datenverkehr zwischen zwei Kollegen auf derselben Etage wird gezielt nur an deren Ports gesendet, nicht an alle im Raum.</li>
+        <li>Ein alter <strong>Hub</strong> aus dem Lager wird bewusst nicht mehr eingesetzt, weil er jedes Signal an alle Geräte sendet und dadurch unnötig Kollisionen und Sicherheitsrisiken erzeugt (jedes Gerät „hört“ jeden Datenverkehr mit).</li>
+        <li>Zwischen den beiden Etagen-Netzen und dem Internet steht ein <strong>Router</strong>, der die unterschiedlichen IP-Subnetze verbindet und Broadcasts nicht unnötig zwischen den Etagen durchlässt.</li>
+        <li>Fällt ein Mitarbeiter-PC durch einen Defekt aus, bleibt der Rest des Netzes unbeeinträchtigt — dank der durch den Switch getrennten Kollisionsdomänen betrifft ein Problem nur den einzelnen Port.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum werden in modernen Netzwerken keine
+        Hubs mehr eingesetzt?“ – Antwort: Hubs teilen sich eine
+        Kollisionsdomäne über alle Ports, senden jedes Signal an alle
+        Geräte (ineffizient und unsicher) und bieten keine
+        Geschwindigkeitsvorteile gegenüber Switches.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Hub (Schicht 1) = dumm, sendet an alle. Switch (Schicht 2) = lernt
+        MAC-Adressen, sendet gezielt, trennt Kollisionsdomänen. Router
+        (Schicht 3) = verbindet Netze über IP-Adressen, trennt zusätzlich
+        Broadcast-Domänen. Je höher die Schicht, desto intelligenter und
+        gezielter die Weiterleitung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/netzwerkkomponenten.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

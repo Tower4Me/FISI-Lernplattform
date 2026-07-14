@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/netzwerkkomponenten",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Auf welcher OSI-Schicht arbeitet ein Hub?",
+      "options": [
+        "Schicht 1 (Bitübertragung)",
+        "Schicht 2 (Sicherung)",
+        "Schicht 3 (Vermittlung)",
+        "Schicht 4 (Transport)"
+      ],
+      "answer": 0,
+      "explanation": "Ein Hub arbeitet auf Schicht 1 und leitet elektrische Signale ohne jede Intelligenz weiter."
+    },
+    {
+      "id": "q2",
+      "question": "Wie leitet ein Switch Datenverkehr weiter, im Unterschied zu einem Hub?",
+      "options": [
+        "Er sendet jedes Signal ungefiltert an alle Ports, genau wie ein Hub",
+        "Er lernt MAC-Adressen und sendet Frames gezielt nur an den passenden Port",
+        "Er verwendet ausschließlich IP-Adressen zur Weiterleitung",
+        "Er kann nur zwei Geräte gleichzeitig verbinden"
+      ],
+      "answer": 1,
+      "explanation": "Ein Switch merkt sich, welche MAC-Adresse an welchem Port hängt, und leitet Frames gezielt weiter statt an alle Ports."
+    },
+    {
+      "id": "q3",
+      "question": "Womit adressiert ein Router seine Weiterleitungsentscheidungen?",
+      "options": [
+        "MAC-Adressen",
+        "IP-Adressen",
+        "Portnummern der Anwendungsschicht",
+        "Zufällig gewählte Adressen"
+      ],
+      "answer": 1,
+      "explanation": "Router arbeiten auf Schicht 3 und treffen Routing-Entscheidungen anhand von IP-Adressen und Routingtabellen."
+    },
+    {
+      "id": "q4",
+      "question": "Was passiert mit einem Broadcast an einem Switch (ohne VLAN) im Vergleich zu einem Router?",
+      "options": [
+        "Beide leiten Broadcasts grundsätzlich nicht weiter",
+        "Ein Switch leitet den Broadcast an alle Ports weiter, ein Router leitet ihn nicht über die Netzgrenze hinaus",
+        "Ein Router leitet Broadcasts immer an alle angeschlossenen Netze weiter",
+        "Broadcasts existieren nur auf der Anwendungsschicht"
+      ],
+      "answer": 1,
+      "explanation": "Ein Switch bleibt innerhalb einer Broadcast-Domäne und flutet Broadcasts an alle Ports, ein Router trennt Broadcast-Domänen und leitet sie nicht weiter."
+    },
+    {
+      "id": "q5",
+      "question": "Warum werden Hubs in modernen Netzwerken praktisch nicht mehr eingesetzt?",
+      "options": [
+        "Weil sie zu teuer in der Anschaffung sind",
+        "Weil sie sich eine gemeinsame Kollisionsdomäne über alle Ports teilen und jedes Signal an alle Geräte senden",
+        "Weil sie ausschließlich mit Glasfaserkabeln funktionieren",
+        "Weil sie IP-Adressen nicht verarbeiten können, was für sie speziell entwickelt wurde"
+      ],
+      "answer": 1,
+      "explanation": "Hubs sind ineffizient (eine gemeinsame Kollisionsdomäne) und unsicher (jedes Gerät hört jeden Datenverkehr mit)."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist eine Bridge im Vergleich zu einem modernen Switch?",
+      "options": [
+        "Technisch identisch, nur ein älterer Name für dasselbe Gerät ohne funktionalen Unterschied",
+        "Eine Bridge verbindet typischerweise nur zwei Netzsegmente per MAC-Filterung — der Vorläufer des Mehrport-Switches",
+        "Eine Bridge arbeitet immer auf Schicht 3 wie ein Router",
+        "Eine Bridge kennt keine MAC-Adressen"
+      ],
+      "answer": 1,
+      "explanation": "Die Bridge ist der historische Vorläufer des Switches: gleiches Prinzip (MAC-basierte Filterung), aber meist nur mit wenigen Ports."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Aussage zu Kollisionsdomänen an einem Switch trifft zu?",
+      "options": [
+        "Jeder Port eines Switches bildet eine eigene Kollisionsdomäne",
+        "Ein Switch hat wie ein Hub nur eine einzige gemeinsame Kollisionsdomäne",
+        "Kollisionsdomänen existieren nur bei Routern",
+        "Ein Switch hat generell keine Kollisionsdomänen, weil er Schicht 2 nutzt"
+      ],
+      "answer": 0,
+      "explanation": "Im Gegensatz zum Hub bildet bei einem Switch jeder einzelne Port eine eigene Kollisionsdomäne."
+    }
+  ]
+}

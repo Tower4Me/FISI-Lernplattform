@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Datensicherung vs. Datensicherheit vs. Datenschutz</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Datensicherung vs. Datensicherheit vs. Datenschutz</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Datensicherung vs. Datensicherheit vs. Datenschutz
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir ein persönliches Tagebuch vor. Eine <strong>Kopie</strong>
+        im feuerfesten Safe schützt davor, dass die Aufzeichnungen bei
+        einem Brand für immer verloren sind. Ein <strong>Schloss</strong>
+        an der Tagebuch-Schublade schützt ganz allgemein davor, dass
+        überhaupt jemand unbefugt hineinsieht oder etwas verändert. Und
+        ein <strong>Versprechen</strong>, das Tagebuch eines Freundes
+        niemals ohne dessen Erlaubnis zu lesen oder weiterzuerzählen,
+        schützt sein Recht auf Privatsphäre – unabhängig davon, wie gut das
+        Buch technisch gesichert ist. Drei verschiedene Schutzarten, drei
+        unterschiedliche Begriffe, die in der Prüfung gern verwechselt
+        werden.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Datensicherung</strong></td><td>Konkrete technische Maßnahme gegen <em>Datenverlust</em></td><td>Backup, RAID, Snapshot</td></tr>
+          <tr><td><strong>Datensicherheit</strong></td><td>Oberbegriff: alle Maßnahmen, die Daten allgemein schützen (Vertraulichkeit, Integrität, Verfügbarkeit)</td><td>Verschlüsselung, Zugriffskontrolle, Firewall, <em>und</em> Datensicherung</td></tr>
+          <tr><td><strong>Datenschutz</strong></td><td><em>Rechtlicher</em> Schutz personenbezogener Daten vor unrechtmäßiger Verarbeitung</td><td>DSGVO-Einwilligung, Zweckbindung, Betroffenenrechte</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Datensicherung</strong> ist also nur ein Teilaspekt von
+        <strong>Datensicherheit</strong> – dem technisch-organisatorischen
+        Oberbegriff, der bereits aus den TOMs bekannt ist (Zutritts-,
+        Zugangs-, Zugriffs-, Weitergabe-, Eingabe-, Auftrags-,
+        Verfügbarkeits- und Trennungskontrolle).
+      </p>
+
+      <p>
+        <strong>Datenschutz</strong> ist dagegen kein technischer, sondern
+        ein <em>rechtlicher</em> Begriff und betrifft ausschließlich
+        <strong>personenbezogene Daten</strong>. Er regelt nicht in erster
+        Linie, wie gut Daten technisch gesichert sind, sondern
+        <em>ob</em> sie überhaupt verarbeitet werden dürfen und zu welchem
+        Zweck. Deshalb kann ein System technisch hervorragend
+        datensicher sein (verschlüsselt, mit Backup, mit Zugriffskontrolle)
+        und trotzdem gegen Datenschutz verstoßen – etwa wenn
+        personenbezogene Daten ohne Rechtsgrundlage oder ohne Einwilligung
+        erhoben werden. Umgekehrt ersetzt eine erteilte Einwilligung nach
+        DSGVO keine ordentliche technische Absicherung: Datenschutz braucht
+        Datensicherheit als Grundlage (Art. 32 DSGVO verlangt genau diese
+        TOMs), ist aber nicht dasselbe.
+      </p>
+
+      <h3>Datenträgerentsorgung</h3>
+      <p>
+        Wird ein Datenträger (Festplatte, SSD, USB-Stick, aber auch
+        Papierakten) ausgemustert, reicht es nicht, ihn einfach in den
+        Restmüll zu werfen – gelöschte Dateien lassen sich mit einfachen
+        Werkzeugen oft wiederherstellen. Für eine sichere Entsorgung gibt
+        es etablierte Verfahren:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Verfahren</th><th>Prinzip</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Mehrfaches Überschreiben</td><td>Datenträger wird mehrfach mit Zufallsdaten überschrieben, bevor er weiterverwendet oder verkauft wird</td></tr>
+          <tr><td>Degaussing</td><td>Starkes Magnetfeld löscht magnetische Datenträger (HDDs) vollständig – funktioniert nicht bei SSDs</td></tr>
+          <tr><td>Physische Zerstörung</td><td>Schreddern/Zerkleinern des Datenträgers – sicherste Methode, Datenträger danach nicht mehr nutzbar</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Bei personenbezogenen Daten ist eine unsachgemäße Entsorgung ein
+        Verstoß gegen Art. 32 DSGVO – die TOMs gelten nicht nur für die
+        Nutzung, sondern auch für die Löschung von Daten.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Eine Arztpraxis mustert alte Praxis-PCs aus, auf denen Patientendaten
+        gespeichert waren.
+      </p>
+      <ul>
+        <li>Die Praxis hatte regelmäßige <strong>Datensicherungen</strong> (tägliche Backups) durchgeführt — das schützt vor Datenverlust, sagt aber nichts darüber aus, wie die alten Festplatten entsorgt werden.</li>
+        <li>Die Festplatten der ausgemusterten PCs werden vor der Entsorgung <strong>physisch zerstört</strong>, statt sie einfach wegzuwerfen — Teil der <strong>Datensicherheit</strong> (Vertraulichkeit auch nach Nutzungsende).</li>
+        <li>Ein Patient verlangt Auskunft, welche Daten über ihn gespeichert sind und zu welchem Zweck — das ist ein Betroffenenrecht aus dem <strong>Datenschutz</strong>, unabhängig davon, wie gut die IT technisch abgesichert ist.</li>
+        <li>Würde die Praxis Patientendaten ohne Rechtsgrundlage an ein Marketingunternehmen weitergeben, wäre das ein <strong>Datenschutzverstoß</strong> — selbst wenn die Übertragung technisch perfekt verschlüsselt (also datensicher) erfolgt wäre.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Datensicherung = Schutz vor Datenverlust (Backup). Datensicherheit
+        = technisch-organisatorischer Oberbegriff (Datensicherung ist nur
+        ein Teil davon). Datenschutz = rechtlicher Schutz personenbezogener
+        Daten, unabhängig von der Technik. Datenträgerentsorgung gehört
+        zur Datensicherheit und muss bei personenbezogenen Daten
+        DSGVO-konform erfolgen (überschreiben, degaussen oder zerstören).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/datensicherung-datenschutz.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

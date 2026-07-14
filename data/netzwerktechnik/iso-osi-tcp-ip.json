@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/iso-osi-tcp-ip",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie viele Schichten hat das ISO/OSI-Referenzmodell?",
+      "options": [
+        "4",
+        "5",
+        "7",
+        "9"
+      ],
+      "answer": 2,
+      "explanation": "Das ISO/OSI-Modell besteht aus 7 Schichten."
+    },
+    {
+      "id": "q2",
+      "question": "Wie viele Schichten hat das TCP/IP-Modell, auf dem das Internet tatsächlich basiert?",
+      "options": [
+        "3",
+        "4",
+        "6",
+        "7"
+      ],
+      "answer": 1,
+      "explanation": "Das TCP/IP-Modell fasst die Kommunikation in 4 Schichten zusammen."
+    },
+    {
+      "id": "q3",
+      "question": "Welche OSI-Schicht ist für die logische Adressierung mittels IP-Adressen und Routing zuständig?",
+      "options": [
+        "Schicht 2 (Sicherung)",
+        "Schicht 3 (Vermittlung)",
+        "Schicht 4 (Transport)",
+        "Schicht 5 (Sitzung)"
+      ],
+      "answer": 1,
+      "explanation": "Schicht 3 (Vermittlungsschicht/Netzwerkschicht) übernimmt IP-Adressierung und Routing."
+    },
+    {
+      "id": "q4",
+      "question": "Welche TCP/IP-Schicht entspricht den OSI-Schichten 5 bis 7 zusammen?",
+      "options": [
+        "Netzzugangsschicht",
+        "Internetschicht",
+        "Transportschicht",
+        "Anwendungsschicht"
+      ],
+      "answer": 3,
+      "explanation": "Die TCP/IP-Anwendungsschicht bündelt die OSI-Schichten Sitzung, Darstellung und Anwendung (5–7)."
+    },
+    {
+      "id": "q5",
+      "question": "Auf welcher OSI-Schicht arbeiten MAC-Adressen?",
+      "options": [
+        "Schicht 1 (Bitübertragung)",
+        "Schicht 2 (Sicherung)",
+        "Schicht 3 (Vermittlung)",
+        "Schicht 4 (Transport)"
+      ],
+      "answer": 1,
+      "explanation": "MAC-Adressen sind physische Adressen der Sicherungsschicht (Schicht 2)."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist der Hauptunterschied zwischen dem OSI- und dem TCP/IP-Modell in der Praxis?",
+      "options": [
+        "OSI ist ein detailliertes theoretisches Referenzmodell, TCP/IP ist das praktisch verwendete Modell des Internets",
+        "Beide Modelle sind in jeder Hinsicht identisch",
+        "TCP/IP hat mehr Schichten als OSI",
+        "OSI wird ausschließlich in WLAN-Netzwerken verwendet"
+      ],
+      "answer": 0,
+      "explanation": "OSI dient vor allem der theoretischen Einordnung und Fehlersuche, TCP/IP ist das Modell, auf dem das reale Internet aufbaut."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Schicht des OSI-Modells ist für Segmentierung und Ports (TCP/UDP) zuständig?",
+      "options": [
+        "Schicht 3 (Vermittlung)",
+        "Schicht 4 (Transport)",
+        "Schicht 5 (Sitzung)",
+        "Schicht 6 (Darstellung)"
+      ],
+      "answer": 1,
+      "explanation": "Die Transportschicht (Schicht 4) übernimmt Segmentierung, Portadressierung und die Ende-zu-Ende-Übertragung über TCP oder UDP."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/datensicherung-datenschutz",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bezeichnet der Begriff 'Datensicherung' konkret?",
+      "options": [
+        "Den rechtlichen Schutz personenbezogener Daten",
+        "Eine technische Maßnahme gegen Datenverlust, z. B. Backup",
+        "Ausschließlich die Verschlüsselung von Datenbanken",
+        "Die physische Zerstörung von Datenträgern"
+      ],
+      "answer": 1,
+      "explanation": "Datensicherung meint konkrete Maßnahmen gegen Datenverlust wie Backup oder RAID."
+    },
+    {
+      "id": "q2",
+      "question": "In welchem Verhältnis stehen Datensicherung und Datensicherheit?",
+      "options": [
+        "Sie sind exakte Synonyme",
+        "Datensicherung ist ein Teilaspekt des Oberbegriffs Datensicherheit",
+        "Datensicherheit ist ein Teilaspekt der Datensicherung",
+        "Beide Begriffe haben nichts miteinander zu tun"
+      ],
+      "answer": 1,
+      "explanation": "Datensicherheit ist der umfassendere Begriff (Vertraulichkeit, Integrität, Verfügbarkeit); Datensicherung (Backup) ist nur ein Teil davon."
+    },
+    {
+      "id": "q3",
+      "question": "Warum ist Datenschutz ein rechtlicher und kein rein technischer Begriff?",
+      "options": [
+        "Weil Datenschutz ausschließlich Backups regelt",
+        "Weil Datenschutz regelt, ob und zu welchem Zweck personenbezogene Daten verarbeitet werden dürfen, unabhängig von der technischen Absicherung",
+        "Weil Datenschutz identisch mit Datensicherung ist",
+        "Weil Datenschutz nur für Unternehmen ohne IT-Abteilung gilt"
+      ],
+      "answer": 1,
+      "explanation": "Datenschutz betrifft die Rechtmäßigkeit der Verarbeitung personenbezogener Daten — ein technisch perfekt gesichertes System kann trotzdem datenschutzwidrig handeln."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Unternehmen verschlüsselt Kundendaten vorbildlich, gibt sie aber ohne Rechtsgrundlage an einen Marketingpartner weiter. Was liegt vor?",
+      "options": [
+        "Ein Verstoß gegen Datensicherheit, aber nicht gegen Datenschutz",
+        "Ein Verstoß gegen Datenschutz, obwohl die Datensicherheit technisch einwandfrei ist",
+        "Weder ein Datenschutz- noch ein Datensicherheitsverstoß",
+        "Ein reines Datensicherungsproblem, das durch ein Backup gelöst wird"
+      ],
+      "answer": 1,
+      "explanation": "Gute technische Absicherung (Datensicherheit) schützt nicht davor, gegen die Rechtmäßigkeit der Verarbeitung (Datenschutz) zu verstoßen."
+    },
+    {
+      "id": "q5",
+      "question": "Welches Verfahren zur Datenträgerentsorgung funktioniert bei magnetischen Festplatten (HDDs), aber nicht bei SSDs?",
+      "options": [
+        "Physische Zerstörung",
+        "Degaussing (starkes Magnetfeld)",
+        "Mehrfaches Überschreiben",
+        "Löschen im Papierkorb"
+      ],
+      "answer": 1,
+      "explanation": "Degaussing löscht magnetische Datenträger über ein starkes Magnetfeld — bei SSDs, die nicht magnetisch speichern, wirkungslos."
+    },
+    {
+      "id": "q6",
+      "question": "Warum ist eine unsachgemäße Entsorgung von Datenträgern mit personenbezogenen Daten problematisch?",
+      "options": [
+        "Sie ist umweltschädlich, hat aber keinen rechtlichen Bezug",
+        "Sie kann ein Verstoß gegen Art. 32 DSGVO sein, da TOMs auch die Löschung/Entsorgung umfassen",
+        "Sie betrifft ausschließlich die Datensicherung, nicht den Datenschutz",
+        "Sie ist irrelevant, solange ein aktuelles Backup existiert"
+      ],
+      "answer": 1,
+      "explanation": "Art. 32 DSGVO fordert angemessene TOMs über den gesamten Lebenszyklus der Daten, einschließlich der sicheren Entsorgung."
+    }
+  ]
+}

@@ -19,7 +19,22 @@
     {
       "slug": "netzwerktechnik",
       "name": "Netzwerktechnik",
-      "units": []
+      "units": [
+        {
+          "slug": "iso-osi-tcp-ip",
+          "name": "ISO/OSI vs. TCP/IP",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/iso-osi-tcp-ip.json"
+        },
+        {
+          "slug": "netzwerkkomponenten",
+          "name": "Netzwerkkomponenten",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/netzwerkkomponenten.json"
+        }
+      ]
     },
     {
       "slug": "it-sicherheit",
@@ -143,6 +158,13 @@
           "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/it-sicherheit/rto-rpo-verfuegbarkeit.json"
+        },
+        {
+          "slug": "datensicherung-datenschutz",
+          "name": "Datensicherung vs. Datensicherheit vs. Datenschutz",
+          "importance": "kern",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/datensicherung-datenschutz.json"
         }
       ]
     },

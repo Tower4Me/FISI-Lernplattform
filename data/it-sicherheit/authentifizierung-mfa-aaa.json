@@ -84,6 +84,42 @@
       ],
       "answer": 0,
       "explanation": "SAML, OAuth 2.0 und OpenID Connect sind verbreitete SSO-/Föderations-Standards."
+    },
+    {
+      "id": "q8",
+      "question": "Wie berechnet sich die Anzahl möglicher Kombinationen eines Passworts?",
+      "options": [
+        "Länge mal Zeichenraum",
+        "Zeichenraum hoch Länge",
+        "Länge hoch Zeichenraum",
+        "Zeichenraum geteilt durch Länge"
+      ],
+      "answer": 1,
+      "explanation": "Die Formel lautet Zeichenraum^Länge — jedes zusätzliche Zeichen in der Länge wirkt multiplikativ auf die Kombinationszahl."
+    },
+    {
+      "id": "q9",
+      "question": "Wofür wird ein Captcha typischerweise eingesetzt?",
+      "options": [
+        "Als eigenständiger Authentifizierungsfaktor anstelle eines Passworts",
+        "Um bei einem Formular oder Login Mensch von Bot zu unterscheiden",
+        "Um eine Überweisung im Online-Banking freizugeben",
+        "Um Daten auf der Festplatte zu verschlüsseln"
+      ],
+      "answer": 1,
+      "explanation": "Ein Captcha unterscheidet Mensch von Bot und erschwert automatisierte Angriffe — es ist selbst kein Authentifizierungsfaktor."
+    },
+    {
+      "id": "q10",
+      "question": "Was unterscheidet eine TAN von einer PIN?",
+      "options": [
+        "Eine TAN ist ein Einmalkennwort für eine konkrete Transaktion, eine PIN ist ein wiederverwendbarer kurzer Wissensfaktor",
+        "Beide sind technisch identisch und beliebig oft wiederverwendbar",
+        "Eine PIN gilt nur für eine einzige Transaktion, eine TAN ist dauerhaft gültig",
+        "TAN und PIN bezeichnen dasselbe Konzept in unterschiedlichen Ländern"
+      ],
+      "answer": 0,
+      "explanation": "Eine TAN wird nach einmaliger Nutzung für eine bestimmte Transaktion wertlos, während eine PIN wiederholt zur Anmeldung genutzt wird."
     }
   ]
 }

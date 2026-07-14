@@ -84,10 +84,11 @@ Modul, zur Priorisierung von Phase 5:
       Verkabelung, Internetzugang/DSL, Diagnose-Tools (ping/tracert/…),
       VPN-Grundlagen (eigene Einheit, TLS-Teil ist bereits migriert),
       Virtualisierung, Container, Cloud (Themen 4.1–4.5 komplett)
-- [ ] **Modul 5 – IT-Sicherheit**: Endpoint-Security/Virenscanner (5.3);
-      Betriebssystem-Härtung, physische Sicherheit/Redundanz/Klima (5.4);
+- [ ] **Modul 5 – IT-Sicherheit**: physische Sicherheit/Redundanz/Klima (5.4,
+      Zutritt/Zugang/Zugriff-Teil bereits über TOMs abgedeckt);
       Datensicherung vs. Datensicherheit vs. Datenschutz,
-      Datenträgerentsorgung (5.5)
+      Datenträgerentsorgung (5.5). Erledigt: Endpoint-Security (5.3),
+      Betriebssystem-Härtung (5.4), Passwort-Komplexität/Captcha/PIN/TAN (5.4)
 - [ ] **Modul 6 – Datenschutz & Recht**: Persönlichkeitsrechte (6.1);
       Thema 6.2 Verträge & Lizenzen komplett; Thema 6.3 Barrierefreiheit &
       Normen komplett

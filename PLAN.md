@@ -274,20 +274,20 @@ Format je Zeile: **[Status] Einheit** — Prio · Tags
     SQL-Injection-Detailteil zusätzlich aus alt DB „SQL Injection & Best Practices")
 - [x] Firewall-Typen (Paketfilter/SPI/WAF), DMZ, Port-Forwarding — P1 (AP2) · Kern · beides
   → Einheit `it-sicherheit/firewall-dmz` (Quelle: alt SEC m5s1)
-- [ ] Endpoint-Security, Virenscanner, Datenträgerverschlüsselung — P3 · Kern · beides
-  → kein Quellmaterial in alt/, noch zu erstellen (siehe ROADMAP TODO)
+- [x] Endpoint-Security, Virenscanner, Datenträgerverschlüsselung — P3 · Kern · beides
+  → Einheit `it-sicherheit/endpoint-security` (kein Quellmaterial in alt/, originär verfasst)
 
 ## Thema 5.4 Zugriff & Härtung
 - [x] Authentifizierung vs. Autorisierung, 2FA/MFA, SSO, AAA — P2 · Kern · beides
   → Einheit `it-sicherheit/authentifizierung-mfa-aaa` (Quelle: alt SEC m4s1+m4s2)
-- [ ] Passwort-Policy, Komplexität berechnen, Captcha/PIN/TAN — P2 · Kern · beides
-  → Teilinhalt „Was macht ein gutes Passwort aus" in alt SEC m4s1 enthalten,
-    in `it-sicherheit/authentifizierung-mfa-aaa` mit aufgenommen; Komplexität
-    berechnen/Captcha/PIN/TAN fehlen, beim Schreiben ergänzen
+- [x] Passwort-Policy, Komplexität berechnen, Captcha/PIN/TAN — P2 · Kern · beides
+  → in `it-sicherheit/authentifizierung-mfa-aaa` ergänzt: Komplexitäts-Formel
+    (Zeichenraum^Länge), Captcha, PIN vs. TAN (Zeichenraum/Captcha/PIN/TAN
+    hatten kein Quellmaterial in alt/, originär verfasst)
 - [x] Berechtigungskonzepte (RBAC, Least Privilege), GPO, Schalenmodell — P3 (AP1) / P2 (AP2) · Kern · beides
   → Einheit `it-sicherheit/berechtigungskonzepte` (Quelle: alt SEC m4s3)
-- [ ] Betriebssystem-Härtung — P3 · Kern · beides
-  → kein Quellmaterial in alt/, noch zu erstellen (siehe ROADMAP TODO)
+- [x] Betriebssystem-Härtung — P3 · Kern · beides
+  → Einheit `it-sicherheit/betriebssystem-haertung` (kein Quellmaterial in alt/, originär verfasst)
 - [ ] Zutritt/Zugang/Zugriff, physische Sicherheit, Redundanz, Klima — P2 (AP1) · Kern · beides
   → Zutritt/Zugang/Zugriff bereits über `it-sicherheit/toms` abgedeckt;
     physische Sicherheit/Redundanz/Klima fehlen, noch zu erstellen

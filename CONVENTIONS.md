@@ -262,9 +262,8 @@ Begriff durchgehend dieselbe Schreibweise verwenden.
   ist grundsätzlich a11y-schwach (Farbe als einziges Signal). Sauberere Lösung
   (Hintergrund-Chip/Icon statt Textfarbe) als separate Folgeaufgabe vorgemerkt,
   nicht Teil des Theming-Umbaus.
-- Druck-Layout (Umbruchregeln `break-inside`/`break-after`, Ausblenden von
-  Theme-Switcher/Quiz-Interaktion) ist als separate Folgeaufgabe offen — nur
-  die Farb-Erzwingung (`@media print` → white-Werte) ist bereits umgesetzt.
+- ~~Druck-Layout (Umbruchregeln, Ausblenden von Theme-Switcher/Quiz-Interaktion,
+  Ankreuz-Quiz ohne Lösung)~~ — erledigt, siehe Abschnitt 12.
 
 ---
 
@@ -411,19 +410,49 @@ schließt, Klick außerhalb schließt. Kein CDN, reines Vanilla-JS/CSS.
 ### Druck
 
 - Druckgranularität: eine Einheit = ein Druckvorgang. Kein Sammeldruck.
+- Alles Druck-Verhalten steht in **einem einzigen** `@media print`-Block in
+  `style.css` (keine zweite, separate Print-Regel anlegen). Der Block steht
+  nach den Theme-Blöcken, damit die Spezifität greift. Einheiten-HTML
+  enthält keine Druck-Sonderlogik — Voraussetzung dafür ist, dass alle
+  interaktiven Tools konsistent `class="tool"` tragen und Quiz-Buttons/
+  -Feedback ausschließlich über `.btn`/`.quiz__feedback`/`.quiz__result`
+  laufen (zentral von `quiz-engine.js` erzeugt, siehe Abschnitt 6) — beides
+  beim Print-Umbau geprüft, keine Ausnahme gefunden.
 - `@media print` erzwingt IMMER die white-Gruppe-1-Werte, unabhängig vom
-  aktiven Theme (Regel steht in `style.css` nach den Theme-Blöcken, damit
-  die Spezifität greift). Umsetzung zentral in `style.css`, Einheiten-HTML
-  enthält keine Druck-Sonderlogik.
+  aktiven Theme.
 - Mehrseitiger Fluss ist gewollt. Kein Herunterskalieren auf eine Seite.
-- Ausgeblendet beim Druck: Navigation, Breadcrumbs, Theme-Switcher,
-  Quiz-Interaktion (Buttons, Feedback).
-- Sichtbar beim Druck: alle 5 Pflicht-Sektionen, Abbildungen, Quizfragen
-  inkl. Antwortoptionen (Lösung ausgeblendet).
-- Umbruchregeln (noch offen/separat umzusetzen): `break-inside: avoid` für
-  Abbildungen, Merksatz-Box und Quiz-Fragen; nach Überschriften
-  `break-after: avoid`. Nur die Farbregel ist mit dem Theming-Umbau bereits
-  angelegt, das restliche Druck-Layout ist eine separate Folgeaufgabe.
+
+**Ausgeblendet beim Druck** (reine Bildschirm-UI ohne Papier-Nutzen):
+Theme-Switcher, Breadcrumbs (die Unit-`<h1>` liefert den Titel bereits),
+Footer inkl. „← Zurück zum Lernplan“-Link (steckt vollständig im
+ausgeblendeten `.site-footer`, keine eigene Klasse nötig), der
+Auf-/Zuklapp-Chevron der Modulkarten (`.module-card__head::after`),
+interaktive Tools (`.tool`, komplett), Quiz-Buttons (`.btn`) und
+Quiz-Feedback/-Ergebnis (`.quiz__feedback`, `.quiz__result`).
+
+**Sichtbar beim Druck:** alle 5 Pflicht-Sektionen, Abbildungen
+(`.figure--diagram`), Quizfragen inkl. Antwortoptionen — aber als leeres
+Ankreuz-Formular:
+- Radio-Inputs werden per `display: none` versteckt, stattdessen zeigt
+  `.quiz__label::before` ein Kästchen-Zeichen (`☐`) zum Ankreuzen per Stift.
+- Quiz-Optionen verlieren Rahmen/Hintergrund und werden kompakter (kleinere
+  Schrift, engerer Abstand) — auf Papier keine "Klick-Kachel" nötig.
+- **Lösungen erscheinen nie im Druck**, auch nicht, wenn auf dem Bildschirm
+  vorher schon "Auswerten" angeklickt wurde: Neben Buttons/Feedback wird
+  auch die Korrekt/Falsch-Randfarbe (`.quiz__option--correct/--wrong`)
+  explizit neutralisiert.
+
+**Umbruchregeln** — sinnvoll, nicht "jeden Umbruch verhindern":
+- `h2, h3 { break-after: avoid; }` — Überschrift klebt am folgenden Inhalt.
+- `table, tr { break-inside: avoid; }` — Tabellen/-zeilen werden nicht
+  zerrissen.
+- `break-inside: avoid` gezielt für die von Natur aus kurzen Blöcke:
+  Abbildungen, Einstieg-/Praxis-/Merksatz-Abschnitt, einzelne Quizfragen
+  (`.quiz__q`).
+- **Bewusst KEIN** pauschales `.section { break-inside: avoid; }` — der
+  Konzept-Abschnitt kann mit Tabellen lang werden und soll ganz normal über
+  mehrere Seiten laufen dürfen, statt in eine erzwungene Lücke gepresst zu
+  werden.
 
 ---
 

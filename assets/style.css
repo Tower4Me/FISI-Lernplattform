@@ -454,5 +454,45 @@ table { display: block; max-width: 100%; overflow-x: auto; }
     --border: #d8dce1;
     --link: #1f6feb;
   }
-  .theme-switcher { display: none; }
+
+  /* Bildschirm-UI ohne Nutzen auf Papier */
+  .theme-switcher,
+  .breadcrumbs,
+  .site-footer { display: none; }
+  .module-card__head::after { display: none; }
+
+  /* Umbrueche: sinnvoll statt erzwungen-kompakt (CONVENTIONS §12).
+     KEIN pauschales .section { break-inside: avoid; } — lange Abschnitte
+     (Konzept mit Tabellen) sollen ganz normal ueber Seiten laufen duerfen.
+     Stattdessen: Ueberschrift klebt am folgenden Inhalt, Tabellen/Zeilen
+     werden nicht zerrissen, und die von Natur aus kurzen Abschnitte
+     (Einstieg/Praxis/Merksatz) sowie einzelne Quizfragen bleiben zusammen. */
+  h2, h3 { break-after: avoid; }
+  table, tr { break-inside: avoid; }
+  .figure--diagram,
+  .section--einstieg,
+  .section--praxis,
+  .section--merksatz,
+  .quiz__q { break-inside: avoid; }
+
+  /* Quiz: leeres Ankreuz-Formular statt interaktivem Radio, kompakter */
+  .quiz__q { font-size: 0.85rem; }
+  .quiz__label input[type="radio"] { display: none; }
+  .quiz__label::before { content: "☐"; margin-right: 0.35rem; }
+  .quiz__option { background: none; border: none; }
+  .quiz__option .quiz__label { padding: 0.1rem 0.2rem; gap: 0.35rem; }
+  .quiz__options { gap: 0.15rem; }
+
+  /* Loesungen und Interaktion duerfen im Druck nicht erscheinen — auch
+     nicht, wenn auf dem Bildschirm vor dem Drucken bereits "Auswerten"
+     angeklickt wurde (Korrekt/Falsch-Randfarbe wird deshalb explizit
+     neutralisiert, nicht nur die Buttons/Feedback-Texte versteckt). */
+  .quiz__feedback,
+  .quiz__result,
+  .btn { display: none; }
+  .quiz__option--correct,
+  .quiz__option--wrong { border-color: transparent; }
+
+  /* Interaktive Tools (SQL-Terminal, Rechner etc.) komplett raus */
+  .tool { display: none; }
 }

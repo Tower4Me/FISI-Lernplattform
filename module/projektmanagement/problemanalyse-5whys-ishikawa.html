@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: Problemanalyse (5 Whys, Ishikawa)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">Problemanalyse (5 Whys, Ishikawa)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Problemanalyse (5 Whys, Ishikawa)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Wer eine Pfütze unter einem tropfenden Rohr immer wieder
+        aufwischt, ohne das Rohr zu reparieren, wird sie am nächsten
+        Tag wieder vorfinden. Nur wer die eigentliche Ursache – das
+        undichte Rohr – behebt, löst das Problem dauerhaft. Genau
+        darum geht es bei der <strong>Root-Cause-Analyse</strong>:
+        nicht nur Symptome behandeln, sondern die tatsächliche Ursache
+        eines Problems finden.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Die 5-Why-Methode</h3>
+      <p>
+        Bei der <strong>5-Why-Methode</strong> wird ausgehend von einem
+        Symptom so lange „Warum?“ gefragt (klassischerweise fünfmal,
+        je nach Fall auch mehr oder weniger), bis die eigentliche,
+        <strong>zugrunde liegende Ursache</strong> gefunden ist, statt
+        bei der ersten offensichtlichen Erklärung stehen zu bleiben.
+      </p>
+
+      <h3>Ishikawa-Diagramm (Fischgrätendiagramm)</h3>
+      <p>
+        Das <strong>Ishikawa-Diagramm</strong> (auch Ursache-Wirkungs-Diagramm
+        genannt) visualisiert mögliche Ursachen eines Problems
+        strukturiert nach Kategorien. Das Problem selbst steht als
+        „Fischkopf“ am rechten Ende, die Hauptkategorien bilden die
+        „Gräten“. Klassisch werden sechs Kategorien unterschieden
+        (die „6 M“):
+      </p>
+      <table>
+        <thead><tr><th>Kategorie</th><th>Beispiel im IT-Kontext</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mensch (Man)</strong></td><td>fehlende Schulung, Bedienfehler</td></tr>
+          <tr><td><strong>Maschine (Machine)</strong></td><td>Hardwaredefekt, veraltete Systeme</td></tr>
+          <tr><td><strong>Methode (Method)</strong></td><td>fehlerhafter Prozess, fehlende Checkliste</td></tr>
+          <tr><td><strong>Material</strong></td><td>fehlerhafte Komponenten, falsche Konfiguration</td></tr>
+          <tr><td><strong>Mitwelt/Umgebung (Milieu)</strong></td><td>Temperatur im Serverraum, Stromversorgung</td></tr>
+          <tr><td><strong>Management (Measurement)</strong></td><td>fehlendes Monitoring, unklare Zuständigkeiten</td></tr>
+        </tbody>
+      </table>
+      <p>
+        In der Praxis wird meist im Team (Brainstorming) je Kategorie
+        gesammelt, welche Ursachen zum Problem beigetragen haben
+        könnten. Die wahrscheinlichste Ursache wird anschließend
+        priorisiert und ggf. mit der 5-Why-Methode weiter vertieft.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Server der TowerTech GmbH fällt wiederholt aus. Das
+        Support-Team führt eine 5-Why-Analyse durch:
+      </p>
+      <ol>
+        <li><strong>Warum</strong> ist der Server ausgefallen? – Weil die Festplatte voll war.</li>
+        <li><strong>Warum</strong> war die Festplatte voll? – Weil Logdateien nicht automatisch rotiert wurden.</li>
+        <li><strong>Warum</strong> wurden sie nicht rotiert? – Weil die Log-Rotations-Konfiguration fehlerhaft war.</li>
+        <li><strong>Warum</strong> war sie fehlerhaft? – Weil sie bei der letzten Systemumstellung nicht angepasst wurde.</li>
+        <li><strong>Warum</strong> wurde das übersehen? – Weil es dafür keinen festen Prüfpunkt in der Checkliste zur Systemumstellung gab.</li>
+      </ol>
+      <p>
+        Die eigentliche <strong>Root Cause</strong> ist damit nicht die
+        volle Festplatte selbst, sondern ein fehlender Prozessschritt.
+        Als Lösung ergänzt TowerTech die Checkliste für zukünftige
+        Systemumstellungen um einen Prüfpunkt zur Log-Rotation – damit
+        das Problem nicht erneut auftritt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Die 5-Why-Methode gräbt durch wiederholtes Nachfragen von der
+        Symptomebene zur eigentlichen Root Cause vor. Das
+        Ishikawa-Diagramm sammelt mögliche Ursachen strukturiert nach
+        Kategorien (die „6 M“: Mensch, Maschine, Methode, Material,
+        Umgebung, Management) und macht sie im Team sichtbar.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/problemanalyse-5whys-ishikawa.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

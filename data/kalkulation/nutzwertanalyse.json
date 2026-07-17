@@ -1,0 +1,89 @@
+{
+  "unit": "kalkulation/nutzwertanalyse",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wozu dient eine Nutzwertanalyse?",
+      "options": [
+        "Um ausschließlich den günstigsten Preis unter mehreren Angeboten zu ermitteln",
+        "Um mehrere Angebote oder Alternativen anhand mehrerer, unterschiedlich gewichteter Kriterien vergleichbar zu machen",
+        "Um den Gewinn eines Unternehmens zu berechnen",
+        "Um Materialkosten auf Kostenstellen zu verteilen"
+      ],
+      "answer": 1,
+      "explanation": "Die Nutzwertanalyse macht Angebote über mehrere Kriterien hinweg vergleichbar, wobei jedes Kriterium ein individuelles Gewicht erhält."
+    },
+    {
+      "id": "q2",
+      "question": "In welcher Reihenfolge läuft eine Nutzwertanalyse ab?",
+      "options": [
+        "Angebote bewerten → Kriterien festlegen → gewichten → Nutzwert summieren",
+        "Kriterien festlegen → gewichten → Angebote je Kriterium bewerten → gewichtete Punktwerte berechnen → Nutzwert summieren",
+        "Gewichten → Nutzwert summieren → Kriterien festlegen → Angebote bewerten",
+        "Nutzwert summieren → Kriterien festlegen → gewichten → Angebote bewerten"
+      ],
+      "answer": 1,
+      "explanation": "Erst werden die Vergleichskriterien festgelegt, dann gewichtet, anschließend die Angebote pro Kriterium bewertet und die gewichteten Punktwerte zum Nutzwert aufsummiert."
+    },
+    {
+      "id": "q3",
+      "question": "Ein Kriterium ist mit 30 % gewichtet, ein Angebot erhält dafür 8 von 10 Punkten. Wie hoch ist der gewichtete Punktwert für dieses Kriterium?",
+      "options": [
+        "0,8",
+        "2,4",
+        "3,0",
+        "8,0"
+      ],
+      "answer": 1,
+      "explanation": "Gewichteter Punktwert = Punktzahl × Gewichtung = 8 × 0,30 = 2,4."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Angebot X wird mit den Gewichten Preis 50 %, Support 30 %, Funktionsumfang 20 % bewertet und erhält die Punktzahlen 7 (Preis), 6 (Support) und 9 (Funktionsumfang). Wie hoch ist der Nutzwert?",
+      "options": [
+        "6,8",
+        "7,1",
+        "7,4",
+        "22,0"
+      ],
+      "answer": 1,
+      "explanation": "(7 × 0,50) + (6 × 0,30) + (9 × 0,20) = 3,5 + 1,8 + 1,8 = 7,1."
+    },
+    {
+      "id": "q5",
+      "question": "Warum kann bei einer Nutzwertanalyse ein Angebot gewinnen, das beim Preis nicht das günstigste ist?",
+      "options": [
+        "Weil der Preis in einer Nutzwertanalyse grundsätzlich nicht berücksichtigt wird",
+        "Weil der Nutzwert die Summe aller gewichteten Kriterien ist — ein Angebot kann bei anderen, ebenfalls gewichteten Kriterien so viel besser abschneiden, dass es in der Gesamtsumme vorne liegt",
+        "Weil die Nutzwertanalyse Zufallswerte verwendet",
+        "Weil nur das teuerste Angebot einen gültigen Nutzwert erhalten darf"
+      ],
+      "answer": 1,
+      "explanation": "Der Nutzwert ergibt sich aus der gewichteten Summe aller Kriterien. Ein Angebot mit schlechterem Preis kann durch bessere Werte bei anderen Kriterien insgesamt vorne liegen."
+    },
+    {
+      "id": "q6",
+      "question": "Was unterscheidet einen rein quantitativen Angebotsvergleich von einer Nutzwertanalyse?",
+      "options": [
+        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe Verfahren",
+        "Der quantitative Vergleich betrachtet meist nur harte Zahlen wie den Preis, die Nutzwertanalyse bewertet zusätzlich schwer messbare Kriterien gewichtet über eine Punkteskala",
+        "Die Nutzwertanalyse berücksichtigt ausschließlich den Preis, der quantitative Vergleich alle Kriterien",
+        "Ein quantitativer Vergleich ist nur bei Dienstleistungen zulässig"
+      ],
+      "answer": 1,
+      "explanation": "Ein quantitativer Angebotsvergleich stützt sich meist auf harte Kennzahlen (Preis). Die Nutzwertanalyse ergänzt dies um qualitative, gewichtete Kriterien wie Support oder Zuverlässigkeit."
+    },
+    {
+      "id": "q7",
+      "question": "Angebot D erreicht einen Nutzwert von 6,9, Angebot E einen Nutzwert von 7,3. Welches Angebot sollte nach der Nutzwertanalyse gewählt werden?",
+      "options": [
+        "Angebot D, weil ein niedrigerer Nutzwert immer besser ist",
+        "Angebot E, weil der höhere Nutzwert die insgesamt bessere Erfüllung der gewichteten Kriterien anzeigt",
+        "Beide sind gleichwertig, der Nutzwert spielt keine Rolle",
+        "Keines von beiden, es muss ein neues Angebot eingeholt werden"
+      ],
+      "answer": 1,
+      "explanation": "Bei der Nutzwertanalyse gewinnt das Angebot mit dem höchsten Nutzwert — hier Angebot E mit 7,3."
+    }
+  ]
+}

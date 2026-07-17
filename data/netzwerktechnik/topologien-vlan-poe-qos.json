@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/topologien-vlan-poe-qos",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche Netzwerktopologie dominiert in modernen LANs?",
+      "options": [
+        "Bus-Topologie",
+        "Ring-Topologie",
+        "Sterntopologie mit zentralem Switch",
+        "Vollvermaschtes Mesh"
+      ],
+      "answer": 2,
+      "explanation": "Moderne LANs verkabeln Endgeräte einzeln zu einem zentralen Switch — ein Kabelausfall betrifft dann nur ein Gerät."
+    },
+    {
+      "id": "q2",
+      "question": "Was bewirkt ein VLAN in einem physischen Netzwerk?",
+      "options": [
+        "Es erhöht ausschließlich die Übertragungsgeschwindigkeit des Switches",
+        "Es teilt ein physisches Netzwerk in mehrere logisch getrennte Broadcast-Domänen",
+        "Es ersetzt die Notwendigkeit eines Routers vollständig",
+        "Es liefert Strom über das Netzwerkkabel"
+      ],
+      "answer": 1,
+      "explanation": "Ein VLAN trennt Broadcast-Domänen logisch, ohne dass eine separate Verkabelung nötig wäre. Kommunikation zwischen VLANs läuft über einen Router."
+    },
+    {
+      "id": "q3",
+      "question": "Was kennzeichnet einen untagged (Access-)Port im Unterschied zu einem tagged (Trunk-)Port?",
+      "options": [
+        "Ein untagged Port transportiert immer mehrere VLANs gleichzeitig",
+        "Ein untagged Port gehört fest zu genau einem VLAN, das angeschlossene Endgerät sieht kein VLAN-Tag",
+        "Ein tagged Port kann nur an Endgeräte angeschlossen werden",
+        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe"
+      ],
+      "answer": 1,
+      "explanation": "Access-Ports (untagged) sind einem VLAN fest zugeordnet; Endgeräte merken davon nichts. Trunk-Ports (tagged) transportieren mehrere VLANs mit Tag nach IEEE 802.1Q, typisch zwischen Switches oder zum Router."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür steht PoE und welchen Vorteil bietet es?",
+      "options": [
+        "Power over Ethernet — liefert Strom und Daten über ein einziges Netzwerkkabel",
+        "Priority over Ethernet — priorisiert bestimmten Datenverkehr im Netzwerk",
+        "Protocol over Ethernet — kapselt beliebige Protokolle in Ethernet-Frames",
+        "Port over Ethernet — vergrößert die Anzahl verfügbarer Switch-Ports"
+      ],
+      "answer": 0,
+      "explanation": "PoE (Power over Ethernet) versorgt Endgeräte wie IP-Telefone oder Access-Points über dasselbe Kabel mit Strom, über das auch die Daten laufen — ein separates Netzteil entfällt."
+    },
+    {
+      "id": "q5",
+      "question": "Welche der folgenden PoE-Standard-Zuordnungen ist korrekt?",
+      "options": [
+        "IEEE 802.3af liefert mehr Leistung als IEEE 802.3bt",
+        "IEEE 802.3at (PoE+) liefert mehr Leistung als IEEE 802.3af (PoE)",
+        "PoE-Standards regeln ausschließlich die Datengeschwindigkeit, nicht die Leistung",
+        "Alle PoE-Standards liefern exakt dieselbe maximale Leistung"
+      ],
+      "answer": 1,
+      "explanation": "802.3af (PoE) liefert ca. 12,95 W, 802.3at (PoE+) ca. 25,5 W, 802.3bt (PoE++) noch mehr — die Leistung steigt mit dem Standard."
+    },
+    {
+      "id": "q6",
+      "question": "Wozu dient QoS (Quality of Service) im Netzwerk?",
+      "options": [
+        "QoS verschlüsselt den gesamten Datenverkehr im Netzwerk",
+        "QoS priorisiert zeitkritischen Datenverkehr (z. B. VoIP) gegenüber weniger zeitkritischem bei Bandbreitenengpässen",
+        "QoS ersetzt die Notwendigkeit von VLANs",
+        "QoS versorgt Netzwerkgeräte mit Strom"
+      ],
+      "answer": 1,
+      "explanation": "QoS klassifiziert und priorisiert Datenverkehr, damit zeitkritische Anwendungen wie VoIP-Telefonie bei knapper Bandbreite bevorzugt weitergeleitet werden."
+    },
+    {
+      "id": "q7",
+      "question": "Warum erhöht die Trennung in VLANs die Sicherheit, obwohl alle Geräte am selben physischen Switch hängen?",
+      "options": [
+        "Weil VLANs den Datenverkehr automatisch verschlüsseln",
+        "Weil Geräte in unterschiedlichen VLANs sich nur über einen Router erreichen können, wie in physisch getrennten Netzen",
+        "Weil VLANs die MAC-Adressen aller Geräte verbergen",
+        "Weil ein VLAN automatisch eine Firewall zwischen allen Ports aktiviert"
+      ],
+      "answer": 1,
+      "explanation": "VLANs trennen Broadcast-Domänen logisch. Direkte Kommunikation zwischen zwei VLANs ist nur über einen Router (Inter-VLAN-Routing) möglich — ein Angreifer in einem VLAN kommt nicht ohne Weiteres an Geräte in einem anderen VLAN heran."
+    }
+  ]
+}

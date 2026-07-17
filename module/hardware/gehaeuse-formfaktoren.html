@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Gehäuse & Formfaktoren</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Gehäuse & Formfaktoren</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Gehäuse & Formfaktoren
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein PC-Gehäuse ist wie eine Wohnung: Ein Studio-Apartment
+        (Mini-ITX/SFF) ist kompakt und praktisch, bietet aber kaum Platz
+        für neue Möbel. Ein Reihenhaus (Mid/Full Tower) hat deutlich mehr
+        Raum für Erweiterungen und Gäste. Und ein Hochregal im Lager
+        (Rack-Server) bietet standardisierte, gestapelte Stellplätze für
+        viele gleichartige Einheiten nebeneinander. Damit es in jeder
+        „Wohnung“ nicht stickig wird, braucht es außerdem eine durchdachte
+        Lüftung — frische Luft muss rein, warme Luft muss kontrolliert
+        wieder raus.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Gehäusetypen</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Formfaktor-Unterstützung</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Full Tower</strong></td>
+            <td>E-ATX, ATX, mATX, Mini-ITX</td>
+            <td>viel Platz für Kühlung (große Radiatoren), mehrere GPUs,
+              viele Laufwerke — High-End-Workstations, Tower-Server</td>
+          </tr>
+          <tr>
+            <td><strong>Mid Tower</strong></td>
+            <td>ATX und kleiner</td>
+            <td>Standard für Büro-PC und Gaming, gute Luftzirkulation bei
+              ordentlichem Kabelmanagement</td>
+          </tr>
+          <tr>
+            <td><strong>Mini-Tower / SFF</strong> (Small Form Factor)</td>
+            <td>Micro-ATX oder Mini-ITX, teils proprietäre Formfaktoren</td>
+            <td>kompakt, eingeschränkte Kühlung/Erweiterung — Büroplätze
+              mit wenig Platz, Thin Clients, HTPC</td>
+          </tr>
+          <tr>
+            <td><strong>Rack-Server (1U/2U/4U)</strong></td>
+            <td>server-spezifische Formfaktoren, standardisierte
+              Höheneinheiten (1 HE = 1,75 Zoll / 44,45 mm)</td>
+            <td>Rechenzentrum: 1U = flach und platzsparend (Edge-/
+              Web-Server), 2U/4U = mehr Platz für ECC-RAM, RAID und
+              redundante Netzteile (Datenbankserver)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Formfaktor-Entscheidungsmatrix</h3>
+      <table>
+        <thead>
+          <tr><th>Anforderung</th><th>Empfohlener Formfaktor</th><th>Begründung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Buchhaltungs-PC, wenig Platz</td><td>Mini-ITX / mATX SFF</td><td>kompakt, keine Erweiterungen nötig</td></tr>
+          <tr><td>CAD-Workstation, mehrere Monitore, GPU</td><td>Mid/Full Tower ATX</td><td>Platz für dGPU, Kühlung, RAM-Ausbau</td></tr>
+          <tr><td>Datenbankserver, Rechenzentrum</td><td>Rack 2U/4U</td><td>Platz für ECC-RAM, RAID, redundante Netzteile</td></tr>
+          <tr><td>Virtualisierungshost (mehrere VMs)</td><td>Tower ATX oder Rack 2U</td><td>viel RAM-Kapazität, Erweiterbarkeit</td></tr>
+          <tr><td>Edge-Server, verteilte Standorte</td><td>Rack 1U</td><td>standardisiert, platzsparend im Rack</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Vor der Gehäusewahl steht immer eine kurze Anforderungsanalyse:
+        Was soll der PC leisten? Wo steht er? Wie viel Platz ist vorhanden?
+        Wird er später erweitert? Erst danach wird geprüft, ob Mainboard,
+        CPU, Gehäuse und Kühlung wirklich alle zum gewählten Formfaktor
+        passen (siehe auch Einheit Mainboard & Bussysteme).
+      </p>
+
+      <h3>Lüfterkonzepte und Airflow</h3>
+      <p>
+        Der typische Luftstrom in einem Gehäuse führt frische Luft vorne
+        ein (<strong>Intake</strong>), kühlt CPU und GPU, und führt die
+        erwärmte Luft oben bzw. hinten wieder ab
+        (<strong>Exhaust</strong>). Entscheidend ist dabei nicht nur die
+        Anzahl der Lüfter, sondern das Verhältnis von Intake zu Exhaust:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Luftdruck</th><th>Verhältnis</th><th>Effekt</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Positiver Luftdruck</strong></td>
+            <td>mehr Intake als Exhaust</td>
+            <td>Luft sucht sich ihren Weg durch die Öffnungen nach außen
+              → weniger Staubeintrag, weil Luft bevorzugt durch die
+              gefilterten Intake-Lüfter statt durch ungefilterte Ritzen
+              einströmt — empfohlen in staubigen Umgebungen</td>
+          </tr>
+          <tr>
+            <td><strong>Negativer Luftdruck</strong></td>
+            <td>mehr Exhaust als Intake</td>
+            <td>zieht Luft durch jede vorhandene Öffnung ins Gehäuse,
+              auch durch ungefilterte — mehr Staubeintrag bei ähnlicher
+              Kühlleistung, nicht empfohlen ohne zusätzliche Filter</td>
+          </tr>
+          <tr>
+            <td><strong>Ausgeglichener Luftdruck</strong></td>
+            <td>Intake = Exhaust</td>
+            <td>theoretisch ideal, in der Praxis schwer exakt zu treffen —
+              ein leicht positiver Druck ist der übliche Kompromiss</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant drei unterschiedliche Systeme und führt
+        vorab jeweils eine kurze Anforderungsanalyse durch:
+      </p>
+      <ul>
+        <li><strong>Buchhaltungs-Arbeitsplatz</strong> mit wenig
+          Schreibtischfläche: keine Erweiterung geplant → <strong>Mini-ITX/
+          mATX-SFF-Gehäuse</strong> reicht völlig aus.</li>
+        <li><strong>CAD-Workstation</strong> mit dedizierter Grafikkarte
+          und mehreren Monitoren: künftiger RAM-Ausbau geplant →
+          <strong>Mid/Full-Tower-ATX-Gehäuse</strong> mit ausreichend Platz
+          für Kühlung und Erweiterungskarten.</li>
+        <li><strong>Datenbankserver</strong> im Rechenzentrum: benötigt
+          ECC-RAM, RAID-Verbund und redundante Netzteile →
+          <strong>Rack-Gehäuse 2U</strong>, standardisiert im Serverschrank
+          montierbar.</li>
+      </ul>
+      <p>
+        Da die Werkstatt der CAD-Workstation zusätzlich recht staubig ist,
+        konfiguriert der Techniker das Gehäuse bewusst mit
+        <strong>positivem Luftdruck</strong> (mehr Intake- als
+        Exhaust-Lüfter) — die Luft strömt dadurch bevorzugt durch die
+        gefilterten Fronteinlässe statt durch ungefilterte Gehäuseritzen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Full/Mid Tower = viel Platz und Erweiterbarkeit, Mini-Tower/SFF =
+        kompakt mit eingeschränkter Erweiterung, Rack 1U/2U/4U =
+        standardisiert fürs Rechenzentrum. Immer erst Anforderungsanalyse,
+        dann Formfaktor wählen. Positiver Luftdruck (mehr Intake als
+        Exhaust) reduziert Staubeintrag — negativer Luftdruck zieht Staub
+        durch jede Öffnung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/gehaeuse-formfaktoren.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

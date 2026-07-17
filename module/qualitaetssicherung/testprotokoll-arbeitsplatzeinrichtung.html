@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qualitätssicherung: Testprotokoll Arbeitsplatzeinrichtung</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#qualitaetssicherung">Qualitätssicherung</a></li>
+        <li aria-current="page">Testprotokoll Arbeitsplatzeinrichtung</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Testprotokoll Arbeitsplatzeinrichtung
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Vor jedem Start geht eine Pilotin eine feste Checkliste durch –
+        jedes System wird einzeln geprüft und abgehakt, bevor das
+        Flugzeug abhebt. Genau nach diesem Prinzip wird auch ein neu
+        eingerichteter IT-Arbeitsplatz systematisch geprüft, bevor er
+        an die Nutzerin oder den Nutzer übergeben wird – dokumentiert
+        in einem <strong>Testprotokoll</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Nach dem Aufbau eines Arbeitsplatzes (Hardware-Montage,
+        Software-Installation, Netzwerkanbindung) muss die
+        Funktionsfähigkeit vollständig geprüft werden, bevor die
+        Übergabe erfolgt – vergleichbar mit dem Abnahmetest bei
+        größeren IT-Projekten (siehe Einheit
+        <a href="testverfahren-black-white-box.html">Testverfahren (Black-/White-Box, Teststufen)</a>).
+        Ein <strong>Testprotokoll</strong> hält für jeden Prüfpunkt
+        fest: den <strong>Soll-Zustand</strong>, den ermittelten
+        <strong>Ist-Zustand</strong>, das Ergebnis
+        (<strong>i. O.</strong>/<strong>n. i. O.</strong>) sowie ggf.
+        Bemerkungen zur Fehlerbehebung.
+      </p>
+
+      <h3>Typische Prüfpunkte bei der Arbeitsplatzeinrichtung</h3>
+      <table>
+        <thead><tr><th>Bereich</th><th>Prüfpunkte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Hardware</strong></td>
+            <td>Rechner startet fehlerfrei (POST), alle
+                Peripheriegeräte werden erkannt (Monitor, Tastatur,
+                Maus, Drucker)</td>
+          </tr>
+          <tr>
+            <td><strong>Netzwerk</strong></td>
+            <td>LAN-/WLAN-Verbindung besteht, IP-Konfiguration ist
+                korrekt, Zugriff auf Firmenserver und Internet
+                funktioniert (Verweis: Einheit
+                <a href="../netzwerktechnik/netzwerk-diagnose.html">Netzwerk-Diagnose</a>)</td>
+          </tr>
+          <tr>
+            <td><strong>Software</strong></td>
+            <td>Betriebssystem und benötigte Anwendungen sind
+                installiert und lauffähig, das Benutzerkonto ist mit
+                den korrekten Berechtigungen eingerichtet (Verweis:
+                Einheit
+                <a href="../it-sicherheit/berechtigungskonzepte.html">Berechtigungskonzepte</a>)</td>
+          </tr>
+          <tr>
+            <td><strong>Sicherheit</strong></td>
+            <td>Virenscanner ist aktiv, aktuelle Updates sind
+                eingespielt</td>
+          </tr>
+          <tr>
+            <td><strong>Ergonomie</strong></td>
+            <td>Bildschirm, Tastatur und Sitzposition sind korrekt
+                eingestellt (Verweis: Einheit
+                <a href="../hardware/ergonomie-barrierefreiheit.html">Ergonomie &amp; Barrierefreiheit</a>)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Bedeutung als Dokumentation</h3>
+      <p>
+        Das unterschriebene Testprotokoll dient als
+        <strong>Nachweis</strong> gegenüber dem Auftraggeber, dass alle
+        vereinbarten Abnahmekriterien erfüllt sind, und als
+        <strong>Referenzzustand</strong> für eine spätere Fehlersuche,
+        falls am Arbeitsplatz später Probleme auftreten.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Auszubildender der TowerTech GmbH richtet für einen neuen
+        Mitarbeiter einen Arbeitsplatz ein und dokumentiert die Prüfung
+        in einem Testprotokoll:
+      </p>
+      <table>
+        <thead><tr><th>Prüfpunkt</th><th>Ergebnis</th><th>Bemerkung</th></tr></thead>
+        <tbody>
+          <tr><td>Rechner startet ohne Fehlermeldung</td><td>i. O.</td><td>–</td></tr>
+          <tr><td>Ping auf Firmenserver erfolgreich</td><td>i. O.</td><td>–</td></tr>
+          <tr><td>Drucker druckt Testseite</td><td>n. i. O. → i. O.</td><td>Treiber fehlte, nachinstalliert</td></tr>
+          <tr><td>Benutzerkonto mit korrekten Berechtigungen</td><td>i. O.</td><td>–</td></tr>
+          <tr><td>Virenscanner aktiv und aktuell</td><td>i. O.</td><td>–</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Das unterschriebene Protokoll wird dem neuen Mitarbeiter und
+        der Geschäftsführung als Nachweis der ordnungsgemäßen
+        Einrichtung übergeben.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Testprotokoll dokumentiert für jeden Prüfpunkt Soll-Zustand,
+        Ist-Zustand und Ergebnis (i. O./n. i. O.) bei der Einrichtung
+        eines Arbeitsplatzes – Hardware, Netzwerk, Software, Sicherheit
+        und Ergonomie. Es dient als Abnahmenachweis und
+        Referenzzustand für spätere Fehlersuche.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/qualitaetssicherung/testprotokoll-arbeitsplatzeinrichtung.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: KI-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">KI-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      KI-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen sehr belesenen, aber manchmal übermütigen
+        Praktikanten vor: Er hat unglaublich viel gelesen und antwortet
+        blitzschnell auf fast jede Frage — versteht die Inhalte aber nicht
+        wirklich, sondern erkennt Muster aus dem Gelesenen wieder. Fehlt
+        ihm das Wissen, gibt er trotzdem selbstbewusst eine Antwort, statt
+        „Das weiß ich nicht“ zu sagen. Genau so funktioniert moderne
+        Künstliche Intelligenz: extrem leistungsfähig im
+        Muster-Erkennen und -Erzeugen, aber ohne echtes Verständnis und
+        mit der Neigung, falsche Antworten überzeugend klingen zu lassen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Begriffshierarchie</h3>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Künstliche Intelligenz (KI)</strong></td>
+            <td>Oberbegriff für Systeme, die menschenähnliches
+              intelligentes Verhalten simulieren (Problemlösen,
+              Mustererkennung, Sprache)</td>
+          </tr>
+          <tr>
+            <td><strong>Machine Learning (ML)</strong></td>
+            <td>Teilbereich der KI: Systeme lernen Muster aus
+              Trainingsdaten, statt dass jede Regel fest programmiert
+              wird</td>
+          </tr>
+          <tr>
+            <td><strong>Deep Learning</strong></td>
+            <td>Teilbereich des Machine Learning, der künstliche
+              neuronale Netze mit vielen Schichten nutzt — Grundlage
+              moderner Sprach- und Bildmodelle</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Generative KI und Sprachmodelle (LLM)</h3>
+      <p>
+        <strong>Generative KI</strong> erzeugt neue Inhalte — Text, Bilder
+        oder Code — basierend auf Mustern aus riesigen Trainingsdatenmengen.
+        Ein <strong>LLM</strong> (Large Language Model) ist ein
+        Sprachmodell, das auf Basis des bisherigen Textes das
+        wahrscheinlich nächste Wort vorhersagt und daraus zusammenhängende
+        Antworten erzeugt (z. B. ChatGPT).
+      </p>
+
+      <h3>Anwendungsfelder im IT-Berufsalltag</h3>
+      <ul>
+        <li>Chatbots für den First-Level-Support (siehe Einheit SLA &
+          Support-Level)</li>
+        <li>Code-Vervollständigung und Unterstützung bei der
+          Softwareentwicklung</li>
+        <li>automatisierte Klassifizierung und Priorisierung von
+          Support-Tickets</li>
+        <li>Anomalie-Erkennung in Netzwerken zur frühzeitigen
+          Angriffserkennung</li>
+      </ul>
+
+      <h3>Grenzen und Risiken</h3>
+      <table>
+        <thead>
+          <tr><th>Risiko</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Halluzination</strong></td>
+            <td>die KI erzeugt plausibel klingende, aber inhaltlich
+              falsche Aussagen, ohne dies selbst zu erkennen</td>
+          </tr>
+          <tr>
+            <td><strong>Bias (Verzerrung)</strong></td>
+            <td>Verzerrungen in den Trainingsdaten übertragen sich auf
+              die Ausgaben der KI</td>
+          </tr>
+          <tr>
+            <td><strong>Datenschutzrisiko</strong></td>
+            <td>werden personenbezogene oder vertrauliche Daten in
+              öffentliche KI-Dienste eingegeben, können sie extern
+              gespeichert oder zu Trainingszwecken weiterverwendet werden
+              — ein möglicher DSGVO-Verstoß (siehe Modul Datenschutz &
+              Recht)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Der <strong>EU AI Act</strong> (KI-Verordnung) regelt seit 2024/25
+        den Einsatz von KI-Systemen in der EU risikobasiert: Je höher das
+        Risiko einer KI-Anwendung für Menschen (z. B. bei
+        Personalentscheidungen oder Gesundheit), desto strenger die
+        Anforderungen an Transparenz und Kontrolle.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH führt einen KI-Chatbot für den First-Level-Support
+        ein:
+      </p>
+      <ul>
+        <li><strong>Standardanfragen</strong> („Passwort zurücksetzen“,
+          „Drucker konfigurieren“) beantwortet der Chatbot automatisiert
+          und rund um die Uhr.</li>
+        <li><strong>Komplexere oder unklare Fälle</strong> eskaliert der
+          Chatbot an den menschlichen First-Level-Support — genau wie in
+          der Einheit SLA & Support-Level beschrieben.</li>
+        <li><strong>Interne Richtlinie:</strong> Mitarbeitende dürfen
+          keine Kundendaten oder Passwörter in öffentliche, externe
+          KI-Chatbots eingeben — diese Daten könnten extern gespeichert
+          oder zu Trainingszwecken verwendet werden, was gegen die DSGVO-
+          Grundsätze (Zweckbindung, Datenminimierung) verstoßen würde.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        KI ist der Oberbegriff, Machine Learning ein Teilbereich (Lernen
+        aus Daten statt fester Regeln), Deep Learning wiederum ein
+        Teilbereich von ML (neuronale Netze). Generative KI/LLMs erzeugen
+        neue Inhalte, können aber halluzinieren (falsche, aber überzeugend
+        klingende Aussagen). Keine personenbezogenen/vertraulichen Daten
+        in öffentliche KI-Dienste eingeben — Datenschutzrisiko.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/ki-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "unit": "datenschutz-recht/barrierefreiheit-software",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Für welche Zielgruppe ist Leichte Sprache besonders hilfreich?",
+      "options": [
+        "Ausschließlich für professionelle Softwareentwickler",
+        "Menschen mit Lernschwierigkeiten, kognitiven Einschränkungen oder geringen Sprachkenntnissen",
+        "Nur für Nutzer mit sehr schnellen Internetverbindungen",
+        "Ausschließlich für Nutzer außerhalb Deutschlands"
+      ],
+      "answer": 1,
+      "explanation": "Leichte Sprache mit kurzen Sätzen und ohne unerklärte Fachbegriffe hilft besonders Menschen mit Lernschwierigkeiten, kognitiven Einschränkungen oder geringen Sprachkenntnissen."
+    },
+    {
+      "id": "q2",
+      "question": "Warum sind Alt-Texte für Bilder wichtig, damit eine Webseite mit einem Screenreader nutzbar ist?",
+      "options": [
+        "Sie verbessern ausschließlich die Ladegeschwindigkeit der Seite",
+        "Ohne Alt-Text kann ein Screenreader dem Bild keine sinnvolle Information entnehmen und vorlesen",
+        "Alt-Texte sind nur für Suchmaschinen relevant, nicht für Barrierefreiheit",
+        "Alt-Texte ersetzen die Notwendigkeit einer Tastaturbedienung"
+      ],
+      "answer": 1,
+      "explanation": "Ein Screenreader kann ein Bild selbst nicht interpretieren — ohne beschreibenden Alt-Text bleibt der Bildinhalt für blinde oder sehbehinderte Nutzer unzugänglich."
+    },
+    {
+      "id": "q3",
+      "question": "Was ermöglicht eine Spracheingabefunktion (Diktierfunktion, Sprachbefehle) in einer Software?",
+      "options": [
+        "Sie liest Bildschirminhalte laut vor",
+        "Sie ermöglicht die Bedienung der Software ohne Tastatur oder Maus, z. B. bei motorischen Einschränkungen",
+        "Sie übersetzt Texte automatisch in Leichte Sprache",
+        "Sie erstellt automatisch Alt-Texte für alle Bilder"
+      ],
+      "answer": 1,
+      "explanation": "Spracheingabe ermöglicht es, eine Software per gesprochenem Befehl oder Diktat zu bedienen — hilfreich vor allem bei motorischen Einschränkungen."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür steht das Akronym POUR im Zusammenhang mit den WCAG-Prinzipien?",
+      "options": [
+        "Portable, Optimized, Universal, Reliable",
+        "Wahrnehmbar (Perceivable), Bedienbar (Operable), Verständlich (Understandable), Robust (Robust)",
+        "Print, Output, Update, Repair",
+        "Password, Options, User, Registration"
+      ],
+      "answer": 1,
+      "explanation": "POUR steht für die vier WCAG-Grundprinzipien: Perceivable (Wahrnehmbar), Operable (Bedienbar), Understandable (Verständlich) und Robust."
+    },
+    {
+      "id": "q5",
+      "question": "Was verlangt das WCAG-Prinzip „Bedienbar“ konkret?",
+      "options": [
+        "Alle Inhalte müssen ausschließlich in Textform vorliegen",
+        "Alle Funktionen müssen auch ohne Maus, z. B. vollständig per Tastatur, nutzbar sein",
+        "Die Software darf keine Bilder enthalten",
+        "Die Software muss ausschließlich auf Smartphones funktionieren"
+      ],
+      "answer": 1,
+      "explanation": "„Bedienbar“ bedeutet, dass alle Funktionen auch ohne Maus bedienbar sein müssen — z. B. vollständig über die Tastatur."
+    },
+    {
+      "id": "q6",
+      "question": "Welche WCAG-Konformitätsstufe gilt üblicherweise als Standardziel für die meisten öffentlichen und geschäftlichen Angebote?",
+      "options": ["Stufe A", "Stufe AA", "Stufe AAA", "Es gibt keine Konformitätsstufen bei WCAG"],
+      "answer": 1,
+      "explanation": "Stufe AA gilt als praxisübliches Standardziel für die meisten öffentlichen und geschäftlichen Webangebote — Stufe A ist die Mindestanforderung, Stufe AAA die höchste, oft nur in Spezialfällen umsetzbare Stufe."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Unternehmen testet sein neu gestaltetes Kundenportal vor dem Livegang gezielt mit einem Screenreader. Was wird damit primär überprüft?",
+      "options": [
+        "Ob das Portal auf allen Bildschirmauflösungen gleich aussieht",
+        "Ob Inhalte und Bedienelemente korrekt und sinnvoll vorgelesen werden können",
+        "Ob das Portal schneller lädt als die Vorgängerversion",
+        "Ob genügend Serverkapazität für hohe Nutzerzahlen vorhanden ist"
+      ],
+      "answer": 1,
+      "explanation": "Ein Screenreader-Test prüft konkret, ob Inhalte und Bedienelemente durch semantisch korrekten Aufbau (u. a. Alt-Texte, ARIA-Labels) tatsächlich sinnvoll vorgelesen werden können."
+    }
+  ]
+}

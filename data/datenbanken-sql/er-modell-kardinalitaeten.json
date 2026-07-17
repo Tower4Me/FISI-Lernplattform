@@ -1,0 +1,113 @@
+{
+  "unit": "datenbanken-sql/er-modell-kardinalitaeten",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was wird aus einer Entität bei der Umsetzung in eine relationale Datenbank?",
+      "options": [
+        "Eine Spalte",
+        "Eine Tabelle",
+        "Ein Constraint",
+        "Ein Fremdschlüssel"
+      ],
+      "answer": 1,
+      "explanation": "Entitäten (z. B. Kunde, Produkt) werden bei der Umsetzung zu Tabellen."
+    },
+    {
+      "id": "q2",
+      "question": "Was wird aus einem Attribut bei der Umsetzung in eine relationale Datenbank?",
+      "options": [
+        "Eine Tabelle",
+        "Eine Spalte",
+        "Eine Beziehung",
+        "Ein Primärschlüssel-Index"
+      ],
+      "answer": 1,
+      "explanation": "Attribute (Eigenschaften einer Entität, z. B. Kundenname) werden zu Spalten der jeweiligen Tabelle."
+    },
+    {
+      "id": "q3",
+      "question": "Ein Kunde kann mehrere Bestellungen aufgeben, eine Bestellung gehört aber immer zu genau einem Kunden. Welche Kardinalität liegt vor?",
+      "options": [
+        "1:1",
+        "1:n",
+        "m:n",
+        "n:n"
+      ],
+      "answer": 1,
+      "explanation": "Ein Kunde (1) zu vielen Bestellungen (n) ist die klassische 1:n-Beziehung."
+    },
+    {
+      "id": "q4",
+      "question": "Wie wird eine 1:n-Beziehung in Tabellen umgesetzt?",
+      "options": [
+        "Über eine zusätzliche Zwischentabelle",
+        "Über einen Fremdschlüssel auf der „n“-Seite",
+        "Über einen Fremdschlüssel auf der „1“-Seite",
+        "Gar nicht, 1:n lässt sich nicht relational abbilden"
+      ],
+      "answer": 1,
+      "explanation": "Bei 1:n bekommt die Tabelle auf der „n“-Seite eine Fremdschlüssel-Spalte, die auf die „1“-Seite verweist."
+    },
+    {
+      "id": "q5",
+      "question": "Eine Bestellung enthält mehrere Produkte, ein Produkt taucht in mehreren Bestellungen auf. Wie wird diese Beziehung umgesetzt?",
+      "options": [
+        "Über einen einzelnen Fremdschlüssel in der Tabelle Bestellung",
+        "Über eine Zwischentabelle mit zwei Fremdschlüsseln",
+        "Über einen CHECK-Constraint",
+        "Gar nicht, m:n wird immer in der Anwendung gelöst"
+      ],
+      "answer": 1,
+      "explanation": "m:n-Beziehungen werden über eine Zwischentabelle (z. B. Bestellposition) mit zwei Fremdschlüsseln in zwei 1:n-Beziehungen aufgelöst."
+    },
+    {
+      "id": "q6",
+      "question": "Was besagt referenzielle Integrität?",
+      "options": [
+        "Jede Tabelle muss mindestens eine Spalte haben",
+        "Ein Fremdschlüssel muss auf einen existierenden Primärschlüssel verweisen oder NULL sein",
+        "Jede Spalte muss einen eindeutigen Namen tragen",
+        "Alle Tabellen müssen dieselbe Anzahl Spalten haben"
+      ],
+      "answer": 1,
+      "explanation": "Referenzielle Integrität verhindert „verwaiste“ Fremdschlüssel, die auf nicht existierende Datensätze zeigen."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Löschregel verhindert, dass ein Kunde mit noch offenen Bestellungen gelöscht wird?",
+      "options": [
+        "CASCADE",
+        "SET NULL",
+        "RESTRICT",
+        "DEFAULT"
+      ],
+      "answer": 2,
+      "explanation": "RESTRICT blockiert das Löschen, solange noch abhängige Datensätze (hier: Bestellungen) existieren."
+    },
+    {
+      "id": "q8",
+      "question": "Welche Löschregel löscht abhängige Datensätze automatisch mit?",
+      "options": [
+        "RESTRICT",
+        "CASCADE",
+        "SET NULL",
+        "UNIQUE"
+      ],
+      "answer": 1,
+      "explanation": "CASCADE sorgt dafür, dass beim Löschen des referenzierten Datensatzes auch alle abhängigen Zeilen automatisch gelöscht werden."
+    },
+    {
+      "id": "q9",
+      "question": "Welche Beispielbeziehung passt zur Kardinalität 1:1?",
+      "options": [
+        "Kunde – Bestellung",
+        "Bestellung – Produkt",
+        "Person – Personalausweis",
+        "Mitarbeiter – Projekt"
+      ],
+      "answer": 2,
+      "explanation": "Eine Person besitzt genau einen Personalausweis und umgekehrt – ein klassisches 1:1-Beispiel."
+    }
+  ]
+}

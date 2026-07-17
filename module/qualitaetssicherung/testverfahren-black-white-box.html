@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qualitätssicherung: Testverfahren (Black-/White-Box, Teststufen)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#qualitaetssicherung">Qualitätssicherung</a></li>
+        <li aria-current="page">Testverfahren (Black-/White-Box, Teststufen)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Testverfahren (Black-/White-Box, Teststufen)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Auto lässt sich testen, ohne die Motorhaube zu öffnen –
+        man fährt es einfach und prüft, ob es sich wie erwartet
+        verhält. Oder man öffnet die Motorhaube und prüft jedes
+        einzelne Bauteil und jede Verkabelung. Genau diese beiden
+        Blickwinkel unterscheidet man auch beim Softwaretest:
+        <strong>Black-Box</strong> (von außen) und
+        <strong>White-Box</strong> (von innen). Zusätzlich wird ein
+        Auto in mehreren Etappen geprüft – einzelne Teile, verbaute
+        Systeme, das Gesamtfahrzeug und schließlich die Abnahme durch
+        die Käuferin.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Testarten nach Sichtweise</h3>
+      <table>
+        <thead><tr><th>Testart</th><th>Merkmal</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Black-Box-Test</strong></td>
+            <td>testet nur Ein- und Ausgabe, ohne Kenntnis der
+                internen Struktur oder des Quellcodes –
+                funktionales Verhalten steht im Fokus</td>
+          </tr>
+          <tr>
+            <td><strong>White-Box-Test</strong></td>
+            <td>testet mit Kenntnis der internen Struktur/des
+                Quellcodes, z. B. ob alle Codepfade durchlaufen
+                werden – strukturelles Testen</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Teststufen entlang des Entwicklungsprozesses</h3>
+      <table>
+        <thead><tr><th>Stufe</th><th>Inhalt</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Unittest (Komponententest)</strong></td>
+            <td>testet einzelne, kleinste Programmeinheiten (z. B.
+                eine Funktion) isoliert – meist durch die
+                Entwickler:innen selbst, klassischerweise ein
+                White-Box-Test</td>
+          </tr>
+          <tr>
+            <td><strong>Integrationstest</strong></td>
+            <td>prüft das Zusammenspiel mehrerer bereits getesteter
+                Komponenten, insbesondere ihre Schnittstellen</td>
+          </tr>
+          <tr>
+            <td><strong>Systemtest</strong></td>
+            <td>testet das Gesamtsystem als Ganzes gegen die
+                festgelegten Anforderungen – meist als Black-Box-Test</td>
+          </tr>
+          <tr>
+            <td><strong>Abnahmetest</strong></td>
+            <td>der Auftraggeber prüft, ob das System die
+                vereinbarten Anforderungen erfüllt, bevor er es
+                förmlich abnimmt</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Lasttest</h3>
+      <p>
+        Ein <strong>Lasttest</strong> (Performance-/Stresstest) prüft,
+        wie ein System unter hoher Belastung reagiert – etwa bei
+        vielen gleichzeitigen Nutzer:innen oder großen Datenmengen.
+        Ziel ist es, Belastungsgrenzen und das Skalierungsverhalten
+        eines Systems zu ermitteln, bevor es produktiv geht.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TowerTech GmbH entwickelt für einen Kunden eine neue
+        Web-Anwendung gemäß dem vereinbarten Lastenheft/Pflichtenheft
+        (siehe Einheit
+        <a href="../projektmanagement/lastenheft-pflichtenheft.html">Lastenheft vs. Pflichtenheft</a>).
+      </p>
+      <ul>
+        <li>
+          <strong>Unittest:</strong> Entwickler:innen testen einzelne
+          Funktionen isoliert, z. B. die Berechnung eines Rabatts –
+          ein klassischer White-Box-Test.
+        </li>
+        <li>
+          <strong>Integrationstest:</strong> Das Zusammenspiel von
+          Zahlungsmodul und Bestellmodul wird geprüft.
+        </li>
+        <li>
+          <strong>Systemtest:</strong> Die gesamte Anwendung wird als
+          Black-Box gegen das Pflichtenheft getestet.
+        </li>
+        <li>
+          <strong>Abnahmetest:</strong> Der Kunde prüft die Anwendung
+          in einer Testumgebung und nimmt sie anschließend förmlich ab.
+        </li>
+        <li>
+          <strong>Lasttest:</strong> Vor dem Livegang simuliert
+          TowerTech 1.000 gleichzeitige Nutzer:innen – dabei zeigt sich
+          ein Flaschenhals in der Datenbank, der noch vor dem echten
+          Start behoben wird.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Black-Box testet von außen (Verhalten), White-Box mit Kenntnis
+        des Codes (Struktur). Die Teststufen laufen von Unit- über
+        Integrations- und Systemtest bis zum Abnahmetest durch den
+        Auftraggeber. Der Lasttest prüft zusätzlich das Verhalten
+        unter hoher Belastung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/qualitaetssicherung/testverfahren-black-white-box.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

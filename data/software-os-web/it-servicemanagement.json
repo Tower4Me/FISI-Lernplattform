@@ -1,0 +1,79 @@
+{
+  "unit": "software-os-web/it-servicemanagement",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist ITIL (IT Infrastructure Library)?",
+      "options": [
+        "Eine gesetzlich vorgeschriebene Zertifizierungsnorm für Unternehmen",
+        "Ein weltweit verbreitetes Best-Practice-Rahmenwerk mit Prozessempfehlungen für IT-Servicemanagement",
+        "Eine Programmiersprache für Netzwerkadministration",
+        "Ein spezifisches Betriebssystem für Server"
+      ],
+      "answer": 1,
+      "explanation": "ITIL ist kein Gesetz und keine eigene Zertifizierungsnorm, sondern eine Sammlung erprobter Best-Practice-Prozesse für IT-Servicemanagement."
+    },
+    {
+      "id": "q2",
+      "question": "Was ist die Hauptaufgabe des Incident Managements?",
+      "options": [
+        "Die dauerhafte Ursachenanalyse wiederkehrender Störungen",
+        "Die schnelle Wiederherstellung des Normalbetriebs nach einer akuten Störung",
+        "Die kontrollierte Planung und Durchführung von Änderungen an der IT-Infrastruktur",
+        "Die Definition und Überwachung von SLA-Kennzahlen"
+      ],
+      "answer": 1,
+      "explanation": "Incident Management zielt darauf ab, den Normalbetrieb nach einer Störung so schnell wie möglich wiederherzustellen — die Ursachensuche übernimmt das Problem Management."
+    },
+    {
+      "id": "q3",
+      "question": "Worin unterscheidet sich Problem Management von Incident Management?",
+      "options": [
+        "Beide Prozesse sind inhaltlich identisch",
+        "Problem Management sucht die dauerhafte Ursache wiederkehrender Störungen, während Incident Management die akute Störung schnell behebt",
+        "Problem Management ist ausschließlich für Hardware zuständig, Incident Management nur für Software",
+        "Problem Management überwacht SLAs, Incident Management ist dafür nicht zuständig"
+      ],
+      "answer": 1,
+      "explanation": "Incident Management behebt akute Störungen möglichst schnell, während Problem Management die zugrundeliegende Ursache analysiert, um die Störung dauerhaft zu vermeiden."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür ist der ITIL-Prozess Change Management zuständig?",
+      "options": [
+        "Für die spontane, unkoordinierte Umsetzung jeder Änderungsanfrage",
+        "Für die kontrollierte, geplante Durchführung von Änderungen an der IT-Infrastruktur mit Testphase und Rollback-Plan",
+        "Ausschließlich für die Beschaffung neuer Hardware",
+        "Für die Erstellung von Marketingmaterial"
+      ],
+      "answer": 1,
+      "explanation": "Change Management sorgt dafür, dass Änderungen an der IT-Infrastruktur kontrolliert geplant, getestet, genehmigt und im Bedarfsfall zurückgerollt werden können, um Risiken zu minimieren."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist der zentrale Unterschied zwischen ITIL und ISO/IEC 20000?",
+      "options": [
+        "Beide sind exakt dasselbe unter anderem Namen",
+        "ITIL ist ein Best-Practice-Rahmenwerk, ISO/IEC 20000 ist eine offizielle, zertifizierbare internationale Norm für IT-Servicemanagement-Systeme",
+        "ISO/IEC 20000 ist nur für private Nutzer gedacht, ITIL nur für Unternehmen",
+        "ITIL kann zertifiziert werden, ISO 20000 dagegen nicht"
+      ],
+      "answer": 1,
+      "explanation": "ITIL ist eine Sammlung von Best-Practice-Prozessempfehlungen ohne eigene Unternehmenszertifizierung. ISO/IEC 20000 ist dagegen eine offizielle Norm, nach der sich ein Unternehmen extern zertifizieren lassen kann."
+    },
+    {
+      "id": "q6",
+      "question": "Welcher ITIL-Prozess ist für die Definition und Überwachung von SLA-Kennzahlen zuständig?",
+      "options": ["Incident Management", "Problem Management", "Service Level Management", "Change Management"],
+      "answer": 2,
+      "explanation": "Service Level Management ist innerhalb von ITIL für die Definition, Vereinbarung und laufende Überwachung von Service Level Agreements (SLAs) zuständig."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Server fällt wiederholt wegen einer fehlerhaften Netzteilserie aus. Der geplante Austausch aller betroffenen Netzteile soll kontrolliert mit Testphase und Rollback-Plan erfolgen. Welcher ITIL-Prozess ist dafür zuständig?",
+      "options": ["Incident Management", "Change Management", "Service Level Management", "Keiner, das läuft außerhalb von ITIL"],
+      "answer": 1,
+      "explanation": "Die kontrollierte, geplante Durchführung einer Änderung mit Testphase, Genehmigung und Rollback-Plan ist die klassische Aufgabe des Change Managements."
+    }
+  ]
+}

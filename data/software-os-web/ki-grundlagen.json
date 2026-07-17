@@ -1,0 +1,89 @@
+{
+  "unit": "software-os-web/ki-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie verhalten sich die Begriffe Künstliche Intelligenz (KI), Machine Learning (ML) und Deep Learning zueinander?",
+      "options": [
+        "Alle drei Begriffe bedeuten exakt dasselbe",
+        "KI ist der Oberbegriff, Machine Learning ein Teilbereich der KI, Deep Learning wiederum ein Teilbereich des Machine Learning",
+        "Deep Learning ist der Oberbegriff, KI ein Teilbereich davon",
+        "Machine Learning und KI schließen sich gegenseitig aus"
+      ],
+      "answer": 1,
+      "explanation": "KI ist der Oberbegriff für intelligentes Systemverhalten. Machine Learning ist ein Teilbereich, bei dem Systeme aus Daten lernen statt fest programmiert zu werden. Deep Learning ist wiederum ein Teilbereich von ML, der künstliche neuronale Netze mit vielen Schichten nutzt."
+    },
+    {
+      "id": "q2",
+      "question": "Was unterscheidet Machine Learning grundlegend von klassischer, fest programmierter Software?",
+      "options": [
+        "Machine-Learning-Systeme lernen Muster aus Trainingsdaten, statt dass jede Regel manuell programmiert wird",
+        "Machine Learning benötigt grundsätzlich keine Software",
+        "Machine Learning funktioniert ausschließlich ohne jegliche Daten",
+        "Klassische Software und Machine Learning sind technisch identisch"
+      ],
+      "answer": 0,
+      "explanation": "Machine-Learning-Systeme leiten Muster und Regeln selbst aus Trainingsdaten ab, statt dass ein Entwickler jede einzelne Regel manuell festlegt."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist ein LLM (Large Language Model)?",
+      "options": [
+        "Eine Datenbank zur Speicherung großer Datenmengen",
+        "Ein Sprachmodell, das basierend auf dem bisherigen Text das wahrscheinlich nächste Wort vorhersagt und daraus Antworten erzeugt",
+        "Ein Verschlüsselungsverfahren für Netzwerkdaten",
+        "Ein Protokoll zur Datenübertragung zwischen Servern"
+      ],
+      "answer": 1,
+      "explanation": "Ein LLM ist ein auf riesigen Textmengen trainiertes Sprachmodell, das Wort für Wort das wahrscheinlichste nächste Wort vorhersagt und daraus zusammenhängende Texte erzeugt."
+    },
+    {
+      "id": "q4",
+      "question": "Was bezeichnet der Begriff „Halluzination“ im Zusammenhang mit generativer KI?",
+      "options": [
+        "Einen technischen Fehler, der die Software zum Absturz bringt",
+        "Plausibel klingende, aber inhaltlich falsche Aussagen, die die KI erzeugt, ohne dies selbst zu erkennen",
+        "Die Fähigkeit einer KI, Bilder zu erzeugen",
+        "Eine besonders sichere Verschlüsselungsmethode"
+      ],
+      "answer": 1,
+      "explanation": "Halluzination beschreibt, dass eine KI überzeugend formulierte, aber sachlich falsche Antworten produziert — ohne selbst zwischen korrekt und falsch unterscheiden zu können."
+    },
+    {
+      "id": "q5",
+      "question": "Warum ist die Eingabe personenbezogener Kundendaten in einen öffentlichen, externen KI-Chatbot datenschutzrechtlich riskant?",
+      "options": [
+        "Weil KI-Chatbots grundsätzlich illegal sind",
+        "Weil die Daten extern gespeichert oder zu Trainingszwecken weiterverwendet werden könnten, was gegen DSGVO-Grundsätze wie Zweckbindung verstoßen kann",
+        "Weil KI-Chatbots keine Internetverbindung benötigen",
+        "Weil dadurch automatisch die Gewährleistungsfrist verlängert wird"
+      ],
+      "answer": 1,
+      "explanation": "Werden personenbezogene Daten in einen externen KI-Dienst eingegeben, besteht das Risiko, dass sie außerhalb des ursprünglichen Zwecks gespeichert oder für das Training der KI weiterverwendet werden — das kann gegen DSGVO-Grundsätze wie Zweckbindung und Datenminimierung verstoßen."
+    },
+    {
+      "id": "q6",
+      "question": "Nach welchem Grundprinzip reguliert der EU AI Act den Einsatz von KI-Systemen?",
+      "options": [
+        "Er verbietet grundsätzlich jede Form von KI in der EU",
+        "Er reguliert risikobasiert — je höher das Risiko einer KI-Anwendung für Menschen, desto strenger die Anforderungen",
+        "Er gilt ausschließlich für KI-Anwendungen außerhalb der EU",
+        "Er schreibt für jede KI-Anwendung dieselben Anforderungen unabhängig vom Risiko vor"
+      ],
+      "answer": 1,
+      "explanation": "Der EU AI Act verfolgt einen risikobasierten Ansatz: Je höher das potenzielle Risiko einer KI-Anwendung für Menschen (z. B. bei Personalentscheidungen), desto strenger die Anforderungen an Transparenz und Kontrolle."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Unternehmen setzt einen KI-Chatbot für den First-Level-Support ein. Was ist ein sinnvoller Umgang mit Anfragen, die der Chatbot nicht zuverlässig beantworten kann?",
+      "options": [
+        "Der Chatbot sollte trotzdem raten, um jede Anfrage sofort zu beantworten",
+        "Die Anfrage sollte an den menschlichen Support eskaliert werden, statt eine möglicherweise falsche Antwort zu riskieren",
+        "Der Kunde sollte grundsätzlich keine Antwort erhalten",
+        "Die Anfrage sollte automatisch gelöscht werden"
+      ],
+      "answer": 1,
+      "explanation": "Da generative KI-Systeme halluzinieren können, sollten unsichere oder komplexe Anfragen an den menschlichen Support eskaliert werden, statt eine möglicherweise falsche automatisierte Antwort zu riskieren."
+    }
+  ]
+}

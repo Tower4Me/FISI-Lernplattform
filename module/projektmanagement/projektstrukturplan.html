@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: Projektstrukturplan</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">Projektstrukturplan</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Projektstrukturplan
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Hausbau lässt sich wie ein Stammbaum der Aufgaben zerlegen:
+        oben das gesamte Haus, darunter große Äste wie Fundament, Rohbau
+        und Innenausbau, und jeder Ast verzweigt sich weiter in konkrete
+        Einzelaufgaben wie Elektrik, Sanitär oder Malerarbeiten — bis die
+        Aufgaben klein genug sind, um sie tatsächlich jemandem
+        zuzuweisen. Beginnt man beim ganzen Haus und zerlegt es
+        schrittweise (Top-down), oder sammelt man zuerst alle
+        Einzelaufgaben und gruppiert sie danach zu Ästen (Bottom-up)?
+        Meist pendelt man zwischen beiden Richtungen hin und her — das
+        Yo-Yo-Prinzip.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Der <strong>Projektstrukturplan (PSP)</strong> gliedert ein
+        Gesamtprojekt hierarchisch in überschaubare Teilaufgaben — er ist
+        die Basis für die anschließende Termin-, Kosten- und
+        Ressourcenplanung.
+      </p>
+      <p>
+        Typische Ebenen: <strong>Projekt</strong> (Gesamtprojekt) →
+        <strong>Teilprojekte/Phasen</strong> → <strong>Arbeitspakete</strong>
+        (die kleinsten, nicht weiter zerlegten Einheiten, die einer
+        Person oder einem Team konkret zugeordnet werden können).
+      </p>
+
+      <h3>Drei Vorgehensweisen</h3>
+      <table>
+        <thead>
+          <tr><th>Vorgehen</th><th>Ablauf</th><th>Vor-/Nachteil</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Top-down</strong></td>
+            <td>das Gesamtprojekt wird von oben nach unten in immer
+              kleinere Teile zerlegt</td>
+            <td>behält den Gesamtüberblick und liefert eine konsistente
+              Struktur, kann aber Detailwissen der ausführenden Ebene
+              übersehen</td>
+          </tr>
+          <tr>
+            <td><strong>Bottom-up</strong></td>
+            <td>einzelne Arbeitspakete werden zunächst gesammelt (z. B.
+              im Team) und anschließend zu größeren Gruppen
+              zusammengefasst</td>
+            <td>nutzt das Detailwissen der Ausführenden, birgt aber die
+              Gefahr von Lücken oder Doppelungen und einer weniger
+              konsistenten Gesamtstruktur</td>
+          </tr>
+          <tr>
+            <td><strong>Yo-Yo-Prinzip</strong> (Gegenstromverfahren)</td>
+            <td>Kombination aus beidem: zunächst eine grobe
+              Top-down-Struktur entwerfen, dann mit dem Team Bottom-up
+              abgleichen und iterativ in beide Richtungen anpassen</td>
+            <td>verbindet die Vorteile beider Verfahren</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant die Einführung eines neuen ERP-Systems:
+      </p>
+      <ul>
+        <li><strong>Top-down-Entwurf:</strong> Gesamtprojekt
+          „ERP-Einführung“ → Teilprojekte „Analyse“, „Konfiguration“,
+          „Datenmigration“, „Schulung“, „Go-Live“ → jedes Teilprojekt
+          wird weiter in Arbeitspakete zerlegt, z. B. „Datenmigration“ →
+          „Datenexport Altsystem“, „Datenbereinigung“, „Import
+          Testsystem“, „Import Produktivsystem“.</li>
+        <li><strong>Bottom-up-Abgleich:</strong> Die Fachabteilungen
+          werden anschließend einbezogen und ergänzen ein vergessenes
+          Arbeitspaket: „Anpassung der Schnittstelle zur
+          Buchhaltungssoftware“.</li>
+      </ul>
+      <p>
+        Diese Kombination aus grober Top-down-Struktur und
+        anschließendem Bottom-up-Abgleich mit dem Team entspricht genau
+        dem Yo-Yo-Prinzip.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Der Projektstrukturplan gliedert ein Projekt hierarchisch in
+        Teilprojekte und Arbeitspakete. Top-down zerlegt vom Ganzen
+        herab, Bottom-up sammelt Einzelaufgaben und gruppiert sie
+        aufwärts, das Yo-Yo-Prinzip kombiniert beide Richtungen
+        iterativ.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/projektstrukturplan.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

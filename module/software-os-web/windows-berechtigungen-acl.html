@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Windows-Konsole & ACL</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Windows-Konsole & ACL</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Windows-Konsole & ACL
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Das einfache Linux-Rechtesystem ist wie ein Festival mit drei
+        Armbandfarben: eine Farbe für Personal, eine für Presse, eine für
+        alle übrigen Gäste — grob, aber schnell verständlich. Windows
+        arbeitet dagegen wie ein exklusives Event mit einem Türsteher, der
+        eine detaillierte Gästeliste (ACL) prüft: Jede einzelne Person
+        steht namentlich mit genau festgelegten Rechten darauf — manche
+        dürfen in die Küche, manche nur in die Lounge, manche stehen
+        sogar explizit auf der Verbotsliste, obwohl sie eigentlich zu
+        einer erlaubten Gruppe gehören.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Was ist eine ACL?</h3>
+      <p>
+        Windows nutzt ein deutlich detaillierteres Berechtigungssystem als
+        das Linux-rwx-Modell: die <strong>ACL</strong> (Access Control
+        List, Zugriffssteuerungsliste). Statt drei Gruppen mit je drei
+        Rechten enthält eine ACL beliebig viele <strong>ACEs</strong>
+        (Access Control Entries) — jeder Eintrag legt für einen einzelnen
+        Benutzer oder eine Gruppe fest, welche Aktionen erlaubt oder
+        verboten sind.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Recht</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Read</strong></td><td>Dateiinhalt und Attribute lesen</td></tr>
+          <tr><td><strong>Write</strong></td><td>Inhalt ändern, Attribute setzen</td></tr>
+          <tr><td><strong>Execute</strong></td><td>Programm oder Skript starten</td></tr>
+          <tr><td><strong>Delete</strong></td><td>Datei oder Ordner löschen</td></tr>
+          <tr><td><strong>Full Control</strong></td><td>alle Rechte inklusive Berechtigungen selbst ändern</td></tr>
+          <tr><td><strong>Deny</strong></td><td>explizites Verbot — überschreibt ein an anderer Stelle gewährtes Recht</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Windows-Berechtigungen werden standardmäßig <strong>vererbt</strong>:
+        Dateien in einem Ordner übernehmen automatisch die Berechtigungen
+        des übergeordneten Ordners. Das vereinfacht die Verwaltung, kann
+        aber zu unerwartetem Verhalten führen, wenn an einzelnen Dateien
+        zusätzlich explizite Rechte gesetzt werden.
+      </p>
+
+      <h3>ACL über die Kommandozeile: icacls</h3>
+      <p>
+        Der moderne Windows-Befehl zur Verwaltung von ACLs ist
+        <code>icacls</code> (der ältere Befehl <code>cacls</code> gilt als
+        veraltet):
+      </p>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Wirkung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>icacls datei.txt</code></td><td>zeigt die aktuellen Berechtigungen der Datei an</td></tr>
+          <tr><td><code>icacls datei.txt /grant Ben:(R)</code></td><td>gewährt dem Benutzer „Ben“ Leserecht</td></tr>
+          <tr><td><code>icacls datei.txt /remove Ben</code></td><td>entfernt sämtliche Berechtigungseinträge für „Ben“</td></tr>
+          <tr><td><code>icacls datei.txt /grant Administratoren:(F)</code></td><td>gewährt der Gruppe „Administratoren“ Vollzugriff (F = Full Control)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Linux (rwx) vs. Windows (ACL) im Vergleich</h3>
+      <table>
+        <thead>
+          <tr><th>Eigenschaft</th><th>Linux (rwx)</th><th>Windows (ACL)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Grundkonzept</td><td>3 Gruppen, je 3 Bits</td><td>Liste von Einträgen pro Benutzer/Gruppe</td></tr>
+          <tr><td>Granularität</td><td>grob (9 Bits)</td><td>sehr fein (viele einzelne Rechte)</td></tr>
+          <tr><td>Vererbung</td><td>nicht automatisch</td><td>standardmäßig aktiv</td></tr>
+          <tr><td>Explizites Verbot</td><td>nicht direkt möglich</td><td>Deny-Einträge möglich</td></tr>
+          <tr><td>Kommandozeile</td><td>chmod, chown</td><td>icacls (modern), cacls (veraltet)</td></tr>
+          <tr><td>GUI</td><td>Dateimanager</td><td>Eigenschaften → Sicherheit</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Weitere wichtige Windows-Konsolenbefehle</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>dir</code></td><td>listet den Verzeichnisinhalt auf (Windows-Pendant zu Linux <code>ls</code>)</td></tr>
+          <tr><td><code>ipconfig</code> / <code>ipconfig /all</code></td><td>zeigt die Netzwerkkonfiguration (IP-Adresse, Subnetzmaske, Gateway) an — siehe auch Modul Netzwerktechnik, Netzwerk-Diagnose</td></tr>
+          <tr><td><code>getmac</code></td><td>zeigt die MAC-Adresse(n) der Netzwerkadapter an, z. B. für eine DHCP-Reservierung</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Techniker der TechNord GmbH pflegt einen Windows-Fileserver:
+      </p>
+      <ul>
+        <li><strong>Rechte prüfen:</strong> <code>icacls finanzen\</code>
+          zeigt, welche Benutzer und Gruppen aktuell Zugriff auf den
+          Ordner „Finanzen“ haben.</li>
+        <li><strong>Ausgeschiedener Mitarbeiter:</strong> Mit
+          <code>icacls finanzen\ /remove MMustermann</code> wird dessen
+          Zugriffsberechtigung vollständig entfernt.</li>
+        <li><strong>Explizites Verbot:</strong> Eine bestimmte Abteilung
+          soll trotz allgemeiner Lesefreigabe keinen Zugriff auf einen
+          Unterordner mit besonders sensiblen Finanzdaten haben — ein
+          <strong>Deny</strong>-Eintrag setzt sich gegenüber der
+          allgemeinen Erlaubnis durch.</li>
+        <li><strong>Netzwerkdiagnose:</strong> <code>ipconfig /all</code>
+          zeigt die aktuelle IP-Konfiguration des Servers, <code>getmac</code>
+          liefert die MAC-Adresse für eine feste DHCP-Reservierung.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ACL = Liste von ACEs, viel feiner als Linux-rwx, mit Vererbung und
+        explizitem Deny (überschreibt Allow). Moderner Befehl:
+        <code>icacls</code> (nicht <code>cacls</code>, veraltet).
+        <code>dir</code> entspricht Linux <code>ls</code>,
+        <code>ipconfig</code> zeigt die Netzwerkkonfiguration,
+        <code>getmac</code> die MAC-Adresse des Netzwerkadapters.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/windows-berechtigungen-acl.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

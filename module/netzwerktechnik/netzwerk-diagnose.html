@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Netzwerk-Diagnose</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Netzwerk-Diagnose</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Netzwerk-Diagnose
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Arzt geht bei einer Untersuchung systematisch vor: Erst wird
+        der eigene Puls kontrolliert (funktioniert überhaupt das
+        Messgerät?), dann die Grundfunktionen des Patienten geprüft, dann
+        gezielt nachgeforscht, wo genau ein Problem liegt. Genauso
+        systematisch gehen IT-Fachkräfte bei Netzwerkproblemen vor — mit
+        einer Handvoll eingebauter Kommandozeilen-Werkzeuge lässt sich
+        Schritt für Schritt eingrenzen, ob das eigene Gerät, das lokale
+        Netz oder eine entfernte Gegenstelle die Ursache eines Problems
+        ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ping</code></td><td>Prüft, ob ein Zielgerät erreichbar ist, indem ICMP-Echo-Anfragen gesendet werden. Zeigt Antwortzeit und Paketverlust.</td></tr>
+          <tr><td><code>tracert</code> (Windows) / <code>traceroute</code> (Linux)</td><td>Zeigt jede einzelne Zwischenstation (Router-Hop) auf dem Weg zum Ziel — hilfreich, um zu sehen, an welcher Stelle eine Verbindung stockt.</td></tr>
+          <tr><td><code>ipconfig</code> (Windows) / <code>ifconfig</code>/<code>ip addr</code> (Linux)</td><td>Zeigt die aktuelle Netzwerkkonfiguration des eigenen Geräts: IP-Adresse, Subnetzmaske, Gateway. Mit Zusatz <code>/all</code> auch MAC-Adresse und DNS-Server.</td></tr>
+          <tr><td><code>nslookup</code></td><td>Fragt gezielt einen DNS-Server ab und zeigt, zu welcher IP-Adresse ein Domainname aufgelöst wird — nützlich zur Prüfung, ob DNS-Einträge korrekt gesetzt sind.</td></tr>
+          <tr><td><code>netsh</code> (Windows)</td><td>Kommandozeilen-Werkzeug zur Anzeige und Konfiguration von Netzwerkeinstellungen (z. B. Firewall-Regeln, WLAN-Profile, IP-Konfiguration).</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Loopback-Adresse</h3>
+      <p>
+        Die <strong>Loopback-Adresse</strong> (IPv4: <code>127.0.0.1</code>,
+        IPv6: <code>::1</code>) verweist ein Gerät immer auf sich selbst,
+        unabhängig von einer echten Netzwerkverbindung. Ein
+        <code>ping 127.0.0.1</code> prüft deshalb nicht das Netzwerk,
+        sondern nur, ob der lokale TCP/IP-Stack des eigenen Geräts korrekt
+        funktioniert — der erste Schritt einer systematischen
+        Fehlersuche.
+      </p>
+
+      <h3>Systematische Fehlersuche (Schichtenmodell in der Praxis)</h3>
+      <p>
+        Bei Verbindungsproblemen empfiehlt sich ein Vorgehen von innen
+        nach außen:
+      </p>
+      <ol>
+        <li><code>ping 127.0.0.1</code> — funktioniert der eigene TCP/IP-Stack?</li>
+        <li><code>ipconfig</code> — hat das Gerät überhaupt eine gültige IP-Adresse (keine APIPA-Adresse)?</li>
+        <li><code>ping</code> auf das eigene Standardgateway — ist der lokale Router erreichbar?</li>
+        <li><code>ping</code> auf eine bekannte externe IP-Adresse — funktioniert die Verbindung nach außen?</li>
+        <li><code>nslookup</code> bzw. <code>ping</code> auf einen Domainnamen — funktioniert die DNS-Auflösung?</li>
+      </ol>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Mitarbeiter meldet: „Ich komme nicht mehr auf die
+        Firmenwebseite.“
+      </p>
+      <ul>
+        <li>Der IT-Support prüft zunächst per <code>ping 127.0.0.1</code> — die Antwort kommt sofort, der lokale Netzwerk-Stack funktioniert also.</li>
+        <li>Mit <code>ipconfig</code> zeigt sich eine gültige IP-Adresse aus dem Firmennetz — kein APIPA-Problem.</li>
+        <li>Ein <code>ping</code> auf das Standardgateway (Router) antwortet ebenfalls — die lokale Netzwerkverbindung ist also in Ordnung.</li>
+        <li>Ein <code>ping</code> auf eine externe IP-Adresse (z. B. eines bekannten Servers) schlägt fehl — es liegt ein Problem außerhalb des lokalen Netzes vor, z. B. beim Internetanbieter.</li>
+        <li>Zur Kontrolle zeigt <code>tracert</code> auf die Zieladresse, bei welchem Hop die Verbindung genau abbricht — hilfreich für die Meldung an den Internetanbieter.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Ein Ping auf 127.0.0.1 funktioniert, ein
+        Ping auf das Standardgateway nicht. Wo liegt die Ursache
+        vermutlich?“ – Antwort: Der lokale TCP/IP-Stack des Geräts
+        funktioniert, aber die Verbindung zum lokalen Netzwerk (Kabel,
+        Switch-Port, WLAN) ist gestört — die Fehlerursache liegt zwischen
+        dem eigenen Gerät und dem Router.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ping prüft Erreichbarkeit, tracert zeigt den Weg über einzelne
+        Hops, ipconfig zeigt die eigene Netzwerkkonfiguration, nslookup
+        prüft DNS-Auflösung. Loopback (127.0.0.1) testet den eigenen
+        TCP/IP-Stack ohne Netzwerk. Systematische Fehlersuche geht von
+        innen (eigenes Gerät) nach außen (Internet).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/netzwerk-diagnose.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

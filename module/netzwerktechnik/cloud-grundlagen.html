@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Cloud-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Cloud-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Cloud-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Wer ein eigenes Auto besitzt, kümmert sich um alles selbst: Kauf,
+        Wartung, Versicherung, Reparatur, Garage. Wer stattdessen einen
+        Mietwagen nimmt, bekommt ein fertiges Fahrzeug samt Wartung — muss
+        sich aber trotzdem selbst um Tanken und Fahren kümmern. Wer ein
+        Taxi ruft, muss sich um gar nichts kümmern außer dem Ziel, das man
+        nennt. Genau dieses Prinzip abgestufter Verantwortung steckt hinter
+        den verschiedenen <strong>Cloud-Modellen</strong>: Je nachdem, wie
+        viel man selbst verwalten will (und wie viel man dem Anbieter
+        überlässt), wählt man ein anderes Servicemodell.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>Cloud Computing</strong> bedeutet, IT-Ressourcen (Rechenleistung,
+        Speicher, Software) nicht mehr auf eigener Hardware im eigenen
+        Serverraum, sondern über das Internet bei einem externen Anbieter
+        zu beziehen — meist nutzungsabhängig abgerechnet.
+      </p>
+
+      <h3>Servicemodelle</h3>
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Der Anbieter liefert</th><th>Der Kunde verwaltet selbst</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>IaaS</strong> (Infrastructure as a Service)</td><td>Server, Speicher, Netzwerk (virtuelle Infrastruktur)</td><td>Betriebssystem, Laufzeitumgebung, Anwendungen, Daten</td><td>virtuelle Server bei einem Cloud-Anbieter</td></tr>
+          <tr><td><strong>PaaS</strong> (Platform as a Service)</td><td>zusätzlich Betriebssystem und Laufzeitumgebung</td><td>nur noch die eigene Anwendung und deren Daten</td><td>fertige Entwicklungsplattform für eigene Webanwendungen</td></tr>
+          <tr><td><strong>SaaS</strong> (Software as a Service)</td><td>komplette, fertige Anwendung inkl. Betrieb</td><td>nur noch die eigenen Daten und Nutzerkonten</td><td>webbasierte E-Mail- oder Office-Anwendung</td></tr>
+          <tr><td><strong>FaaS</strong> (Function as a Service)</td><td>Ausführungsumgebung für einzelne Funktionen, die nur bei Bedarf laufen (Serverless)</td><td>nur der eigentliche Funktionscode</td><td>eine Funktion, die nur bei einem bestimmten Ereignis kurz ausgeführt wird</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Merkregel für den Verantwortungsgrad: Von IaaS über PaaS zu SaaS
+        übernimmt der Anbieter immer mehr Aufgaben, der Kunde immer
+        weniger — bei IaaS liegt die meiste Eigenverantwortung noch beim
+        Kunden, bei SaaS fast gar keine mehr.
+      </p>
+
+      <h3>Bereitstellungsmodelle</h3>
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Beschreibung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Public Cloud</strong></td><td>Ressourcen eines Anbieters werden von vielen Kunden gemeinsam (aber logisch getrennt) genutzt — kostengünstig, hohe Skalierbarkeit</td></tr>
+          <tr><td><strong>Private Cloud</strong></td><td>Ressourcen ausschließlich für ein einzelnes Unternehmen reserviert, entweder im eigenen Rechenzentrum oder dediziert bei einem Anbieter — mehr Kontrolle und Datenschutz, höhere Kosten</td></tr>
+          <tr><td><strong>Hybrid Cloud</strong></td><td>Kombination aus Public und Private Cloud, z. B. sensible Daten in der Private Cloud, weniger kritische Lastspitzen in der Public Cloud abgefangen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Im Gegensatz dazu steht der klassische Betrieb <strong>On-Premises</strong>
+        („vor Ort“) — die gesamte IT-Infrastruktur läuft im eigenen
+        Unternehmen, ohne externen Cloud-Anbieter. Vorteil: volle
+        Kontrolle über Hardware und Daten. Nachteil: eigene Investitions-
+        und Wartungskosten, geringere Skalierbarkeit bei schwankendem
+        Bedarf.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus berät ein mittelständisches Unternehmen bei der
+        Modernisierung seiner IT.
+      </p>
+      <ul>
+        <li>Für die E-Mail-Kommunikation wird eine fertige <strong>SaaS</strong>-Lösung genutzt (webbasierter E-Mail-Dienst) — der Anbieter kümmert sich um Server, Wartung und Updates, das Unternehmen muss nur Postfächer verwalten.</li>
+        <li>Für die Entwicklung einer neuen internen Webanwendung nutzt das Entwicklerteam eine <strong>PaaS</strong>-Plattform — Betriebssystem und Laufzeitumgebung sind vorkonfiguriert, das Team konzentriert sich nur auf den eigenen Code.</li>
+        <li>Für einen selbst betriebenen Datenbankserver mit besonderen Konfigurationsanforderungen wird ein <strong>IaaS</strong>-Server gemietet — das Unternehmen installiert und pflegt Betriebssystem und Datenbank selbst.</li>
+        <li>Da hochsensible Kundendaten aus Compliance-Gründen weiterhin im eigenen Rechenzentrum bleiben müssen, entscheidet sich das Unternehmen für eine <strong>Hybrid Cloud</strong>: sensible Daten <strong>On-Premises</strong>, alles andere in der <strong>Public Cloud</strong>.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welches Cloud-Servicemodell liegt vor,
+        wenn ein Unternehmen eine fertige, webbasierte Software nutzt und
+        sich um nichts außer den eigenen Daten kümmern muss?“ – Antwort:
+        SaaS (Software as a Service) — der Anbieter übernimmt Betrieb,
+        Wartung und Infrastruktur vollständig.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        IaaS = Infrastruktur, PaaS = zusätzlich Plattform/Laufzeitumgebung,
+        SaaS = fertige Anwendung, FaaS = einzelne Funktionen serverlos.
+        Von IaaS zu SaaS übernimmt der Anbieter immer mehr Verantwortung.
+        Public Cloud = geteilt, Private Cloud = exklusiv, Hybrid Cloud =
+        Kombination, On-Premises = komplett im eigenen Haus.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/cloud-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

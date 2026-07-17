@@ -1,0 +1,86 @@
+{
+  "unit": "software-os-web/mime-base64",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht MIME und wozu dient es?",
+      "options": [
+        "Multipurpose Internet Mail Extensions — beschreibt den Inhaltstyp einer Datei für Übertragungsprotokolle",
+        "Ein Verschlüsselungsverfahren für Netzwerkverkehr",
+        "Ein Dateisystem für externe Datenträger",
+        "Ein Komprimierungsalgorithmus für Bilddateien"
+      ],
+      "answer": 0,
+      "explanation": "MIME (Multipurpose Internet Mail Extensions) beschreibt den Inhaltstyp einer Datei, ursprünglich für E-Mail entwickelt, heute Standard in HTTP und im gesamten Web."
+    },
+    {
+      "id": "q2",
+      "question": "In welchem Format wird ein MIME-Type angegeben?",
+      "options": ["typ/subtyp, z. B. image/jpeg", "Eine reine Zahl zwischen 0 und 255", "Ausschließlich als Dateiendung ohne weitere Struktur", "Ein 4-Byte-Hexadezimalwert"],
+      "answer": 0,
+      "explanation": "MIME-Types folgen immer dem Format typ/subtyp, z. B. image/jpeg oder text/html."
+    },
+    {
+      "id": "q3",
+      "question": "Warum sollten Server den vom Client übermittelten MIME-Type nicht blind übernehmen?",
+      "options": [
+        "Weil MIME-Types grundsätzlich technisch nicht funktionieren",
+        "Weil ein Angreifer z. B. eine .exe-Datei fälschlich als image/jpeg deklarieren könnte — der Server sollte deshalb den tatsächlichen Inhalt (Magic Bytes) prüfen",
+        "Weil Clients grundsätzlich keine MIME-Types senden dürfen",
+        "Weil MIME-Types nur bei E-Mails, nie bei HTTP relevant sind"
+      ],
+      "answer": 1,
+      "explanation": "Ein Angreifer könnte den MIME-Type fälschen, um eine gefährliche Datei als harmlos auszugeben — deshalb sollte der Server den echten Inhalt über die Magic Bytes prüfen, statt der Client-Angabe blind zu vertrauen."
+    },
+    {
+      "id": "q4",
+      "question": "Was macht Base64 mit Binärdaten?",
+      "options": [
+        "Es verschlüsselt die Daten mit einem 64-Bit-Schlüssel",
+        "Es wandelt die Daten verlustfrei in druckbare ASCII-Zeichen um, ohne sie zu komprimieren oder zu verschlüsseln",
+        "Es komprimiert die Daten auf ein Viertel der ursprünglichen Größe",
+        "Es entfernt alle nicht druckbaren Zeichen dauerhaft aus den Daten"
+      ],
+      "answer": 1,
+      "explanation": "Base64 formt Binärdaten lediglich in druckbare ASCII-Zeichen um — es findet weder Komprimierung noch Verschlüsselung statt."
+    },
+    {
+      "id": "q5",
+      "question": "Um wie viel Prozent wächst eine Datei durch Base64-Kodierung ungefähr?",
+      "options": ["ca. 10 %", "ca. 33 %", "ca. 100 %", "ca. 300 %"],
+      "answer": 1,
+      "explanation": "Da je 3 Bytes in 4 Zeichen umgewandelt werden, wächst die Datenmenge um etwa 33 % — eine 1-MB-Datei wird als Base64 rund 1,33 MB groß."
+    },
+    {
+      "id": "q6",
+      "question": "Ist ein Base64-kodiertes Passwort in einem Code-Repository sicher gespeichert?",
+      "options": [
+        "Ja, Base64 ist eine starke Verschlüsselung",
+        "Nein, Base64 lässt sich sofort wieder dekodieren und bietet keinerlei Schutz",
+        "Ja, aber nur wenn das Passwort länger als 32 Zeichen ist",
+        "Ja, solange das Repository privat ist"
+      ],
+      "answer": 1,
+      "explanation": "Base64 ist keine Verschlüsselung — jeder kann eine Base64-Zeichenkette in Sekunden zurückwandeln. Ein Base64-kodiertes Passwort ist daher genauso unsicher wie Klartext."
+    },
+    {
+      "id": "q7",
+      "question": "In welchem HTTP-Header wird der MIME-Type einer übertragenen Datei angegeben?",
+      "options": ["Content-Length", "Content-Type", "Host", "User-Agent"],
+      "answer": 1,
+      "explanation": "Der HTTP-Header Content-Type überträgt den MIME-Type der Antwort, z. B. Content-Type: image/jpeg."
+    },
+    {
+      "id": "q8",
+      "question": "Wofür wird Base64 typischerweise bei Data-URLs in HTML/CSS eingesetzt?",
+      "options": [
+        "Um ganze Videos ohne Qualitätsverlust zu komprimieren",
+        "Um kleine Bilder direkt eingebettet in HTML oder CSS zu übertragen, ohne eine separate Bilddatei zu laden",
+        "Um HTML-Quellcode vor dem Auslesen zu schützen",
+        "Um Datenbankverbindungen zu verschlüsseln"
+      ],
+      "answer": 1,
+      "explanation": "Data-URLs mit Base64-Kodierung erlauben es, kleine Bilder direkt in HTML oder CSS einzubetten, statt eine zusätzliche Datei per separatem HTTP-Request zu laden."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/vpn-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist die grundlegende Funktion eines VPN?",
+      "options": [
+        "Es erhöht die Bandbreite einer bestehenden Internetverbindung",
+        "Es baut über ein unsicheres öffentliches Netz einen verschlüsselten Tunnel auf",
+        "Es ersetzt die Notwendigkeit eines DNS-Servers",
+        "Es vergibt automatisch IP-Adressen an neue Geräte"
+      ],
+      "answer": 1,
+      "explanation": "Ein VPN schafft über ein öffentliches Netz (meist das Internet) eine verschlüsselte, private Verbindung zwischen zwei Punkten."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Art von VPN wird für die dauerhafte Anbindung einer Filiale an die Firmenzentrale verwendet?",
+      "options": [
+        "End-to-Site-VPN",
+        "Site-to-Site-VPN",
+        "SSL-VPN ausschließlich per Browser",
+        "Es wird generell kein VPN benötigt"
+      ],
+      "answer": 1,
+      "explanation": "Ein Site-to-Site-VPN verbindet zwei komplette Netzwerke (z. B. zwei Standorte) dauerhaft über feste VPN-Gateways."
+    },
+    {
+      "id": "q3",
+      "question": "Welches VPN-Szenario passt zu einem Homeoffice-Mitarbeiter, der von seinem Notebook aus auf das Firmennetz zugreift?",
+      "options": [
+        "Site-to-Site-VPN",
+        "End-to-Site-VPN (Client-to-Site)",
+        "Es handelt sich nicht um ein VPN-Szenario",
+        "Nur über Fernwartungssoftware ohne VPN möglich"
+      ],
+      "answer": 1,
+      "explanation": "Verbindet ein einzelnes Endgerät mit einem Netzwerk, das ist die Definition eines End-to-Site- bzw. Client-to-Site-VPNs."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist eine typische Eigenschaft von IPsec im VPN-Kontext?",
+      "options": [
+        "Es verschlüsselt und authentifiziert IP-Pakete auf Netzwerkebene (Schicht 3)",
+        "Es funktioniert ausschließlich innerhalb eines Webbrowsers",
+        "Es wird nur für DNS-Anfragen verwendet",
+        "Es ersetzt die Notwendigkeit eines VPN vollständig"
+      ],
+      "answer": 0,
+      "explanation": "IPsec ist ein weit verbreiteter Standard zur Verschlüsselung und Authentifizierung von IP-Paketen auf Netzwerkebene, häufig für Site-to-Site- und End-to-Site-VPNs."
+    },
+    {
+      "id": "q5",
+      "question": "Warum wird L2TP in der Praxis fast immer mit IPsec kombiniert?",
+      "options": [
+        "Weil L2TP selbst keine Verschlüsselung bietet und IPsec diese ergänzt",
+        "Weil IPsec ohne L2TP technisch nicht funktioniert",
+        "Weil beide Protokolle identisch sind und die Kombination reine Formsache ist",
+        "Weil L2TP nur für Site-to-Site-VPNs zugelassen ist"
+      ],
+      "answer": 0,
+      "explanation": "L2TP übernimmt den Tunnelaufbau, bietet aber keine eigene Verschlüsselung — IPsec liefert die notwendige Verschlüsselung und Authentifizierung."
+    },
+    {
+      "id": "q6",
+      "question": "Wofür wird ein VPN im Kontext von Fernwartung typischerweise genutzt?",
+      "options": [
+        "Damit IT-Dienstleister gesichert auf Kundensysteme zugreifen können, ohne vor Ort sein zu müssen",
+        "Um die Bildschirmauflösung eines Kundensystems zu erhöhen",
+        "Um lokale Backups automatisch zu erstellen",
+        "Um WLAN-Passwörter zu generieren"
+      ],
+      "answer": 0,
+      "explanation": "Fernwartung nutzt ein VPN, um Wartungsarbeiten an entfernten Systemen sicher und verschlüsselt durchzuführen."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Aussage zu SSL/TLS-VPN trifft zu?",
+      "options": [
+        "Es nutzt dieselbe Verschlüsselungstechnik wie HTTPS und ist oft per Browser oder schlankem Client nutzbar",
+        "Es kann ausschließlich für Site-to-Site-Verbindungen verwendet werden",
+        "Es ist technisch identisch mit unverschlüsseltem HTTP",
+        "Es wird nie für Telearbeit eingesetzt"
+      ],
+      "answer": 0,
+      "explanation": "SSL/TLS-VPNs nutzen die gleiche Verschlüsselungstechnologie wie HTTPS und eignen sich gut für einfache End-to-Site-Zugänge, z. B. im Homeoffice."
+    }
+  ]
+}

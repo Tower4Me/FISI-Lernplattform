@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/container-docker",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der grundlegende Unterschied zwischen einer VM und einem Container?",
+      "options": [
+        "Eine VM virtualisiert komplette Hardware inkl. eigenem Betriebssystem, ein Container teilt sich den Kernel des Host-Betriebssystems",
+        "Container benötigen immer mehr Ressourcen als VMs",
+        "VMs starten grundsätzlich schneller als Container",
+        "Es gibt keinen technischen Unterschied zwischen beiden"
+      ],
+      "answer": 0,
+      "explanation": "VMs bringen ein eigenes vollständiges Gast-Betriebssystem mit, Container teilen sich den Kernel des Host-Betriebssystems und sind dadurch leichtgewichtiger."
+    },
+    {
+      "id": "q2",
+      "question": "Warum starten Container in der Regel deutlich schneller als virtuelle Maschinen?",
+      "options": [
+        "Weil Container keinen eigenen vollständigen Betriebssystem-Boot benötigen, da sie den Host-Kernel nutzen",
+        "Weil Container grundsätzlich kleinere Anwendungen enthalten müssen",
+        "Weil VMs immer auf langsamerer Hardware laufen",
+        "Weil Container keine Netzwerkverbindung benötigen"
+      ],
+      "answer": 0,
+      "explanation": "Da Container den Kernel des Host-Systems mitnutzen, entfällt der zeitaufwendige Boot-Vorgang eines eigenen Betriebssystems, wie ihn eine VM benötigt."
+    },
+    {
+      "id": "q3",
+      "question": "Was enthält ein Docker-Image typischerweise?",
+      "options": [
+        "Ein vollständiges Gast-Betriebssystem inklusive Kernel",
+        "Die Anwendung mit allen benötigten Bibliotheken und Abhängigkeiten",
+        "Ausschließlich Konfigurationsdateien ohne eigentlichen Anwendungscode",
+        "Nur die Netzwerkeinstellungen eines Servers"
+      ],
+      "answer": 1,
+      "explanation": "Ein Docker-Image bündelt die Anwendung mit allen benötigten Bibliotheken und Abhängigkeiten, sodass sie überall identisch läuft."
+    },
+    {
+      "id": "q4",
+      "question": "Welches Problem löst Containerisierung typischerweise, das mit dem Satz „Bei mir läuft es doch!“ beschrieben wird?",
+      "options": [
+        "Unterschiede in der Laufzeitumgebung zwischen Entwicklungs- und Produktivsystem, da die Umgebung fest im Image enthalten ist",
+        "Fehlende Internetverbindung auf dem Zielserver",
+        "Zu geringe Bildschirmauflösung auf dem Entwicklerrechner",
+        "Fehlende Lizenzschlüssel für Betriebssysteme"
+      ],
+      "answer": 0,
+      "explanation": "Da die komplette Laufzeitumgebung im Docker-Image enthalten ist, läuft die Anwendung auf jedem System mit Docker-Unterstützung identisch — unabhängig von lokal installierter Software."
+    },
+    {
+      "id": "q5",
+      "question": "In welchem Szenario ist eine VM einem Container vorzuziehen?",
+      "options": [
+        "Wenn eine Anwendung möglichst schnell und ressourcenschonend gestartet werden soll",
+        "Wenn vollständige Isolation nötig ist, z. B. unterschiedliche Betriebssysteme oder hohe Sicherheitsanforderungen zwischen Mandanten",
+        "Wenn viele gleichartige, kurzlebige Instanzen benötigt werden",
+        "Wenn Speicherplatz die wichtigste Anforderung ist"
+      ],
+      "answer": 1,
+      "explanation": "VMs bieten stärkere Isolation durch vollständig getrennte Betriebssysteme und eignen sich deshalb besser für Szenarien mit hohen Sicherheits- oder Isolationsanforderungen."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist typisch für den Ressourcenbedarf eines Containers im Vergleich zu einer VM?",
+      "options": [
+        "Container benötigen deutlich mehr Speicherplatz als VMs",
+        "Container benötigen in der Regel wenige MB, da sie nur Anwendung und Abhängigkeiten enthalten, nicht ein komplettes Betriebssystem",
+        "Beide benötigen exakt denselben Ressourcenbedarf",
+        "Container benötigen immer ein eigenes physisches Gerät"
+      ],
+      "answer": 1,
+      "explanation": "Container enthalten nur die Anwendung und ihre Abhängigkeiten, keine vollständige OS-Installation, und sind dadurch deutlich kleiner und ressourcenschonender als VMs."
+    },
+    {
+      "id": "q7",
+      "question": "Wie werden Container und VMs in der Praxis häufig kombiniert?",
+      "options": [
+        "Container werden nie zusammen mit VMs eingesetzt",
+        "Container laufen oft innerhalb einer VM, um starke Isolation nach außen mit schneller, leichter Bereitstellung innerhalb zu kombinieren",
+        "VMs laufen grundsätzlich innerhalb von Containern",
+        "Beide Technologien schließen sich technisch gegenseitig aus"
+      ],
+      "answer": 1,
+      "explanation": "Eine gängige Kombination ist, Container innerhalb einer VM zu betreiben — die VM liefert starke Isolation nach außen, die Container ermöglichen schnelle und ressourcenschonende Bereitstellung innerhalb."
+    }
+  ]
+}

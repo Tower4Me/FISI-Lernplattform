@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Windows vs. Linux/Unix & Domäne</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Windows vs. Linux/Unix & Domäne</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Windows vs. Linux/Unix & Domäne
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Windows ist wie eine möblierte Mietwohnung: komfortabel
+        eingerichtet, mit breiter Geräte- und Software-Unterstützung, aber
+        man zahlt Miete und die Einrichtung ist vorgegeben. Linux ist wie
+        ein unmöbliertes Loft: kostenlos in der Grundausstattung und
+        komplett nach eigenen Vorstellungen anpassbar, verlangt dafür aber
+        mehr Eigeninitiative beim Einrichten. Und der Beitritt zu einer
+        Domäne ist wie der Umzug in eine verwaltete Wohnanlage mit
+        zentraler Hausverwaltung (Domain Controller), die für alle
+        Bewohner gemeinsam Schlüssel und Zutrittsregeln ausgibt — statt
+        dass jede Wohnung ihr eigenes Schloss unabhängig verwaltet
+        (Arbeitsgruppe).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Windows vs. Linux/Unix</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>Windows</th><th>Linux/Unix</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Quellcode</strong></td>
+            <td>proprietär (Microsoft), nicht einsehbar</td>
+            <td>meist Open Source (GNU/Linux-Distributionen wie Ubuntu,
+              Debian, RHEL) — Kernel und viele Tools offen einsehbar</td>
+          </tr>
+          <tr>
+            <td><strong>Lizenzkosten</strong></td>
+            <td>kommerzielle Lizenzgebühr</td>
+            <td>meist kostenlos, kommerzieller Support optional
+              zusätzlich buchbar (z. B. Red Hat)</td>
+          </tr>
+          <tr>
+            <td><strong>Typischer Einsatz</strong></td>
+            <td>dominierend auf Desktop-Arbeitsplätzen</td>
+            <td>dominierend auf Servern, in Cloud-Infrastruktur und
+              eingebetteten Systemen</td>
+          </tr>
+          <tr>
+            <td><strong>Bedienung</strong></td>
+            <td>traditionell GUI-zentriert, PowerShell für
+              Automatisierung</td>
+            <td>traditionell kommandozeilenorientiert (Shell/Bash),
+              viele Server laufen komplett ohne grafische Oberfläche
+              (headless)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Auch macOS zählt technisch zu den Unix-artigen Systemen (BSD-
+        Abstammung), spielt aber im professionellen Server-Umfeld eine
+        deutlich kleinere Rolle als Linux.
+      </p>
+
+      <h3>Arbeitsgruppe vs. Domäne</h3>
+      <p>
+        In einer <strong>Arbeitsgruppe</strong> verwaltet jeder Rechner
+        seine Benutzerkonten und Zugriffsrechte vollständig lokal und
+        unabhängig von den anderen Rechnern — praktikabel nur für sehr
+        kleine Netzwerke. In einer <strong>Domäne</strong> übernimmt ein
+        zentraler <strong>Domain Controller</strong> (bei Windows: Active
+        Directory) die Benutzer- und Rechteverwaltung für alle
+        Mitgliedsrechner zentral.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Vorteil der Domäne</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zentrale Anmeldung</td><td>ein Benutzerkonto meldet sich an jedem Domänenrechner mit denselben Zugangsdaten an</td></tr>
+          <tr><td>Gruppenrichtlinien (GPO)</td><td>zentral definierte Sicherheits- und Konfigurationsvorgaben gelten automatisch für alle betroffenen Rechner (siehe Modul IT-Sicherheit, Berechtigungskonzepte)</td></tr>
+          <tr><td>Einfachere Verwaltung</td><td>Rechte, Passwortrichtlinien und Software lassen sich zentral statt pro Einzelgerät pflegen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Auch <strong>Linux-Rechner</strong> lassen sich einer bestehenden
+        Active-Directory-Domäne hinzufügen (z. B. über Samba/Winbind oder
+        SSSD) — so können gemischte Windows-/Linux-Umgebungen zentral mit
+        denselben Zugangsdaten verwaltet werden.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH betreibt eine gemischte Umgebung:
+      </p>
+      <ul>
+        <li><strong>50 Windows-Arbeitsplätze</strong> werden in eine
+          <strong>Active-Directory-Domäne</strong> eingebunden — jeder
+          Mitarbeiter meldet sich an jedem Rechner mit demselben Konto an,
+          Passwortrichtlinien und Softwareverteilung laufen zentral über
+          Gruppenrichtlinien.</li>
+        <li><strong>Mehrere Linux-Server</strong> laufen headless (ohne
+          grafische Oberfläche) für Webservices und Datenbanken — das
+          spart Ressourcen und läuft im Dauerbetrieb besonders stabil.</li>
+        <li><strong>Ein neuer Linux-Entwickler-Arbeitsplatz</strong> wird
+          zusätzlich per SSSD in dieselbe Active-Directory-Domäne
+          eingebunden, damit sich der Entwickler mit denselben
+          Zugangsdaten anmelden kann wie an den Windows-Rechnern.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Windows: proprietär, GUI-zentriert, Desktop-dominant. Linux/Unix:
+        meist Open Source, kommandozeilenorientiert, Server-dominant.
+        Arbeitsgruppe = dezentrale, lokale Verwaltung pro Rechner. Domäne
+        = zentraler Domain Controller (Active Directory) für Anmeldung,
+        Gruppenrichtlinien und Rechteverwaltung — auch Linux-Rechner
+        können einer AD-Domäne beitreten.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/windows-vs-linux.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

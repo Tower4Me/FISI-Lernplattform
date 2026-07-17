@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Internetzugang (DSL-Varianten)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Internetzugang (DSL-Varianten)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Internetzugang (DSL-Varianten)
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine alte Kupfer-Telefonleitung, die eigentlich nur für Sprachanrufe
+        gebaut wurde, lässt sich mit dem richtigen „Übersetzer“ am Ende der
+        Leitung trotzdem für viel mehr nutzen — ähnlich wie eine schmale
+        Landstraße, die durch geschicktes Ampelmanagement plötzlich mehr
+        Verkehr aufnehmen kann als ursprünglich geplant. Genau das leistet
+        <strong>DSL</strong>: Es nutzt die vorhandene Telefonleitung, um
+        zusätzlich zum Telefonsignal auch Internet-Datenverkehr zu
+        übertragen — ganz ohne neue Leitung verlegen zu müssen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>DSL</strong> (Digital Subscriber Line) überträgt digitale
+        Daten über die vorhandene Kupfer-Telefonleitung zwischen
+        Teilnehmeranschluss und Vermittlungsstelle. Da die nutzbare
+        Bandbreite mit zunehmender Leitungslänge abnimmt, ist die
+        erreichbare Geschwindigkeit stark von der Entfernung zur
+        Vermittlungsstelle abhängig.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Variante</th><th>Bedeutung</th><th>Merkmal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>ADSL</strong></td><td>Asymmetric DSL</td><td>Download deutlich schneller als Upload — passend für typisches Nutzerverhalten (mehr Herunterladen als Hochladen)</td></tr>
+          <tr><td><strong>SDSL</strong></td><td>Symmetric DSL</td><td>Download- und Upload-Geschwindigkeit gleich — für Firmen mit hohem Upload-Bedarf (z. B. eigener Server)</td></tr>
+          <tr><td><strong>VDSL</strong></td><td>Very High Speed DSL</td><td>deutlich höhere Datenraten als ADSL, aber nur auf kürzeren Leitungslängen nutzbar (Glasfaser reicht näher an den Endkunden heran)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Neben DSL gibt es weitere Zugangstechnologien, die in der Praxis
+        zunehmend an Bedeutung gewinnen:
+      </p>
+      <ul>
+        <li><strong>Kabel-Internet (DOCSIS):</strong> nutzt das TV-Kabelnetz, oft hohe Downloadraten, Bandbreite wird sich mit Nachbarn im selben Segment geteilt.</li>
+        <li><strong>Glasfaser (FTTH – Fiber to the Home):</strong> Glasfaser bis in die Wohnung, aktuell höchste erreichbare Datenraten, weitgehend entfernungsunabhängig.</li>
+        <li><strong>Mobilfunk (LTE/5G):</strong> drahtloser Internetzugang über das Mobilfunknetz, alternative Lösung dort, wo keine Festnetzanbindung verfügbar ist.</li>
+      </ul>
+
+      <p>
+        <strong>Datenraten</strong> werden meist in Mbit/s (Megabit pro
+        Sekunde) angegeben — wichtig ist die Unterscheidung zu Byte:
+        1 MByte/s entspricht 8 Mbit/s. Ein Download mit „16.000“ (16
+        Mbit/s) beworbener Leitung lädt eine 16 MByte große Datei also
+        rechnerisch in rund 8 Sekunden, nicht in einer Sekunde.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus berät zwei Kunden bei der Wahl ihres
+        Internetanschlusses.
+      </p>
+      <ul>
+        <li>Ein <strong>Privathaushalt</strong> streamt hauptsächlich Videos und lädt kaum große Dateien hoch — hier reicht ein <strong>ADSL</strong>- oder <strong>VDSL</strong>-Anschluss mit hoher Downloadrate völlig aus.</li>
+        <li>Ein <strong>kleines Unternehmen</strong> betreibt einen eigenen Server für Kundenzugriffe von außen und benötigt für Backups regelmäßig große Datenmengen hochzuladen — hier wird ein <strong>SDSL</strong>-Anschluss mit symmetrischer Bandbreite empfohlen.</li>
+        <li>Da beide Standorte weniger als 500 Meter von der nächsten Vermittlungsstelle entfernt liegen, ist <strong>VDSL</strong> technisch möglich und bietet gegenüber klassischem ADSL deutlich höhere Datenraten.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Ein Kunde lädt regelmäßig große
+        Datenmengen auf einen eigenen Server hoch. Welche DSL-Variante
+        empfehlen Sie und warum?“ – Antwort: SDSL, da Download- und
+        Upload-Geschwindigkeit hier symmetrisch sind — bei ADSL wäre der
+        Upload deutlich langsamer als der Download.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ADSL = asymmetrisch (Download schneller als Upload, für
+        Privatnutzer). SDSL = symmetrisch (gleiche Geschwindigkeit beider
+        Richtungen, für Firmen mit Upload-Bedarf). VDSL = höhere Datenraten
+        auf kürzeren Leitungslängen. Datenraten in Mbit/s: 1 MByte/s = 8
+        Mbit/s.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/internetzugang-dsl.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

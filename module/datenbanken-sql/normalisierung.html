@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: Normalisierung</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">Normalisierung</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Normalisierung
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Die <strong>TowerTech GmbH</strong>, ein IT-Systemhaus, pflegt ihre
+        Geräte-Wartungsaufträge in einer einzigen, großen Tabelle. Jede
+        Zeile ist ein Ersatzteil, das verbaut wurde – und enthält
+        zusätzlich Name, Ort und Postleitzahl des Kunden gleich mit. Zieht
+        ein Kunde um, steht seine alte Adresse plötzlich in einem Dutzend
+        Zeilen und muss überall einzeln korrigiert werden. Vergisst man
+        eine Zeile, widerspricht sich die Datenbank selbst.
+      </p>
+      <p>
+        Genau dieses Problem löst <strong>Normalisierung</strong>: Daten
+        werden systematisch auf mehrere, fokussierte Tabellen aufgeteilt,
+        sodass jede Tatsache nur noch an <strong>einer einzigen
+        Stelle</strong> steht.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Normalisierung ist der schrittweise Prozess, eine Tabellenstruktur
+        so umzubauen, dass Redundanz und die daraus folgenden Anomalien
+        (siehe <a href="datentypen-constraints.html">Datentypen &amp;
+        Constraints</a>) verschwinden. Dafür gibt es klar definierte
+        Regeln, die <strong>Normalformen (NF)</strong>. Für die Prüfung
+        wichtig sind die ersten drei.
+      </p>
+
+      <p>Ausgangslage bei TowerTech, eine unnormalisierte Tabelle (0NF):</p>
+      <table>
+        <thead>
+          <tr><th>auftrag_id</th><th>kunde_name</th><th>kunde_ort</th><th>plz</th><th>ersatzteil</th><th>preis</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Maier Bau GmbH</td><td>Essen</td><td>45127</td><td>Netzteil, Lüfter</td><td>45, 12</td></tr>
+          <tr><td>2</td><td>Rossmann IT</td><td>Duisburg</td><td>47051</td><td>Mainboard</td><td>180</td></tr>
+          <tr><td>3</td><td>Maier Bau GmbH</td><td>Essen</td><td>45127</td><td>RAM-Riegel</td><td>60</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Zwei Probleme sofort erkennbar: Ort und PLZ von „Maier Bau GmbH“
+        stehen doppelt, und die Spalten <code>ersatzteil</code>/<code>preis</code>
+        enthalten mehrere Werte in einer Zelle.
+      </p>
+
+      <h3>1NF – atomare Werte</h3>
+      <p>
+        <strong>Regel:</strong> Jede Zelle enthält genau einen einzelnen
+        Wert. Keine Listen, keine Mehrfachwerte.
+      </p>
+      <table>
+        <thead>
+          <tr><th>auftrag_id</th><th>kunde_name</th><th>kunde_ort</th><th>plz</th><th>ersatzteil</th><th>preis</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Maier Bau GmbH</td><td>Essen</td><td>45127</td><td>Netzteil</td><td>45</td></tr>
+          <tr><td>1</td><td>Maier Bau GmbH</td><td>Essen</td><td>45127</td><td>Lüfter</td><td>12</td></tr>
+          <tr><td>2</td><td>Rossmann IT</td><td>Duisburg</td><td>47051</td><td>Mainboard</td><td>180</td></tr>
+          <tr><td>3</td><td>Maier Bau GmbH</td><td>Essen</td><td>45127</td><td>RAM-Riegel</td><td>60</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Jede Zelle hat jetzt genau einen Wert. Die Kundendaten von „Maier
+        Bau GmbH“ wiederholen sich aber weiterhin über drei Zeilen.
+      </p>
+
+      <h3>2NF – keine Teilabhängigkeit</h3>
+      <p>
+        <strong>Regel:</strong> Jede Nicht-Schlüsselspalte hängt vom
+        <em>gesamten</em> Primärschlüssel ab, nicht nur von einem Teil
+        davon. Relevant nur bei einem zusammengesetzten Primärschlüssel.
+      </p>
+      <p>
+        Der Primärschlüssel dieser Tabelle ist zusammengesetzt:
+        (<code>auftrag_id</code>, <code>ersatzteil</code>). Aber
+        <code>kunde_name</code>, <code>kunde_ort</code> und
+        <code>plz</code> hängen nur von <code>auftrag_id</code> ab, nicht
+        vom Ersatzteil – eine <strong>Teilabhängigkeit</strong>. Lösung:
+        aufteilen.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Tabelle <code>auftrag</code></th><th>Tabelle <code>auftragsposition</code></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>auftrag_id (PK), kunde_name, kunde_ort, plz</td>
+            <td>auftrag_id (FK), ersatzteil, preis</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Ersatzteile und Kundendaten sind jetzt getrennt. Aber:
+        <code>plz</code> bestimmt weiterhin <code>kunde_ort</code> – noch
+        eine Redundanz.
+      </p>
+
+      <h3>3NF – keine transitiven Abhängigkeiten</h3>
+      <p>
+        <strong>Regel:</strong> Kein Nicht-Schlüsselfeld darf von einem
+        anderen Nicht-Schlüsselfeld abhängen (nur vom Primärschlüssel
+        selbst).
+      </p>
+      <p>
+        Problem: <code>plz → kunde_ort</code>. Der Ort wird durch die PLZ
+        bestimmt, nicht durch die <code>auftrag_id</code> – eine
+        <strong>transitive Abhängigkeit</strong>. Auch das wird
+        ausgelagert:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Tabelle <code>auftrag</code></th><th>Tabelle <code>plz_ort</code></th><th>Tabelle <code>auftragsposition</code></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>auftrag_id (PK), kunde_name, plz (FK)</td>
+            <td>plz (PK), ort</td>
+            <td>auftrag_id (FK), ersatzteil, preis</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Jetzt steht jede Tatsache nur noch an einer Stelle: Ändert sich
+        der Ortsname zu einer PLZ, wird genau eine Zeile in
+        <code>plz_ort</code> angepasst – alle Aufträge mit dieser PLZ
+        zeigen automatisch den korrekten Ort.
+      </p>
+
+      <p>
+        Der <strong>Primärschlüssel</strong> jeder Tabelle identifiziert
+        ihre Zeilen eindeutig, der <strong>Fremdschlüssel</strong> stellt
+        die Verbindung zur jeweils anderen Tabelle her (siehe
+        <a href="er-modell-kardinalitaeten.html">ER-Modell &amp;
+        Kardinalitäten</a>) – Normalisierung ist im Grunde die
+        systematische, regelbasierte Anwendung dieses Prinzips.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Auszubildender bei TowerTech GmbH bekommt eine weitere
+        unnormalisierte Tabelle vorgelegt und soll sie normalisieren:
+      </p>
+      <table>
+        <thead>
+          <tr><th>mitarbeiter_id</th><th>projekt_id</th><th>mitarbeiter_name</th><th>abteilung</th><th>abteilungsleiter</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>7</td><td>101</td><td>Elif Kaya</td><td>Netzwerktechnik</td><td>Herr Brandt</td></tr>
+          <tr><td>7</td><td>104</td><td>Elif Kaya</td><td>Netzwerktechnik</td><td>Herr Brandt</td></tr>
+          <tr><td>9</td><td>101</td><td>Tom Ricci</td><td>Support</td><td>Frau Wolter</td></tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>
+          Zellen sind bereits atomar (keine Listen) → <strong>1NF ist
+          bereits erfüllt</strong>.
+        </li>
+        <li>
+          Der zusammengesetzte Primärschlüssel ist
+          (<code>mitarbeiter_id</code>, <code>projekt_id</code>) – ein
+          Mitarbeiter kann an mehreren Projekten arbeiten. Aber
+          <code>mitarbeiter_name</code>, <code>abteilung</code> und
+          <code>abteilungsleiter</code> hängen nur von
+          <code>mitarbeiter_id</code> ab, nicht vom Projekt →
+          <strong>Teilabhängigkeit, 2NF verletzt.</strong> Lösung: Tabelle
+          <code>mitarbeiter</code> (mitarbeiter_id PK, mitarbeiter_name,
+          abteilung, abteilungsleiter) und Tabelle
+          <code>projektzuordnung</code> (mitarbeiter_id FK, projekt_id
+          FK).
+        </li>
+        <li>
+          In der neuen Tabelle <code>mitarbeiter</code> bestimmt
+          <code>abteilung</code> weiterhin <code>abteilungsleiter</code> –
+          eine <strong>transitive Abhängigkeit, 3NF verletzt.</strong>
+          Lösung: eigene Tabelle <code>abteilung</code> (abteilung PK,
+          abteilungsleiter), referenziert von <code>mitarbeiter</code>
+          über eine Fremdschlüssel-Spalte.
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Gegeben ist eine Tabelle mit
+        zusammengesetztem Primärschlüssel. Welche Normalform wird
+        verletzt, wenn eine Nicht-Schlüsselspalte nur von einem Teil des
+        Primärschlüssels abhängt?" – Antwort: 2NF (Teilabhängigkeit).
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        1NF: atomare Werte, keine Listen in einer Zelle. 2NF: keine
+        Teilabhängigkeit – jede Nicht-Schlüsselspalte hängt vom
+        <em>gesamten</em> zusammengesetzten Primärschlüssel ab. 3NF: keine
+        transitive Abhängigkeit – kein Nicht-Schlüsselfeld hängt von einem
+        anderen Nicht-Schlüsselfeld ab. Jede Normalform baut auf der
+        vorherigen auf.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/normalisierung.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

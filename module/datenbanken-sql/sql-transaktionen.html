@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: Transaktionen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">Transaktionen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Transaktionen
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        TowerTech GmbH verbucht eine Bestellung: Zuerst wird der
+        Lagerbestand des Artikels reduziert, dann eine Bestellposition
+        angelegt. Was passiert, wenn der Server genau zwischen diesen
+        beiden Schritten abstürzt? Der Lagerbestand ist bereits verringert
+        – aber die Bestellposition existiert nie. Die Datenbank
+        widerspricht sich selbst: Ware ist „weg", aber niemand hat sie
+        bestellt. Eine <strong>Transaktion</strong> verhindert genau das:
+        mehrere SQL-Befehle werden als <em>eine einzige, unteilbare
+        Einheit</em> behandelt – entweder laufen alle durch, oder keiner.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine Transaktion fasst mehrere SQL-Befehle zusammen, die
+        gemeinsam erfolgreich sein müssen. Sie ist die praktische
+        Umsetzung des <strong>A</strong> in
+        <a href="db-grundlagen.html">ACID</a> (Atomarität): entweder
+        alles oder nichts.
+      </p>
+
+      <table>
+        <thead><tr><th>Befehl</th><th>Wirkung</th></tr></thead>
+        <tbody>
+          <tr><td><code>BEGIN</code></td><td>startet die Transaktion – alle folgenden Befehle gehören dazu (MySQL: auch <code>START TRANSACTION</code>)</td></tr>
+          <tr><td><code>COMMIT</code></td><td>speichert alle Änderungen der Transaktion dauerhaft – danach gibt es kein Zurück mehr</td></tr>
+          <tr><td><code>ROLLBACK</code></td><td>macht alle Änderungen seit <code>BEGIN</code> rückgängig – als hätte die Transaktion nie stattgefunden</td></tr>
+        </tbody>
+      </table>
+
+      <p>Ohne Transaktion – riskant, falls zwischen den beiden Befehlen ein Fehler passiert:</p>
+      <table>
+        <tbody>
+          <tr><td><code>UPDATE lager SET bestand = bestand - 1 WHERE artikel_id = 1;</code></td></tr>
+          <tr><td><em>&lt;&lt; Server-Absturz hier — Bestand reduziert, aber keine Bestellposition! &gt;&gt;</em></td></tr>
+          <tr><td><code>INSERT INTO bestellposition (bestellung_id, artikel_id, menge) VALUES (500, 1, 1);</code></td></tr>
+        </tbody>
+      </table>
+      <p>Mit Transaktion – entweder beide Befehle oder keiner:</p>
+      <table>
+        <tbody>
+          <tr><td><code>BEGIN;</code></td></tr>
+          <tr><td><code>UPDATE lager SET bestand = bestand - 1 WHERE artikel_id = 1;</code></td></tr>
+          <tr><td><code>INSERT INTO bestellposition (bestellung_id, artikel_id, menge) VALUES (500, 1, 1);</code></td></tr>
+          <tr><td><code>COMMIT;</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>SAVEPOINT</h3>
+      <p>
+        Ein <strong>SAVEPOINT</strong> ist ein Zwischenpunkt innerhalb
+        einer Transaktion. Man kann gezielt bis zu diesem Punkt
+        zurückrollen, ohne die gesamte Transaktion abzubrechen:
+      </p>
+      <table>
+        <tbody>
+          <tr><td><code>BEGIN;</code></td></tr>
+          <tr><td><code>INSERT INTO bestellposition (bestellung_id, artikel_id, menge) VALUES (501, 2, 3);</code></td></tr>
+          <tr><td><code>SAVEPOINT nach_position;</code></td></tr>
+          <tr><td><code>UPDATE lager SET bestand = bestand - 999 WHERE artikel_id = 2;</code> <em>(Tippfehler bei der Menge)</em></td></tr>
+          <tr><td><code>ROLLBACK TO nach_position;</code> <em>(nur die fehlerhafte Buchung verwerfen)</em></td></tr>
+          <tr><td><code>COMMIT;</code> <em>(die INSERT-Bestellposition bleibt erhalten)</em></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Autocommit</h3>
+      <p>
+        In den meisten DBMS läuft standardmäßig jeder einzelne SQL-Befehl
+        automatisch in einer eigenen Mini-Transaktion
+        (<strong>Autocommit</strong> = ein). Jedes <code>INSERT</code>,
+        <code>UPDATE</code>, <code>DELETE</code> wird sofort dauerhaft
+        gespeichert, sobald es ausgeführt wurde. Erst ein ausdrückliches
+        <code>BEGIN</code> schaltet Autocommit für den folgenden Block ab
+        und bündelt die Befehle zu einer echten Transaktion.
+      </p>
+
+      <p>Probiere BEGIN/COMMIT/ROLLBACK/SAVEPOINT direkt aus:</p>
+      <div class="tool" data-tool="sql-editor">
+        <script type="application/sql">
+          CREATE TABLE lager (
+            artikel_id INTEGER PRIMARY KEY,
+            artikelname VARCHAR(100) NOT NULL,
+            bestand INTEGER NOT NULL
+          );
+          CREATE TABLE bestellposition (
+            id INTEGER PRIMARY KEY,
+            bestellung_id INTEGER NOT NULL,
+            artikel_id INTEGER NOT NULL,
+            menge INTEGER NOT NULL
+          );
+          INSERT INTO lager (artikel_id, artikelname, bestand) VALUES
+            (1, 'Netzteil 650W', 12),
+            (2, 'RAM-Riegel 16GB', 30),
+            (3, 'SSD 1TB', 8);
+        </script>
+        <p class="muted">SQL-Editor wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Eine Auszubildende bei TowerTech GmbH verbucht Lagerbewegungen im
+        Editor oben:
+      </p>
+      <ul>
+        <li>
+          <strong>Aufgabe 1 (COMMIT):</strong> Verbuche einen Verkauf
+          eines Netzteils als Transaktion – Lagerbestand reduzieren
+          <em>und</em> Bestellposition anlegen, dann <code>COMMIT</code>.
+          Mit <code>SELECT * FROM lager WHERE artikel_id = 1;</code>
+          prüfen: Der Bestand ist dauerhaft auf 11 gesunken.
+        </li>
+        <li>
+          <strong>Aufgabe 2 (ROLLBACK):</strong> Starte eine Transaktion,
+          buche versehentlich 100 RAM-Riegel statt 1 ab
+          (<code>UPDATE lager SET bestand = bestand - 100 WHERE
+          artikel_id = 2;</code>), bemerke den Fehler und mache mit
+          <code>ROLLBACK</code> alles rückgängig. Eine anschließende
+          <code>SELECT</code>-Abfrage zeigt: der Bestand steht wieder bei
+          30, als wäre nichts passiert.
+        </li>
+        <li>
+          <strong>Aufgabe 3 (SAVEPOINT):</strong> Lege innerhalb einer
+          Transaktion einen <code>SAVEPOINT</code> nach einer korrekten
+          Bestellposition an, mache danach einen Fehler bei der
+          Bestandsbuchung, rolle nur bis zum Savepoint zurück und
+          committe den Rest.
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Erklären Sie anhand eines
+        Bank-/Lagerbeispiels, warum Transaktionen notwendig sind und
+        welches ACID-Prinzip sie umsetzen." – Antwort: Transaktionen
+        stellen sicher, dass zusammengehörige Änderungen entweder
+        vollständig oder gar nicht ausgeführt werden – das ist
+        Atomarität. Ohne Transaktion könnte ein Absturz zwischen zwei
+        zusammengehörigen Befehlen einen inkonsistenten Datenbestand
+        hinterlassen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        BEGIN startet, COMMIT speichert dauerhaft, ROLLBACK macht alles
+        seit BEGIN rückgängig. SAVEPOINT erlaubt gezieltes Zurückrollen
+        auf einen Zwischenpunkt, ohne die ganze Transaktion zu verwerfen.
+        Ohne BEGIN läuft in den meisten DBMS jeder Befehl einzeln im
+        Autocommit-Modus. Transaktionen sind die praktische Umsetzung der
+        Atomarität aus ACID.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/sql-transaktionen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/sql-editor.js"></script>
+</body>
+</html>

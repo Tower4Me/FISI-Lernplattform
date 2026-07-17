@@ -1,0 +1,101 @@
+{
+  "unit": "wiso/betriebliche-mitbestimmung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Gesetz bildet die Rechtsgrundlage der betrieblichen Mitbestimmung?",
+      "options": [
+        "Tarifvertragsgesetz",
+        "Betriebsverfassungsgesetz (BetrVG)",
+        "Kündigungsschutzgesetz",
+        "Nachweisgesetz"
+      ],
+      "answer": 1,
+      "explanation": "Das Betriebsverfassungsgesetz (BetrVG) regelt die Wahl und die Rechte des Betriebsrats."
+    },
+    {
+      "id": "q2",
+      "question": "Ab wie vielen wahlberechtigten Arbeitnehmern kann in der Regel ein Betriebsrat gewählt werden?",
+      "options": [
+        "ab 1 Arbeitnehmer",
+        "ab 5 wahlberechtigten Arbeitnehmern",
+        "ab 20 wahlberechtigten Arbeitnehmern",
+        "ab 100 wahlberechtigten Arbeitnehmern"
+      ],
+      "answer": 1,
+      "explanation": "Nach dem BetrVG kann ein Betriebsrat in Betrieben mit in der Regel mindestens 5 wahlberechtigten Arbeitnehmern gewählt werden."
+    },
+    {
+      "id": "q3",
+      "question": "Welches Organ vertritt speziell die Interessen von Auszubildenden und Beschäftigten unter 18 Jahren?",
+      "options": [
+        "Gesamtbetriebsrat",
+        "Konzernbetriebsrat",
+        "Jugend- und Auszubildendenvertretung (JAV)",
+        "Betriebsversammlung"
+      ],
+      "answer": 2,
+      "explanation": "Die JAV vertritt gezielt die Interessen jugendlicher Beschäftigter und Auszubildender."
+    },
+    {
+      "id": "q4",
+      "question": "Was unterscheidet das Anhörungsrecht vom echten Mitbestimmungsrecht des Betriebsrats?",
+      "options": [
+        "Es gibt keinen Unterschied, beide sind gleichwertig",
+        "Beim Anhörungsrecht muss der Betriebsrat gehört werden, hat aber kein Vetorecht; beim Mitbestimmungsrecht ist seine Zustimmung zwingend",
+        "Das Anhörungsrecht gilt nur für die Geschäftsführung",
+        "Das Mitbestimmungsrecht gilt nur bei Kündigungen"
+      ],
+      "answer": 1,
+      "explanation": "Beim Anhörungsrecht (z. B. § 102 BetrVG bei Kündigungen) muss der Betriebsrat gehört werden, kann die Maßnahme aber nicht verhindern. Beim Mitbestimmungsrecht ist seine Zustimmung zwingend erforderlich."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Unternehmen möchte eine neue Software einführen, die auch die Leistung der Beschäftigten auswerten kann. Welches Recht des Betriebsrats greift?",
+      "options": [
+        "Kein Mitbestimmungsrecht, da IT-Systeme ausgenommen sind",
+        "Nur ein Informationsrecht",
+        "Mitbestimmungsrecht nach § 87 Abs. 1 Nr. 6 BetrVG",
+        "Das Recht liegt ausschließlich bei der Gewerkschaft"
+      ],
+      "answer": 2,
+      "explanation": "Technische Einrichtungen, die zur Überwachung von Verhalten oder Leistung geeignet sind, unterliegen der zwingenden Mitbestimmung nach § 87 Abs. 1 Nr. 6 BetrVG."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Organ koordiniert betriebsübergreifende Mitbestimmungsthemen, wenn ein Unternehmen mehrere Betriebe hat?",
+      "options": [
+        "Betriebsrat",
+        "Gesamtbetriebsrat",
+        "JAV",
+        "Betriebsversammlung"
+      ],
+      "answer": 1,
+      "explanation": "Der Gesamtbetriebsrat vertritt die Interessen über mehrere Betriebe eines Unternehmens hinweg."
+    },
+    {
+      "id": "q7",
+      "question": "Was ist ein zentraler rechtlicher Unterschied zwischen Betriebsrat und Gewerkschaft?",
+      "options": [
+        "Der Betriebsrat darf streiken, die Gewerkschaft nicht",
+        "Der Betriebsrat ist an die Friedenspflicht gebunden und darf nicht zum Streik aufrufen, die Gewerkschaft schon",
+        "Beide dürfen uneingeschränkt Tarifverträge abschließen",
+        "Es gibt keinen rechtlichen Unterschied"
+      ],
+      "answer": 1,
+      "explanation": "Der Betriebsrat darf innerbetrieblich nicht zum Streik aufrufen; Arbeitskampfmittel wie Streik sind der Gewerkschaft vorbehalten."
+    },
+    {
+      "id": "q8",
+      "question": "Wie oft findet mindestens eine Betriebsversammlung statt?",
+      "options": [
+        "einmal pro Woche",
+        "einmal pro Quartal",
+        "einmal pro Jahr",
+        "nur bei Bedarf, keine Mindestfrequenz"
+      ],
+      "answer": 1,
+      "explanation": "Die Betriebsversammlung findet in der Regel mindestens einmal pro Quartal statt, in der der Betriebsrat der Belegschaft berichtet."
+    }
+  ]
+}

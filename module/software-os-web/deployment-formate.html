@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Deployment-Formate (ISO, WIM)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Deployment-Formate (ISO, WIM)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Deployment-Formate (ISO, WIM)
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine ISO-Datei ist wie eine Fotokopie eines ganzen Buchs samt
+        Einband und Bindung — Byte für Byte, inklusive der kompletten
+        Struktur des Original-Datenträgers. Eine WIM-Datei ist dagegen
+        eher wie eine flexible E-Book-Ausgabe desselben Inhalts: Sie
+        lässt sich auf beliebiger Hardware neu „aufschlagen“ und kann
+        sogar mehrere Sprachausgaben (Windows-Editionen) in einer
+        einzigen Datei enthalten, aus denen man bei der Installation
+        wählt.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>ISO — das Abbild eines Datenträgers</h3>
+      <p>
+        Eine <strong>ISO-Datei</strong> (benannt nach dem Standard
+        ISO 9660 für optische Datenträger) ist ein exaktes Abbild
+        (Image) eines gesamten Datenträgers oder Dateisystems, Byte für
+        Byte — inklusive der kompletten Struktur des Datenträgers, nicht
+        nur der enthaltenen Dateien.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Einsatz</th><th>Beschreibung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Betriebssystem-Installation</td><td>Windows, Linux, macOS werden als ISO verteilt — herunterladen, auf USB-Stick schreiben (z. B. mit Rufus oder <code>dd</code>), davon booten</td></tr>
+          <tr><td>Virtuelle Maschinen</td><td>VMware, VirtualBox und Hyper-V können ISO-Dateien direkt als virtuelles DVD-Laufwerk einbinden, ohne physischen Datenträger</td></tr>
+          <tr><td>PXE-Boot</td><td>beim Netzwerk-Deployment über PXE (Preboot Execution Environment) wird oft eine ISO bzw. deren Inhalt über das Netzwerk bereitgestellt</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Unter Linux: <code>dd if=windows11.iso of=/dev/sdb bs=4M status=progress</code>
+        schreibt die ISO auf einen USB-Stick (Achtung: überschreibt das
+        Zielgerät vollständig) — <code>mount -o loop windows11.iso /mnt/iso</code>
+        hängt die ISO dagegen nur ein, um den Inhalt anzusehen, ohne sie
+        zu entpacken.
+      </p>
+
+      <h3>WIM — Windows Imaging Format</h3>
+      <p>
+        <strong>WIM</strong> ist das von Microsoft entwickelte Format für
+        Betriebssystem-Images, speziell für das Deployment von Windows
+        entwickelt. Der entscheidende Unterschied zu ISO: Eine ISO ist
+        ein Abbild eines <em>Datenträgers</em>, WIM ist ein Abbild eines
+        <em>Dateisystems</em> — dadurch hardware-unabhängig, komprimiert,
+        und mehrere Windows-Editionen (Home, Pro, Enterprise) können in
+        einer einzigen WIM-Datei stecken; die gewünschte Edition wird
+        erst bei der Installation ausgewählt.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Datei</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>install.wim</code> / <code>install.esd</code></td><td>das eigentliche, komprimierte Windows-Dateisystem auf jedem Installationsmedium (<code>sources\install.wim</code>) — die .esd-Variante ist stärker komprimiert</td></tr>
+          <tr><td><code>boot.wim</code></td><td>das Boot-Image mit Windows PE (Preinstallation Environment) — ein minimales Windows, das nur für die Installation gestartet wird</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Verwaltet wird WIM über das Tool <strong>DISM</strong>
+        (Deployment Image Servicing and Management): z. B.
+        <code>dism /Get-WimInfo /WimFile:install.wim</code> zeigt, welche
+        Editionen enthalten sind, <code>dism /Apply-Image …</code> packt
+        das Image auf ein Ziellaufwerk aus.
+      </p>
+
+      <h3>Weitere Deployment-Formate</h3>
+      <table>
+        <thead>
+          <tr><th>Format</th><th>Beschreibung</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>VHD/VHDX</strong></td><td>Virtual Hard Disk (Microsoft), VHDX ist die moderne Version</td><td>Hyper-V-VMs, Windows-To-Go, Backups</td></tr>
+          <tr><td><strong>VMDK</strong></td><td>VMware Disk Format, virtuelle Festplatte für VMware</td><td>VMware Workstation, ESXi</td></tr>
+          <tr><td><strong>OVA/OVF</strong></td><td>Open Virtualization Format — paketierte VM inkl. Konfiguration</td><td>VM-Import/-Export zwischen Hypervisoren</td></tr>
+          <tr><td><strong>TAR.GZ/TAR.XZ</strong></td><td>gepackte Linux-Pakete oder Container-Images</td><td>Docker-Images, Software-Deployment unter Linux</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Beim <strong>PXE-Boot</strong> lädt ein Client zunächst über das
+        Netzwerk <code>boot.wim</code> (Windows PE) bzw. ein
+        Linux-Boot-Image, um danach über Windows Deployment Services
+        (WDS) oder einen anderen Deployment-Server das eigentliche
+        <code>install.wim</code> zu empfangen und zu installieren — alle
+        beschriebenen Formate arbeiten hier zusammen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH rollt Windows auf 50 neuen Arbeitsplatzrechnern
+        aus:
+      </p>
+      <ul>
+        <li><strong>Einzelinstallation zum Testen:</strong> Ein
+          Techniker lädt die Windows-<strong>ISO</strong> herunter und
+          bindet sie direkt in eine virtuelle Testmaschine ein, ohne
+          einen physischen Datenträger zu benötigen.</li>
+        <li><strong>Massenverteilung im Netzwerk:</strong> Für die
+          restlichen 49 Rechner nutzt die IT-Abteilung
+          <strong>PXE-Boot</strong>: Jeder Client lädt zunächst
+          <code>boot.wim</code> (Windows PE) über das Netzwerk, danach
+          überträgt der Windows-Deployment-Server das eigentliche
+          <code>install.wim</code>.</li>
+        <li><strong>Edition wählen:</strong> Mit
+          <code>dism /Get-WimInfo /WimFile:install.wim</code> prüft der
+          Techniker vorab, welche Windows-Editionen im WIM-Image
+          enthalten sind, und wählt „Pro“ für die Installation aus —
+          eine einzige WIM-Datei genügt für alle benötigten Editionen.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ISO = exaktes Abbild eines gesamten Datenträgers (ISO 9660).
+        WIM = Abbild eines Dateisystems, hardware-unabhängig, komprimiert,
+        mehrere Editionen in einer Datei — verwaltet über DISM.
+        <code>install.wim</code> = eigentliches System, <code>boot.wim</code>
+        = Windows-PE-Boot-Image. PXE-Boot kombiniert beide für die
+        Netzwerkinstallation.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/deployment-formate.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

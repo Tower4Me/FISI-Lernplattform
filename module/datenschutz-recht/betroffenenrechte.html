@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz & Recht: Betroffenenrechte & Rollen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenschutz-recht">Datenschutz & Recht</a></li>
+        <li aria-current="page">Betroffenenrechte & Rollen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Betroffenenrechte & Rollen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir dein eigenes Bankkonto vor: Du hast das Recht, deinen
+        Kontoauszug einzusehen (Auskunft), falsche Buchungen korrigieren
+        zu lassen (Berichtigung), das Konto aufzulösen und die Daten
+        löschen zu lassen (Löschung) oder deine Kontohistorie zu einer
+        anderen Bank mitzunehmen (Datenübertragbarkeit). Genau diese
+        Rechte hat auch jede Person gegenüber Unternehmen, die ihre Daten
+        speichern — die DSGVO nennt sie Betroffenenrechte. Und wie bei der
+        Bank gibt es auch hier klare Rollen: die Bank selbst, externe
+        Dienstleister, die im Auftrag arbeiten, und eine Aufsichtsbehörde,
+        die alles überwacht.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Rechte der betroffenen Person</h3>
+      <table>
+        <thead>
+          <tr><th>Recht</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Auskunft (Art. 15)</td><td>Welche Daten werden über mich gespeichert?</td></tr>
+          <tr><td>Berichtigung (Art. 16)</td><td>falsche Daten korrigieren lassen</td></tr>
+          <tr><td>Löschung (Art. 17)</td><td>„Recht auf Vergessenwerden“</td></tr>
+          <tr><td>Datenübertragbarkeit (Art. 20)</td><td>Daten in einem maschinenlesbaren Format mitnehmen</td></tr>
+          <tr><td>Widerspruch (Art. 21)</td><td>der weiteren Verarbeitung widersprechen</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Wer ist wer? Die Rollen der DSGVO</h3>
+      <table>
+        <thead>
+          <tr><th>Rolle</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Verantwortlicher</strong></td><td>entscheidet über Zweck und Mittel der Verarbeitung — in der Regel das Unternehmen selbst</td></tr>
+          <tr><td><strong>Auftragsverarbeiter</strong></td><td>verarbeitet Daten im Auftrag des Verantwortlichen, z. B. ein Cloud-Anbieter — dafür ist ein Auftragsverarbeitungsvertrag (AVV, Art. 28) nötig</td></tr>
+          <tr><td><strong>Datenschutzbeauftragter (DSB)</strong></td><td>überwacht die Einhaltung der DSGVO im Unternehmen und berät — ab bestimmter Unternehmensgröße/Tätigkeit gesetzlich verpflichtend</td></tr>
+          <tr><td><strong>Aufsichtsbehörde</strong></td><td>staatliche Kontrollinstanz (in Deutschland je Bundesland) — Anlaufstelle für Beschwerden und Meldungen von Datenpannen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Wichtig: Nutzt ein Unternehmen einen externen Cloud-Dienst oder ein
+        Monitoring-Tool, das personenbezogene Daten verarbeitet, bleibt das
+        Unternehmen selbst der <strong>Verantwortliche</strong> —
+        verantwortlich ist es also weiterhin, auch wenn die technische
+        Verarbeitung beim Auftragsverarbeiter läuft.
+      </p>
+
+      <h3>Pseudonymisierung vs. Anonymisierung</h3>
+      <table>
+        <thead>
+          <tr><th>Verfahren</th><th>Personenbezug</th><th>Gilt die DSGVO noch?</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pseudonymisierung</strong></td>
+            <td>über einen separaten Zusatzschlüssel wiederherstellbar
+              (z. B. Kundennummer statt Klarname, Zuordnungstabelle
+              existiert weiterhin)</td>
+            <td>ja — es bleibt ein personenbezogenes Datum</td>
+          </tr>
+          <tr>
+            <td><strong>Anonymisierung</strong></td>
+            <td>der Personenbezug ist endgültig und unwiderruflich
+              entfernt</td>
+            <td>nein — die DSGVO gilt für diese Daten nicht mehr</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Dieser Unterschied wird gerne geprüft: Solange sich der
+        Personenbezug irgendwie wiederherstellen lässt (und sei es über
+        eine separate Tabelle), handelt es sich um Pseudonymisierung —
+        und die DSGVO ist weiterhin anwendbar.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Bei der TechNord GmbH treten drei Fälle auf:
+      </p>
+      <ul>
+        <li><strong>Löschanfrage:</strong> Ein ehemaliger Kunde verlangt
+          die Löschung seiner Daten (Art. 17). Die Firma prüft, ob
+          gesetzliche Aufbewahrungsfristen (z. B. für Rechnungen)
+          entgegenstehen, und löscht anschließend alle Daten, für die
+          keine solche Frist mehr gilt.</li>
+        <li><strong>Externer Cloud-Anbieter:</strong> Die Firma nutzt
+          einen Cloud-Dienst zur Speicherung von Kundendaten. Da der
+          Anbieter im Auftrag verarbeitet, wird ein
+          <strong>Auftragsverarbeitungsvertrag (AVV)</strong>
+          abgeschlossen — verantwortlich bleibt trotzdem die TechNord GmbH,
+          nicht der Cloud-Anbieter.</li>
+        <li><strong>Interne Auswertung:</strong> Für eine
+          Verkaufsstatistik werden Kundendaten vollständig
+          <strong>anonymisiert</strong> (kein Rückschluss auf einzelne
+          Personen mehr möglich) statt nur pseudonymisiert — so unterliegt
+          die Statistik nicht mehr der DSGVO.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Betroffenenrechte: Auskunft, Berichtigung, Löschung,
+        Datenübertragbarkeit, Widerspruch. Der Verantwortliche bleibt auch
+        bei Beauftragung eines Auftragsverarbeiters (AVV) in der
+        Verantwortung. Pseudonymisierte Daten bleiben personenbezogen
+        (Bezug über Zusatzschlüssel wiederherstellbar), anonymisierte
+        Daten fallen endgültig aus dem Anwendungsbereich der DSGVO heraus.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenschutz-recht/betroffenenrechte.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

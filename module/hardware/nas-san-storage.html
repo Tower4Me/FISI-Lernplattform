@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: NAS, SAN & Netzwerkspeicher</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">NAS, SAN & Netzwerkspeicher</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      NAS, SAN & Netzwerkspeicher
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein geteilter Büroordner im Netzwerk ist wie ein Aktenschrank, den
+        mehrere Kolleg:innen gemeinsam nutzen: Jeder holt sich fertige
+        Dokumente heraus, ohne zu wissen, wie der Schrank innen organisiert
+        ist. Das ist <strong>File-Storage</strong> — genau das liefert ein
+        <strong>NAS</strong>. Eine leere externe Festplatte, die man selbst
+        formatiert und mit einem eigenen Ordnungssystem versieht, ist
+        dagegen <strong>Block-Storage</strong> — nur dass das „Kabel“ hier
+        das Netzwerk ist. Genau das liefert ein <strong>SAN</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Zwei Ebenen, Speicher im Netz bereitzustellen</h3>
+      <table>
+        <thead>
+          <tr><th>Ebene</th><th>Was der Client bekommt</th><th>Protokolle</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>File-Storage</strong></td>
+            <td>fertige Dateien — der Server verwaltet das Dateisystem,
+              der Client fragt „gib mir datei.txt“</td>
+            <td>SMB (Windows, CIFS ist der alte Name dafür), NFS (Unix/Linux)</td>
+          </tr>
+          <tr>
+            <td><strong>Block-Storage</strong></td>
+            <td>rohe, nummerierte Blöcke — der Client legt das Dateisystem
+              selbst an, so als wäre es eine frische lokale Platte</td>
+            <td>iSCSI, Fibre Channel</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>NAS vs. SAN</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>NAS (Network Attached Storage)</th><th>SAN (Storage Area Network)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Liefert</td><td>Dateien (File-Storage)</td><td>Blöcke (Block-Storage)</td></tr>
+          <tr><td>Protokolle</td><td>SMB, NFS</td><td>iSCSI, Fibre Channel</td></tr>
+          <tr><td>Client sieht</td><td>Netzwerkfreigabe / Ordner</td><td>lokale Festplatte</td></tr>
+          <tr><td>Dateisystem liegt</td><td>beim NAS</td><td>beim Client</td></tr>
+          <tr><td>Typischer Einsatz</td><td>geteilte Nutzerlaufwerke</td><td>VM-Speicher, Datenbanken</td></tr>
+        </tbody>
+      </table>
+      <p>
+        NAS und SAN sind <strong>Architekturkonzepte</strong> (das „Was“),
+        iSCSI und Fibre Channel sind <strong>Protokolle</strong> (das
+        „Wie“). Ein SAN lässt sich sowohl über iSCSI (übers normale
+        Ethernet) als auch über Fibre Channel (eigenes, dediziertes
+        Speichernetz) realisieren — beide sind keine Konkurrenten,
+        sondern unterschiedliche Wege zum selben Architekturziel.
+      </p>
+
+      <h3>iSCSI im Detail</h3>
+      <p>
+        iSCSI verpackt klassische SCSI-Befehle, mit denen ein Betriebssystem
+        normalerweise eine lokale Platte anspricht, in TCP/IP-Pakete und
+        schickt sie über ein normales Ethernet-Netz (Port 3260) an ein
+        entferntes Speichersystem.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Initiator</td><td>der Client, der auf den Speicher zugreift</td></tr>
+          <tr><td>Target</td><td>das System, das den Speicher bereitstellt (z. B. ein NAS oder SAN)</td></tr>
+          <tr><td>LUN</td><td>Logical Unit Number — die „virtuelle Festplatte“, die das Target bereitstellt</td></tr>
+          <tr><td>IQN</td><td>iSCSI Qualified Name — eindeutiger Name, über den sich Initiator und Target ansprechen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Zwei Systeme dürfen niemals gleichzeitig auf dieselbe LUN
+        schreiben — das zerstört das Dateisystem. iSCSI gibt deshalb einem
+        einzelnen System exklusiven Zugriff auf eine Platte; sollen mehrere
+        Nutzer gleichzeitig auf dieselben Daten zugreifen, ist File-Storage
+        (NAS) das richtige Werkzeug, nicht iSCSI.
+      </p>
+
+      <h3>Fibre Channel und HBA</h3>
+      <p>
+        <strong>Fibre Channel (FC)</strong> ist ein eigenes, dediziertes
+        Hochgeschwindigkeitsnetz speziell für Block-Storage — getrennt vom
+        normalen Ethernet-Netzwerk, dadurch sehr niedrige Latenz und hohe
+        Zuverlässigkeit, aber teurer als iSCSI (eigene FC-Switches und
+        -Verkabelung nötig). Ein Server benötigt dafür einen speziellen
+        <strong>HBA</strong> (Host Bus Adapter) — eine Erweiterungskarte,
+        die die Verbindung zum Fibre-Channel- bzw. SAN-Netz herstellt, so
+        wie eine Netzwerkkarte die Verbindung zum Ethernet-Netz herstellt.
+      </p>
+
+      <h3>JBOD</h3>
+      <p>
+        <strong>JBOD</strong> (Just a Bunch Of Disks) bezeichnet mehrere
+        Festplatten, die zwar in einem gemeinsamen Gehäuse stecken, aber
+        ohne RAID-Verbund einzeln (oder zu einem einzigen großen Volume
+        zusammengefügt) angesprochen werden. Anders als bei RAID gibt es
+        keine Redundanz und meist auch keinen Geschwindigkeitsvorteil —
+        JBOD dient in erster Linie dazu, mehrere Einzelplatten einfach und
+        günstig in einem Gehäuse zu bündeln.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant für einen Kunden zwei unterschiedliche
+        Speicheranforderungen:
+      </p>
+      <p>
+        <strong>Anforderung 1 — geteiltes Abteilungslaufwerk:</strong>
+        Mehrere Mitarbeitende sollen gleichzeitig auf dieselben
+        Projektdokumente zugreifen können. Lösung: ein <strong>NAS</strong>
+        mit SMB-Freigabe — File-Storage, bei dem das NAS das Dateisystem
+        verwaltet und mehreren Nutzern gleichzeitig fertige Dateien liefert.
+      </p>
+      <p>
+        <strong>Anforderung 2 — Speicher für einen Virtualisierungsserver:</strong>
+        Der Server soll exklusiven, sehr schnellen Speicherzugriff für seine
+        virtuellen Maschinen erhalten. Lösung: ein <strong>SAN</strong>
+        über iSCSI — Block-Storage, bei dem der Server (Initiator) über
+        eine LUN exklusiven Zugriff auf eine „virtuelle Festplatte“ auf dem
+        Storage-System (Target) bekommt und dort sein eigenes Dateisystem
+        anlegt.
+      </p>
+      <p>
+        Ein NAS für den Virtualisierungsserver einzusetzen wäre ungeeignet,
+        da mehrere gleichzeitige Schreibzugriffe auf dieselbe Datei/LUN das
+        Dateisystem der VMs beschädigen könnten — genau deshalb ist die
+        Trennung File- vs. Block-Storage hier entscheidend.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        NAS liefert File-Storage (SMB/NFS, Dateisystem beim NAS), SAN
+        liefert Block-Storage (iSCSI/Fibre Channel, Dateisystem beim
+        Client). iSCSI überträgt SCSI-Befehle über TCP/IP, Fibre Channel
+        nutzt ein eigenes dediziertes Netz und benötigt einen HBA im
+        Server. JBOD bündelt mehrere Platten ohne RAID-Redundanz in einem
+        Gehäuse.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/nas-san-storage.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

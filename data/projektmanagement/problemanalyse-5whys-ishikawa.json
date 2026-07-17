@@ -1,0 +1,101 @@
+{
+  "unit": "projektmanagement/problemanalyse-5whys-ishikawa",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist das Ziel der Root-Cause-Analyse?",
+      "options": [
+        "Nur das aktuelle Symptom schnellstmöglich zu beseitigen",
+        "Die tatsächliche, zugrunde liegende Ursache eines Problems zu finden, um ein erneutes Auftreten zu verhindern",
+        "Ausschließlich die Kosten eines Problems zu dokumentieren",
+        "Ein Problem an den Kunden zu delegieren"
+      ],
+      "answer": 1,
+      "explanation": "Die Root-Cause-Analyse zielt darauf ab, die eigentliche Ursache zu finden, statt nur Symptome zu behandeln."
+    },
+    {
+      "id": "q2",
+      "question": "Wie funktioniert die 5-Why-Methode grundsätzlich?",
+      "options": [
+        "Man stellt genau eine Frage und akzeptiert die erste Antwort",
+        "Man fragt wiederholt „Warum?“, um von einem Symptom zur eigentlichen Ursache vorzudringen",
+        "Man befragt fünf verschiedene Personen unabhängig voneinander",
+        "Man wartet fünf Tage, bevor man ein Problem analysiert"
+      ],
+      "answer": 1,
+      "explanation": "Bei der 5-Why-Methode wird durch wiederholtes Nachfragen die eigentliche Ursache eines Problems ermittelt."
+    },
+    {
+      "id": "q3",
+      "question": "Wie wird das Ishikawa-Diagramm auch genannt?",
+      "options": [
+        "Netzplan",
+        "Fischgrätendiagramm bzw. Ursache-Wirkungs-Diagramm",
+        "Gantt-Diagramm",
+        "Organigramm"
+      ],
+      "answer": 1,
+      "explanation": "Das Ishikawa-Diagramm wird aufgrund seiner Form auch Fischgrätendiagramm genannt und dient als Ursache-Wirkungs-Diagramm."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür steht die Kategorie „Methode“ in den klassischen 6 M des Ishikawa-Diagramms im IT-Kontext?",
+      "options": [
+        "Für Hardwaredefekte",
+        "Für fehlerhafte Prozesse oder fehlende Checklisten",
+        "Für die Umgebungstemperatur im Serverraum",
+        "Für fehlende Schulung von Mitarbeitenden"
+      ],
+      "answer": 1,
+      "explanation": "Die Kategorie Methode bezieht sich auf Prozesse und Vorgehensweisen, z. B. fehlerhafte oder fehlende Checklisten."
+    },
+    {
+      "id": "q5",
+      "question": "Wo im Ishikawa-Diagramm wird das eigentliche Problem dargestellt?",
+      "options": [
+        "In der Mitte des Diagramms",
+        "Als „Fischkopf“ am rechten Ende, zu dem die Kategorien als „Gräten“ hinführen",
+        "Es gibt keine feste Position für das Problem",
+        "Am linken unteren Rand als Fußnote"
+      ],
+      "answer": 1,
+      "explanation": "Das Problem wird als Fischkopf am rechten Ende dargestellt, die Kategorien bilden die Gräten, die darauf zulaufen."
+    },
+    {
+      "id": "q6",
+      "question": "Im Praxisbeispiel: Was ist die tatsächliche Root Cause für den wiederholten Serverausfall?",
+      "options": [
+        "Die volle Festplatte selbst",
+        "Ein fehlender Prüfpunkt zur Log-Rotation in der Checkliste für Systemumstellungen",
+        "Ein defekter Netzwerkschalter",
+        "Ein Stromausfall im Serverraum"
+      ],
+      "answer": 1,
+      "explanation": "Die 5-Why-Analyse zeigt, dass die eigentliche Ursache ein fehlender Prozessschritt in der Checkliste ist, nicht nur die volle Festplatte."
+    },
+    {
+      "id": "q7",
+      "question": "Wie wird bei der Ishikawa-Methode typischerweise vorgegangen, um Ursachen zu sammeln?",
+      "options": [
+        "Eine einzelne Person entscheidet allein ohne Rücksprache",
+        "Im Team wird je Kategorie gemeinsam nach möglichen Ursachen gesucht (Brainstorming)",
+        "Ursachen werden ausschließlich per Zufallsgenerator ausgewählt",
+        "Nur die IT-Abteilung darf am Diagramm mitwirken"
+      ],
+      "answer": 1,
+      "explanation": "Typischerweise wird im Team je Kategorie gebrainstormt, welche Ursachen zum Problem beigetragen haben könnten."
+    },
+    {
+      "id": "q8",
+      "question": "Warum reicht es oft nicht aus, nur das unmittelbare Symptom eines Problems zu beheben?",
+      "options": [
+        "Weil das Symptom sich sonst automatisch von selbst löst",
+        "Weil das Problem ohne Behebung der eigentlichen Ursache erneut auftreten kann",
+        "Weil Symptome grundsätzlich irrelevant für die Problemlösung sind",
+        "Weil Symptome nie mit der Root Cause zusammenhängen"
+      ],
+      "answer": 1,
+      "explanation": "Wird nur das Symptom behoben, bleibt die eigentliche Ursache bestehen und das Problem kann erneut auftreten."
+    }
+  ]
+}

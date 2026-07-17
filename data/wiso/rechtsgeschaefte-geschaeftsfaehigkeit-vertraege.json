@@ -1,0 +1,101 @@
+{
+  "unit": "wiso/rechtsgeschaefte-geschaeftsfaehigkeit-vertraege",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Ab welchem Alter ist eine Person nach dem BGB in der Regel voll geschäftsfähig?",
+      "options": [
+        "ab 14 Jahren",
+        "ab 16 Jahren",
+        "ab 18 Jahren",
+        "ab 21 Jahren"
+      ],
+      "answer": 2,
+      "explanation": "Volle Geschäftsfähigkeit tritt grundsätzlich mit Vollendung des 18. Lebensjahres ein."
+    },
+    {
+      "id": "q2",
+      "question": "Wie werden Willenserklärungen von geschäftsunfähigen Personen (unter 7 Jahre) rechtlich behandelt?",
+      "options": [
+        "Sie sind grundsätzlich wirksam",
+        "Sie sind nichtig, auch mit Zustimmung der Eltern",
+        "Sie sind schwebend wirksam bis zur Volljährigkeit",
+        "Sie bedürfen nur der notariellen Beurkundung"
+      ],
+      "answer": 1,
+      "explanation": "Willenserklärungen geschäftsunfähiger Personen sind grundsätzlich nichtig, selbst mit Zustimmung der gesetzlichen Vertreter."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Voraussetzung muss der Taschengeldparagraf (§ 110 BGB) erfüllen, damit ein Geschäft eines Minderjährigen ohne Zustimmung der Eltern wirksam ist?",
+      "options": [
+        "Das Geschäft muss über mindestens 6 Monate laufen",
+        "Das Geschäft muss vollständig mit eigenen, zur Verfügung überlassenen Mitteln sofort bewirkt werden",
+        "Es muss sich um einen Mietvertrag handeln",
+        "Der gesetzliche Vertreter muss nachträglich informiert werden"
+      ],
+      "answer": 1,
+      "explanation": "Der Taschengeldparagraf greift nur, wenn das Geschäft vollständig und sofort mit eigenen Mitteln erfüllt wird."
+    },
+    {
+      "id": "q4",
+      "question": "Ein 16-Jähriger unterschreibt einen Mobilfunkvertrag mit 24 Monaten Laufzeit und monatlicher Zahlungspflicht. Greift hier der Taschengeldparagraf?",
+      "options": [
+        "Ja, da er sein eigenes Geld verwendet",
+        "Nein, da es sich um eine dauerhafte Verpflichtung handelt, die nicht sofort vollständig erfüllt wird",
+        "Ja, weil Mobilfunkverträge grundsätzlich ausgenommen sind",
+        "Nein, weil der Vertrag automatisch nichtig ist"
+      ],
+      "answer": 1,
+      "explanation": "Da der Vertrag laufende Zahlungspflichten begründet und nicht bei Abschluss vollständig erfüllt wird, greift der Taschengeldparagraf nicht – Zustimmung der Eltern ist erforderlich."
+    },
+    {
+      "id": "q5",
+      "question": "Aus welchen zwei übereinstimmenden Willenserklärungen entsteht ein Vertrag?",
+      "options": [
+        "Kündigung und Widerspruch",
+        "Angebot und Annahme",
+        "Anfechtung und Genehmigung",
+        "Mahnung und Zahlung"
+      ],
+      "answer": 1,
+      "explanation": "Ein Vertrag entsteht durch zwei übereinstimmende Willenserklärungen: Angebot und Annahme."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Pflichten begründet ein Kaufvertrag nach § 433 BGB?",
+      "options": [
+        "Nur eine Pflicht für den Käufer",
+        "Übergabe/Übereignung einer mangelfreien Sache durch den Verkäufer sowie Zahlung und Abnahme durch den Käufer",
+        "Ausschließlich die Überlassung einer Mietsache",
+        "Nur die Verpflichtung zur Zinszahlung"
+      ],
+      "answer": 1,
+      "explanation": "Beim Kaufvertrag verpflichtet sich der Verkäufer zur Übergabe einer mangelfreien Sache, der Käufer zur Zahlung und Abnahme."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Pflichten regelt ein Darlehensvertrag nach § 488 BGB?",
+      "options": [
+        "Überlassung eines Geldbetrags durch den Darlehensgeber sowie Zinszahlung und Rückzahlung durch den Darlehensnehmer",
+        "Ausschließlich die Übergabe einer Mietsache",
+        "Nur die Zahlung eines Kaufpreises",
+        "Die Bereitstellung eines Arbeitsplatzes"
+      ],
+      "answer": 0,
+      "explanation": "Beim Darlehensvertrag überlässt der Darlehensgeber einen Geldbetrag, der Darlehensnehmer zahlt Zinsen und zahlt das Darlehen zurück."
+    },
+    {
+      "id": "q8",
+      "question": "Wie sind Rechtsgeschäfte beschränkt Geschäftsfähiger (7–17 Jahre) grundsätzlich zu behandeln?",
+      "options": [
+        "Sie sind immer voll wirksam ohne jede Einschränkung",
+        "Sie sind grundsätzlich nur mit Einwilligung oder Genehmigung der gesetzlichen Vertreter wirksam (Ausnahme: § 110 BGB)",
+        "Sie sind grundsätzlich immer nichtig",
+        "Sie bedürfen immer einer notariellen Beurkundung"
+      ],
+      "answer": 1,
+      "explanation": "Rechtsgeschäfte beschränkt Geschäftsfähiger sind grundsätzlich nur mit Zustimmung der gesetzlichen Vertreter wirksam, mit der Ausnahme des Taschengeldparagrafen."
+    }
+  ]
+}

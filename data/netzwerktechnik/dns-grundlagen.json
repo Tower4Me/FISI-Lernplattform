@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/dns-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist die grundlegende Aufgabe von DNS?",
+      "options": [
+        "Vergabe von IP-Adressen an neue Geräte im Netz",
+        "Übersetzung von Domainnamen in IP-Adressen und umgekehrt",
+        "Verschlüsselung des Datenverkehrs im Internet",
+        "Priorisierung von Datenverkehr bei Bandbreitenengpässen"
+      ],
+      "answer": 1,
+      "explanation": "DNS (Domain Name System) übersetzt für Menschen lesbare Domainnamen in IP-Adressen, die Computer für die Kommunikation benötigen."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher DNS-Record-Typ ordnet einem Domainnamen eine IPv4-Adresse zu?",
+      "options": [
+        "MX",
+        "A",
+        "CNAME",
+        "PTR"
+      ],
+      "answer": 1,
+      "explanation": "Der A-Record (Address Record) ordnet einem Domainnamen eine IPv4-Adresse zu. Für IPv6 wird der AAAA-Record verwendet."
+    },
+    {
+      "id": "q3",
+      "question": "Welcher DNS-Record-Typ ist für die Zustellung von E-Mails an eine Domain zuständig?",
+      "options": [
+        "SOA",
+        "AAAA",
+        "MX",
+        "CNAME"
+      ],
+      "answer": 2,
+      "explanation": "Der MX-Record (Mail Exchange) benennt den für eine Domain zuständigen Mailserver, inklusive Prioritätswert."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür wird ein CNAME-Record verwendet?",
+      "options": [
+        "Um eine IP-Adresse auf einen Domainnamen zurückzuführen",
+        "Um einen Domainnamen als Alias auf einen anderen Domainnamen zu verweisen",
+        "Um den zuständigen Mailserver zu benennen",
+        "Um die administrativen Basisdaten einer Zone zu speichern"
+      ],
+      "answer": 1,
+      "explanation": "CNAME (Canonical Name) ist ein Alias-Eintrag, der einen Domainnamen auf einen anderen Domainnamen verweist."
+    },
+    {
+      "id": "q5",
+      "question": "Was leistet ein PTR-Record im Unterschied zu einem A-Record?",
+      "options": [
+        "PTR ordnet einer IP-Adresse einen Domainnamen zu (Reverse-Lookup), A ordnet einem Namen eine IPv4-Adresse zu",
+        "PTR und A leisten exakt dasselbe",
+        "PTR ist nur für IPv6 zuständig",
+        "PTR wird ausschließlich für Mailserver verwendet"
+      ],
+      "answer": 0,
+      "explanation": "PTR-Records lösen in der umgekehrten Richtung auf: von einer IP-Adresse zu einem Domainnamen (Reverse-Lookup)."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Rolle spielt die lokale hosts-Datei im Verhältnis zu DNS-Anfragen?",
+      "options": [
+        "Sie wird nur verwendet, wenn kein DNS-Server konfiguriert ist",
+        "Einträge in der hosts-Datei werden vor jeder DNS-Anfrage geprüft und haben Vorrang",
+        "Sie ersetzt vollständig die Notwendigkeit eines DNS-Servers im Internet",
+        "Sie speichert ausschließlich MX-Records"
+      ],
+      "answer": 1,
+      "explanation": "Die lokale hosts-Datei wird vor jeder DNS-Anfrage geprüft; enthaltene Einträge haben Vorrang vor der DNS-Auflösung."
+    },
+    {
+      "id": "q7",
+      "question": "Was gibt der TTL-Wert (Time to Live) bei einem DNS-Eintrag an?",
+      "options": [
+        "Die maximale Anzahl von Hops, die ein Paket im Internet zurücklegen darf",
+        "Wie lange eine aufgelöste DNS-Antwort zwischengespeichert (gecacht) werden darf, bevor sie erneut abgefragt wird",
+        "Die Priorität eines MX-Records",
+        "Die Bandbreite, die einer Domain zugewiesen ist"
+      ],
+      "answer": 1,
+      "explanation": "Der TTL-Wert bestimmt, wie lange ein Resolver eine DNS-Antwort zwischenspeichern darf, bevor er sie erneut beim zuständigen Nameserver abfragt."
+    }
+  ]
+}

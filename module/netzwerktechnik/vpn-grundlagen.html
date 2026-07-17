@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: VPN-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">VPN-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      VPN-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen gepanzerten, blickdichten Tunnel vor, der mitten
+        durch eine belebte, für jeden zugängliche Stadt führt. Wer den
+        Tunnel benutzt, fährt zwar über dieselben öffentlichen Straßen wie
+        alle anderen, aber niemand von außen kann sehen, wer im Tunnel
+        unterwegs ist oder was transportiert wird. Genau das leistet ein
+        <strong>VPN</strong> (Virtual Private Network): Es baut über ein
+        unsicheres, öffentliches Netz (das Internet) einen verschlüsselten
+        „Tunnel“ auf, durch den Daten so sicher übertragen werden, als
+        befände man sich direkt im internen Firmennetz.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein <strong>VPN</strong> verbindet zwei oder mehr Netzwerke bzw.
+        ein einzelnes Gerät mit einem Netzwerk über eine bestehende,
+        öffentliche Verbindung (meist das Internet) — die Daten werden
+        dabei in einem verschlüsselten „Tunnel“ übertragen, sodass Dritte
+        auf dem Übertragungsweg weder Inhalte mitlesen noch unbemerkt
+        verändern können.
+      </p>
+
+      <h3>VPN-Szenarien</h3>
+      <table>
+        <thead>
+          <tr><th>Szenario</th><th>Verbindet</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Site-to-Site-VPN</strong></td><td>zwei komplette Netzwerke (z. B. zwei Firmenstandorte) über feste VPN-Gateways</td><td>Anbindung einer Filiale an die Zentrale, dauerhaft eingerichtet</td></tr>
+          <tr><td><strong>End-to-Site-VPN</strong> (auch Client-to-Site)</td><td>ein einzelnes Endgerät mit einem Netzwerk</td><td>Homeoffice-Mitarbeiter greift von seinem Notebook aus auf das Firmennetz zu</td></tr>
+        </tbody>
+      </table>
+
+      <h3>VPN-Protokolle</h3>
+      <table>
+        <thead>
+          <tr><th>Protokoll</th><th>Eigenschaft</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>IPsec</strong> (Internet Protocol Security)</td><td>verschlüsselt und authentifiziert IP-Pakete auf Netzwerkebene (Schicht 3), weit verbreiteter Standard für Site-to-Site- und End-to-Site-VPNs, oft kombiniert mit IKE zum Schlüsselaustausch</td></tr>
+          <tr><td><strong>L2TP</strong> (Layer 2 Tunneling Protocol)</td><td>baut selbst keine Verschlüsselung ein, wird deshalb fast immer mit IPsec kombiniert (L2TP/IPsec) — L2TP übernimmt den Tunnelaufbau, IPsec die Verschlüsselung</td></tr>
+          <tr><td><strong>SSL/TLS-VPN</strong></td><td>nutzt dieselbe Verschlüsselungstechnik wie HTTPS, oft per Browser oder schlankem Client nutzbar, beliebt für einfache End-to-Site-Zugänge</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Einsatzzweck: Fernwartung & Telearbeit</h3>
+      <p>
+        VPNs sind die technische Grundlage für zwei häufige
+        Betriebssituationen:
+      </p>
+      <ul>
+        <li><strong>Fernwartung:</strong> IT-Dienstleister greifen über ein VPN gesichert auf Kundensysteme zu, um Wartungsarbeiten durchzuführen, ohne vor Ort sein zu müssen.</li>
+        <li><strong>Telearbeit/Homeoffice:</strong> Mitarbeitende greifen von zu Hause aus über ein End-to-Site-VPN sicher auf interne Ressourcen (Dateiserver, interne Anwendungen) zu, als säßen sie im Büro.</li>
+      </ul>
+      <p>
+        In beiden Fällen sorgt das VPN dafür, dass der Datenverkehr über
+        das öffentliche Internet vertraulich und unverändert (integer)
+        bleibt — die eigentliche Absicherung übernimmt dabei meist TLS
+        (siehe Einheit „Zertifikate, PKI & TLS“) bzw. IPsec.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus richtet für einen Kunden mit Hauptsitz und einer
+        neuen Filiale sowie mehreren Homeoffice-Mitarbeitenden die
+        VPN-Struktur ein.
+      </p>
+      <ul>
+        <li>Zwischen Hauptsitz und Filiale wird ein <strong>Site-to-Site-VPN</strong> mit <strong>IPsec</strong> eingerichtet — beide Standorte sind dadurch dauerhaft verschlüsselt verbunden, für die Mitarbeitenden beider Standorte unsichtbar im Hintergrund.</li>
+        <li>Homeoffice-Mitarbeitende erhalten Zugriff über ein <strong>End-to-Site-VPN</strong> per SSL/TLS-VPN-Client auf ihrem Notebook — nach Verbindungsaufbau erreichen sie interne Dateiserver genauso wie im Büro.</li>
+        <li>Der externe IT-Dienstleister greift bei Wartungsarbeiten ausschließlich über ein zeitlich begrenztes VPN-Konto zu — eine typische <strong>Fernwartung</strong> ohne physische Anwesenheit vor Ort.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welche Art von VPN wird für die dauerhafte
+        Anbindung einer Filiale an die Firmenzentrale verwendet, und
+        welches Protokoll kommt dabei häufig zum Einsatz?“ – Antwort:
+        Site-to-Site-VPN, häufig mit IPsec zwischen den beiden
+        VPN-Gateways.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        VPN baut über ein unsicheres öffentliches Netz einen
+        verschlüsselten Tunnel auf. Site-to-Site verbindet zwei
+        Netzwerke dauerhaft, End-to-Site verbindet ein einzelnes Gerät mit
+        einem Netzwerk. IPsec verschlüsselt auf Netzwerkebene, L2TP wird
+        meist mit IPsec kombiniert. Grundlage für sichere Fernwartung und
+        Telearbeit.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/vpn-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: Kanban- & Scrum-Board</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">Kanban- & Scrum-Board</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Kanban- & Scrum-Board
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Kanban-Board ist wie eine Küchenline von oben betrachtet:
+        Spalten für „Zutaten warten“ (To Do), „wird gerade zubereitet“
+        (In Progress) und „fertig angerichtet“ (Done). Ein
+        WIP-Limit ist die strikte Regel „nie mehr als drei Gerichte
+        gleichzeitig auf dem Herd“ — sie zwingt dazu, laufende Gerichte
+        erst fertigzustellen, bevor ein neues begonnen wird, statt überall
+        halbfertige Teller liegen zu haben.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Kanban-Board</h3>
+      <p>
+        <strong>Kanban</strong> (japanisch für „Signalkarte“) ist ein
+        visuelles Arbeitsmanagement-System, ursprünglich aus der
+        Produktion (Toyota), heute auch in der Softwareentwicklung und
+        im IT-Support verbreitet. Ein <strong>Kanban-Board</strong> ist
+        eine Tafel mit Spalten, die die Phasen eines Arbeitsablaufs
+        darstellen — typisch: <em>To Do / In Progress / Done</em>, oft
+        feiner unterteilt. Einzelne Aufgaben werden als Karten
+        dargestellt, die von Spalte zu Spalte wandern.
+      </p>
+
+      <h3>WIP-Limit (Work in Progress)</h3>
+      <p>
+        Das <strong>WIP-Limit</strong> begrenzt, wie viele Karten sich
+        gleichzeitig in einer Spalte (z. B. „In Progress“) befinden
+        dürfen. Zweck: Engpässe sichtbar machen, übermäßiges
+        Multitasking und liegen gebliebene Halbfertigaufgaben vermeiden,
+        und einen kontinuierlichen Arbeitsfluss (Flow) statt
+        Stapelbildung fördern.
+      </p>
+
+      <h3>Scrum-Board</h3>
+      <p>
+        Ein <strong>Scrum-Board</strong> folgt einem ähnlichen Prinzip,
+        ist aber in den Scrum-Rahmen mit festen Zeitboxen (Sprints)
+        eingebettet. Zu Beginn eines Sprints wird das Board mit den
+        Aufgaben des Sprint-Backlogs befüllt, am Ende des Sprints
+        ausgewertet und für den nächsten Sprint zurückgesetzt.
+      </p>
+      <table>
+        <thead>
+          <tr><th></th><th>Kanban</th><th>Scrum-Board</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Zeitrahmen</strong></td><td>kontinuierlicher Fluss, keine festen Zeitboxen</td><td>an einen Sprint (festen Zeitraum) gebunden</td></tr>
+          <tr><td><strong>Aufgabenzufluss</strong></td><td>Karten kommen laufend hinzu</td><td>Board wird zu Sprintbeginn neu befüllt</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Bei der TechNord GmbH nutzen zwei Teams unterschiedliche Boards:
+      </p>
+      <ul>
+        <li><strong>IT-Support-Team:</strong> nutzt ein
+          <strong>Kanban-Board</strong> für eingehende Tickets mit den
+          Spalten „Neu“, „In Bearbeitung“ (WIP-Limit: 3), „Wartet auf
+          Rückmeldung“, „Erledigt“. Das WIP-Limit von 3 zwingt die
+          Techniker, ein Ticket abzuschließen, bevor sie ein viertes
+          gleichzeitig beginnen — so bleiben Tickets nicht endlos
+          unbearbeitet liegen.</li>
+        <li><strong>Entwicklerteam</strong> (interne Software): nutzt ein
+          <strong>Scrum-Board</strong> mit zweiwöchigen Sprints. Zu
+          Sprintbeginn wird das Board mit den geplanten Aufgaben
+          befüllt, am Sprintende ausgewertet und für den nächsten Sprint
+          komplett neu aufgesetzt.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Kanban-Boards zeigen den Arbeitsfluss in Spalten (To Do/In
+        Progress/Done), das WIP-Limit begrenzt gleichzeitig laufende
+        Aufgaben pro Spalte und verhindert Stapelbildung. Kanban läuft
+        kontinuierlich ohne feste Zeitboxen, das Scrum-Board ist dagegen
+        an feste Sprints gebunden und wird pro Sprint neu befüllt.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/kanban-scrum-board.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

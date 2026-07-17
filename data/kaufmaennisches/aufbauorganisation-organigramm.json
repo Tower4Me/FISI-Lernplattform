@@ -1,0 +1,101 @@
+{
+  "unit": "kaufmaennisches/aufbauorganisation-organigramm",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was zeigt ein Organigramm?",
+      "options": [
+        "Den zeitlichen Ablauf eines Projekts",
+        "Die grafische Darstellung der Aufbauorganisation eines Unternehmens (Stellen und Unterstellungsverhältnisse)",
+        "Die Finanzkennzahlen eines Unternehmens",
+        "Die Kundenzufriedenheit eines Unternehmens"
+      ],
+      "answer": 1,
+      "explanation": "Ein Organigramm bildet grafisch die Aufbauorganisation ab, also Stellen, Abteilungen und ihre Unterstellungsverhältnisse."
+    },
+    {
+      "id": "q2",
+      "question": "Was kennzeichnet das Einliniensystem?",
+      "options": [
+        "Jede Person hat mehrere gleichzeitig zuständige Vorgesetzte",
+        "Jede Person hat genau eine:n Vorgesetzte:n",
+        "Es gibt keine Vorgesetzten",
+        "Es basiert ausschließlich auf beratenden Stabsstellen"
+      ],
+      "answer": 1,
+      "explanation": "Im Einliniensystem hat jede Person genau eine:n Vorgesetzte:n."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist ein typisches Risiko des Mehrliniensystems?",
+      "options": [
+        "Zu wenige fachliche Ansprechpartner",
+        "Widersprüchliche Anweisungen durch mehrere fachlich zuständige Vorgesetzte",
+        "Vollständige Abwesenheit jeglicher Führung",
+        "Es gibt bei diesem System keinerlei Risiken"
+      ],
+      "answer": 1,
+      "explanation": "Im Mehrliniensystem können Anweisungen mehrerer Vorgesetzter im Widerspruch zueinander stehen."
+    },
+    {
+      "id": "q4",
+      "question": "Was unterscheidet eine Stabsstelle von einer Linienstelle im Stabliniensystem?",
+      "options": [
+        "Die Stabsstelle hat volle Weisungsbefugnis über die Linie",
+        "Die Stabsstelle berät, hat aber keine Weisungsbefugnis gegenüber der Linie",
+        "Es gibt keinen Unterschied zwischen beiden",
+        "Stabsstellen existieren nur in Matrixorganisationen"
+      ],
+      "answer": 1,
+      "explanation": "Stabsstellen beraten die Linie, besitzen aber selbst keine Weisungsbefugnis gegenüber ihr."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist charakteristisch für eine Matrixorganisation?",
+      "options": [
+        "Mitarbeitende sind gleichzeitig zwei Leitungslinien unterstellt, meist einer fachlichen und einer projektbezogenen",
+        "Es existiert nur eine einzige Führungsebene im gesamten Unternehmen",
+        "Es gibt grundsätzlich keine Vorgesetzten",
+        "Sie wird ausschließlich für die Buchhaltung eingesetzt"
+      ],
+      "answer": 0,
+      "explanation": "In der Matrixorganisation sind Mitarbeitende typischerweise zwei Leitungslinien gleichzeitig unterstellt."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Risiko ist mit der Matrixorganisation typischerweise verbunden?",
+      "options": [
+        "Zu kurze Kommunikationswege ohne jeden Nachteil",
+        "Mögliche Kompetenzkonflikte zwischen den beiden Leitungslinien",
+        "Der vollständige Wegfall von Führungsverantwortung",
+        "Die Unmöglichkeit von Projektarbeit"
+      ],
+      "answer": 1,
+      "explanation": "Da Mitarbeitende zwei Leitungslinien unterstehen, kann es zu Kompetenzkonflikten kommen."
+    },
+    {
+      "id": "q7",
+      "question": "Im Praxisbeispiel: Welche Organisationsform bildet die Grundstruktur der TowerTech GmbH?",
+      "options": [
+        "Reines Mehrliniensystem",
+        "Stabliniensystem",
+        "Ausschließlich Matrixorganisation",
+        "Kein erkennbares System"
+      ],
+      "answer": 1,
+      "explanation": "TowerTech GmbH ist grundsätzlich als Stabliniensystem organisiert, mit einer beratenden Stabsstelle Qualitätsmanagement."
+    },
+    {
+      "id": "q8",
+      "question": "Welche Art von Linie stellt im Organigramm typischerweise eine beratende Stabsstelle ohne Weisungsbefugnis dar?",
+      "options": [
+        "Eine durchgezogene Linie",
+        "Eine gestrichelte Linie",
+        "Ein Doppelpfeil",
+        "Gar keine Linie"
+      ],
+      "answer": 1,
+      "explanation": "Gestrichelte Linien kennzeichnen im Organigramm typischerweise beratende Stabsstellen ohne Weisungsbefugnis."
+    }
+  ]
+}

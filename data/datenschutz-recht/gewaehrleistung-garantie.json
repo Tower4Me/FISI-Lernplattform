@@ -1,0 +1,84 @@
+{
+  "unit": "datenschutz-recht/gewaehrleistung-garantie",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der grundlegende Unterschied zwischen Gewährleistung und Garantie?",
+      "options": [
+        "Beide Begriffe bedeuten rechtlich exakt dasselbe",
+        "Gewährleistung ist eine gesetzliche Pflicht des Verkäufers, Garantie ein freiwilliges Zusatzversprechen von Verkäufer oder Hersteller",
+        "Garantie ist immer gesetzlich vorgeschrieben, Gewährleistung ist freiwillig",
+        "Gewährleistung gilt nur für Dienstleistungen, Garantie nur für Waren"
+      ],
+      "answer": 1,
+      "explanation": "Die Gewährleistung ist eine gesetzliche Pflicht (§§ 434 ff. BGB), die automatisch für jeden Kaufvertrag gilt. Die Garantie ist ein freiwilliges zusätzliches Versprechen, das Verkäufer oder Hersteller abgeben können, aber nicht müssen."
+    },
+    {
+      "id": "q2",
+      "question": "Wie lange gilt die gesetzliche Gewährleistung nach § 438 BGB grundsätzlich ab Übergabe der Kaufsache?",
+      "options": ["6 Monate", "1 Jahr", "2 Jahre", "5 Jahre"],
+      "answer": 2,
+      "explanation": "Die gesetzliche Gewährleistungsfrist beträgt grundsätzlich 2 Jahre ab Übergabe der Kaufsache."
+    },
+    {
+      "id": "q3",
+      "question": "Kann die gesetzliche Gewährleistung bei einem Verbrauchsgüterkauf vom Verkäufer ausgeschlossen werden?",
+      "options": [
+        "Ja, jederzeit durch einfache AGB-Klausel",
+        "Nein, bei Verbrauchsgüterkäufen ist sie nicht ausschließbar",
+        "Nur bei Kaufpreisen unter 50 Euro",
+        "Nur wenn der Käufer schriftlich zustimmt"
+      ],
+      "answer": 1,
+      "explanation": "Bei Verbrauchsgüterkäufen ist die gesetzliche Gewährleistung nicht ausschließbar — anders als eine freiwillige Garantie, deren Bedingungen der Garantiegeber selbst festlegen kann."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist ein Sachmangel im Sinne des § 434 BGB?",
+      "options": [
+        "Ein Dritter hat Rechte an der verkauften Sache",
+        "Die Kaufsache weicht in ihrer Beschaffenheit vom vereinbarten Soll-Zustand ab, z. B. durch einen Defekt oder eine fehlende Funktion",
+        "Der Käufer hat den Kaufpreis nicht rechtzeitig gezahlt",
+        "Der Verkäufer hat den Liefertermin überschritten"
+      ],
+      "answer": 1,
+      "explanation": "Ein Sachmangel liegt vor, wenn die tatsächliche Beschaffenheit der Kaufsache von der vereinbarten (Soll-)Beschaffenheit abweicht."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist ein Rechtsmangel im Unterschied zum Sachmangel?",
+      "options": [
+        "Ein Rechtsmangel liegt vor, wenn ein Dritter Rechte an der Kaufsache hat, die der Käufer nicht kannte (z. B. ein Patentrecht)",
+        "Ein Rechtsmangel ist ein Synonym für Sachmangel",
+        "Ein Rechtsmangel betrifft ausschließlich die Zahlungsmodalitäten",
+        "Ein Rechtsmangel liegt nur bei Immobilienkäufen vor"
+      ],
+      "answer": 0,
+      "explanation": "Ein Rechtsmangel (§ 435 BGB) liegt vor, wenn Dritte Rechte an der Kaufsache haben, die der Nutzung durch den Käufer entgegenstehen — im Gegensatz zum Sachmangel, der die Beschaffenheit betrifft."
+    },
+    {
+      "id": "q6",
+      "question": "Was verlangt die kaufmännische Untersuchungs- und Rügepflicht nach § 377 HGB im B2B-Geschäft?",
+      "options": [
+        "Der Käufer muss die Ware innerhalb von 2 Jahren irgendwann prüfen",
+        "Der Käufer muss die Ware unverzüglich nach Erhalt untersuchen und erkennbare Mängel unverzüglich anzeigen, sonst gilt die Ware als genehmigt",
+        "Nur der Verkäufer muss die Ware vor Versand prüfen",
+        "Diese Pflicht gilt ausschließlich für private Verbraucher"
+      ],
+      "answer": 1,
+      "explanation": "Nach § 377 HGB muss ein Kaufmann die gelieferte Ware unverzüglich untersuchen und erkennbare Mängel unverzüglich rügen — unterbleibt dies, gilt die Ware als genehmigt und spätere Ansprüche gehen verloren. Diese verschärfte Pflicht gilt nur im Handelsverkehr zwischen Kaufleuten, nicht für private Verbraucher."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Rechtsfolge hat bei einem berechtigten Mangel grundsätzlich Vorrang vor Rücktritt, Minderung oder Schadensersatz?",
+      "options": [
+        "Die sofortige Kündigung des gesamten Vertrags",
+        "Die Nacherfüllung (Nachbesserung oder Ersatzlieferung)",
+        "Eine automatische Verdopplung der Garantiezeit",
+        "Die Zahlung einer Vertragsstrafe durch den Käufer"
+      ],
+      "answer": 1,
+      "explanation": "Bei einem berechtigten Mangel hat die Nacherfüllung (Nachbesserung oder Ersatzlieferung) grundsätzlich Vorrang vor weitergehenden Rechten wie Rücktritt, Minderung oder Schadensersatz."
+    }
+  ]
+}

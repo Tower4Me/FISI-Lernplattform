@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Compiler, Interpreter & Debugging</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Compiler, Interpreter & Debugging</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Compiler, Interpreter & Debugging
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Compiler ist wie ein Übersetzer, der ein ganzes Buch vorab
+        komplett in eine andere Sprache überträgt — danach lässt sich das
+        fertige Buch schnell und eigenständig lesen. Ein Interpreter ist
+        dagegen wie ein Simultandolmetscher, der Satz für Satz übersetzt,
+        während gesprochen wird — sofort einsatzbereit, aber bei jedem
+        erneuten Vortrag muss wieder von vorn übersetzt werden. Ein
+        Linker ist der Redakteur, der mehrere Kapitel verschiedener
+        Autoren (Objektdateien) und bereits fertige Nachschlagewerke
+        (Bibliotheken) zu einem einzigen fertigen Buch zusammenfügt. Und
+        ein Schreibtischtest ist, den geplanten Weg gedanklich am
+        Schreibtisch durchzuspielen, bevor man ihn tatsächlich abläuft —
+        so findet man manchen Fehler, ohne auch nur loszulaufen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Quellcode in einer Hochsprache muss letztlich in Maschinensprache
+        übersetzt werden (siehe Einheit Programmierparadigmen &
+        Sprachhöhe). Dafür gibt es zwei grundsätzliche Wege:
+      </p>
+
+      <h3>Compiler</h3>
+      <p>
+        Ein <strong>Compiler</strong> übersetzt den kompletten Quellcode
+        vorab in Maschinensprache und erzeugt eine eigenständig lauffähige
+        Datei. Vorteil: Die Ausführung ist danach schnell, da zur Laufzeit
+        keine Übersetzung mehr nötig ist. Nachteil: Nach jeder
+        Codeänderung muss neu kompiliert werden, bevor das Programm
+        wieder läuft. Beispiele: C, C++.
+      </p>
+
+      <h3>Interpreter</h3>
+      <p>
+        Ein <strong>Interpreter</strong> übersetzt und führt den
+        Quellcode Zeile für Zeile zur Laufzeit aus, ohne vorherige
+        vollständige Übersetzung. Vorteil: sofort testbar, keine
+        separate Kompilierung nötig. Nachteil: langsamer als kompilierter
+        Code, da die Übersetzung bei jeder Ausführung erneut stattfindet.
+        Beispiele: Python, JavaScript.
+      </p>
+      <p>
+        Manche Sprachen (z. B. Java) kombinieren beide Wege: Der
+        Quellcode wird zunächst in einen plattformunabhängigen
+        Zwischencode (Bytecode) übersetzt, der dann von einer virtuellen
+        Maschine ausgeführt (und teils zur Laufzeit weiter optimiert)
+        wird.
+      </p>
+
+      <h3>Linker</h3>
+      <p>
+        Ein größeres Programm besteht oft aus mehreren separat
+        kompilierten Objektdateien sowie externen Bibliotheken. Der
+        <strong>Linker</strong> fügt diese Bausteine zu einer einzigen
+        ausführbaren Datei zusammen und löst dabei die Verweise zwischen
+        den Modulen auf — z. B. einen Funktionsaufruf, dessen eigentliche
+        Implementierung in einer anderen Datei oder Bibliothek liegt.
+      </p>
+
+      <h3>Debugging und Schreibtischtest</h3>
+      <p>
+        <strong>Debugging</strong> ist das systematische Suchen und
+        Beheben von Fehlern (Bugs) in einem Programm — häufig mit einem
+        <strong>Debugger</strong>: einem Werkzeug, das Haltepunkte
+        (Breakpoints) setzt, die Ausführung dort anhält und erlaubt,
+        Variablenwerte zur Laufzeit zu inspizieren und das Programm
+        Schritt für Schritt weiterlaufen zu lassen.
+      </p>
+      <p>
+        Ein <strong>Schreibtischtest</strong> geht noch einen Schritt
+        davor: Der Programmablauf wird rein auf dem Papier oder im Kopf
+        Zeile für Zeile manuell durchgespielt, mit Testwerten für die
+        Variablen — ganz ohne das Programm tatsächlich auszuführen. Das
+        hilft, Logikfehler bereits vor dem ersten Testlauf zu entdecken.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Zwei Auszubildende der TechNord GmbH entwickeln parallel eine
+        Rabattberechnung:
+      </p>
+      <ul>
+        <li><strong>C-Programm:</strong> Der erste Azubi nutzt einen
+          <strong>Compiler</strong> und muss nach jeder Codeänderung neu
+          kompilieren, bevor er testen kann. Beim Kompilieren meldet der
+          <strong>Linker</strong> einen Fehler: eine aufgerufene
+          Bibliotheksfunktion fehlt — nach Einbinden der richtigen
+          Bibliothek lässt sich das Programm fehlerfrei zusammenbauen.</li>
+        <li><strong>Python-Skript:</strong> Der zweite Azubi nutzt einen
+          <strong>Interpreter</strong> und kann nach jeder Änderung sofort
+          testen, ohne einen separaten Kompilierschritt.</li>
+        <li><strong>Schreibtischtest:</strong> Vor dem ersten echten
+          Testlauf spielt der erste Azubi seinen Algorithmus mit
+          Testwerten Zeile für Zeile von Hand durch — dabei entdeckt er
+          bereits einen Logikfehler in einer Bedingung, noch bevor das
+          Programm überhaupt kompiliert wurde.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Compiler übersetzt vorab komplett (schnelle Ausführung, erneute
+        Kompilierung bei Änderungen nötig). Interpreter übersetzt Zeile
+        für Zeile zur Laufzeit (sofort testbar, langsamer). Linker fügt
+        Objektdateien und Bibliotheken zu einer ausführbaren Datei
+        zusammen. Debugging nutzt Breakpoints/Variableninspektion, der
+        Schreibtischtest prüft den Ablauf rein gedanklich vor der
+        Ausführung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/compiler-interpreter-debugging.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

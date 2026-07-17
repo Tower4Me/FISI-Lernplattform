@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz & Recht: Barrierefreiheit Software</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenschutz-recht">Datenschutz & Recht</a></li>
+        <li aria-current="page">Barrierefreiheit Software</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Barrierefreiheit Software
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein barrierefreies Gebäude hat nicht nur eine Treppe, sondern auch
+        eine Rampe, einen Aufzug und Beschilderungen in Braille- und
+        Klarschrift — jeder soll unabhängig von seinen Fähigkeiten
+        hineinkommen. Genau das ist barrierefreie Software: Sie bietet
+        neben der klassischen Maus-/Tastatur-Bedienung auch Wege für
+        Screenreader, Sprachsteuerung und einfache Sprache, damit
+        niemand vor einer digitalen „Treppe ohne Rampe“ steht.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Einfache/Leichte Sprache</h3>
+      <p>
+        <strong>Leichte Sprache</strong> nutzt kurze Sätze, vermeidet
+        Fachbegriffe und Fremdwörter (oder erklärt sie) und formuliert
+        pro Satz möglichst nur eine Aussage. Sie richtet sich an Menschen
+        mit Lernschwierigkeiten, kognitiven Einschränkungen oder geringen
+        Sprachkenntnissen und ist z. B. bei Formularen oder
+        Hilfetexten hilfreich.
+      </p>
+
+      <h3>Software-Kompatibilität mit Screenreadern</h3>
+      <p>
+        Damit eine <strong>Braillezeile</strong> (siehe Einheit Ergonomie
+        & Barrierefreiheit im Modul Hardware) oder ein Screenreader
+        Inhalte überhaupt vorlesen bzw. in Blindenschrift ausgeben kann,
+        muss die Software selbst entsprechend aufgebaut sein:
+        semantisch korrektes HTML, aussagekräftige
+        <strong>Alt-Texte</strong> für Bilder und beschreibende
+        Beschriftungen für Bedienelemente (ARIA-Labels). Fehlt das,
+        „sieht“ ein Screenreader nur eine Bildfläche ohne Bedeutung.
+      </p>
+
+      <h3>Sprachein- und -ausgabe</h3>
+      <table>
+        <thead>
+          <tr><th>Funktion</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Spracheingabe</strong> (Diktierfunktion, Sprachbefehle)</td><td>ermöglicht Bedienung der Software ohne Tastatur/Maus, z. B. bei motorischen Einschränkungen</td></tr>
+          <tr><td><strong>Sprachausgabe</strong> (Text-to-Speech)</td><td>liest Bildschirminhalte laut vor, z. B. für blinde oder sehbehinderte Nutzer</td></tr>
+        </tbody>
+      </table>
+
+      <h3>WCAG — Web Content Accessibility Guidelines</h3>
+      <p>
+        Die <strong>WCAG</strong> sind der internationale Standard für
+        barrierefreie digitale Inhalte, aufgebaut auf vier Prinzipien
+        (kurz „POUR“):
+      </p>
+      <table>
+        <thead>
+          <tr><th>Prinzip</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Wahrnehmbar</strong></td><td>Inhalte müssen über mindestens einen Sinneskanal erfassbar sein (z. B. Alt-Text als Textalternative zum Bild)</td></tr>
+          <tr><td><strong>Bedienbar</strong></td><td>alle Funktionen müssen auch ohne Maus, z. B. per Tastatur, nutzbar sein</td></tr>
+          <tr><td><strong>Verständlich</strong></td><td>Inhalte und Bedienung müssen nachvollziehbar sein (u. a. durch einfache Sprache)</td></tr>
+          <tr><td><strong>Robust</strong></td><td>Inhalte müssen zuverlässig mit unterschiedlichen Hilfstechnologien (Screenreader etc.) funktionieren</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die WCAG kennen drei Konformitätsstufen: <strong>A</strong>
+        (Mindestanforderung), <strong>AA</strong> (Standardziel für die
+        meisten öffentlichen und geschäftlichen Angebote) und
+        <strong>AAA</strong> (höchste, oft nur für Spezialfälle praktikable
+        Stufe).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH überarbeitet ihr Kundenportal, um die
+        WCAG-Stufe AA zu erreichen:
+      </p>
+      <ul>
+        <li><strong>Alt-Texte:</strong> Alle Produktbilder erhalten
+          beschreibende Alt-Texte, damit ein Screenreader sie sinnvoll
+          vorlesen kann.</li>
+        <li><strong>Tastaturbedienung:</strong> Das gesamte Bestellformular
+          lässt sich vollständig ohne Maus, nur mit der Tastatur,
+          ausfüllen und absenden.</li>
+        <li><strong>Leichte Sprache:</strong> Für die Hilfeseite wird
+          zusätzlich eine Version in Leichter Sprache angeboten.</li>
+        <li><strong>Sprachausgabe-Test:</strong> Vor dem Livegang wird das
+          Portal mit einem Screenreader durchgetestet, um sicherzustellen,
+          dass alle Inhalte tatsächlich vorgelesen werden können.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Leichte Sprache: kurze Sätze, keine unerklärten Fachbegriffe.
+        Screenreader brauchen semantisches HTML und Alt-Texte, um Inhalte
+        vorzulesen. Sprachein-/ausgabe ermöglicht Bedienung ohne
+        Tastatur/Maus bzw. Vorlesen von Inhalten. WCAG (POUR: Wahrnehmbar,
+        Bedienbar, Verständlich, Robust) mit Stufen A/AA/AAA ist der
+        internationale Standard für barrierefreie Software.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenschutz-recht/barrierefreiheit-software.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

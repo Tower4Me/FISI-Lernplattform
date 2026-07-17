@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/nas-san-storage",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Worin unterscheidet sich File-Storage grundsätzlich von Block-Storage?",
+      "options": [
+        "File-Storage liefert fertige Dateien und verwaltet das Dateisystem serverseitig, Block-Storage liefert rohe Blöcke, das Dateisystem legt der Client selbst an",
+        "File-Storage ist immer schneller als Block-Storage",
+        "Block-Storage liefert immer fertige Dateien, File-Storage rohe Blöcke",
+        "Beide Begriffe bezeichnen dasselbe Konzept mit unterschiedlichem Namen"
+      ],
+      "answer": 0,
+      "explanation": "Bei File-Storage (z. B. NAS mit SMB/NFS) verwaltet der Server das Dateisystem und liefert fertige Dateien. Bei Block-Storage (z. B. SAN mit iSCSI) bekommt der Client rohe, nummerierte Blöcke und legt das Dateisystem selbst an."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Protokolle liefert typischerweise ein NAS?",
+      "options": [
+        "iSCSI und Fibre Channel",
+        "SMB und NFS",
+        "PCIe und SATA",
+        "HTTP und FTP ausschließlich"
+      ],
+      "answer": 1,
+      "explanation": "Ein NAS (Network Attached Storage) liefert File-Storage über SMB (Windows) und NFS (Unix/Linux)."
+    },
+    {
+      "id": "q3",
+      "question": "Wie hängen iSCSI und SAN zusammen?",
+      "options": [
+        "iSCSI und SAN sind Konkurrenzprodukte, die sich gegenseitig ausschließen",
+        "iSCSI ist eines der Protokolle, mit denen ein SAN aufgebaut werden kann — iSCSI ist das 'Wie', SAN das 'Was'",
+        "SAN ist ein Protokoll, iSCSI eine Architektur",
+        "Ein SAN benötigt zwingend iSCSI und kann nicht mit Fibre Channel betrieben werden"
+      ],
+      "answer": 1,
+      "explanation": "SAN ist ein Architekturkonzept (Block-Storage-Bereitstellung), iSCSI eines der Protokolle, mit denen man diese Architektur realisieren kann — neben Fibre Channel."
+    },
+    {
+      "id": "q4",
+      "question": "Was passiert, wenn zwei Systeme gleichzeitig über iSCSI auf dieselbe LUN schreiben?",
+      "options": [
+        "Das ist der Normalfall und funktioniert problemlos",
+        "Beide Systeme können sich das Dateisystem der LUN zerstören, da iSCSI für exklusiven Einzelzugriff ausgelegt ist",
+        "Die LUN dupliziert sich automatisch für beide Systeme",
+        "iSCSI verhindert dieses Szenario automatisch durch integrierte Sperrmechanismen"
+      ],
+      "answer": 1,
+      "explanation": "iSCSI gibt einem einzelnen System exklusiven Zugriff auf eine LUN. Schreiben mehrere Systeme gleichzeitig auf dieselbe LUN, zerstören sie sich gegenseitig das Dateisystem — für gemeinsamen Zugriff ist File-Storage (NAS) das richtige Werkzeug."
+    },
+    {
+      "id": "q5",
+      "question": "Wozu dient ein HBA (Host Bus Adapter) im Zusammenhang mit Fibre Channel?",
+      "options": [
+        "Er ersetzt das Mainboard des Servers vollständig",
+        "Er stellt als Erweiterungskarte die Verbindung des Servers zum Fibre-Channel-/SAN-Netz her, ähnlich wie eine Netzwerkkarte die Verbindung zum Ethernet herstellt",
+        "Er dient ausschließlich der Kühlung von Festplatten",
+        "Er wird nur bei NAS-Systemen benötigt, nie bei SAN"
+      ],
+      "answer": 1,
+      "explanation": "Ein HBA ist die Erweiterungskarte, mit der ein Server an ein Fibre-Channel- bzw. SAN-Netz angebunden wird — vergleichbar mit einer Netzwerkkarte für Ethernet."
+    },
+    {
+      "id": "q6",
+      "question": "Was beschreibt JBOD (Just a Bunch Of Disks)?",
+      "options": [
+        "Einen RAID-Level mit doppelter Parität",
+        "Mehrere Festplatten in einem gemeinsamen Gehäuse, die ohne RAID-Verbund einzeln oder als ein Volume angesprochen werden, ohne Redundanz",
+        "Ein Protokoll zur Verschlüsselung von Massenspeicher",
+        "Eine spezielle Bauform ausschließlich für SSDs"
+      ],
+      "answer": 1,
+      "explanation": "JBOD bündelt mehrere Einzelplatten in einem Gehäuse ohne RAID-Redundanz — anders als RAID bietet es keinen Schutz vor Plattenausfall."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Virtualisierungsserver soll exklusiven, sehr schnellen Speicherzugriff für seine VMs erhalten, während ein Abteilungslaufwerk von mehreren Mitarbeitenden gleichzeitig genutzt werden soll. Welche Zuordnung ist sinnvoll?",
+      "options": [
+        "Für beide Anforderungen ein NAS mit SMB",
+        "Für den Virtualisierungsserver ein SAN über iSCSI (Block-Storage), für das Abteilungslaufwerk ein NAS mit SMB (File-Storage)",
+        "Für beide Anforderungen dasselbe iSCSI-Target ohne Unterschied",
+        "Für das Abteilungslaufwerk ein SAN über Fibre Channel, für den Server ein NAS"
+      ],
+      "answer": 1,
+      "explanation": "Der Virtualisierungsserver braucht exklusiven Blockzugriff (SAN/iSCSI), das gemeinsam genutzte Abteilungslaufwerk braucht gleichzeitigen Mehrbenutzerzugriff auf Dateien (NAS/SMB)."
+    }
+  ]
+}

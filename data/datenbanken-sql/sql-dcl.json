@@ -1,0 +1,113 @@
+{
+  "unit": "datenbanken-sql/sql-dcl",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht DCL?",
+      "options": [
+        "Data Control Language",
+        "Data Change Language",
+        "Database Connection Language",
+        "Data Copy Language"
+      ],
+      "answer": 0,
+      "explanation": "DCL = Data Control Language, sie steuert Zugriffsrechte auf Datenbankebene."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher Befehl vergibt Rechte an einen Benutzer?",
+      "options": [
+        "REVOKE",
+        "GRANT",
+        "ALTER",
+        "ASSIGN"
+      ],
+      "answer": 1,
+      "explanation": "GRANT vergibt Rechte, REVOKE entzieht sie wieder."
+    },
+    {
+      "id": "q3",
+      "question": "Was bewirkt GRANT ALL PRIVILEGES ON *.* TO 'admin_towertech';?",
+      "options": [
+        "Nur Leserechte auf eine einzelne Tabelle",
+        "Alle Rechte auf alle Tabellen der Datenbank",
+        "Löscht alle Rechte von admin_towertech",
+        "Erstellt einen neuen Benutzer ohne Rechte"
+      ],
+      "answer": 1,
+      "explanation": "*.* steht für alle Datenbanken/Tabellen, ALL PRIVILEGES für sämtliche Rechte."
+    },
+    {
+      "id": "q4",
+      "question": "Was ermöglicht die Klausel WITH GRANT OPTION?",
+      "options": [
+        "Der Benutzer darf das erhaltene Recht an andere weitergeben",
+        "Das Recht gilt nur für einen Tag",
+        "Der Benutzer bekommt automatisch Adminrechte",
+        "Das Recht kann nicht mehr entzogen werden"
+      ],
+      "answer": 0,
+      "explanation": "WITH GRANT OPTION erlaubt es dem Empfänger, das Recht seinerseits weiterzugeben."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist eine Rolle (Role) im Kontext von DCL?",
+      "options": [
+        "Ein Alias für eine Tabelle",
+        "Eine benannte Gruppe von Rechten, die mehreren Benutzern zugewiesen werden kann",
+        "Ein spezieller Datentyp",
+        "Ein Synonym für Primärschlüssel"
+      ],
+      "answer": 1,
+      "explanation": "Rollen bündeln Rechte, sodass bei Änderungen nicht jeder Benutzer einzeln angepasst werden muss."
+    },
+    {
+      "id": "q6",
+      "question": "Was besagt das Principle of Least Privilege?",
+      "options": [
+        "Jeder Benutzer bekommt automatisch alle Rechte",
+        "Jeder Benutzer bekommt nur die Rechte, die er für seine Aufgabe wirklich braucht",
+        "Rechte werden nie wieder entzogen",
+        "Nur Administratoren dürfen SELECT verwenden"
+      ],
+      "answer": 1,
+      "explanation": "Das Prinzip der minimalen Rechte begrenzt Schaden durch Fehlbedienung oder kompromittierte Zugänge."
+    },
+    {
+      "id": "q7",
+      "question": "Warum funktioniert echtes GRANT/REVOKE nicht in SQLite?",
+      "options": [
+        "SQLite unterstützt nur GRANT, nicht REVOKE",
+        "SQLite hat kein eingebautes Benutzer- und Rechtesystem",
+        "GRANT ist in SQLite nur für Admins reserviert",
+        "SQLite erlaubt GRANT nur mit WITH GRANT OPTION"
+      ],
+      "answer": 1,
+      "explanation": "SQLite verwaltet Zugriffsrechte über Dateiberechtigungen des Betriebssystems, nicht über SQL-Befehle wie GRANT/REVOKE."
+    },
+    {
+      "id": "q8",
+      "question": "Lea hat SELECT- und INSERT-Rechte auf mitarbeiter. Welcher Befehl entzieht ihr beide auf einmal?",
+      "options": [
+        "REVOKE SELECT, INSERT ON mitarbeiter FROM 'lea_fischer';",
+        "REVOKE ALL PRIVILEGES ON mitarbeiter FROM 'lea_fischer';",
+        "DELETE GRANTS FOR 'lea_fischer';",
+        "Beide oberen Befehle entziehen SELECT und INSERT"
+      ],
+      "answer": 3,
+      "explanation": "Sowohl die explizite Aufzählung (SELECT, INSERT) als auch ALL PRIVILEGES entziehen in diesem Fall beide vorhandenen Rechte."
+    },
+    {
+      "id": "q9",
+      "question": "Welcher Befehl zeigt an, welche Rechte ein Benutzer aktuell hat?",
+      "options": [
+        "LIST GRANTS 'user';",
+        "SHOW GRANTS FOR 'user';",
+        "DESCRIBE RIGHTS 'user';",
+        "SELECT * FROM grants;"
+      ],
+      "answer": 1,
+      "explanation": "SHOW GRANTS FOR 'user'; listet die aktuell vergebenen Rechte dieses Benutzers auf."
+    }
+  ]
+}

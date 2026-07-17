@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: IPv6-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">IPv6-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      IPv6-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir vor, eine kleine Stadt hätte irgendwann so viele Häuser
+        gebaut, dass die vierstelligen Hausnummern nicht mehr ausreichen —
+        jede mögliche Kombination ist längst vergeben. Die Lösung: ein neues,
+        viel größeres Nummernsystem, das niemals ausgeht. Genau das ist die
+        Motivation hinter <strong>IPv6</strong>: IPv4 hat nur rund 4,3
+        Milliarden Adressen, und die sind angesichts von Milliarden
+        vernetzter Geräte weltweit längst knapp. IPv6 stellt eine
+        astronomisch größere Anzahl an Adressen bereit — und bringt dabei
+        gleich neue Mechanismen mit, mit denen sich Geräte ihre Adresse
+        selbst „aussuchen“ können, ganz ohne zentrale Verwaltung.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>IPv6-Adresse</strong> ist 128 Bit lang (gegenüber 32 Bit
+        bei IPv4) und wird in acht Blöcken zu je 16 Bit hexadezimal
+        geschrieben, getrennt durch Doppelpunkte, z. B.
+        <code>2001:0db8:0000:0000:0000:ff00:0042:8329</code>. Zur
+        Vereinfachung dürfen führende Nullen in einem Block weggelassen und
+        eine zusammenhängende Folge von Null-Blöcken einmal pro Adresse durch
+        <code>::</code> ersetzt werden — verkürzt also
+        <code>2001:db8::ff00:42:8329</code>.
+      </p>
+
+      <h3>Adresstypen</h3>
+      <table>
+        <thead>
+          <tr><th>Adresstyp</th><th>Präfix</th><th>Vergleichbar mit IPv4</th><th>Reichweite</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Global Unicast</strong></td><td>2000::/3</td><td>öffentliche IPv4-Adresse</td><td>weltweit eindeutig, im Internet routbar</td></tr>
+          <tr><td><strong>Unique Local (ULA)</strong></td><td>fc00::/7</td><td>private IPv4-Adresse (RFC 1918)</td><td>nur innerhalb einer Organisation, nicht im öffentlichen Internet routbar</td></tr>
+          <tr><td><strong>Link-Local</strong></td><td>fe80::/10</td><td>APIPA (169.254.0.0/16)</td><td>nur im lokalen Netzsegment, wird jedem Interface automatisch zugewiesen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Eine Link-Local-Adresse erhält jede IPv6-fähige Netzwerkschnittstelle
+        automatisch, sobald sie aktiviert wird — sie ist Voraussetzung für
+        grundlegende Netzwerkprotokolle (z. B. Nachbarschaftserkennung) und
+        wird nie über den Router hinaus weitergeleitet.
+      </p>
+
+      <h3>Automatische Adressvergabe: SLAAC</h3>
+      <p>
+        <strong>SLAAC</strong> (Stateless Address Autoconfiguration) erlaubt
+        es einem Gerät, sich seine eigene Global-Unicast-Adresse ganz ohne
+        DHCP-Server selbst zu erzeugen:
+      </p>
+      <ol>
+        <li>Der Router sendet regelmäßig <strong>Router Advertisements</strong> (RA) mit dem Netzwerkpräfix (z. B. <code>2001:db8:abcd:1::/64</code>) ins lokale Netz.</li>
+        <li>Das Gerät übernimmt dieses Präfix als Netzanteil seiner Adresse.</li>
+        <li>Den Hostanteil (Interface-Identifier) erzeugt das Gerät selbst — häufig per <strong>EUI-64</strong>-Verfahren.</li>
+      </ol>
+
+      <h3>EUI-64: Interface-Identifier aus der MAC-Adresse</h3>
+      <p>
+        Beim EUI-64-Verfahren wird die 48 Bit lange MAC-Adresse der
+        Netzwerkkarte zu einem 64 Bit langen Interface-Identifier erweitert:
+      </p>
+      <ul>
+        <li>Die MAC-Adresse wird in der Mitte aufgetrennt (24 Bit Hersteller-Kennung + 24 Bit Geräte-Kennung).</li>
+        <li>Dazwischen wird die feste Bitfolge <code>FFFE</code> eingefügt — aus 48 Bit werden so 64 Bit.</li>
+        <li>Ein einzelnes Bit (das „Universal/Local“-Bit) wird invertiert, um anzuzeigen, dass die Adresse global eindeutig abgeleitet wurde.</li>
+      </ul>
+      <p>
+        Damit lässt sich aus jeder MAC-Adresse eindeutig ein
+        Interface-Identifier ableiten, ohne dass ein Server Adressen
+        verwalten oder Kollisionen verhindern muss.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Notebook wird in ein Firmennetz eingebunden, das sowohl IPv4 als
+        auch IPv6 (Dual-Stack) betreibt.
+      </p>
+      <ul>
+        <li>Sobald die Netzwerkkarte aktiv ist, erhält sie sofort eine <strong>Link-Local-Adresse</strong> (fe80::…) — ganz ohne Router oder DHCP, ausschließlich für Kommunikation im lokalen Segment.</li>
+        <li>Der Router im Netz sendet ein <strong>Router Advertisement</strong> mit dem Präfix <code>2001:db8:abcd:5::/64</code>.</li>
+        <li>Das Notebook führt <strong>SLAAC</strong> aus: Es übernimmt das Präfix und bildet per <strong>EUI-64</strong> aus seiner MAC-Adresse einen eindeutigen Interface-Identifier — ohne dass ein DHCPv6-Server befragt werden musste.</li>
+        <li>Die IT-Administration erkennt am Aufbau der Adresse (Präfix 2001:db8:abcd:5::/64) sofort, aus welchem Subnetz das Gerät stammt — nützlich bei der Fehlersuche im Netzwerklog.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welchen IPv4-Mechanismus ersetzt die
+        IPv6-Link-Local-Adresse funktional?“ – Antwort: APIPA
+        (169.254.0.0/16) — beide vergeben automatisch eine
+        Segment-lokale Adresse, wenn kein DHCP-Server verfügbar ist bzw.
+        grundsätzlich beim Interface-Start.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        IPv6 = 128 Bit, hexadezimal in 8 Blöcken, <code>::</code> kürzt
+        Nullfolgen einmal pro Adresse. Global Unicast = öffentlich, Unique
+        Local = privat, Link-Local (fe80::/10) = automatisch pro Interface,
+        nur lokal. SLAAC lässt Geräte sich ohne DHCP selbst adressieren,
+        EUI-64 leitet den Interface-Identifier aus der MAC-Adresse ab.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/ipv6-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

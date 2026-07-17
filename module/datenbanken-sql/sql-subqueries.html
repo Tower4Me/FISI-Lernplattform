@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: Subqueries</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">Subqueries</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Subqueries
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Der Chef von TowerTech GmbH fragt: „Wer verdient mehr als der
+        Durchschnitt?" Das Problem: Den Durchschnitt kennt niemand
+        auswendig – er muss erst berechnet werden, bevor man ihn mit den
+        einzelnen Gehältern vergleichen kann. Zwei getrennte Abfragen
+        (erst Durchschnitt berechnen, dann Ergebnis von Hand einsetzen)
+        wären umständlich. Eine <strong>Subquery</strong> (Unterabfrage)
+        erledigt beides in einem einzigen SQL-Befehl: Sie ist eine
+        SELECT-Abfrage <em>innerhalb</em> einer anderen Abfrage.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine Subquery liefert einen Wert oder eine Werteliste, die direkt
+        von der äußeren Abfrage weiterverwendet wird. Alle Beispiele
+        beziehen sich auf die Tabellen <code>abteilung</code> und
+        <code>mitarbeiter</code>.
+      </p>
+
+      <h3>Subquery in WHERE mit Vergleichsoperator</h3>
+      <table>
+        <tbody>
+          <tr><td><code>SELECT vollname, jahresgehalt FROM mitarbeiter WHERE jahresgehalt &gt; (SELECT AVG(jahresgehalt) FROM mitarbeiter);</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die innere Abfrage <code>(SELECT AVG(jahresgehalt) FROM
+        mitarbeiter)</code> liefert genau einen Wert (den Durchschnitt),
+        die äußere Abfrage vergleicht jede Zeile damit.
+      </p>
+
+      <h3>Subquery mit IN</h3>
+      <p>
+        Liefert die innere Abfrage <em>mehrere</em> Werte, wird sie mit
+        <code>IN</code> statt eines einzelnen Vergleichsoperators
+        kombiniert:
+      </p>
+      <table>
+        <tbody>
+          <tr><td><code>SELECT vollname FROM mitarbeiter WHERE abteilung_id IN (SELECT abteilung_id FROM abteilung WHERE buero_standort = 'Essen');</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Erst ermittelt die innere Abfrage alle Abteilungs-IDs mit
+        Bürostandort Essen, dann filtert die äußere Abfrage alle
+        Mitarbeitenden dieser Abteilungen.
+      </p>
+
+      <h3>Subquery im FROM (abgeleitete Tabelle)</h3>
+      <p>
+        Eine Subquery kann auch als eigene, temporäre Tabelle im
+        <code>FROM</code> stehen – sie braucht dann einen Alias:
+      </p>
+      <table>
+        <tbody>
+          <tr><td><code>SELECT abt_avg.abteilung_id, abt_avg.durchschnitt FROM (SELECT abteilung_id, AVG(jahresgehalt) AS durchschnitt FROM mitarbeiter GROUP BY abteilung_id) AS abt_avg WHERE abt_avg.durchschnitt &gt; 40000;</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>EXISTS</h3>
+      <p>
+        <code>EXISTS</code> prüft nur, <em>ob</em> die Subquery mindestens
+        eine Zeile liefert – nicht, welche Werte sie enthält. Das ist
+        oft effizienter, wenn nur die Existenz interessiert:
+      </p>
+      <table>
+        <tbody>
+          <tr><td><code>SELECT name FROM abteilung a WHERE EXISTS (SELECT 1 FROM mitarbeiter m WHERE m.abteilung_id = a.abteilung_id AND m.jahresgehalt &gt; 50000);</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Diese Abfrage findet alle Abteilungen, die mindestens eine Person
+        mit einem Gehalt über 50000 € beschäftigen.
+      </p>
+
+      <p>Probiere die Subqueries direkt aus:</p>
+      <div class="tool" data-tool="sql-editor">
+        <script type="application/sql">
+          CREATE TABLE abteilung (
+            abteilung_id INTEGER PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            buero_standort VARCHAR(100)
+          );
+          CREATE TABLE mitarbeiter (
+            mitarbeiter_id INTEGER PRIMARY KEY,
+            vollname VARCHAR(100) NOT NULL,
+            email VARCHAR(150) UNIQUE,
+            jahresgehalt DECIMAL(10,2) DEFAULT 0.00,
+            abteilung_id INTEGER,
+            FOREIGN KEY (abteilung_id) REFERENCES abteilung(abteilung_id)
+          );
+          INSERT INTO abteilung (abteilung_id, name, buero_standort) VALUES
+            (1, 'Netzwerktechnik', 'Essen'),
+            (2, 'Support', 'Duisburg'),
+            (3, 'Vertrieb', 'Köln');
+          INSERT INTO mitarbeiter (mitarbeiter_id, vollname, email, jahresgehalt, abteilung_id) VALUES
+            (1, 'Elif Kaya', 'elif.kaya@towertech.de', 48000, 1),
+            (2, 'Tom Ricci', 'tom.ricci@towertech.de', 39000, 2),
+            (3, 'Sofia Bergmann', 'sofia.bergmann@towertech.de', 52000, 1),
+            (4, 'Jonas Weber', 'jonas.weber@towertech.de', 36000, 2),
+            (5, 'Nina Albrecht', 'nina.albrecht@towertech.de', 61000, 3),
+            (6, 'Paul Nowak', 'paul.nowak@towertech.de', 33000, 2);
+        </script>
+        <p class="muted">SQL-Editor wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Der Chef von TowerTech GmbH stellt vier Fragen, die eine
+        Auszubildende jeweils mit einer einzigen Abfrage im Editor oben
+        beantworten soll:
+      </p>
+      <ul>
+        <li>
+          <strong>„Wer verdient mehr als der Durchschnitt?"</strong> –
+          Subquery in WHERE mit <code>&gt;</code> und <code>AVG()</code>.
+        </li>
+        <li>
+          <strong>„Wer arbeitet in einer Abteilung mit Sitz in Essen?"</strong>
+          – Subquery mit <code>IN</code>.
+        </li>
+        <li>
+          <strong>„Welche Abteilungen liegen über einem
+          Durchschnittsgehalt von 40000 €?"</strong> – Subquery im
+          <code>FROM</code> als abgeleitete Tabelle, kombiniert mit
+          <code>GROUP BY</code>.
+        </li>
+        <li>
+          <strong>„Welche Abteilungen haben mindestens eine Person mit
+          über 50000 € Gehalt?"</strong> – <code>EXISTS</code>-Subquery.
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Was ist der Unterschied zwischen einer
+        Subquery mit IN und einer Subquery mit EXISTS?" – Antwort: IN
+        vergleicht einen Wert mit einer Liste von Werten aus der
+        Subquery; EXISTS prüft nur, ob die Subquery überhaupt eine Zeile
+        liefert, ohne deren konkrete Werte zu betrachten.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Eine Subquery ist eine SELECT-Abfrage innerhalb einer anderen
+        Abfrage. In WHERE mit Vergleichsoperator für einen Einzelwert
+        (z. B. AVG()), mit IN für eine Werteliste, im FROM als
+        abgeleitete Tabelle mit Alias, und mit EXISTS um nur zu prüfen,
+        ob überhaupt eine passende Zeile existiert.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/sql-subqueries.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/sql-editor.js"></script>
+</body>
+</html>

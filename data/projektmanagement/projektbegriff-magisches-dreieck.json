@@ -1,0 +1,84 @@
+{
+  "unit": "projektmanagement/projektbegriff-magisches-dreieck",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wodurch ist ein Projekt nach DIN 69901 im Wesentlichen gekennzeichnet?",
+      "options": [
+        "Durch die Wiederholbarkeit der Aufgabe",
+        "Durch die Einmaligkeit seiner Bedingungen",
+        "Durch die fehlende zeitliche Begrenzung",
+        "Durch die Zugehörigkeit zum normalen Tagesgeschäft"
+      ],
+      "answer": 1,
+      "explanation": "Nach DIN 69901 ist ein Projekt ein Vorhaben, das im Wesentlichen durch die Einmaligkeit seiner Bedingungen gekennzeichnet ist."
+    },
+    {
+      "id": "q2",
+      "question": "Welches der folgenden Merkmale gehört NICHT zu den typischen Merkmalen eines Projekts?",
+      "options": [
+        "Zeitliche Befristung mit definiertem Anfang und Ende",
+        "Begrenzte Ressourcen (Budget, Personal, Material)",
+        "Unbegrenzte, sich fortlaufend wiederholende Ausführung ohne festes Ende",
+        "Eine definierte, messbare Zielvorgabe"
+      ],
+      "answer": 2,
+      "explanation": "Eine unbegrenzte, sich fortlaufend wiederholende Ausführung ohne festes Ende ist gerade das Kennzeichen einer Routineaufgabe, nicht eines Projekts."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet eine Routine-/Linienaufgabe von einem Projekt?",
+      "options": [
+        "Routineaufgaben wiederholen sich fortlaufend und gehören zum normalen Tagesgeschäft, ohne festes Ende",
+        "Routineaufgaben sind immer teurer als Projekte",
+        "Routineaufgaben haben immer eine eigene projektspezifische Organisation",
+        "Es gibt keinen inhaltlichen Unterschied zwischen beiden Begriffen"
+      ],
+      "answer": 0,
+      "explanation": "Routineaufgaben wiederholen sich fortlaufend, gehören zum Tagesgeschäft und haben kein festes Ende — im Gegensatz zum einmaligen, zeitlich befristeten Projekt."
+    },
+    {
+      "id": "q4",
+      "question": "Welche drei Größen bilden das magische Dreieck des Projektmanagements?",
+      "options": [
+        "Personal, Material, Standort",
+        "Zeit, Kosten, Qualität",
+        "Risiko, Budget, Team",
+        "Planung, Durchführung, Abschluss"
+      ],
+      "answer": 1,
+      "explanation": "Das magische Dreieck besteht aus den drei zentralen Zielgrößen Zeit, Kosten und Qualität (Leistungsumfang)."
+    },
+    {
+      "id": "q5",
+      "question": "Was besagt das magische Dreieck, wenn eine der drei Zielgrößen verändert wird?",
+      "options": [
+        "Die anderen beiden Größen bleiben davon grundsätzlich unberührt",
+        "Mindestens eine der beiden anderen Größen wird zwangsläufig ebenfalls beeinflusst",
+        "Nur die Qualität kann sich überhaupt jemals verändern",
+        "Zeit und Kosten sind vollständig unabhängig von der Qualität"
+      ],
+      "answer": 1,
+      "explanation": "Das magische Dreieck zeigt, dass eine Veränderung einer Zielgröße (z. B. Zeit) sich zwangsläufig auf mindestens eine der beiden anderen Größen (Kosten oder Qualität) auswirkt."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Kunde verlangt, ein Projekt in deutlich kürzerer Zeit als ursprünglich geplant abzuschließen, ohne den Funktionsumfang zu reduzieren. Was ist laut magischem Dreieck die wahrscheinliche Folge?",
+      "options": [
+        "Keinerlei Auswirkung auf Kosten oder Qualität",
+        "Die Kosten steigen typischerweise, z. B. durch zusätzliches Personal, um die kürzere Zeit einzuhalten",
+        "Die Qualität verbessert sich automatisch von selbst",
+        "Das Projekt wird automatisch zu einer Routineaufgabe"
+      ],
+      "answer": 1,
+      "explanation": "Wird die Zeit verkürzt, ohne den Funktionsumfang zu reduzieren, steigen typischerweise die Kosten, z. B. durch zusätzliches Personal, um das Ziel dennoch termingerecht zu erreichen."
+    },
+    {
+      "id": "q7",
+      "question": "Welcher vierte Faktor wird in modernen Darstellungen häufig als Fläche in der Mitte des magischen Dreiecks ergänzt?",
+      "options": ["Risiko", "Leistungsumfang (Scope)", "Kommunikation", "Stakeholder-Zufriedenheit"],
+      "answer": 1,
+      "explanation": "In modernen Darstellungen wird oft der Leistungsumfang (Scope) als vierter Faktor in der Mitte des Dreiecks ergänzt, der sich verändert, wenn die drei Eckpunkte gegeneinander verschoben werden."
+    }
+  ]
+}

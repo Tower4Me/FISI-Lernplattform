@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: TCP vs. UDP, 3-Way-Handshake & Ports</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">TCP vs. UDP, 3-Way-Handshake & Ports</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      TCP vs. UDP, 3-Way-Handshake & Ports
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Einschreiben bei der Post wird gegen Unterschrift zugestellt —
+        der Absender bekommt eine Bestätigung, dass es angekommen ist, und
+        bei Bedarf wird ein zweiter Versuch unternommen. Eine normale
+        Postkarte dagegen wird einfach eingeworfen — schnell, unkompliziert,
+        aber ohne jede Garantie, dass sie überhaupt ankommt. Beide Wege
+        haben ihre Berechtigung: Wichtige Verträge verschickt man als
+        Einschreiben, eine kurze Urlaubsgrüße-Karte reicht als Postkarte.
+        Genau diese zwei Philosophien verfolgen die beiden wichtigsten
+        Transportprotokolle im Internet: <strong>TCP</strong> (zuverlässig,
+        mit Bestätigung) und <strong>UDP</strong> (schnell, ohne Garantie).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>TCP</strong> (Transmission Control Protocol) und
+        <strong>UDP</strong> (User Datagram Protocol) arbeiten beide auf der
+        Transportschicht (OSI-Schicht 4) und sorgen dafür, dass Daten die
+        richtige Anwendung auf dem Zielsystem erreichen — aber mit sehr
+        unterschiedlichen Eigenschaften:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>TCP</th><th>UDP</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Verbindung</td><td>verbindungsorientiert (Handshake vor Datenaustausch)</td><td>verbindungslos (Daten werden direkt gesendet)</td></tr>
+          <tr><td>Zuverlässigkeit</td><td>garantierte Zustellung, Bestätigung (ACK), erneutes Senden bei Verlust</td><td>keine Garantie, verlorene Pakete werden nicht automatisch erneut gesendet</td></tr>
+          <tr><td>Reihenfolge</td><td>Pakete kommen in der gesendeten Reihenfolge an (Sequenznummern)</td><td>keine Reihenfolge-Garantie</td></tr>
+          <tr><td>Geschwindigkeit/Overhead</td><td>höherer Overhead durch Header, Handshake und Bestätigungen</td><td>geringer Overhead, schneller</td></tr>
+          <tr><td>Typische Anwendungen</td><td>Webseiten (HTTP/S), E-Mail, Dateiübertragung (FTP), SSH</td><td>Videostreaming, VoIP-Telefonie, DNS-Anfragen, Online-Gaming</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die Wahl zwischen TCP und UDP hängt davon ab, ob Vollständigkeit
+        oder Geschwindigkeit wichtiger ist: Bei einem Videoanruf stört ein
+        kurz ruckelndes, fehlendes Bild weniger als eine spürbare
+        Verzögerung durch Warten auf erneut gesendete Pakete — deshalb
+        nutzt VoIP meist UDP. Bei einer heruntergeladenen Datei dagegen darf
+        kein einziges Byte fehlen — deshalb nutzt ein Download TCP.
+      </p>
+
+      <h3>3-Way-Handshake (TCP-Verbindungsaufbau)</h3>
+      <p>
+        Bevor TCP tatsächlich Daten überträgt, bauen beide Seiten die
+        Verbindung in drei Schritten auf:
+      </p>
+      <ol>
+        <li><strong>SYN</strong> — Der Client sendet ein Segment mit gesetztem SYN-Flag („Synchronize“) und schlägt eine Startsequenznummer vor: „Ich möchte eine Verbindung aufbauen.“</li>
+        <li><strong>SYN-ACK</strong> — Der Server antwortet mit gesetztem SYN- und ACK-Flag: „Verstanden, ich bin bereit, hier ist meine eigene Startsequenznummer.“</li>
+        <li><strong>ACK</strong> — Der Client bestätigt mit gesetztem ACK-Flag: „Verstanden, Verbindung steht.“ Erst jetzt beginnt der eigentliche Datenaustausch.</li>
+      </ol>
+      <p>
+        Der Verbindungsabbau erfolgt spiegelbildlich über einen ähnlichen
+        Austausch mit FIN-Flags (häufig als „4-Way-Handshake“ bezeichnet, da
+        beide Richtungen einzeln beendet werden).
+      </p>
+
+      <h3>Ports</h3>
+      <p>
+        Ein Port ist eine 16-Bit-Nummer (0–65535), die innerhalb eines
+        Geräts festlegt, <em>welche Anwendung</em> für eingehende Daten
+        zuständig ist — die IP-Adresse identifiziert das Gerät, der Port
+        identifiziert den Dienst darauf.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Bereich</th><th>Bezeichnung</th><th>Beispiele</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0–1023</td><td>Well-Known Ports</td><td>80 (HTTP), 443 (HTTPS), 22 (SSH), 25 (SMTP), 53 (DNS)</td></tr>
+          <tr><td>1024–49151</td><td>Registered Ports</td><td>von Softwareherstellern registrierte Dienste</td></tr>
+          <tr><td>49152–65535</td><td>Dynamic/Private Ports</td><td>temporär vom Client für ausgehende Verbindungen genutzt</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Mitarbeiter ruft im Homeoffice gleichzeitig eine Firmenwebseite
+        auf und nimmt an einer Videokonferenz teil.
+      </p>
+      <ul>
+        <li>Der Browser baut zur Webseite eine <strong>TCP</strong>-Verbindung über <strong>Port 443</strong> (HTTPS) auf — mit vollständigem <strong>3-Way-Handshake</strong> (SYN, SYN-ACK, ACK), bevor die erste Seite geladen wird.</li>
+        <li>Die Videokonferenz-Software überträgt Bild und Ton dagegen per <strong>UDP</strong> — geht ein Bildpaket verloren, wird kurz das letzte Bild eingefroren, statt die gesamte Übertragung durch ein erneutes Senden zu verzögern.</li>
+        <li>Beide Verbindungen laufen parallel über dieselbe IP-Adresse des Notebooks — der jeweilige <strong>Port</strong> sorgt dafür, dass eingehende Antwortpakete der richtigen Anwendung (Browser bzw. Videosoftware) zugeordnet werden.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum eignet sich UDP besser als TCP für
+        VoIP-Telefonie?“ – Antwort: UDP hat weniger Overhead und keine
+        Wartezeit durch Bestätigungen/erneutes Senden — bei Echtzeitverkehr
+        ist ein kurzzeitiger Datenverlust weniger störend als eine spürbare
+        Verzögerung.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        TCP = zuverlässig, verbindungsorientiert, mit 3-Way-Handshake
+        (SYN, SYN-ACK, ACK) — für Daten, bei denen Vollständigkeit zählt.
+        UDP = schnell, verbindungslos, ohne Garantie — für Echtzeitverkehr,
+        bei dem Geschwindigkeit wichtiger ist als Vollständigkeit. Ports
+        (0–65535) identifizieren die zuständige Anwendung auf einem Gerät.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/tcp-udp-ports.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

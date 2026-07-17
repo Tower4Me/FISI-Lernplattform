@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Computer-Grundaufbau</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Computer-Grundaufbau</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Computer-Grundaufbau
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir eine Küche vor, in der ein Kochbuch (das Programm) und die
+        Zutaten (die Daten) im <strong>selben Regal</strong> liegen. Der
+        Koch (die CPU) holt sich abwechselnd mal ein Rezeptblatt, mal eine
+        Zutat aus diesem Regal — über denselben schmalen Gang. Wenn der
+        Koch gerade eine Zutat holt, muss er warten, bis der Gang wieder
+        frei ist, um das nächste Rezeptblatt zu holen. Genau nach diesem
+        Prinzip arbeiten die allermeisten Computer bis heute: Programm und
+        Daten liegen im selben Speicher, transportiert über denselben Bus.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Von-Neumann-Architektur</h3>
+      <p>
+        Nahezu jeder heutige Computer folgt dem Grundmodell, das John von
+        Neumann 1945 beschrieben hat. Es besteht aus vier Grundeinheiten:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Einheit</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Rechenwerk (ALU)</strong></td><td>führt arithmetische und logische Operationen aus</td></tr>
+          <tr><td><strong>Steuerwerk (Control Unit)</strong></td><td>holt Befehle, dekodiert sie und steuert den Ablauf</td></tr>
+          <tr><td><strong>Speicherwerk</strong></td><td>speichert Programm (Befehle) UND Daten gemeinsam</td></tr>
+          <tr><td><strong>Ein-/Ausgabewerk</strong></td><td>verbindet den Rechner mit Peripherie (Tastatur, Bildschirm, Netzwerk)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Das entscheidende Merkmal: Befehle und Daten liegen im
+        <strong>gleichen Speicher</strong> und werden über den
+        <strong>gleichen Bus</strong> transportiert. Das macht die
+        Architektur flexibel (Programme lassen sich wie Daten laden und
+        verändern), erzeugt aber den sogenannten
+        <strong>Von-Neumann-Flaschenhals</strong>: Da Befehl und Daten
+        sich denselben Bus teilen, können sie nicht gleichzeitig
+        übertragen werden — der Datentransport zwischen CPU und Speicher
+        wird so zum Geschwindigkeitslimit, selbst wenn die CPU selbst
+        schneller rechnen könnte.
+      </p>
+
+      <h3>Bussystem</h3>
+      <table>
+        <thead>
+          <tr><th>Bus</th><th>Transportiert</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Adressbus</td><td>die Speicheradresse, auf die zugegriffen werden soll</td></tr>
+          <tr><td>Datenbus</td><td>die eigentlichen Daten bzw. Befehle</td></tr>
+          <tr><td>Steuerbus</td><td>Steuersignale (z. B. Lesen/Schreiben, Takt, Interrupts)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Die Grundkomponenten eines PCs</h3>
+      <table>
+        <thead>
+          <tr><th>Komponente</th><th>Rolle</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>CPU</strong></td><td>führt alle Berechnungen aus (Rechen- und Steuerwerk)</td></tr>
+          <tr><td><strong>RAM</strong></td><td>flüchtiger Arbeitsspeicher für laufende Programme und Daten</td></tr>
+          <tr><td><strong>SSD/HDD</strong></td><td>persistenter Massenspeicher für Betriebssystem, Programme und Dateien</td></tr>
+          <tr><td><strong>Mainboard</strong></td><td>verbindet alle Komponenten über die Busse, bestimmt Formfaktor und Kompatibilität</td></tr>
+          <tr><td><strong>GPU</strong></td><td>spezialisierter Prozessor für Bild- und Parallelberechnungen</td></tr>
+          <tr><td><strong>Netzteil (PSU)</strong></td><td>wandelt Netzstrom in stabile Gleichspannung für alle Komponenten um</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Azubi bei der TechNord GmbH soll einem Kunden erklären, warum
+        ein älterer Bürorechner beim gleichzeitigen Öffnen mehrerer
+        Programme und dem Laden großer Dateien spürbar langsamer wird,
+        obwohl die CPU laut Datenblatt eigentlich schnell rechnen kann.
+      </p>
+      <p>
+        Erklärung über den Von-Neumann-Flaschenhals: Die CPU muss über
+        denselben Bus sowohl die nächsten Befehle des Programms als auch
+        die zu verarbeitenden Daten aus dem RAM holen. Je mehr Programme
+        gleichzeitig um diesen einen Datenweg konkurrieren, desto öfter
+        muss die CPU auf Nachschub warten — unabhängig davon, wie schnell
+        sie einmal geladene Daten verarbeiten könnte. Moderne CPUs
+        entschärfen dieses Problem unter anderem durch mehrstufige
+        Zwischenspeicher (Cache) direkt am Prozessor, die einen Teil der
+        Daten und Befehle näher am Rechenwerk vorhalten — Thema der
+        nächsten Einheit.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Von-Neumann-Architektur: Rechenwerk, Steuerwerk, gemeinsamer
+        Speicher für Programm und Daten, Ein-/Ausgabewerk — verbunden über
+        Adress-, Daten- und Steuerbus. Da Befehle und Daten sich denselben
+        Bus teilen, entsteht der Von-Neumann-Flaschenhals als
+        systembedingtes Geschwindigkeitslimit.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/computer-grundaufbau.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

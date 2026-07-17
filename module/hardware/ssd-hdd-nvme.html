@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: SSD, HDD & NVMe</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">SSD, HDD & NVMe</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      SSD, HDD & NVMe
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Aktenarchiv mit einem rotierenden Schrank funktioniert nur so
+        schnell, wie sich der Schrank drehen und ein mechanischer Arm den
+        richtigen Ordner greifen kann — genauso arbeitet eine
+        <strong>HDD</strong> mit rotierenden Magnetscheiben und einem
+        beweglichen Schreib-/Lesekopf. Eine <strong>SSD</strong> hat kein
+        bewegliches Teil mehr: Der Zugriff auf elektronische
+        Speicherzellen ist wie ein Verzeichnis, das sofort aufgeschlagen
+        werden kann. <strong>NVMe</strong> geht noch einen Schritt weiter
+        und verlegt einen direkten Expressweg zur Zentrale (CPU), statt
+        über den langsameren Amtsweg (SATA-Bus) zu gehen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Technologievergleich</h3>
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>HDD</th><th>SATA-SSD</th><th>NVMe-SSD</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Funktionsprinzip</td><td>rotierende Magnetscheiben, mechanischer Kopf</td><td>NAND-Flash, kein bewegliches Teil</td><td>NAND-Flash, direkt über PCIe</td></tr>
+          <tr><td>Sequenzielle Geschwindigkeit</td><td>~200 MB/s</td><td>~550 MB/s (SATA-Limit)</td><td>bis ~14.000 MB/s (PCIe 5.0 x4)</td></tr>
+          <tr><td>Zufälliger Zugriff</td><td>langsam (~5 ms)</td><td>sehr schnell</td><td>extrem schnell, parallele Warteschlangen</td></tr>
+          <tr><td>Formfaktor</td><td>3,5" (Desktop) / 2,5" (Laptop)</td><td>2,5" oder M.2 (SATA-Modus)</td><td>M.2 oder U.2</td></tr>
+          <tr><td>Preis pro GB</td><td>günstig</td><td>mittel</td><td>am teuersten</td></tr>
+          <tr><td>Robustheit</td><td>stoßempfindlich</td><td>robust</td><td>robust</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="speed-title">
+          <title id="speed-title">Balkendiagramm der sequenziellen Lesegeschwindigkeit: HDD ~200 MB/s, SATA-SSD ~550 MB/s, NVMe Gen4 ~7000 MB/s, NVMe Gen5 ~14000 MB/s</title>
+
+          <text x="10" y="14" fill="var(--text-muted)" font-size="10">Sequenzielle Lesegeschwindigkeit (MB/s, logarithmisch verkürzt dargestellt)</text>
+
+          <text x="10" y="35" fill="var(--text)" font-size="11">HDD</text>
+          <rect x="90" y="24" width="14" height="16" rx="2" fill="var(--fail)"/>
+          <text x="112" y="36" fill="var(--text-muted)" font-size="10">~200 MB/s</text>
+
+          <text x="10" y="65" fill="var(--text)" font-size="11">SATA SSD</text>
+          <rect x="90" y="54" width="40" height="16" rx="2" fill="var(--acc-merksatz)"/>
+          <text x="138" y="66" fill="var(--text-muted)" font-size="10">~550 MB/s</text>
+
+          <text x="10" y="95" fill="var(--text)" font-size="11">NVMe Gen4</text>
+          <rect x="90" y="84" width="180" height="16" rx="2" fill="var(--acc-praxis)"/>
+          <text x="278" y="96" fill="var(--text-muted)" font-size="10">~7.000 MB/s</text>
+
+          <text x="10" y="125" fill="var(--text)" font-size="11">NVMe Gen5</text>
+          <rect x="90" y="114" width="260" height="16" rx="2" fill="var(--link)"/>
+          <text x="278" y="146" fill="var(--text-muted)" font-size="10">~14.000 MB/s</text>
+        </svg>
+        <figcaption>
+          Sequenzielle Lesegeschwindigkeit im Vergleich — NVMe nutzt PCIe direkt
+          und lässt SATA als Flaschenhals deutlich hinter sich.
+        </figcaption>
+      </figure>
+
+      <h3>NAND-Flash-Typen (SSDs)</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Bit/Zelle</th><th>Geschwindigkeit</th><th>Haltbarkeit</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SLC</td><td>1</td><td>sehr hoch</td><td>sehr hoch (~100.000 P/E-Zyklen)</td><td>Enterprise, Cache</td></tr>
+          <tr><td>MLC</td><td>2</td><td>hoch</td><td>hoch (~10.000)</td><td>Workstation</td></tr>
+          <tr><td>TLC</td><td>3</td><td>mittel</td><td>mittel (~3.000)</td><td>Consumer-Standard</td></tr>
+          <tr><td>QLC</td><td>4</td><td>geringer</td><td>gering (~1.000)</td><td>günstiger Bulk-Storage</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Mehr Bits pro Speicherzelle bedeuten mehr Kapazität auf gleicher
+        Fläche, aber weniger Schreib-/Löschzyklen (P/E-Zyklen) und damit
+        eine geringere Haltbarkeit.
+      </p>
+      <p>
+        <strong>Achtung Verwechslungsgefahr:</strong> M.2 ist nur eine
+        Steckform (Formfaktor), kein Protokoll. Ein M.2-Slot kann je
+        nach Mainboard SATA- oder NVMe-SSDs betreiben.
+      </p>
+
+      <h3>Speichermedien im Überblick</h3>
+      <table>
+        <thead>
+          <tr><th>Kategorie</th><th>Beispiele</th><th>Merkmale</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Magnetisch</td>
+            <td>HDD, LTO-Bandlaufwerke</td>
+            <td>günstig pro GB, hohe Kapazität, mechanisch (langsamer, stoßempfindlicher);
+              Bandlaufwerke werden vor allem für kostengünstige Langzeit-Archivierung genutzt</td>
+          </tr>
+          <tr>
+            <td>Elektronisch (Flash)</td>
+            <td>SSD, USB-Stick, SD-Karte</td>
+            <td>kein bewegliches Teil, schnell, robust, teurer pro GB als magnetische Medien</td>
+          </tr>
+          <tr>
+            <td>Optisch</td>
+            <td>CD, DVD, Blu-ray</td>
+            <td>Daten werden per Laser in einer spiralförmigen Spur ausgelesen;
+              geringe Kapazität und Datenrate im Vergleich zu SSD/HDD, heute vor allem
+              für Distribution und einfache Archivierung relevant</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TechNord GmbH betreibt eine Videoschnitt-Workstation
+        und benötigt zusätzlich ein Langzeitarchiv für abgeschlossene
+        Projekte. Der Techniker empfiehlt zwei unterschiedliche
+        Speichertypen für zwei unterschiedliche Zwecke:
+      </p>
+      <ul>
+        <li><strong>Arbeitsspeicher-Laufwerk (aktive Projekte):</strong>
+          eine NVMe-SSD (PCIe 4.0), da beim Videoschnitt hohe sequenzielle
+          Schreib-/Leseraten und niedrige Latenz bei mehreren parallelen
+          Streams entscheidend sind.</li>
+        <li><strong>Langzeitarchiv (abgeschlossene Projekte):</strong>
+          klassische HDDs oder sogar LTO-Bandlaufwerke, da hier vor allem
+          niedrige Kosten pro TB und hohe Kapazität zählen — die
+          Zugriffsgeschwindigkeit ist für selten benötigte Archivdaten
+          nachrangig.</li>
+      </ul>
+      <p>
+        Eine NVMe-SSD für das komplette Archiv wäre unnötig teuer, eine
+        reine HDD-Lösung für den aktiven Videoschnitt dagegen zu langsam
+        — die Wahl des Speichertyps richtet sich immer nach dem
+        Einsatzzweck, nicht nach der grundsätzlich „besten“ Technologie.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        HDD (mechanisch, günstig, hohe Kapazität) < SATA-SSD (Flash, aber
+        SATA als Flaschenhals) < NVMe-SSD (Flash direkt über PCIe,
+        schnellste Option). M.2 ist nur eine Steckform, kein Protokoll.
+        Mehr Bits pro NAND-Zelle (SLC→QLC) bedeuten mehr Kapazität, aber
+        weniger Haltbarkeit. Die Wahl des Speichertyps richtet sich nach
+        dem Einsatzzweck: Geschwindigkeit vs. Kosten pro GB.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/ssd-hdd-nvme.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

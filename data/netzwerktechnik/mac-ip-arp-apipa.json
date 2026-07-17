@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/mac-ip-arp-apipa",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Auf welcher OSI-Schicht arbeitet die MAC-Adresse?",
+      "options": [
+        "Schicht 1 (Bitübertragung)",
+        "Schicht 2 (Sicherung)",
+        "Schicht 3 (Vermittlung)",
+        "Schicht 4 (Transport)"
+      ],
+      "answer": 1,
+      "explanation": "Die MAC-Adresse ist eine Schicht-2-Adresse (Sicherungsschicht) und identifiziert eine Netzwerkkarte physisch."
+    },
+    {
+      "id": "q2",
+      "question": "Was unterscheidet eine MAC-Adresse grundlegend von einer IP-Adresse?",
+      "options": [
+        "Die MAC-Adresse ist fest vom Hersteller vergeben, die IP-Adresse wird logisch zugewiesen und kann sich ändern",
+        "Beide werden immer vom DHCP-Server vergeben",
+        "Die MAC-Adresse ist netzwerkweit routbar, die IP-Adresse nur lokal gültig",
+        "Es gibt keinen praktischen Unterschied zwischen beiden"
+      ],
+      "answer": 0,
+      "explanation": "Die MAC-Adresse ist herstellerseitig fest in die Netzwerkkarte eingebrannt, die IP-Adresse wird logisch (statisch oder per DHCP) zugewiesen und kann sich je nach Netz ändern."
+    },
+    {
+      "id": "q3",
+      "question": "Wozu dient das ARP-Protokoll?",
+      "options": [
+        "Es vergibt automatisch IP-Adressen an neue Geräte",
+        "Es löst eine bekannte IP-Adresse in die zugehörige MAC-Adresse im lokalen Netz auf",
+        "Es verschlüsselt den Datenverkehr zwischen zwei Geräten",
+        "Es prüft, ob ein Webserver erreichbar ist"
+      ],
+      "answer": 1,
+      "explanation": "ARP (Address Resolution Protocol) ermittelt zu einer IP-Adresse die passende MAC-Adresse im lokalen Netzsegment, damit die Zustellung dorthin erfolgen kann."
+    },
+    {
+      "id": "q4",
+      "question": "Wie läuft eine ARP-Anfrage grundsätzlich ab, wenn die Zuordnung noch nicht im Cache steht?",
+      "options": [
+        "Das Gerät sendet eine Broadcast-Anfrage ins lokale Netz, das gesuchte Gerät antwortet direkt mit seiner MAC-Adresse",
+        "Das Gerät fragt ausschließlich den DHCP-Server nach der MAC-Adresse",
+        "Das Gerät sendet die Anfrage direkt an den Router, unabhängig vom Zielsegment",
+        "ARP funktioniert nur, wenn beide Geräte in unterschiedlichen Subnetzen liegen"
+      ],
+      "answer": 0,
+      "explanation": "Eine ARP-Request wird als Broadcast im lokalen Netz gesendet; das gesuchte Gerät antwortet per Unicast (ARP-Reply) mit seiner MAC-Adresse."
+    },
+    {
+      "id": "q5",
+      "question": "Woran erkennt man, dass ein Gerät eine APIPA-Adresse verwendet?",
+      "options": [
+        "An einer IP-Adresse aus dem Bereich 169.254.0.0/16",
+        "An einer IP-Adresse aus dem Bereich 192.168.0.0/16",
+        "An einer MAC-Adresse, die mit FF beginnt",
+        "An einer IP-Adresse aus dem Bereich 10.0.0.0/8"
+      ],
+      "answer": 0,
+      "explanation": "APIPA-Adressen stammen immer aus dem reservierten Bereich 169.254.0.0/16 und deuten auf einen nicht erreichbaren DHCP-Server hin."
+    },
+    {
+      "id": "q6",
+      "question": "Was bedeutet es praktisch, wenn ein PC eine APIPA-Adresse trägt?",
+      "options": [
+        "Der PC hat normalen Internetzugriff, nur ohne Verschlüsselung",
+        "Der PC konnte beim Start keinen DHCP-Server erreichen und hat sich selbst adressiert — Kommunikation ist nur im lokalen Segment mit anderen APIPA-Geräten möglich",
+        "Der PC ist absichtlich vom Administrator so konfiguriert und funktioniert normal",
+        "Der PC hat eine MAC-Adressen-Kollision im Netz"
+      ],
+      "answer": 1,
+      "explanation": "APIPA ist eine Selbsthilfe-Adressierung bei fehlendem DHCP-Server — sie ermöglicht nur eingeschränkte Kommunikation im lokalen Segment, kein Routing ins Internet."
+    },
+    {
+      "id": "q7",
+      "question": "Warum wird ARP nicht über Netzgrenzen (Router) hinweg verwendet?",
+      "options": [
+        "Weil ARP verschlüsselt ist und Router keine Verschlüsselung unterstützen",
+        "Weil ARP als lokaler Broadcast im Netzsegment arbeitet und Broadcasts von Routern nicht weitergeleitet werden",
+        "Weil ARP nur für IPv6 entwickelt wurde",
+        "Weil Router keine MAC-Adressen besitzen"
+      ],
+      "answer": 1,
+      "explanation": "ARP-Requests sind Broadcasts, die auf das lokale Netzsegment begrenzt sind. Router leiten Broadcasts nicht über Netzgrenzen hinweg weiter, deshalb bleibt ARP lokal."
+    }
+  ]
+}

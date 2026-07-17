@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Geräteklassen & Arbeitsplatz</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Geräteklassen & Arbeitsplatz</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Geräteklassen & Arbeitsplatz
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Desktop-PC ist wie eine feste Werkstatt: viel Platz, volle
+        Werkzeugausstattung, jederzeit erweiterbar — aber ortsgebunden. Ein
+        Notebook ist der mobile Werkzeugkoffer: kompakt und überallhin
+        mitnehmbar, dafür mit weniger Ausbaumöglichkeiten. Ein Tablet ist
+        ein einzelnes Spezialwerkzeug für den schnellen Handgriff
+        zwischendurch. Und ein Thin Client hat gar keine eigene Werkstatt —
+        er leiht sich für jede Aufgabe die Werkzeuge aus einer zentralen
+        Werkstatt im Netzwerk (dem Server) aus.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Geräteklassen im Vergleich</h3>
+      <table>
+        <thead>
+          <tr><th>Klasse</th><th>Formfaktor</th><th>Erweiterbarkeit</th><th>Mobilität</th><th>typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Desktop-PC</strong></td>
+            <td>Standgehäuse, externer Monitor</td>
+            <td>hoch (CPU, RAM, GPU, Storage austauschbar)</td>
+            <td>keine</td>
+            <td>Arbeitsplatz mit hohem Leistungsbedarf, CAD, Server</td>
+          </tr>
+          <tr>
+            <td><strong>Notebook</strong></td>
+            <td>kompaktes Gehäuse mit integriertem Display, Tastatur, Akku</td>
+            <td>eingeschränkt (oft nur RAM/SSD, viele Komponenten verlötet)</td>
+            <td>hoch</td>
+            <td>mobiles Arbeiten, Außendienst, Homeoffice</td>
+          </tr>
+          <tr>
+            <td><strong>Tablet</strong></td>
+            <td>touchbasiert, kein festes Tastatur-/Mauskonzept</td>
+            <td>praktisch keine (komplett verlötet, kein Formfaktor für Slots)</td>
+            <td>sehr hoch</td>
+            <td>Lesen, Präsentation, einfache Formulare, mobile Erfassung</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Thin Client vs. Fat Client vs. Zero Client</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Prinzip</th><th>Vorteile</th><th>Nachteile</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fat Client</strong> (klassischer PC)</td>
+            <td>führt Anwendungen und Berechnungen lokal aus, braucht
+              eigene CPU-Leistung, RAM und Speicher</td>
+            <td>funktioniert unabhängig vom Netzwerk, volle lokale Leistung</td>
+            <td>höhere Anschaffungs- und Wartungskosten pro Gerät, Updates
+              müssen auf jedem Gerät einzeln gepflegt werden</td>
+          </tr>
+          <tr>
+            <td><strong>Thin Client</strong></td>
+            <td>minimale lokale Hardware, greift über das Netzwerk auf
+              einen zentralen Terminalserver oder VDI (Virtual Desktop
+              Infrastructure) zu — die eigentliche Rechenlast läuft dort</td>
+            <td>günstig in der Anschaffung, zentral verwaltbar/wartbar,
+              geringer Stromverbrauch, lange Nutzungsdauer</td>
+            <td>abhängig von Netzwerkverbindung und Server-Verfügbarkeit</td>
+          </tr>
+          <tr>
+            <td><strong>Zero Client</strong></td>
+            <td>noch minimaler als der Thin Client: praktisch nur
+              Ein-/Ausgabe-Hardware ohne eigenes lokales Betriebssystem,
+              bootet direkt in die Serververbindung</td>
+            <td>kaum Angriffsfläche/Wartung, sehr einfache Bereitstellung</td>
+            <td>komplett abhängig vom Server, keinerlei lokale Funktion</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Dockingstation</h3>
+      <p>
+        Eine Dockingstation erweitert ein Notebook am festen Arbeitsplatz
+        um zusätzliche Anschlüsse — externe Monitore, Netzwerk (RJ45), USB-
+        Peripherie und Stromversorgung — meist über ein einziges
+        Thunderbolt- oder USB-C-Kabel (siehe Einheit
+        <em>Schnittstellen & Video</em>). Damit wird ein mobiles Notebook
+        am Schreibtisch zu einem vollwertigen Desktop-Arbeitsplatz, ohne
+        einzelne Kabel manuell anschließen zu müssen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant ein neues Großraumbüro mit 50
+        Arbeitsplätzen für einfache Bürotätigkeiten (Textverarbeitung,
+        E-Mail, Fachanwendung über Terminalserver). Zur Wahl stehen 50
+        neue Fat-Client-PCs oder 50 Thin Clients mit zentralem
+        Terminalserver:
+      </p>
+      <ul>
+        <li><strong>Anschaffung:</strong> Thin Clients sind einzeln
+          günstiger, dafür muss der zentrale Server entsprechend
+          leistungsfähig dimensioniert werden.</li>
+        <li><strong>Wartung:</strong> Software-Updates und
+          Sicherheitspatches müssen bei Thin Clients nur einmal zentral auf
+          dem Server eingespielt werden, nicht auf 50 Einzelgeräten.</li>
+        <li><strong>Ausfallrisiko:</strong> Fällt der Terminalserver aus,
+          sind alle Thin Clients gleichzeitig arbeitsunfähig — ein Fat
+          Client würde davon nicht betroffen sein.</li>
+      </ul>
+      <p>
+        Für ein Büro mit einfachen, ähnlichen Standardaufgaben und
+        zentraler IT-Verwaltung sind Thin Clients wirtschaftlicher — bei
+        hohem Bedarf an lokaler Rechenleistung oder Offline-Fähigkeit
+        wäre der Fat Client die richtige Wahl.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Desktop = maximal erweiterbar, keine Mobilität. Notebook = mobil,
+        eingeschränkt erweiterbar. Tablet = maximale Mobilität, kaum
+        erweiterbar. Fat Client rechnet lokal, Thin Client lagert die
+        Rechenlast auf den Server aus, Zero Client hat gar keine lokale
+        Funktion mehr. Eine Dockingstation macht aus einem mobilen Notebook
+        per einem Kabel einen vollwertigen Arbeitsplatz.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/geraeteklassen-arbeitsplatz.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

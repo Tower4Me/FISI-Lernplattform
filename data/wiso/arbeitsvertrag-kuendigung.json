@@ -1,0 +1,101 @@
+{
+  "unit": "wiso/arbeitsvertrag-kuendigung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Gesetz verpflichtet den Arbeitgeber, die wesentlichen Vertragsbedingungen schriftlich niederzulegen?",
+      "options": [
+        "Kündigungsschutzgesetz (KSchG)",
+        "Nachweisgesetz (NachwG)",
+        "Bundesurlaubsgesetz (BUrlG)",
+        "Arbeitszeitgesetz (ArbZG)"
+      ],
+      "answer": 1,
+      "explanation": "Das Nachweisgesetz (NachwG) schreibt vor, welche wesentlichen Vertragsbedingungen schriftlich festgehalten werden müssen."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Kündigungsfrist gilt in der Probezeit (max. 6 Monate) nach § 622 BGB?",
+      "options": [
+        "1 Woche",
+        "2 Wochen",
+        "1 Monat zum Monatsende",
+        "4 Wochen zum 15. oder Monatsende"
+      ],
+      "answer": 1,
+      "explanation": "Während der Probezeit kann mit einer Frist von 2 Wochen ohne festen Termin gekündigt werden."
+    },
+    {
+      "id": "q3",
+      "question": "Welche gesetzliche Grundkündigungsfrist gilt für eine Arbeitnehmerkündigung nach der Probezeit?",
+      "options": [
+        "2 Wochen",
+        "4 Wochen zum 15. oder Monatsende",
+        "3 Monate zum Monatsende",
+        "6 Monate zum Monatsende"
+      ],
+      "answer": 1,
+      "explanation": "Nach der Probezeit gilt für Arbeitnehmerkündigungen die Grundfrist von 4 Wochen zum 15. oder zum Ende eines Kalendermonats."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Arbeitgeber möchte einem Mitarbeiter kündigen, der seit 9 Jahren im Betrieb beschäftigt ist. Welche Kündigungsfrist muss er laut § 622 BGB mindestens einhalten?",
+      "options": [
+        "1 Monat zum Monatsende",
+        "2 Monate zum Monatsende",
+        "3 Monate zum Monatsende",
+        "6 Monate zum Monatsende"
+      ],
+      "answer": 2,
+      "explanation": "Ab einer Betriebszugehörigkeit von 8 Jahren beträgt die Kündigungsfrist für den Arbeitgeber 3 Monate zum Monatsende."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Voraussetzung muss für eine außerordentliche (fristlose) Kündigung nach § 626 BGB erfüllt sein?",
+      "options": [
+        "Es reicht ein formloser mündlicher Hinweis",
+        "Es muss ein wichtiger Grund vorliegen, der die Fortsetzung bis Fristablauf unzumutbar macht",
+        "Sie ist nur während der Probezeit möglich",
+        "Sie benötigt keine Kündigungserklärung"
+      ],
+      "answer": 1,
+      "explanation": "Eine außerordentliche Kündigung setzt einen wichtigen Grund voraus, der es unzumutbar macht, das Arbeitsverhältnis bis zum Ablauf der ordentlichen Frist fortzusetzen."
+    },
+    {
+      "id": "q6",
+      "question": "In welcher Form muss eine Kündigung laut § 623 BGB erfolgen, damit sie wirksam ist?",
+      "options": [
+        "Formlos, auch mündlich",
+        "Per E-Mail oder SMS genügt",
+        "Schriftlich mit eigenhändiger Unterschrift",
+        "Nur über einen Notar"
+      ],
+      "answer": 2,
+      "explanation": "Kündigungen bedürfen zwingend der Schriftform mit eigenhändiger Unterschrift; E-Mail, SMS oder mündliche Kündigung sind unwirksam."
+    },
+    {
+      "id": "q7",
+      "question": "Innerhalb welcher Frist muss eine Kündigungsschutzklage nach § 4 KSchG erhoben werden?",
+      "options": [
+        "1 Woche nach Zugang",
+        "3 Wochen nach Zugang",
+        "6 Wochen nach Zugang",
+        "3 Monate nach Zugang"
+      ],
+      "answer": 1,
+      "explanation": "Die Klage muss innerhalb von 3 Wochen nach Zugang der Kündigung erhoben werden, sonst gilt die Kündigung als von Anfang an wirksam."
+    },
+    {
+      "id": "q8",
+      "question": "Was unterscheidet eine Änderungskündigung von einer regulären Kündigung?",
+      "options": [
+        "Sie ist immer fristlos",
+        "Sie ist mit dem Angebot verbunden, das Arbeitsverhältnis zu geänderten Bedingungen fortzusetzen",
+        "Sie muss nicht schriftlich erfolgen",
+        "Sie betrifft nur Auszubildende"
+      ],
+      "answer": 1,
+      "explanation": "Bei einer Änderungskündigung wird die Kündigung mit dem Angebot verknüpft, das Arbeitsverhältnis zu veränderten Konditionen fortzuführen."
+    }
+  ]
+}

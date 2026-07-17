@@ -1,0 +1,69 @@
+{
+  "unit": "software-os-web/partitionierung-formatierung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bewirkt die Partitionierung eines Datenträgers?",
+      "options": [
+        "Sie legt ein Dateisystem auf dem Datenträger an",
+        "Sie teilt einen physischen Datenträger in logisch getrennte Bereiche (Partitionen) auf",
+        "Sie prüft den Datenträger auf defekte Sektoren",
+        "Sie verschlüsselt den gesamten Datenträger"
+      ],
+      "answer": 1,
+      "explanation": "Partitionierung teilt einen physischen Datenträger in logisch getrennte Bereiche auf, die jeweils eigene Dateisysteme erhalten können — das Anlegen des Dateisystems selbst erfolgt erst bei der Formatierung."
+    },
+    {
+      "id": "q2",
+      "question": "Wie viele primäre Partitionen unterstützt eine klassische MBR-Partitionstabelle maximal?",
+      "options": ["2", "4", "16", "unbegrenzt viele"],
+      "answer": 1,
+      "explanation": "MBR unterstützt maximal 4 primäre Partitionen (bzw. 3 primäre plus eine erweiterte Partition mit mehreren logischen Partitionen darin)."
+    },
+    {
+      "id": "q3",
+      "question": "Welche maximale Datenträgergröße kann mit MBR sinnvoll genutzt werden?",
+      "options": ["512 MB", "2 TiB", "16 TiB", "es gibt keine Begrenzung"],
+      "answer": 1,
+      "explanation": "MBR unterstützt Datenträger nur bis etwa 2 TiB vollständig nutzbar — größere Datenträger benötigen GPT."
+    },
+    {
+      "id": "q4",
+      "question": "Eine neue 4-TB-Festplatte soll komplett nutzbar sein. Welche Partitionstabelle ist dafür erforderlich?",
+      "options": ["MBR", "GPT", "FAT32", "NTFS"],
+      "answer": 1,
+      "explanation": "Da 4 TB deutlich über der 2-TiB-Grenze von MBR liegen, muss die Platte mit GPT partitioniert werden, um die volle Kapazität nutzen zu können."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Boot-Voraussetzung ist für GPT-partitionierte Systemlaufwerke in der Regel nötig?",
+      "options": ["Klassisches BIOS-Booten", "UEFI", "Es gibt keine Boot-Voraussetzung", "Eine spezielle Grafikkarte"],
+      "answer": 1,
+      "explanation": "GPT-partitionierte Systemlaufwerke benötigen in der Regel UEFI zum Booten, während MBR mit dem klassischen BIOS-Boot verbunden ist."
+    },
+    {
+      "id": "q6",
+      "question": "Was unterscheidet eine Schnellformatierung von einer vollständigen Formatierung?",
+      "options": [
+        "Die Schnellformatierung löscht nur den Dateisystem-Index, die vollständige Formatierung prüft zusätzlich den gesamten Datenträger auf defekte Sektoren",
+        "Beide Verfahren sind technisch identisch, nur der Name unterscheidet sich",
+        "Die vollständige Formatierung ist immer schneller als die Schnellformatierung",
+        "Nur die Schnellformatierung kann NTFS anlegen"
+      ],
+      "answer": 0,
+      "explanation": "Die Schnellformatierung löscht nur den Dateisystem-Index, die Daten bleiben zunächst physisch erhalten. Die vollständige Formatierung prüft zusätzlich den kompletten Datenträger auf defekte Sektoren und dauert deshalb deutlich länger."
+    },
+    {
+      "id": "q7",
+      "question": "Warum wählt ein Techniker für eine neue, ungetestete Festplatte eher eine vollständige Formatierung statt einer Schnellformatierung?",
+      "options": [
+        "Weil eine Schnellformatierung bei neuen Platten technisch nicht möglich ist",
+        "Weil die vollständige Formatierung zusätzlich auf defekte Sektoren prüft, was bei einer neuen, ungetesteten Platte sinnvoll ist",
+        "Weil eine Schnellformatierung automatisch alle Partitionstabellen löscht",
+        "Weil vollständige Formatierung grundsätzlich schneller als Schnellformatierung ist"
+      ],
+      "answer": 1,
+      "explanation": "Die vollständige Formatierung prüft den gesamten Datenträger auf defekte Sektoren — bei einer neuen, noch ungetesteten Platte ist das sinnvoll, auch wenn es länger dauert als eine Schnellformatierung."
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "unit": "datenbanken-sql/datentypen-constraints",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welcher Datentyp eignet sich am besten für einen Rechnungsbetrag in Euro?",
+      "options": [
+        "FLOAT",
+        "DECIMAL",
+        "BOOLEAN",
+        "CHAR(1)"
+      ],
+      "answer": 1,
+      "explanation": "DECIMAL speichert Kommazahlen exakt und vermeidet die Rundungsfehler, die FLOAT bei Geldbeträgen verursachen kann."
+    },
+    {
+      "id": "q2",
+      "question": "Für welches Feld ist CHAR(n) sinnvoller als VARCHAR(n)?",
+      "options": [
+        "Für eine lange, variable Produktbeschreibung",
+        "Für einen Ländercode fester Länge wie „DE“",
+        "Für ein Datum",
+        "Für eine Kundennummer"
+      ],
+      "answer": 1,
+      "explanation": "CHAR(n) ist für Felder mit immer gleicher Länge geeignet, z. B. zweistellige Ländercodes."
+    },
+    {
+      "id": "q3",
+      "question": "Welcher Constraint verhindert, dass ein Feld leer bleibt?",
+      "options": [
+        "UNIQUE",
+        "DEFAULT",
+        "NOT NULL",
+        "CHECK"
+      ],
+      "answer": 2,
+      "explanation": "NOT NULL erzwingt, dass beim Einfügen ein Wert für diese Spalte angegeben werden muss."
+    },
+    {
+      "id": "q4",
+      "question": "Was leistet der FOREIGN-KEY-Constraint?",
+      "options": [
+        "Er verhindert doppelte Werte in einer Spalte",
+        "Er stellt sicher, dass ein Wert auf einen existierenden Primärschlüssel einer anderen Tabelle verweist",
+        "Er vergibt automatisch fortlaufende IDs",
+        "Er verschlüsselt die referenzierte Spalte"
+      ],
+      "answer": 1,
+      "explanation": "FOREIGN KEY sorgt für referenzielle Integrität: der Wert muss auf einen existierenden Datensatz in der referenzierten Tabelle zeigen (oder NULL sein)."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Neukunde ohne Bestellung kann in einer unnormalisierten Tabelle nicht gespeichert werden, weil Kundendaten nur zusammen mit Bestellzeilen existieren. Wie heißt diese Anomalie?",
+      "options": [
+        "Änderungsanomalie",
+        "Löschanomalie",
+        "Einfügeanomalie",
+        "Redundanzanomalie"
+      ],
+      "answer": 2,
+      "explanation": "Das Nichteinfügen von Daten ohne zugehörigen Fremddatensatz ist die klassische Einfügeanomalie."
+    },
+    {
+      "id": "q6",
+      "question": "Die letzte Bestellung eines Kunden wird gelöscht, wodurch auch seine Kontaktdaten verschwinden. Welche Anomalie liegt vor?",
+      "options": [
+        "Einfügeanomalie",
+        "Löschanomalie",
+        "Änderungsanomalie",
+        "Constraint-Verletzung"
+      ],
+      "answer": 1,
+      "explanation": "Das ungewollte Mitlöschen weiterer Informationen beim Löschen eines Datensatzes ist die Löschanomalie."
+    },
+    {
+      "id": "q7",
+      "question": "Eine Kundenadresse steht redundant in sieben Bestellzeilen. Beim Umzug wird sie nur in fünf davon aktualisiert. Welche Anomalie ist das?",
+      "options": [
+        "Löschanomalie",
+        "Einfügeanomalie",
+        "Änderungsanomalie",
+        "Schema-Anomalie"
+      ],
+      "answer": 2,
+      "explanation": "Wenn redundante Kopien bei einer Änderung nicht alle konsistent aktualisiert werden, entsteht eine Änderungsanomalie."
+    },
+    {
+      "id": "q8",
+      "question": "Was ist der eigentliche, langfristige Weg, um Redundanz und die daraus folgenden Anomalien zu beseitigen?",
+      "options": [
+        "Möglichst viele CHECK-Constraints hinzufügen",
+        "Nur DEFAULT-Werte konsequent setzen",
+        "Die Tabellenstruktur normalisieren",
+        "Alle Spalten als VARCHAR definieren"
+      ],
+      "answer": 2,
+      "explanation": "Constraints verhindern nur falsche Einzelwerte; die strukturelle Ursache (Redundanz) wird durch Normalisierung behoben."
+    },
+    {
+      "id": "q9",
+      "question": "Welche Kombination beschreibt einen PRIMARY KEY korrekt?",
+      "options": [
+        "Er erlaubt beliebig viele NULL-Werte",
+        "Er kombiniert UNIQUE und NOT NULL für eine eindeutige Zeilenidentifikation",
+        "Er ist nur ein anderer Name für FOREIGN KEY",
+        "Er legt nur den Datentyp einer Spalte fest"
+      ],
+      "answer": 1,
+      "explanation": "Ein PRIMARY KEY muss eindeutig und darf nicht NULL sein – er identifiziert jede Zeile einer Tabelle eindeutig."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Bits & Bytes</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Bits & Bytes</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Bits & Bytes
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir eine Reihe von acht Lichtschaltern an einer Wand vor.
+        Jeder Schalter kennt nur zwei Zustände: an oder aus. Ein einzelner
+        Schalter allein sagt wenig aus — aber sobald man alle acht
+        Schalter gemeinsam betrachtet, ergibt sich ein ganz bestimmtes
+        Muster aus An/Aus-Zuständen, mit dem sich immerhin 256
+        unterschiedliche Kombinationen darstellen lassen. Genau nach
+        diesem Prinzip speichert ein Computer jede Information: als lange
+        Reihen von Schaltzuständen — <strong>Bits</strong> — die in
+        Achtergruppen zu <strong>Bytes</strong> zusammengefasst werden.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein <strong>Bit</strong> (Binary Digit) ist die kleinste mögliche
+        Informationseinheit und kann genau zwei Zustände annehmen: 1 oder
+        0. Acht Bits zusammen ergeben ein <strong>Byte</strong> — die
+        grundlegende Speichereinheit, mit der sich 2<sup>8</sup> = 256
+        unterschiedliche Werte darstellen lassen (Dezimalwerte 0 bis 255).
+      </p>
+
+      <h3>Binärpräfixe für Datenmengen</h3>
+      <p>
+        Für größere Datenmengen werden Präfixe verwendet. Wichtig: In der
+        IT-Prüfung sind seit der Katalogänderung 2025 ausschließlich die
+        korrekten <strong>Binärpräfixe</strong> (Faktor 1024) zu verwenden
+        — nicht die dezimalen SI-Präfixe (Faktor 1000), mit denen z. B.
+        Festplattenhersteller häufig werben.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Einheit</th><th>Abkürzung</th><th>Umrechnung</th><th>Byte</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Kibibyte</td><td>KiB</td><td>2<sup>10</sup> = 1.024 Byte</td><td>1.024</td></tr>
+          <tr><td>Mebibyte</td><td>MiB</td><td>2<sup>20</sup> = 1.024 KiB</td><td>1.048.576</td></tr>
+          <tr><td>Gibibyte</td><td>GiB</td><td>2<sup>30</sup> = 1.024 MiB</td><td>1.073.741.824</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Eine als „1 TB“ beworbene Festplatte (dezimal: 1.000.000.000.000
+        Byte) zeigt Windows deshalb nur als rund 931 GiB an — kein Fehler,
+        sondern zwei unterschiedliche Zähleinheiten für dieselbe
+        Byte-Anzahl.
+      </p>
+
+      <p>Probiere die Bit-Kodierung von Text direkt aus:</p>
+      <div class="tool" data-tool="bits-konverter">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+
+      <h3>Speicherbedarf berechnen: Auflösung × Farbtiefe</h3>
+      <p>
+        Eine typische Rechenaufgabe ist die Ermittlung des Speicherbedarfs
+        eines unkomprimierten Bildes. Die Formel:
+      </p>
+      <p style="text-align:center">
+        <strong>Datenmenge (Bit) = Breite (Pixel) × Höhe (Pixel) × Farbtiefe (Bit pro Pixel)</strong>
+      </p>
+      <p>
+        Die <strong>Farbtiefe</strong> gibt an, mit wie vielen Bit die
+        Farbe eines einzelnen Pixels codiert wird — bei echtfarbigen
+        Bildern (RGB) typischerweise 24 Bit (jeweils 8 Bit für Rot, Grün,
+        Blau). Das Ergebnis in Bit wird anschließend durch 8 (Byte) und
+        bei Bedarf weiter durch 1024 (KiB), 1024² (MiB) geteilt.
+      </p>
+      <p>
+        <strong>Beispielrechnung:</strong> Ein Foto mit 1920 × 1080 Pixeln
+        bei 24 Bit Farbtiefe:
+      </p>
+      <ul>
+        <li>1920 × 1080 × 24 Bit = 49.766.400 Bit</li>
+        <li>49.766.400 Bit ÷ 8 = 6.220.800 Byte</li>
+        <li>6.220.800 Byte ÷ 1.024 = 6.075 KiB</li>
+        <li>6.075 KiB ÷ 1.024 ≈ 5,93 MiB</li>
+      </ul>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Systemhaus plant den Speicherbedarf für ein Kundenprojekt: Eine
+        Kamera an einem Empfangstresen soll unkomprimierte Standbilder in
+        1280 × 720 Pixeln bei 24 Bit Farbtiefe aufnehmen.
+      </p>
+      <ul>
+        <li>Datenmenge pro Bild: 1280 × 720 × 24 Bit = 22.118.400 Bit.</li>
+        <li>In Byte: 22.118.400 ÷ 8 = 2.764.800 Byte.</li>
+        <li>In KiB: 2.764.800 ÷ 1.024 = 2.700 KiB, also rund <strong>2,64 MiB</strong> pro Bild.</li>
+        <li>Bei einem Bild pro Minute im 24-Stunden-Betrieb (1.440 Bilder/Tag) ergibt das rund 1.440 × 2,64 MiB ≈ 3.802 MiB ≈ <strong>3,71 GiB</strong> Speicherbedarf pro Tag — eine wichtige Größe für die Auswahl des Speichermediums.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Wie groß ist der unkomprimierte
+        Speicherbedarf eines Bildes mit 800 × 600 Pixeln bei einer
+        Farbtiefe von 16 Bit? Runden Sie auf ganze KiB.“ – Lösungsweg:
+        800 × 600 × 16 Bit = 7.680.000 Bit, ÷ 8 = 960.000 Byte, ÷ 1.024 ≈
+        937,5 KiB, gerundet 938 KiB.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        1 Byte = 8 Bit = 256 mögliche Werte. Binärpräfixe (KiB, MiB, GiB)
+        rechnen mit Faktor 1024, nicht 1000 — in der Prüfung zwingend
+        verwenden. Bild-Speicherbedarf = Breite × Höhe × Farbtiefe (Bit),
+        anschließend durch 8 (Byte) und ggf. 1024 (KiB/MiB) teilen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/bits-und-bytes.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/bits-konverter.js"></script>
+</body>
+</html>

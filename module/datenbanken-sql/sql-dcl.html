@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: SQL & DCL</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">SQL & DCL</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      SQL & DCL
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Die neue Auszubildende bei TowerTech GmbH soll die Personalliste
+        einsehen können, um Kolleg:innen nachzuschlagen. Sie soll aber
+        <strong>nicht</strong> die komplette Tabelle löschen oder fremde
+        Gehälter beliebig ändern können – das bleibt der
+        Datenbank-Administratorin vorbehalten. Genau das regelt
+        <strong>DCL</strong> (Data Control Language): wer darf was in der
+        Datenbank – so wie ein Firmenausweis nur die Türen öffnet, für die
+        er freigeschaltet ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        DCL steuert Zugriffsrechte auf Datenbankebene: <code>GRANT</code>
+        vergibt Rechte, <code>REVOKE</code> entzieht sie wieder.
+      </p>
+
+      <h3>GRANT – Rechte vergeben</h3>
+      <table>
+        <tbody>
+          <tr><td><code>GRANT SELECT ON mitarbeiter TO 'lea_fischer';</code></td></tr>
+          <tr><td><code>GRANT SELECT, INSERT ON mitarbeiter TO 'lea_fischer';</code></td></tr>
+          <tr><td><code>GRANT ALL PRIVILEGES ON mitarbeiter TO 'admin_towertech';</code></td></tr>
+          <tr><td><code>GRANT ALL PRIVILEGES ON *.* TO 'admin_towertech';</code> <em>(alle Rechte auf alle Tabellen)</em></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Mit <code>WITH GRANT OPTION</code> darf die berechtigte Person das
+        Recht ihrerseits an andere weitergeben.
+      </p>
+
+      <h3>REVOKE – Rechte entziehen</h3>
+      <table>
+        <tbody>
+          <tr><td><code>REVOKE INSERT ON mitarbeiter FROM 'lea_fischer';</code></td></tr>
+          <tr><td><code>REVOKE ALL PRIVILEGES ON mitarbeiter FROM 'lea_fischer';</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Verfügbare Rechte</h3>
+      <table>
+        <thead><tr><th>Recht</th><th>Erlaubt</th></tr></thead>
+        <tbody>
+          <tr><td><code>SELECT</code></td><td>Daten lesen</td></tr>
+          <tr><td><code>INSERT</code></td><td>Daten einfügen</td></tr>
+          <tr><td><code>UPDATE</code></td><td>Daten ändern</td></tr>
+          <tr><td><code>DELETE</code></td><td>Daten löschen</td></tr>
+          <tr><td><code>CREATE</code></td><td>Tabellen erstellen</td></tr>
+          <tr><td><code>DROP</code></td><td>Tabellen löschen</td></tr>
+          <tr><td><code>ALL PRIVILEGES</code></td><td>alle oben genannten Rechte</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Rollen (Roles)</h3>
+      <p>
+        Statt jeder einzelnen Person eigene Rechte zuzuweisen, bündelt man
+        Rechte in einer <strong>Rolle</strong> und weist die Rolle
+        mehreren Benutzern zu. Ändert sich, was Azubis dürfen sollen, wird
+        nur die Rolle einmal angepasst statt jede Person einzeln.
+      </p>
+
+      <p>
+        Zentrales Prinzip: <strong>Principle of Least Privilege</strong>
+        (Prinzip der minimalen Rechte) – jede Person bekommt nur die
+        Rechte, die sie für ihre Aufgabe tatsächlich braucht. Ein
+        Kundenservice-Zugang benötigt <code>SELECT</code>, aber kein
+        <code>DROP TABLE</code>.
+      </p>
+
+      <p>
+        <strong>Wichtiger Hinweis zu SQLite:</strong> SQLite selbst hat
+        <em>kein</em> eingebautes Benutzer- und Rechtesystem –
+        <code>GRANT</code>/<code>REVOKE</code> sind dort keine echten
+        SQL-Befehle. Rechteverwaltung läuft bei SQLite stattdessen über
+        Dateiberechtigungen des Betriebssystems. In produktiv eingesetzten
+        Systemen wie MySQL, PostgreSQL oder MS SQL Server funktioniert
+        echtes <code>GRANT</code>/<code>REVOKE</code> wie oben beschrieben.
+        Der SQL-Editor unten <strong>simuliert</strong> deshalb
+        GRANT/REVOKE/SHOW GRANTS mit echter SQL-Syntax, führt sie aber
+        nicht gegen eine echte Datenbank-Rechteverwaltung aus.
+      </p>
+
+      <p>Probiere die simulierte Rechteverwaltung aus:</p>
+      <div class="tool" data-tool="sql-editor">
+        <script type="application/sql">
+          -- Simuliertes Rechtesystem, unabhängig von echten SQLite-Tabellen.
+          -- Syntax: GRANT <Rechte> ON <Tabelle> TO 'benutzer';
+          --         REVOKE <Rechte> ON <Tabelle> FROM 'benutzer';
+          --         SHOW GRANTS FOR 'benutzer';
+          CREATE TABLE mitarbeiter (
+            mitarbeiter_id INTEGER PRIMARY KEY,
+            vollname VARCHAR(100) NOT NULL
+          );
+        </script>
+        <p class="muted">SQL-Editor wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Praxis „DCL-Simulation": Zwei TowerTech-Zugänge –
+        <code>lea_fischer</code> (Azubi) und
+        <code>admin_towertech</code> (Datenbank-Administratorin) – sollen
+        im Editor oben passend eingerichtet werden.
+      </p>
+      <ul>
+        <li>
+          <strong>Aufgabe 1:</strong> Lea startet als Azubi und soll
+          zunächst nur Lesezugriff auf <code>mitarbeiter</code> bekommen:
+          <code>GRANT SELECT ON mitarbeiter TO 'lea_fischer';</code>
+        </li>
+        <li>
+          <strong>Aufgabe 2:</strong> Nach der Einarbeitung darf sie auch
+          neue Einträge anlegen:
+          <code>GRANT INSERT ON mitarbeiter TO 'lea_fischer';</code>
+        </li>
+        <li>
+          <strong>Aufgabe 3:</strong> Prüfe Leas aktuelle Rechte:
+          <code>SHOW GRANTS FOR 'lea_fischer';</code>
+        </li>
+        <li>
+          <strong>Aufgabe 4:</strong> Lea wechselt die Abteilung, ihre
+          bisherigen Rechte auf <code>mitarbeiter</code> werden entzogen:
+          <code>REVOKE ALL PRIVILEGES ON mitarbeiter FROM
+          'lea_fischer';</code>
+        </li>
+        <li>
+          <strong>Aufgabe 5:</strong> Die Administratorin bekommt alle
+          Rechte auf alle Tabellen:
+          <code>GRANT ALL PRIVILEGES ON *.* TO 'admin_towertech';</code>
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Was versteht man unter dem Prinzip der
+        minimalen Rechte, und warum ist es wichtig?" – Antwort: Jede
+        Person/jeder Systembenutzer erhält nur die Rechte, die für die
+        jeweilige Aufgabe notwendig sind – das begrenzt den Schaden bei
+        kompromittierten Zugängen und Fehlbedienung.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        DCL steuert Zugriffsrechte: GRANT vergibt, REVOKE entzieht Rechte
+        (SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALL PRIVILEGES).
+        Rollen bündeln Rechte für mehrere Benutzer. Principle of Least
+        Privilege: nur so viele Rechte wie nötig. SQLite hat kein echtes
+        Rechtesystem – GRANT/REVOKE gehören dort nicht zum Sprachumfang.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/sql-dcl.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/sql-editor.js"></script>
+</body>
+</html>

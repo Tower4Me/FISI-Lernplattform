@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Datentypen, Kontrollstrukturen & Pseudocode</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Datentypen, Kontrollstrukturen & Pseudocode</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Datentypen, Kontrollstrukturen & Pseudocode
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Variable ist wie eine beschriftete Kiste, in der über die
+        Zeit unterschiedlicher Inhalt liegen kann — solange es zur
+        angegebenen Kistenart passt. Kontrollstrukturen sind wie
+        Verkehrsschilder auf einer Reise: manche Kreuzungen bedeuten
+        „ist diese Straße gesperrt, nimm die andere“ (Verzweigung),
+        andere „fahr diese Schleife, bis der Tank leer ist“ (Schleife).
+        Und Pseudocode ist, als würdest du ein Rezept erst in eigenen
+        Worten aufschreiben, bevor es ein stur-wörtlich denkender
+        Kochroboter (die konkrete Programmiersprache) verstehen muss.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Variablen und Datentypen</h3>
+      <p>
+        Eine <strong>Variable</strong> ist ein benannter Speicherplatz für
+        einen Wert, der sich während der Programmlaufzeit ändern kann.
+        Der <strong>Datentyp</strong> legt fest, welche Art von Wert
+        gespeichert werden darf:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Datentyp</th><th>Beispielwert</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Ganzzahl</strong> (Integer)</td><td>42</td></tr>
+          <tr><td><strong>Gleitkommazahl</strong> (Float/Double)</td><td>3.14</td></tr>
+          <tr><td><strong>Zeichenkette</strong> (String)</td><td>"Hallo Welt"</td></tr>
+          <tr><td><strong>Wahrheitswert</strong> (Boolean)</td><td>true / false</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Kontrollstrukturen</h3>
+      <table>
+        <thead>
+          <tr><th>Struktur</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Sequenz</strong></td><td>Anweisungen werden schlicht nacheinander ausgeführt — der Standardfall</td></tr>
+          <tr><td><strong>Verzweigung</strong> (if/else)</td><td>abhängig von einer Bedingung wird einer von mehreren möglichen Pfaden ausgeführt</td></tr>
+          <tr><td><strong>Schleife</strong> (for/while)</td><td>ein Anweisungsblock wird wiederholt ausgeführt, solange bzw. bis eine Bedingung erfüllt ist</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Bei Schleifen wird zusätzlich unterschieden: Eine
+        <strong>kopfgesteuerte Schleife</strong> (while) prüft die
+        Bedingung <em>vor</em> jedem Durchlauf — trifft sie von Anfang an
+        nicht zu, läuft die Schleife kein einziges Mal. Eine
+        <strong>fußgesteuerte Schleife</strong> (do-while) prüft die
+        Bedingung <em>nach</em> dem Durchlauf und läuft deshalb
+        mindestens einmal, selbst wenn die Bedingung nie zutrifft.
+      </p>
+
+      <h3>Pseudocode</h3>
+      <p>
+        <strong>Pseudocode</strong> ist eine informelle, an natürlicher
+        Sprache orientierte Notation zur Beschreibung eines Algorithmus —
+        unabhängig von der Syntax einer konkreten Programmiersprache.
+        Er dient dazu, einen Algorithmus zu planen und mit anderen zu
+        besprechen, bevor er in einer bestimmten Sprache umgesetzt wird.
+        Typische Schlüsselwörter: <code>WENN … DANN … SONST</code>,
+        <code>SOLANGE … TUE</code>.
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+ALGORITHMUS GrößteZahl(a, b, c)
+  WENN a &gt;= b UND a &gt;= c DANN
+    ERGEBNIS = a
+  SONST WENN b &gt;= c DANN
+    ERGEBNIS = b
+  SONST
+    ERGEBNIS = c
+  ENDE WENN
+  RÜCKGABE ERGEBNIS
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Auszubildender der TechNord GmbH soll einen Algorithmus
+        entwickeln, der prüft, ob ein Kunde Anspruch auf Mengenrabatt hat:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR JEDE Position IN Bestellliste
+  WENN Position.Menge &gt;= 100 DANN
+    Position.Rabatt = 10%
+  SONST
+    Position.Rabatt = 0%
+  ENDE WENN
+ENDE FÜR
+      </div>
+      <p>
+        Der Azubi skizziert den Algorithmus zunächst in
+        <strong>Pseudocode</strong> — so kann der Ausbilder die Logik
+        prüfen und Rückmeldung geben, ohne dass beide dieselbe
+        Programmiersprache im Detail beherrschen müssen. Erst danach wird
+        der Algorithmus in eine konkrete Sprache (hier Python) übersetzt.
+        Die <code>FÜR JEDE</code>-Schleife durchläuft dabei jede Position
+        der Bestellliste, die <code>WENN</code>-Verzweigung entscheidet
+        pro Position über den Rabattsatz.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Variable = benannter, veränderlicher Speicherplatz; Datentyp legt
+        die erlaubte Art des Werts fest (Integer, Float, String, Boolean).
+        Kontrollstrukturen: Sequenz, Verzweigung (if/else), Schleife
+        (kopf- vs. fußgesteuert). Pseudocode beschreibt einen Algorithmus
+        sprachunabhängig in natürlicher Sprache, bevor er in einer
+        konkreten Programmiersprache umgesetzt wird.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/datentypen-pseudocode.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

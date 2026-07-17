@@ -1,0 +1,79 @@
+{
+  "unit": "hardware/gehaeuse-formfaktoren",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welcher Gehäusetyp unterstützt typischerweise die meisten Mainboard-Formfaktoren (bis hin zu E-ATX) und bietet am meisten Platz für Kühlung und mehrere Grafikkarten?",
+      "options": ["Mini-ITX / SFF", "Mid Tower", "Full Tower", "Rack 1U"],
+      "answer": 2,
+      "explanation": "Ein Full Tower unterstützt E-ATX, ATX, mATX und Mini-ITX und bietet am meisten Platz für große Kühllösungen, mehrere GPUs und viele Laufwerke."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher Rack-Formfaktor ist für einen Datenbankserver mit ECC-RAM, RAID-Verbund und redundanten Netzteilen am besten geeignet?",
+      "options": ["Rack 1U", "Rack 2U/4U", "Mini-ITX", "Mid Tower ATX"],
+      "answer": 1,
+      "explanation": "Rack-Gehäuse mit 2U/4U bieten deutlich mehr Platz für ECC-RAM, RAID-Laufwerke und redundante Netzteile als das sehr flache 1U-Format."
+    },
+    {
+      "id": "q3",
+      "question": "Was sollte vor der Wahl eines Gehäuse-Formfaktors immer zuerst stehen?",
+      "options": [
+        "Die Farbe des gewünschten Gehäuses",
+        "Eine Anforderungsanalyse: Einsatzzweck, Standort, verfügbarer Platz und geplante Erweiterungen",
+        "Die Wahl des Betriebssystems",
+        "Die Marke des Netzteils"
+      ],
+      "answer": 1,
+      "explanation": "Erst nach einer Anforderungsanalyse (Leistungsbedarf, Standort, Platz, Erweiterungspläne) wird der passende Formfaktor gewählt — danach wird geprüft, ob Mainboard, CPU, Gehäuse und Kühlung zusammenpassen."
+    },
+    {
+      "id": "q4",
+      "question": "Was bedeutet „positiver Luftdruck“ in einem PC-Gehäuse?",
+      "options": [
+        "Es gibt mehr Exhaust- als Intake-Lüfter",
+        "Es gibt mehr Intake- als Exhaust-Lüfter, wodurch Luft bevorzugt durch die gefilterten Einlässe statt durch ungefilterte Öffnungen einströmt",
+        "Der Lüfter dreht sich schneller als spezifiziert",
+        "Das Gehäuse hat überhaupt keine Lüfter"
+      ],
+      "answer": 1,
+      "explanation": "Positiver Luftdruck entsteht, wenn mehr Luft durch Intake- als durch Exhaust-Lüfter bewegt wird — dadurch strömt Luft bevorzugt durch die gefilterten Einlässe statt durch ungefilterte Ritzen, was Staubeintrag reduziert."
+    },
+    {
+      "id": "q5",
+      "question": "Warum führt negativer Luftdruck (mehr Exhaust als Intake) tendenziell zu mehr Staub im Gehäuse?",
+      "options": [
+        "Weil dabei alle Lüfter komplett abgeschaltet werden",
+        "Weil das Gehäuse dadurch Luft durch jede vorhandene Öffnung ansaugt, auch durch ungefilterte Stellen",
+        "Weil negativer Luftdruck die Lüfterdrehzahl automatisch erhöht",
+        "Weil dabei zwangsläufig ein Full-Tower-Gehäuse verwendet werden muss"
+      ],
+      "answer": 1,
+      "explanation": "Bei negativem Luftdruck saugt das Gehäuse Luft durch jede vorhandene Öffnung an — auch durch ungefilterte Stellen — wodurch mehr Staub ins Gehäuse gelangt als bei positivem Luftdruck."
+    },
+    {
+      "id": "q6",
+      "question": "Für welchen Anwendungsfall ist laut Formfaktor-Entscheidungsmatrix ein Mini-ITX/mATX-SFF-Gehäuse am besten geeignet?",
+      "options": [
+        "Datenbankserver im Rechenzentrum",
+        "CAD-Workstation mit mehreren Monitoren und dedizierter GPU",
+        "Buchhaltungs-PC auf einem Bürotisch mit wenig Platz und ohne geplante Erweiterung",
+        "Virtualisierungshost mit vielen VMs"
+      ],
+      "answer": 2,
+      "explanation": "Für einen einfachen Büroarbeitsplatz mit wenig Platz und ohne geplante Erweiterung reicht ein kompaktes Mini-ITX/mATX-SFF-Gehäuse völlig aus."
+    },
+    {
+      "id": "q7",
+      "question": "Was beschreibt die Angabe „1U“ bei einem Rack-Server-Gehäuse?",
+      "options": [
+        "Eine Höheneinheit von 1,75 Zoll (44,45 mm) im standardisierten Serverrack",
+        "Die maximale Anzahl unterstützter USB-Anschlüsse",
+        "Eine Geschwindigkeitsangabe für das interne Netzwerk",
+        "Die maximale Anzahl an GPUs im Gehäuse"
+      ],
+      "answer": 0,
+      "explanation": "1U (1 Höheneinheit) entspricht 1,75 Zoll bzw. 44,45 mm und ist die standardisierte Maßeinheit für die Höhe von Rack-Servern in einem Serverschrank."
+    }
+  ]
+}

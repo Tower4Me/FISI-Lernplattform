@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: WLAN-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">WLAN-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      WLAN-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen Konferenzraum mit mehreren gleichzeitig laufenden
+        Gesprächen vor. Damit sich nicht alle gegenseitig übertönen, hat
+        jede Gesprächsrunde einen eigenen Namen, den man ansagen kann („Ich
+        möchte mich der Gruppe ‚Marketing-Team‘ anschließen“), und wer
+        mitreden will, braucht ein Passwort, das nur Eingeweihte kennen.
+        Ein <strong>WLAN</strong> funktioniert nach demselben Prinzip: Ein
+        Funknetz bekommt einen Namen (SSID), zum Mitmachen braucht man ein
+        Passwort, und moderne Verschlüsselung sorgt dafür, dass Außenstehende
+        nicht einfach mithören können.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>WLAN-Standards (IEEE 802.11)</h3>
+      <table>
+        <thead>
+          <tr><th>Standard</th><th>Marketing-Name</th><th>Frequenzband</th><th>Max. Datenrate (theoretisch)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>802.11n</td><td>Wi-Fi 4</td><td>2,4 / 5 GHz</td><td>bis 600 Mbit/s</td></tr>
+          <tr><td>802.11ac</td><td>Wi-Fi 5</td><td>5 GHz</td><td>bis mehrere Gbit/s</td></tr>
+          <tr><td>802.11ax</td><td>Wi-Fi 6 / 6E</td><td>2,4 / 5 / 6 GHz</td><td>bis mehrere Gbit/s, effizienter bei vielen Geräten</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Das <strong>2,4-GHz-Band</strong> hat größere Reichweite, aber
+        weniger Kanäle und mehr Störungen (z. B. durch Bluetooth,
+        Mikrowellen). Das <strong>5-GHz-Band</strong> bietet mehr Kanäle
+        und höhere Datenraten, aber geringere Reichweite und schlechtere
+        Wanddurchdringung.
+      </p>
+
+      <h3>SSID</h3>
+      <p>
+        Die <strong>SSID</strong> (Service Set Identifier) ist der Name
+        eines WLAN-Netzes, über den Geräte das gewünschte Netz erkennen und
+        auswählen. Eine SSID kann sichtbar (Broadcast) oder versteckt
+        (Hidden SSID) konfiguriert sein — versteckt bietet dabei nur
+        geringen zusätzlichen Schutz, da die SSID trotzdem bei jeder
+        Verbindung übertragen wird.
+      </p>
+
+      <h3>Verschlüsselungsstandards</h3>
+      <table>
+        <thead>
+          <tr><th>Standard</th><th>Sicherheitsniveau</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>WEP</td><td>veraltet, gilt als unsicher, sollte nicht mehr verwendet werden</td></tr>
+          <tr><td>WPA</td><td>Übergangslösung nach WEP, ebenfalls veraltet</td></tr>
+          <tr><td>WPA2</td><td>lange Zeit Standard, AES-Verschlüsselung, gilt bei korrekter Konfiguration als sicher</td></tr>
+          <tr><td>WPA3</td><td>aktueller Standard, stärkerer Schutz gegen Offline-Angriffe auf das Passwort (u. a. durch SAE-Verfahren)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Personal vs. Enterprise</h3>
+      <p>
+        Bei <strong>WPA2/WPA3-Personal</strong> (auch PSK, Pre-Shared Key)
+        teilen sich alle Nutzer ein gemeinsames Passwort — typisch für
+        Heimnetze. Bei <strong>WPA2/WPA3-Enterprise</strong> meldet sich
+        jeder Nutzer mit eigenen Zugangsdaten gegen einen zentralen
+        Authentifizierungsserver an (<strong>RADIUS</strong>) — typisch in
+        Firmennetzen, da einzelne Zugänge gezielt gesperrt werden können,
+        ohne dass alle anderen Nutzer ihr Passwort ändern müssen.
+      </p>
+
+      <h3>Access Point & Repeater</h3>
+      <ul>
+        <li><strong>Access Point (AP):</strong> Verbindet Funkgeräte mit dem kabelgebundenen Netzwerk (LAN). Mehrere APs können dieselbe SSID ausstrahlen, damit Geräte nahtlos zwischen Funkzellen wechseln (Roaming).</li>
+        <li><strong>Repeater:</strong> Empfängt ein bestehendes WLAN-Signal und sendet es verstärkt weiter, um die Reichweite zu vergrößern — reduziert dabei aber meist die nutzbare Datenrate, da derselbe Funkkanal für Empfang und Weitersendung verwendet wird.</li>
+      </ul>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus plant das WLAN für ein Bürogebäude mit drei
+        Etagen und unterschiedlichen Nutzergruppen.
+      </p>
+      <ul>
+        <li>Für Mitarbeitende wird ein <strong>WPA2-Enterprise</strong>-Netz eingerichtet, das jeden Login gegen den zentralen <strong>RADIUS</strong>-Server prüft — scheidet ein Mitarbeiter aus, wird nur sein einzelnes Konto gesperrt, nicht das gesamte WLAN-Passwort geändert.</li>
+        <li>Für Gäste gibt es ein separates <strong>WPA2-Personal</strong>-Netz mit eigenem, regelmäßig wechselndem Passwort — logisch getrennt vom Firmennetz (siehe VLAN).</li>
+        <li>In jeder Etage steht ein eigener <strong>Access Point</strong>, alle mit derselben SSID, damit Mitarbeitende beim Gehen durchs Gebäude nahtlos zwischen den Etagen-APs wechseln können.</li>
+        <li>Im entlegenen Lagerraum, in dem kein AP direkt erreichbar ist, wird ein <strong>Repeater</strong> aufgestellt, um das Signal des nächstgelegenen APs zu verlängern.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum eignet sich WPA2/WPA3-Enterprise
+        besser als Personal für ein Firmennetz mit vielen Mitarbeitenden?“
+        – Antwort: Jeder Nutzer erhält eigene Zugangsdaten über RADIUS,
+        einzelne Zugänge lassen sich gezielt sperren, ohne dass alle
+        anderen Nutzer ein neues gemeinsames Passwort erhalten müssen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        WLAN nach IEEE 802.11 (Wi-Fi 4/5/6), SSID = Netzname. WPA3 ist der
+        aktuelle Verschlüsselungsstandard, WEP/WPA gelten als unsicher.
+        Personal = gemeinsames Passwort, Enterprise = individuelle Logins
+        über RADIUS. Access Points verbinden Funk mit LAN, Repeater
+        verlängern die Reichweite auf Kosten der Datenrate.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/wlan-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

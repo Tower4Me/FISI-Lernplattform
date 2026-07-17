@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/arbeitsspeicher-ram",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was passiert, wenn ein System zu wenig RAM hat und der Arbeitsspeicher voll ist?",
+      "options": [
+        "Das Betriebssystem stürzt sofort ab",
+        "Das Betriebssystem lagert Daten auf die SSD/HDD aus (Swap), was deutlich langsamer ist",
+        "Der Prozessor übernimmt automatisch die Speicherung im Cache",
+        "Überschüssige Daten werden automatisch gelöscht"
+      ],
+      "answer": 1,
+      "explanation": "Bei zu wenig RAM lagert das Betriebssystem Daten in eine Auslagerungsdatei auf der SSD/HDD aus (Swap) — das ist deutlich langsamer als RAM-Zugriff und belastet die SSD zusätzlich."
+    },
+    {
+      "id": "q2",
+      "question": "Was unterscheidet DRAM grundlegend von SRAM?",
+      "options": [
+        "DRAM ist grundsätzlich schneller als SRAM",
+        "DRAM speichert Bits als Ladung in einem Kondensator und muss ständig aufgefrischt werden, SRAM speichert in einem Flip-Flop ohne Refresh, ist aber teurer und platzhungriger",
+        "SRAM wird ausschließlich als Hauptspeicher eingesetzt",
+        "DRAM und SRAM unterscheiden sich nur im Preis, technisch sind sie identisch"
+      ],
+      "answer": 1,
+      "explanation": "DRAM braucht nur 1 Transistor pro Zelle, muss aber ständig aufgefrischt werden. SRAM (6 Transistoren pro Zelle) braucht keinen Refresh, ist sehr schnell, aber teuer — deshalb als kleiner CPU-Cache statt als großer Hauptspeicher im Einsatz."
+    },
+    {
+      "id": "q3",
+      "question": "Zwei identische RAM-Module sollen in ein Mainboard mit 4 DIMM-Slots (A1, B1, A2, B2) für maximale Bandbreite eingebaut werden. Welche Bestückung ist richtig?",
+      "options": [
+        "Beide Module nebeneinander in A1 und A2",
+        "Je ein Modul in A2 und B2 (die zweite Kanalfarbe)",
+        "Beide Module in denselben Slot gesteckt",
+        "Ein Modul in A1, das andere bleibt ungenutzt im Karton"
+      ],
+      "answer": 1,
+      "explanation": "Für Dual Channel müssen die Module in Slots derselben Kanalfarbe stecken, typischerweise A2 und B2. Werden beide Module nebeneinander in A1 und A2 gesteckt, landen sie auf demselben Kanal und das System läuft nur im langsameren Single Channel."
+    },
+    {
+      "id": "q4",
+      "question": "Was bewirkt Dual Channel gegenüber Single Channel?",
+      "options": [
+        "Die RAM-Kapazität verdoppelt sich automatisch",
+        "Die effektive Busbreite und damit die Bandbreite verdoppelt sich (64 Bit auf 128 Bit)",
+        "Die Latenz einzelner Speicherzugriffe wird halbiert",
+        "Es hat keinen messbaren Effekt auf die Leistung"
+      ],
+      "answer": 1,
+      "explanation": "Dual Channel nutzt zwei parallele 64-Bit-Kanäle gleichzeitig (128 Bit effektive Busbreite) und verdoppelt dadurch die Bandbreite gegenüber Single Channel."
+    },
+    {
+      "id": "q5",
+      "question": "Ein DDR4-3600-Modul mit CL18 wird mit einem DDR4-3200-Modul mit CL16 verglichen. Wie fällt der Vergleich der absoluten Latenz in Nanosekunden aus?",
+      "options": [
+        "DDR4-3600 CL18 ist deutlich schneller",
+        "DDR4-3200 CL16 ist deutlich schneller",
+        "Beide erreichen exakt dieselbe absolute Latenz von 10 ns",
+        "Die Formel lässt sich hier nicht anwenden"
+      ],
+      "answer": 2,
+      "explanation": "(18 ÷ 3600) × 2000 = 10 ns und (16 ÷ 3200) × 2000 = 10 ns — trotz unterschiedlichem Takt identische absolute Latenz, da der CAS-Latency-Wert proportional mitsteigt."
+    },
+    {
+      "id": "q6",
+      "question": "Ein RAM-Modul hat die Angabe DDR4-3200 CL16. Wie hoch ist die absolute Latenz in Nanosekunden?",
+      "options": [
+        "5 ns",
+        "8 ns",
+        "10 ns",
+        "16 ns"
+      ],
+      "answer": 2,
+      "explanation": "Latenz [ns] = (CL ÷ Takt) × 2000 = (16 ÷ 3200) × 2000 = 10 ns."
+    },
+    {
+      "id": "q7",
+      "question": "Warum ist ECC-RAM in Servern und Workstations häufig Pflicht?",
+      "options": [
+        "Weil ECC-RAM grundsätzlich billiger ist als non-ECC-RAM",
+        "Weil ECC-RAM automatisch die Speicherkapazität verdoppelt",
+        "Weil ECC-RAM Einzelbit-Fehler automatisch erkennt und korrigiert und dadurch die Zuverlässigkeit deutlich erhöht",
+        "Weil ECC-RAM keinen passenden Prozessor benötigt"
+      ],
+      "answer": 2,
+      "explanation": "ECC (Error-Correcting Code) erkennt und korrigiert Einzelbit-Fehler automatisch. Das erhöht die Zuverlässigkeit deutlich, ist etwas langsamer als non-ECC-RAM und benötigt einen passenden Prozessor sowie ein ECC-fähiges Mainboard."
+    }
+  ]
+}

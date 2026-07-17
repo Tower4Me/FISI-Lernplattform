@@ -290,6 +290,38 @@ code, kbd, pre {
 }
 .tool__card strong { display: block; margin-bottom: 0.2rem; }
 
+.tool__terminal-input {
+  width: 100%;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  resize: vertical;
+  min-height: 4.5em;
+  margin-bottom: 0.6rem;
+}
+.tool__terminal-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.tool__terminal-result { margin-top: 0.75rem; }
+.tool__terminal-result table { font-size: 0.85rem; }
+.tool__terminal-result th, .tool__terminal-result td {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+.tool__terminal-result caption {
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+  caption-side: top;
+}
+.tool__terminal-status { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+.tool__terminal-status--error { color: var(--fail); }
+.tool__terminal-status--ok { color: var(--ok); }
+
 /* --------------------------------------------------------------- Utility */
 .muted { color: var(--text-muted); }
 .visually-hidden {

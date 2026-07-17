@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Dateisysteme im Vergleich</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Dateisysteme im Vergleich</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Dateisysteme im Vergleich
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Unterschiedliche Dateisysteme sind wie unterschiedliche
+        Aktenschrank-Modelle. NTFS ist der große Bürocontainer mit
+        Sicherheitsschloss und Prüfprotokoll (ACL, Journaling,
+        Verschlüsselung) — mächtig, aber schwerer als nötig für einen
+        einfachen USB-Stick. FAT32 ist der einfache Schuhkarton, den
+        jedes Gerät versteht — dafür passt kein einzelnes Dokument über
+        4 GB hinein. exFAT ist derselbe Schuhkarton ohne diese Grenze.
+        Und ext4 ist das bewährte Aktensystem des Linux-„Gebäudes“ mit
+        eigenem Sicherheitsprotokoll.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Die wichtigsten Dateisysteme</h3>
+      <table>
+        <thead>
+          <tr><th>Dateisystem</th><th>Betriebssystem</th><th>Max. Dateigröße</th><th>Journaling</th><th>Berechtigungen</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>NTFS</strong></td><td>Windows</td><td>~16 EB</td><td>ja</td><td>ACL</td><td>Windows-Systemlaufwerke</td></tr>
+          <tr><td><strong>FAT32</strong></td><td>alle (Windows/Linux/macOS/Kameras)</td><td>4 GB</td><td>nein</td><td>nein</td><td>USB-Sticks, maximale Kompatibilität</td></tr>
+          <tr><td><strong>exFAT</strong></td><td>Windows/macOS/Linux</td><td>~16 EB</td><td>nein</td><td>nein</td><td>große SD-Karten (SDXC), USB</td></tr>
+          <tr><td><strong>ext4</strong></td><td>Linux</td><td>16 TB</td><td>ja</td><td>rwx</td><td>Linux-Systemlaufwerke</td></tr>
+          <tr><td><strong>APFS</strong> (Apple File System)</td><td>macOS/iOS</td><td>sehr groß (praktisch keine relevante Grenze)</td><td>ja</td><td>eigenes Rechtemodell</td><td>seit 2017 Standard auf Apple-Geräten, für SSD/Flash-Speicher optimiert, unterstützt Snapshots</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>FAT32</strong> hat ein hartes Limit: keine einzelne Datei
+        darf größer als 4 GB (genau: 4 GB minus 1 Byte) sein — ein
+        8-GB-Video passt deshalb nicht auf einen FAT32-formatierten
+        USB-Stick. <strong>exFAT</strong> wurde von Microsoft als
+        Nachfolger genau für dieses Problem entwickelt: keine 4-GB-Grenze
+        mehr, bei weiterhin breiter Kompatibilität. <strong>NTFS</strong>
+        kann von Linux nur mit zusätzlichem Treiber beschrieben werden,
+        von macOS nur gelesen, nicht geschrieben — <strong>ext4</strong>
+        kann Windows ohne Drittanbieter-Software gar nicht lesen.
+      </p>
+
+      <h3>Journaling</h3>
+      <p>
+        Fällt der Strom mitten in einem Schreibvorgang aus, kann eine
+        Datei halb geschrieben und das Dateisystem inkonsistent
+        zurückbleiben. <strong>Journaling</strong> löst dieses Problem:
+        Bevor das Dateisystem eine Änderung vornimmt, schreibt es die
+        geplante Aktion zuerst in ein separates <strong>Journal</strong>
+        (ein Protokoll). Nach einem Absturz liest das System beim
+        nächsten Start das Journal und weiß genau, welche Operationen
+        abgeschlossen waren und welche nicht — unvollständige werden
+        rückgängig gemacht oder nachgeholt.
+      </p>
+      <table>
+        <thead>
+          <tr><th></th><th>Mit Journaling (NTFS, ext4, APFS)</th><th>Ohne Journaling (FAT32, exFAT)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nach einem Absturz</strong></td>
+            <td>System prüft nur das Journal beim Booten, stellt
+              konsistenten Zustand in Sekunden wieder her</td>
+            <td>System muss den gesamten Datenträger prüfen
+              (chkdsk/fsck) — dauert bei großen Laufwerken lange, Dateien
+              können korrumpiert bleiben</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Fragmentierung</h3>
+      <p>
+        Ein Dateisystem speichert Dateien in Blöcken (Clustern). Ist eine
+        Datei zu groß für einen zusammenhängenden freien Bereich, werden
+        ihre Blöcke über den Datenträger verteilt gespeichert —
+        <strong>Fragmentierung</strong>. Das entsteht, weil beim Löschen
+        und Neuschreiben von Dateien über die Zeit lückenhafte
+        Freiflächen entstehen, in die neue große Dateien nicht mehr am
+        Stück passen.
+      </p>
+      <p>
+        Bei einer <strong>HDD</strong> (bewegliche Schreib-/Leseköpfe)
+        kostet jeder Sprung zwischen fragmentierten Blöcken messbar Zeit.
+        Bei einer <strong>SSD</strong> ohne bewegliche Teile spielt die
+        physische Position dagegen keine Rolle.
+      </p>
+      <p>
+        <strong>Defragmentierung</strong> ordnet Blöcke neu an, damit
+        Dateien wieder zusammenhängend liegen — sinnvoll nur bei HDDs.
+        Bei SSDs ist Defragmentieren kontraproduktiv: Es bringt keinen
+        Geschwindigkeitsvorteil, verbraucht aber unnötig die begrenzte
+        Schreiblebensdauer der SSD. Windows erkennt SSDs automatisch und
+        deaktiviert die reguläre Defragmentierung für sie.
+      </p>
+
+      <h3>Slack Space</h3>
+      <p>
+        Dateisysteme arbeiten in festen Blockgrößen (z. B. 4 KB bei
+        NTFS). Eine Datei mit nur 1 KB Inhalt belegt trotzdem den
+        gesamten 4-KB-Block — die übrigen 3 KB bleiben ungenutzt. Dieser
+        verschwendete Platz heißt <strong>Slack Space</strong>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TechNord GmbH benötigt einen USB-Stick, der sowohl
+        unter Windows als auch macOS beschreibbar sein soll und Dateien
+        über 4 GB (z. B. Videoprojekte) speichern können muss:
+      </p>
+      <ul>
+        <li><strong>FAT32</strong> scheidet aus — die 4-GB-Grenze pro
+          Datei würde die Videoprojekte blockieren.</li>
+        <li><strong>NTFS</strong> scheidet ebenfalls aus — macOS kann
+          NTFS-Partitionen nur lesen, nicht beschreiben.</li>
+        <li><strong>exFAT</strong> ist die richtige Wahl: keine
+          4-GB-Grenze und von beiden Betriebssystemen problemlos
+          beschreibbar.</li>
+      </ul>
+      <p>
+        Zusätzlich stellt ein Techniker fest, dass ein älterer
+        HDD-Server spürbar langsamer geworden ist — eine
+        <strong>Defragmentierung</strong> schafft hier Abhilfe. Ein
+        neuerer Server mit SSD wird dagegen bewusst <strong>nicht</strong>
+        defragmentiert, da das nur die Lebensdauer der SSD unnötig
+        verkürzen würde, ohne einen Geschwindigkeitsvorteil zu bringen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        NTFS (Windows, ACL, Journaling) · FAT32 (universell, aber 4-GB-
+        Grenze) · exFAT (FAT32-Nachfolger ohne diese Grenze) · ext4
+        (Linux, rwx, Journaling) · APFS (macOS, für SSD optimiert).
+        Journaling schützt vor Inkonsistenz nach Absturz. Fragmentierung
+        betrifft nur HDDs spürbar — SSDs niemals defragmentieren. Slack
+        Space ist verschwendeter Platz durch feste Blockgrößen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/dateisysteme-vergleich.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

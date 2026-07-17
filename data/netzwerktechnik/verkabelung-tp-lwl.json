@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/verkabelung-tp-lwl",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Warum werden bei Twisted-Pair-Kabeln die Adernpaare verdrillt?",
+      "options": [
+        "Um das Kabel optisch ansprechender zu gestalten",
+        "Um elektromagnetische Störeinstrahlung zwischen den Adernpaaren zu reduzieren",
+        "Um die maximale Kabellänge zu verdoppeln",
+        "Um das Kabel leichter durch Kabelkanäle ziehen zu können"
+      ],
+      "answer": 1,
+      "explanation": "Das Verdrillen der Adernpaare reduziert gegenseitige elektromagnetische Störungen (Übersprechen) zwischen den Paaren."
+    },
+    {
+      "id": "q2",
+      "question": "Welche maximale Segmentlänge gilt typischerweise für Twisted-Pair-Verkabelung (z. B. Cat 6a)?",
+      "options": [
+        "10 Meter",
+        "100 Meter",
+        "1 Kilometer",
+        "10 Kilometer"
+      ],
+      "answer": 1,
+      "explanation": "Twisted-Pair-Kabel wie Cat 6a sind für Strecken bis 100 Meter spezifiziert."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet Singlemode- von Multimode-Glasfaser grundsätzlich?",
+      "options": [
+        "Singlemode lässt nur einen Lichtweg zu und eignet sich für sehr große Entfernungen, Multimode für kürzere Strecken",
+        "Multimode wird ausschließlich für Kupferkabel verwendet",
+        "Singlemode ist immer günstiger als Multimode",
+        "Es gibt keinen technischen Unterschied zwischen beiden"
+      ],
+      "answer": 0,
+      "explanation": "Singlemode-Fasern haben einen sehr kleinen Kerndurchmesser und lassen nur einen Lichtweg zu, wodurch verzerrungsarme Übertragung über sehr große Distanzen möglich ist. Multimode ist für kürzere Strecken (z. B. Gebäudeverkabelung) ausgelegt."
+    },
+    {
+      "id": "q4",
+      "question": "Warum ist LWL gegenüber Kupferkabel unempfindlich gegen elektromagnetische Störungen?",
+      "options": [
+        "Weil LWL-Kabel dicker isoliert sind als Kupferkabel",
+        "Weil LWL Daten als Lichtimpulse überträgt statt als elektrische Signale",
+        "Weil LWL-Kabel immer geschirmt verlegt werden",
+        "Weil LWL keine Metallanteile enthält und deshalb leichter ist"
+      ],
+      "answer": 1,
+      "explanation": "Da bei LWL Daten als Licht statt als elektrisches Signal übertragen werden, sind elektromagnetische Störquellen (z. B. Stromleitungen) ohne Einfluss auf die Übertragung."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Ebene der strukturierten Verkabelung verbindet typischerweise den Etagenverteiler mit der einzelnen Netzwerkdose am Arbeitsplatz?",
+      "options": [
+        "Primärverkabelung",
+        "Sekundärverkabelung",
+        "Tertiärverkabelung",
+        "Backbone-Verkabelung zwischen Gebäuden"
+      ],
+      "answer": 2,
+      "explanation": "Die Tertiärverkabelung verbindet den Etagenverteiler mit der einzelnen Arbeitsplatzdose, meist als Twisted-Pair-Kabel."
+    },
+    {
+      "id": "q6",
+      "question": "Warum wird für eine 300 Meter lange Verbindung zwischen zwei Gebäuden eher LWL als Twisted-Pair-Kabel empfohlen?",
+      "options": [
+        "Weil Twisted-Pair-Kabel maximal 100 Meter überbrücken kann und über diese Distanz keine zuverlässige Übertragung mehr garantiert",
+        "Weil Twisted-Pair-Kabel grundsätzlich teurer ist als LWL",
+        "Weil LWL nicht im Freien verlegt werden darf",
+        "Weil Twisted-Pair-Kabel keine RJ45-Stecker unterstützt"
+      ],
+      "answer": 0,
+      "explanation": "Twisted-Pair-Verkabelung ist auf ca. 100 Meter begrenzt. Für 300 Meter Distanz ist LWL notwendig, das deutlich größere Strecken ohne Signalverlust überbrückt."
+    },
+    {
+      "id": "q7",
+      "question": "Was gilt für die tatsächlich erreichbare Datenrate einer Twisted-Pair-Verbindung, wenn Kabel und aktive Komponenten unterschiedliche Kategorien haben?",
+      "options": [
+        "Sie richtet sich immer nach der höchsten beteiligten Kategorie",
+        "Sie richtet sich nach dem schwächsten Glied der gesamten Übertragungsstrecke",
+        "Sie ist unabhängig von der verwendeten Kategorie immer gleich",
+        "Sie hängt ausschließlich von der Kabellänge ab, nicht von der Kategorie"
+      ],
+      "answer": 1,
+      "explanation": "Die erreichbare Datenrate wird durch das schwächste Glied der Strecke begrenzt — Kabel, Stecker und aktive Komponenten wie Switch-Ports müssen alle die gewünschte Kategorie unterstützen."
+    }
+  ]
+}

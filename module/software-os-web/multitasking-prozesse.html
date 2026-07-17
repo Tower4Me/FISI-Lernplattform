@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Multitasking, Prozesse & Threads</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Multitasking, Prozesse & Threads</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Multitasking, Prozesse & Threads
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein einzelner Koch in einer Küche kann eigentlich nur an einem
+        Topf gleichzeitig rühren — wechselt er aber schnell genug zwischen
+        mehreren Töpfen hin und her, wirkt es, als würde alles gleichzeitig
+        kochen. Genau das macht eine CPU beim Multitasking. Beim
+        kooperativen Modell gibt jeder Topf den Herd freiwillig ab, sobald
+        er „fertig ist für den Moment“ — hängt ein Topf fest, blockiert er
+        die ganze Küche. Beim präemptiven Modell gibt es einen strengen
+        Küchenchef (den Scheduler), der jedem Topf nach einer festen
+        Zeitspanne zwangsweise den Herd wieder wegnimmt — fair für alle,
+        selbst wenn ein Topf nicht „freiwillig“ loslassen würde.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Prozess, Task und Thread</h3>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Prozess</strong></td>
+            <td>ein laufendes Programm mit eigenem, vom Betriebssystem
+              isoliertem Speicherbereich — ein Prozess kann grundsätzlich
+              nicht direkt auf den Speicher eines anderen Prozesses
+              zugreifen</td>
+          </tr>
+          <tr>
+            <td><strong>Thread</strong></td>
+            <td>ein Ausführungsstrang <em>innerhalb</em> eines Prozesses;
+              ein Prozess kann mehrere Threads besitzen, die sich den
+              Speicher und die Ressourcen des Prozesses teilen — Threads
+              zu wechseln ist deutlich schneller als ganze Prozesse zu
+              wechseln</td>
+          </tr>
+          <tr>
+            <td><strong>Task</strong></td>
+            <td>allgemeiner Begriff für eine auszuführende Arbeitseinheit
+              — wird in der Praxis oft uneinheitlich synonym zu „Prozess“
+              verwendet (z. B. Task-Manager, Taskplaner)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Multitasking</h3>
+      <p>
+        <strong>Multitasking</strong> bedeutet, dass mehrere Prozesse
+        scheinbar gleichzeitig ausgeführt werden. Auf einem Ein-Kern-
+        Prozessor geschieht das durch sehr schnelles Umschalten zwischen
+        Prozessen (Kontextwechsel); auf Mehrkern-Prozessoren können
+        zusätzlich mehrere Prozesse tatsächlich parallel auf
+        unterschiedlichen Kernen laufen.
+      </p>
+
+      <h3>Kooperatives vs. präemptives Multitasking</h3>
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Funktionsweise</th><th>Risiko</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Kooperatives Multitasking</strong> (älteres
+              Modell, z. B. frühe Windows-Versionen)</td>
+            <td>jeder Prozess gibt die CPU freiwillig ab, sobald er
+              wartet oder „fertig“ ist</td>
+            <td>ein fehlerhafter oder hängender Prozess gibt die CPU nie
+              ab und blockiert dadurch das gesamte System</td>
+          </tr>
+          <tr>
+            <td><strong>Präemptives Multitasking</strong> (moderner
+              Standard, z. B. aktuelles Windows/Linux/macOS)</td>
+            <td>der Scheduler des Betriebssystems entzieht jedem Prozess
+              nach einer festen Zeitscheibe zwangsweise die CPU,
+              unabhängig vom Prozess selbst</td>
+            <td>deutlich stabiler — ein hängender Prozess blockiert in
+              der Regel nur sich selbst, nicht das gesamte System</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Nutzer meldet dem Support der TechNord GmbH, eine ältere
+        Anwendung friere ab und zu ein — er befürchtet, dass dadurch der
+        ganze PC lahmgelegt wird:
+      </p>
+      <ul>
+        <li><strong>Erklärung durch den Support:</strong> Da das
+          aktuelle Betriebssystem <strong>präemptives Multitasking</strong>
+          nutzt, sollte die hängende Anwendung isoliert bleiben — im
+          Task-Manager lässt sie sich gezielt beenden, ohne andere
+          Programme zu beeinträchtigen.</li>
+        <li><strong>Falls tatsächlich das gesamte System einfriert</strong>,
+          deutet das auf ein tieferliegendes Problem hin, z. B. einen
+          fehlerhaften Treiber, der im privilegierten Kernel-Modus läuft
+          und dadurch nicht durch normales Prozess-Scheduling isoliert
+          werden kann.</li>
+        <li><strong>Moderne Webbrowser</strong> nutzen zudem für jeden
+          Tab einen eigenen Prozess bzw. Thread — stürzt ein einzelner Tab
+          ab, bleibt der Rest des Browsers unbeeinträchtigt nutzbar.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Prozess hat eigenen isolierten Speicher, ein Thread läuft
+        innerhalb eines Prozesses und teilt sich dessen Ressourcen —
+        Thread-Wechsel sind günstiger als Prozess-Wechsel. Kooperatives
+        Multitasking verlässt sich darauf, dass Prozesse die CPU
+        freiwillig abgeben (Risiko: Systemblockade). Präemptives
+        Multitasking entzieht zwangsweise per Scheduler nach fester
+        Zeitscheibe — der moderne, stabilere Standard.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/multitasking-prozesse.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

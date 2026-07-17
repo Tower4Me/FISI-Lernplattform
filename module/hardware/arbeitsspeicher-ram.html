@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Arbeitsspeicher (RAM)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Arbeitsspeicher (RAM)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Arbeitsspeicher (RAM)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen Schreibtisch neben einem Archivraum vor. Auf dem
+        Schreibtisch (RAM) liegen nur die Unterlagen, die gerade
+        bearbeitet werden — griffbereit und schnell erreichbar, aber
+        räumt sich beim Feierabend (Stromausfall) komplett leer. Der
+        Archivraum (SSD/HDD) speichert alles dauerhaft, auch über Nacht,
+        aber jedes Dokument von dort zu holen dauert deutlich länger.
+        Genau dieses Wechselspiel bestimmt, wie ein Computer schnell
+        arbeiten kann, ohne bei jedem Handgriff ins Archiv laufen zu
+        müssen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>RAM im Vergleich zu SSD und HDD</h3>
+      <table>
+        <thead>
+          <tr><th>Eigenschaft</th><th>RAM</th><th>SSD (NVMe)</th><th>HDD</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Geschwindigkeit</td><td>~50 GB/s</td><td>~7 GB/s</td><td>~200 MB/s</td></tr>
+          <tr><td>Latenz</td><td>&lt; 100 ns</td><td>~0,1 ms</td><td>~5 ms</td></tr>
+          <tr><td>Flüchtig?</td><td>ja</td><td>nein</td><td>nein</td></tr>
+          <tr><td>Typische Kapazität</td><td>8–128 GB</td><td>256 GB–8 TB</td><td>1–20 TB</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Ist zu wenig RAM vorhanden, lagert das Betriebssystem Daten auf
+        die SSD/HDD aus (<strong>Swap/Auslagerungsdatei</strong>) — das ist
+        deutlich langsamer und belastet zusätzlich die SSD.
+      </p>
+
+      <h3>DDR-Generationen</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Merkmale</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DDR4</strong></td>
+            <td>Standard 2014–2022, 1,2 V, 2133–3200 MHz typisch, 288 Pins,
+              max. 64 GB/Modul, nicht kompatibel mit DDR5-Sockeln</td>
+          </tr>
+          <tr>
+            <td><strong>DDR5</strong></td>
+            <td>aktueller Standard seit 2021, 1,1 V, 4800–8000+ MHz, 288 Pins
+              (anderer Kerb), max. 128 GB/Modul, On-Die-ECC eingebaut</td>
+          </tr>
+          <tr>
+            <td><strong>LPDDR</strong></td>
+            <td>Low Power DDR für Laptops/Tablets/Smartphones, meist
+              verlötet und nicht aufrüstbar, sehr geringer Stromverbrauch</td>
+          </tr>
+          <tr>
+            <td><strong>ECC-RAM</strong></td>
+            <td>erkennt und korrigiert Einzelbit-Fehler automatisch, Pflicht
+              in Servern/Workstations, benötigt passenden Prozessor und
+              ECC-fähiges Mainboard</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Speicherkanäle: Single, Dual, Quad Channel</h3>
+      <p>
+        Der Memory Controller in der CPU spricht den RAM nicht über eine
+        einzelne Leitung an, sondern über mehrere parallele
+        <strong>Speicherkanäle</strong> à 64 Bit. Je mehr Kanäle
+        gleichzeitig arbeiten, desto höher die Gesamtbandbreite:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Modus</th><th>Aktive Kanäle</th><th>Busbreite</th><th>Relative Bandbreite</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Single Channel</td><td>1</td><td>64 Bit</td><td>1×</td></tr>
+          <tr><td>Dual Channel</td><td>2</td><td>128 Bit</td><td>2×</td></tr>
+          <tr><td>Quad Channel</td><td>4</td><td>256 Bit</td><td>4× (HEDT/Server)</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dualchannel-title">
+          <title id="dualchannel-title">Diagramm: 4 DIMM-Slots A1, A2, B1, B2 — für Dual Channel müssen die Module in A2 und B2 stecken, nicht nebeneinander in A1 und A2</title>
+
+          <text x="10" y="16" fill="var(--text-muted)" font-size="11">CPU / Memory Controller — 2 Kanäle</text>
+
+          <rect x="10" y="30" width="60" height="90" rx="4" fill="var(--surface-2)" stroke="var(--link)" stroke-width="2"/>
+          <text x="40" y="80" text-anchor="middle" fill="var(--link)" font-size="10" font-weight="600">CPU</text>
+
+          <rect x="110" y="30" width="30" height="40" rx="3" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="125" y="53" text-anchor="middle" fill="var(--text-muted)" font-size="8">A1</text>
+          <text x="125" y="64" text-anchor="middle" fill="var(--text-muted)" font-size="7">leer</text>
+
+          <rect x="150" y="30" width="30" height="40" rx="3" fill="var(--acc-praxis)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="165" y="53" text-anchor="middle" fill="var(--bg)" font-size="8" font-weight="700">A2</text>
+
+          <rect x="110" y="80" width="30" height="40" rx="3" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="125" y="103" text-anchor="middle" fill="var(--text-muted)" font-size="8">B1</text>
+          <text x="125" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="7">leer</text>
+
+          <rect x="150" y="80" width="30" height="40" rx="3" fill="var(--acc-praxis)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="165" y="103" text-anchor="middle" fill="var(--bg)" font-size="8" font-weight="700">B2</text>
+
+          <text x="230" y="55" fill="var(--text-muted)" font-size="9">Kanal A</text>
+          <text x="230" y="105" fill="var(--text-muted)" font-size="9">Kanal B</text>
+
+          <text x="180" y="140" text-anchor="middle" fill="var(--acc-praxis)" font-size="10">
+            Module in A2 + B2 (gleiche Farbe) = Dual Channel
+          </text>
+        </svg>
+        <figcaption>
+          Bei 4 DIMM-Slots gehören abwechselnd je 2 Slots zu einem Kanal
+          (A1/B1, A2/B2). Zwei Module müssen in dieselbe Farbe (hier A2 + B2),
+          sonst läuft das System nur im Single Channel mit halber Bandbreite.
+        </figcaption>
+      </figure>
+      <p>
+        Bei ungleichen Modulgrößen (z. B. 8 GB + 4 GB) nutzt der Controller
+        per <strong>Flex Mode</strong> nur den gemeinsamen Kapazitätsanteil
+        im Dual Channel (hier 4 + 4 GB), der Rest läuft im Single Channel.
+        Für volle Dual-Channel-Leistung sollten deshalb zwei identische
+        Module verwendet werden, statt eines einzelnen doppelt so großen
+        Moduls.
+      </p>
+
+      <h3>DRAM vs. SRAM</h3>
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>DRAM (Dynamic RAM)</th><th>SRAM (Static RAM)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Speicherprinzip</td><td>Ladung in einem Kondensator</td><td>Flip-Flop (6 Transistoren)</td></tr>
+          <tr><td>Refresh nötig?</td><td>ja, ständig</td><td>nein</td></tr>
+          <tr><td>Geschwindigkeit</td><td>langsamer (~60–100 ns)</td><td>sehr schnell (1–5 ns)</td></tr>
+          <tr><td>Kosten/Platzbedarf</td><td>günstig, hohe Kapazität möglich</td><td>teuer, platzhungrig</td></tr>
+          <tr><td>Typischer Einsatz</td><td>DDR4/DDR5-Hauptspeicher</td><td>CPU-Cache (L1/L2/L3)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Eine DRAM-Zelle braucht nur 1 Transistor, eine SRAM-Zelle 6 — auf
+        gleicher Chipfläche passt also deutlich mehr DRAM. Ein CPU-Cache in
+        Hauptspeicher-Größe aus SRAM wäre unbezahlbar und thermisch nicht
+        machbar. Deshalb: kleiner, sehr schneller SRAM-Cache kombiniert mit
+        großem, günstigem DRAM-Hauptspeicher.
+      </p>
+
+      <h3>RAM-Timings</h3>
+      <p>
+        Timing-Angaben wie <strong>CL16-18-18-38</strong> beschreiben
+        Latenzen in Taktzyklen (CL = CAS Latency, weitere Werte für
+        Zeilenaktivierung/-schließung). Niedrigere Werte sind schneller —
+        aber Takt und Timing zusammen entscheiden über die tatsächliche
+        Latenz in Nanosekunden:
+      </p>
+      <p>
+        <strong>Latenz [ns] = (CL ÷ Takt [MHz]) × 2000</strong>
+      </p>
+      <p>
+        Beispiel: DDR4-3200 mit CL16 → (16 ÷ 3200) × 2000 = 10 ns. Ein
+        DDR4-3600-Modul mit CL18 kommt auf (18 ÷ 3600) × 2000 = ebenfalls
+        10 ns — trotz höherem Takt kein Latenzvorteil, weil auch der
+        CAS-Latency-Wert mitgestiegen ist.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH vergleicht für einen Kunden zwei RAM-Angebote mit
+        unterschiedlichem Takt und CAS-Latency:
+      </p>
+      <p>
+        <strong>Angebot A:</strong> DDR4-2666, CL14<br>
+        Latenz = (14 ÷ 2666) × 2000 ≈ <strong>10,5 ns</strong>
+      </p>
+      <p>
+        <strong>Angebot B:</strong> DDR4-3200, CL18<br>
+        Latenz = (18 ÷ 3200) × 2000 ≈ <strong>11,25 ns</strong>
+      </p>
+      <p>
+        Obwohl Angebot B einen höheren Takt hat, ist die tatsächliche
+        Zugriffslatenz durch den höheren CL-Wert sogar etwas schlechter
+        als bei Angebot A. Für latenzempfindliche Anwendungen lohnt sich
+        deshalb immer der Blick auf die absolute Nanosekunden-Latenz, nicht
+        nur auf den beworbenen Takt.
+      </p>
+      <p>
+        Zusätzlich empfiehlt der Techniker, das RAM in zwei identischen
+        Modulen (z. B. 2× 16 GB statt 1× 32 GB) in den Slots der zweiten
+        Kanalfarbe (typisch A2 + B2) zu bestücken, damit das System im
+        Dual Channel statt im langsameren Single Channel läuft.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        DRAM (günstig, groß, als Hauptspeicher) braucht Refresh, SRAM
+        (schnell, teuer, als Cache) nicht. Dual Channel verdoppelt die
+        Bandbreite gegenüber Single Channel — dafür müssen zwei identische
+        Module in Slots derselben Kanalfarbe stecken. Latenz [ns] =
+        (CL ÷ Takt) × 2000: Ein höherer Takt bedeutet nicht automatisch
+        eine niedrigere tatsächliche Latenz.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/arbeitsspeicher-ram.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

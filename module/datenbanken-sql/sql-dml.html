@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: SQL & DML</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">SQL & DML</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      SQL & DML
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Der Aktenschrank von TowerTech GmbH steht (siehe
+        <a href="sql-ddl.html">SQL &amp; DDL</a>) – Fächer für Abteilungen
+        und Mitarbeitende sind angelegt. Jetzt geht es darum, tatsächlich
+        Akten hineinzulegen, gezielt wieder herauszusuchen, falsche
+        Einträge zu korrigieren und veraltete zu entsorgen. Genau das ist
+        <strong>DML</strong> (Data Manipulation Language): nicht der
+        Schrank selbst, sondern der tägliche Umgang mit dem, was
+        drinsteht.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        DML umfasst die vier Befehle zum Lesen und Verändern von Daten:
+        <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code> und
+        <code>DELETE</code>. Alle Beispiele beziehen sich auf die Tabellen
+        <code>abteilung</code> und <code>mitarbeiter</code> aus der DDL-Einheit.
+      </p>
+
+      <h3>SELECT & WHERE</h3>
+      <p>
+        <code>SELECT</code> liest Daten, <code>WHERE</code> filtert nach
+        einer Bedingung:
+      </p>
+      <table>
+        <thead><tr><th>Ausdruck</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr><td><code>SELECT * FROM mitarbeiter;</code></td><td>alle Spalten, alle Zeilen</td></tr>
+          <tr><td><code>SELECT vollname, jahresgehalt FROM mitarbeiter;</code></td><td>nur bestimmte Spalten</td></tr>
+          <tr><td><code>WHERE abteilung_id = 2</code></td><td>nur Zeilen dieser Abteilung</td></tr>
+          <tr><td><code>WHERE jahresgehalt &gt; 40000</code></td><td>Vergleichsoperatoren</td></tr>
+          <tr><td><code>WHERE vollname LIKE 'T%'</code></td><td>Namen, die mit „T“ beginnen</td></tr>
+          <tr><td><code>WHERE email IS NULL</code></td><td>fehlende E-Mail-Adresse</td></tr>
+        </tbody>
+      </table>
+
+      <h3>ORDER BY & LIMIT</h3>
+      <p>
+        <code>ORDER BY spalte DESC</code> sortiert absteigend (Standard:
+        <code>ASC</code>, aufsteigend). <code>LIMIT n</code> begrenzt die
+        Ergebnisanzahl – z. B. „die drei bestbezahlten Mitarbeitenden":
+      </p>
+      <table>
+        <thead><tr><th colspan="1">SQL</th></tr></thead>
+        <tbody>
+          <tr><td><code>SELECT vollname, jahresgehalt FROM mitarbeiter ORDER BY jahresgehalt DESC LIMIT 3;</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>INSERT – Daten einfügen</h3>
+      <p>Neue Zeile mit ausdrücklich genannten Spalten (empfohlen):</p>
+      <table>
+        <tbody>
+          <tr><td><code>INSERT INTO mitarbeiter (vollname, email, jahresgehalt, abteilung_id) VALUES ('Lea Fischer', 'lea.fischer@towertech.de', 41000, 1);</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>UPDATE – Daten ändern</h3>
+      <table>
+        <tbody>
+          <tr><td><code>UPDATE mitarbeiter SET jahresgehalt = 35500 WHERE vollname = 'Paul Nowak';</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Achtung:</strong> <code>UPDATE mitarbeiter SET
+        jahresgehalt = 0;</code> ohne <code>WHERE</code> setzt das Gehalt
+        <em>aller</em> Mitarbeitenden auf 0. Vor jedem
+        <code>UPDATE</code>/<code>DELETE</code> erst mit
+        <code>SELECT</code> prüfen, welche Zeilen betroffen wären.
+      </p>
+
+      <h3>DELETE – Daten löschen</h3>
+      <table>
+        <tbody>
+          <tr><td><code>SELECT * FROM mitarbeiter WHERE vollname = 'Jonas Weber';</code> <em>(erst prüfen)</em></td></tr>
+          <tr><td><code>DELETE FROM mitarbeiter WHERE vollname = 'Jonas Weber';</code> <em>(dann löschen)</em></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Aggregatfunktionen</h3>
+      <table>
+        <thead><tr><th>Funktion</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr><td><code>COUNT(*)</code></td><td>Anzahl aller Zeilen</td></tr>
+          <tr><td><code>SUM(jahresgehalt)</code></td><td>Summe</td></tr>
+          <tr><td><code>AVG(jahresgehalt)</code></td><td>Durchschnitt</td></tr>
+          <tr><td><code>MAX(jahresgehalt)</code> / <code>MIN(jahresgehalt)</code></td><td>größter / kleinster Wert</td></tr>
+        </tbody>
+      </table>
+
+      <h3>GROUP BY & HAVING</h3>
+      <p>
+        <code>GROUP BY</code> fasst Zeilen zu Gruppen zusammen (z. B. je
+        Abteilung), <code>HAVING</code> filtert diese Gruppen nach einer
+        Aggregat-Bedingung:
+      </p>
+      <table>
+        <tbody>
+          <tr><td><code>SELECT abteilung_id, AVG(jahresgehalt) AS durchschnitt FROM mitarbeiter GROUP BY abteilung_id;</code></td></tr>
+          <tr><td><code>SELECT abteilung_id, AVG(jahresgehalt) AS durchschnitt FROM mitarbeiter GROUP BY abteilung_id HAVING AVG(jahresgehalt) &gt; 40000;</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>WHERE</strong> filtert einzelne Zeilen <em>vor</em> der
+        Gruppierung und kennt keine Aggregatfunktionen.
+        <strong>HAVING</strong> filtert Gruppen <em>nach</em>
+        <code>GROUP BY</code> und darf <code>AVG()</code>,
+        <code>COUNT()</code> usw. verwenden.
+      </p>
+
+      <p>
+        Der SQL-Editor unten startet bereits mit den Tabellen und
+        Beispieldaten aus TowerTech GmbH – probiere die Befehle direkt
+        aus:
+      </p>
+      <div class="tool" data-tool="sql-editor">
+        <script type="application/sql">
+          CREATE TABLE abteilung (
+            abteilung_id INTEGER PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            buero_standort VARCHAR(100)
+          );
+          CREATE TABLE mitarbeiter (
+            mitarbeiter_id INTEGER PRIMARY KEY,
+            vollname VARCHAR(100) NOT NULL,
+            email VARCHAR(150) UNIQUE,
+            jahresgehalt DECIMAL(10,2) DEFAULT 0.00,
+            abteilung_id INTEGER,
+            homeoffice_tage INTEGER DEFAULT 0,
+            FOREIGN KEY (abteilung_id) REFERENCES abteilung(abteilung_id)
+          );
+          INSERT INTO abteilung (abteilung_id, name, buero_standort) VALUES
+            (1, 'Netzwerktechnik', 'Essen'),
+            (2, 'Support', 'Duisburg'),
+            (3, 'Vertrieb', 'Köln');
+          INSERT INTO mitarbeiter (mitarbeiter_id, vollname, email, jahresgehalt, abteilung_id, homeoffice_tage) VALUES
+            (1, 'Elif Kaya', 'elif.kaya@towertech.de', 48000, 1, 2),
+            (2, 'Tom Ricci', 'tom.ricci@towertech.de', 39000, 2, 1),
+            (3, 'Sofia Bergmann', 'sofia.bergmann@towertech.de', 52000, 1, 3),
+            (4, 'Jonas Weber', 'jonas.weber@towertech.de', 36000, 2, 0),
+            (5, 'Nina Albrecht', 'nina.albrecht@towertech.de', 61000, 3, 2),
+            (6, 'Paul Nowak', 'paul.nowak@towertech.de', 33000, 2, 1);
+        </script>
+        <p class="muted">SQL-Editor wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Praxis „Azubi-Chaos": Die Personalliste von TowerTech GmbH hat
+        sich geändert, und eine Auszubildende soll das im SQL-Editor oben
+        korrigieren.
+      </p>
+      <ul>
+        <li>
+          <strong>Aufgabe 1:</strong> Zeige alle Mitarbeitenden der
+          Abteilung „Support" (abteilung_id 2), sortiert nach Gehalt
+          absteigend.
+        </li>
+        <li>
+          <strong>Aufgabe 2:</strong> Eine neue Kollegin wurde vergessen:
+          füge Lea Fischer ein (E-Mail
+          <code>lea.fischer@towertech.de</code>, Gehalt 41000, Abteilung
+          Netzwerktechnik).
+        </li>
+        <li>
+          <strong>Aufgabe 3:</strong> Paul Nowak hat eine
+          Gehaltsverhandlung gewonnen: erhöhe sein Gehalt auf 35500.
+        </li>
+        <li>
+          <strong>Aufgabe 4:</strong> Jonas Weber hat gekündigt: erst mit
+          <code>SELECT</code> prüfen, dann seinen Datensatz löschen.
+        </li>
+        <li>
+          <strong>Aufgabe 5:</strong> Berechne das Durchschnittsgehalt je
+          Abteilung und zeige nur Abteilungen mit einem Durchschnitt über
+          40000 € (GROUP BY + HAVING).
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Was ist der Unterschied zwischen WHERE
+        und HAVING?" – Antwort: WHERE filtert einzelne Zeilen vor der
+        Gruppierung und kennt keine Aggregatfunktionen; HAVING filtert
+        Gruppen nach GROUP BY und darf Aggregatfunktionen wie AVG()
+        verwenden.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        DML liest und verändert Daten: SELECT (mit WHERE/ORDER BY/LIMIT)
+        zum gezielten Lesen, INSERT zum Einfügen, UPDATE zum Ändern,
+        DELETE zum Löschen – UPDATE/DELETE immer erst mit SELECT prüfen.
+        Aggregatfunktionen (COUNT, SUM, AVG, MAX, MIN) fassen mehrere
+        Zeilen zu einem Wert zusammen; GROUP BY bildet Gruppen, HAVING
+        filtert diese Gruppen nach einer Aggregat-Bedingung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/sql-dml.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/sql-editor.js"></script>
+</body>
+</html>

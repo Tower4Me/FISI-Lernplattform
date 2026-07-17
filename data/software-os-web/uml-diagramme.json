@@ -1,0 +1,74 @@
+{
+  "unit": "software-os-web/uml-diagramme",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der Zweck von UML (Unified Modeling Language)?",
+      "options": [
+        "Eine konkrete Programmiersprache zur direkten Ausführung von Code",
+        "Eine genormte, programmiersprachenunabhängige grafische Notation zur Modellierung von Software-Systemen",
+        "Ein Datenbankverwaltungssystem",
+        "Ein Verschlüsselungsstandard für Quellcode"
+      ],
+      "answer": 1,
+      "explanation": "UML ist eine genormte grafische Notation, die unabhängig von einer konkreten Programmiersprache zur Modellierung von Software-Systemen dient."
+    },
+    {
+      "id": "q2",
+      "question": "Was zeigt ein Use-Case-Diagramm?",
+      "options": [
+        "Die statische Klassenstruktur eines Systems",
+        "Welche Akteure mit dem System interagieren und welche Anwendungsfälle dabei genutzt werden",
+        "Den zeitlichen Ablauf eines Algorithmus",
+        "Die physische Verkabelung eines Netzwerks"
+      ],
+      "answer": 1,
+      "explanation": "Ein Use-Case-Diagramm zeigt die Akteure (Nutzer, externe Systeme) und die Anwendungsfälle (Use Cases), mit denen sie das System nutzen."
+    },
+    {
+      "id": "q3",
+      "question": "Wie wird ein Akteur in einem Use-Case-Diagramm dargestellt?",
+      "options": ["Als Ellipse", "Als Strichmännchen", "Als Rechteck mit drei Bereichen", "Als Raute"],
+      "answer": 1,
+      "explanation": "Ein Akteur wird in UML als Strichmännchen dargestellt — ein Use Case dagegen als Ellipse."
+    },
+    {
+      "id": "q4",
+      "question": "Was zeigt ein Klassendiagramm?",
+      "options": [
+        "Die zeitliche Abfolge einzelner Programmschritte",
+        "Klassen mit ihren Attributen und Methoden sowie die Beziehungen zwischen den Klassen",
+        "Ausschließlich die Akteure eines Systems",
+        "Die Netzwerktopologie eines Rechenzentrums"
+      ],
+      "answer": 1,
+      "explanation": "Ein Klassendiagramm zeigt die statische Struktur eines Systems: Klassen mit Attributen/Methoden und ihre Beziehungen zueinander."
+    },
+    {
+      "id": "q5",
+      "question": "Welcher Beziehungstyp im Klassendiagramm beschreibt Vererbung zwischen Klassen?",
+      "options": ["Assoziation", "Generalisierung", "Aggregation", "Komposition"],
+      "answer": 1,
+      "explanation": "Die Generalisierung stellt die Vererbungsbeziehung dar, bei der eine Klasse Eigenschaften einer allgemeineren Klasse übernimmt."
+    },
+    {
+      "id": "q6",
+      "question": "Was unterscheidet Aggregation von Komposition im Klassendiagramm?",
+      "options": [
+        "Bei Aggregation können die Teile auch unabhängig vom Ganzen existieren, bei Komposition existieren die Teile nicht ohne das Ganze",
+        "Beide Beziehungstypen sind technisch identisch",
+        "Aggregation beschreibt Vererbung, Komposition beschreibt reine Assoziation",
+        "Komposition ist immer schwächer als eine einfache Assoziation"
+      ],
+      "answer": 0,
+      "explanation": "Aggregation ist eine „hat-ein“-Beziehung, bei der Teile auch unabhängig existieren können. Komposition ist die stärkere Form, bei der die Teile ohne das Ganze nicht existieren."
+    },
+    {
+      "id": "q7",
+      "question": "Welches Element eines Aktivitätsdiagramms entspricht einer Verzweigung (if/else) aus dem Programmcode?",
+      "options": ["Der Startknoten", "Ein Entscheidungsknoten (Raute)", "Eine Aktivität (abgerundetes Rechteck)", "Der Endknoten"],
+      "answer": 1,
+      "explanation": "Der Entscheidungsknoten (als Raute dargestellt) im Aktivitätsdiagramm entspricht einer Verzweigung (if/else) im tatsächlichen Programmcode."
+    }
+  ]
+}

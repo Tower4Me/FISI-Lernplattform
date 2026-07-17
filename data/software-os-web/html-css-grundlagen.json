@@ -1,0 +1,89 @@
+{
+  "unit": "software-os-web/html-css-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was beschreibt HTML an einer Webseite?",
+      "options": [
+        "Ausschließlich Farben und Schriftarten",
+        "Die Struktur und den Inhalt der Seite über Elemente wie Überschriften, Absätze und Links",
+        "Nur die Datenbankanbindung einer Webseite",
+        "Ausschließlich die Netzwerkverbindung zum Server"
+      ],
+      "answer": 1,
+      "explanation": "HTML (HyperText Markup Language) beschreibt Struktur und Inhalt einer Webseite über Elemente wie Überschriften, Absätze, Links und Bilder."
+    },
+    {
+      "id": "q2",
+      "question": "Was beschreibt CSS im Unterschied zu HTML?",
+      "options": [
+        "CSS beschreibt das Aussehen (Farben, Abstände, Layout), getrennt vom HTML-Inhalt",
+        "CSS und HTML beschreiben exakt dasselbe",
+        "CSS ersetzt die Notwendigkeit von HTML vollständig",
+        "CSS ist ausschließlich für Datenbankabfragen zuständig"
+      ],
+      "answer": 0,
+      "explanation": "CSS (Cascading Style Sheets) beschreibt das visuelle Erscheinungsbild einer Webseite, bewusst getrennt vom strukturellen HTML-Inhalt."
+    },
+    {
+      "id": "q3",
+      "question": "Welchen Zweck erfüllen Media Queries im Zusammenhang mit Responsive Design?",
+      "options": [
+        "Sie verschlüsseln die Übertragung der Webseite",
+        "Sie wenden abhängig von der Bildschirmbreite unterschiedliche CSS-Regeln an, damit sich das Layout an das jeweilige Gerät anpasst",
+        "Sie ersetzen HTML vollständig durch CSS",
+        "Sie speichern Nutzerdaten dauerhaft im Browser"
+      ],
+      "answer": 1,
+      "explanation": "Media Queries erlauben es, abhängig von der Bildschirmbreite (oder anderen Geräteeigenschaften) unterschiedliche CSS-Regeln anzuwenden — die Grundlage für responsives Design."
+    },
+    {
+      "id": "q4",
+      "question": "Warum werden bei Responsive Design oft relative statt feste Pixeleinheiten verwendet?",
+      "options": [
+        "Damit Elemente unabhängig von der Bildschirmgröße mitskalieren können",
+        "Weil relative Einheiten schneller vom Browser geladen werden",
+        "Weil feste Pixeleinheiten in modernen Browsern nicht mehr unterstützt werden",
+        "Relative Einheiten haben keinen Zusammenhang mit Responsive Design"
+      ],
+      "answer": 0,
+      "explanation": "Relative Einheiten ermöglichen es, dass Elemente proportional zur verfügbaren Bildschirmgröße skalieren, statt starr auf eine feste Pixelgröße festgelegt zu sein."
+    },
+    {
+      "id": "q5",
+      "question": "Wer benötigt in Deutschland ein Impressum auf der eigenen Website?",
+      "options": [
+        "Nur staatliche Behörden",
+        "Praktisch jeder Betreiber einer geschäftsmäßigen Website",
+        "Nur Websites mit mehr als 1 Million Besuchern pro Monat",
+        "Impressumspflicht existiert in Deutschland nicht"
+      ],
+      "answer": 1,
+      "explanation": "In Deutschland besteht für praktisch jede geschäftsmäßige Website eine gesetzliche Impressumspflicht."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Angaben gehören typischerweise zu den Pflichtangaben eines Impressums?",
+      "options": [
+        "Ausschließlich die Lieblingsfarbe des Website-Betreibers",
+        "Name und Anschrift des Betreibers sowie eine direkte Kontaktmöglichkeit, ggf. Handelsregisternummer und USt-IdNr.",
+        "Nur die verwendete Programmiersprache der Website",
+        "Ausschließlich die IP-Adresse des Servers"
+      ],
+      "answer": 1,
+      "explanation": "Ein vollständiges Impressum enthält u. a. Name und Anschrift des Betreibers, eine direkte Kontaktmöglichkeit sowie ggf. Handelsregistereintrag und Umsatzsteuer-Identifikationsnummer."
+    },
+    {
+      "id": "q7",
+      "question": "Was kann die Folge eines fehlenden oder unvollständigen Impressums sein?",
+      "options": [
+        "Keinerlei rechtliche Konsequenzen",
+        "Eine rechtliche Abmahnung",
+        "Eine automatische Sperrung der Domain durch den Provider",
+        "Eine automatische Löschung der Website durch Suchmaschinen"
+      ],
+      "answer": 1,
+      "explanation": "Ein fehlendes oder unvollständiges Impressum kann rechtlich abgemahnt werden — die Impressumspflicht ist keine Kür, sondern eine gesetzliche Verpflichtung."
+    }
+  ]
+}

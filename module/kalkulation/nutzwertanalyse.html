@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Nutzwertanalyse</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Nutzwertanalyse</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Nutzwertanalyse
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Wer eine Wohnung sucht, entscheidet selten nach dem Preis allein.
+        Lage, Größe, Zustand und Anbindung an den Nahverkehr spielen auch
+        eine Rolle — und nicht jedem Kriterium wird dieselbe Bedeutung
+        beigemessen. Wer viel pendelt, gewichtet die Anbindung höher als
+        jemand, der von zu Hause arbeitet. Trotzdem lässt sich diese
+        „Bauchentscheidung“ in eine nachvollziehbare Tabelle mit Punkten
+        und Gewichten übersetzen. Genau das ist die Idee der
+        <strong>Nutzwertanalyse</strong>: mehrere Angebote anhand mehrerer,
+        unterschiedlich wichtiger Kriterien objektiv vergleichbar machen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Die Nutzwertanalyse (NWA) ist ein Verfahren zum
+        <strong>gewichteten Vergleich mehrerer Angebote oder Alternativen</strong>
+        anhand mehrerer Kriterien — nicht nur des Preises. Sie kommt
+        typischerweise zum Einsatz, wenn Angebote schwer allein über den
+        Preis vergleichbar sind (z. B. Server-Hardware, Software-Lizenzen,
+        Dienstleister).
+      </p>
+
+      <h3>Ablauf in 5 Schritten</h3>
+      <ol>
+        <li><strong>Kriterien festlegen</strong> — z. B. Preis, Leistung,
+          Garantie, Lieferzeit</li>
+        <li><strong>Kriterien gewichten</strong> — Gewichtung je nach
+          Wichtigkeit, die Summe aller Gewichte ergibt 100 % (bzw. 1,0)</li>
+        <li><strong>Angebote bewerten</strong> — jedes Angebot bekommt pro
+          Kriterium eine Punktzahl auf einer festen Skala (z. B. 1–10)</li>
+        <li><strong>Gewichteten Punktwert berechnen</strong> — Punkte ×
+          Gewicht je Kriterium</li>
+        <li><strong>Nutzwert summieren</strong> — alle gewichteten
+          Punktwerte eines Angebots addieren; das Angebot mit dem höchsten
+          Nutzwert gewinnt</li>
+      </ol>
+      <p>
+        <strong>Gewichteter Punktwert = Punktzahl × Gewichtung</strong><br>
+        <strong>Nutzwert = Summe aller gewichteten Punktwerte eines Angebots</strong>
+      </p>
+
+      <h3>Unterschied zum einfachen Angebotsvergleich</h3>
+      <p>
+        Ein rein <strong>quantitativer</strong> Angebotsvergleich schaut
+        nur auf harte Zahlen wie den Preis. Die Nutzwertanalyse ist ein
+        <strong>qualitativer</strong>, gewichteter Vergleich: Sie macht
+        auch schwer messbare Kriterien (Support-Qualität, Zuverlässigkeit
+        des Lieferanten) über eine Punkteskala vergleichbar und
+        berücksichtigt, dass nicht jedes Kriterium gleich wichtig ist.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH muss sich für einen von drei Server-Angeboten für
+        einen Kunden entscheiden. Kriterien und Gewichtung wurden vorab mit
+        dem Kunden abgestimmt (Punkteskala 1–10, höher = besser):
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Kriterium</th><th>Gewicht</th>
+            <th>Angebot A</th><th>Angebot B</th><th>Angebot C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Preis</td><td>40 %</td><td>8</td><td>6</td><td>9</td></tr>
+          <tr><td>Leistung</td><td>30 %</td><td>6</td><td>9</td><td>5</td></tr>
+          <tr><td>Garantie</td><td>15 %</td><td>7</td><td>8</td><td>5</td></tr>
+          <tr><td>Lieferzeit</td><td>15 %</td><td>9</td><td>6</td><td>8</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Nutzwert Angebot A:</strong></p>
+      <p>
+        (8 × 0,40) + (6 × 0,30) + (7 × 0,15) + (9 × 0,15)<br>
+        = 3,20 + 1,80 + 1,05 + 1,35 = <strong>7,40</strong>
+      </p>
+
+      <p><strong>Nutzwert Angebot B:</strong></p>
+      <p>
+        (6 × 0,40) + (9 × 0,30) + (8 × 0,15) + (6 × 0,15)<br>
+        = 2,40 + 2,70 + 1,20 + 0,90 = <strong>7,20</strong>
+      </p>
+
+      <p><strong>Nutzwert Angebot C:</strong></p>
+      <p>
+        (9 × 0,40) + (5 × 0,30) + (5 × 0,15) + (8 × 0,15)<br>
+        = 3,60 + 1,50 + 0,75 + 1,20 = <strong>7,05</strong>
+      </p>
+
+      <p>
+        Obwohl Angebot C beim Preis am besten abschneidet und Angebot B bei
+        der Leistung, gewinnt <strong>Angebot A</strong> mit dem höchsten
+        Gesamtnutzwert (7,40) — weil es in der Summe über alle gewichteten
+        Kriterien am ausgewogensten ist.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Nutzwertanalyse: Kriterien festlegen, gewichten (Summe = 100 %),
+        Angebote je Kriterium bewerten, Punkte × Gewicht multiplizieren und
+        pro Angebot aufsummieren. Gewinner ist das Angebot mit dem höchsten
+        Nutzwert — nicht zwingend das mit dem niedrigsten Preis.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/nutzwertanalyse.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

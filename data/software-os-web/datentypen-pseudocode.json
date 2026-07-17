@@ -1,0 +1,79 @@
+{
+  "unit": "software-os-web/datentypen-pseudocode",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist eine Variable in der Programmierung?",
+      "options": [
+        "Ein fester, unveränderlicher Textbaustein im Quellcode",
+        "Ein benannter Speicherplatz für einen Wert, der sich während der Programmlaufzeit ändern kann",
+        "Ein Synonym für Kontrollstruktur",
+        "Ein ausschließlich für Zahlen reservierter Speicherbereich"
+      ],
+      "answer": 1,
+      "explanation": "Eine Variable ist ein benannter Speicherplatz, dessen Wert sich während der Ausführung des Programms ändern kann."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher Datentyp würde für den Wert 3.14 verwendet?",
+      "options": ["Integer (Ganzzahl)", "Float/Double (Gleitkommazahl)", "String (Zeichenkette)", "Boolean (Wahrheitswert)"],
+      "answer": 1,
+      "explanation": "3.14 hat Nachkommastellen und wird deshalb als Gleitkommazahl (Float/Double) gespeichert, nicht als Ganzzahl."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Kontrollstruktur führt abhängig von einer Bedingung einen von mehreren möglichen Pfaden aus?",
+      "options": ["Sequenz", "Verzweigung (if/else)", "Schleife", "Deklaration"],
+      "answer": 1,
+      "explanation": "Eine Verzweigung (if/else) wählt abhängig von einer Bedingung zwischen mehreren möglichen Ausführungspfaden."
+    },
+    {
+      "id": "q4",
+      "question": "Was unterscheidet eine kopfgesteuerte von einer fußgesteuerten Schleife?",
+      "options": [
+        "Die kopfgesteuerte Schleife prüft die Bedingung vor jedem Durchlauf und kann daher null Mal ausgeführt werden; die fußgesteuerte prüft nach dem Durchlauf und läuft mindestens einmal",
+        "Beide Schleifenarten sind technisch identisch",
+        "Die fußgesteuerte Schleife kann niemals mehr als einmal durchlaufen werden",
+        "Die kopfgesteuerte Schleife läuft immer unendlich oft"
+      ],
+      "answer": 0,
+      "explanation": "Eine kopfgesteuerte Schleife (while) prüft die Bedingung vor dem Durchlauf — trifft sie nicht zu, läuft sie gar nicht. Eine fußgesteuerte Schleife (do-while) prüft erst nach dem Durchlauf und läuft deshalb mindestens einmal."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist der Zweck von Pseudocode?",
+      "options": [
+        "Er ersetzt vollständig den Bedarf an einer echten Programmiersprache",
+        "Er beschreibt einen Algorithmus sprachunabhängig in natürlicher Sprache, um ihn zu planen und zu besprechen, bevor er in einer konkreten Programmiersprache umgesetzt wird",
+        "Er ist ausschließlich für Datenbankabfragen gedacht",
+        "Er wird nur zur Verschlüsselung von Quellcode verwendet"
+      ],
+      "answer": 1,
+      "explanation": "Pseudocode dient der sprachunabhängigen Planung und Kommunikation eines Algorithmus, bevor die konkrete Implementierung in einer Programmiersprache erfolgt."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Azubi bespricht mit seinem Ausbilder einen Rabatt-Algorithmus in Pseudocode, bevor er ihn in Python umsetzt. Welchen Vorteil bietet das?",
+      "options": [
+        "Beide müssen dieselbe Programmiersprache im Detail beherrschen, um die Logik zu prüfen",
+        "Die Logik des Algorithmus kann besprochen und geprüft werden, ohne sich mit Syntax-Details einer bestimmten Programmiersprache zu beschäftigen",
+        "Pseudocode kann direkt ausgeführt werden und ersetzt die spätere Implementierung",
+        "Pseudocode verhindert automatisch alle Logikfehler im späteren Programm"
+      ],
+      "answer": 1,
+      "explanation": "Pseudocode erlaubt es, sich auf die Algorithmus-Logik zu konzentrieren, ohne dass beide Beteiligten dieselbe konkrete Programmiersprache im Detail beherrschen müssen."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Kontrollstruktur wird benötigt, um für jede Position einer Bestellliste einzeln zu prüfen, ob ein Mengenrabatt gilt?",
+      "options": [
+        "Nur eine einzelne Sequenz ohne Wiederholung",
+        "Eine Schleife (z. B. FÜR JEDE …), die für jede Position der Liste eine Verzweigung ausführt",
+        "Ausschließlich eine Variable ohne jede Kontrollstruktur",
+        "Ein Datentyp wie Boolean allein reicht dafür aus"
+      ],
+      "answer": 1,
+      "explanation": "Um jede Position einer Liste einzeln zu prüfen, ist eine Schleife nötig, die pro Durchlauf eine Verzweigung (WENN Menge >= 100 …) ausführt."
+    }
+  ]
+}

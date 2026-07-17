@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Verkabelung (Twisted Pair & LWL)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Verkabelung (Twisted Pair & LWL)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Verkabelung (Twisted Pair & LWL)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Für den Transport von Gütern gibt es unterschiedliche Fahrzeuge:
+        Ein Lieferwagen ist für kurze Strecken innerhalb der Stadt
+        praktisch und günstig, für eine Fernstrecke quer durchs Land
+        braucht es aber einen Zug, der viel mehr Ladung viel schneller über
+        weite Distanzen transportiert. Bei Netzwerkkabeln ist es ähnlich:
+        <strong>Kupferkabel</strong> (Twisted Pair) sind günstig und für
+        kurze bis mittlere Strecken im Gebäude bestens geeignet,
+        <strong>Glasfaserkabel</strong> (LWL) transportieren Daten über
+        viel größere Entfernungen und mit höheren Geschwindigkeiten, sind
+        dafür aber aufwendiger zu verlegen und teurer.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Twisted Pair (Kupferkabel)</h3>
+      <p>
+        Twisted-Pair-Kabel bestehen aus verdrillten Adernpaaren — das
+        Verdrillen reduziert elektromagnetische Störeinstrahlung zwischen
+        den Adernpaaren. Verbunden werden sie meist über
+        <strong>RJ45-Stecker</strong>.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Kategorie</th><th>Max. Datenrate</th><th>Typische Einsatzlänge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cat 5e</td><td>1 Gbit/s</td><td>bis 100 m</td></tr>
+          <tr><td>Cat 6</td><td>1–10 Gbit/s (10 Gbit/s nur auf kürzeren Strecken)</td><td>bis 100 m (10 Gbit/s bis ca. 55 m)</td></tr>
+          <tr><td>Cat 6a</td><td>10 Gbit/s</td><td>bis 100 m</td></tr>
+          <tr><td>Cat 7</td><td>10 Gbit/s und mehr</td><td>bis 100 m, besser geschirmt gegen Störungen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Höhere Kategorien sind zueinander abwärtskompatibel, die
+        tatsächliche Datenrate richtet sich aber immer nach dem
+        schwächsten Glied der Übertragungsstrecke (Kabel, Stecker, aktive
+        Komponenten wie Switch-Ports).
+      </p>
+
+      <h3>Lichtwellenleiter (LWL)</h3>
+      <p>
+        LWL-Kabel übertragen Daten als Lichtimpulse statt als elektrische
+        Signale — dadurch immun gegen elektromagnetische Störungen und über
+        deutlich größere Entfernungen einsetzbar als Kupferkabel.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Kerndurchmesser</th><th>Lichtquelle</th><th>Reichweite</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Multimode</strong></td><td>groß (z. B. 50/125 µm)</td><td>LED oder günstiger Laser</td><td>kürzere Strecken (bis ca. 550 m bei 10 Gbit/s)</td><td>Gebäude-/Campusverkabelung</td></tr>
+          <tr><td><strong>Singlemode</strong></td><td>klein (ca. 9 µm)</td><td>Laser</td><td>sehr große Strecken (mehrere zehn Kilometer)</td><td>Weitverkehrsnetze, Standortverbindungen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Bei Multimode-Fasern legt das Licht mehrere Wege (Moden) gleichzeitig
+        zurück, was auf kurzen Strecken kein Problem darstellt, über weite
+        Strecken aber zu Signalverzerrung führt. Singlemode-Fasern lassen
+        nur einen einzigen Lichtweg zu und ermöglichen dadurch verzerrungsarme
+        Übertragung über sehr große Entfernungen.
+      </p>
+
+      <h3>Strukturierte Verkabelung</h3>
+      <p>
+        In größeren Gebäuden wird die Verkabelung nach einem einheitlichen,
+        hierarchischen Konzept aufgebaut, statt Kabel wahllos zu verlegen:
+      </p>
+      <ul>
+        <li><strong>Primärverkabelung</strong> — Verbindung zwischen Gebäuden auf einem Campus, meist LWL wegen der Distanzen.</li>
+        <li><strong>Sekundärverkabelung</strong> — Verbindung zwischen dem zentralen Verteiler eines Gebäudes und den Etagenverteilern, oft LWL oder hochwertiges Kupfer.</li>
+        <li><strong>Tertiärverkabelung</strong> — Verbindung vom Etagenverteiler zur einzelnen Netzwerkdose am Arbeitsplatz, meist Twisted Pair.</li>
+      </ul>
+      <p>
+        Strukturierte Verkabelung erleichtert Wartung, Fehlersuche und
+        spätere Erweiterungen, da jede Verbindung eindeutig einem
+        definierten Abschnitt der Hierarchie zugeordnet ist.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus plant die Netzwerkverkabelung für einen
+        Firmencampus mit zwei Gebäuden.
+      </p>
+      <ul>
+        <li>Zwischen den beiden 300 Meter voneinander entfernten Gebäuden wird <strong>Singlemode-LWL</strong> verlegt — die Distanz und Störfestigkeit sprechen klar gegen Kupfer.</li>
+        <li>Innerhalb eines Gebäudes verbindet <strong>Multimode-LWL</strong> den zentralen Verteiler im Keller mit den Etagenverteilern — kürzere Strecken, günstigere Technik als Singlemode reicht aus.</li>
+        <li>Von jedem Etagenverteiler zu den einzelnen Arbeitsplätzen führt <strong>Cat 6a</strong>-Twisted-Pair-Kabel, jeweils unter 100 Meter — ausreichend für 10-Gbit/s-fähige Arbeitsplätze.</li>
+        <li>Die gesamte Struktur folgt dem Prinzip der <strong>strukturierten Verkabelung</strong>: Primär (zwischen Gebäuden), Sekundär (Keller zu Etage), Tertiär (Etage zu Arbeitsplatz).</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum wird für die Verbindung zwischen
+        zwei weit entfernten Gebäuden LWL statt Kupferkabel empfohlen?“ –
+        Antwort: LWL überbrückt deutlich größere Distanzen ohne
+        Signalverlust, ist immun gegen elektromagnetische Störungen (z. B.
+        durch Stromleitungen im Boden) und erreicht höhere Datenraten über
+        weite Strecken.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Twisted Pair (Cat 5e–7, RJ45) = günstig, bis 100 m, für
+        Arbeitsplatzanbindung. LWL = Lichtimpulse statt Strom, störfest,
+        große Reichweite — Multimode für kürzere, Singlemode für sehr
+        lange Strecken. Strukturierte Verkabelung gliedert sich in Primär-,
+        Sekundär- und Tertiärverkabelung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/verkabelung-tp-lwl.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

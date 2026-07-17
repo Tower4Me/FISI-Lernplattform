@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Zeichensätze — ASCII, Unicode, UTF-8</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Zeichensätze — ASCII, Unicode, UTF-8</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Zeichensätze — ASCII, Unicode, UTF-8
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Byte ist nur eine Zahl von 0 bis 255 — kein Naturgesetz legt
+        fest, dass die Zahl 65 den Buchstaben „A“ bedeutet. Das ist reine
+        Vereinbarung, wie ein gemeinsames Geheimcode-Buch zwischen zwei
+        Personen. ASCII war das erste kleine Codebuch, das nur englische
+        Zeichen kannte. Unicode ist das große, weltweite Codebuch für
+        praktisch jede Schrift der Erde. Und UTF-8 ist die platzsparende
+        Art, dieses riesige Codebuch tatsächlich in Bytes aufzuschreiben —
+        kurze Codes für häufige Zeichen, längere für seltene.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Das Grundproblem</h3>
+      <p>
+        Ein Byte kann 256 verschiedene Werte annehmen (0–255). Welcher
+        Wert welchem Buchstaben entspricht, ist keine physikalische
+        Vorgabe, sondern eine Vereinbarung — Kodierungsstandards legen
+        diese Zuordnung fest.
+      </p>
+
+      <h3>ASCII (1963)</h3>
+      <p>
+        ASCII definiert 128 Zeichen mit den Werten 0–127 (7 Bit):
+      </p>
+      <table>
+        <thead>
+          <tr><th>Bereich</th><th>Inhalt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0–31</td><td>Steuerzeichen, nicht druckbar (z. B. 0x09 = Tab, 0x0A = LF, 0x0D = CR)</td></tr>
+          <tr><td>32–64</td><td>Leerzeichen, Sonderzeichen, Ziffern 0–9 (48–57)</td></tr>
+          <tr><td>65–90</td><td>Großbuchstaben A–Z (A = 65 = 0x41)</td></tr>
+          <tr><td>97–122</td><td>Kleinbuchstaben a–z (genau 32 höher als Großbuchstaben)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Wichtige Falle: Das <strong>Zeichen</strong> „0“ hat den
+        ASCII-Wert 48 (0x30) — die <strong>Zahl</strong> 0 hat den Wert 0.
+        Das sind zwei völlig verschiedene Dinge, ein häufiger
+        Programmierfehler.
+      </p>
+      <p>
+        ASCII deckt nur englische Zeichen ab — kein Ä, Ö, Ü, ß, keine
+        chinesischen oder arabischen Schriftzeichen. Jahrzehntelang
+        entwickelte jedes Land eigene 256-Zeichen-Erweiterungen
+        (z. B. ISO-8859-1, Windows-1252), was zu erheblichen
+        Kompatibilitätsproblemen führte.
+      </p>
+
+      <h3>Unicode (1991)</h3>
+      <p>
+        Unicode definiert einen einheitlichen Zeichensatz für praktisch
+        alle Schriftsysteme der Welt (über 140.000 Zeichen). Jedes Zeichen
+        hat einen eindeutigen <strong>Codepoint</strong>, geschrieben als
+        <code>U+XXXX</code> — z. B. A = U+0041, ä = U+00E4, € = U+20AC.
+      </p>
+
+      <h3>UTF-8 — die effiziente Kodierung</h3>
+      <p>
+        Unicode definiert nur, <em>welche</em> Zeichen es gibt — nicht,
+        wie sie als Bytes gespeichert werden. <strong>UTF-8</strong> ist
+        die mit Abstand verbreitetste Kodierung (über 98 % aller
+        Webseiten) und arbeitet <strong>variabel lang</strong>: einfache
+        Zeichen brauchen 1 Byte, seltenere bis zu 4 Bytes.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Zeichen</th><th>Codepoint</th><th>UTF-8-Bytes</th><th>Anzahl Bytes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>A</td><td>U+0041</td><td>41</td><td>1</td></tr>
+          <tr><td>ä</td><td>U+00E4</td><td>C3 A4</td><td>2</td></tr>
+          <tr><td>€</td><td>U+20AC</td><td>E2 82 AC</td><td>3</td></tr>
+          <tr><td>😀</td><td>U+1F600</td><td>F0 9F 98 80</td><td>4</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Alle ASCII-Zeichen (0–127) werden in UTF-8 mit genau einem Byte
+        und identischem Bitmuster dargestellt — jede reine ASCII-Datei
+        ist deshalb automatisch gültiges UTF-8 (bewusstes Design, keine
+        zufällige Kompatibilität). Zur Abgrenzung: UTF-16 nutzt mindestens
+        2 Bytes pro Zeichen (intern u. a. bei Windows/Java), UTF-32 immer
+        4 Bytes — UTF-8 ist für westliche Texte am effizientesten und
+        deshalb Web-Standard.
+      </p>
+
+      <h3>CR, LF und CRLF: die Sache mit dem Zeilenumbruch</h3>
+      <p>
+        CR und LF stammen aus der Ära mechanischer Schreibmaschinen und
+        Fernschreiber: <strong>CR</strong> (Carriage Return, 0x0D) bewegte
+        den Schreibwagen zurück an den linken Rand, <strong>LF</strong>
+        (Line Feed, 0x0A) schob das Papier eine Zeile weiter — für einen
+        vollständigen Zeilenumbruch brauchte man beide Aktionen
+        nacheinander.
+      </p>
+      <table>
+        <thead>
+          <tr><th>System</th><th>Kürzel</th><th>Bytes</th><th>Hex</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Linux / macOS (aktuell)</td><td>LF</td><td>1 Byte</td><td>0x0A</td></tr>
+          <tr><td>Windows</td><td>CRLF</td><td>2 Bytes</td><td>0x0D 0x0A</td></tr>
+          <tr><td>altes macOS (vor OS X)</td><td>CR</td><td>1 Byte</td><td>0x0D</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Windows hat CRLF von MS-DOS übernommen, das wiederum von CP/M
+        (ausgelegt für Fernschreiber) geprägt wurde. Linux/Unix wählten
+        das effizientere LF allein. Diese Entscheidung von ca. 1980
+        verursacht bis heute Probleme: Ein unter Windows bearbeitetes
+        Shell-Skript zeigt unter Linux oft ein sichtbares
+        <code>^M</code> am Zeilenende (das übrig gebliebene CR), und Git
+        kann bei reiner Zeilenend-Konvertierung riesige, irreführende
+        Diffs anzeigen.
+      </p>
+      <p>Teste live, wie ein Text als LF, CRLF und CR kodiert würde:</p>
+      <div class="tool" data-tool="crlf-visualizer">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Entwickler der TechNord GmbH erhält von einem Windows-Kollegen
+        ein Shell-Skript, das unter Linux mit einer kryptischen
+        Fehlermeldung abbricht:
+      </p>
+      <ul>
+        <li><strong>Diagnose:</strong> <code>cat -A skript.sh</code> zeigt
+          am Ende jeder Zeile <code>^M$</code> statt nur <code>$</code> —
+          das Skript enthält Windows-Zeilenenden (CRLF) statt der unter
+          Linux erwarteten LF.</li>
+        <li><strong>Ursache:</strong> Der Linux-Interpreter interpretiert
+          das übrig gebliebene CR (0x0D) fälschlich als Teil des Befehls.</li>
+        <li><strong>Lösung:</strong> Mit <code>sed</code> oder dem
+          Werkzeug <code>dos2unix</code> werden alle CRLF in reines LF
+          umgewandelt, danach läuft das Skript fehlerfrei.</li>
+      </ul>
+      <p>
+        Ein weiterer Fall: Eine Exportdatei aus einem älteren System zeigt
+        beim Öffnen falsche Umlaute (Ä wird zu einem kryptischen Symbol).
+        Der Grund: Die Datei wurde in <strong>ISO-8859-1</strong> statt
+        <strong>UTF-8</strong> exportiert — beim Import muss die korrekte
+        Kodierung explizit angegeben werden, damit die Bytes richtig
+        interpretiert werden.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ASCII: 128 Zeichen, nur Englisch, 7 Bit. Unicode: Codepoints
+        (U+XXXX) für praktisch alle Schriftsysteme. UTF-8: variable
+        1–4-Byte-Kodierung von Unicode, rückwärtskompatibel mit ASCII,
+        Web-Standard. Linux/macOS nutzen LF, Windows CRLF, altes macOS
+        CR — falsche Zeilenenden erzeugen das ^M-Problem in Shell-Skripten
+        und unnötige Git-Diffs.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/zeichensaetze-ascii-unicode.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/crlf-visualizer.js"></script>
+</body>
+</html>

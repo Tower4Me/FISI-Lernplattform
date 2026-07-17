@@ -1,0 +1,113 @@
+{
+  "unit": "datenbanken-sql/sql-ddl",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht SQL?",
+      "options": [
+        "Standard Question Language",
+        "Structured Query Language",
+        "System Query Logic",
+        "Simple Query List"
+      ],
+      "answer": 1,
+      "explanation": "SQL steht für Structured Query Language, die Standardsprache für relationale Datenbanken."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher SQL-Bereich legt die Struktur einer Datenbank fest (z. B. Tabellen anlegen)?",
+      "options": [
+        "DML",
+        "DCL",
+        "DDL",
+        "DQL"
+      ],
+      "answer": 2,
+      "explanation": "DDL (Data Definition Language) umfasst CREATE, ALTER, DROP und TRUNCATE – die Struktur der Datenbank."
+    },
+    {
+      "id": "q3",
+      "question": "Zu welchem SQL-Bereich gehört GRANT?",
+      "options": [
+        "DDL",
+        "DML",
+        "DCL",
+        "DTL"
+      ],
+      "answer": 2,
+      "explanation": "GRANT und REVOKE steuern Zugriffsrechte und gehören zur Data Control Language (DCL)."
+    },
+    {
+      "id": "q4",
+      "question": "Die Tabelle mitarbeiter hat einen Fremdschlüssel auf abteilung. Welche Tabelle muss zuerst per CREATE TABLE angelegt werden?",
+      "options": [
+        "mitarbeiter",
+        "abteilung",
+        "Reihenfolge ist egal",
+        "Beide gleichzeitig in einem Befehl"
+      ],
+      "answer": 1,
+      "explanation": "Der Fremdschlüssel muss auf einen bereits existierenden Primärschlüssel verweisen können – die referenzierte Tabelle (abteilung) muss zuerst existieren."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist der Unterschied zwischen DROP TABLE und TRUNCATE TABLE?",
+      "options": [
+        "DROP löscht Daten und Struktur; TRUNCATE löscht nur die Daten, die Struktur bleibt",
+        "TRUNCATE löscht Daten und Struktur; DROP löscht nur die Daten",
+        "Beide sind identisch",
+        "DROP funktioniert nur bei leeren Tabellen"
+      ],
+      "answer": 0,
+      "explanation": "DROP TABLE entfernt die gesamte Tabelle inklusive Struktur, TRUNCATE TABLE leert nur den Inhalt und behält die Tabellendefinition."
+    },
+    {
+      "id": "q6",
+      "question": "Wie verhindert man einen Fehler, wenn man eine Tabelle löschen will, die möglicherweise gar nicht existiert?",
+      "options": [
+        "DROP TABLE ONLY IF NEEDED tabelle;",
+        "DROP TABLE IF EXISTS tabelle;",
+        "DELETE TABLE tabelle SAFE;",
+        "TRUNCATE TABLE IF EXISTS tabelle;"
+      ],
+      "answer": 1,
+      "explanation": "DROP TABLE IF EXISTS löscht die Tabelle nur, wenn sie existiert, und wirft sonst keinen Fehler."
+    },
+    {
+      "id": "q7",
+      "question": "Welches Schlüsselwort für automatisch hochzählende IDs verwendet SQLite?",
+      "options": [
+        "AUTO_INCREMENT",
+        "SERIAL",
+        "IDENTITY",
+        "AUTOINCREMENT"
+      ],
+      "answer": 3,
+      "explanation": "SQLite nutzt AUTOINCREMENT (ohne Unterstrich) – ein Beispiel für einen Dialekt-Unterschied zwischen DBMS."
+    },
+    {
+      "id": "q8",
+      "question": "Was ist der Vorteil eines Index auf einer Spalte?",
+      "options": [
+        "INSERT-Befehle werden dadurch schneller",
+        "SELECT-Abfragen auf diese Spalte werden schneller",
+        "Die Spalte wird automatisch vor Änderungen geschützt",
+        "Die Tabelle benötigt weniger Speicherplatz"
+      ],
+      "answer": 1,
+      "explanation": "Ein Index beschleunigt gezielte Suchabfragen (SELECT) auf der indizierten Spalte, kostet aber zusätzlichen Speicher und verlangsamt Schreiboperationen leicht."
+    },
+    {
+      "id": "q9",
+      "question": "Welche Aussage zu SQL-Dialekten trifft zu?",
+      "options": [
+        "Alle DBMS verwenden exakt dieselbe Syntax ohne jede Abweichung",
+        "SQL ist standardisiert, aber jedes DBMS hat kleinere systemspezifische Abweichungen",
+        "SQLite unterstützt als einziges System TRUNCATE TABLE",
+        "Dialekte betreffen nur die Groß-/Kleinschreibung von Schlüsselwörtern"
+      ],
+      "answer": 1,
+      "explanation": "SQL folgt einem gemeinsamen Standard, aber MySQL, PostgreSQL, SQLite & Co. weichen in Details (z. B. Auto-Increment-Syntax) leicht voneinander ab."
+    }
+  ]
+}

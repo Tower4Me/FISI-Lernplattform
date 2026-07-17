@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/bios-uefi-boot",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche Partitionstabelle nutzt UEFI typischerweise, im Gegensatz zum klassischen BIOS?",
+      "options": [
+        "UEFI nutzt MBR, BIOS nutzt GPT",
+        "UEFI nutzt GPT und unterstützt damit Datenträger über 2 TB sowie praktisch unbegrenzt viele Partitionen",
+        "Beide nutzen ausschließlich MBR",
+        "UEFI benötigt grundsätzlich keine Partitionstabelle"
+      ],
+      "answer": 1,
+      "explanation": "UEFI arbeitet mit GPT (GUID Partition Table), die Datenträger über 2 TB und praktisch unbegrenzt viele Partitionen unterstützt. BIOS ist auf MBR mit max. 2 TB und 4 primären Partitionen beschränkt."
+    },
+    {
+      "id": "q2",
+      "question": "Was leistet die Secure-Boot-Funktion von UEFI?",
+      "options": [
+        "Sie verschlüsselt automatisch alle Festplatteninhalte",
+        "Sie prüft die Signatur des Bootloaders und verhindert den Start nicht autorisierter oder manipulierter Startsoftware",
+        "Sie ersetzt das Benutzerpasswort des Betriebssystems",
+        "Sie beschleunigt ausschließlich den RAM-Zugriff"
+      ],
+      "answer": 1,
+      "explanation": "Secure Boot prüft beim Start die digitale Signatur des Bootloaders und verhindert so, dass nicht autorisierte oder manipulierte Software (z. B. Bootkit-Malware) geladen wird."
+    },
+    {
+      "id": "q3",
+      "question": "Wozu dient der POST (Power-On Self-Test)?",
+      "options": [
+        "Er lädt direkt das Betriebssystem ohne weitere Prüfung",
+        "Er testet grundlegende Hardwarefunktionen (z. B. CPU, RAM, Grafikkarte) direkt nach dem Einschalten, bevor der eigentliche Bootvorgang fortgesetzt wird",
+        "Er überwacht ausschließlich die Festplattentemperatur im laufenden Betrieb",
+        "Er ist nur bei UEFI-Systemen vorhanden, bei BIOS entfällt er"
+      ],
+      "answer": 1,
+      "explanation": "Der POST prüft direkt nach dem Einschalten die Grundfunktion der Hardware. Schlägt er fehl, wird das oft über Beep-Codes oder LED-Muster signalisiert, noch bevor ein Bildschirmbild aufgebaut wird."
+    },
+    {
+      "id": "q4",
+      "question": "In welcher Reihenfolge läuft ein typischer Bootvorgang ab?",
+      "options": [
+        "Bootloader → POST → Power On → Betriebssystem-Kernel",
+        "Power On → POST → Firmware sucht Boot-Gerät → Bootloader → Betriebssystem-Kernel",
+        "Betriebssystem-Kernel → Firmware → POST → Power On",
+        "POST → Power On → Betriebssystem-Kernel → Bootloader"
+      ],
+      "answer": 1,
+      "explanation": "Der Ablauf ist: Power On, POST (Hardware-Selbsttest), die Firmware sucht anhand der Boot-Reihenfolge ein Startgerät, lädt den Bootloader, der wiederum den Betriebssystem-Kernel lädt."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür steht S.M.A.R.T. bei Massenspeichern?",
+      "options": [
+        "Ein Verschlüsselungsstandard für SSDs",
+        "Ein Überwachungssystem, das Betriebswerte von SSD/HDD protokolliert und frühzeitig auf einen drohenden Laufwerksausfall hinweisen kann",
+        "Ein Dateisystem für externe Datenträger",
+        "Ein Protokoll zur Netzwerkanbindung von Speicher"
+      ],
+      "answer": 1,
+      "explanation": "S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology) überwacht laufend Betriebsparameter eines Laufwerks und kann so frühzeitig vor einem bevorstehenden Ausfall warnen."
+    },
+    {
+      "id": "q6",
+      "question": "Welches S.M.A.R.T.-Attribut ist ein typisches Frühwarnzeichen für einen bevorstehenden Laufwerksausfall?",
+      "options": [
+        "Ein plötzlich stark ansteigender Wert bei Reallocated Sectors Count",
+        "Ein gleichbleibender Wert bei Power-On Hours",
+        "Eine niedrige, stabile Betriebstemperatur",
+        "Ein unverändert niedriger Wear-Leveling-Count"
+      ],
+      "answer": 0,
+      "explanation": "Ein deutlicher Anstieg reallozierter (durch Reservesektoren ersetzter) Sektoren deutet auf zunehmende physische Defekte des Datenträgers hin und ist ein klassisches Frühwarnzeichen."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Server piept nach dem Einschalten in einem festen Muster und zeigt kein Bild. Was ist der sinnvollste erste Schritt zur Fehlersuche?",
+      "options": [
+        "Sofort die Festplatte austauschen",
+        "Das Mainboard-Handbuch konsultieren, um die Bedeutung des Beep-Codes zu ermitteln, da der POST offenbar einen Hardwarefehler erkannt hat",
+        "Das Betriebssystem neu installieren",
+        "Die Boot-Reihenfolge im UEFI-Setup ändern, ohne die Piepfolge zu beachten"
+      ],
+      "answer": 1,
+      "explanation": "Ein Beep-Code direkt nach dem Einschalten, noch vor jedem Bildaufbau, weist auf einen vom POST erkannten Hardwarefehler hin. Der erste Schritt ist, die Bedeutung des Codes im Mainboard-Handbuch nachzuschlagen."
+    }
+  ]
+}

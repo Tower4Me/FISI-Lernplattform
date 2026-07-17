@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: Datentypen & Constraints</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">Datentypen & Constraints</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Datentypen & Constraints
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir ein Papierformular vor: Ein Feld ist als Kästchen für
+        genau fünf Ziffern vorgedruckt (die Postleitzahl), ein anderes hat
+        nur eine schmale Zeile für den Nachnamen. Wer trotzdem „München,
+        80331“ in das PLZ-Feld quetscht, sorgt für Chaos bei der
+        Auswertung. Eine Datenbank braucht dieselbe Disziplin: jede Spalte
+        bekommt einen <strong>Datentyp</strong>, der vorgibt, was
+        überhaupt hineindarf – und <strong>Constraints</strong>, die
+        zusätzliche Regeln erzwingen, etwa „darf nicht leer sein“ oder
+        „muss eindeutig sein“.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Jede Spalte einer Tabelle bekommt beim Anlegen (<code>CREATE
+        TABLE</code>) einen <strong>Datentyp</strong>, der Format und
+        Wertebereich der erlaubten Inhalte festlegt:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Kategorie</th><th>Typische Typen</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ganzzahlen</td><td><code>INT</code>, <code>BIGINT</code>, <code>SMALLINT</code></td><td>Kundennummer, Stückzahl</td></tr>
+          <tr><td>Kommazahlen</td><td><code>DECIMAL(p,s)</code>, <code>FLOAT</code></td><td>Preise (exakt: DECIMAL), Messwerte</td></tr>
+          <tr><td>Text fester Länge</td><td><code>CHAR(n)</code></td><td>Ländercode „DE“, Kürzel fester Länge</td></tr>
+          <tr><td>Text variabler Länge</td><td><code>VARCHAR(n)</code>, <code>TEXT</code></td><td>Name, Beschreibung, Kommentar</td></tr>
+          <tr><td>Datum/Zeit</td><td><code>DATE</code>, <code>DATETIME</code>/<code>TIMESTAMP</code></td><td>Bestelldatum, Erstellungszeitpunkt</td></tr>
+          <tr><td>Wahrheitswert</td><td><code>BOOLEAN</code></td><td>„aktiv“ ja/nein</td></tr>
+          <tr><td>Binärdaten</td><td><code>BLOB</code></td><td>Bilddatei, PDF-Anhang</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Bei Geldbeträgen ist <code>DECIMAL</code> wichtig statt
+        <code>FLOAT</code>: Fließkommazahlen runden intern binär und
+        können bei Centbeträgen zu Rundungsfehlern führen – für
+        Rechnungen inakzeptabel.
+      </p>
+
+      <p>
+        <strong>Constraints</strong> gehen über den reinen Datentyp hinaus
+        und erzwingen zusätzliche Geschäftsregeln direkt in der Datenbank:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Constraint</th><th>Erzwingt</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>NOT NULL</code></td><td>Feld darf nicht leer bleiben</td><td>Nachname eines Kunden ist Pflichtfeld</td></tr>
+          <tr><td><code>UNIQUE</code></td><td>Wert darf in der Spalte nur einmal vorkommen</td><td>E-Mail-Adresse eines Kunden</td></tr>
+          <tr><td><code>PRIMARY KEY</code></td><td>eindeutiger Zeilen-Identifikator (kombiniert <code>UNIQUE</code> + <code>NOT NULL</code>)</td><td>Kunden-ID</td></tr>
+          <tr><td><code>FOREIGN KEY</code></td><td>Verweis muss auf existierenden Primärschlüssel einer anderen Tabelle zeigen</td><td>Bestellung.Kunden-ID → Kunde.ID</td></tr>
+          <tr><td><code>CHECK</code></td><td>Wert muss eine Bedingung erfüllen</td><td>Stückzahl &gt; 0</td></tr>
+          <tr><td><code>DEFAULT</code></td><td>Standardwert, falls beim Einfügen nichts angegeben wird</td><td>Bestellstatus = „offen“</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Ohne solche Regeln entsteht schnell <strong>Redundanz</strong> –
+        dieselbe Information wird an mehreren Stellen der Tabelle
+        gespeichert (z. B. die Kundenadresse in jeder einzelnen
+        Bestellzeile). Redundanz ist nicht nur Platzverschwendung, sie
+        erzeugt drei klassische <strong>Anomalien</strong>:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Anomalie</th><th>Problem</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Änderungsanomalie</strong> (Update)</td><td>Ändert sich die Adresse, müssen alle Kopien konsistent geändert werden – vergisst man eine Zeile, widersprechen sich die Daten.</td></tr>
+          <tr><td><strong>Einfügeanomalie</strong> (Insert)</td><td>Ein neuer Kunde ohne Bestellung lässt sich nicht speichern, weil die Kundendaten nur zusammen mit einer Bestellzeile existieren.</td></tr>
+          <tr><td><strong>Löschanomalie</strong> (Delete)</td><td>Löscht man die letzte Bestellung eines Kunden, verschwinden ungewollt auch dessen Stammdaten mit.</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Constraints allein beseitigen Redundanz nicht – sie verhindern nur
+        falsche Werte innerhalb der bestehenden Struktur. Die eigentliche
+        Lösung gegen Redundanz und Anomalien ist die
+        <strong>Normalisierung</strong> der Tabellenstruktur (eigenes
+        Thema), bei der Daten sauber auf mehrere Tabellen aufgeteilt
+        werden.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus legt eine erste, noch unsaubere Tabelle
+        <code>Bestellungen</code> an, in der Kundenname, Kundenadresse,
+        Produkt und Menge in einer einzigen Tabelle stehen:
+      </p>
+      <ul>
+        <li>
+          Kundin Meier zieht um. Die Adresse steht in sieben Bestellzeilen
+          – zwei werden vergessen zu ändern → <strong>Änderungsanomalie</strong>,
+          die Datenbank enthält jetzt widersprüchliche Adressen für
+          dieselbe Kundin.
+        </li>
+        <li>
+          Ein Neukunde ruft an, hat aber noch nichts bestellt. Ohne
+          Bestellzeile lässt sich sein Name gar nicht erst eintragen →
+          <strong>Einfügeanomalie</strong>.
+        </li>
+        <li>
+          Die einzige Bestellung von Kunde Schulz wird storniert und
+          gelöscht. Damit verschwinden auch seine Kontaktdaten komplett
+          aus der Datenbank → <strong>Löschanomalie</strong>.
+        </li>
+        <li>
+          Durch <code>NOT NULL</code> auf der Spalte Nachname und
+          <code>CHECK (Menge &gt; 0)</code> auf der Spalte Menge werden
+          zumindest leere Namen und unsinnige Mengenangaben (0 oder
+          negativ) direkt von der Datenbank abgelehnt – die
+          Grundstruktur-Probleme (Redundanz) bleiben davon aber
+          unberührt und werden erst durch Normalisierung gelöst.
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Erläutern Sie anhand eines Beispiels die
+        Einfüge-, Änderungs- und Löschanomalie." oder „Welchen Datentyp
+        wählen Sie für einen Rechnungsbetrag und warum nicht FLOAT?"
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Datentypen legen Format und Wertebereich einer Spalte fest,
+        Constraints (NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK,
+        DEFAULT) erzwingen zusätzliche Regeln. Redundanz in einer
+        unsauberen Tabellenstruktur erzeugt Änderungs-, Einfüge- und
+        Löschanomalien – die eigentliche Lösung dafür ist Normalisierung,
+        nicht Constraints allein.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/datentypen-constraints.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

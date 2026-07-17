@@ -1,0 +1,91 @@
+{
+  "unit": "software-os-web/linux-konsole",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie organisiert Linux Datenträger im Unterschied zu Windows?",
+      "options": [
+        "Wie Windows über separate Laufwerksbuchstaben (C:, D:, E:)",
+        "Über einen einzigen Verzeichnisbaum, in den Datenträger an einem bestimmten Mountpoint eingehängt werden",
+        "Linux verwendet grundsätzlich keine Verzeichnisse",
+        "Jeder Datenträger bekommt eine eigene, komplett unabhängige IP-Adresse"
+      ],
+      "answer": 1,
+      "explanation": "Linux kennt keine Laufwerksbuchstaben, sondern einen einzigen Verzeichnisbaum ab der Wurzel /. Datenträger werden über Mounting an einem Mountpoint in diesen Baum eingehängt."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Datei steuert, welche Dateisysteme beim Systemstart automatisch gemountet werden?",
+      "options": ["/etc/passwd", "/etc/fstab", "/etc/hosts", "/etc/mount.conf"],
+      "answer": 1,
+      "explanation": "/etc/fstab (File System Table) legt fest, welche Dateisysteme beim Booten automatisch an welchem Mountpoint eingehängt werden."
+    },
+    {
+      "id": "q3",
+      "question": "Was bedeutet die Berechtigung rwxr-xr-- für eine Datei?",
+      "options": [
+        "Owner darf alles, Gruppe darf lesen und ausführen, alle anderen dürfen nur lesen",
+        "Owner darf nur lesen, alle anderen dürfen alles",
+        "Nur die Gruppe hat überhaupt Zugriff auf die Datei",
+        "Alle drei Benutzergruppen haben identische Rechte"
+      ],
+      "answer": 0,
+      "explanation": "rwx (Owner: alles), r-x (Gruppe: lesen+ausführen), r-- (Andere: nur lesen) — die drei Dreiergruppen stehen für Owner, Group und Others in dieser Reihenfolge."
+    },
+    {
+      "id": "q4",
+      "question": "Welchen Oktalwert hat die Berechtigung rwx?",
+      "options": ["4", "5", "6", "7"],
+      "answer": 3,
+      "explanation": "r=4, w=2, x=1 — zusammen ergibt rwx den Wert 4+2+1 = 7."
+    },
+    {
+      "id": "q5",
+      "question": "Was bewirkt der Befehl chmod 644 datei.txt?",
+      "options": [
+        "rwxrwxrwx — alle dürfen alles",
+        "rw-r--r-- — Owner darf lesen und schreiben, alle anderen nur lesen",
+        "rwx------ — nur der Owner hat überhaupt Zugriff",
+        "r--r--r-- — niemand darf die Datei verändern"
+      ],
+      "answer": 1,
+      "explanation": "644 = rw- (6) für Owner, r-- (4) für Gruppe, r-- (4) für Andere — Owner darf lesen und schreiben, alle anderen nur lesen."
+    },
+    {
+      "id": "q6",
+      "question": "Warum gilt chmod 777 fast immer als Sicherheitsrisiko?",
+      "options": [
+        "Weil der Befehl in modernen Linux-Systemen technisch nicht mehr existiert",
+        "Weil damit jeder Benutzer auf dem System die Datei lesen, schreiben und ausführen darf",
+        "Weil chmod 777 die Datei automatisch verschlüsselt",
+        "Weil chmod 777 die Datei für den Eigentümer unzugänglich macht"
+      ],
+      "answer": 1,
+      "explanation": "chmod 777 vergibt an Owner, Gruppe und alle anderen sämtliche Rechte (rwx) — jeder Benutzer des Systems kann die Datei dann lesen, verändern und ausführen, was ein erhebliches Sicherheitsrisiko darstellt."
+    },
+    {
+      "id": "q7",
+      "question": "Was bewirkt der Befehl chown ben:users datei.txt?",
+      "options": [
+        "Er ändert die Zugriffsrechte (rwx) der Datei",
+        "Er setzt den Eigentümer der Datei auf „ben“ und die Gruppe auf „users“",
+        "Er löscht die Datei unwiderruflich",
+        "Er komprimiert die Datei"
+      ],
+      "answer": 1,
+      "explanation": "chown (change owner) ändert Eigentümer und/oder Gruppe einer Datei — hier wird der Eigentümer auf „ben“ und die Gruppe auf „users“ gesetzt."
+    },
+    {
+      "id": "q8",
+      "question": "Wofür wird der Befehl grep typischerweise eingesetzt?",
+      "options": [
+        "Zum Ändern von Dateiberechtigungen",
+        "Zum Durchsuchen einer Datei nach einem bestimmten Textmuster, z. B. Fehlermeldungen in einer Logdatei",
+        "Zum Einhängen eines Datenträgers",
+        "Zum Ändern des Dateieigentümers"
+      ],
+      "answer": 1,
+      "explanation": "grep durchsucht eine Datei zeilenweise nach einem angegebenen Textmuster — nützlich z. B. um gezielt Fehlermeldungen aus einer langen Logdatei herauszufiltern."
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: RAID-Level</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">RAID-Level</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      RAID-Level
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir vor, ein wichtiges Dokument existiert nur als eine
+        einzige Kopie in einer Schublade. Geht die Schublade kaputt, ist
+        das Dokument weg. Legt man stattdessen eine zweite, identische
+        Kopie in eine andere Schublade, übersteht das Dokument den
+        Ausfall einer Schublade unbeschadet. Genau dieses Prinzip — Daten
+        über mehrere Festplatten verteilen, um Geschwindigkeit,
+        Ausfallsicherheit oder beides zu gewinnen — steckt hinter
+        <strong>RAID</strong> (Redundant Array of Independent Disks).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        RAID verbindet mehrere Festplatten zu einem logischen Verbund.
+        Je nach Level steht dabei Geschwindigkeit (Striping), Sicherheit
+        (Spiegelung/Parität) oder eine Kombination aus beidem im
+        Vordergrund.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Level</th><th>Prinzip</th><th>Ausfalltoleranz</th><th>Nutzkapazität</th><th>Mindestanzahl Platten</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RAID 0</td><td>Striping (Daten verteilt)</td><td>keine (riskanter als 1 Platte)</td><td>100 % (n × c)</td><td>2</td></tr>
+          <tr><td>RAID 1</td><td>Mirroring (Spiegelung)</td><td>1 Platte</td><td>50 % (c)</td><td>2</td></tr>
+          <tr><td>RAID 5</td><td>Striping + Parität</td><td>1 Platte</td><td>(n−1) × c</td><td>3</td></tr>
+          <tr><td>RAID 6</td><td>Striping + doppelte Parität</td><td>2 Platten</td><td>(n−2) × c</td><td>4</td></tr>
+          <tr><td>RAID 10</td><td>Spiegel + Striping kombiniert</td><td>1 Platte je Spiegelpaar</td><td>50 % (n/2 × c)</td><td>4 (gerade Anzahl)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>n</strong> = Anzahl der Platten im Verbund, <strong>c</strong>
+        = Kapazität je Platte. RAID 0 nutzt die volle Kapazität, opfert
+        dafür aber jede Ausfallsicherheit: Fällt eine einzige Platte aus,
+        sind alle Daten des Verbunds verloren. RAID 5 und 6 „bezahlen“
+        Ausfallsicherheit mit der Kapazität von einer bzw. zwei Platten
+        (Parität), RAID 1 und RAID 10 mit der Hälfte der Gesamtkapazität
+        (Spiegelung).
+      </p>
+
+      <p>Berechne die Nutzkapazität für ein beliebiges Szenario:</p>
+      <div class="tool" data-tool="raid-rechner">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+
+      <h3>Hot Swap und Hot Spare</h3>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hot Swap</strong></td>
+            <td>eine defekte Platte kann im laufenden Betrieb ausgetauscht
+              werden, ohne das System herunterzufahren</td>
+          </tr>
+          <tr>
+            <td><strong>Hot Spare</strong></td>
+            <td>eine zusätzliche, bereits eingebaute Reserveplatte springt
+              automatisch ein, sobald eine Platte im Verbund ausfällt —
+              der Rebuild (Wiederherstellung der Redundanz) beginnt sofort,
+              ohne dass jemand manuell eingreifen muss</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Der wichtigste Satz zu RAID:</strong> RAID schützt vor
+        <strong>Hardware-Ausfall</strong> einer einzelnen Platte — nicht
+        vor versehentlichem Löschen, Ransomware oder Feuer. Eine gelöschte
+        Datei ist auf allen gespiegelten Platten gleichermaßen gelöscht,
+        weil die Löschung sofort auf den gesamten Verbund repliziert wird.
+        RAID ersetzt deshalb niemals ein echtes Backup.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Datenbankserver der TechNord GmbH benötigt sowohl hohe
+        Schreib-/Leseleistung als auch Ausfallsicherheit. Der Techniker
+        entscheidet sich für <strong>RAID 10</strong> mit 6 Platten à
+        4 TB:
+      </p>
+      <p>
+        Nutzkapazität = (6 ÷ 2) × 4 TB = <strong>12 TB</strong><br>
+        Ausfalltoleranz: 1 Platte je Spiegelpaar kann ausfallen, ohne dass
+        Daten verloren gehen.
+      </p>
+      <p>
+        RAID 10 kombiniert Spiegelung (Sicherheit) mit Striping
+        (Geschwindigkeit) und eignet sich deshalb besonders gut für
+        Datenbankserver mit hohem Schreibaufkommen. Der Preis dafür: nur
+        50 % der Rohkapazität stehen als Nutzkapazität zur Verfügung.
+        Zusätzlich betreibt der Server eine Hot-Spare-Platte, damit bei
+        einem Plattenausfall der Rebuild automatisch startet — ersetzt
+        aber trotzdem nicht das nächtliche Backup auf ein separates
+        System.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        RAID 0 = Geschwindigkeit ohne Sicherheit, RAID 1 = Spiegelung,
+        RAID 5 = Striping + 1 Parität, RAID 6 = Striping + 2 Paritäten,
+        RAID 10 = Spiegel + Striping kombiniert. Hot Swap = Austausch im
+        laufenden Betrieb, Hot Spare = automatische Reserveplatte. RAID
+        schützt nur vor Plattenausfall — RAID ist kein Backup.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/raid-level.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/raid-rechner.js"></script>
+</body>
+</html>

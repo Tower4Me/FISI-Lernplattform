@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Dateisysteme-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Dateisysteme-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Dateisysteme-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Der Inhalt eines Briefes verstehen nur Absender und Empfänger —
+        die Post transportiert ihn nur, ohne den Text zu lesen. Genauso
+        verwaltet ein Betriebssystem Dateien: Es weiß, wo eine Datei
+        liegt und wie sie heißt, versteht aber nicht, was in ihr steht —
+        das interpretiert erst das öffnende Programm. Alles, was außen
+        auf dem Umschlag steht (Absender, Datum, Größe), sind die
+        Metadaten. Und damit die Post überhaupt weiß, in welchem Fach ein
+        Brief physisch liegt, führt sie ein internes Register — bei Linux
+        heißt dieses Register Inode, bei Windows/NTFS Master File Table.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Was ist eine Datei?</h3>
+      <p>
+        Auf unterster Ebene ist eine Datei nichts anderes als eine
+        benannte, geordnete Folge von Bytes auf einem Speichermedium. Das
+        Betriebssystem weiß nicht, was inhaltlich in der Datei steckt —
+        es verwaltet nur, wo sie liegt und wie sie heißt. Die
+        Dateiendung (z. B. <code>.jpg</code>) ist dabei nur ein Hinweis
+        für das Betriebssystem, welches Programm die Datei öffnen soll —
+        sie kann umbenannt werden, ohne den Inhalt zu verändern. Der
+        tatsächliche Dateityp steckt in den ersten Bytes der Datei selbst
+        (siehe Einheit Zahlensysteme, Hex-Viewer/Magic Bytes).
+      </p>
+
+      <h3>Metadaten</h3>
+      <p>
+        <strong>Metadaten</strong> (Daten über eine Datei, nicht der
+        Inhalt selbst) werden vom Dateisystem getrennt vom eigentlichen
+        Dateiinhalt gespeichert:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Metadatum</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Name</strong></td><td>menschenlesbarer Dateiname inkl. Endung — wird vom Dateisystem verwaltet, nicht in der Datei selbst gespeichert</td></tr>
+          <tr><td><strong>Größe</strong></td><td>tatsächliche Dateigröße in Bytes (im Unterschied zur „Größe auf Datenträger“, siehe Einheit Dateisysteme-Vergleich)</td></tr>
+          <tr><td><strong>Zeitstempel</strong></td><td>Erstellung, letzte Änderung, letzter Zugriff — forensisch relevant</td></tr>
+          <tr><td><strong>Berechtigungen</strong></td><td>wer lesen/schreiben/ausführen darf — unter Linux rwx, unter Windows ACL (siehe die beiden vorherigen Einheiten)</td></tr>
+          <tr><td><strong>Speicherort</strong></td><td>Zeiger auf die tatsächlichen Datenblöcke auf dem Datenträger (Inode bzw. MFT-Eintrag)</td></tr>
+          <tr><td><strong>Attribute</strong></td><td>zusätzliche Flags wie „versteckt“ oder „System“</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Inode (Linux)</h3>
+      <p>
+        Unter Linux verwaltet das Dateisystem jede Datei über einen
+        <strong>Inode</strong> (Index Node). Der Inode enthält
+        <em>alle</em> Metadaten außer dem Dateinamen — der Dateiname ist
+        nur ein Verweis auf den Inode.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ls -i datei.txt</code></td><td>zeigt die Inode-Nummer einer Datei</td></tr>
+          <tr><td><code>stat datei.txt</code></td><td>zeigt alle Metadaten: Größe, Blöcke, Zugriffsrechte, Inode, Zeitstempel</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Wird eine Datei „gelöscht“, wird meist nur der Inode-Eintrag als
+        frei markiert — die eigentlichen Daten bleiben auf dem
+        Datenträger, bis sie überschrieben werden. Genau deshalb lassen
+        sich gelöschte Dateien mit Forensik-Tools oft wiederherstellen.
+      </p>
+
+      <h3>MFT — Master File Table (Windows/NTFS)</h3>
+      <p>
+        Windows NTFS nutzt statt Inodes die <strong>MFT</strong> (Master
+        File Table). Jede Datei besitzt einen MFT-Eintrag mit allen
+        Metadaten; bei sehr kleinen Dateien (unter ca. 700 Byte) wird der
+        Inhalt sogar direkt im MFT-Eintrag gespeichert, ohne eigenen
+        Datenblock.
+      </p>
+
+      <h3>Was macht ein Dateisystem allgemein?</h3>
+      <p>Ein Dateisystem löst vier Grundprobleme:</p>
+      <ul>
+        <li><strong>Organisation</strong> — hierarchische Struktur aus Verzeichnissen und Dateien</li>
+        <li><strong>Adressierung</strong> — welche Blöcke auf dem Datenträger zu welcher Datei gehören</li>
+        <li><strong>Freispeicherverwaltung</strong> — welche Blöcke belegt und welche frei sind</li>
+        <li><strong>Metadatenverwaltung</strong> — Name, Größe, Zeitstempel, Berechtigungen</li>
+      </ul>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Mitarbeiter der TechNord GmbH löscht versehentlich eine
+        wichtige Projektdatei von seinem Linux-Arbeitsplatz:
+      </p>
+      <ul>
+        <li><strong>Erklärung durch den Support:</strong> Beim Löschen
+          wurde nur der <strong>Inode-Eintrag</strong> als frei markiert —
+          die eigentlichen Datenbytes liegen wahrscheinlich noch
+          unverändert auf dem Datenträger.</li>
+        <li><strong>Sofortmaßnahme:</strong> Der Rechner wird nicht weiter
+          genutzt, damit keine neuen Daten die alten Blöcke überschreiben.</li>
+        <li><strong>Wiederherstellung:</strong> Ein Datenrettungstool
+          durchsucht den Datenträger nach noch nicht überschriebenen
+          Datenblöcken und stellt die Datei erfolgreich wieder her.</li>
+        <li><strong>Zur Dokumentation</strong> zeigt der Techniker mit
+          <code>stat</code> anschließend alle Metadaten der
+          wiederhergestellten Datei — inklusive der ursprünglichen
+          Zeitstempel.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Eine Datei ist eine Byte-Folge, deren Inhalt nur das öffnende
+        Programm versteht — die Dateiendung ist nur ein Hinweis fürs OS.
+        Metadaten (Name, Größe, Zeitstempel, Berechtigungen, Speicherort)
+        werden getrennt vom Inhalt gespeichert. Linux nutzt dafür den
+        Inode (Name ist nur ein Verweis darauf), Windows/NTFS die MFT.
+        Löschen markiert meist nur den Metadaten-Eintrag als frei — die
+        Daten bleiben zunächst erhalten.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/dateisysteme-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

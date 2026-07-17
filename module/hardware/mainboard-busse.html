@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Mainboard & Bussysteme</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Mainboard & Bussysteme</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Mainboard & Bussysteme
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Mainboard ist wie das Straßennetz einer Stadt: Es verbindet
+        alle Gebäude (Komponenten) miteinander, aber nicht jede Straße ist
+        gleich breit. Die Autobahn zur Grafikkarte (PCIe x16) hat viele
+        Spuren und hohen Durchsatz, die Zufahrt zur Festplatte (SATA) ist
+        eher eine zweispurige Landstraße. Und manchmal soll ein Lagerhaus
+        am Stadtrand (ein entfernter Server) so angebunden werden, dass es
+        sich für die Stadt anfühlt, als läge es direkt nebenan — genau das
+        leistet iSCSI für Speicher übers Netzwerk.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Formfaktoren</h3>
+      <table>
+        <thead>
+          <tr><th>Formfaktor</th><th>Maße</th><th>PCIe-Slots</th><th>Einsatzzweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ATX</td><td>305 × 244 mm</td><td>bis 7</td><td>Desktop, Server, viel Erweiterung</td></tr>
+          <tr><td>Micro-ATX</td><td>244 × 244 mm</td><td>bis 4</td><td>kompakter Standard-PC</td></tr>
+          <tr><td>Mini-ITX</td><td>170 × 170 mm</td><td>1</td><td>HTPC, Embedded, sehr kleine Gehäuse</td></tr>
+        </tbody>
+      </table>
+
+      <h3>PCIe (Peripheral Component Interconnect Express)</h3>
+      <p>
+        PCIe ist eine serielle Hochgeschwindigkeitsschnittstelle. Die
+        Angabe <strong>x1, x4, x8, x16</strong> beschreibt die Anzahl der
+        Lanes (parallele Datenleitungen) — mehr Lanes bedeuten mehr
+        Bandbreite. Physisch größere Slots können auch kleinere Karten
+        aufnehmen (ein x16-Slot kann z. B. eine x1-Karte betreiben).
+      </p>
+      <table>
+        <thead>
+          <tr><th>PCIe-Generation</th><th>Bandbreite pro Lane</th><th>x16 (z. B. GPU)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PCIe 3.0</td><td>~1 GB/s</td><td>~16 GB/s</td></tr>
+          <tr><td>PCIe 4.0</td><td>~2 GB/s</td><td>~32 GB/s</td></tr>
+          <tr><td>PCIe 5.0</td><td>~4 GB/s</td><td>~64 GB/s</td></tr>
+        </tbody>
+      </table>
+
+      <h3>SATA und SAS</h3>
+      <table>
+        <thead>
+          <tr><th>Schnittstelle</th><th>Bandbreite</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>SATA III</strong></td>
+            <td>6 Gbit/s brutto, ~550 MB/s netto</td>
+            <td>HDDs und günstige SSDs im Consumer-Bereich; typisch 4–8
+              Ports pro Mainboard</td>
+          </tr>
+          <tr>
+            <td><strong>SAS</strong> (Serial Attached SCSI)</td>
+            <td>je nach Generation 6–24 Gbit/s</td>
+            <td>Server und Storage-Arrays: dual-port (zwei redundante
+              Zugriffspfade), höhere Zuverlässigkeit und Warteschlangentiefe
+              als SATA; SAS-Controller können auch SATA-Laufwerke ansprechen,
+              umgekehrt geht es nicht</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>M.2</strong> ist nur eine Steckform (Formfaktor), kein
+        eigenes Protokoll — ein M.2-Slot kann je nach Mainboard SATA- oder
+        NVMe-SSDs betreiben (NVMe läuft direkt über PCIe und ist deutlich
+        schneller als SATA).
+      </p>
+
+      <h3>iSCSI: Speicher übers Netzwerk wie eine lokale Platte</h3>
+      <p>
+        iSCSI (Internet Small Computer System Interface) verpackt
+        klassische SCSI-Befehle, mit denen ein Betriebssystem normalerweise
+        eine lokale Platte anspricht, in TCP/IP-Pakete und schickt sie über
+        ein normales Ethernet-Netz an ein entferntes Speichersystem (Port
+        3260). Für den Client sieht das Ergebnis wie eine ganz normale
+        eingebaute Festplatte aus — obwohl sie in Wirklichkeit im Netzwerk
+        liegt. Das ist ein reines Server-/Infrastruktur-Thema (z. B.
+        VM-Speicher, Datenbanken); die genaue Einordnung gegenüber NAS und
+        SAN folgt in der Einheit zu Massenspeicher-Architekturen.
+      </p>
+
+      <h3>Chipsatz (PCH): CPU-direkt vs. verwaltet</h3>
+      <p>
+        Nicht alle Anschlüsse hängen direkt an der CPU — ein Teil wird vom
+        Chipsatz (Platform Controller Hub, PCH) verwaltet:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Anbindung</th><th>CPU direkt</th><th>Chipsatz (PCH)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GPU (x16 PCIe)</td><td>ja</td><td>nein (zu langsam)</td></tr>
+          <tr><td>NVMe-SSD (x4 PCIe)</td><td>ja</td><td>möglich, aber mehr Latenz</td></tr>
+          <tr><td>USB, SATA, Audio</td><td>nein</td><td>ja</td></tr>
+          <tr><td>weitere PCIe-Slots</td><td>nein</td><td>ja</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TechNord GmbH möchte einen vorhandenen AMD Ryzen
+        7000 Prozessor (Sockel AM5) sowie zwei DDR4-Module aus einem
+        alten PC in einem neuen System weiterverwenden. Der Techniker
+        prüft die Kompatibilität:
+      </p>
+      <ul>
+        <li><strong>CPU-Sockel:</strong> Ryzen 7000 benötigt zwingend
+          Sockel AM5 — das Mainboard muss also AM5 sein.</li>
+        <li><strong>RAM:</strong> AM5-Mainboards unterstützen ausschließlich
+          DDR5 — die vorhandenen DDR4-Module passen weder mechanisch
+          (anderer Kerb) noch elektrisch. Sie müssen durch DDR5-Module
+          ersetzt werden.</li>
+        <li><strong>PCIe:</strong> Die vorhandene Grafikkarte nutzt PCIe
+          4.0 x16 — ein aktuelles AM5-Board mit PCIe 5.0 ist abwärtskompatibel,
+          die Karte läuft also weiter, nur ohne die höhere PCIe-5.0-Bandbreite
+          auszunutzen.</li>
+      </ul>
+      <p>
+        Ergebnis: CPU und Mainboard passen zusammen, die alten
+        DDR4-Module dagegen nicht — sie müssen durch neue DDR5-Module
+        ersetzt werden. Genau diese Art von Kompatibilitätsprüfung
+        (Sockel ↔ RAM-Typ ↔ Bussystem) ist ein typisches
+        Prüfungsszenario.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Formfaktor (ATX/mATX/Mini-ITX) bestimmt Größe und Slot-Anzahl.
+        PCIe-Lanes (x1–x16) bestimmen die Bandbreite einer Erweiterungskarte.
+        SATA ist Consumer-Standard, SAS die redundantere Server-Variante.
+        iSCSI macht entfernten Speicher fürs Betriebssystem wie eine lokale
+        Platte nutzbar. Bei jeder Kompatibilitätsprüfung gilt: CPU-Sockel,
+        RAM-Typ und PCIe-Version müssen zueinander passen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/mainboard-busse.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

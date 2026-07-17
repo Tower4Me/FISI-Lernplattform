@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: BPMN</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">BPMN</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      BPMN
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        BPMN ist wie eine genormte Flussdiagramm-Sprache für
+        Geschäftsprozesse, die jede Abteilung und jedes Unternehmen
+        gleich lesen kann — ähnlich wie UML Software-Diagramme
+        vereinheitlicht (siehe Einheit UML-Diagramme, Modul Software).
+        Ein Prozess, den eine Fachabteilung mit BPMN beschreibt, lässt
+        sich von der IT-Abteilung ohne Übersetzung genauso verstehen —
+        „wer macht was, in welcher Reihenfolge, und was löst es aus“
+        wird über ein festes, international anerkanntes Symbolset
+        dargestellt.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        <strong>BPMN</strong> (Business Process Model and Notation) ist
+        ein internationaler Standard zur grafischen Modellierung von
+        Geschäftsprozessen — seit 2025 explizit Bestandteil des
+        AP1-Prüfungskatalogs. Zweck: Geschäftsprozesse einheitlich und
+        verständlich darstellen, unabhängig von ausführender Software
+        oder Abteilung — ein Kommunikationsmittel zwischen Fachabteilung
+        und IT.
+      </p>
+
+      <h3>Grundelemente</h3>
+      <table>
+        <thead>
+          <tr><th>Element</th><th>Darstellung</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Ereignis</strong> (Event)</td><td>Kreis (Start: dünner Rand, Ende: dicker Rand)</td><td>markiert, was einen Prozess auslöst, unterbricht oder beendet</td></tr>
+          <tr><td><strong>Aktivität</strong> (Task)</td><td>abgerundetes Rechteck</td><td>ein auszuführender Arbeitsschritt</td></tr>
+          <tr><td><strong>Gateway</strong></td><td>Raute</td><td>steuert den Ablauf bei Entscheidungen (exklusives Gateway = entweder-oder) oder parallelen Pfaden (paralleles Gateway = gleichzeitig)</td></tr>
+          <tr><td><strong>Sequenzfluss</strong></td><td>durchgezogener Pfeil</td><td>zeigt die Reihenfolge der Aktivitäten</td></tr>
+          <tr><td><strong>Swimlane/Pool</strong></td><td>horizontale/vertikale Bahn</td><td>zeigt, welche Rolle, Abteilung oder welches System für einen Prozessschritt zuständig ist</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Abgrenzung zum UML-Aktivitätsdiagramm</h3>
+      <p>
+        BPMN und das UML-Aktivitätsdiagramm verfolgen ein ähnliches Ziel
+        (einen Ablauf darstellen), sind aber unterschiedlich ausgerichtet:
+        BPMN ist speziell für <strong>Geschäftsprozesse</strong> gedacht
+        und soll auch für Fachabteilungen ohne IT-Hintergrund verständlich
+        sein — UML-Aktivitätsdiagramme sind eher in der
+        <strong>Softwareentwicklung</strong> verankert.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH modelliert den Ablauf einer Kundenbestellung in
+        BPMN, um Missverständnisse zwischen Vertrieb und Lager zu
+        vermeiden:
+      </p>
+      <ul>
+        <li><strong>Start-Ereignis:</strong> „Bestellung eingegangen“</li>
+        <li><strong>Aktivität</strong> (Swimlane Vertrieb): „Bestellung
+          prüfen“</li>
+        <li><strong>Exklusives Gateway:</strong> „Lagerbestand
+          ausreichend?“</li>
+        <li>bei Ja: <strong>Aktivität</strong> (Swimlane Lager): „Ware
+          versenden“</li>
+        <li>bei Nein: <strong>Aktivität</strong> (Swimlane Vertrieb):
+          „Kunde informieren“</li>
+        <li><strong>End-Ereignis:</strong> Prozess abgeschlossen</li>
+      </ul>
+      <p>
+        Durch die <strong>Swimlanes</strong> wird sofort erkennbar,
+        welche Abteilung für welchen Schritt zuständig ist — eine reine
+        Textbeschreibung hätte hier leicht zu Missverständnissen
+        zwischen Vertrieb und Lager geführt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        BPMN ist der Standard zur einheitlichen Darstellung von
+        Geschäftsprozessen. Ereignisse (Kreise) lösen aus/beenden,
+        Aktivitäten (abgerundete Rechtecke) sind Arbeitsschritte,
+        Gateways (Rauten) steuern Verzweigungen, Swimlanes zeigen
+        Zuständigkeiten. Im Unterschied zum UML-Aktivitätsdiagramm
+        richtet sich BPMN gezielt an Fachabteilungen, nicht nur an die
+        Softwareentwicklung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/bpmn.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

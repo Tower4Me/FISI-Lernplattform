@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Handelskalkulation</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Handelskalkulation</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Handelskalkulation
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Elektrofachhändler kauft einen Artikel nicht einfach zum
+        Listenpreis und verkauft ihn genauso weiter. Auf dem Weg vom
+        Einkauf bis zum Verkaufsregal passiert eine ganze Kette von
+        Abschlägen und Zuschlägen: Der Lieferant gewährt Rabatt und
+        Skonto, es kommen Transportkosten dazu, dann Gemeinkosten des
+        eigenen Betriebs, ein Gewinnaufschlag — und am Ende bekommt auch
+        der Kunde wieder Rabatt und Skonto. Jede Stufe verändert den
+        Preis um einen Prozentsatz. Genau diese Kette heißt
+        <strong>Handelskalkulation</strong> (Kalkulationsschema).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Einkaufskalkulation: vom Listenpreis zum Einstandspreis</h3>
+      <table>
+        <thead>
+          <tr><th>Schritt</th><th>Rechenweg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Listeneinkaufspreis (LEP)</td><td>Preis laut Katalog/Angebot des Lieferanten</td></tr>
+          <tr><td>− Liefererrabatt</td><td>Prozent vom Listeneinkaufspreis</td></tr>
+          <tr><td>= Zieleinkaufspreis (ZEP)</td><td>Preis bei Zahlung auf Ziel (später)</td></tr>
+          <tr><td>− Liefererskonto</td><td>Prozent vom Zieleinkaufspreis (Preisnachlass für schnelle Zahlung)</td></tr>
+          <tr><td>= Bareinkaufspreis (BEP)</td><td>Preis bei sofortiger Barzahlung</td></tr>
+          <tr><td>+ Bezugskosten</td><td>Fracht, Transportversicherung, Zoll — als Betrag, nicht als Prozent</td></tr>
+          <tr><td>= Bezugspreis / Einstandspreis (EP)</td><td>tatsächliche Kosten der Ware im eigenen Lager</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Verkaufskalkulation: vom Einstandspreis zum Angebotspreis</h3>
+      <table>
+        <thead>
+          <tr><th>Schritt</th><th>Rechenweg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bezugspreis / Einstandspreis</td><td>siehe oben</td></tr>
+          <tr><td>+ Gemeinkostenzuschlag</td><td>Prozent auf den Bezugspreis (Miete, Personal, Verwaltung usw.)</td></tr>
+          <tr><td>= Selbstkostenpreis (SKP)</td><td>alle Kosten der Ware bis zum Verkauf</td></tr>
+          <tr><td>+ Gewinnzuschlag</td><td>Prozent auf den Selbstkostenpreis</td></tr>
+          <tr><td>= Barverkaufspreis (BVP)</td><td>Preis bei sofortiger Barzahlung des Kunden</td></tr>
+          <tr><td>+ Kundenskonto</td><td>siehe Rückrechnung unten</td></tr>
+          <tr><td>= Zielverkaufspreis (ZVP)</td><td>Preis bei Zahlung auf Ziel</td></tr>
+          <tr><td>+ Kundenrabatt</td><td>siehe Rückrechnung unten</td></tr>
+          <tr><td>= Listenverkaufspreis (LVP)</td><td>Angebotspreis / Katalogpreis für den Kunden</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Die Stolperfalle: Rabatt/Skonto beim Verkauf „zurückrechnen“</h3>
+      <p>
+        Auf der Einkaufsseite werden Rabatt und Skonto einfach vom
+        vorherigen Preis <strong>abgezogen</strong> (Prozent vom
+        Ausgangswert). Auf der Verkaufsseite ist der bekannte Wert
+        dagegen der <em>kleinere</em> Preis (Barverkaufspreis) — der
+        größere, gesuchte Preis (Zielverkaufspreis) lässt sich deshalb
+        <strong>nicht</strong> durch einfaches Aufaddieren des
+        Prozentsatzes berechnen. Stattdessen gilt: Der bekannte Preis
+        entspricht (100 % − Skonto %) des gesuchten Preises — man teilt
+        also durch den Komplementärfaktor:
+      </p>
+      <p>
+        <strong>Zielverkaufspreis = Barverkaufspreis ÷ (1 − Skontosatz)</strong><br>
+        <strong>Listenverkaufspreis = Zielverkaufspreis ÷ (1 − Rabattsatz)</strong>
+      </p>
+      <p>
+        Beispiel für den typischen Fehler: Bei 3 % Kundenskonto einfach
+        „+3 %“ auf den Barverkaufspreis zu rechnen, ergibt ein zu
+        niedriges Ergebnis — richtig ist die Division durch 0,97, nicht
+        die Multiplikation mit 1,03.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die Elektro Nordmann GmbH kauft einen Posten Netzwerk-Switches zum
+        Listeneinkaufspreis von <strong>500,00 €</strong> ein und möchte
+        den Angebotspreis für die eigenen Kunden kalkulieren.
+      </p>
+
+      <p><strong>Einkaufskalkulation:</strong></p>
+      <table>
+        <tbody>
+          <tr><td>Listeneinkaufspreis</td><td>500,00 €</td></tr>
+          <tr><td>− 15 % Liefererrabatt</td><td>− 75,00 €</td></tr>
+          <tr><td>= Zieleinkaufspreis</td><td>425,00 €</td></tr>
+          <tr><td>− 2 % Liefererskonto (von 425,00 €)</td><td>− 8,50 €</td></tr>
+          <tr><td>= Bareinkaufspreis</td><td>416,50 €</td></tr>
+          <tr><td>+ Bezugskosten (Fracht, Versicherung)</td><td>+ 23,50 €</td></tr>
+          <tr><td><strong>= Bezugspreis (Einstandspreis)</strong></td><td><strong>440,00 €</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Verkaufskalkulation:</strong></p>
+      <table>
+        <tbody>
+          <tr><td>Bezugspreis</td><td>440,00 €</td></tr>
+          <tr><td>+ 25 % Gemeinkostenzuschlag</td><td>+ 110,00 €</td></tr>
+          <tr><td>= Selbstkostenpreis</td><td>550,00 €</td></tr>
+          <tr><td>+ 20 % Gewinnzuschlag</td><td>+ 110,00 €</td></tr>
+          <tr><td>= Barverkaufspreis</td><td>660,00 €</td></tr>
+          <tr><td>+ 3 % Kundenskonto (660,00 € ÷ 0,97)</td><td>Zielverkaufspreis ≈ 680,41 €</td></tr>
+          <tr><td>+ 10 % Kundenrabatt (680,41 € ÷ 0,90)</td><td>Listenverkaufspreis ≈ 756,01 €</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die Elektro Nordmann GmbH müsste den Artikel also für rund
+        <strong>756,01 €</strong> anbieten, damit nach Abzug von
+        Kundenrabatt und Kundenskonto noch der kalkulierte
+        Barverkaufspreis von 660,00 € übrig bleibt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Einkauf: Listeneinkaufspreis − Rabatt − Skonto + Bezugskosten =
+        Bezugspreis. Verkauf: Bezugspreis + Gemeinkosten + Gewinn =
+        Barverkaufspreis. Beim Zurückrechnen auf Zielverkaufspreis und
+        Listenverkaufspreis wird durch (1 − Prozentsatz) geteilt, nicht
+        einfach der Prozentsatz addiert.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/handelskalkulation.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

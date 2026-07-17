@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Branchensoftware & Open Source vs. proprietär</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Branchensoftware & Open Source vs. proprietär</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Branchensoftware & Open Source vs. proprietär
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir ein Unternehmen als Gebäude mit spezialisierten
+        Abteilungen vor. Ein ERP-System ist das zentrale Nervensystem, das
+        Finanzen, Lager und Personal über gemeinsame Daten verbindet. Ein
+        CRM ist der Empfangstresen, der jeden Kundenkontakt nachhält. Ein
+        CMS ist die Redaktion, die Website-Inhalte pflegt, ohne dafür
+        programmieren zu müssen. Und ein DMS ist das Archiv, das jedes
+        Dokument auffindbar und nachvollziehbar ablegt. Ob dahinter ein
+        offenes Rezept steht, das jeder einsehen und verändern darf (Open
+        Source), oder ein Firmengeheimnis, das nur der Hersteller kennt
+        (proprietär), ist eine weitere wichtige Unterscheidung.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Branchensoftware-Typen</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Aufgabe</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ERP</strong> (Enterprise Resource Planning)</td>
+            <td>verwaltet zentrale Geschäftsprozesse — Finanzen, Lager,
+              Personal, Produktion — in einem gemeinsamen System mit
+              geteilten Daten</td>
+            <td>SAP, Microsoft Dynamics</td>
+          </tr>
+          <tr>
+            <td><strong>CRM</strong> (Customer Relationship Management)</td>
+            <td>verwaltet Kundenkontakte, Vertriebschancen und
+              Support-Historie</td>
+            <td>Salesforce, HubSpot</td>
+          </tr>
+          <tr>
+            <td><strong>CMS</strong> (Content Management System)</td>
+            <td>ermöglicht die Pflege von Website-Inhalten ohne
+              Programmierkenntnisse</td>
+            <td>WordPress, TYPO3</td>
+          </tr>
+          <tr>
+            <td><strong>DMS</strong> (Document Management System)</td>
+            <td>verwaltet und archiviert Dokumente inkl. Versionierung,
+              Volltextsuche und Zugriffsrechten</td>
+            <td>SharePoint, DocuWare</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>OEM-Software</h3>
+      <p>
+        <strong>OEM</strong> (Original Equipment Manufacturer) bezeichnet
+        im Softwarekontext eine Lizenzform, bei der Software von einem
+        Hardwarehersteller vorinstalliert und mitverkauft wird (siehe
+        Einheit Urheberrecht & Lizenzmodelle) — günstiger als eine
+        Vollversion, aber fest an das jeweilige Gerät gebunden.
+      </p>
+
+      <h3>Open Source vs. proprietär</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>Open Source</th><th>Proprietär</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Quellcode</strong></td>
+            <td>öffentlich einsehbar und veränderbar (unter einer
+              Open-Source-Lizenz wie GPL oder MIT)</td>
+            <td>unter Verschluss, nur der Hersteller darf ihn ändern</td>
+          </tr>
+          <tr>
+            <td><strong>Anpassbarkeit</strong></td>
+            <td>hoch — jeder mit den nötigen Kenntnissen kann die
+              Software erweitern oder anpassen</td>
+            <td>eingeschränkt auf das, was der Hersteller an
+              Konfigurationsmöglichkeiten anbietet</td>
+          </tr>
+          <tr>
+            <td><strong>Support</strong></td>
+            <td>oft Community-basiert oder über Drittanbieter, seltener
+              ein zentraler Hersteller-Support</td>
+            <td>meist direkter Hersteller-Support im Lizenzpreis
+              enthalten</td>
+          </tr>
+          <tr>
+            <td><strong>Abhängigkeit</strong></td>
+            <td>geringere Abhängigkeit von einem einzelnen Anbieter</td>
+            <td>stärkere Bindung an den Hersteller (Vendor Lock-in)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die IT-Systemlandschaft der TechNord GmbH umfasst mehrere
+        Branchensoftware-Typen:
+      </p>
+      <ul>
+        <li><strong>ERP</strong> verbindet Buchhaltung, Lagerbestand und
+          Personalverwaltung in einem gemeinsamen System.</li>
+        <li><strong>CRM</strong> hält jeden Kundenkontakt und offene
+          Angebote nach, damit der Vertrieb den Überblick behält.</li>
+        <li><strong>CMS</strong>: Für die öffentliche Firmenwebsite steht
+          die Wahl zwischen einem <strong>Open-Source-CMS</strong>
+          (volle Kontrolle über den Code, aber eigener Wartungsaufwand)
+          und einem <strong>proprietären CMS</strong> (Support direkt
+          vom Anbieter, dafür Abhängigkeit von dessen Preis- und
+          Update-Politik) — TechNord entscheidet sich für das
+          Open-Source-CMS, da ein eigenes Entwicklerteam vorhanden ist.</li>
+        <li><strong>DMS</strong> archiviert eingehende Rechnungen
+          revisionssicher mit Volltextsuche, statt Papierordner zu führen.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ERP verbindet zentrale Geschäftsprozesse, CRM verwaltet
+        Kundenbeziehungen, CMS pflegt Website-Inhalte ohne Code, DMS
+        archiviert Dokumente durchsuchbar. OEM-Software ist an ein Gerät
+        gebunden. Open Source bietet Kontrolle und Anpassbarkeit bei
+        eigenem Wartungsaufwand, proprietär bietet Hersteller-Support bei
+        stärkerer Abhängigkeit (Vendor Lock-in).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/branchensoftware.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

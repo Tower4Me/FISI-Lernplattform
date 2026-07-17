@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: Datenbank-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">Datenbank-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Datenbank-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Drei Kolleginnen im Vertrieb pflegen denselben Kundenbestand –
+        jede in ihrer eigenen Excel-Tabelle auf ihrem eigenen Rechner. Eine
+        Kundin zieht um, wird aber nur in einer der drei Tabellen
+        aktualisiert. Zwei Mitarbeiterinnen tragen zeitgleich eine neue
+        Bestellung für denselben Kunden ein – am Ende überschreibt eine
+        Datei die andere, eine Bestellung geht spurlos verloren.
+      </p>
+      <p>
+        Genau dieses Chaos aus <strong>Redundanz</strong> (dieselbe Info an
+        mehreren Stellen), <strong>Inkonsistenz</strong> (widersprüchliche
+        Stände) und fehlendem <strong>Mehrbenutzerschutz</strong> soll ein
+        <strong>Datenbankmanagementsystem (DBMS)</strong> verhindern: ein
+        einziger, zentraler, gut organisierter Datenbestand, auf den alle
+        gleichzeitig kontrolliert zugreifen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>Datenbank</strong> ist eine organisierte, dauerhaft
+        gespeicherte Sammlung zusammengehöriger Daten. Das
+        <strong>Datenbankmanagementsystem (DBMS)</strong> ist die Software,
+        die diese Datenbank verwaltet. Zu den Kernaufgaben eines DBMS
+        gehören:
+      </p>
+      <ul>
+        <li><strong>Datenhaltung</strong> – Speichern, Ändern, Löschen von Daten über eine definierte Struktur (Schema).</li>
+        <li><strong>Konsistenzsicherung</strong> – Regeln (Constraints, Transaktionen) verhindern widersprüchliche Daten.</li>
+        <li><strong>Mehrbenutzerbetrieb</strong> – mehrere Personen greifen gleichzeitig zu, ohne sich gegenseitig Daten zu überschreiben (Sperren, Transaktionen).</li>
+        <li><strong>Zugriffskontrolle</strong> – Rechteverwaltung, wer welche Daten lesen/ändern darf (siehe DCL/GRANT).</li>
+        <li><strong>Ausfallsicherheit</strong> – Wiederherstellung nach einem Absturz (Logging, Backups, Recovery).</li>
+        <li><strong>Anfragesprache</strong> – eine standardisierte Sprache (bei relationalen DBs: SQL) zum gezielten Abfragen und Ändern der Daten.</li>
+      </ul>
+
+      <p>
+        Ein zentraler Begriff dabei ist das <strong>Schema</strong>: der
+        Bauplan der Datenbank – welche Tabellen es gibt, welche Spalten sie
+        haben, welche Datentypen und Beziehungen gelten. Das Schema ändert
+        sich selten, die eigentlichen <strong>Daten</strong> (die konkreten
+        Zeilen) ändern sich ständig. Diese Trennung von Struktur und Inhalt
+        ist einer der Vorteile eines DBMS gegenüber losen Excel-Dateien.
+      </p>
+
+      <p>
+        Datenbanken lassen sich grob in zwei Familien einteilen:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>Relationale DB</th><th>NoSQL-DB</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Struktur</td><td>feste Tabellen mit Spalten/Datentypen (Schema)</td><td>flexibel, oft schemalos</td></tr>
+          <tr><td>Beziehungen</td><td>über Primär-/Fremdschlüssel</td><td>meist eingebettet oder anwendungsseitig verwaltet</td></tr>
+          <tr><td>Anfragesprache</td><td>SQL (standardisiert)</td><td>je nach System unterschiedlich (z. B. Abfrageobjekte)</td></tr>
+          <tr><td>Stärken</td><td>starke Konsistenz, strukturierte Daten, komplexe Abfragen mit JOINs</td><td>hohe Skalierbarkeit, flexible/wechselnde Datenstruktur, große Datenmengen</td></tr>
+          <tr><td>Typische Beispiele</td><td>MySQL, PostgreSQL, MariaDB, Oracle</td><td>MongoDB (Dokument), Redis (Key-Value), Cassandra (Spalten), Neo4j (Graph)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        NoSQL selbst ist keine einzige Technik, sondern ein Sammelbegriff
+        für vier Grundkategorien: <strong>Dokumentenorientiert</strong>
+        (z. B. JSON-Dokumente), <strong>Key-Value</strong> (einfache
+        Schlüssel-Wert-Paare, sehr schnell), <strong>spaltenorientiert</strong>
+        (für sehr große, verteilte Datenmengen) und <strong>graphbasiert</strong>
+        (Knoten und Kanten, ideal für stark vernetzte Daten wie soziale
+        Netzwerke).
+      </p>
+
+      <p>
+        Damit mehrere Nutzer gleichzeitig konsistent arbeiten können, muss
+        jede <strong>Transaktion</strong> (ein zusammengehöriger Block von
+        Datenbankoperationen, z. B. „Betrag von Konto A abbuchen und auf
+        Konto B buchen") die <strong>ACID-Eigenschaften</strong> erfüllen:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Eigenschaft</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>A</strong>tomicity (Atomarität)</td><td>Eine Transaktion läuft vollständig durch oder gar nicht – kein „halb gebuchter" Zustand.</td></tr>
+          <tr><td><strong>C</strong>onsistency (Konsistenz)</td><td>Die Datenbank bleibt vor und nach der Transaktion in einem gültigen Zustand (alle Constraints eingehalten).</td></tr>
+          <tr><td><strong>I</strong>solation (Isolation)</td><td>Parallel laufende Transaktionen beeinflussen sich nicht gegenseitig, als liefen sie nacheinander.</td></tr>
+          <tr><td><strong>D</strong>urability (Dauerhaftigkeit)</td><td>Eine abgeschlossene (committete) Transaktion bleibt auch nach einem Absturz dauerhaft gespeichert.</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Relationale Datenbanken garantieren ACID standardmäßig für alle
+        Transaktionen; viele NoSQL-Systeme lockern diese Garantien bewusst
+        zugunsten von Geschwindigkeit und Skalierbarkeit (sogenanntes
+        „Eventual Consistency" – Daten werden erst nach kurzer Verzögerung
+        überall konsistent).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus plant eine neue Warenwirtschaft und muss
+        entscheiden, welche Datenbankart für welchen Zweck passt.
+      </p>
+      <ul>
+        <li>
+          <strong>Kunden- und Rechnungsdaten</strong> wandern in eine
+          <strong>relationale Datenbank</strong>: feste Struktur (Kunde,
+          Bestellung, Rechnung), klare Beziehungen, und bei einer
+          Rechnungsbuchung muss ACID zwingend gelten – ein Zahlungseingang
+          darf niemals nur „halb" verbucht werden.
+        </li>
+        <li>
+          <strong>Produktbewertungen und Logdaten</strong> der Webshop-App
+          werden dagegen in einer <strong>dokumentenorientierten
+          NoSQL-Datenbank</strong> gespeichert: Struktur und Umfang der
+          Bewertungen ändern sich häufig (mal mit Foto, mal ohne, mal mit
+          Zusatzfeldern), ein starres Tabellenschema wäre hinderlich.
+        </li>
+        <li>
+          Zwei Mitarbeiter versuchen zeitgleich, das letzte Stück eines
+          Artikels zu verkaufen. Das DBMS sorgt über
+          <strong>Isolation</strong> dafür, dass nur eine der beiden
+          Transaktionen den Lagerbestand erfolgreich auf 0 reduziert – die
+          zweite erhält eine Fehlermeldung „nicht mehr vorrätig", statt den
+          Bestand ins Negative zu buchen.
+        </li>
+        <li>
+          Stürzt der Datenbankserver während einer Buchung ab, sorgt die
+          <strong>Durability</strong>-Garantie dafür, dass bereits
+          bestätigte (committete) Buchungen nach dem Neustart weiterhin
+          vorhanden sind – nicht abgeschlossene Buchungen werden komplett
+          zurückgerollt (Atomarität).
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Nennen Sie die vier ACID-Eigenschaften und
+        erläutern Sie kurz eine davon anhand eines Beispiels." oder
+        „Nennen Sie zwei Aufgaben eines Datenbankmanagementsystems."
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein DBMS verwaltet Daten zentral über ein Schema und sichert
+        Konsistenz sowie Mehrbenutzerbetrieb über Transaktionen nach dem
+        ACID-Prinzip (Atomarität, Konsistenz, Isolation, Dauerhaftigkeit).
+        Relationale Datenbanken bieten festes Schema, SQL und starke
+        Konsistenz; NoSQL-Datenbanken (Dokument, Key-Value, Spalten, Graph)
+        bieten mehr Flexibilität und Skalierbarkeit bei lockereren
+        Konsistenzgarantien.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/db-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

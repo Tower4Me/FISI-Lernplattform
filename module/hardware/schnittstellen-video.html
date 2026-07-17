@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Schnittstellen & Video</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Schnittstellen & Video</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Schnittstellen & Video
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Computer ist wie ein Gebäude mit mehreren Türen, und jede Tür ist
+        für einen bestimmten Zweck gebaut: eine breite Lieferantentür für
+        große Datenmengen (USB), ein Kabelkanal speziell für Bild und Ton
+        (HDMI/DisplayPort) und ein Postschlitz fürs Netzwerk (RJ45). USB-C
+        ist dabei die ungewöhnliche Tür, die alles gleichzeitig kann — Daten,
+        Video und sogar Strom durch denselben schmalen Rahmen, je nachdem,
+        was auf der anderen Seite angeschlossen ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>USB: Steckertypen und Generationen</h3>
+      <p>
+        USB (Universal Serial Bus) unterscheidet zwei unabhängige Dinge, die
+        gerne verwechselt werden: die <strong>Steckerform</strong> (Typ A, B,
+        C) und die <strong>Datenrate</strong> (die Generation/Version).
+      </p>
+      <table>
+        <thead>
+          <tr><th>Steckertyp</th><th>Merkmal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>USB Typ A</strong></td><td>flacher rechteckiger Stecker, nur in einer Ausrichtung einsteckbar, klassisch am PC/Notebook</td></tr>
+          <tr><td><strong>USB Typ B</strong></td><td>quadratisch, meist an Peripheriegeräten (ältere Drucker, Scanner)</td></tr>
+          <tr><td><strong>USB Typ C</strong></td><td>oval, <em>verpolungssicher</em> (beidseitig einsteckbar), transportiert je nach Modus Daten, Video (Alt Mode) und Strom (Power Delivery) gleichzeitig</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr><th>Generation</th><th>Bezeichnung (alt/neu)</th><th>Datenrate</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>USB 2.0</td><td>Hi-Speed</td><td>480 Mbit/s</td></tr>
+          <tr><td>USB 3.0 / 3.1 Gen 1</td><td>USB 3.2 Gen 1</td><td>5 Gbit/s</td></tr>
+          <tr><td>USB 3.1 Gen 2</td><td>USB 3.2 Gen 2</td><td>10 Gbit/s</td></tr>
+          <tr><td>USB 3.2 Gen 2×2</td><td>USB 3.2 Gen 2×2</td><td>20 Gbit/s</td></tr>
+          <tr><td>USB4</td><td>USB4</td><td>bis 40 Gbit/s (baut auf Thunderbolt 3 auf)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Wichtig für die Praxis: Der Steckertyp sagt nichts über die
+        Geschwindigkeit aus. Ein USB-C-Stecker kann eine langsame USB-2.0-
+        Verbindung genauso führen wie ein schnelles USB4 — entscheidend ist,
+        welcher Chip dahinter steckt.
+      </p>
+
+      <h3>HDMI und DisplayPort: reine Bild-/Tonübertragung</h3>
+      <table>
+        <thead>
+          <tr><th>Standard</th><th>Version</th><th>Leistungsfähigkeit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="3"><strong>HDMI</strong></td><td>1.4</td><td>4K bei 30 Hz</td></tr>
+          <tr><td>2.0</td><td>4K bei 60 Hz</td></tr>
+          <tr><td>2.1</td><td>8K bei 60 Hz bzw. 4K bei 120 Hz, variable Bildwiederholrate (VRR)</td></tr>
+          <tr><td rowspan="2"><strong>DisplayPort</strong></td><td>1.4</td><td>8K bei 30 Hz / 4K bei 120 Hz, Multi-Stream-Transport (mehrere Monitore an einer Leitung in Reihe)</td></tr>
+          <tr><td>2.0/2.1</td><td>deutlich höhere Bandbreite, mehrere 4K-Monitore gleichzeitig</td></tr>
+        </tbody>
+      </table>
+      <p>
+        HDMI stammt aus dem Consumer-/Heimkino-Bereich (inkl. Audio Return
+        Channel für Soundbars), DisplayPort aus dem PC-/Profi-Monitor-Bereich.
+        Beide übertragen Bild und Ton digital und unkomprimiert über ein
+        einziges Kabel.
+      </p>
+
+      <h3>Thunderbolt: ein Kabel für alles</h3>
+      <p>
+        Thunderbolt (Version 3 und 4) nutzt denselben USB-C-Stecker wie
+        USB, geht aber weiter: Ein Thunderbolt-Kabel tunnelt gleichzeitig
+        <strong>PCIe</strong> (z. B. für externe Grafikkarten oder schnelle
+        externe SSDs), <strong>DisplayPort</strong> (Bildsignal) und
+        <strong>USB-Daten</strong> — plus Power Delivery zum Laden. Ein
+        Thunderbolt-4-Anschluss erreicht bis zu 40 Gbit/s und ist
+        abwärtskompatibel zu USB4 und USB-C. Nicht jeder USB-C-Anschluss
+        ist Thunderbolt-fähig, aber jeder Thunderbolt-Anschluss ist auch
+        ein normaler USB-C-Anschluss.
+      </p>
+
+      <h3>RJ45: der Netzwerkstecker</h3>
+      <p>
+        RJ45 (8P8C) ist der Standardstecker für Twisted-Pair-Ethernetkabel
+        (Cat 5e/6/6a). Er verbindet Endgeräte kabelgebunden mit Switch oder
+        Router. Details zu Kategorien, Dämpfung und Verlegung stehen in der
+        Einheit <em>Verkabelung</em> in Modul 4 — hier zählt vor allem: RJ45
+        ist rein für Netzwerkdaten, nicht für Bild oder Strom gedacht.
+      </p>
+
+      <p>Teste, ob eine IP-Konfiguration an einer Netzwerkkarte (NIC) gültig ist:</p>
+      <div class="tool" data-tool="nic-simulator">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+
+      <h3>Überblick: welcher Anschluss wofür</h3>
+      <table>
+        <thead>
+          <tr><th>Anschluss</th><th>Haupteinsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>USB-A / USB-C</td><td>Daten, Peripherie, Laden (Power Delivery bei USB-C)</td></tr>
+          <tr><td>HDMI</td><td>Bild + Ton, Consumer-/Heimkinobereich</td></tr>
+          <tr><td>DisplayPort</td><td>Bild + Ton, professionelle Monitore, Multi-Monitor-Ketten</td></tr>
+          <tr><td>Thunderbolt (USB-C)</td><td>Daten + Bild + Strom + PCIe-Tunneling in einem Kabel</td></tr>
+          <tr><td>RJ45</td><td>kabelgebundenes Ethernet-Netzwerk</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein neuer Arbeitsplatz bei der TechNord GmbH soll eingerichtet
+        werden: Notebook mit einem einzigen USB-C-Anschluss, ein externer
+        Monitor mit DisplayPort-Eingang, kabelgebundenes Netzwerk und ein
+        Ladegerät. Der Techniker plant eine <strong>Thunderbolt-4-
+        Dockingstation</strong>:
+      </p>
+      <ul>
+        <li><strong>Ein Kabel zum Notebook</strong> genügt, weil Thunderbolt
+          USB-Daten, DisplayPort-Signal (per Alt Mode zum Monitor) und Power
+          Delivery zum Laden gleichzeitig durch dieselbe Leitung tunnelt.</li>
+        <li><strong>RJ45-Port an der Dock</strong> verbindet das Notebook
+          kabelgebunden mit dem Firmennetz, ohne dass das Notebook selbst
+          einen Netzwerkanschluss braucht.</li>
+        <li><strong>DisplayPort-Ausgang an der Dock</strong> steuert den
+          Monitor mit voller Auflösung an — ein einfaches USB-2.0-Kabel
+          könnte das Bildsignal gar nicht führen.</li>
+      </ul>
+      <p>
+        Ergebnis: Eine einzige Thunderbolt-4-Dock ersetzt vier separate
+        Kabel (Video, Netzwerk, Daten, Strom) durch eine Verbindung zum
+        Notebook — typisches Szenario bei der Einrichtung eines modernen
+        IT-Arbeitsplatzes.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Steckerform (A/B/C) und Datenrate (USB 2.0–USB4) sind zwei
+        verschiedene Eigenschaften von USB. HDMI kommt aus dem Consumer-,
+        DisplayPort aus dem Profi-Bereich — beide übertragen nur Bild/Ton.
+        Thunderbolt nutzt den USB-C-Stecker, tunnelt aber zusätzlich PCIe
+        und DisplayPort in einem Kabel. RJ45 ist der Stecker fürs
+        kabelgebundene Netzwerk, nicht für Video oder Strom.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/schnittstellen-video.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/nic-simulator.js"></script>
+</body>
+</html>

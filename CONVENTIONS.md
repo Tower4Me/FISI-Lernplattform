@@ -145,16 +145,21 @@ Mapping-Empfehlung: P1/P2 → `Kern`, P3/Bonus → Einzelfallentscheidung,
 
 ## 5. Farbkonzept
 
-Hex-Werte sind gesetzt, aber projektweit an einer Stelle überschreibbar
-(CSS-Variablen). Bei Änderung: nur hier und in der zentralen CSS anpassen.
+Seit dem Theming-Umbau (vier Themes, siehe Abschnitt 12) sind Farb-Slots in
+**zwei Gruppen** aufgeteilt. Nur hier und in `assets/style.css` ändern.
 
-Basis / UI:
-- `--bg` Seitenhintergrund: `#0f1720`
-- `--surface` Karten/Boxen: `#1b2530`
-- `--text` Fließtext: `#e6edf3`
-- `--text-muted` Sekundärtext: `#9fb0c0`
-- `--border` Linien/Trenner: `#2b3947`
-- `--link` Links/Breadcrumb: `#4aa3ff`
+### Gruppe 1 — Basis-UI (wechselt pro Theme)
+
+7 Slots, die in `:root` (white-Default) sowie je einmal in
+`[data-theme="dark"|"creme"|"terminal"]` gesetzt werden:
+`--bg`, `--surface`, `--surface-2`, `--text`, `--text-muted`, `--border`,
+`--link`. Konkrete Werte je Theme: siehe Abschnitt 12 (dort keine
+Duplizierung dieser Liste, um Werte nicht doppelt pflegen zu müssen).
+
+### Gruppe 2 — semantisch (identisch über ALLE vier Themes)
+
+Diese Slots kodieren Lern-Bedeutung, nicht Theme-Ästhetik, und stehen
+**genau einmal** in `:root`:
 
 Badge Gruppe A (Wichtigkeit):
 - `Kern` — Text `#0f1720` auf `#3fb950` (Grün, kräftig)
@@ -164,18 +169,48 @@ Badge Gruppe B (Prüfungsteil):
 - `AP1` — Text `#0f1720` auf `#e3b341` (Amber)
 - `AP2` — Text `#0f1720` auf `#a371f7` (Violett)
 
-Abschnitts-Akzente (linke Kante/Icon je Abschnitt):
-- Einstieg `#4aa3ff` (Blau)
-- Konzept `#e6edf3` (Neutral)
-- Praxisbeispiel `#3fb950` (Grün)
-- Merksatz `#e3b341` (Amber, hervorgehoben)
-- Quiz `#a371f7` (Violett)
+Abschnitts-Akzente (linke Kante je Abschnitt):
+- Einstieg `#2f7fd1` (Blau, gedeckter) — **geändert** von `#4aa3ff`
+- Konzept `#6b7280` (neutrales Grau) — **geändert** von `#e6edf3`
+- Praxisbeispiel `#2f8f46` (Grün, gedeckter) — **geändert** von `#3fb950`
+- Merksatz `#e3b341` (Amber) — unverändert
+- Quiz `#a371f7` (Violett) — unverändert
 
 Semantik Quiz-Feedback:
-- Richtig `#3fb950`, Falsch `#f85149`.
+- Richtig `#2f8f46` — **geändert** von `#3fb950`
+- Falsch `#e5484d` — **geändert** von `#f85149`
 
-Kontrast: Alle Badge-Kombinationen erfüllen mind. WCAG AA (4.5:1) für Text.
-Wenn ein Hex geändert wird, Kontrast neu prüfen.
+### Warum diese drei Änderungen (Kontrast-Fix beim Theming-Umbau)
+
+`--acc-konzept` war `#e6edf3` (fast weiß) — auf den hellen Themes (white/
+creme) praktisch unsichtbar, da Rahmenfarbe fast gleich dem hellen
+Untergrund. Ersetzt durch ein neutrales Grau, das auf Hell UND Dunkel als
+Rahmenakzent funktioniert (≥3:1 gegen beide Extreme, WCAG 1.4.11 für
+Nicht-Text-UI).
+
+`--ok`, `--fail`, `--acc-praxis` und `--acc-einstieg` waren gegen einen
+hellen Hintergrund kontrastarm (`--ok`/`--acc-praxis` ~2.5:1, `--fail`
+~3.35:1, `--acc-einstieg` ~2.64:1 gegen Weiß — teils Text, teils Rahmen).
+Da ein einzelner Farbwert, der gleichzeitig AA-Textkontrast (4.5:1) gegen
+Weiß UND gegen das fast-schwarze Dark/Terminal-`--surface` erreicht,
+rechnerisch nicht existiert, wurden alle vier **einmal global** (gilt für
+alle vier Themes gleich, keine Per-Theme-Abweichung) etwas dunkler/satter
+gezogen — Kompromiss zwischen Lesbarkeit auf Hell und der bisherigen
+Signalwirkung auf Dunkel. `--acc-merksatz` (`#e3b341`, Amber) bleibt trotz
+niedrigem Kontrast auf Hell (~1.95:1) bewusst unverändert — offene
+Restkollision, noch keine Entscheidung getroffen. `--acc-quiz` (`#a371f7`)
+besteht bereits knapp (~3.36:1) und wurde nicht angefasst.
+`--badge-kern-bg` (Badge-Pille „Kern") bleibt ebenfalls beim alten
+`#3fb950` — Badges sind in sich geschlossene Pillen (eigene bg+fg-Kombi,
+kontrastunabhängig vom Seitenhintergrund) und daher von der obigen
+Kollision nicht betroffen; es existieren dadurch aktuell zwei leicht
+unterschiedliche Grüntöne im System (`#3fb950` nur für die Kern-Badge,
+`#2f8f46` für `--ok`/`--acc-praxis`).
+
+Kontrast: Alle Badge-Kombinationen erfüllen weiterhin mind. WCAG AA
+(4.5:1) für Text (in sich geschlossene Pillen). Wenn ein Gruppe-2-Hex
+geändert wird: Kontrast gegen **beide** Extreme (helles UND dunkles
+`--surface`) neu prüfen, nicht nur gegen ein Theme.
 
 ---
 
@@ -220,6 +255,16 @@ Begriff durchgehend dieselbe Schreibweise verwenden.
 - Abschnitt 8 (Fachbegriffe): Begriffspaare fehlen noch.
 - ~~Bestandskorrektur toms.html/toms.json (Ersatzschreibweisen ae/ue/oe)~~ —
   erledigt, echte Umlaute eingesetzt.
+- `--acc-merksatz` (`#e3b341`, Amber) hat auf den hellen Themes (white/creme)
+  weiterhin niedrigen Rahmenkontrast (~1.95:1 gegen Weiß) — bewusst nicht im
+  Theming-Umbau angefasst, offene Entscheidung für später.
+- Quiz-Feedback (`--ok`/`--fail`) rein über Text-/Rahmenfarbe zu signalisieren
+  ist grundsätzlich a11y-schwach (Farbe als einziges Signal). Sauberere Lösung
+  (Hintergrund-Chip/Icon statt Textfarbe) als separate Folgeaufgabe vorgemerkt,
+  nicht Teil des Theming-Umbaus.
+- Druck-Layout (Umbruchregeln `break-inside`/`break-after`, Ausblenden von
+  Theme-Switcher/Quiz-Interaktion) ist als separate Folgeaufgabe offen — nur
+  die Farb-Erzwingung (`@media print` → white-Werte) ist bereits umgesetzt.
 
 ---
 
@@ -278,34 +323,107 @@ Vor jedem Push: `git status` prüfen.
   der 5 Pflicht-Sektionen.
 - Nur einsetzen, wenn die Abbildung echten Erkenntnisgewinn bringt
   (Ablauf, Struktur, Zusammenhang). Keine dekorativen Bilder.
+- Alle 8 aktuell existierenden Inline-SVGs (Stand Theming-Umbau) nutzen bereits
+  durchgehend `var(--...)` — keine hardgecodeten Hex-Werte gefunden. Dadurch
+  folgen Abbildungen automatisch allen vier Themes, ohne dass die SVGs selbst
+  angepasst werden müssen.
+- Ausnahme, die NICHT automatisch themefähig ist: `<img src="*.svg">`
+  (referenzierte Rastergrafik-Einbindung statt Inline-SVG). Kommt aktuell
+  nirgends vor — falls doch eingeführt, folgt sie dem Theme nicht (kein
+  `var()`-Zugriff über die Dateigrenze) und muss separat gelöst werden.
 
 ---
 
-## 12. Theme & Druck
+## 12. Theming & Druck
 
-### Farbnutzung (Voraussetzung für beides)
-Farben ausschließlich über die CSS-Variablen aus Abschnitt 5. Keine Hex-Werte
-in HTML, SVG oder Inline-Styles. Das ist die Bedingung dafür, dass Light-Mode
-und Druckansicht später als reiner Variablen-Swap umsetzbar sind.
+### Vier Themes, flache Liste
 
-### Light-Mode
-- Umsetzung über `[data-theme="light"]` auf `<html>`, Variablen-Swap in style.css.
-- Persistenz per localStorage, Default = Systempräferenz
-  (`prefers-color-scheme`).
-- Einheiten-HTML enthält KEINE theme-spezifische Logik.
+Vier gleichberechtigte Themes, gesetzt über `data-theme` am `<html>`-Element:
+`white` (neutrales Hell, Default), `dark` (neutrales Dunkel, entspricht der
+ursprünglichen alleinigen `:root`), `creme` (warmes Cremeweiß, brauner
+Unterton, Gold-Link) und `terminal` (sehr dunkles Anthrazit,
+Limettengrün-Akzent). Das ist eine **flache Liste**, keine zwei Achsen
+(kein "Skin über Hell/Dunkel-Modus") — `white`/`dark` sind zwei von vier
+gleichrangigen Optionen, keine Sonderrolle.
+
+### Slot-Gruppen (siehe auch Abschnitt 5)
+
+- **Gruppe 1** (Basis-UI, 7 Slots: `--bg`, `--surface`, `--surface-2`,
+  `--text`, `--text-muted`, `--border`, `--link`) wird in JEDEM Theme-Block
+  neu gesetzt. `white` hat **keinen eigenen Block** — die Werte liegen direkt
+  als Default in `:root` und werden von `[data-theme="dark"|"creme"|"terminal"]`
+  überschrieben.
+- **Gruppe 2** (semantisch: Badges, Abschnitts-Akzente, Quiz-Feedback) steht
+  **genau einmal** in `:root`, wird in keinem Theme-Block wiederholt und
+  ändert sich nie zwischen Themes.
+
+Konkrete Gruppe-1-Werte je Theme (alle außer `dark` als **Vorschlag**
+markiert, justierbar):
+
+| Slot | white (Default) | dark | creme (Vorschlag) | terminal (Vorschlag) |
+|---|---|---|---|---|
+| `--bg` | `#ffffff` | `#0f1720` | `#f5efe0` | `#0d0f0d` |
+| `--surface` | `#f4f5f7` | `#1b2530` | `#fffcf5` | `#141714` |
+| `--surface-2` | `#e9ebee` | `#223042` | `#ece0c4` | `#1c201c` |
+| `--text` | `#1a2430` | `#e6edf3` | `#3a2f22` | `#c9f2c0` |
+| `--text-muted` | `#5b6772` | `#9fb0c0` | `#7d6a4e` | `#7c9c74` |
+| `--border` | `#d8dce1` | `#2b3947` | `#ddccaa` | `#2a332a` |
+| `--link` | `#1f6feb` | `#4aa3ff` | `#9c6b1a` (Gold) | `#39ff14` (Lime) |
+
+Farbnutzung als Voraussetzung: ausschließlich über CSS-Variablen, nirgends
+Hex-Werte in HTML, SVG oder Inline-Styles außerhalb von `assets/style.css`
+(siehe Abschnitt 11) — sonst bricht der Theme-Wechsel an dieser Stelle.
+
+### Systemerkennung, Persistenz, FOUC (`assets/theme.js`)
+
+- Beim Laden: gespeichertes Theme aus `localStorage` (Key `fisi:theme`) hat
+  Vorrang. Sonst `window.matchMedia("(prefers-color-scheme: dark)")` →
+  `dark` bei dunkler Systempräferenz, sonst `white`. `creme`/`terminal` sind
+  reine Nutzerwahl, das System kennt nur hell/dunkel.
+- Jede manuelle Auswahl im Menü (auch explizit „White Mode“ oder
+  „Dark Mode“) überschreibt die Systemerkennung dauerhaft und wird in
+  `localStorage` gespeichert. Solange kein manueller Wert gespeichert ist,
+  reagiert die Seite live auf Änderungen der Systempräferenz.
+- FOUC-Vermeidung: ein winziges Inline-`<script>` im `<head>`, **vor** dem
+  `<link rel="stylesheet">`, setzt `data-theme` synchron und pfadunabhängig
+  (kein Asset-Pfad nötig, da nur `localStorage`/`matchMedia`/`documentElement`
+  angefasst werden — dieselbe Zeile funktioniert identisch in `index.html`
+  und jeder Unit). Das eigentliche `assets/theme.js` (Menü-Aufbau, Klick-
+  Handling, `matchMedia`-Listener) lädt normal am Seitenende nach
+  `quiz-engine.js` und muss NICHT blockierend eingebunden werden, da das
+  Inline-Snippet die FOUC-kritische Arbeit bereits erledigt hat.
+- Beide Ergänzungen sind rein mechanisch (ein Inline-Snippet + ein
+  `<script src=".../assets/theme.js">`) und enthalten keine
+  einheiten-spezifische Logik — die Regel „Einheiten-HTML enthält KEINE
+  theme-spezifische Logik“ bleibt damit gültig.
+
+### Umschalt-Menü
+
+Ein Button/Menü, von `theme.js` selbst in den DOM injiziert (kein
+manuelles Markup in den Units nötig), mit vier Einträgen in fester
+Reihenfolge: **White Mode, Dark Mode** (das Hell/Dunkel-Paar, oben),
+darunter durch einen Trenner abgesetzt **Creme, Terminal** (die
+Spezialdesigns). Zeigt die aktive Auswahl an (Haken-Präfix + Linkfarbe).
+Barrierefrei: `role="menu"`/`menuitemradio`, `aria-haspopup`,
+`aria-expanded`, `aria-checked`, Pfeiltasten-Navigation im Menü, Escape
+schließt, Klick außerhalb schließt. Kein CDN, reines Vanilla-JS/CSS.
 
 ### Druck
+
 - Druckgranularität: eine Einheit = ein Druckvorgang. Kein Sammeldruck.
-- Umsetzung zentral in style.css unter `@media print`. Einheiten-HTML enthält
-  keine Druck-Sonderlogik.
+- `@media print` erzwingt IMMER die white-Gruppe-1-Werte, unabhängig vom
+  aktiven Theme (Regel steht in `style.css` nach den Theme-Blöcken, damit
+  die Spezifität greift). Umsetzung zentral in `style.css`, Einheiten-HTML
+  enthält keine Druck-Sonderlogik.
 - Mehrseitiger Fluss ist gewollt. Kein Herunterskalieren auf eine Seite.
-- Ausgeblendet beim Druck: Navigation, Breadcrumbs, Theme-Toggle,
+- Ausgeblendet beim Druck: Navigation, Breadcrumbs, Theme-Switcher,
   Quiz-Interaktion (Buttons, Feedback).
 - Sichtbar beim Druck: alle 5 Pflicht-Sektionen, Abbildungen, Quizfragen
   inkl. Antwortoptionen (Lösung ausgeblendet).
-- Umbruchregeln: `break-inside: avoid` für Abbildungen, Merksatz-Box und
-  Quiz-Fragen; nach Überschriften `break-after: avoid`.
-- Hintergrund weiß, Text schwarz.
+- Umbruchregeln (noch offen/separat umzusetzen): `break-inside: avoid` für
+  Abbildungen, Merksatz-Box und Quiz-Fragen; nach Überschriften
+  `break-after: avoid`. Nur die Farbregel ist mit dem Theming-Umbau bereits
+  angelegt, das restliche Druck-Layout ist eine separate Folgeaufgabe.
 
 ---
 

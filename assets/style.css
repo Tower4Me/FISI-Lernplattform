@@ -1,10 +1,58 @@
 /* ==========================================================================
-   style.css — Dunkles Theme fuer FISI-Lerneinheiten
-   Farbwerte gemaess CONVENTIONS.md §5. Aenderungen NUR hier vornehmen.
+   style.css — Vier Themes fuer FISI-Lerneinheiten (white/dark/creme/terminal)
+   Farbwerte gemaess CONVENTIONS.md §5 + §Theming. Aenderungen NUR hier vornehmen.
+
+   Struktur:
+     :root                    -> Gruppe 2 (semantisch, global, ALLE Themes gleich)
+                                  + Layout-Vars + Gruppe 1 als "white"-Default
+     [data-theme="dark"]      -> Gruppe 1 (bestehende Werte aus alter :root)
+     [data-theme="creme"]     -> Gruppe 1 (Vorschlag)
+     [data-theme="terminal"]  -> Gruppe 1 (Vorschlag)
+   "white" hat KEINEN eigenen Block: es sind die :root-Default-Werte.
    ========================================================================== */
 
 :root {
-  /* Basis / UI */
+  /* Gruppe 1 (Basis-UI) — Default = white-Theme. Vorschlag, justierbar. */
+  --bg: #ffffff;         /* Vorschlag */
+  --surface: #f4f5f7;    /* Vorschlag */
+  --surface-2: #e9ebee;  /* Vorschlag */
+  --text: #1a2430;       /* Vorschlag */
+  --text-muted: #5b6772; /* Vorschlag */
+  --border: #d8dce1;     /* Vorschlag */
+  --link: #1f6feb;       /* Vorschlag */
+
+  /* Badge Gruppe A — Wichtigkeit (Gruppe 2, unveraendert ueber alle Themes) */
+  --badge-kern-bg: #3fb950;
+  --badge-kern-fg: #0f1720;
+  --badge-rand-bg: #4b5563;
+  --badge-rand-fg: #e6edf3;
+
+  /* Badge Gruppe B — Pruefungsteil (Gruppe 2) */
+  --badge-ap1-bg: #e3b341;
+  --badge-ap1-fg: #0f1720;
+  --badge-ap2-bg: #a371f7;
+  --badge-ap2-fg: #0f1720;
+
+  /* Abschnitts-Akzente (Gruppe 2) */
+  --acc-einstieg: #2f7fd1; /* Vorschlag — war #4aa3ff, gedeckter fuer Hell-Kontrast (Option B) */
+  --acc-konzept: #6b7280;  /* Vorschlag — war #e6edf3 (auf Hell unsichtbar), neutrales Grau */
+  --acc-praxis: #2f8f46;   /* Vorschlag — war #3fb950, gedeckter fuer Hell-Kontrast (Option B) */
+  --acc-merksatz: #e3b341; /* unveraendert, siehe CONVENTIONS Theming-Hinweis zu Restkollision */
+  --acc-quiz: #a371f7;     /* unveraendert */
+
+  /* Quiz-Feedback (Gruppe 2) */
+  --ok: #2f8f46;   /* Vorschlag — war #3fb950, gedeckter fuer Hell-Kontrast (Option B) */
+  --fail: #e5484d; /* Vorschlag — war #f85149, gedeckter fuer Hell-Kontrast (Option B) */
+
+  /* Layout */
+  --maxw: 820px;
+  --radius: 10px;
+  --gap: 1rem;
+}
+
+/* --------------------------------------------------------- Theme: dark --- */
+/* Bestehende :root-Werte aus dem bisherigen Dark-Only-Theme, unveraendert. */
+[data-theme="dark"] {
   --bg: #0f1720;
   --surface: #1b2530;
   --surface-2: #223042;
@@ -12,34 +60,30 @@
   --text-muted: #9fb0c0;
   --border: #2b3947;
   --link: #4aa3ff;
+}
 
-  /* Badge Gruppe A — Wichtigkeit */
-  --badge-kern-bg: #3fb950;
-  --badge-kern-fg: #0f1720;
-  --badge-rand-bg: #4b5563;
-  --badge-rand-fg: #e6edf3;
+/* -------------------------------------------------------- Theme: creme --- */
+/* Warmes Cremeweiss, brauner Unterton in den Neutralfarben, Gold als Link-Akzent. */
+[data-theme="creme"] {
+  --bg: #f5efe0;         /* Vorschlag */
+  --surface: #fffcf5;    /* Vorschlag */
+  --surface-2: #ece0c4;  /* Vorschlag */
+  --text: #3a2f22;       /* Vorschlag */
+  --text-muted: #7d6a4e; /* Vorschlag */
+  --border: #ddccaa;     /* Vorschlag */
+  --link: #9c6b1a;       /* Vorschlag — Gold-Highlight */
+}
 
-  /* Badge Gruppe B — Pruefungsteil */
-  --badge-ap1-bg: #e3b341;
-  --badge-ap1-fg: #0f1720;
-  --badge-ap2-bg: #a371f7;
-  --badge-ap2-fg: #0f1720;
-
-  /* Abschnitts-Akzente */
-  --acc-einstieg: #4aa3ff;
-  --acc-konzept: #e6edf3;
-  --acc-praxis: #3fb950;
-  --acc-merksatz: #e3b341;
-  --acc-quiz: #a371f7;
-
-  /* Quiz-Feedback */
-  --ok: #3fb950;
-  --fail: #f85149;
-
-  /* Layout */
-  --maxw: 820px;
-  --radius: 10px;
-  --gap: 1rem;
+/* ----------------------------------------------------- Theme: terminal --- */
+/* Sehr dunkles Anthrazit mit leichtem Gruenstich, Limettengruen als Akzent. */
+[data-theme="terminal"] {
+  --bg: #0d0f0d;         /* Vorschlag */
+  --surface: #141714;    /* Vorschlag */
+  --surface-2: #1c201c;  /* Vorschlag */
+  --text: #c9f2c0;       /* Vorschlag */
+  --text-muted: #7c9c74; /* Vorschlag */
+  --border: #2a332a;     /* Vorschlag */
+  --link: #39ff14;       /* Vorschlag — klassisches Terminal-Gruen */
 }
 
 /* ------------------------------------------------------------------ Reset */
@@ -338,3 +382,77 @@ code, kbd, pre {
   cursor: pointer;
 }
 table { display: block; max-width: 100%; overflow-x: auto; }
+
+/* ------------------------------------------------------ Theme-Switcher */
+.theme-switcher {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 100;
+}
+.theme-switcher__btn {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.theme-switcher__btn:hover,
+.theme-switcher__btn:focus-visible { border-color: var(--link); }
+.theme-switcher__menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  min-width: 10rem;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.theme-switcher__sep {
+  height: 1px;
+  margin: 0.35rem 0.2rem;
+  background: var(--border);
+  list-style: none;
+}
+.theme-switcher__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 0.85rem;
+  background: none;
+  color: var(--text);
+  border: 0;
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+  cursor: pointer;
+}
+.theme-switcher__item:hover,
+.theme-switcher__item:focus-visible { background: var(--surface-2); }
+.theme-switcher__item.is-active { color: var(--link); font-weight: 600; }
+.theme-switcher__item.is-active::before { content: "✓ "; }
+
+/* ------------------------------------------------------------- Druck --- */
+/* Druck erzwingt IMMER die white-Werte (Gruppe 1), unabhaengig vom aktiven
+   Theme. Muss nach den Theme-Bloecken stehen, damit die Spezifitaet greift. */
+@media print {
+  :root, [data-theme] {
+    --bg: #ffffff;
+    --surface: #f4f5f7;
+    --surface-2: #e9ebee;
+    --text: #1a2430;
+    --text-muted: #5b6772;
+    --border: #d8dce1;
+    --link: #1f6feb;
+  }
+  .theme-switcher { display: none; }
+}

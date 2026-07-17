@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: SQL & DDL</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">SQL & DDL</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      SQL & DDL
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Bevor TowerTech GmbH auch nur eine einzige Kundenakte digital
+        ablegen kann, braucht sie einen Aktenschrank mit passenden
+        Fächern: eines für Abteilungen, eines für Mitarbeitende. Erst wenn
+        der Schrank mit seinen Fächern steht, ergibt es einen Sinn, Akten
+        (Daten) hineinzulegen. Genau das ist die Aufgabe von
+        <strong>SQL</strong> in seiner strukturgebenden Rolle: bevor
+        irgendetwas gespeichert wird, muss erst einmal festgelegt werden,
+        <em>wie</em> die Datenbank überhaupt aufgebaut ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>SQL</strong> (Structured Query Language, strukturierte
+        Abfragesprache) ist die Standardsprache für relationale
+        Datenbanken. Mit ihr werden Daten abgefragt, verändert, die
+        Struktur der Datenbank definiert und Zugriffsrechte vergeben. SQL
+        gliedert sich in drei Unterbereiche:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Bereich</th><th>Zweck</th><th>Befehle</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>DDL</strong> (Data Definition Language)</td><td>Struktur der Datenbank festlegen</td><td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td></tr>
+          <tr><td><strong>DML</strong> (Data Manipulation Language)</td><td>Daten lesen und verändern</td><td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td></tr>
+          <tr><td><strong>DCL</strong> (Data Control Language)</td><td>Zugriffsrechte steuern</td><td><code>GRANT</code>, <code>REVOKE</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Diese Einheit behandelt DDL im Detail; DML und DCL folgen in
+        eigenen Einheiten.
+      </p>
+
+      <p>
+        Eine SQL-Anweisung (<strong>Query</strong>) endet mit einem
+        Semikolon <code>;</code>. Schlüsselwörter werden per Konvention
+        großgeschrieben, SQL selbst ist nicht case-sensitiv –
+        <code>select</code> und <code>SELECT</code> sind identisch.
+      </p>
+
+      <h3>SQL-Systeme im Vergleich</h3>
+      <p>
+        SQL ist standardisiert, aber jedes Datenbanksystem spricht einen
+        eigenen <strong>Dialekt</strong> mit kleinen Abweichungen:
+      </p>
+      <table>
+        <thead>
+          <tr><th>System</th><th>Stärke</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MySQL / MariaDB</strong></td><td>weit verbreitet, einfach</td><td>Webanwendungen, Shops</td></tr>
+          <tr><td><strong>PostgreSQL</strong></td><td>sehr standardkonform, mächtig</td><td>komplexe Systeme, Auswertungen</td></tr>
+          <tr><td><strong>SQLite</strong></td><td>keine Installation, eine Datei</td><td>mobile Apps, kleine Projekte, dieser Editor</td></tr>
+          <tr><td><strong>MS SQL Server</strong></td><td>tiefe Windows-Integration</td><td>Unternehmensumgebungen mit Microsoft-Stack</td></tr>
+          <tr><td><strong>Oracle DB</strong></td><td>sehr leistungsfähig, viele Zusatzfunktionen</td><td>große Konzerne, Banken</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Beispiel für Dialekt-Unterschiede: Eine automatisch hochzählende
+        ID heißt in MySQL <code>AUTO_INCREMENT</code>, in PostgreSQL
+        <code>SERIAL</code>, in SQLite <code>AUTOINCREMENT</code>. Der
+        SQL-Editor in dieser Einheit läuft auf SQLite.
+      </p>
+
+      <h3>CREATE TABLE</h3>
+      <p>Legt eine neue Tabelle mit ihren Spalten und Constraints an:</p>
+      <table>
+        <thead><tr><th>Tabelle</th><th>Spalten</th></tr></thead>
+        <tbody>
+          <tr><td><code>abteilung</code></td><td>abteilung_id (PK), name, buero_standort</td></tr>
+          <tr><td><code>mitarbeiter</code></td><td>mitarbeiter_id (PK), vollname, email (UNIQUE), jahresgehalt (DEFAULT 0), abteilung_id (FK → abteilung)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Wichtig: Zeigt eine Tabelle per Fremdschlüssel auf eine andere,
+        muss die referenzierte Tabelle <strong>zuerst</strong> angelegt
+        werden – <code>abteilung</code> vor <code>mitarbeiter</code>.
+      </p>
+
+      <h3>ALTER TABLE</h3>
+      <p>
+        Ändert eine bestehende Tabelle nachträglich – Spalten hinzufügen,
+        umbenennen oder die Tabelle selbst umbenennen. Beispiel: TowerTech
+        führt Homeoffice-Tage ein und muss die Tabelle
+        <code>mitarbeiter</code> um eine Spalte erweitern, ohne
+        vorhandene Daten zu verlieren.
+      </p>
+
+      <h3>DROP TABLE & TRUNCATE TABLE</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Wirkung</th><th>Daten weg?</th><th>Struktur weg?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>DROP TABLE</code></td><td>löscht Tabelle vollständig</td><td>ja</td><td>ja</td></tr>
+          <tr><td><code>TRUNCATE TABLE</code></td><td>leert Tabelle</td><td>ja</td><td>nein</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <code>DROP TABLE IF EXISTS …</code> löscht eine Tabelle nur, wenn
+        sie existiert – kein Fehler, falls nicht. SQLite kennt kein
+        <code>TRUNCATE</code>; dort wird stattdessen
+        <code>DELETE FROM tabelle;</code> verwendet.
+      </p>
+
+      <h3>Index</h3>
+      <p>
+        Ein <strong>Index</strong> beschleunigt Abfragen auf bestimmte
+        Spalten (z. B. die häufige Suche nach einer E-Mail-Adresse), kostet
+        dafür zusätzlichen Speicherplatz und verlangsamt
+        <code>INSERT</code>/<code>UPDATE</code>/<code>DELETE</code> leicht,
+        weil der Index mit aktualisiert werden muss. Primärschlüssel und
+        <code>UNIQUE</code>-Spalten sind automatisch indiziert.
+      </p>
+
+      <p>Probiere die Befehle direkt aus:</p>
+      <div class="tool" data-tool="sql-editor">
+        <script type="application/sql">
+          -- Startzustand: leere Datenbank. Lege die Tabellen selbst an.
+        </script>
+        <p class="muted">SQL-Editor wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Der Chef von TowerTech GmbH gibt einer Auszubildenden vier
+        Aufgaben für den SQL-Editor oben:
+      </p>
+      <ul>
+        <li>
+          <strong>Aufgabe 1:</strong> Tabelle <code>abteilung</code>
+          anlegen mit <code>abteilung_id</code> (INTEGER PRIMARY KEY),
+          <code>name</code> (VARCHAR(100) NOT NULL),
+          <code>buero_standort</code> (VARCHAR(100)).
+        </li>
+        <li>
+          <strong>Aufgabe 2:</strong> Tabelle <code>mitarbeiter</code>
+          anlegen mit <code>mitarbeiter_id</code> (INTEGER PRIMARY KEY),
+          <code>vollname</code> (VARCHAR(100) NOT NULL), <code>email</code>
+          (VARCHAR(150) UNIQUE), <code>jahresgehalt</code> (DECIMAL(10,2)
+          DEFAULT 0.00), <code>abteilung_id</code> (INTEGER, FOREIGN KEY
+          auf <code>abteilung.abteilung_id</code>).
+        </li>
+        <li>
+          <strong>Aufgabe 3:</strong> Nachträglich per
+          <code>ALTER TABLE</code> die Spalte
+          <code>homeoffice_tage</code> (INTEGER, Standardwert 0) zur
+          Tabelle <code>mitarbeiter</code> hinzufügen.
+        </li>
+        <li>
+          <strong>Aufgabe 4:</strong> Eine alte Testtabelle
+          <code>alte_testdaten</code> entfernen – aber ohne Fehler, falls
+          sie gar nicht existiert (<code>DROP TABLE IF EXISTS</code>).
+        </li>
+      </ul>
+      <p>
+        Tipp: Mit <code>PRAGMA table_info(mitarbeiter);</code> lässt sich
+        im Editor prüfen, welche Spalten eine Tabelle gerade hat.
+      </p>
+      <p>
+        Typische Prüfungsfrage: „Warum muss beim Anlegen von Tabellen mit
+        Fremdschlüsselbeziehung eine bestimmte Reihenfolge eingehalten
+        werden?" – Antwort: Der Fremdschlüssel muss auf einen bereits
+        existierenden Primärschlüssel zeigen können, also muss die
+        referenzierte Tabelle zuerst angelegt werden.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        SQL gliedert sich in DDL (Struktur), DML (Daten) und DCL (Rechte).
+        DDL-Befehle (<code>CREATE</code>, <code>ALTER</code>,
+        <code>DROP</code>, <code>TRUNCATE</code>) legen die Tabellenstruktur
+        fest und verändern sie – referenzierte Tabellen müssen vor
+        verweisenden Tabellen angelegt werden. SQL ist standardisiert,
+        aber jedes DBMS spricht einen eigenen Dialekt mit kleinen
+        Abweichungen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/sql-ddl.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/sql-editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: BIOS/UEFI & Bootvorgang</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">BIOS/UEFI & Bootvorgang</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      BIOS/UEFI & Bootvorgang
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Bevor ein Kaufhaus morgens öffnet, läuft eine feste Routine ab:
+        Zuerst prüft der Sicherheitsdienst, ob Alarmanlage, Notausgänge und
+        Beleuchtung funktionieren (Selbsttest). Dann schaut der
+        Filialleiter nach einer festen Checkliste, welcher Eingang zuerst
+        aufgeschlossen wird (Startreihenfolge). Erst danach übernimmt das
+        Tagesgeschäft. Ein Computer macht beim Einschalten genau dasselbe:
+        Er testet sich selbst (POST), folgt dann einer festen Prozedur in
+        seiner Firmware (BIOS/UEFI), um das richtige Startgerät zu finden,
+        und übergibt erst danach an das eigentliche Betriebssystem.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>BIOS vs. UEFI</h3>
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>BIOS</th><th>UEFI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Partitionstabelle</td><td>MBR (max. 2 TB, max. 4 primäre Partitionen)</td><td>GPT (>2 TB, praktisch unbegrenzt viele Partitionen)</td></tr>
+          <tr><td>Bedienung</td><td>reines Textmenü, nur Tastatur</td><td>grafische Oberfläche, oft mit Maus bedienbar</td></tr>
+          <tr><td>Startgeschwindigkeit</td><td>langsamer</td><td>schneller</td></tr>
+          <tr><td>Sicherheit</td><td>keine eingebaute Startprüfung</td><td>Secure Boot: prüft Signatur des Bootloaders, verhindert Start nicht autorisierter/manipulierter Software</td></tr>
+          <tr><td>Netzwerkfähigkeit</td><td>eingeschränkt</td><td>PXE-Boot und Netzwerkfunktionen bereits in der Firmware</td></tr>
+        </tbody>
+      </table>
+      <p>
+        UEFI ist der moderne Nachfolger von BIOS und heute Standard auf
+        neuen Mainboards. Viele UEFI-Firmwares bieten zusätzlich einen
+        „Legacy“- bzw. CSM-Modus (Compatibility Support Module), der sich
+        wie ein klassisches BIOS verhält, um sehr alte Betriebssysteme
+        weiter starten zu können.
+      </p>
+
+      <h3>POST (Power-On Self-Test)</h3>
+      <p>
+        Direkt nach dem Einschalten führt die Firmware einen Selbsttest
+        durch: Sind CPU, RAM und Grafikkarte grundlegend funktionsfähig?
+        Erst wenn der POST erfolgreich verläuft, geht es weiter zum
+        eigentlichen Bootvorgang. Schlägt der POST fehl, meldet das
+        System den Fehler oft schon, bevor überhaupt ein Bildschirmbild
+        aufgebaut werden kann — z. B. über eine feste Anzahl von
+        Signaltönen (Beep-Codes) oder LED-Blinkmuster, deren Bedeutung
+        vom Mainboard-Hersteller dokumentiert wird.
+      </p>
+
+      <h3>Ablauf des Bootvorgangs</h3>
+      <ol>
+        <li><strong>Power On</strong> — Netzteil liefert Spannung, CPU beginnt zu arbeiten</li>
+        <li><strong>POST</strong> — Selbsttest der Grundhardware</li>
+        <li><strong>Firmware (BIOS/UEFI)</strong> — sucht ein Startgerät gemäß der
+          eingestellten Boot-Reihenfolge (Boot Order)</li>
+        <li><strong>Bootloader</strong> — wird vom Startgerät geladen (bei BIOS/MBR
+          aus dem Bootsektor, bei UEFI aus der EFI-Systempartition)</li>
+        <li><strong>Betriebssystem-Kernel</strong> — wird vom Bootloader geladen
+          und übernimmt die weitere Kontrolle</li>
+      </ol>
+
+      <h3>S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology)</h3>
+      <p>
+        S.M.A.R.T. ist ein Überwachungssystem, das in praktisch jeder
+        SSD/HDD eingebaut ist. Die Firmware des Laufwerks protokolliert
+        laufend Betriebswerte und macht sie über Attribute auslesbar:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Beispiel-Attribut</th><th>Aussage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Reallocated Sectors Count</td><td>Anzahl fehlerhafter Sektoren, die durch Reservesektoren ersetzt wurden</td></tr>
+          <tr><td>Power-On Hours</td><td>gesamte Betriebsstunden des Laufwerks</td></tr>
+          <tr><td>Temperature</td><td>aktuelle Betriebstemperatur</td></tr>
+          <tr><td>Wear Leveling Count (SSD)</td><td>Abnutzungsgrad der Flash-Zellen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Steigen kritische Werte wie die Anzahl reallozierter Sektoren
+        deutlich an, ist das ein Frühwarnzeichen für einen bevorstehenden
+        Laufwerksausfall — Systemadministratoren können das Laufwerk dann
+        vorsorglich austauschen, bevor Daten verloren gehen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Server der TechNord GmbH startet nach einem Stromausfall nicht
+        mehr richtig. Der Techniker geht systematisch vor:
+      </p>
+      <p>
+        <strong>Schritt 1 — POST prüfen:</strong> Der Server piept beim
+        Einschalten in einem festen Muster. Im Mainboard-Handbuch steht,
+        dass dieser Beep-Code auf ein RAM-Problem hinweist. Nach dem
+        erneuten Einsetzen der Speichermodule läuft der POST fehlerfrei
+        durch.
+      </p>
+      <p>
+        <strong>Schritt 2 — Boot-Reihenfolge prüfen:</strong> Trotzdem
+        bootet der Server nicht vom internen Datenträger. Im UEFI-Setup
+        stellt sich heraus, dass die Boot-Reihenfolge durch den
+        Stromausfall auf ein nicht vorhandenes Netzwerk-Boot-Gerät
+        zurückgesetzt wurde. Nach Korrektur der Boot-Reihenfolge startet
+        das Betriebssystem.
+      </p>
+      <p>
+        <strong>Schritt 3 — S.M.A.R.T.-Werte kontrollieren:</strong> Vorsorglich
+        prüft der Techniker zusätzlich die S.M.A.R.T.-Werte der System-SSD.
+        Die „Reallocated Sectors Count“ ist seit dem letzten Check
+        deutlich gestiegen — ein Hinweis auf bevorstehenden Ausfall. Der
+        Techniker plant den Austausch der SSD im nächsten Wartungsfenster,
+        bevor sie tatsächlich ausfällt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        UEFI löst BIOS als Firmware-Standard ab: GPT statt MBR, grafische
+        Oberfläche, Secure Boot, schnellerer Start. Bootreihenfolge: Power
+        On → POST (Hardware-Selbsttest) → Firmware sucht Boot-Gerät →
+        Bootloader → Betriebssystem-Kernel. S.M.A.R.T. überwacht
+        laufend den Gesundheitszustand von SSD/HDD und warnt frühzeitig
+        vor drohendem Laufwerksausfall.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/bios-uefi-boot.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

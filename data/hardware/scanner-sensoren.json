@@ -1,0 +1,77 @@
+{
+  "unit": "hardware/scanner-sensoren",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welcher Scanner-Typ eignet sich am besten für den täglichen, automatisierten Rechnungseingang mit zweiseitig bedruckten Papierrechnungen?",
+      "options": [
+        "Flachbettscanner",
+        "Dokumentenscanner mit ADF und Duplex",
+        "Laser-Barcode-Scanner",
+        "3D-Scanner"
+      ],
+      "answer": 1,
+      "explanation": "Ein Dokumentenscanner mit automatischem Einzug (ADF) und Duplex-Funktion zieht Stapel automatisch ein und erfasst beide Seiten in einem Durchlauf — ideal für hohe Stückzahlen im Rechnungseingang."
+    },
+    {
+      "id": "q2",
+      "question": "Warum ist ein 2D-Imager einem reinen Laserscanner im Wareneingang oft überlegen?",
+      "options": [
+        "Ein 2D-Imager kann nur saubere, unbeschädigte Barcodes lesen",
+        "Ein 2D-Imager liest auch gedrehte oder leicht beschädigte Codes sowie 2D-Codes wie QR, ein reiner Laserscanner nur gerade 1D-Barcodes",
+        "Ein 2D-Imager benötigt zwingend eine Kabelverbindung, ein Laserscanner nicht",
+        "Ein 2D-Imager ist ausschließlich für 3D-Objekte geeignet"
+      ],
+      "answer": 1,
+      "explanation": "Kamera-basierte 2D-Imager erkennen Codes unabhängig von der Ausrichtung und lesen sowohl 1D- als auch 2D-Codes, während reine Laserscanner nur klassische 1D-Barcodes erfassen."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet einen CCD-Sensor von einem CIS-Sensor in einem Flachbettscanner?",
+      "options": [
+        "CIS hat eine größere Schärfentiefe als CCD",
+        "CCD nutzt ein Spiegelsystem und erreicht dadurch eine größere Schärfentiefe, ist aber teurer und langsamer als das kompaktere, günstigere CIS",
+        "CCD und CIS unterscheiden sich nur in der Farbe des Gehäuses",
+        "CIS wird ausschließlich in Barcode-Scannern verwendet"
+      ],
+      "answer": 1,
+      "explanation": "CCD leitet Licht über Spiegel/Linsen zum Sensor und erreicht dadurch eine größere Schärfentiefe (z. B. für Buchseiten), ist aber größer, teurer und langsamer. CIS liegt direkt an der Vorlage an — kompakt und günstig, aber nur für flache Vorlagen geeignet."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Fingerabdrucksensor zur Authentifizierung liefert welchen Faktor?",
+      "options": [
+        "Faktor Wissen (etwas, das man kennt)",
+        "Faktor Besitz (etwas, das man hat)",
+        "Faktor Sein / Inhärenz (Biometrie)",
+        "Faktor Standort (wo man sich befindet)"
+      ],
+      "answer": 2,
+      "explanation": "Biometrische Merkmale wie ein Fingerabdruck zählen zum Faktor „Sein“ (Inhärenz) — etwas, das eine Person ist, nicht etwas, das sie weiß oder besitzt."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür wird ein 3D-Scanner typischerweise eingesetzt?",
+      "options": [
+        "Zum Einlesen zweiseitig bedruckter Papierdokumente",
+        "Zur Erfassung der Geometrie eines physischen Objekts, um daraus ein digitales 3D-Modell zu erzeugen",
+        "Ausschließlich zur Steuerung der Serverraum-Klimaanlage",
+        "Zum Auslesen von 1D-Barcodes an der Kasse"
+      ],
+      "answer": 1,
+      "explanation": "3D-Scanner erfassen über Laser, Structured Light oder Photogrammetrie die Form eines Objekts und erzeugen daraus eine Punktwolke bzw. ein 3D-Modell — etwa für Reverse Engineering oder als Vorlage für den 3D-Druck."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Aufgabe übernehmen Umgebungssensoren (Temperatur, Luftfeuchtigkeit) typischerweise in der IT-Infrastruktur?",
+      "options": [
+        "Sie ersetzen die Authentifizierung per Passwort",
+        "Sie überwachen Serverräume und lösen bei Grenzwertüberschreitung Klima- oder Alarmierungssysteme aus",
+        "Sie lesen Barcodes an Warenein- und -ausgängen",
+        "Sie erzeugen 3D-Modelle von Bauteilen"
+      ],
+      "answer": 1,
+      "explanation": "Umgebungssensoren überwachen physikalische Bedingungen im Serverraum und lösen bei kritischen Werten Klimatisierung oder Alarme aus — Teil der physischen Sicherheit."
+    }
+  ]
+}

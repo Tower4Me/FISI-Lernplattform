@@ -1,0 +1,101 @@
+{
+  "unit": "wiso/existenzgruendung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie haftet ein Einzelunternehmer für Verbindlichkeiten seines Unternehmens?",
+      "options": [
+        "Gar nicht, das Risiko trägt allein die Bank",
+        "Voll, mit dem gesamten Privatvermögen",
+        "Nur bis zur Höhe des Stammkapitals",
+        "Nur mit dem Betriebsvermögen"
+      ],
+      "answer": 1,
+      "explanation": "Einzelunternehmer haften unbeschränkt mit ihrem gesamten Privatvermögen."
+    },
+    {
+      "id": "q2",
+      "question": "Welches Mindeststammkapital ist für die Gründung einer GmbH erforderlich?",
+      "options": [
+        "1 €",
+        "1.000 €",
+        "25.000 €",
+        "100.000 €"
+      ],
+      "answer": 2,
+      "explanation": "Für die Gründung einer GmbH ist ein Mindeststammkapital von 25.000 € vorgeschrieben."
+    },
+    {
+      "id": "q3",
+      "question": "Warum wird die UG (haftungsbeschränkt) oft als „Mini-GmbH“ bezeichnet?",
+      "options": [
+        "Weil sie steuerlich identisch mit einem Einzelunternehmen ist",
+        "Weil sie bereits ab 1 € Stammkapital gegründet werden kann, aber ebenfalls Haftungsbeschränkung bietet",
+        "Weil sie nur für Kleingewerbe zulässig ist",
+        "Weil sie keine Eintragung ins Handelsregister benötigt"
+      ],
+      "answer": 1,
+      "explanation": "Die UG kann bereits mit 1 € Stammkapital gegründet werden und bietet trotzdem eine Haftungsbeschränkung auf das Gesellschaftsvermögen."
+    },
+    {
+      "id": "q4",
+      "question": "Was gehört typischerweise zu einem Businessplan?",
+      "options": [
+        "Ausschließlich eine Liste möglicher Firmennamen",
+        "Geschäftsidee, Markt- und Wettbewerbsanalyse sowie ein Finanzplan",
+        "Nur die Gewerbeanmeldung",
+        "Ausschließlich der Gesellschaftsvertrag"
+      ],
+      "answer": 1,
+      "explanation": "Ein Businessplan umfasst insbesondere Geschäftsidee, Markt-/Wettbewerbsanalyse und einen Finanzplan."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Fördermöglichkeit richtet sich speziell an Personen, die aus der Arbeitslosigkeit heraus gründen?",
+      "options": [
+        "KfW-Förderkredit",
+        "Gründungszuschuss der Agentur für Arbeit",
+        "Aufstiegs-BAföG",
+        "Elterngeld"
+      ],
+      "answer": 1,
+      "explanation": "Der Gründungszuschuss der Agentur für Arbeit unterstützt gezielt Personen, die aus der Arbeitslosigkeit heraus ein Unternehmen gründen."
+    },
+    {
+      "id": "q6",
+      "question": "Welches ist ein typisches Risiko der Selbstständigkeit im Vergleich zur Anstellung?",
+      "options": [
+        "Automatische Pflichtversicherung in der Arbeitslosenversicherung",
+        "Fehlende automatische gesetzliche Absicherung, z. B. freiwillige statt Pflicht-Rentenversicherung",
+        "Ein garantiertes Mindesteinkommen durch den Staat",
+        "Ein gesetzlicher Anspruch auf bezahlten Urlaub wie bei Angestellten"
+      ],
+      "answer": 1,
+      "explanation": "Selbstständige sind in der Regel nicht automatisch pflichtversichert und müssen sich freiwillig absichern, z. B. in der Rentenversicherung."
+    },
+    {
+      "id": "q7",
+      "question": "Wo müssen die meisten Gewerbetreibenden ihre Tätigkeit zunächst anmelden?",
+      "options": [
+        "Beim Betriebsrat",
+        "Beim Gewerbeamt",
+        "Bei der Gewerkschaft",
+        "Beim Sozialgericht"
+      ],
+      "answer": 1,
+      "explanation": "Die Gewerbeanmeldung erfolgt beim zuständigen Gewerbeamt."
+    },
+    {
+      "id": "q8",
+      "question": "Was ist ein zentraler Unterschied zwischen Einzelunternehmen und Kapitalgesellschaften wie UG/GmbH hinsichtlich der Haftung?",
+      "options": [
+        "Es gibt keinen Unterschied",
+        "Beim Einzelunternehmen haftet die Inhaberin/der Inhaber voll mit dem Privatvermögen, bei UG/GmbH ist die Haftung auf das Gesellschaftsvermögen beschränkt",
+        "Kapitalgesellschaften haften immer unbeschränkt",
+        "Einzelunternehmen benötigen immer ein Mindestkapital von 25.000 €"
+      ],
+      "answer": 1,
+      "explanation": "Der zentrale Unterschied liegt im Haftungsumfang: Einzelunternehmer haften unbeschränkt, bei UG/GmbH ist die Haftung auf das Gesellschaftsvermögen beschränkt."
+    }
+  ]
+}

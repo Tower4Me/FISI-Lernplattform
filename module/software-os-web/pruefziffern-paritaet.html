@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Prüfziffern & Parität</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Prüfziffern & Parität</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Prüfziffern & Parität
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir ein eingebautes Tippfehler-Alarmsystem vor: Am Ende
+        einer langen Nummer — einer IBAN, eines Barcodes — steht eine
+        zusätzliche Ziffer, die aus allen anderen Ziffern nach einer
+        festen Rechenregel berechnet wird. Vertippt sich jemand nur an
+        einer Stelle, passt diese Prüfziffer plötzlich nicht mehr zum Rest
+        — der Fehler wird sofort erkannt, noch bevor die falsche Nummer
+        irgendwo verarbeitet wird.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Eine <strong>Prüfziffer</strong> ist eine zusätzliche Ziffer, die
+        aus den übrigen Ziffern einer Nummer nach einer festen
+        Rechenvorschrift berechnet wird. Sie dient dazu, Tipp- oder
+        Übertragungsfehler zu <strong>erkennen</strong> — nicht, sie zu
+        korrigieren.
+      </p>
+
+      <h3>EAN (European Article Number / GTIN)</h3>
+      <p>
+        Die EAN-13 ist die bekannte 13-stellige Barcode-Nummer auf
+        Produktverpackungen. Die letzte Ziffer ist die Prüfziffer und
+        wird nach einem <strong>Modulo-10-Verfahren</strong> berechnet:
+        Die ersten 12 Ziffern werden abwechselnd mit 1 und 3
+        multipliziert und aufsummiert; die Prüfziffer ist die Zahl, die
+        zur nächsten vollen Zehnerstufe fehlt. Scannt eine Kasse den
+        Barcode, berechnet sie diese Prüfziffer aus den gelesenen
+        12 Ziffern neu und vergleicht sie mit der 13. Ziffer — stimmen
+        sie nicht überein, war der Scan fehlerhaft.
+      </p>
+
+      <h3>IBAN (International Bank Account Number)</h3>
+      <p>
+        Eine IBAN enthält direkt nach dem zweistelligen Ländercode zwei
+        Prüfziffern, berechnet nach dem international genormten
+        <strong>Modulo-97-Verfahren</strong> (ISO 7064): Die Buchstaben
+        des Ländercodes werden in Zahlen umgewandelt, die gesamte Nummer
+        wird umgestellt und durch 97 geteilt — bleibt dabei exakt der
+        Rest 1, ist die IBAN formal gültig. So lässt sich ein Tippfehler
+        bei der Eingabe einer IBAN sofort erkennen, bevor eine
+        Überweisung an eine falsche Kontonummer geht.
+      </p>
+
+      <h3>Parität (Paritätsbit)</h3>
+      <p>
+        Bei der Datenübertragung ist die <strong>Parität</strong> das
+        einfachste Fehlererkennungsverfahren: Ein zusätzliches
+        <strong>Paritätsbit</strong> wird so gesetzt, dass die
+        Gesamtzahl der 1-Bits in einem Datenblock gerade
+        (<em>even parity</em>) oder ungerade (<em>odd parity</em>) ist.
+        Der Empfänger zählt die 1-Bits nach und erkennt eine
+        Übertragungsstörung, wenn die Parität nicht mehr stimmt.
+      </p>
+      <p>
+        Wichtige Einschränkung: Ein einfaches Paritätsbit erkennt
+        zuverlässig nur den Kipp eines <strong>einzelnen</strong> Bits —
+        kippen gleichzeitig zwei Bits, bleibt die Parität zufällig
+        unverändert und der Fehler wird nicht erkannt. Für zuverlässigere
+        Fehlererkennung und sogar -korrektur werden aufwendigere
+        Verfahren wie ECC (Error-Correcting Code) eingesetzt, z. B. bei
+        ECC-RAM (siehe Einheit Arbeitsspeicher).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Zwei Situationen bei der TechNord GmbH zeigen den praktischen
+        Nutzen von Prüfziffern:
+      </p>
+      <ul>
+        <li><strong>Wareneingang:</strong> Ein Barcode-Scanner liest den
+          EAN-Code eines Artikels leicht verschmutzt ein. Das
+          Kassensystem berechnet aus den ersten 12 Ziffern die erwartete
+          Prüfziffer neu — sie stimmt nicht mit der gelesenen 13. Ziffer
+          überein. Das System meldet einen Lesefehler und fordert einen
+          erneuten Scan an, statt versehentlich den falschen Artikel zu
+          buchen.</li>
+        <li><strong>Online-Banking:</strong> Ein Kunde vertippt sich beim
+          Eintippen einer IBAN um eine Ziffer. Das Formular berechnet
+          sofort die Prüfziffern nach dem Modulo-97-Verfahren und
+          erkennt: die eingegebene IBAN ist ungültig — die Überweisung
+          wird gar nicht erst gestartet, statt versehentlich an ein
+          falsches Konto zu gehen.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Prüfziffern erkennen Fehler, korrigieren sie aber nicht. EAN nutzt
+        ein Modulo-10-Verfahren mit den Faktoren 1 und 3, IBAN ein
+        Modulo-97-Verfahren (ISO 7064). Ein einfaches Paritätsbit erkennt
+        zuverlässig nur den Kipp eines einzelnen Bits — für echte
+        Fehlerkorrektur braucht es aufwendigere Verfahren wie ECC.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/pruefziffern-paritaet.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

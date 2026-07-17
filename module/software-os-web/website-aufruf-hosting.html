@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Website-Aufruf & virtuelle Hosts</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Website-Aufruf & virtuelle Hosts</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Website-Aufruf & virtuelle Hosts
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Website aufzurufen ist wie Essen zu bestellen: Du kennst die
+        Adresse des Restaurants nicht auswendig, also schlägst du sie
+        nach (DNS wie ein Telefonbuch). Dann schickst du deine Bestellung
+        an genau diese Adresse (Verbindung + Anfrage). In demselben
+        Gebäude teilen sich aber oft mehrere Restaurants dieselbe
+        Lieferadresse — erst der Zusatz auf deiner Bestellung („für
+        Restaurant XY“) sorgt dafür, dass die richtige Küche liefert.
+        Genau das leisten virtuelle Hosts für mehrere Websites auf einem
+        einzigen Server.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Ablauf eines Website-Aufrufs</h3>
+      <ol>
+        <li><strong>URL-Eingabe:</strong> Der Nutzer gibt z. B.
+          <code>https://www.technord.de</code> in den Browser ein.</li>
+        <li><strong>DNS-Auflösung:</strong> Der Domainname wird über DNS
+          in eine IP-Adresse übersetzt (siehe Modul Netzwerktechnik,
+          DNS-Grundlagen).</li>
+        <li><strong>Verbindungsaufbau:</strong> Der Browser baut eine
+          TCP-Verbindung zur Ziel-IP auf — bei HTTPS zusätzlich einen
+          TLS-Handshake für die verschlüsselte Verbindung (siehe Modul
+          IT-Sicherheit, Zertifikate & TLS/PKI).</li>
+        <li><strong>HTTP-Request:</strong> Der Browser sendet eine
+          Anfrage (z. B. GET) an den Server — inklusive eines
+          <strong>Host-Headers</strong>, der den angeforderten
+          Domainnamen enthält.</li>
+        <li><strong>Serververarbeitung & HTTP-Response:</strong> Der
+          Server verarbeitet die Anfrage und schickt eine Antwort mit
+          Statuscode und Inhalt (HTML, CSS, JavaScript, Bilder) zurück.</li>
+        <li><strong>Rendering:</strong> Der Browser stellt die empfangene
+          Seite dar und lädt bei Bedarf weitere Ressourcen (Bilder,
+          Skripte) mit zusätzlichen Anfragen nach.</li>
+      </ol>
+
+      <h3>Virtuelle Hosts (Virtual Hosts)</h3>
+      <p>
+        Mehrere Websites können auf demselben physischen Server und
+        derselben IP-Adresse betrieben werden — das nennt man
+        <strong>virtuelles Hosting</strong>. Beim
+        <strong>namensbasierten virtuellen Hosting</strong> unterscheidet
+        der Webserver die angeforderte Website anhand des
+        <strong>Host-Headers</strong> im HTTP-Request: Auch wenn zwei
+        Domains dieselbe IP-Adresse teilen, weiß der Server anhand dieses
+        Headers, welche der auf ihm gehosteten Websites tatsächlich
+        ausgeliefert werden soll.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH betreibt auf einem einzigen Webserver
+        gleichzeitig die Firmenwebsite (<code>www.technord.de</code>) und
+        ein Kunden-Support-Portal (<code>support.technord.de</code>) —
+        beide teilen sich dieselbe öffentliche IP-Adresse:
+      </p>
+      <ul>
+        <li>Fragt ein Browser <code>support.technord.de</code> an, liest
+          der Webserver den <strong>Host-Header</strong> der Anfrage aus
+          und liefert die richtige Website aus — obwohl technisch
+          dieselbe IP-Adresse angesprochen wurde.</li>
+        <li><strong>Fehlerdiagnose:</strong> Ein Kunde meldet, die
+          Website sei nicht erreichbar. Der Support geht den Ablauf
+          Schritt für Schritt durch: Löst der Domainname korrekt per DNS
+          auf? Lässt sich überhaupt eine TCP-Verbindung aufbauen (z. B.
+          mit <code>telnet</code> oder <code>ping</code> testbar)? Welchen
+          HTTP-Statuscode liefert der Server zurück? So lässt sich
+          eingrenzen, ob DNS, Netzwerk oder der Webserver selbst die
+          Ursache ist.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ablauf eines Website-Aufrufs: DNS-Auflösung → Verbindungsaufbau
+        (TCP, ggf. TLS) → HTTP-Request (mit Host-Header) →
+        HTTP-Response → Rendering. Virtuelle Hosts erlauben mehrere
+        Websites auf derselben IP-Adresse — der Webserver unterscheidet
+        sie anhand des Host-Headers im HTTP-Request.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/website-aufruf-hosting.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

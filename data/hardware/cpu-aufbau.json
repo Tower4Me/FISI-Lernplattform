@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/cpu-aufbau",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche Aufgabe übernimmt die ALU (Arithmetic Logic Unit) in einer CPU?",
+      "options": [
+        "Sie holt Befehle aus dem Speicher und dekodiert sie",
+        "Sie führt ganzzahlige Berechnungen und logische Operationen aus",
+        "Sie speichert Programm und Daten dauerhaft",
+        "Sie berechnet ausschließlich Fließkommazahlen"
+      ],
+      "answer": 1,
+      "explanation": "Die ALU führt ganzzahlige Berechnungen (Addition, Subtraktion, Multiplikation) sowie logische Operationen (AND, OR, NOT, XOR) aus. Fließkommazahlen übernimmt die FPU, das Holen/Dekodieren das Steuerwerk."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher Cache-Level hat die geringste Latenz?",
+      "options": [
+        "L1",
+        "L2",
+        "L3",
+        "RAM"
+      ],
+      "answer": 0,
+      "explanation": "L1 liegt direkt am Kern und hat mit 4–5 Taktzyklen die geringste Latenz. L2, L3 und RAM sind der Reihe nach größer, aber langsamer."
+    },
+    {
+      "id": "q3",
+      "question": "Was passiert bei einem Cache-Miss?",
+      "options": [
+        "Die CPU stürzt ab",
+        "Die CPU sucht die gesuchten Daten in der nächst größeren, aber langsameren Cache-Ebene weiter — im schlechtesten Fall bis zum RAM",
+        "Der gesamte Cache wird dauerhaft deaktiviert",
+        "Die Taktfrequenz der CPU wird automatisch erhöht"
+      ],
+      "answer": 1,
+      "explanation": "Bei einem Cache-Miss sind die gesuchten Daten in der aktuellen Cache-Ebene nicht vorhanden — die CPU sucht in der nächsten, größeren aber langsameren Ebene weiter, im ungünstigsten Fall bis zum RAM."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist ein charakteristisches Merkmal von RISC-Architekturen (z. B. ARM) im Vergleich zu CISC (z. B. x86)?",
+      "options": [
+        "RISC nutzt komplexe Befehle, die viele Operationen in einem Schritt ausführen",
+        "RISC nutzt einfache, meist gleichlange Befehle und ist dadurch beim Dekodieren effizienter, benötigt aber mehr Befehle für dieselbe Aufgabe",
+        "RISC-Prozessoren haben grundsätzlich keinen Cache",
+        "RISC wird ausschließlich in Servern eingesetzt"
+      ],
+      "answer": 1,
+      "explanation": "RISC-Architekturen setzen auf einfache, gleichlange Befehle, die effizienter zu dekodieren sind, benötigen dafür aber mehr Einzelbefehle für dieselbe Aufgabe als CISC."
+    },
+    {
+      "id": "q5",
+      "question": "Warum können moderne CPUs mit einer Instruction Pipeline einen höheren Durchsatz erreichen?",
+      "options": [
+        "Weil jeder Befehl doppelt ausgeführt wird",
+        "Weil mehrere Befehle gleichzeitig unterschiedliche Pipeline-Stufen (Fetch, Decode, Execute, Mem Access, Write Back) durchlaufen, statt streng nacheinander abgearbeitet zu werden",
+        "Weil die Pipeline den Cache vollständig ersetzt",
+        "Weil dadurch die Taktfrequenz automatisch verdoppelt wird"
+      ],
+      "answer": 1,
+      "explanation": "In der Pipeline überlappen sich die Verarbeitungsstufen verschiedener Befehle: Während Befehl 1 ausgeführt wird, wird Befehl 2 bereits dekodiert usw. — das erhöht den Durchsatz gegenüber rein sequenzieller Abarbeitung."
+    },
+    {
+      "id": "q6",
+      "question": "Was beschreibt die Kennzahl IPC (Instructions Per Cycle) bei einer CPU?",
+      "options": [
+        "Wie viele Kerne eine CPU besitzt",
+        "Wie viel Wärme eine CPU pro Sekunde abgibt",
+        "Wie viele Befehle die CPU pro Taktzyklus ausführen kann — ein wichtiger Indikator für die Effizienz der Architektur",
+        "Die maximale Taktfrequenz einer CPU in GHz"
+      ],
+      "answer": 2,
+      "explanation": "IPC gibt an, wie viele Befehle pro Taktzyklus verarbeitet werden. Eine bessere Architektur kann bei gleicher Taktfrequenz mehr leisten — IPC-Verbesserungen sind oft wichtiger als reiner Taktzuwachs."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Kunde möchte einen Fileserver anschaffen, der rund um die Uhr läuft und ECC-RAM unterstützen soll. Welcher CPU-Bautyp ist dafür geeignet?",
+      "options": [
+        "Desktop-CPU, wegen der hohen Einzelkern-Taktfrequenz",
+        "Mobile-CPU, wegen des niedrigen Stromverbrauchs",
+        "Server-CPU, da sie für 24/7-Betrieb und ECC-RAM ausgelegt ist",
+        "Embedded-SoC, da er am günstigsten ist"
+      ],
+      "answer": 2,
+      "explanation": "Server-CPUs (z. B. Xeon, EPYC) sind für Dauerbetrieb ausgelegt, unterstützen ECC-RAM zur Fehlerkorrektur und bieten viele Kerne für parallele Zugriffe — genau das, was ein Fileserver benötigt."
+    }
+  ]
+}

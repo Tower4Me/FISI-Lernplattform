@@ -1,0 +1,89 @@
+{
+  "unit": "kalkulation/bits-und-bytes",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie viele Bit ergeben ein Byte?",
+      "options": [
+        "4 Bit",
+        "8 Bit",
+        "16 Bit",
+        "256 Bit"
+      ],
+      "answer": 1,
+      "explanation": "Ein Byte besteht aus 8 Bit und kann damit 2^8 = 256 verschiedene Werte darstellen."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher Umrechnungsfaktor gilt für Binärpräfixe wie KiB, MiB, GiB?",
+      "options": [
+        "Faktor 1000",
+        "Faktor 1024",
+        "Faktor 100",
+        "Faktor 2048"
+      ],
+      "answer": 1,
+      "explanation": "Binärpräfixe (Kibi, Mebi, Gibi) rechnen mit Faktor 1024 (2^10), nicht mit dem dezimalen Faktor 1000."
+    },
+    {
+      "id": "q3",
+      "question": "Warum zeigt Windows eine als „1 TB“ beworbene Festplatte nur als rund 931 GiB an?",
+      "options": [
+        "Weil die Festplatte defekt ist",
+        "Weil Hersteller mit dezimalen Byte-Werten (Faktor 1000) werben, Windows aber binäre GiB (Faktor 1024) anzeigt",
+        "Weil Windows grundsätzlich 7 % des Speicherplatzes reserviert",
+        "Weil TB und GiB dieselbe Einheit mit unterschiedlichem Namen sind"
+      ],
+      "answer": 1,
+      "explanation": "Festplattenhersteller rechnen dezimal (1 TB = 1.000.000.000.000 Byte), Windows zeigt binär (1 GiB = 1.073.741.824 Byte) — dieselbe Byte-Anzahl, unterschiedliche Zähleinheiten."
+    },
+    {
+      "id": "q4",
+      "question": "Mit welcher Formel berechnet man den unkomprimierten Speicherbedarf eines Bildes in Bit?",
+      "options": [
+        "Breite + Höhe + Farbtiefe",
+        "Breite × Höhe × Farbtiefe (Bit pro Pixel)",
+        "Breite × Höhe ÷ Farbtiefe",
+        "Farbtiefe ÷ (Breite × Höhe)"
+      ],
+      "answer": 1,
+      "explanation": "Die Datenmenge in Bit ergibt sich aus der Anzahl der Pixel (Breite × Höhe) multipliziert mit der Farbtiefe pro Pixel."
+    },
+    {
+      "id": "q5",
+      "question": "Wie groß ist der unkomprimierte Speicherbedarf eines Bildes mit 800 × 600 Pixeln bei 16 Bit Farbtiefe, gerundet auf ganze KiB?",
+      "options": [
+        "480 KiB",
+        "750 KiB",
+        "938 KiB",
+        "960 KiB"
+      ],
+      "answer": 2,
+      "explanation": "800 × 600 × 16 Bit = 7.680.000 Bit, ÷ 8 = 960.000 Byte, ÷ 1.024 ≈ 937,5 KiB, gerundet 938 KiB."
+    },
+    {
+      "id": "q6",
+      "question": "Was gibt die Farbtiefe eines Bildes an?",
+      "options": [
+        "Die Anzahl der Pixel in der Breite",
+        "Mit wie vielen Bit die Farbe eines einzelnen Pixels codiert wird",
+        "Die Dateigröße nach Kompression",
+        "Die Bildschirmauflösung des Anzeigegeräts"
+      ],
+      "answer": 1,
+      "explanation": "Die Farbtiefe gibt an, wie viele Bit pro Pixel für die Farbcodierung verwendet werden — bei echtfarbigen RGB-Bildern typischerweise 24 Bit."
+    },
+    {
+      "id": "q7",
+      "question": "Wie viele unterschiedliche Werte lassen sich mit einem Byte darstellen?",
+      "options": [
+        "8",
+        "64",
+        "128",
+        "256"
+      ],
+      "answer": 3,
+      "explanation": "Ein Byte besteht aus 8 Bit, daraus ergeben sich 2^8 = 256 mögliche Kombinationen (Dezimalwerte 0–255)."
+    }
+  ]
+}

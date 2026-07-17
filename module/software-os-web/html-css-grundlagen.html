@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: HTML/CSS-Grundlagen & Impressumspflicht</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">HTML/CSS-Grundlagen & Impressumspflicht</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      HTML/CSS-Grundlagen & Impressumspflicht
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        HTML ist wie der Rohbau eines Hauses: Wände, Räume, Türen — die
+        reine Struktur und der Inhalt. CSS ist die Inneneinrichtung:
+        Farben, Möbel, wie alles angeordnet ist. Responsive Design ist
+        ein Haus, das sich automatisch neu einrichtet, je nachdem, ob man
+        es als kleines Puppenhaus-Modell oder als große Villa betrachtet
+        — derselbe Inhalt, aber ein anderes Layout je nach
+        Bildschirmgröße. Und die Impressumspflicht ist wie ein
+        gesetzlich vorgeschriebenes Namensschild am Ladeneingang, das
+        verrät, wer tatsächlich hinter dem Geschäft steckt.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>HTML — Struktur der Webseite</h3>
+      <p>
+        <strong>HTML</strong> (HyperText Markup Language) beschreibt die
+        Struktur und den Inhalt einer Webseite über Elemente (Tags) wie
+        <code>&lt;h1&gt;</code> (Überschrift), <code>&lt;p&gt;</code>
+        (Absatz), <code>&lt;a&gt;</code> (Link) oder <code>&lt;img&gt;</code>
+        (Bild). Der Browser interpretiert diese Struktur und stellt sie
+        entsprechend dar.
+      </p>
+
+      <h3>CSS — Aussehen der Webseite</h3>
+      <p>
+        <strong>CSS</strong> (Cascading Style Sheets) beschreibt getrennt
+        vom HTML-Inhalt, wie die Seite aussieht: Farben, Abstände,
+        Schriftarten, Layout. Diese Trennung von Struktur (HTML) und
+        Design (CSS) erlaubt es, dieselbe Struktur mit unterschiedlichem
+        Design darzustellen, ohne den Inhalt anfassen zu müssen.
+      </p>
+
+      <h3>Responsive Design</h3>
+      <p>
+        Responsive Design sorgt dafür, dass sich eine Webseite
+        automatisch an unterschiedliche Bildschirmgrößen anpasst —
+        Smartphone, Tablet, Desktop zeigen dieselben Inhalte in einem
+        jeweils passenden Layout. Technisch umgesetzt wird das u. a. über:
+      </p>
+      <ul>
+        <li><strong>Media Queries</strong> — CSS-Regeln, die abhängig von
+          der Bildschirmbreite unterschiedliche Stile anwenden (z. B.
+          Navigationsleiste wird bei schmalen Bildschirmen zu einem
+          zusammenklappbaren Menü)</li>
+        <li><strong>Flexible Layouts</strong> (z. B. Flexbox oder Grid)
+          statt starrer Pixel-Positionierung</li>
+        <li><strong>Relative Einheiten</strong> statt fester Pixelwerte,
+          damit Elemente mitskalieren</li>
+      </ul>
+
+      <h3>Impressumspflicht</h3>
+      <p>
+        In Deutschland besteht für praktisch jede geschäftsmäßige Website
+        eine gesetzliche <strong>Impressumspflicht</strong>. Pflichtangaben
+        umfassen u. a.:
+      </p>
+      <ul>
+        <li>Name und Anschrift des Betreibers</li>
+        <li>eine direkte Kontaktmöglichkeit (z. B. E-Mail-Adresse)</li>
+        <li>bei Kapitalgesellschaften: Handelsregistereintrag und
+          Registernummer</li>
+        <li>gegebenenfalls Umsatzsteuer-Identifikationsnummer</li>
+      </ul>
+      <p>
+        Ein fehlendes oder unvollständiges Impressum kann rechtlich
+        abgemahnt werden — es ist deshalb keine Kür, sondern
+        verpflichtender Bestandteil jeder geschäftlichen Website.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH überarbeitet ihre Firmenwebsite:
+      </p>
+      <ul>
+        <li><strong>HTML-Struktur</strong> (Überschriften, Texte,
+          Navigation) bleibt inhaltlich unverändert.</li>
+        <li><strong>Neues CSS mit Media Queries</strong> sorgt dafür,
+          dass die volle Desktop-Navigationsleiste auf dem Smartphone zu
+          einem kompakten Hamburger-Menü zusammenklappt — ohne dass am
+          HTML-Inhalt etwas geändert werden musste.</li>
+        <li><strong>Rechtssicheres Impressum:</strong> Die alte Website
+          enthielt weder die Handelsregisternummer noch die
+          Umsatzsteuer-Identifikationsnummer — beides wird nun ergänzt,
+          um eine mögliche Abmahnung wegen unvollständiger
+          Pflichtangaben zu vermeiden.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        HTML beschreibt Struktur/Inhalt, CSS beschreibt das Aussehen —
+        beide sind bewusst getrennt. Responsive Design passt das Layout
+        über Media Queries, flexible Layouts und relative Einheiten an
+        die Bildschirmgröße an. Jede geschäftsmäßige Website in
+        Deutschland braucht ein vollständiges Impressum (Name, Anschrift,
+        Kontakt, ggf. Handelsregister/USt-IdNr.) — sonst drohen
+        Abmahnungen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/html-css-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

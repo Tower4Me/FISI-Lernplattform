@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Container (Docker) vs. VM</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Container (Docker) vs. VM</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Container (Docker) vs. VM
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Beim Mehrfamilienhaus aus der letzten Einheit hatte jede Wohnung
+        (virtuelle Maschine) ihre eigene komplette Infrastruktur — eigene
+        Küche, eigenes Bad, eigene Heizung. Stell dir jetzt stattdessen ein
+        modernes Großraumbüro mit fest zugewiesenen, aber leichten
+        Trennwänden vor: Jede Firma im Büro hat ihren eigenen abgetrennten
+        Bereich mit eigenem Mobiliar, nutzt aber dieselbe zentrale Heizung,
+        dieselbe zentrale Stromversorgung und denselben zentralen Aufzug
+        wie alle anderen. Das spart Platz und Aufwand, weil nicht jede
+        Firma ihre eigene komplette Gebäudetechnik mitbringen muss. Genau
+        diesen leichteren Ansatz verfolgt <strong>Containerisierung</strong>
+        im Vergleich zur klassischen virtuellen Maschine.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Sowohl <strong>virtuelle Maschinen (VMs)</strong> als auch
+        <strong>Container</strong> isolieren Anwendungen voneinander,
+        unterscheiden sich aber grundlegend darin, was genau isoliert
+        wird:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>Virtuelle Maschine (VM)</th><th>Container</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Isolationsebene</td><td>vollständige Hardware-Virtualisierung, jede VM bringt ein eigenes komplettes Gast-Betriebssystem mit</td><td>Betriebssystem-Virtualisierung, Container teilen sich den Kernel des Host-Betriebssystems</td></tr>
+          <tr><td>Größe</td><td>mehrere GB (komplettes Betriebssystem-Image)</td><td>wenige MB bis niedrige zweistellige MB-Bereiche (nur Anwendung + Abhängigkeiten)</td></tr>
+          <tr><td>Startzeit</td><td>Minuten (kompletter Betriebssystem-Boot)</td><td>Sekunden bis Millisekunden (kein eigener OS-Boot nötig)</td></tr>
+          <tr><td>Ressourcenbedarf</td><td>höher, jede VM benötigt eigene OS-Ressourcen</td><td>geringer, geteilte Kernel-Ressourcen</td></tr>
+          <tr><td>Isolationsstärke</td><td>sehr stark, da vollständig getrennte Betriebssysteme</td><td>etwas schwächer, da sich Container den Host-Kernel teilen</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>Docker</strong> ist die bekannteste Plattform zur
+        Erstellung und Verwaltung von Containern. Eine Anwendung wird dabei
+        mit allen benötigten Bibliotheken und Abhängigkeiten in einem
+        <strong>Image</strong> gebündelt — dieses Image läuft dann auf
+        jedem System mit Docker-Unterstützung identisch, unabhängig von
+        der zugrunde liegenden Systemumgebung. Das löst das klassische
+        Problem „Bei mir läuft es doch!“, da die Laufzeitumgebung fest im
+        Image enthalten ist.
+      </p>
+
+      <h3>Wann VM, wann Container?</h3>
+      <ul>
+        <li><strong>VM</strong> — wenn vollständige Isolation nötig ist (z. B. unterschiedliche Betriebssysteme auf derselben Hardware, hohe Sicherheitsanforderungen zwischen Mandanten).</li>
+        <li><strong>Container</strong> — wenn Anwendungen schnell, ressourcenschonend und portabel bereitgestellt werden sollen, insbesondere bei vielen gleichartigen, kurzlebigen Instanzen (z. B. Microservices).</li>
+      </ul>
+      <p>
+        In der Praxis werden beide Technologien häufig kombiniert:
+        Container laufen oft innerhalb einer virtuellen Maschine, um die
+        Vorteile beider Ansätze zu nutzen — starke Isolation der VM nach
+        außen, leichte und schnelle Bereitstellung der Container darin.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Softwareunternehmen entwickelt eine Webanwendung, die aus
+        mehreren kleinen Diensten besteht (Microservices: Login-Dienst,
+        Bestellsystem, Zahlungsanbindung).
+      </p>
+      <ul>
+        <li>Jeder Microservice wird als eigenes <strong>Docker-Image</strong> gebaut, das genau die benötigten Bibliotheken enthält — unabhängig davon, welche Softwareversionen auf dem Zielserver sonst installiert sind.</li>
+        <li>Bei stark steigender Nutzerzahl lassen sich zusätzliche Container-Instanzen des Bestellsystems <strong>innerhalb von Sekunden</strong> starten, um die Last abzufangen — mit einer klassischen VM würde das Hochfahren deutlich länger dauern.</li>
+        <li>Für einen Kunden mit besonders strengen Sicherheitsanforderungen (getrennte Mandanten) wird zusätzlich eine dedizierte <strong>virtuelle Maschine</strong> eingesetzt, in der die Container dieses Kunden vollständig von anderen Kunden isoliert laufen.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum starten Container deutlich schneller
+        als virtuelle Maschinen?“ – Antwort: Container teilen sich den
+        Kernel des Host-Betriebssystems und benötigen deshalb keinen
+        eigenen vollständigen Betriebssystem-Boot wie eine VM, die ein
+        komplettes Gast-Betriebssystem mitbringt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        VM virtualisiert komplette Hardware inkl. eigenem Betriebssystem —
+        groß, langsam startend, stark isoliert. Container teilen sich den
+        Host-Kernel, enthalten nur Anwendung plus Abhängigkeiten — klein,
+        schnell startend, ressourcenschonend. Docker ist die bekannteste
+        Container-Plattform.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/container-docker.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+  "unit": "projektmanagement/gantt-diagramm",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie stellt ein Gantt-Diagramm den zeitlichen Ablauf eines Projekts dar?",
+      "options": [
+        "Als Netzwerk von Knoten und Kanten ohne Zeitachse",
+        "Als Balken auf einer Zeitachse, wobei die Balkenlänge der Dauer des jeweiligen Vorgangs entspricht",
+        "Ausschließlich als Tabelle mit Kostenwerten",
+        "Als reine Textliste ohne grafische Darstellung"
+      ],
+      "answer": 1,
+      "explanation": "Ein Gantt-Diagramm stellt Vorgänge als Balken auf einer Zeitachse dar — die Balkenlänge entspricht der Dauer des jeweiligen Vorgangs."
+    },
+    {
+      "id": "q2",
+      "question": "Wie werden Meilensteine in einem Gantt-Diagramm typischerweise dargestellt?",
+      "options": [
+        "Als besonders lange Balken", "Als Raute oder besonderes Symbol an einem bestimmten Zeitpunkt", "Als vertikale Zeitachse", "Gar nicht, Meilensteine gehören ausschließlich in den Netzplan"
+      ],
+      "answer": 1,
+      "explanation": "Meilensteine werden im Gantt-Diagramm meist als Raute oder anderes besonderes Symbol an einem festen Zeitpunkt markiert."
+    },
+    {
+      "id": "q3",
+      "question": "Was zeigt ein Fortschrittsbalken innerhalb eines Gantt-Diagramm-Balkens an?",
+      "options": [
+        "Die Anzahl der am Vorgang beteiligten Personen",
+        "Wie viel Prozent des jeweiligen Vorgangs bereits erledigt ist",
+        "Den Puffer des Vorgangs",
+        "Die Kosten des Vorgangs in Euro"
+      ],
+      "answer": 1,
+      "explanation": "Ein Fortschrittsbalken innerhalb des Vorgangsbalkens zeigt den prozentualen Erledigungsgrad des jeweiligen Vorgangs an."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist der zentrale Unterschied zwischen einem Gantt-Diagramm und einem Netzplan?",
+      "options": [
+        "Beide zeigen exakt dieselben Informationen in identischer Form",
+        "Das Gantt-Diagramm zeigt vor allem den zeitlichen Ablauf anschaulich, der Netzplan zeigt vor allem die logischen Abhängigkeiten und den kritischen Pfad",
+        "Ein Netzplan kann keine Vorgänge darstellen, nur Kosten",
+        "Ein Gantt-Diagramm wird ausschließlich für die Budgetplanung verwendet"
+      ],
+      "answer": 1,
+      "explanation": "Das Gantt-Diagramm veranschaulicht primär den zeitlichen Ablauf (wann läuft was), während der Netzplan die logischen Abhängigkeiten und den kritischen Pfad in den Vordergrund stellt."
+    },
+    {
+      "id": "q5",
+      "question": "Warum wird in der Praxis oft zuerst ein Netzplan erstellt und daraus anschließend ein Gantt-Diagramm abgeleitet?",
+      "options": [
+        "Weil ein Gantt-Diagramm ohne vorherigen Netzplan technisch nicht möglich ist",
+        "Weil der Netzplan die logischen Abhängigkeiten und den kritischen Pfad liefert, während das Gantt-Diagramm daraus eine übersichtliche, leicht kommunizierbare Zeitdarstellung ableitet",
+        "Weil ein Gantt-Diagramm grundsätzlich genauer ist als ein Netzplan",
+        "Weil Netzpläne gesetzlich vorgeschrieben sind, Gantt-Diagramme nicht"
+      ],
+      "answer": 1,
+      "explanation": "Der Netzplan liefert die logische Grundlage (Abhängigkeiten, kritischer Pfad), aus der sich ein für Auftraggeber und Team leicht verständliches Gantt-Diagramm ableiten lässt."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist ein typischer Nachteil des Gantt-Diagramms bei sehr komplexen Projekten mit vielen Abhängigkeiten?",
+      "options": [
+        "Es kann grundsätzlich keine Zeitspannen darstellen",
+        "Es wird schnell unübersichtlich, und Abhängigkeiten sind weniger klar erkennbar als im Netzplan",
+        "Es kann keine Meilensteine markieren",
+        "Es eignet sich ausschließlich für sehr kleine Projekte mit einem einzigen Vorgang"
+      ],
+      "answer": 1,
+      "explanation": "Bei sehr komplexen Projekten mit vielen Abhängigkeiten wird ein Gantt-Diagramm schnell unübersichtlich, und die Abhängigkeiten sind weniger klar erkennbar als in einem Netzplan."
+    },
+    {
+      "id": "q7",
+      "question": "Warum eignet sich ein Gantt-Diagramm besonders gut, um einem Kunden ohne Projektmanagement-Hintergrund den Projektzeitplan zu präsentieren?",
+      "options": [
+        "Weil es ausschließlich Zahlen ohne jede grafische Darstellung enthält",
+        "Weil die Balkendarstellung auf einen Blick anschaulich zeigt, wann welcher Vorgang läuft, ohne Detailwissen über Pufferberechnung oder kritischen Pfad zu erfordern",
+        "Weil ein Gantt-Diagramm automatisch alle Kosten des Projekts offenlegt",
+        "Weil ein Gantt-Diagramm keine Meilensteine enthält und dadurch einfacher wirkt"
+      ],
+      "answer": 1,
+      "explanation": "Die anschauliche Balkendarstellung macht auf einen Blick sichtbar, wann welcher Vorgang läuft — auch ohne die Feinheiten von Pufferberechnung oder kritischem Pfad verstehen zu müssen."
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz & Recht: SLA & Support-Level</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenschutz-recht">Datenschutz & Recht</a></li>
+        <li aria-current="page">SLA & Support-Level</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      SLA & Support-Level
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein SLA ist wie das Versprechen einer Pizzeria: „Lieferung
+        innerhalb von 30 Minuten, sonst gibt es die Pizza kostenlos.“ Ein
+        klares, messbares Versprechen mit einer Konsequenz, falls es nicht
+        eingehalten wird. Die Support-Ebenen dahinter funktionieren wie
+        die Triage in einem Krankenhaus: Der Empfangsschalter (First
+        Level) kümmert sich um einfache Standardanliegen, ein Facharzt
+        (Second Level) übernimmt komplexere Fälle, und der Spezialist oder
+        Chirurg (Third Level) wird nur für die wirklich schwierigsten
+        Fälle hinzugezogen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Service Level Agreement (SLA)</h3>
+      <p>
+        Ein <strong>SLA</strong> ist eine vertraglich vereinbarte
+        Leistungszusage zwischen einem Dienstleister und einem Kunden. Es
+        legt konkrete, messbare Kennzahlen fest — nicht nur allgemeine
+        Absichten:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Kennzahl</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Reaktionszeit</strong></td><td>Zeit bis zur ersten Rückmeldung nach einer Störungsmeldung</td></tr>
+          <tr><td><strong>Lösungszeit</strong></td><td>Zeit bis zur tatsächlichen Behebung des Problems</td></tr>
+          <tr><td><strong>Verfügbarkeit</strong></td><td>zugesicherter Prozentsatz erreichbarer Betriebszeit (z. B. 99,9 % — siehe Modul IT-Sicherheit, Verfügbarkeit in „Neunen“)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Werden vereinbarte SLA-Werte nicht eingehalten, drohen meist
+        vertraglich festgelegte Konsequenzen — von Preisnachlässen bis zu
+        Vertragsstrafen.
+      </p>
+
+      <h3>First-, Second- und Third-Level-Support</h3>
+      <table>
+        <thead>
+          <tr><th>Ebene</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>First Level</strong></td>
+            <td>nimmt Anfragen entgegen, erfasst Tickets, löst
+              standardisierte, einfache Probleme (oft mit
+              Wissensdatenbank/Skripten), leitet komplexere Fälle weiter</td>
+          </tr>
+          <tr>
+            <td><strong>Second Level</strong></td>
+            <td>tiefere Fachkenntnis zu bestimmten Systemen, löst
+              Probleme, die First Level nicht abschließend bearbeiten
+              kann</td>
+          </tr>
+          <tr>
+            <td><strong>Third Level</strong></td>
+            <td>Spezialisten, Entwickler oder Hersteller-Support — wird
+              nur bei den komplexesten Fällen (z. B. Softwarefehlern im
+              Quellcode) hinzugezogen</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Dieser Ablauf heißt <strong>Eskalation</strong>: Eine Anfrage
+        wandert stufenweise nach oben, wenn die aktuelle Ebene sie nicht
+        lösen kann — die dafür maximal zulässige Zeit ist häufig selbst
+        Teil des SLA.
+      </p>
+
+      <h3>Verzug (§ 286 BGB)</h3>
+      <p>
+        Ein Vertragspartner gerät in <strong>Verzug</strong>, wenn er eine
+        fällige Leistung trotz Fälligkeit und in der Regel trotz Mahnung
+        nicht erbringt. Eine Mahnung ist entbehrlich, wenn für die
+        Leistung ein kalendermäßig bestimmter Termin vereinbart war (z. B.
+        „Lieferung bis zum 15. des Monats“). Folgen des Verzugs können
+        sein: Verzugszinsen, Schadensersatzansprüche, oder — bei einem
+        Werkvertrag — das Recht, die Leistung selbst auf Kosten des
+        säumigen Vertragspartners zu beschaffen (Selbstvornahme).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH betreibt einen IT-Support mit gestaffelten
+        Ebenen und vertraglich vereinbartem SLA (4 Stunden Reaktionszeit
+        bei kritischen Störungen, 99,5 % Verfügbarkeit):
+      </p>
+      <ul>
+        <li><strong>„Der Drucker druckt nicht“:</strong> First Level löst
+          das Problem direkt anhand einer Standardanleitung (Neustart,
+          Treiberprüfung).</li>
+        <li><strong>„Die Datenbank reagiert sehr langsam“:</strong> First
+          Level kann die Ursache nicht identifizieren und eskaliert an
+          Second Level, der die Serverkonfiguration genauer analysiert.</li>
+        <li><strong>„Ein Programmfehler in der Firmensoftware“:</strong>
+          Second Level erkennt einen Bug im Quellcode und eskaliert an
+          Third Level (die Entwicklungsabteilung des Softwareherstellers).</li>
+        <li><strong>Verzug beim Zulieferer:</strong> Ein Ersatzteil wird
+          trotz vereinbartem Liefertermin und Mahnung nicht geliefert —
+          der Zulieferer gerät in Verzug, die TechNord GmbH kann
+          Schadensersatz für die dadurch entstandene Ausfallzeit geltend
+          machen.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        SLA legt messbare Leistungskennzahlen (Reaktionszeit, Lösungszeit,
+        Verfügbarkeit) vertraglich fest. First Level = Erstannahme/
+        Standardfälle, Second Level = tiefere Fachkenntnis, Third Level =
+        Spezialisten/Entwickler — Eskalation wandert stufenweise nach
+        oben. Verzug (§ 286 BGB) setzt Fälligkeit und in der Regel
+        Mahnung voraus; Ausnahme: kalendermäßig bestimmter Termin.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenschutz-recht/sla-support-level.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

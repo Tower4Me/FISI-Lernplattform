@@ -1,0 +1,84 @@
+{
+  "unit": "software-os-web/pruefziffern-paritaet",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist die Aufgabe einer Prüfziffer?",
+      "options": [
+        "Sie verschlüsselt die restliche Nummer",
+        "Sie erkennt Tipp- oder Übertragungsfehler in einer Nummer, kann sie aber nicht korrigieren",
+        "Sie komprimiert die Nummer auf weniger Ziffern",
+        "Sie ersetzt die Notwendigkeit einer Rechtsgrundlage bei Datenverarbeitung"
+      ],
+      "answer": 1,
+      "explanation": "Eine Prüfziffer wird aus den übrigen Ziffern berechnet und dient ausschließlich der Fehlererkennung — nicht der Fehlerkorrektur."
+    },
+    {
+      "id": "q2",
+      "question": "Nach welchem Verfahren wird die Prüfziffer einer EAN-13 berechnet?",
+      "options": [
+        "Modulo-97-Verfahren mit Buchstaben-Umwandlung",
+        "Modulo-10-Verfahren mit abwechselnder Multiplikation der Ziffern mit 1 und 3",
+        "Ein zufällig erzeugtes Prüfbit",
+        "Eine einfache Addition aller Ziffern ohne Gewichtung"
+      ],
+      "answer": 1,
+      "explanation": "Bei EAN-13 werden die ersten 12 Ziffern abwechselnd mit 1 und 3 multipliziert, aufsummiert, und die Prüfziffer ergibt sich als Differenz zur nächsten vollen Zehnerstufe."
+    },
+    {
+      "id": "q3",
+      "question": "Ein Kassensystem berechnet aus den ersten 12 Ziffern eines gescannten EAN-Codes eine Prüfziffer, die nicht mit der 13. Ziffer übereinstimmt. Was bedeutet das?",
+      "options": [
+        "Das Produkt ist automatisch reduziert",
+        "Der Scan war fehlerhaft, z. B. durch einen verschmutzten oder beschädigten Barcode",
+        "Das System muss neu gestartet werden",
+        "Die Prüfziffer ist immer falsch und wird ignoriert"
+      ],
+      "answer": 1,
+      "explanation": "Stimmt die berechnete Prüfziffer nicht mit der gelesenen letzten Ziffer überein, deutet das auf einen Lesefehler hin — der Scan sollte wiederholt werden."
+    },
+    {
+      "id": "q4",
+      "question": "Nach welchem Verfahren werden die zwei Prüfziffern einer IBAN berechnet?",
+      "options": ["Modulo-10-Verfahren", "Modulo-97-Verfahren (ISO 7064)", "AES-256-Verschlüsselung", "Huffman-Codierung"],
+      "answer": 1,
+      "explanation": "Die IBAN-Prüfziffern werden nach dem international genormten Modulo-97-Verfahren (ISO 7064) berechnet."
+    },
+    {
+      "id": "q5",
+      "question": "Warum lohnt es sich, eine IBAN vor dem Absenden einer Überweisung auf die Prüfziffern zu prüfen?",
+      "options": [
+        "Weil dadurch die Überweisungsgebühr entfällt",
+        "Weil ein Tippfehler in der IBAN dadurch sofort erkannt werden kann, bevor die Überweisung an ein falsches Konto geht",
+        "Weil die Prüfziffern die Bank automatisch identifizieren, unabhängig vom Ländercode",
+        "Weil ohne Prüfzifferprüfung keine SEPA-Überweisung technisch möglich ist"
+      ],
+      "answer": 1,
+      "explanation": "Die Prüfziffern ermöglichen es, eine fehlerhaft eingegebene IBAN sofort zu erkennen und die Überweisung zu verhindern, bevor sie an ein falsches Konto geht."
+    },
+    {
+      "id": "q6",
+      "question": "Was macht ein einfaches Paritätsbit bei der Datenübertragung?",
+      "options": [
+        "Es verschlüsselt die übertragenen Daten",
+        "Es wird so gesetzt, dass die Gesamtzahl der 1-Bits gerade oder ungerade ist, wodurch der Empfänger einen gekippten Einzelbit-Fehler erkennen kann",
+        "Es komprimiert die Daten vor der Übertragung",
+        "Es korrigiert automatisch jeden Übertragungsfehler"
+      ],
+      "answer": 1,
+      "explanation": "Ein Paritätsbit stellt sicher, dass die Anzahl der 1-Bits gerade (even parity) oder ungerade (odd parity) ist — der Empfänger erkennt daran einen gekippten Einzelbit-Fehler."
+    },
+    {
+      "id": "q7",
+      "question": "Warum erkennt ein einfaches Paritätsbit nicht zuverlässig jeden Übertragungsfehler?",
+      "options": [
+        "Weil Paritätsbits grundsätzlich nie funktionieren",
+        "Weil beim gleichzeitigen Kippen von zwei Bits die Parität zufällig unverändert bleiben kann und der Fehler dadurch unentdeckt bleibt",
+        "Weil Paritätsbits nur bei Textdateien, nicht bei Binärdaten funktionieren",
+        "Weil Paritätsbits ausschließlich bei EAN-Codes eingesetzt werden"
+      ],
+      "answer": 1,
+      "explanation": "Kippen gleichzeitig zwei Bits, kann sich die Gesamtzahl der 1-Bits so verändern, dass die Parität zufällig gleich bleibt — der Fehler wird dann nicht erkannt. Für zuverlässigere Erkennung/Korrektur sind aufwendigere Verfahren wie ECC nötig."
+    }
+  ]
+}

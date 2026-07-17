@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: CPU-Aufbau</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">CPU-Aufbau</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      CPU-Aufbau
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In einer Restaurantküche liest der Chef de Partie die
+        Bestellungen (Steuerwerk: Befehle holen und dekodieren), während
+        die Köche am Herd die eigentliche Arbeit erledigen — schneiden,
+        braten, abschmecken (Rechenwerk: ALU/FPU). Zutaten, die gerade
+        gebraucht werden, liegen griffbereit auf der Arbeitsfläche
+        (Register), etwas weiter entfernt im Kühlschrank nebenan (L1/L2
+        Cache) und der Rest im großen, gemeinsamen Kühlraum (L3 Cache).
+        Je weiter der Weg zur Zutat, desto länger dauert es, bis der Koch
+        weiterarbeiten kann.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Interne Recheneinheiten</h3>
+      <table>
+        <thead>
+          <tr><th>Einheit</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ALU</strong> (Arithmetic Logic Unit)</td>
+            <td>ganzzahlige Berechnungen (Addition, Subtraktion, Multiplikation)
+              und logische Operationen (AND, OR, NOT, XOR)</td>
+          </tr>
+          <tr>
+            <td><strong>FPU</strong> (Floating Point Unit)</td>
+            <td>Berechnungen mit Fließkommazahlen, wichtig für 3D-Grafik,
+              wissenschaftliche Berechnungen, KI</td>
+          </tr>
+          <tr>
+            <td><strong>Control Unit</strong> (Steuerwerk)</td>
+            <td>holt Befehle (Fetch), dekodiert sie (Decode) und steuert
+              ALU/FPU bei der Ausführung (Execute)</td>
+          </tr>
+          <tr>
+            <td><strong>Register</strong></td>
+            <td>schnellster Speicher direkt in der CPU, 1 Taktzyklus
+              Zugriffszeit, aber nur wenige Kilobyte groß</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Cache-Hierarchie</h3>
+      <p>
+        Je näher ein Speicher am Rechenwerk liegt, desto schneller aber
+        auch kleiner ist er:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Ebene</th><th>Zuordnung</th><th>Typische Größe</th><th>Latenz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>L1</td><td>pro Kern</td><td>32–64 KB</td><td>4–5 Taktzyklen</td></tr>
+          <tr><td>L2</td><td>pro Kern (oder Kernpaar)</td><td>256 KB–4 MB</td><td>10–15 Taktzyklen</td></tr>
+          <tr><td>L3</td><td>gemeinsam, alle Kerne</td><td>8–64 MB</td><td>30–50 Taktzyklen</td></tr>
+          <tr><td>RAM</td><td>außerhalb der CPU</td><td>meist 8–128 GB</td><td>100–300 Taktzyklen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Bei einem <strong>Cache-Miss</strong> (die gesuchten Daten sind
+        nicht im aktuellen Cache-Level vorhanden) sucht die CPU in der
+        nächst größeren, aber langsameren Ebene weiter — im schlechtesten
+        Fall bis hinunter zum RAM.
+      </p>
+
+      <h3>CISC vs. RISC</h3>
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>CISC (x86/x64)</th><th>RISC (ARM)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Befehlssatz</td><td>komplex, ein Befehl = viele Operationen</td><td>einfach, gleichlange Befehle</td></tr>
+          <tr><td>Befehlsanzahl je Aufgabe</td><td>weniger Befehle nötig</td><td>mehr Befehle nötig</td></tr>
+          <tr><td>Dekodieraufwand</td><td>höher</td><td>geringer, effizienter</td></tr>
+          <tr><td>Beispiele</td><td>Intel Core, AMD Ryzen</td><td>Apple M-Chips, Raspberry Pi</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Instruction Pipeline</h3>
+      <p>
+        Moderne CPUs führen Befehle nicht streng nacheinander aus,
+        sondern überlappend in Stufen: Während Befehl 1 ausgeführt wird,
+        wird Befehl 2 bereits dekodiert und Befehl 3 schon geholt. Das
+        erhöht den Durchsatz erheblich.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pipeline-title">
+          <title id="pipeline-title">Diagramm der 5-stufigen Instruction Pipeline: Fetch, Decode, Execute, Memory Access, Write Back</title>
+
+          <rect x="5" y="15" width="72" height="40" rx="5" fill="var(--surface-2)" stroke="var(--link)" stroke-width="1.5"/>
+          <text x="41" y="33" text-anchor="middle" fill="var(--link)" font-size="11" font-weight="600">FETCH</text>
+          <text x="41" y="47" text-anchor="middle" fill="var(--text-muted)" font-size="9">Befehl holen</text>
+
+          <rect x="85" y="15" width="72" height="40" rx="5" fill="var(--surface-2)" stroke="var(--link)" stroke-width="1.5"/>
+          <text x="121" y="33" text-anchor="middle" fill="var(--link)" font-size="11" font-weight="600">DECODE</text>
+          <text x="121" y="47" text-anchor="middle" fill="var(--text-muted)" font-size="9">Dekodieren</text>
+
+          <rect x="165" y="15" width="72" height="40" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="201" y="33" text-anchor="middle" fill="var(--acc-praxis)" font-size="11" font-weight="600">EXECUTE</text>
+          <text x="201" y="47" text-anchor="middle" fill="var(--text-muted)" font-size="9">ALU / FPU</text>
+
+          <rect x="245" y="15" width="80" height="40" rx="5" fill="var(--surface-2)" stroke="var(--text)" stroke-width="1.5"/>
+          <text x="285" y="33" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">MEM ACCESS</text>
+          <text x="285" y="47" text-anchor="middle" fill="var(--text-muted)" font-size="9">Speicherzugriff</text>
+
+          <rect x="333" y="15" width="62" height="40" rx="5" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="1.5"/>
+          <text x="364" y="30" text-anchor="middle" fill="var(--acc-merksatz)" font-size="9" font-weight="600">WRITE</text>
+          <text x="364" y="41" text-anchor="middle" fill="var(--acc-merksatz)" font-size="9" font-weight="600">BACK</text>
+
+          <line x1="77" y1="35" x2="85" y2="35" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrowp)"/>
+          <line x1="157" y1="35" x2="165" y2="35" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrowp)"/>
+          <line x1="237" y1="35" x2="245" y2="35" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrowp)"/>
+          <line x1="325" y1="35" x2="333" y2="35" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrowp)"/>
+          <defs>
+            <marker id="arrowp" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
+              <path d="M0,0 L0,5 L5,2.5 z" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <text x="200" y="85" text-anchor="middle" fill="var(--text-muted)" font-size="10">
+            Jede Stufe verarbeitet gleichzeitig einen anderen Befehl → höherer Durchsatz
+          </text>
+          <text x="200" y="102" text-anchor="middle" fill="var(--acc-merksatz)" font-size="10">
+            Fehlvorhersage bei Sprüngen (Branch Misprediction) erzwingt einen teuren Pipeline-Flush
+          </text>
+        </svg>
+        <figcaption>
+          5-stufige Instruction Pipeline: Fetch, Decode, Execute, Memory Access,
+          Write Back laufen für verschiedene Befehle überlappend statt streng
+          nacheinander.
+        </figcaption>
+      </figure>
+
+      <h3>Wichtige CPU-Kennzahlen</h3>
+      <table>
+        <thead>
+          <tr><th>Kennzahl</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Taktfrequenz (GHz)</td><td>Zyklen pro Sekunde — höher ist schneller, aber nur bei gleicher Architektur vergleichbar</td></tr>
+          <tr><td>IPC (Instructions Per Cycle)</td><td>wie viele Befehle pro Taktzyklus ausgeführt werden — bessere Architektur schafft bei gleichem Takt mehr</td></tr>
+          <tr><td>Kerne / Threads</td><td>Anzahl unabhängiger Recheneinheiten; Threads sind logische Kerne (z. B. durch Hyper-Threading/SMT)</td></tr>
+          <tr><td>TDP</td><td>Thermal Design Power — abzuführende Wärmeleistung, wichtig für Kühlungsauslegung</td></tr>
+          <tr><td>Sockel</td><td>physischer Anschluss ans Mainboard, bestimmt Kompatibilität</td></tr>
+        </tbody>
+      </table>
+
+      <h3>CPU-Bautypen</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Merkmale</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Desktop</td><td>hohe TDP, gute Kühlung möglich, oft übertaktbar</td></tr>
+          <tr><td>Mobile</td><td>niedrige TDP für Akkulaufzeit, oft verlötet (BGA), Performance-/Effizienzkerne</td></tr>
+          <tr><td>Server</td><td>viele Kerne, ECC-RAM-Pflicht, 24/7-Betrieb, kein Overclocking</td></tr>
+          <tr><td>Embedded/SoC</td><td>CPU, GPU, RAM auf einem Chip, extrem niedrige TDP, meist nicht aufrüstbar</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TechNord GmbH möchte einen neuen Fileserver
+        anschaffen, der rund um die Uhr laufen soll, und fragt, welche
+        CPU-Klasse dafür geeignet ist.
+      </p>
+      <p>
+        Die richtige Wahl ist eine <strong>Server-CPU</strong> (z. B.
+        Intel Xeon Scalable oder AMD EPYC): Sie unterstützt ECC-RAM zur
+        Fehlerkorrektur, ist für Dauerbetrieb ausgelegt und bietet viele
+        Kerne für parallele Zugriffe mehrerer Nutzer — Overclocking oder
+        eine hohe Einzelkern-Taktfrequenz wie bei einer Desktop-CPU sind
+        hier nicht relevant. Eine Desktop- oder gar Mobile-CPU wäre die
+        falsche Wahl, da sie weder für 24/7-Dauerlast noch für
+        ECC-Speicher ausgelegt ist.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ALU (Berechnungen), Steuerwerk (Ablaufsteuerung) und Register
+        (Schnellstspeicher) bilden zusammen mit einer mehrstufigen
+        Cache-Hierarchie (L1 → L2 → L3 → RAM, jede Stufe langsamer, aber
+        größer) das Innenleben einer CPU. CISC (x86) nutzt komplexe,
+        RISC (ARM) einfache Befehle. Die Pipeline führt Befehle
+        überlappend aus. Bei der CPU-Wahl zählen Takt, IPC, Kerne/Threads
+        und TDP zusammen mit dem passenden Bautyp (Desktop/Mobile/Server/
+        Embedded) für den Einsatzzweck.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/cpu-aufbau.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/ssd-hdd-nvme",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der Hauptvorteil einer NVMe-SSD gegenüber einer SATA-SSD?",
+      "options": [
+        "Direkte PCIe-Anbindung statt des langsameren SATA-Bus",
+        "Ein breiterer SATA-Bus als bei älteren SSDs",
+        "Grundsätzlich langsameres, aber günstigeres NAND",
+        "Mehr DRAM-Cache auf dem Controller"
+      ],
+      "answer": 0,
+      "explanation": "NVMe läuft als Protokoll direkt über PCIe statt über SATA und umgeht damit den SATA-Flaschenhals (~550 MB/s). Dadurch sind deutlich höhere Geschwindigkeiten möglich."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher NAND-Flash-Typ speichert 3 Bit pro Speicherzelle?",
+      "options": [
+        "SLC",
+        "MLC",
+        "TLC",
+        "QLC"
+      ],
+      "answer": 2,
+      "explanation": "TLC (Triple-Level Cell) speichert 3 Bit pro Zelle und ist heute der Consumer-Standard. SLC speichert 1 Bit, MLC 2 Bit, QLC 4 Bit."
+    },
+    {
+      "id": "q3",
+      "question": "Ein M.2-Steckplatz bedeutet automatisch, dass die eingebaute SSD NVMe nutzt. Stimmt das?",
+      "options": [
+        "Nein — M.2 ist nur ein Formfaktor, ein M.2-Slot kann SATA- oder NVMe-SSDs betreiben",
+        "Ja — M.2 ist ein Protokoll und bedeutet immer NVMe",
+        "Ja — M.2 ist ein Protokoll und bedeutet immer SATA",
+        "Nein — M.2 ist ein Formfaktor, aber ausschließlich für SATA-SSDs"
+      ],
+      "answer": 0,
+      "explanation": "M.2 beschreibt nur die physische Steckform. Ob der Slot SATA oder NVMe (über PCIe) betreibt, hängt vom jeweiligen Mainboard ab."
+    },
+    {
+      "id": "q4",
+      "question": "Warum hat eine QLC-SSD typischerweise eine geringere Haltbarkeit als eine MLC-SSD?",
+      "options": [
+        "Weil QLC-Zellen mehr Bits pro Zelle speichern und dadurch weniger Schreib-/Löschzyklen (P/E-Zyklen) vertragen",
+        "Weil QLC-SSDs grundsätzlich ohne Controller arbeiten",
+        "Weil QLC ausschließlich in HDDs verbaut wird",
+        "Haltbarkeit hängt nicht vom NAND-Typ ab"
+      ],
+      "answer": 0,
+      "explanation": "Je mehr Bits eine Zelle speichert (QLC = 4 Bit), desto empfindlicher wird die Unterscheidung der Ladungszustände, was die Anzahl möglicher Schreib-/Löschzyklen und damit die Haltbarkeit reduziert."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Aussage zu HDDs ist korrekt?",
+      "options": [
+        "HDDs speichern Daten elektronisch in NAND-Flash-Zellen",
+        "HDDs nutzen rotierende Magnetscheiben und einen mechanisch bewegten Schreib-/Lesekopf, was sie stoßempfindlicher und beim Zufallszugriff langsamer macht als SSDs",
+        "HDDs sind bei jedem Anwendungsfall schneller als NVMe-SSDs",
+        "HDDs benötigen keinerlei mechanisch bewegte Teile"
+      ],
+      "answer": 1,
+      "explanation": "HDDs arbeiten mechanisch mit rotierenden Scheiben und einem beweglichen Kopf. Das macht sie günstiger pro GB, aber langsamer (besonders bei zufälligem Zugriff) und stoßempfindlicher als SSDs."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Speichermedium gehört zur Kategorie „optisch“?",
+      "options": [
+        "SSD",
+        "USB-Stick",
+        "Blu-ray",
+        "HDD"
+      ],
+      "answer": 2,
+      "explanation": "Blu-ray (wie CD und DVD) liest Daten per Laser aus einer spiralförmigen Spur aus und zählt zu den optischen Speichermedien. SSD und USB-Stick sind elektronisch (Flash), HDD ist magnetisch."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Kunde benötigt eine Workstation für professionellen Videoschnitt und zusätzlich ein kostengünstiges Langzeitarchiv für abgeschlossene Projekte. Welche Kombination ist sinnvoll?",
+      "options": [
+        "Für beides ausschließlich HDDs, da Geschwindigkeit beim Videoschnitt keine Rolle spielt",
+        "NVMe-SSD für den aktiven Videoschnitt (hohe Geschwindigkeit, niedrige Latenz), HDDs/Bandlaufwerke für das Langzeitarchiv (niedrige Kosten pro TB)",
+        "Für beides ausschließlich NVMe-SSDs, unabhängig von den Kosten",
+        "Optische Medien (Blu-ray) für den aktiven Videoschnitt, da sie die höchste Datenrate bieten"
+      ],
+      "answer": 1,
+      "explanation": "Für den aktiven Videoschnitt zählt hohe Geschwindigkeit (NVMe), fürs Langzeitarchiv dagegen niedrige Kosten pro TB bei seltenem Zugriff (HDD/Bandlaufwerk) — die Wahl richtet sich nach dem Einsatzzweck."
+    }
+  ]
+}

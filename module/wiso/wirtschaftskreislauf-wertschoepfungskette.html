@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WiSo: Wirtschaftskreislauf &amp; Wertschöpfungskette</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#wiso">WiSo</a></li>
+        <li aria-current="page">Wirtschaftskreislauf &amp; Wertschöpfungskette</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Wirtschaftskreislauf &amp; Wertschöpfungskette
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Der menschliche Blutkreislauf transportiert Sauerstoff von der
+        Lunge zu den Organen und bringt verbrauchtes Blut zurück –
+        ein ständiger Kreislauf ohne Anfang und Ende. Ähnlich
+        funktioniert die Wirtschaft: Güter und Geld fließen ständig
+        zwischen <strong>Haushalten</strong> und
+        <strong>Unternehmen</strong> hin und her. Diesen Kreislauf
+        nennt man den <strong>Wirtschaftskreislauf</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Einfacher Wirtschaftskreislauf</h3>
+      <p>
+        Im einfachsten Modell stehen sich zwei Akteure gegenüber:
+        <strong>Haushalte</strong> stellen Unternehmen ihre
+        Arbeitskraft zur Verfügung und erhalten dafür Löhne/Gehälter;
+        mit diesem Einkommen kaufen sie wiederum Güter und
+        Dienstleistungen bei den Unternehmen. Güterstrom und
+        Geldstrom laufen dabei in <strong>entgegengesetzte
+        Richtungen</strong>.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 640 300" role="img" aria-labelledby="wk-title wk-desc">
+          <title id="wk-title">Einfacher Wirtschaftskreislauf</title>
+          <desc id="wk-desc">Haushalte und Unternehmen tauschen Arbeitskraft/Güter gegen Geld in entgegengesetzten Kreisläufen aus.</desc>
+
+          <rect x="30" y="110" width="160" height="80" rx="10"
+                fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+          <text x="110" y="155" text-anchor="middle" fill="var(--text)" font-size="18">Haushalte</text>
+
+          <rect x="450" y="110" width="160" height="80" rx="10"
+                fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+          <text x="530" y="155" text-anchor="middle" fill="var(--text)" font-size="18">Unternehmen</text>
+
+          <!-- Guetestrom: Arbeitskraft (Haushalt -> Unternehmen), oben -->
+          <path d="M 190 130 H 450" fill="none" stroke="var(--link)" stroke-width="2.5" marker-end="url(#arrowLink)"/>
+          <text x="320" y="115" text-anchor="middle" fill="var(--link)" font-size="15">Arbeitskraft, Güter</text>
+
+          <!-- Geldstrom: Löhne/Entgelte (Unternehmen -> Haushalt), unten -->
+          <path d="M 450 170 H 190" fill="none" stroke="var(--text-muted)" stroke-width="2.5" marker-end="url(#arrowMuted)"/>
+          <text x="320" y="205" text-anchor="middle" fill="var(--text-muted)" font-size="15">Löhne, Entgelte (Geld)</text>
+
+          <defs>
+            <marker id="arrowLink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--link)"/>
+            </marker>
+            <marker id="arrowMuted" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+        </svg>
+        <figcaption>
+          Einfacher Wirtschaftskreislauf: Güter-/Leistungsstrom und
+          Geldstrom verlaufen in entgegengesetzten Richtungen zwischen
+          Haushalten und Unternehmen.
+        </figcaption>
+      </figure>
+
+      <h3>Erweiterter Wirtschaftskreislauf</h3>
+      <p>
+        In der Realität kommen weitere Akteure hinzu:
+      </p>
+      <ul>
+        <li>
+          <strong>Staat:</strong> erhebt Steuern von Haushalten und
+          Unternehmen, zahlt dafür Transferleistungen (z. B. Renten,
+          Arbeitslosengeld) und stellt öffentliche Güter bereit
+          (Infrastruktur, Bildung).
+        </li>
+        <li>
+          <strong>Banken/Kapitalsammelstellen:</strong> nehmen
+          Ersparnisse der Haushalte auf und vergeben Kredite an
+          Unternehmen (und Haushalte), gegen Zinsen.
+        </li>
+        <li>
+          <strong>Ausland:</strong> Export- und Importströme
+          verbinden die inländische Wirtschaft mit anderen Ländern.
+        </li>
+      </ul>
+
+      <h3>Wertschöpfungskette</h3>
+      <p>
+        Die <strong>Wertschöpfungskette</strong> beschreibt die Abfolge
+        der Aktivitäten, mit denen ein Unternehmen aus Vorleistungen
+        (Rohstoffe, Bauteile, Dienstleistungen anderer Unternehmen) ein
+        fertiges Produkt oder eine Dienstleistung für den Endkunden
+        macht. Jede Stufe fügt <strong>Wert</strong> hinzu – die
+        <strong>Wertschöpfung</strong> einer Stufe entspricht dem
+        Verkaufswert abzüglich der Kosten der eingekauften
+        Vorleistungen.
+      </p>
+      <p>
+        Beispiel IT-Branche: Ein Hardwarehersteller liefert
+        Komponenten an einen Distributor, der sie an ein IT-Systemhaus
+        weiterverkauft. Das Systemhaus konfiguriert daraus eine
+        einsatzfertige IT-Lösung für den Endkunden inklusive Einrichtung
+        und Support – auf jeder Stufe entsteht zusätzlicher Wert.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TowerTech GmbH ist ein IT-Systemhaus und Teil einer
+        Wertschöpfungskette:
+      </p>
+      <ul>
+        <li>
+          Sie kauft Server-Hardware von einem Großhandels-Distributor
+          (Vorleistung).
+        </li>
+        <li>
+          Ihre Mitarbeitenden (Haushalte) stellen ihre Arbeitskraft zur
+          Verfügung – TowerTech zahlt dafür Löhne, ein klassischer
+          Bestandteil des Wirtschaftskreislaufs.
+        </li>
+        <li>
+          TowerTech konfiguriert die Hardware zu einer
+          einsatzbereiten IT-Infrastruktur-Lösung und verkauft sie mit
+          Einrichtungsservice an einen Kundenbetrieb – der Unterschied
+          zwischen Verkaufspreis und Einkaufspreis der Hardware
+          entspricht der Wertschöpfung von TowerTech auf dieser Stufe.
+        </li>
+        <li>
+          Ein Teil des erzielten Gewinns fließt als Steuer an den
+          Staat, ein Teil des Mitarbeitereinkommens wird bei einer Bank
+          gespart – beides Beispiele für den erweiterten
+          Wirtschaftskreislauf.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Im Wirtschaftskreislauf fließen Güter/Leistungen und Geld in
+        entgegengesetzte Richtungen zwischen Haushalten und
+        Unternehmen; Staat, Banken und Ausland erweitern das Modell.
+        Die Wertschöpfungskette zeigt, wie jede Produktionsstufe durch
+        Verarbeitung von Vorleistungen zusätzlichen Wert schafft.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/wiso/wirtschaftskreislauf-wertschoepfungskette.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

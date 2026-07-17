@@ -1,0 +1,74 @@
+{
+  "unit": "hardware/monitore-display",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bedeutet die Bezeichnung TFT bei einem LCD-Monitor?",
+      "options": [
+        "Ein eigenständiges Übertragungsprotokoll für Videosignale",
+        "Die Ansteuerungstechnik: jeder Bildpunkt hat einen eigenen Transistor (Thin Film Transistor) zur unabhängigen Schaltung",
+        "Eine Bezeichnung für besonders große Bildschirmdiagonalen",
+        "Ein Verfahren zur Datenkompression von Bildinhalten"
+      ],
+      "answer": 1,
+      "explanation": "TFT (Thin Film Transistor) beschreibt, dass jeder Bildpunkt einen eigenen Transistor zur unabhängigen Ansteuerung besitzt — praktisch alle modernen LCD-Monitore sind TFT-LCDs."
+    },
+    {
+      "id": "q2",
+      "question": "Welches Panel bietet den besten Blickwinkel und die höchste Farbtreue, ist aber nicht das schnellste?",
+      "options": ["TN", "IPS", "VA", "Alle Panels sind hier identisch"],
+      "answer": 1,
+      "explanation": "IPS-Panels bieten 178° Blickwinkel horizontal und vertikal sowie sehr gute Farbtreue und sind deshalb Standard für Büro und professionelle Nutzung, auch wenn ihre Reaktionszeit nicht die niedrigste ist."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist der größte Nachteil eines OLED-Displays gegenüber LCD-Panels?",
+      "options": [
+        "OLED braucht immer eine zusätzliche Hintergrundbeleuchtung",
+        "OLED kann bei dauerhaft statischen Bildinhalten einbrennen (Burn-in) und erreicht niedrigere Spitzenhelligkeit",
+        "OLED unterstützt keine Farbdarstellung",
+        "OLED-Reaktionszeiten sind deutlich langsamer als bei TN-Panels"
+      ],
+      "answer": 1,
+      "explanation": "OLED-Pixel leuchten selbst und ermöglichen dadurch perfektes Schwarz und sehr kurze Reaktionszeiten, können bei statischen Inhalten aber einbrennen und erreichen eine niedrigere Spitzenhelligkeit als LCD."
+    },
+    {
+      "id": "q4",
+      "question": "Wie viele Pixel hat eine 4K-Auflösung (3840 × 2160) im Vergleich zu Full HD (1920 × 1080)?",
+      "options": ["doppelt so viele", "gleich viele", "vierfach so viele", "achtfach so viele"],
+      "answer": 2,
+      "explanation": "4K verdoppelt sowohl Breite als auch Höhe gegenüber Full HD — das ergibt insgesamt die vierfache Pixelanzahl."
+    },
+    {
+      "id": "q5",
+      "question": "Welches Panel bietet typischerweise den höchsten Kontrast und das tiefste Schwarz unter den LCD-Technologien (TN/IPS/VA)?",
+      "options": ["TN", "IPS", "VA", "Kontrast ist bei allen LCD-Panels identisch"],
+      "answer": 2,
+      "explanation": "VA-Panels erreichen mit 2500:1 bis 6000:1 einen deutlich höheren Kontrast als TN und IPS (jeweils ~1000:1)."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Kassenarbeitsplatz benötigt lediglich ein Standard-Bild ohne besondere Farbansprüche. Welche Ausstattung ist für diesen Einsatzzweck angemessen?",
+      "options": [
+        "OLED-Panel, 4K, 144 Hz",
+        "einfaches TN- oder IPS-Panel, 19–24 Zoll, Full HD",
+        "VA-Panel, 8K, HDR1000",
+        "IPS-Panel, 32 Zoll, 10-bit Farbtiefe mit AdobeRGB-Abdeckung"
+      ],
+      "answer": 1,
+      "explanation": "Für einen einfachen Kassenarbeitsplatz reicht ein günstiges TN- oder IPS-Panel mit Full-HD-Auflösung — höherwertige Ausstattung wäre hier unnötiger Kostenaufwand."
+    },
+    {
+      "id": "q7",
+      "question": "Was leisten G-Sync (NVIDIA) und FreeSync (AMD)?",
+      "options": [
+        "Sie erhöhen die maximale Auflösung eines Monitors",
+        "Sie synchronisieren die Bildwiederholrate des Monitors mit der Framerate der GPU und verhindern so Screen-Tearing",
+        "Sie verbessern ausschließlich die Farbdarstellung bei HDR-Inhalten",
+        "Sie ersetzen die Notwendigkeit eines DisplayPort- oder HDMI-Kabels"
+      ],
+      "answer": 1,
+      "explanation": "Adaptive-Sync-Technologien wie G-Sync und FreeSync gleichen Monitor-Hz und GPU-Framerate an, um Screen-Tearing und Stottern zu vermeiden."
+    }
+  ]
+}

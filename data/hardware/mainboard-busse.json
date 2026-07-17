@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/mainboard-busse",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welcher Mainboard-Formfaktor bietet typischerweise die meisten PCIe-Slots?",
+      "options": [
+        "Mini-ITX",
+        "Micro-ATX",
+        "ATX",
+        "Alle Formfaktoren bieten gleich viele Slots"
+      ],
+      "answer": 2,
+      "explanation": "ATX ist mit bis zu 7 PCIe-Slots der größte Standard-Formfaktor, gefolgt von Micro-ATX (bis 4) und Mini-ITX (nur 1 Slot)."
+    },
+    {
+      "id": "q2",
+      "question": "Was beschreibt die Angabe „x16“ bei einem PCIe-Steckplatz?",
+      "options": [
+        "Die Anzahl der Lanes (parallelen Datenleitungen) des Slots",
+        "Die maximale Spannung des Slots in Volt",
+        "Die Anzahl der Jahre, für die der Slot Garantie hat",
+        "Die Anzahl der Karten, die gleichzeitig in den Slot passen"
+      ],
+      "answer": 0,
+      "explanation": "x1, x4, x8, x16 geben die Anzahl der PCIe-Lanes an — mehr Lanes bedeuten mehr Bandbreite. Physisch größere Slots können auch kleinere Karten aufnehmen."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet SAS (Serial Attached SCSI) von SATA?",
+      "options": [
+        "SAS ist ausschließlich für optische Laufwerke gedacht",
+        "SAS bietet dual-port-Anbindung (redundante Zugriffspfade) und höhere Zuverlässigkeit, wird typisch in Servern/Storage-Arrays statt im Consumer-Bereich eingesetzt",
+        "SATA ist grundsätzlich schneller als SAS",
+        "SAS und SATA sind technisch identisch und unterscheiden sich nur im Namen"
+      ],
+      "answer": 1,
+      "explanation": "SAS ist die enterprise-taugliche Weiterentwicklung mit redundanten Zugriffspfaden (dual-port) und höherer Zuverlässigkeit. SAS-Controller können auch SATA-Laufwerke ansteuern, umgekehrt nicht."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist iSCSI?",
+      "options": [
+        "Ein Dateisystem für externe Festplatten",
+        "Ein Block-Storage-Protokoll, das SCSI-Befehle in TCP/IP-Pakete verpackt und entfernten Speicher für den Client wie eine lokale Festplatte erscheinen lässt",
+        "Ein USB-Standard für externe SSDs",
+        "Eine Verschlüsselungsmethode für Massenspeicher"
+      ],
+      "answer": 1,
+      "explanation": "iSCSI überträgt klassische SCSI-Befehle über TCP/IP (Port 3260) an ein entferntes Speichersystem — für das Betriebssystem sieht das Ergebnis wie eine normale lokale Platte aus."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Aussage zu M.2 als Formfaktor ist richtig?",
+      "options": [
+        "M.2 ist selbst ein Übertragungsprotokoll, unabhängig von SATA oder NVMe",
+        "M.2 ist nur eine Steckform — ein M.2-Slot kann je nach Mainboard SATA- oder NVMe-SSDs betreiben",
+        "M.2-Slots unterstützen ausschließlich HDDs",
+        "M.2 ersetzt vollständig alle PCIe-Slots eines Mainboards"
+      ],
+      "answer": 1,
+      "explanation": "M.2 beschreibt nur die physische Steckform. Ob ein M.2-Slot SATA- oder NVMe-Protokoll (über PCIe) nutzt, hängt vom jeweiligen Mainboard ab."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Anschlüsse werden typischerweise vom Chipsatz (PCH) verwaltet statt direkt von der CPU?",
+      "options": [
+        "Der x16-PCIe-Slot für die Grafikkarte",
+        "Der direkt an der CPU angebundene NVMe-x4-Slot",
+        "USB, SATA, Audio sowie zusätzliche PCIe-Slots",
+        "Ausschließlich der Arbeitsspeicher"
+      ],
+      "answer": 2,
+      "explanation": "GPU (x16) und die primäre NVMe-SSD (x4) hängen meist direkt an der CPU. USB, SATA, Audio und zusätzliche PCIe-Slots werden dagegen vom Chipsatz (PCH) verwaltet."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Kunde will einen vorhandenen AMD Ryzen 7000 (Sockel AM5) mit vorhandenen DDR4-RAM-Modulen in einem neuen System weiterverwenden. Was ist das Ergebnis der Kompatibilitätsprüfung?",
+      "options": [
+        "CPU und RAM passen problemlos zusammen",
+        "AM5-Mainboards unterstützen ausschließlich DDR5 — die vorhandenen DDR4-Module sind weder mechanisch noch elektrisch kompatibel und müssen ersetzt werden",
+        "Nur die Grafikkarte müsste ausgetauscht werden, RAM und CPU passen immer zusammen",
+        "DDR4 lässt sich mit einem einfachen BIOS-Update auf AM5-Boards nutzbar machen"
+      ],
+      "answer": 1,
+      "explanation": "AM5-Mainboards sind ausschließlich für DDR5 ausgelegt (anderer Kerb, andere Spannung). Die vorhandenen DDR4-Module passen nicht und müssen durch DDR5-Module ersetzt werden."
+    }
+  ]
+}

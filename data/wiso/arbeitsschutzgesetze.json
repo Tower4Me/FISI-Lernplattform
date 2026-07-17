@@ -1,0 +1,113 @@
+{
+  "unit": "wiso/arbeitsschutzgesetze",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Gesetz enthält zusätzliche, strengere Arbeitsschutzregeln speziell für unter 18-Jährige?",
+      "options": [
+        "ArbSchG",
+        "JArbSchG",
+        "ArbZG",
+        "KSchG"
+      ],
+      "answer": 1,
+      "explanation": "Das Jugendarbeitsschutzgesetz (JArbSchG) verschärft die allgemeinen Arbeitsschutzregeln zusätzlich für Minderjährige."
+    },
+    {
+      "id": "q2",
+      "question": "Wie viele Stunden täglich darf ein 17-jähriger Auszubildender laut JArbSchG höchstens arbeiten?",
+      "options": [
+        "6 Stunden",
+        "10 Stunden",
+        "8 Stunden",
+        "12 Stunden"
+      ],
+      "answer": 2,
+      "explanation": "Das JArbSchG begrenzt die Arbeitszeit Jugendlicher auf höchstens 8 Stunden täglich und 40 Stunden wöchentlich."
+    },
+    {
+      "id": "q3",
+      "question": "In welchem Zeitfenster dürfen Jugendliche laut JArbSchG grundsätzlich beschäftigt werden?",
+      "options": [
+        "0 bis 24 Uhr, ohne Einschränkung",
+        "6 bis 20 Uhr",
+        "8 bis 16 Uhr",
+        "22 bis 6 Uhr"
+      ],
+      "answer": 1,
+      "explanation": "Jugendliche dürfen grundsätzlich nur zwischen 6 und 20 Uhr beschäftigt werden, mit branchenspezifischen Ausnahmen."
+    },
+    {
+      "id": "q4",
+      "question": "Welches Gesetz regelt die werktägliche Arbeitszeit und Ruhezeiten volljähriger Arbeitnehmer?",
+      "options": [
+        "BUrlG",
+        "EFZG",
+        "ArbZG",
+        "JArbSchG"
+      ],
+      "answer": 2,
+      "explanation": "Das Arbeitszeitgesetz (ArbZG) regelt Arbeitszeit, Pausen und Ruhezeiten für volljährige Beschäftigte."
+    },
+    {
+      "id": "q5",
+      "question": "Wie viele Werktage gesetzlichen Mindesturlaub sieht das BUrlG vor (bei 6-Tage-Woche)?",
+      "options": [
+        "20 Werktage",
+        "24 Werktage",
+        "30 Werktage",
+        "15 Werktage"
+      ],
+      "answer": 1,
+      "explanation": "Das Bundesurlaubsgesetz sieht 24 Werktage Mindesturlaub bei einer 6-Tage-Woche vor, was 20 Arbeitstagen bei einer 5-Tage-Woche entspricht."
+    },
+    {
+      "id": "q6",
+      "question": "Für wie lange zahlt der Arbeitgeber laut EFZG im Krankheitsfall grundsätzlich weiter den vollen Lohn?",
+      "options": [
+        "bis zu 2 Wochen",
+        "bis zu 6 Wochen",
+        "bis zu 6 Monaten",
+        "unbegrenzt"
+      ],
+      "answer": 1,
+      "explanation": "Das Entgeltfortzahlungsgesetz sieht Lohnfortzahlung für bis zu 6 Wochen (42 Kalendertage) vor, danach zahlt die Krankenkasse Krankengeld."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Voraussetzung muss erfüllt sein, damit das KSchG für ein Arbeitsverhältnis greift?",
+      "options": [
+        "Der Betrieb muss mindestens 100 Mitarbeitende haben",
+        "Der Betrieb hat i. d. R. mehr als 10 Beschäftigte und das Arbeitsverhältnis besteht länger als 6 Monate",
+        "Das KSchG gilt automatisch ab dem ersten Arbeitstag in jedem Betrieb",
+        "Nur volljährige Arbeitnehmer sind vom KSchG erfasst"
+      ],
+      "answer": 1,
+      "explanation": "Das Kündigungsschutzgesetz gilt erst ab einer Betriebsgröße von mehr als 10 Beschäftigten und nach einer Wartezeit von 6 Monaten Betriebszugehörigkeit."
+    },
+    {
+      "id": "q8",
+      "question": "Welcher der drei Kündigungsgründe nach KSchG passt zu „Stellenabbau durch Auftragsrückgang“?",
+      "options": [
+        "personenbedingt",
+        "verhaltensbedingt",
+        "betriebsbedingt",
+        "keiner der drei Gründe reicht aus"
+      ],
+      "answer": 2,
+      "explanation": "Ein Stellenabbau aus wirtschaftlichen/organisatorischen Gründen ist eine betriebsbedingte Kündigung."
+    },
+    {
+      "id": "q9",
+      "question": "Wie lange muss ein Arbeitsverhältnis mindestens bestanden haben, damit im Krankheitsfall Entgeltfortzahlung nach EFZG greift?",
+      "options": [
+        "1 Tag",
+        "4 Wochen ununterbrochen",
+        "6 Monate",
+        "1 Jahr"
+      ],
+      "answer": 1,
+      "explanation": "Das EFZG verlangt ein mindestens 4 Wochen ununterbrochen bestehendes Arbeitsverhältnis, bevor Entgeltfortzahlung im Krankheitsfall beansprucht werden kann."
+    }
+  ]
+}

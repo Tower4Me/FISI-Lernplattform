@@ -1,0 +1,89 @@
+{
+  "unit": "projektmanagement/projektphasen-meilensteine",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche vier Phasen umfasst das klassische 4-Phasen-Modell des Projektmanagements?",
+      "options": [
+        "Definition, Planung, Durchführung, Abschluss",
+        "Planung, Durchführung, Kontrolle, Wiederholung",
+        "Kick-off, Meilenstein, Review, Retrospektive",
+        "Analyse, Design, Implementierung, Test"
+      ],
+      "answer": 0,
+      "explanation": "Das klassische 4-Phasen-Modell gliedert ein Projekt in Definition/Initiierung, Planung, Durchführung/Realisierung und Abschluss."
+    },
+    {
+      "id": "q2",
+      "question": "Was geschieht typischerweise in der Definitionsphase (1. Phase) eines Projekts?",
+      "options": [
+        "Die detaillierte Ressourcen- und Terminplanung wird erstellt",
+        "Die Projektidee wird geklärt, Ziele definiert und die Machbarkeit geprüft",
+        "Das fertige Projektergebnis wird abgenommen und dokumentiert",
+        "Das Projektteam wird endgültig aufgelöst"
+      ],
+      "answer": 1,
+      "explanation": "In der Definitionsphase werden die Projektidee geklärt, Ziele definiert, die Machbarkeit geprüft und ein Projektauftrag formuliert."
+    },
+    {
+      "id": "q3",
+      "question": "Was passiert in der Abschlussphase eines Projekts?",
+      "options": [
+        "Das Projektergebnis wird abgenommen, dokumentiert und ausgewertet (Lessons Learned), das Team wird aufgelöst",
+        "Die Projektidee wird zum ersten Mal formuliert",
+        "Der Kick-off findet statt",
+        "Die detaillierte Ablaufplanung beginnt"
+      ],
+      "answer": 0,
+      "explanation": "Die Abschlussphase umfasst die Abnahme und Dokumentation des Ergebnisses, die Auswertung (Lessons Learned) und die Auflösung des Projektteams."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist der Zweck eines Kick-off-Meetings?",
+      "options": [
+        "Es dient ausschließlich der finalen Abnahme des Projektergebnisses",
+        "Es ist der offizielle Startschuss, bei dem alle Beteiligten über Ziele, Rollen und Rahmenbedingungen informiert werden",
+        "Es findet ausschließlich nach Abschluss des Projekts statt",
+        "Es ersetzt die Notwendigkeit einer Projektplanung vollständig"
+      ],
+      "answer": 1,
+      "explanation": "Das Kick-off-Meeting markiert den offiziellen Start eines Projekts und schafft ein gemeinsames Verständnis von Zielen, Rollen und Rahmenbedingungen bei allen Beteiligten."
+    },
+    {
+      "id": "q5",
+      "question": "Was zeichnet einen Meilenstein im Projektmanagement aus?",
+      "options": [
+        "Er beschreibt einen längeren Zeitraum ohne konkreten Termin",
+        "Er ist ein besonders wichtiges, überprüfbares Ereignis mit einem festen Termin (Zeitpunkt, kein Zeitraum) zur Fortschrittskontrolle",
+        "Er ersetzt die Notwendigkeit eines Projektabschlusses",
+        "Er bezeichnet ausschließlich das allererste Projekttreffen"
+      ],
+      "answer": 1,
+      "explanation": "Ein Meilenstein ist ein klar überprüfbares Ereignis mit festem Termin (ein Zeitpunkt, kein Zeitraum), das dem Fortschrittscontrolling dient."
+    },
+    {
+      "id": "q6",
+      "question": "Welches der folgenden Beispiele ist ein typischer Meilenstein?",
+      "options": [
+        "„Laufende Wartungsarbeiten während der gesamten Projektlaufzeit“",
+        "„Testphase abgeschlossen“",
+        "„Allgemeine Projektidee“",
+        "„Unbegrenzte Ressourcenverfügbarkeit“"
+      ],
+      "answer": 1,
+      "explanation": "„Testphase abgeschlossen“ ist ein konkretes, überprüfbares Ereignis mit festem Termin — genau das kennzeichnet einen Meilenstein."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Projektteam definiert für ein Migrationsprojekt die Meilensteine „Testumgebung eingerichtet“, „Datenmigration abgeschlossen“ und „Produktivbetrieb freigegeben“. Wozu dienen diese Meilensteine?",
+      "options": [
+        "Sie ersetzen die Notwendigkeit eines Kick-off-Meetings",
+        "Sie dienen als feste Kontrollpunkte, um den tatsächlichen Fortschritt des Projekts messbar zu überprüfen",
+        "Sie sind reine Dekoration ohne praktische Funktion im Projektplan",
+        "Sie definieren ausschließlich das Projektbudget"
+      ],
+      "answer": 1,
+      "explanation": "Meilensteine dienen als feste, überprüfbare Kontrollpunkte im Projektverlauf, an denen sich der tatsächliche Fortschritt gegen die Planung messen lässt."
+    }
+  ]
+}

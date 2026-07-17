@@ -1,0 +1,101 @@
+{
+  "unit": "kaufmaennisches/ausschreibung-leistungsverzeichnis",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist das Ziel einer Ausschreibung?",
+      "options": [
+        "Einen fairen, transparenten Wettbewerb um einen Auftrag zu ermöglichen",
+        "Ausschließlich den günstigsten Anbieter automatisch zu bestimmen",
+        "Die Vergabe ohne jede Beteiligung von Anbietern",
+        "Die Umgehung gesetzlicher Vergabevorschriften"
+      ],
+      "answer": 0,
+      "explanation": "Eine Ausschreibung soll einen fairen und transparenten Wettbewerb um den Auftrag sicherstellen."
+    },
+    {
+      "id": "q2",
+      "question": "Was kennzeichnet eine öffentliche Ausschreibung?",
+      "options": [
+        "Nur ein einziger Anbieter darf sich bewerben",
+        "Ein unbeschränkter Bieterkreis, jede:r kann sich bewerben",
+        "Es findet keine formale Aufforderung zur Angebotsabgabe statt",
+        "Sie ist nur bei sehr geringem Auftragswert zulässig"
+      ],
+      "answer": 1,
+      "explanation": "Bei einer öffentlichen Ausschreibung ist der Bieterkreis unbeschränkt, jede:r kann ein Angebot abgeben."
+    },
+    {
+      "id": "q3",
+      "question": "Wann ist eine freihändige Vergabe typischerweise zulässig?",
+      "options": [
+        "Nur bei sehr hohen Auftragswerten",
+        "Meist nur bei geringem Auftragswert, ohne förmliches Vergabeverfahren",
+        "Ausschließlich bei internationalen Großprojekten",
+        "Niemals, sie ist grundsätzlich unzulässig"
+      ],
+      "answer": 1,
+      "explanation": "Freihändige Vergabe ist meist nur bei geringem Auftragswert zulässig, da hier kein förmliches Verfahren nötig ist."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist der Zweck eines Leistungsverzeichnisses?",
+      "options": [
+        "Es listet detailliert und strukturiert alle geforderten Leistungen auf, damit Angebote vergleichbar sind",
+        "Es ersetzt den späteren Vertrag vollständig",
+        "Es dient ausschließlich der internen Buchhaltung",
+        "Es hat keinen Bezug zu Ausschreibungen"
+      ],
+      "answer": 0,
+      "explanation": "Das Leistungsverzeichnis schafft eine gemeinsame, detaillierte Kalkulationsgrundlage für alle Bieter."
+    },
+    {
+      "id": "q5",
+      "question": "Welchem bereits behandelten Dokument ist das Leistungsverzeichnis eng verwandt?",
+      "options": [
+        "Dem Lastenheft/Pflichtenheft",
+        "Dem Arbeitsvertrag",
+        "Dem Testprotokoll",
+        "Der Nutzwertanalyse"
+      ],
+      "answer": 0,
+      "explanation": "Das Leistungsverzeichnis ist eng verwandt mit dem Lastenheft/Pflichtenheft, jedoch stärker in Einzelpositionen strukturiert."
+    },
+    {
+      "id": "q6",
+      "question": "Was muss bei einer öffentlichen Ausschreibung nicht zwingend das entscheidende Kriterium sein?",
+      "options": [
+        "Der niedrigste angebotene Preis",
+        "Das Preis-Leistungs-Verhältnis",
+        "Die Einhaltung des Leistungsverzeichnisses",
+        "Die Fristgerechtigkeit des Angebots"
+      ],
+      "answer": 0,
+      "explanation": "Nicht der niedrigste Preis allein entscheidet, sondern das wirtschaftlichste Angebot nach Preis-Leistungs-Verhältnis."
+    },
+    {
+      "id": "q7",
+      "question": "Was bedeutet es, dass das „wirtschaftlichste Angebot“ gewählt wird?",
+      "options": [
+        "Ausschließlich der niedrigste Preis gewinnt immer",
+        "Preis- und Qualitätskriterien werden gemeinsam bewertet, um das beste Preis-Leistungs-Verhältnis zu ermitteln",
+        "Nur die Reputation des Anbieters zählt, der Preis spielt keine Rolle",
+        "Es wird per Losverfahren entschieden"
+      ],
+      "answer": 1,
+      "explanation": "Das wirtschaftlichste Angebot ergibt sich aus einer Kombination von Preis- und Qualitätskriterien."
+    },
+    {
+      "id": "q8",
+      "question": "Im Praxisbeispiel: Warum erhält TowerTech GmbH den Zuschlag, obwohl ein Mitbewerber günstiger war?",
+      "options": [
+        "Weil ausschließlich der Preis entscheidend war",
+        "Weil TowerTechs Gesamtangebot nach Preis-Leistungs-Verhältnis als wirtschaftlicher bewertet wurde",
+        "Weil TowerTech das einzige eingereichte Angebot war",
+        "Weil die Ausschreibung wiederholt werden musste"
+      ],
+      "answer": 1,
+      "explanation": "Die Stadtverwaltung bewertet nicht nur den Preis, sondern das gesamte Preis-Leistungs-Verhältnis, wodurch TowerTech den Zuschlag erhält."
+    }
+  ]
+}

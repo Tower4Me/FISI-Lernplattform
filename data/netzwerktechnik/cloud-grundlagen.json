@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/cloud-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Cloud-Servicemodell liefert dem Kunden eine komplette, fertige Anwendung inklusive Betrieb?",
+      "options": [
+        "IaaS",
+        "PaaS",
+        "SaaS",
+        "On-Premises"
+      ],
+      "answer": 2,
+      "explanation": "SaaS (Software as a Service) liefert eine fertig betriebene Anwendung — der Kunde kümmert sich nur noch um seine Daten und Nutzerkonten."
+    },
+    {
+      "id": "q2",
+      "question": "Was muss der Kunde bei IaaS im Vergleich zu SaaS selbst verwalten?",
+      "options": [
+        "Nichts, IaaS entspricht funktional SaaS",
+        "Betriebssystem, Laufzeitumgebung, Anwendungen und Daten",
+        "Nur die physische Hardware im eigenen Rechenzentrum",
+        "Ausschließlich die Netzwerkverkabelung"
+      ],
+      "answer": 1,
+      "explanation": "Bei IaaS liefert der Anbieter nur die virtuelle Infrastruktur (Server, Speicher, Netzwerk) — Betriebssystem, Laufzeitumgebung, Anwendungen und Daten bleiben Aufgabe des Kunden."
+    },
+    {
+      "id": "q3",
+      "question": "Was kennzeichnet PaaS (Platform as a Service)?",
+      "options": [
+        "Der Anbieter liefert zusätzlich zur Infrastruktur auch Betriebssystem und Laufzeitumgebung, der Kunde kümmert sich nur um seine Anwendung",
+        "Der Kunde muss das komplette Betriebssystem selbst installieren",
+        "PaaS liefert ausschließlich fertige Endanwender-Software",
+        "PaaS ist identisch mit On-Premises-Betrieb"
+      ],
+      "answer": 0,
+      "explanation": "PaaS stellt eine vorkonfigurierte Plattform inklusive Betriebssystem und Laufzeitumgebung bereit — der Kunde entwickelt nur noch seine eigene Anwendung darauf."
+    },
+    {
+      "id": "q4",
+      "question": "Was beschreibt FaaS (Function as a Service) am treffendsten?",
+      "options": [
+        "Eine dauerhaft laufende virtuelle Maschine für komplexe Anwendungen",
+        "Eine serverlose Ausführungsumgebung, in der einzelne Funktionen nur bei Bedarf ausgeführt werden",
+        "Ein Servicemodell, bei dem der Kunde die komplette Infrastruktur selbst betreibt",
+        "Eine Bezeichnung für private Rechenzentren"
+      ],
+      "answer": 1,
+      "explanation": "FaaS ermöglicht die Ausführung einzelner Funktionen nur bei Bedarf (Serverless Computing), ohne dass der Kunde sich um dauerhaft laufende Server kümmern muss."
+    },
+    {
+      "id": "q5",
+      "question": "Was unterscheidet eine Private Cloud von einer Public Cloud?",
+      "options": [
+        "Private Cloud-Ressourcen sind exklusiv für ein einzelnes Unternehmen reserviert, Public Cloud-Ressourcen werden von vielen Kunden gemeinsam genutzt",
+        "Public Cloud ist grundsätzlich sicherer als Private Cloud",
+        "Private Cloud kann nicht im eigenen Rechenzentrum betrieben werden",
+        "Es gibt keinen praktischen Unterschied zwischen beiden"
+      ],
+      "answer": 0,
+      "explanation": "Eine Private Cloud ist exklusiv für ein Unternehmen reserviert, eine Public Cloud wird von vielen Kunden gemeinsam (logisch getrennt) genutzt."
+    },
+    {
+      "id": "q6",
+      "question": "Was bedeutet der Begriff On-Premises?",
+      "options": [
+        "Die IT-Infrastruktur wird vollständig über einen externen Cloud-Anbieter bezogen",
+        "Die gesamte IT-Infrastruktur läuft im eigenen Unternehmen, ohne externen Cloud-Anbieter",
+        "Eine Mischung aus Public und Private Cloud",
+        "Ein Synonym für Software as a Service"
+      ],
+      "answer": 1,
+      "explanation": "On-Premises bezeichnet den klassischen Betrieb der kompletten IT-Infrastruktur im eigenen Haus, ohne Cloud-Anbieter."
+    },
+    {
+      "id": "q7",
+      "question": "Warum entscheidet sich ein Unternehmen mit sensiblen Kundendaten häufig für eine Hybrid Cloud?",
+      "options": [
+        "Weil Hybrid Cloud grundsätzlich günstiger ist als reine Public oder Private Cloud",
+        "Weil sensible Daten aus Compliance-Gründen On-Premises oder in einer Private Cloud bleiben können, während weniger kritische Lasten in der Public Cloud laufen",
+        "Weil Hybrid Cloud keine Internetverbindung benötigt",
+        "Weil Hybrid Cloud automatisch alle Daten verschlüsselt"
+      ],
+      "answer": 1,
+      "explanation": "Eine Hybrid Cloud kombiniert Private- und Public-Cloud-Anteile, sodass sensible Daten kontrolliert gehalten werden können, während unkritische Lastspitzen flexibel in der Public Cloud abgefangen werden."
+    }
+  ]
+}

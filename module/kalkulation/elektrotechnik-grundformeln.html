@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Elektrotechnik-Grundformeln</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Elektrotechnik-Grundformeln</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Elektrotechnik-Grundformeln
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Strom lässt sich gut mit Wasser in einem Rohr vergleichen. Die
+        <strong>Spannung</strong> (Volt) entspricht dem Wasserdruck, der das
+        Wasser durch das Rohr drückt. Die <strong>Stromstärke</strong>
+        (Ampere) entspricht der Menge Wasser, die pro Sekunde durch das Rohr
+        fließt. Und der <strong>Widerstand</strong> (Ohm) entspricht einer
+        Engstelle im Rohr, die den Durchfluss bei gleichem Druck bremst.
+      </p>
+      <p>
+        Die <strong>Leistung</strong> (Watt) ist dann vergleichbar mit der
+        Kraft, die das strömende Wasser an einer Turbine tatsächlich
+        erzeugt — sie hängt sowohl vom Druck als auch von der Durchflussmenge
+        ab. Genau dieser Zusammenhang steckt in der Formel P = U × I, die in
+        fast jeder IHK-Prüfung in irgendeiner Form vorkommt: beim
+        Stromverbrauch eines PCs, bei der Dimensionierung eines Netzteils
+        oder bei der Berechnung von Stromkosten.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Leistung: P = U × I</h3>
+      <p>
+        <strong>P</strong> = Leistung in Watt (W) · <strong>U</strong> =
+        Spannung in Volt (V) · <strong>I</strong> = Stromstärke in Ampere (A)
+      </p>
+      <p>Umstellungen: U = P ÷ I &nbsp;·&nbsp; I = P ÷ U</p>
+
+      <h3>Ohmsches Gesetz: R = U / I</h3>
+      <p>
+        <strong>R</strong> = Widerstand in Ohm (Ω) · <strong>U</strong> =
+        Spannung in Volt (V) · <strong>I</strong> = Stromstärke in Ampere (A)
+      </p>
+      <p>Umstellungen: U = R × I &nbsp;·&nbsp; I = U ÷ R</p>
+      <p>
+        Praxisbezug: Der Widerstand eines Stromkabels erzeugt bei langen
+        Leitungswegen einen messbaren Spannungsabfall (U = R × I) — bei
+        Serverräumen mit langen Kabelwegen zur USV ist das relevant.
+      </p>
+
+      <h3>Wirkungsgrad: η = P_ab / P_zu</h3>
+      <p>
+        <strong>η</strong> (eta) = Wirkungsgrad · <strong>P_ab</strong> =
+        abgegebene Nutzleistung (W) · <strong>P_zu</strong> = zugeführte
+        Leistung aus der Steckdose (W)
+      </p>
+      <p>Umstellung: P_zu = P_ab ÷ η &nbsp;·&nbsp; P_ab = η × P_zu</p>
+      <p>
+        Ein Netzteil setzt nie 100 % der aufgenommenen Leistung in nutzbare
+        Gleichspannung um — der Rest geht als Wärme verloren. Die
+        Zertifizierung <strong>80 PLUS</strong> gibt an, welchen
+        Mindest-Wirkungsgrad ein Netzteil bei typischer Last (50 %)
+        erreicht:
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="plus80-title">
+          <title id="plus80-title">Balkendiagramm: Mindest-Wirkungsgrad der 80-PLUS-Klassen bei 50 % Last, von Standard bis Platinum</title>
+
+          <text x="10" y="16" fill="var(--text-muted)" font-size="12">Wirkungsgrad bei 50 % Last</text>
+
+          <text x="10" y="38" fill="var(--text)" font-size="13">Standard</text>
+          <rect x="90" y="26" width="300" height="18" rx="3" fill="var(--surface-2)" stroke="var(--border)"/>
+          <rect x="90" y="26" width="240" height="18" rx="3" fill="var(--link)"/>
+          <text x="335" y="40" fill="var(--text)" font-size="12">80 %</text>
+
+          <text x="10" y="68" fill="var(--text)" font-size="13">Bronze</text>
+          <rect x="90" y="56" width="300" height="18" rx="3" fill="var(--surface-2)" stroke="var(--border)"/>
+          <rect x="90" y="56" width="255" height="18" rx="3" fill="var(--link)"/>
+          <text x="360" y="70" fill="var(--text)" font-size="12">85 %</text>
+
+          <text x="10" y="98" fill="var(--text)" font-size="13">Gold</text>
+          <rect x="90" y="86" width="300" height="18" rx="3" fill="var(--surface-2)" stroke="var(--border)"/>
+          <rect x="90" y="86" width="276" height="18" rx="3" fill="var(--link)"/>
+          <text x="380" y="100" fill="var(--text)" font-size="12">92 %</text>
+
+          <text x="10" y="128" fill="var(--text)" font-size="13">Platinum</text>
+          <rect x="90" y="116" width="300" height="18" rx="3" fill="var(--surface-2)" stroke="var(--border)"/>
+          <rect x="90" y="116" width="288" height="18" rx="3" fill="var(--link)"/>
+          <text x="392" y="130" fill="var(--text)" font-size="12">96 %</text>
+
+          <text x="10" y="160" fill="var(--text-muted)" font-size="11">
+            Je höher die Klasse, desto weniger Energie geht als Wärme verloren.
+          </text>
+        </svg>
+        <figcaption>
+          80-PLUS-Klassen bei 50 % Last: höhere Klasse = weniger Verlustleistung
+          bei gleicher Nutzleistung.
+        </figcaption>
+      </figure>
+
+      <h3>Energie & Stromkosten: E = P × t / 1000</h3>
+      <p>
+        <strong>E</strong> = Energie in kWh · <strong>P</strong> = Leistung
+        in Watt (W) · <strong>t</strong> = Laufzeit in Stunden (h)
+      </p>
+      <p>
+        Da Stromanbieter in Kilowattstunden abrechnen, wird die in Wh
+        berechnete Energie durch 1000 geteilt. Die Stromkosten ergeben sich
+        anschließend aus Energie × Strompreis pro kWh.
+      </p>
+
+      <h3>Netzteil-Dimensionierung</h3>
+      <p>
+        Faustregel für die passende Netzteilgröße: <strong>CPU-TDP +
+        GPU-TDP + ca. 100 W Reserve</strong> (für Mainboard, RAM, Lüfter,
+        Laufwerke). Ein zu klein dimensioniertes Netzteil führt unter Last
+        zu Abstürzen, ein deutlich überdimensioniertes Netzteil kostet nur
+        unnötig mehr und arbeitet oft in einem ineffizienteren
+        Teillastbereich.
+      </p>
+
+      <p>Probiere alle Formeln direkt aus:</p>
+      <div class="tool" data-tool="elektrotechnik-rechner">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TechNord GmbH möchte einen neuen Arbeitsplatzrechner
+        mit einer 105-W-CPU und einer 280-W-Grafikkarte zusammenstellen
+        lassen und fragt, welches Netzteil benötigt wird und was der
+        Rechner im Dauerbetrieb an Stromkosten verursacht.
+      </p>
+
+      <p><strong>Schritt 1 — Netzteil-Dimensionierung:</strong></p>
+      <p>
+        CPU-TDP + GPU-TDP + Reserve = 105 W + 280 W + 100 W = 485 W.<br>
+        Der Techniker empfiehlt ein Netzteil mit <strong>550 W</strong>
+        (nächste marktübliche Größe oberhalb des Mindestwerts).
+      </p>
+
+      <p><strong>Schritt 2 — Aufnahmeleistung über den Wirkungsgrad:</strong></p>
+      <p>
+        Unter Volllast zieht das System 460 W Nutzleistung. Das gewählte
+        Netzteil ist 80 PLUS Bronze zertifiziert (η = 0,85):
+      </p>
+      <p>
+        P_zu = P_ab ÷ η = 460 W ÷ 0,85 ≈ <strong>541 W</strong> aus der
+        Steckdose. Verlustleistung: 541 W − 460 W ≈ 81 W (als Wärme).
+      </p>
+
+      <p><strong>Schritt 3 — Stromkosten im Jahr:</strong></p>
+      <p>
+        Der Kunde nutzt den Rechner im Schnitt 4 Stunden täglich unter
+        dieser Last, 300 Tage im Jahr, bei einem Strompreis von 0,32 €/kWh:
+      </p>
+      <p>
+        E = P × t ÷ 1000 = 541 W × (4 h × 300) ÷ 1000 = 541 × 1.200 ÷ 1000
+        = <strong>649,2 kWh/Jahr</strong><br>
+        Kosten = 649,2 kWh × 0,32 €/kWh ≈ <strong>207,74 €/Jahr</strong>
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        P = U × I (Leistung), R = U / I (Ohmsches Gesetz), η = P_ab / P_zu
+        (Wirkungsgrad) und E = P × t / 1000 (Energie in kWh) sind die vier
+        Grundformeln, aus denen sich Netzteil-Dimensionierung
+        (CPU-TDP + GPU-TDP + 100 W Reserve) und Stromkosten berechnen
+        lassen. Ein höherer Wirkungsgrad bedeutet weniger Verlustleistung
+        als Wärme bei gleicher Nutzleistung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/elektrotechnik-grundformeln.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/elektrotechnik-rechner.js"></script>
+</body>
+</html>

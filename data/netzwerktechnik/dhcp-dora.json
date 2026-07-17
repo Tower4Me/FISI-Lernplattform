@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/dhcp-dora",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht das Akronym DORA im Zusammenhang mit DHCP?",
+      "options": [
+        "Discover, Offer, Request, Acknowledge",
+        "Domain, Order, Route, Address",
+        "Detect, Open, Register, Assign",
+        "Discover, Order, Renew, Authenticate"
+      ],
+      "answer": 0,
+      "explanation": "DORA beschreibt die vier Schritte einer DHCP-Adressvergabe: Discover, Offer, Request, Acknowledge."
+    },
+    {
+      "id": "q2",
+      "question": "Was passiert im Discover-Schritt des DHCP-Ablaufs?",
+      "options": [
+        "Der Server bestätigt endgültig die Vergabe einer Adresse",
+        "Der Client sendet einen Broadcast, um einen verfügbaren DHCP-Server zu finden",
+        "Der Client wählt aus mehreren Angeboten eines aus",
+        "Der Server trägt die Adresse als vergeben in seine Datenbank ein"
+      ],
+      "answer": 1,
+      "explanation": "Im Discover-Schritt sucht der Client per Broadcast nach einem DHCP-Server, da er selbst noch keine IP-Adresse besitzt."
+    },
+    {
+      "id": "q3",
+      "question": "Warum laufen Discover und Request als Broadcast ab, nicht als gezielte Nachricht an einen bestimmten Server?",
+      "options": [
+        "Weil Broadcasts schneller übertragen werden als Unicast-Nachrichten",
+        "Weil der Client zu diesem Zeitpunkt noch keine eigene IP-Adresse besitzt und den Server nicht gezielt adressieren kann",
+        "Weil DHCP-Server ausschließlich Broadcast-Nachrichten verarbeiten können",
+        "Weil Broadcasts verschlüsselt sind und deshalb sicherer sind"
+      ],
+      "answer": 1,
+      "explanation": "Ohne eigene IP-Adresse kann der Client den DHCP-Server nicht direkt (unicast) ansprechen — ein Broadcast erreicht alle Geräte im Segment, einschließlich eines vorhandenen DHCP-Servers."
+    },
+    {
+      "id": "q4",
+      "question": "Was passiert beim Request-Schritt, wenn mehrere DHCP-Server ein Angebot (Offer) gesendet haben?",
+      "options": [
+        "Der Client fordert alle Angebote gleichzeitig an",
+        "Der Client wählt eines der Angebote aus und fordert es per Broadcast an, wodurch andere Server ihr Angebot zurückziehen",
+        "Alle Server vergeben automatisch dieselbe Adresse",
+        "Der Client ignoriert alle Angebote und fragt erneut per Discover"
+      ],
+      "answer": 1,
+      "explanation": "Der Client wählt ein Angebot aus und sendet die Anforderung als Broadcast — dadurch sehen auch die anderen anbietenden Server, dass ihr Angebot nicht angenommen wurde."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Bedeutung hat die Lease-Dauer bei DHCP?",
+      "options": [
+        "Sie gibt an, wie schnell die Netzwerkverbindung ist",
+        "Sie legt fest, wie lange eine vergebene IP-Adresse gültig ist, bevor sie verlängert oder neu vergeben werden muss",
+        "Sie bestimmt die Anzahl der verfügbaren DNS-Server",
+        "Sie ist identisch mit der Subnetzmaske"
+      ],
+      "answer": 1,
+      "explanation": "Die Lease-Dauer ist die Gültigkeitsdauer einer zugewiesenen IP-Adresse. Vor Ablauf versucht der Client, sie beim Server zu verlängern."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Konfigurationsdaten liefert DHCP typischerweise zusätzlich zur IP-Adresse?",
+      "options": [
+        "Nur die MAC-Adresse des Clients",
+        "Subnetzmaske, Standardgateway und DNS-Server-Adresse",
+        "Ausschließlich die Lease-Dauer",
+        "Den Hostnamen des DHCP-Servers"
+      ],
+      "answer": 1,
+      "explanation": "DHCP liefert neben der IP-Adresse üblicherweise auch Subnetzmaske, Standardgateway und DNS-Server, damit das Gerät vollständig netzwerkfähig ist."
+    },
+    {
+      "id": "q7",
+      "question": "Was bestätigt der Server im letzten Schritt (Acknowledge) des DORA-Ablaufs?",
+      "options": [
+        "Dass der Client die Adresse endgültig zugewiesen bekommt, und trägt sie in seiner Datenbank als vergeben ein",
+        "Dass der Client keine Adresse erhalten hat",
+        "Dass ein anderer Server die Adresse übernehmen wird",
+        "Dass der Discover-Schritt wiederholt werden muss"
+      ],
+      "answer": 0,
+      "explanation": "Mit dem Acknowledge (ACK) bestätigt der Server die endgültige Zuteilung der Adresse an den Client und vermerkt sie als belegt."
+    }
+  ]
+}

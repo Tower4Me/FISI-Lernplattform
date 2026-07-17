@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: Ticketsystem, Störungsmanagement &amp; Eskalation</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">Ticketsystem, Störungsmanagement &amp; Eskalation</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Ticketsystem, Störungsmanagement &amp; Eskalation
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In der Notaufnahme eines Krankenhauses wird jeder Patient
+        zunächst erfasst und nach Dringlichkeit sortiert (Triage) –
+        ein akuter Notfall wird sofort behandelt, ein leichter Fall
+        muss warten. Reicht die Kompetenz der Ambulanz nicht aus, wird
+        an eine Fachabteilung weitergeleitet. Genau nach diesem Prinzip
+        funktioniert ein <strong>Ticketsystem</strong> im IT-Support:
+        Anfragen werden erfasst, priorisiert und bei Bedarf an die
+        passende Stelle <strong>eskaliert</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Ticketsystem</h3>
+      <p>
+        Ein <strong>Ticketsystem</strong> erfasst, verfolgt und
+        dokumentiert Störungen und Anfragen zentral – unabhängig
+        davon, ob sie per E-Mail, Kundenportal oder Telefon eingehen.
+        Jedes Ticket erhält typischerweise:
+      </p>
+      <ul>
+        <li>eine eindeutige <strong>ID</strong> zur Nachverfolgung</li>
+        <li>einen <strong>Status</strong> (offen, in Bearbeitung, gelöst, geschlossen)</li>
+        <li>eine <strong>Priorität</strong> und Kategorie</li>
+        <li>eine Zuordnung zu einer bearbeitenden Person oder einem Team</li>
+      </ul>
+
+      <h3>Störungsmanagement (Incident Management)</h3>
+      <p>
+        Störungsmanagement (angelehnt an ITIL, siehe Einheit
+        <a href="../software-os-web/it-servicemanagement.html">IT-Servicemanagement (ITIL)</a>)
+        verfolgt vor allem ein Ziel: den <strong>Normalbetrieb so
+        schnell wie möglich wiederherzustellen</strong> – nicht
+        zwingend die dauerhafte Ursachenbehebung. Dabei unterscheidet
+        man:
+      </p>
+      <table>
+        <thead><tr><th>Begriff</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Incident (Störung)</strong></td>
+            <td>ein einzelnes, ungeplantes Ereignis, das den Betrieb
+                stört (z. B. ein Drucker funktioniert nicht)</td>
+          </tr>
+          <tr>
+            <td><strong>Problem</strong></td>
+            <td>die zugrunde liegende Ursache, die mehreren Incidents
+                gemeinsam ist (siehe Einheit
+                <a href="problemanalyse-5whys-ishikawa.html">Problemanalyse (5 Whys, Ishikawa)</a>)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Tickets werden häufig nach einer Kombination aus
+        <strong>Dringlichkeit</strong> und <strong>Auswirkung</strong>
+        priorisiert – ein Ausfall mit hoher Dringlichkeit und großer
+        Auswirkung (z. B. Serverausfall im gesamten Betrieb) hat
+        höchste Priorität. Je Prioritätsstufe gelten oft vereinbarte
+        Reaktionszeiten (siehe Einheit
+        <a href="../datenschutz-recht/sla-support-level.html">SLA &amp; Support-Level</a>).
+      </p>
+
+      <h3>Eskalation</h3>
+      <table>
+        <thead><tr><th>Eskalationsart</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Fachliche (funktionale) Eskalation</strong></td>
+            <td>Weiterleitung an höhere Fachkompetenz, wenn die
+                aktuelle Ebene das Problem nicht lösen kann</td>
+          </tr>
+          <tr>
+            <td><strong>Hierarchische Eskalation</strong></td>
+            <td>Einbindung von Vorgesetzten, z. B. wenn eine
+                SLA-Frist zu reißen droht oder der Kunde unzufrieden
+                ist</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TowerTech GmbH meldet ein Ticket: „Drucker
+        druckt nicht.“
+      </p>
+      <ul>
+        <li>
+          Der First-Level-Support nimmt das Ticket auf, vergibt eine
+          ID und versucht eine Standardlösung (Treiber neu
+          installieren) – das Problem besteht jedoch weiter.
+        </li>
+        <li>
+          Da die Standardlösung nicht ausreicht, erfolgt eine
+          <strong>fachliche Eskalation</strong> an den Second-Level-Support.
+        </li>
+        <li>
+          Der Second-Level-Support stellt einen Hardwaredefekt fest,
+          der vor Ort behoben werden muss – die Bearbeitungszeit
+          verlängert sich dadurch.
+        </li>
+        <li>
+          Da die vereinbarte SLA-Reaktionszeit dadurch zu reißen droht,
+          informiert der Support zusätzlich per <strong>hierarchischer
+          Eskalation</strong> den Teamleiter, der den Kunden proaktiv
+          über die Verzögerung informiert.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Ticketsystem erfasst, priorisiert und verfolgt Störungen
+        zentral. Störungsmanagement zielt auf schnelle
+        Wiederherstellung des Betriebs (Incident), während
+        Problemmanagement die Ursache behebt. Fachliche Eskalation
+        leitet an höhere Kompetenz weiter, hierarchische Eskalation
+        bindet Vorgesetzte ein.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/ticketsystem-stoerungsmanagement-eskalation.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

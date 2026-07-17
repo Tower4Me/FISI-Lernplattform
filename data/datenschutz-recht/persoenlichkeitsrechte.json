@@ -1,0 +1,77 @@
+{
+  "unit": "datenschutz-recht/persoenlichkeitsrechte",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Worauf ist das allgemeine Persönlichkeitsrecht in Deutschland verfassungsrechtlich gestützt?",
+      "options": [
+        "Ausschließlich auf die DSGVO",
+        "Auf Art. 2 Abs. 1 in Verbindung mit Art. 1 Abs. 1 Grundgesetz (Menschenwürde)",
+        "Auf das Kunsturhebergesetz allein",
+        "Es gibt in Deutschland keine verfassungsrechtliche Grundlage dafür"
+      ],
+      "answer": 1,
+      "explanation": "Das allgemeine Persönlichkeitsrecht wird aus Art. 2 Abs. 1 GG (freie Entfaltung der Persönlichkeit) in Verbindung mit Art. 1 Abs. 1 GG (Menschenwürde) abgeleitet."
+    },
+    {
+      "id": "q2",
+      "question": "Was verlangt § 22 des Kunsturhebergesetzes (KUG) grundsätzlich für die Veröffentlichung eines Bildnisses einer Person?",
+      "options": [
+        "Nichts, Bildnisse dürfen immer frei veröffentlicht werden",
+        "Grundsätzlich die Einwilligung der abgebildeten Person",
+        "Nur eine nachträgliche Information der abgebildeten Person",
+        "Eine Genehmigung der zuständigen Datenschutz-Aufsichtsbehörde"
+      ],
+      "answer": 1,
+      "explanation": "Nach § 22 KUG dürfen Bildnisse einer Person grundsätzlich nur mit deren Einwilligung verbreitet oder öffentlich zur Schau gestellt werden."
+    },
+    {
+      "id": "q3",
+      "question": "Welche der folgenden Situationen kann laut § 23 KUG eine Ausnahme von der Einwilligungspflicht darstellen?",
+      "options": [
+        "Ein Portraitfoto einer einzelnen erkennbaren Person im Bildmittelpunkt",
+        "Eine kaum erkennbare Person als „Beiwerk“ auf einem Landschaftsfoto",
+        "Ein Foto, das ohne Wissen der Person in ihrer Privatwohnung aufgenommen wurde",
+        "Ein Werbefoto, das eine bekannte Person ohne deren Zustimmung für ein Produkt zeigt"
+      ],
+      "answer": 1,
+      "explanation": "Personen, die nur als Beiwerk einer Landschaft oder Örtlichkeit erscheinen, fallen unter eine der Ausnahmen des § 23 KUG — anders als erkennbare Einzelpersonen im Bildmittelpunkt."
+    },
+    {
+      "id": "q4",
+      "question": "Warum gilt für ein digitales Foto einer erkennbaren Person sowohl das KUG als auch die DSGVO?",
+      "options": [
+        "Weil beide Regelwerke exakt denselben Inhalt haben",
+        "Weil ein Foto einer erkennbaren Person gleichzeitig ein personenbezogenes Datum im Sinne der DSGVO ist",
+        "Weil das KUG die DSGVO vollständig ersetzt hat",
+        "Weil die DSGVO nur für Text-, nicht für Bilddaten gilt"
+      ],
+      "answer": 1,
+      "explanation": "Ein Foto einer erkennbaren Person ist zugleich ein personenbezogenes Datum — deshalb muss die Veröffentlichung sowohl das spezielle Bildrecht (KUG) als auch die allgemeinen Datenschutzregeln (DSGVO) beachten."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Mitarbeiter hatte ursprünglich der Veröffentlichung seines Fotos auf der Firmenwebseite zugestimmt, verlangt nun aber die Entfernung. Wie ist damit umzugehen?",
+      "options": [
+        "Die Einwilligung ist grundsätzlich unwiderruflich, das Foto bleibt online",
+        "Die Einwilligung ist widerruflich — das Unternehmen muss das Foto nach dem Widerruf entfernen",
+        "Ein Widerruf ist nur innerhalb von 24 Stunden nach der ursprünglichen Zustimmung möglich",
+        "Ein Widerruf ist nur über die Datenschutz-Aufsichtsbehörde möglich"
+      ],
+      "answer": 1,
+      "explanation": "Eine Einwilligung zur Bildveröffentlichung ist widerruflich — nach einem Widerruf muss das Unternehmen das Foto entfernen."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Übersichtsfoto einer großen Firmen-Sommerfest-Wiese mit vielen kaum erkennbaren Personen im Hintergrund soll veröffentlicht werden. Warum ist hier keine Einzeleinwilligung jeder abgebildeten Person praktisch erforderlich?",
+      "options": [
+        "Weil Fotos von Firmenfeiern grundsätzlich von der DSGVO ausgenommen sind",
+        "Weil die Personen hier als Beiwerk bzw. im Kontext einer größeren Versammlung erscheinen und nicht einzeln erkennbar im Mittelpunkt stehen",
+        "Weil Firmenevents automatisch als Zeitgeschichte gelten",
+        "Weil eine Einwilligung nur bei Fotos außerhalb des Arbeitsplatzes nötig ist"
+      ],
+      "answer": 1,
+      "explanation": "Bei einer Übersichtsaufnahme, in der Personen nur als Beiwerk bzw. Teil einer größeren Menge erscheinen, greift tendenziell eine der KUG-Ausnahmen — anders als bei erkennbaren Einzelpersonen im Bildmittelpunkt."
+    }
+  ]
+}

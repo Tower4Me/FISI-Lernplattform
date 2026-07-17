@@ -1,0 +1,79 @@
+{
+  "unit": "software-os-web/url-uri-urn",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "In welchem Verhältnis stehen URI, URL und URN zueinander?",
+      "options": [
+        "URI ist der Oberbegriff, URL und URN sind jeweils spezielle Arten von URIs",
+        "URL ist der Oberbegriff, URI und URN sind Unterarten davon",
+        "Alle drei Begriffe sind exakt identisch und austauschbar",
+        "URN ist der Oberbegriff für URL und URI"
+      ],
+      "answer": 0,
+      "explanation": "URI (Uniform Resource Identifier) ist der Oberbegriff für die eindeutige Identifizierung einer Ressource — URL und URN sind jeweils spezielle Ausprägungen davon."
+    },
+    {
+      "id": "q2",
+      "question": "Was gibt eine URL im Unterschied zu einer URN zusätzlich an?",
+      "options": [
+        "Nichts, beide sind technisch identisch",
+        "Wo eine Ressource zu finden ist und wie darauf zugegriffen wird (Protokoll, Adresse, Pfad)",
+        "Ausschließlich den Dateityp der Ressource",
+        "Die Dateigröße der Ressource"
+      ],
+      "answer": 1,
+      "explanation": "Eine URL gibt zusätzlich zum reinen Identifizieren an, wo eine Ressource liegt und über welches Protokoll sie erreichbar ist — eine URN identifiziert nur über einen ortsunabhängigen Namen."
+    },
+    {
+      "id": "q3",
+      "question": "Was zeichnet eine URN wie z. B. urn:isbn:0451450523 aus?",
+      "options": [
+        "Sie identifiziert eine Ressource eindeutig über einen Namen, unabhängig davon, wo sie aktuell zu finden ist",
+        "Sie enthält immer ein Netzwerkprotokoll wie http oder https",
+        "Sie ändert sich automatisch, sobald das Buch den Verkaufsort wechselt",
+        "Sie ist nur für Webseiten gültig, nicht für Bücher"
+      ],
+      "answer": 0,
+      "explanation": "Eine URN identifiziert eine Ressource dauerhaft über einen eindeutigen Namen — unabhängig davon, an welchem Ort oder bei welchem Anbieter sie gerade verfügbar ist."
+    },
+    {
+      "id": "q4",
+      "question": "Welcher Bestandteil einer URL wird niemals an den Server übertragen?",
+      "options": ["Der Pfad", "Der Query-String", "Das Fragment (nach dem #)", "Die Domain"],
+      "answer": 2,
+      "explanation": "Das Fragment (z. B. #seite2) dient nur der Navigation innerhalb der bereits geladenen Seite im Browser und wird nicht an den Server gesendet."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist der Standard-Port für HTTPS?",
+      "options": ["21", "80", "443", "8443"],
+      "answer": 2,
+      "explanation": "Der Standard-Port für HTTPS ist 443. Ein abweichender Port wie 8443 muss in der URL explizit angegeben werden."
+    },
+    {
+      "id": "q6",
+      "question": "Was steht im Query-String einer URL, z. B. bei ?kategorie=notebooks&sortierung=preis?",
+      "options": [
+        "Zusätzliche Parameter als Schlüssel-Wert-Paare, die an den Server übermittelt werden",
+        "Der verschlüsselte Teil der URL",
+        "Der Name des Servers, auf dem die Ressource liegt",
+        "Eine Sprungmarke innerhalb der geladenen Seite"
+      ],
+      "answer": 0,
+      "explanation": "Der Query-String überträgt zusätzliche Parameter als Schlüssel-Wert-Paare an den Server, z. B. zur Filterung oder Sortierung von Inhalten."
+    },
+    {
+      "id": "q7",
+      "question": "Eine im Firmennetz aufgerufene URL nutzt den Port 8443 statt des HTTPS-Standardports 443 und wird von der Firewall blockiert. Was ist die naheliegende Ursache?",
+      "options": [
+        "Der Domainname ist ungültig formatiert",
+        "Der nicht-standardmäßige Port 8443 ist in der Firmen-Firewall nicht freigegeben",
+        "Das Fragment der URL enthält einen Tippfehler",
+        "HTTPS unterstützt grundsätzlich keine benutzerdefinierten Ports"
+      ],
+      "answer": 1,
+      "explanation": "Da 8443 vom Standardport 443 abweicht, ist es plausibel, dass die Firewall des Firmennetzes diesen ungewöhnlichen Port nicht freigegeben hat und die Verbindung deshalb blockiert wird."
+    }
+  ]
+}

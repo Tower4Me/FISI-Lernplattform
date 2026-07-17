@@ -1,0 +1,101 @@
+{
+  "unit": "projektmanagement/ticketsystem-stoerungsmanagement-eskalation",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist die zentrale Aufgabe eines Ticketsystems?",
+      "options": [
+        "Ausschließlich die Abrechnung von Supportleistungen",
+        "Störungen und Anfragen zentral zu erfassen, zu priorisieren und zu verfolgen",
+        "Die automatische Behebung aller technischen Probleme ohne menschliches Zutun",
+        "Die Verwaltung von Mitarbeitergehältern"
+      ],
+      "answer": 1,
+      "explanation": "Ein Ticketsystem dient der zentralen Erfassung, Priorisierung und Nachverfolgung von Störungen und Anfragen."
+    },
+    {
+      "id": "q2",
+      "question": "Was unterscheidet einen Incident von einem Problem im Sinne des Störungsmanagements?",
+      "options": [
+        "Es gibt keinen Unterschied",
+        "Ein Incident ist ein einzelnes, ungeplantes Ereignis, ein Problem die zugrunde liegende Ursache mehrerer Incidents",
+        "Ein Problem betrifft ausschließlich Hardware, ein Incident ausschließlich Software",
+        "Ein Incident ist immer schwerwiegender als ein Problem"
+      ],
+      "answer": 1,
+      "explanation": "Ein Incident ist ein einzelnes Ereignis, während ein Problem die gemeinsame Ursache mehrerer Incidents darstellt."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist das primäre Ziel des Störungsmanagements (Incident Management)?",
+      "options": [
+        "Die dauerhafte Behebung der Ursache in jedem Fall",
+        "Die möglichst schnelle Wiederherstellung des Normalbetriebs",
+        "Die vollständige Neuentwicklung des betroffenen Systems",
+        "Die Kündigung des zuständigen Mitarbeiters"
+      ],
+      "answer": 1,
+      "explanation": "Störungsmanagement zielt primär auf die schnelle Wiederherstellung des Normalbetriebs, nicht zwingend auf die Ursachenbehebung."
+    },
+    {
+      "id": "q4",
+      "question": "Wonach werden Tickets häufig priorisiert?",
+      "options": [
+        "Ausschließlich nach dem Alphabet des Kundennamens",
+        "Nach einer Kombination aus Dringlichkeit und Auswirkung",
+        "Nach der Uhrzeit der Ticketerstellung, unabhängig vom Inhalt",
+        "Nach der Anzahl der Wörter in der Ticketbeschreibung"
+      ],
+      "answer": 1,
+      "explanation": "Tickets werden meist nach einer Kombination aus Dringlichkeit und Auswirkung priorisiert."
+    },
+    {
+      "id": "q5",
+      "question": "Was versteht man unter fachlicher (funktionaler) Eskalation?",
+      "options": [
+        "Die Einbindung eines Vorgesetzten wegen Unzufriedenheit des Kunden",
+        "Die Weiterleitung eines Tickets an eine höhere Fachkompetenz, wenn die aktuelle Ebene das Problem nicht lösen kann",
+        "Das automatische Schließen eines Tickets nach 24 Stunden",
+        "Die Löschung eines nicht lösbaren Tickets"
+      ],
+      "answer": 1,
+      "explanation": "Fachliche Eskalation bedeutet die Weiterleitung an höhere Fachkompetenz bei ungelösten Problemen."
+    },
+    {
+      "id": "q6",
+      "question": "Wann kommt typischerweise eine hierarchische Eskalation zum Einsatz?",
+      "options": [
+        "Wenn ein Ticket sofort beim ersten Kontakt gelöst wird",
+        "Wenn eine SLA-Frist zu reißen droht oder der Kunde unzufrieden ist und Vorgesetzte eingebunden werden müssen",
+        "Nur bei internen Mitarbeiteranfragen ohne Kundenbezug",
+        "Ausschließlich bei Neueinstellungen im Support-Team"
+      ],
+      "answer": 1,
+      "explanation": "Hierarchische Eskalation bindet Vorgesetzte ein, etwa wenn SLA-Fristen gefährdet sind oder der Kunde unzufrieden ist."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Informationen enthält ein typisches Ticket in einem Ticketsystem?",
+      "options": [
+        "Nur den Namen des Supportmitarbeiters",
+        "Eine eindeutige ID, Status, Priorität und Kategorie",
+        "Ausschließlich das Erstellungsdatum",
+        "Nur eine Freitextbeschreibung ohne weitere Strukturierung"
+      ],
+      "answer": 1,
+      "explanation": "Ein Ticket enthält typischerweise eine eindeutige ID, einen Status, eine Priorität und eine Kategorie."
+    },
+    {
+      "id": "q8",
+      "question": "Im Praxisbeispiel: Warum wird der Teamleiter zusätzlich informiert, obwohl bereits eine fachliche Eskalation stattgefunden hat?",
+      "options": [
+        "Weil das Ticket versehentlich doppelt angelegt wurde",
+        "Weil die vereinbarte SLA-Reaktionszeit zu reißen droht (hierarchische Eskalation)",
+        "Weil der Kunde das Ticket storniert hat",
+        "Weil der First-Level-Support das Ticket komplett gelöst hat"
+      ],
+      "answer": 1,
+      "explanation": "Die drohende Überschreitung der SLA-Frist löst zusätzlich eine hierarchische Eskalation an den Teamleiter aus."
+    }
+  ]
+}

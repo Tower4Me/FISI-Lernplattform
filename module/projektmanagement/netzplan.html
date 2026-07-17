@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: Netzplan & kritischer Pfad</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">Netzplan & kritischer Pfad</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Netzplan & kritischer Pfad
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Netzplan ist wie ein U-Bahn-Plan der Projektaufgaben:
+        Stationen (Vorgänge), verbunden durch Linien, die zeigen, welche
+        Aufgabe abgeschlossen sein muss, bevor die nächste beginnen kann.
+        Manche Routen haben etwas Spielraum — ein Zug kann sich ein wenig
+        verspäten, ohne den Anschluss zu verpassen (Puffer). Eine
+        bestimmte Route durch den gesamten Plan hat dagegen an keiner
+        einzigen Station Spielraum — verspätet sich dort irgendetwas,
+        verspätet sich die gesamte Reise. Genau diese Route ist der
+        <strong>kritische Pfad</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Ein <strong>Netzplan</strong> stellt grafisch alle Vorgänge
+        (Tätigkeiten) eines Projekts und ihre zeitlichen bzw. logischen
+        Abhängigkeiten zueinander dar.
+      </p>
+
+      <h3>Vorgänge und Anordnungsbeziehungen</h3>
+      <p>
+        Ein <strong>Vorgang</strong> ist eine einzelne Tätigkeit mit
+        definierter Dauer sowie einem frühesten und spätesten Start- bzw.
+        Endzeitpunkt. Über <strong>Anordnungsbeziehungen</strong> wird
+        festgelegt, welche Vorgänger-Vorgänge abgeschlossen sein müssen,
+        bevor ein nachfolgender Vorgang beginnen kann.
+      </p>
+
+      <h3>Puffer (Pufferzeit)</h3>
+      <p>
+        Der <strong>Puffer</strong> eines Vorgangs ist die Zeitspanne, um
+        die er sich verschieben oder verlängern kann, ohne den
+        Gesamtendtermin des Projekts zu gefährden. Vorgänge mit Puffer
+        größer als null haben zeitlichen Spielraum.
+      </p>
+
+      <h3>Kritischer Pfad</h3>
+      <p>
+        Der <strong>kritische Pfad</strong> ist die längste Kette von
+        Vorgängen durch den Netzplan, deren Vorgänge alle einen Puffer
+        von null haben. Verzögert sich irgendein Vorgang auf dem
+        kritischen Pfad, verzögert sich zwangsläufig das gesamte Projekt
+        — der kritische Pfad bestimmt damit die minimale
+        Projektgesamtdauer. Projektleiter richten ihre Aufmerksamkeit
+        besonders auf die Vorgänge des kritischen Pfads, da hier keine
+        Verzögerung toleriert werden kann.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant einen Serverumzug für einen Kunden mit
+        folgenden Vorgängen:
+      </p>
+      <ul>
+        <li>Neue Hardware liefern (5 Tage) → Hardware installieren
+          (2 Tage) → Daten migrieren (3 Tage) → Tests durchführen
+          (2 Tage) → Go-Live (1 Tag) — zusammen 13 Tage.</li>
+        <li>Parallel dazu läuft „Mitarbeiterschulung vorbereiten“
+          (4 Tage), die vor dem Go-Live abgeschlossen sein muss, aber
+          erst nach 9 Tagen benötigt wird — sie hat also 5 Tage Puffer.</li>
+      </ul>
+      <p>
+        Der <strong>kritische Pfad</strong> verläuft über Lieferung →
+        Installation → Migration → Tests → Go-Live (13 Tage, Puffer
+        null). Die Schulungsvorbereitung könnte sich dagegen um bis zu
+        5 Tage verschieben, ohne den Gesamttermin zu gefährden. Der
+        Projektleiter überwacht deshalb besonders die
+        <strong>Hardwarelieferung</strong> — eine Verzögerung dort würde
+        das gesamte Projekt direkt verzögern, während eine leichte
+        Verspätung bei der Schulungsvorbereitung unkritisch wäre.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Netzplan zeigt Vorgänge und ihre Abhängigkeiten. Puffer =
+        zeitlicher Spielraum eines Vorgangs, ohne den Endtermin zu
+        gefährden. Der kritische Pfad ist die längste Vorgangskette mit
+        Puffer null — er bestimmt die minimale Projektdauer, und jede
+        Verzögerung dort verzögert das gesamte Projekt.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/netzplan.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

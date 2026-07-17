@@ -1,0 +1,89 @@
+{
+  "unit": "software-os-web/branchensoftware",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist die zentrale Aufgabe eines ERP-Systems (Enterprise Resource Planning)?",
+      "options": [
+        "Ausschließlich die Verwaltung von Kundenkontakten",
+        "Zentrale Geschäftsprozesse wie Finanzen, Lager und Personal in einem gemeinsamen System mit geteilten Daten zu verwalten",
+        "Nur die Pflege von Website-Inhalten ohne Programmierkenntnisse",
+        "Ausschließlich die Archivierung von Dokumenten"
+      ],
+      "answer": 1,
+      "explanation": "Ein ERP-System verbindet zentrale Geschäftsprozesse (Finanzen, Lager, Personal, Produktion) in einem gemeinsamen System mit geteilten Daten."
+    },
+    {
+      "id": "q2",
+      "question": "Wofür wird ein CRM-System (Customer Relationship Management) typischerweise eingesetzt?",
+      "options": [
+        "Zur Verwaltung von Kundenkontakten, Vertriebschancen und Support-Historie",
+        "Zur Verwaltung des Website-Contents",
+        "Ausschließlich zur Lohnbuchhaltung",
+        "Zur Verwaltung von Serverhardware im Rechenzentrum"
+      ],
+      "answer": 0,
+      "explanation": "Ein CRM-System verwaltet Kundenkontakte, Vertriebschancen und die Historie des Kundensupports."
+    },
+    {
+      "id": "q3",
+      "question": "Was ermöglicht ein CMS (Content Management System)?",
+      "options": [
+        "Die Verwaltung zentraler Geschäftsprozesse eines Unternehmens",
+        "Die Pflege von Website-Inhalten, ohne dass Programmierkenntnisse nötig sind",
+        "Die revisionssichere Archivierung von Rechnungen",
+        "Die Steuerung von Netzwerk-Switches"
+      ],
+      "answer": 1,
+      "explanation": "Ein CMS ermöglicht es, Website-Inhalte zu pflegen und zu veröffentlichen, ohne dass die Nutzer selbst programmieren müssen."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist eine typische Funktion eines DMS (Document Management System)?",
+      "options": [
+        "Die Verwaltung von Kundenkontakten und Vertriebschancen",
+        "Die Verwaltung und Archivierung von Dokumenten inklusive Versionierung, Volltextsuche und Zugriffsrechten",
+        "Die zentrale Steuerung der Firmenbuchhaltung",
+        "Die Erstellung von Webseiteninhalten"
+      ],
+      "answer": 1,
+      "explanation": "Ein DMS verwaltet und archiviert Dokumente inklusive Versionierung, Volltextsuche und Zugriffsrechten — im Unterschied zu ERP, CRM oder CMS."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist ein typisches Merkmal von Open-Source-Software im Vergleich zu proprietärer Software?",
+      "options": [
+        "Der Quellcode ist öffentlich einsehbar und unter einer entsprechenden Lizenz veränderbar",
+        "Sie kann grundsätzlich nicht kommerziell eingesetzt werden",
+        "Sie bietet immer einen zentralen Hersteller-Support im Lizenzpreis",
+        "Sie ist grundsätzlich unsicherer als proprietäre Software"
+      ],
+      "answer": 0,
+      "explanation": "Bei Open-Source-Software ist der Quellcode öffentlich einsehbar und unter einer entsprechenden Lizenz (z. B. GPL, MIT) veränderbar — bei proprietärer Software ist der Quellcode unter Verschluss."
+    },
+    {
+      "id": "q6",
+      "question": "Was versteht man unter „Vendor Lock-in“ im Zusammenhang mit proprietärer Software?",
+      "options": [
+        "Die automatische Verschlüsselung aller Kundendaten",
+        "Eine starke Abhängigkeit vom Hersteller, z. B. bei Preisgestaltung, Updates und Datenformaten",
+        "Die verpflichtende Offenlegung des Quellcodes",
+        "Ein Sicherheitsmerkmal, das unautorisierten Zugriff verhindert"
+      ],
+      "answer": 1,
+      "explanation": "Vendor Lock-in beschreibt die starke Abhängigkeit von einem einzelnen proprietären Anbieter, aus dessen Ökosystem (Formate, Schnittstellen, Lizenzmodell) ein Wechsel nur schwer möglich ist."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Unternehmen mit eigenem Entwicklerteam entscheidet sich für ein Open-Source-CMS statt eines proprietären CMS. Was ist ein plausibler Grund dafür?",
+      "options": [
+        "Open-Source-Software kann grundsätzlich nicht angepasst werden",
+        "Das eigene Entwicklerteam kann den offenen Quellcode selbst anpassen und ist weniger von einem einzelnen Hersteller abhängig",
+        "Proprietäre Software ist immer kostenlos, Open Source immer kostenpflichtig",
+        "Ein CMS betrifft ausschließlich interne Dokumentenverwaltung, nicht die Website"
+      ],
+      "answer": 1,
+      "explanation": "Mit eigenem Entwicklerteam kann ein Unternehmen den offenen Quellcode einer Open-Source-Lösung selbst warten und anpassen und reduziert damit die Abhängigkeit von einem einzelnen proprietären Anbieter."
+    }
+  ]
+}

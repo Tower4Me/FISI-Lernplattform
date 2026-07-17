@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/ipv4-subnetting",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Aus wie vielen Bit besteht eine IPv4-Adresse?",
+      "options": [
+        "16 Bit",
+        "32 Bit",
+        "64 Bit",
+        "128 Bit"
+      ],
+      "answer": 1,
+      "explanation": "Eine IPv4-Adresse besteht aus 32 Bit, dargestellt als vier Dezimalzahlen (0–255) getrennt durch Punkte."
+    },
+    {
+      "id": "q2",
+      "question": "Was legt die Subnetzmaske bei einer IPv4-Adresse fest?",
+      "options": [
+        "Die physische Geschwindigkeit der Netzwerkverbindung",
+        "Welcher Teil der Adresse Netzanteil und welcher Hostanteil ist",
+        "Die MAC-Adresse des Geräts",
+        "Den DNS-Server, der verwendet wird"
+      ],
+      "answer": 1,
+      "explanation": "Gesetzte Bits (1) in der Subnetzmaske markieren den Netzanteil, ungesetzte Bits (0) den Hostanteil der Adresse."
+    },
+    {
+      "id": "q3",
+      "question": "Wie viele nutzbare Host-Adressen bietet ein Subnetz mit der Maske 255.255.255.240 (/28)?",
+      "options": [
+        "16",
+        "14",
+        "30",
+        "254"
+      ],
+      "answer": 1,
+      "explanation": "/28 hat 4 Hostbits: 2⁴ − 2 = 14 nutzbare Adressen. Netz- und Broadcast-Adresse werden abgezogen."
+    },
+    {
+      "id": "q4",
+      "question": "Was kennzeichnet die Broadcast-Adresse eines Subnetzes?",
+      "options": [
+        "Alle Host-Bits sind 0",
+        "Alle Host-Bits sind 1, sie adressiert alle Geräte im Subnetz gleichzeitig",
+        "Sie ist identisch mit der Netzadresse",
+        "Sie kann an ein einzelnes Gerät vergeben werden"
+      ],
+      "answer": 1,
+      "explanation": "Die Broadcast-Adresse hat alle Host-Bits auf 1 gesetzt und adressiert alle Geräte im Subnetz — sie ist nicht an ein einzelnes Gerät vergebbar."
+    },
+    {
+      "id": "q5",
+      "question": "Welcher Adressbereich gehört zu den privaten IPv4-Netzen nach RFC 1918?",
+      "options": [
+        "8.8.8.0/24",
+        "192.168.0.0/16",
+        "1.1.1.0/24",
+        "203.0.113.0/24"
+      ],
+      "answer": 1,
+      "explanation": "192.168.0.0/16 gehört neben 10.0.0.0/8 und 172.16.0.0/12 zu den nach RFC 1918 reservierten privaten Adressbereichen."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Subnetz soll mindestens 27 Hosts fassen. Welche CIDR-Maske ist die kleinste passende?",
+      "options": [
+        "/28 (14 nutzbare Hosts)",
+        "/27 (30 nutzbare Hosts)",
+        "/26 (62 nutzbare Hosts)",
+        "/25 (126 nutzbare Hosts)"
+      ],
+      "answer": 1,
+      "explanation": "/28 reicht mit 14 Hosts nicht aus. /27 bietet mit 5 Hostbits 2⁵ − 2 = 30 nutzbare Adressen — die kleinste Maske, die 27 Hosts fasst."
+    },
+    {
+      "id": "q7",
+      "question": "Was bedeutet die CIDR-Schreibweise 192.168.10.0/24?",
+      "options": [
+        "Die Adresse hat 24 Hostbits",
+        "Die ersten 24 Bit der Adresse sind Netzanteil, entspricht der Maske 255.255.255.0",
+        "Es gibt 24 Geräte in diesem Netz",
+        "Das Netz unterstützt maximal 24 Subnetze"
+      ],
+      "answer": 1,
+      "explanation": "Die Zahl nach dem Schrägstrich gibt die Anzahl gesetzter Netz-Bits an. /24 entspricht der Maske 255.255.255.0 mit 8 verbleibenden Hostbits."
+    }
+  ]
+}

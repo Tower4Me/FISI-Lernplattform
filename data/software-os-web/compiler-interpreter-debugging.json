@@ -1,0 +1,89 @@
+{
+  "unit": "software-os-web/compiler-interpreter-debugging",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie arbeitet ein Compiler grundsätzlich?",
+      "options": [
+        "Er übersetzt den kompletten Quellcode vorab in Maschinensprache und erzeugt eine eigenständig lauffähige Datei",
+        "Er übersetzt und führt den Quellcode Zeile für Zeile zur Laufzeit aus",
+        "Er fügt nur bereits kompilierte Objektdateien zusammen",
+        "Er sucht ausschließlich nach Syntaxfehlern, ohne den Code zu übersetzen"
+      ],
+      "answer": 0,
+      "explanation": "Ein Compiler übersetzt den gesamten Quellcode im Voraus in Maschinensprache und erzeugt daraus eine eigenständig lauffähige Datei."
+    },
+    {
+      "id": "q2",
+      "question": "Was ist ein typischer Vorteil eines Interpreters gegenüber einem Compiler?",
+      "options": [
+        "Interpretierter Code läuft grundsätzlich schneller als kompilierter Code",
+        "Der Code kann sofort nach einer Änderung getestet werden, ohne einen separaten Kompilierschritt",
+        "Ein Interpreter erzeugt automatisch eine eigenständig lauffähige Datei",
+        "Interpreter benötigen keinerlei Übersetzung des Quellcodes"
+      ],
+      "answer": 1,
+      "explanation": "Da ein Interpreter Code direkt zur Laufzeit übersetzt und ausführt, kann eine Änderung sofort getestet werden — ohne vorherigen Kompilierschritt."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist ein typischer Nachteil eines Interpreters im Vergleich zu einem Compiler?",
+      "options": [
+        "Interpretierter Code ist bei der Ausführung tendenziell langsamer, da die Übersetzung bei jeder Ausführung erneut stattfindet",
+        "Interpreter können grundsätzlich nicht getestet werden",
+        "Interpreter erzeugen zwingend eine eigenständige ausführbare Datei",
+        "Interpreter benötigen keinen Quellcode"
+      ],
+      "answer": 0,
+      "explanation": "Da die Übersetzung bei jeder Ausführung erneut erfolgt, ist interpretierter Code in der Regel langsamer als vorab vollständig kompilierter Code."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist die Aufgabe eines Linkers?",
+      "options": [
+        "Er übersetzt Quellcode Zeile für Zeile zur Laufzeit",
+        "Er fügt mehrere kompilierte Objektdateien und benötigte Bibliotheken zu einer ausführbaren Datei zusammen und löst dabei Verweise zwischen den Modulen auf",
+        "Er sucht ausschließlich nach Logikfehlern im Quellcode",
+        "Er ersetzt vollständig die Notwendigkeit eines Compilers"
+      ],
+      "answer": 1,
+      "explanation": "Der Linker verbindet separat kompilierte Objektdateien und externe Bibliotheken zu einer einzigen ausführbaren Datei und löst dabei Verweise zwischen den Modulen auf."
+    },
+    {
+      "id": "q5",
+      "question": "Was ermöglicht ein Debugger typischerweise?",
+      "options": [
+        "Er verhindert automatisch jeden Programmierfehler",
+        "Er erlaubt es, Haltepunkte (Breakpoints) zu setzen, Variablenwerte zur Laufzeit zu inspizieren und das Programm schrittweise auszuführen",
+        "Er übersetzt den Quellcode direkt in eine andere Programmiersprache",
+        "Er ersetzt die Notwendigkeit eines Compilers oder Interpreters vollständig"
+      ],
+      "answer": 1,
+      "explanation": "Ein Debugger ermöglicht das Setzen von Breakpoints, die Inspektion von Variablenwerten zur Laufzeit und die schrittweise Ausführung eines Programms, um Fehler systematisch zu finden."
+    },
+    {
+      "id": "q6",
+      "question": "Was zeichnet einen Schreibtischtest aus?",
+      "options": [
+        "Das Programm wird tatsächlich ausgeführt und mit einem Debugger überwacht",
+        "Der Programmablauf wird rein auf dem Papier oder im Kopf Zeile für Zeile mit Testwerten durchgespielt, ohne das Programm auszuführen",
+        "Es handelt sich um einen automatisierten Testlauf auf einem separaten Testserver",
+        "Der Schreibtischtest ersetzt vollständig die Notwendigkeit eines Compilers"
+      ],
+      "answer": 1,
+      "explanation": "Beim Schreibtischtest wird der Programmablauf gedanklich bzw. auf Papier Zeile für Zeile mit konkreten Testwerten nachvollzogen, ohne das Programm tatsächlich auszuführen — so lassen sich Logikfehler früh erkennen."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Azubi entwickelt ein C-Programm. Beim Kompilieren meldet der Linker einen Fehler, weil eine aufgerufene Bibliotheksfunktion fehlt. Was ist die richtige Reaktion?",
+      "options": [
+        "Den Compiler durch einen Interpreter ersetzen",
+        "Die fehlende Bibliothek einbinden, damit der Linker die Verweise auflösen kann",
+        "Den Schreibtischtest komplett überspringen",
+        "Den gesamten Quellcode löschen und neu schreiben"
+      ],
+      "answer": 1,
+      "explanation": "Meldet der Linker eine fehlende Bibliotheksfunktion, muss die entsprechende Bibliothek eingebunden werden, damit der Linker alle Verweise zwischen den Modulen auflösen kann."
+    }
+  ]
+}

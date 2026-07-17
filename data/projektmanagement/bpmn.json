@@ -1,0 +1,84 @@
+{
+  "unit": "projektmanagement/bpmn",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht BPMN und wozu dient es?",
+      "options": [
+        "Business Process Model and Notation — ein internationaler Standard zur grafischen Modellierung von Geschäftsprozessen",
+        "Ein Programmierframework zur Softwareentwicklung",
+        "Ein Verschlüsselungsstandard für Geschäftsdaten",
+        "Ein Datenbankmodell für relationale Datenbanken"
+      ],
+      "answer": 0,
+      "explanation": "BPMN (Business Process Model and Notation) ist ein internationaler Standard zur einheitlichen grafischen Modellierung von Geschäftsprozessen."
+    },
+    {
+      "id": "q2",
+      "question": "Wie wird ein Ereignis (Event) in BPMN dargestellt?",
+      "options": ["Als Raute", "Als Kreis", "Als abgerundetes Rechteck", "Als durchgezogener Pfeil"],
+      "answer": 1,
+      "explanation": "Ereignisse werden in BPMN als Kreise dargestellt — Start-Ereignisse mit dünnem, End-Ereignisse mit dickem Rand."
+    },
+    {
+      "id": "q3",
+      "question": "Was stellt eine Aktivität (Task) in BPMN dar?",
+      "options": [
+        "Einen auszuführenden Arbeitsschritt, dargestellt als abgerundetes Rechteck",
+        "Eine Entscheidung zwischen mehreren Pfaden",
+        "Den Start oder das Ende eines Prozesses",
+        "Die Zuständigkeit einer Abteilung"
+      ],
+      "answer": 0,
+      "explanation": "Eine Aktivität repräsentiert einen konkreten Arbeitsschritt und wird als abgerundetes Rechteck dargestellt."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür wird ein Gateway (Raute) in BPMN verwendet?",
+      "options": [
+        "Um den Ablauf bei Entscheidungen oder parallelen Pfaden zu steuern",
+        "Um ausschließlich den Start eines Prozesses zu markieren",
+        "Um die Zuständigkeit einer Abteilung darzustellen",
+        "Um die Reihenfolge von Aktivitäten unveränderlich festzulegen"
+      ],
+      "answer": 0,
+      "explanation": "Ein Gateway (als Raute dargestellt) steuert den Prozessablauf bei Entscheidungen (exklusives Gateway) oder parallelen Abläufen (paralleles Gateway)."
+    },
+    {
+      "id": "q5",
+      "question": "Wozu dienen Swimlanes in einem BPMN-Diagramm?",
+      "options": [
+        "Sie zeigen, welche Rolle, Abteilung oder welches System für einen bestimmten Prozessschritt zuständig ist",
+        "Sie stellen ausschließlich die Kosten eines Prozesses dar",
+        "Sie ersetzen die Notwendigkeit von Aktivitäten und Ereignissen",
+        "Sie sind ausschließlich für UML-Diagramme reserviert, nicht für BPMN"
+      ],
+      "answer": 0,
+      "explanation": "Swimlanes (horizontale oder vertikale Bahnen) zeigen, welche Rolle, Abteilung oder welches System für einen bestimmten Abschnitt des Prozesses verantwortlich ist."
+    },
+    {
+      "id": "q6",
+      "question": "Was unterscheidet BPMN von einem UML-Aktivitätsdiagramm, obwohl beide einen Ablauf darstellen?",
+      "options": [
+        "BPMN ist speziell für Geschäftsprozesse gedacht und richtet sich auch an Fachabteilungen ohne IT-Hintergrund, UML-Aktivitätsdiagramme sind eher in der Softwareentwicklung verankert",
+        "Beide Notationen sind technisch und inhaltlich vollständig identisch",
+        "UML-Aktivitätsdiagramme dürfen keine Entscheidungen darstellen, BPMN schon",
+        "BPMN kann ausschließlich von Programmierern gelesen werden"
+      ],
+      "answer": 0,
+      "explanation": "BPMN zielt speziell auf die verständliche Darstellung von Geschäftsprozessen auch für Fachabteilungen ab, während UML-Aktivitätsdiagramme stärker in der Softwareentwicklung verankert sind."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Unternehmen modelliert den Bestellprozess mit den Schritten „Bestellung prüfen“ (Vertrieb) und „Ware versenden“ (Lager) in getrennten Swimlanes. Welchen Vorteil bringt das?",
+      "options": [
+        "Es macht sofort sichtbar, welche Abteilung für welchen Prozessschritt zuständig ist, und vermeidet dadurch Missverständnisse zwischen den Abteilungen",
+        "Es verhindert, dass der Prozess jemals ein Gateway enthalten darf",
+        "Es ersetzt die Notwendigkeit eines Start- und End-Ereignisses",
+        "Es macht das Diagramm technisch identisch mit einem Netzplan"
+      ],
+      "answer": 0,
+      "explanation": "Durch getrennte Swimlanes wird auf einen Blick erkennbar, welche Abteilung für welchen Schritt verantwortlich ist — das reduziert Missverständnisse zwischen den beteiligten Abteilungen."
+    }
+  ]
+}

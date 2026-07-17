@@ -1,0 +1,89 @@
+{
+  "unit": "kalkulation/elektrotechnik-grundformeln",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Ein Gerät zieht an einer 230-V-Steckdose einen Strom von 2 A. Welche Leistung nimmt es auf?",
+      "options": [
+        "115 W",
+        "232 W",
+        "460 W",
+        "228 W"
+      ],
+      "answer": 2,
+      "explanation": "P = U × I = 230 V × 2 A = 460 W."
+    },
+    {
+      "id": "q2",
+      "question": "An einem Widerstand liegen 24 V an, es fließen 0,6 A. Wie groß ist der Widerstand?",
+      "options": [
+        "14,4 Ω",
+        "40 Ω",
+        "0,025 Ω",
+        "24,6 Ω"
+      ],
+      "answer": 1,
+      "explanation": "R = U / I = 24 V / 0,6 A = 40 Ω."
+    },
+    {
+      "id": "q3",
+      "question": "Ein Netzteil (80 PLUS Gold, η = 0,92) soll 368 W Nutzleistung liefern. Wie viel Watt zieht es näherungsweise aus der Steckdose?",
+      "options": [
+        "339 W",
+        "368 W",
+        "400 W",
+        "425 W"
+      ],
+      "answer": 2,
+      "explanation": "P_zu = P_ab ÷ η = 368 W ÷ 0,92 = 400 W."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Server läuft rund um die Uhr mit 300 W Dauerlast. Wie viel kWh verbraucht er an einem Tag?",
+      "options": [
+        "0,3 kWh",
+        "3 kWh",
+        "7,2 kWh",
+        "72 kWh"
+      ],
+      "answer": 2,
+      "explanation": "E = P × t ÷ 1000 = 300 W × 24 h ÷ 1000 = 7,2 kWh pro Tag."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Arbeitsplatzrechner soll mit einer 95-W-CPU und einer 220-W-Grafikkarte ausgestattet werden. Welches Netzteil ist nach der Faustregel (CPU-TDP + GPU-TDP + 100 W Reserve) mindestens erforderlich?",
+      "options": [
+        "315 W",
+        "415 W",
+        "515 W",
+        "615 W"
+      ],
+      "answer": 1,
+      "explanation": "95 W + 220 W + 100 W Reserve = 415 W Mindestleistung — in der Praxis wird die nächste marktübliche Netzteilgröße darüber gewählt."
+    },
+    {
+      "id": "q6",
+      "question": "Was bedeutet ein höherer Wirkungsgrad (z. B. 80 PLUS Platinum statt Standard) bei gleicher Nutzleistung eines Netzteils?",
+      "options": [
+        "Das Netzteil liefert automatisch mehr Watt Nutzleistung",
+        "Das Netzteil zieht weniger Leistung aus der Steckdose, weil weniger Energie als Wärme verloren geht",
+        "Der Wirkungsgrad hat keinen Einfluss auf den Stromverbrauch",
+        "Höhere Wirkungsgrad-Klassen benötigen zwingend mehr Kühlung"
+      ],
+      "answer": 1,
+      "explanation": "Bei gleicher Nutzleistung P_ab senkt ein höherer Wirkungsgrad η die benötigte Aufnahmeleistung P_zu = P_ab ÷ η, da weniger Energie als Wärme verloren geht."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Größe wird durch die Formel U = R × I berechnet?",
+      "options": [
+        "Leistung",
+        "Widerstand",
+        "Spannung",
+        "Energie"
+      ],
+      "answer": 2,
+      "explanation": "U = R × I ist die nach der Spannung umgestellte Form des Ohmschen Gesetzes R = U / I."
+    }
+  ]
+}

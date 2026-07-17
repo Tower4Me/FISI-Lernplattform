@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/ipv6-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie lang ist eine IPv6-Adresse?",
+      "options": [
+        "32 Bit",
+        "64 Bit",
+        "128 Bit",
+        "256 Bit"
+      ],
+      "answer": 2,
+      "explanation": "Eine IPv6-Adresse ist 128 Bit lang, geschrieben in acht hexadezimalen 16-Bit-Blöcken."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher IPv4-Adressklasse entspricht eine IPv6 Unique-Local-Adresse (fc00::/7) am ehesten?",
+      "options": [
+        "Öffentliche, im Internet routbare Adresse",
+        "Private Adresse nach RFC 1918, nicht im öffentlichen Internet routbar",
+        "APIPA-Adresse",
+        "Multicast-Adresse"
+      ],
+      "answer": 1,
+      "explanation": "Unique-Local-Adressen sind wie private IPv4-Adressen (10.x, 172.16-31.x, 192.168.x) nur innerhalb der eigenen Organisation gültig und werden nicht ins öffentliche Internet geroutet."
+    },
+    {
+      "id": "q3",
+      "question": "Wann erhält eine Netzwerkschnittstelle ihre IPv6-Link-Local-Adresse?",
+      "options": [
+        "Nur wenn ein DHCPv6-Server sie explizit zuweist",
+        "Automatisch, sobald die Schnittstelle aktiviert wird, unabhängig von einem Router",
+        "Erst nach manueller Konfiguration durch einen Administrator",
+        "Nur wenn SLAAC deaktiviert ist"
+      ],
+      "answer": 1,
+      "explanation": "Jede IPv6-fähige Schnittstelle bildet automatisch eine Link-Local-Adresse (fe80::/10), sobald sie aktiv wird — unabhängig von Router oder DHCP."
+    },
+    {
+      "id": "q4",
+      "question": "Was liefert der Router beim SLAAC-Verfahren an die Geräte im Netz?",
+      "options": [
+        "Eine vollständige, individuell zugewiesene IPv6-Adresse pro Gerät",
+        "Ein Router Advertisement mit dem Netzwerkpräfix, das die Geräte als Netzanteil übernehmen",
+        "Nur die DNS-Server-Adresse",
+        "Die MAC-Adresse aller Geräte im Netz"
+      ],
+      "answer": 1,
+      "explanation": "Beim SLAAC (Stateless Address Autoconfiguration) sendet der Router ein Router Advertisement mit dem Präfix; das Gerät bildet daraus zusammen mit einem selbst erzeugten Interface-Identifier seine vollständige Adresse."
+    },
+    {
+      "id": "q5",
+      "question": "Woraus wird beim EUI-64-Verfahren der Interface-Identifier einer IPv6-Adresse gebildet?",
+      "options": [
+        "Aus einer vom DHCP-Server zufällig vergebenen Zahl",
+        "Aus der 48-Bit-MAC-Adresse, aufgetrennt und um die Bitfolge FFFE erweitert",
+        "Aus der IPv4-Adresse desselben Geräts",
+        "Aus dem Hostnamen des Geräts"
+      ],
+      "answer": 1,
+      "explanation": "EUI-64 trennt die 48-Bit-MAC-Adresse in zwei Hälften, fügt FFFE ein und invertiert ein Bit — daraus entsteht ein 64 Bit langer, eindeutiger Interface-Identifier."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Kurzschreibweise ist für die Adresse 2001:0db8:0000:0000:0000:ff00:0042:8329 korrekt?",
+      "options": [
+        "2001:db8::ff00:42:8329",
+        "2001:db8:0:ff00:42:8329::",
+        "2001::db8::ff00:42:8329",
+        "2001:db8:ff00:42:8329"
+      ],
+      "answer": 0,
+      "explanation": "Führende Nullen je Block dürfen entfallen, und eine zusammenhängende Folge von Null-Blöcken darf einmal pro Adresse durch :: ersetzt werden — die doppelte Verwendung von :: (Antwort 3) ist unzulässig."
+    },
+    {
+      "id": "q7",
+      "question": "Welcher IPv4-Mechanismus entspricht funktional der IPv6-Link-Local-Adresse?",
+      "options": [
+        "DHCP",
+        "APIPA (169.254.0.0/16)",
+        "NAT",
+        "DNS"
+      ],
+      "answer": 1,
+      "explanation": "Sowohl APIPA als auch Link-Local-Adressen vergeben automatisch eine nur lokal gültige Adresse, ohne dass ein DHCP-Server benötigt wird."
+    }
+  ]
+}

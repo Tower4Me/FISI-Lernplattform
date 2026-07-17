@@ -1,0 +1,84 @@
+{
+  "unit": "hardware/ergonomie-barrierefreiheit",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welcher Bildschirmabstand gilt als ergonomisch empfohlen?",
+      "options": ["10–20 cm", "50–70 cm", "150–200 cm", "Abstand spielt keine Rolle, nur die Auflösung zählt"],
+      "answer": 1,
+      "explanation": "Ein Bildschirmabstand von etwa 50–70 cm zu den Augen gilt als ergonomisch empfohlen, um Augenbelastung zu vermeiden."
+    },
+    {
+      "id": "q2",
+      "question": "Wo sollte die Oberkante eines Bildschirms für eine ergonomische Sitzhaltung liegen?",
+      "options": [
+        "Deutlich oberhalb der Augenhöhe, damit man leicht nach oben blickt",
+        "Auf oder leicht unterhalb der Augenhöhe",
+        "Auf Tischhöhe, unabhängig von der Körpergröße",
+        "Das hängt ausschließlich von der Bildschirmdiagonale ab"
+      ],
+      "answer": 1,
+      "explanation": "Die Oberkante des Bildschirms sollte auf oder leicht unterhalb der Augenhöhe liegen, damit der Blick leicht nach unten geht — das entlastet Nacken und Augen."
+    },
+    {
+      "id": "q3",
+      "question": "Was verpflichtet die Arbeitsstättenverordnung (ArbStättV) Arbeitgeber in Bezug auf Bildschirmarbeitsplätze?",
+      "options": [
+        "Ausschließlich zur Bereitstellung eines Druckers pro Abteilung",
+        "Zu einer Gefährdungsbeurteilung des Arbeitsplatzes und zur Bereitstellung angemessener Ausstattung (Möbel, Beleuchtung, Bildschirmgröße)",
+        "Zur Zahlung eines gesetzlich festgelegten Bildschirmzuschlags",
+        "Zum verpflichtenden Einsatz von Thin Clients"
+      ],
+      "answer": 1,
+      "explanation": "Die ArbStättV verpflichtet Arbeitgeber zu einer Gefährdungsbeurteilung und zur Bereitstellung angemessener ergonomischer Ausstattung am Bildschirmarbeitsplatz."
+    },
+    {
+      "id": "q4",
+      "question": "Was konkretisieren die Technischen Regeln für Arbeitsstätten (ASR)?",
+      "options": [
+        "Sie ersetzen die ArbStättV vollständig",
+        "Sie konkretisieren die allgemeinen Vorgaben der ArbStättV, z. B. zu Raumabmessungen (ASR A1.2) oder Beleuchtung (ASR A3.4)",
+        "Sie regeln ausschließlich die IT-Sicherheit von Arbeitsplätzen",
+        "Sie gelten nur für Homeoffice-Arbeitsplätze"
+      ],
+      "answer": 1,
+      "explanation": "Die ASR konkretisieren die allgemeinen Vorgaben der ArbStättV mit praktischen Detailregelungen, etwa zu Raumabmessungen oder Beleuchtung."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür wird eine Braillezeile als Hardware-Hilfsmittel eingesetzt?",
+      "options": [
+        "Zur Vergrößerung von Bildschirminhalten für sehbeeinträchtigte Nutzer",
+        "Zur Ausgabe von Bildschirminhalten in Blindenschrift über bewegliche Stifte für blinde Nutzer",
+        "Zur Steuerung des Computers per Augenbewegung",
+        "Zur automatischen Übersetzung von Text in verschiedene Sprachen"
+      ],
+      "answer": 1,
+      "explanation": "Eine Braillezeile gibt Bildschirminhalte über bewegliche Stifte in Blindenschrift (Braille) aus und ermöglicht so blinden Nutzern den Zugang zu digitalen Inhalten."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Hardware-Hilfsmittel ist am besten für Menschen mit motorischen Einschränkungen geeignet, die eine klassische Tastatur/Maus nicht bedienen können?",
+      "options": [
+        "Ein zusätzlicher zweiter Monitor",
+        "Alternative Eingabegeräte wie Trackball, Sondertastaturen oder Augensteuerung",
+        "Ein Flachbettscanner mit höherer Auflösung",
+        "Ein zusätzlicher RAM-Ausbau"
+      ],
+      "answer": 1,
+      "explanation": "Alternative Eingabegeräte wie Trackball, Sondertastaturen oder Augensteuerung ermöglichen die Bedienung eines Computers auch bei motorischen Einschränkungen."
+    },
+    {
+      "id": "q7",
+      "question": "Warum sollte ein Fenster nicht direkt hinter oder vor dem Monitor platziert werden?",
+      "options": [
+        "Weil das die WLAN-Verbindung stören würde",
+        "Weil dadurch Blendung bzw. Reflexionen oder Gegenlicht entstehen, die die Augen belasten",
+        "Weil das gegen die WEEE-Richtlinie verstößt",
+        "Weil Fenster die Bildschirmauflösung beeinflussen"
+      ],
+      "answer": 1,
+      "explanation": "Ein Fenster direkt hinter oder vor dem Monitor führt zu Blendung durch Gegenlicht oder Reflexionen auf dem Bildschirm — beides belastet die Augen und sollte vermieden werden."
+    }
+  ]
+}

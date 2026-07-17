@@ -1,0 +1,101 @@
+{
+  "unit": "qualitaetssicherung/testverfahren-black-white-box",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was kennzeichnet einen Black-Box-Test?",
+      "options": [
+        "Er testet mit voller Kenntnis des Quellcodes",
+        "Er testet nur Ein- und Ausgabe, ohne Kenntnis der internen Struktur",
+        "Er wird ausschließlich von den Entwickler:innen selbst durchgeführt",
+        "Er prüft ausschließlich einzelne Codezeilen"
+      ],
+      "answer": 1,
+      "explanation": "Ein Black-Box-Test prüft nur das äußere Verhalten (Ein-/Ausgabe), ohne die interne Struktur zu kennen."
+    },
+    {
+      "id": "q2",
+      "question": "Was ist charakteristisch für einen White-Box-Test?",
+      "options": [
+        "Er erfolgt ohne jede Kenntnis des Systems",
+        "Er testet mit Kenntnis der internen Struktur bzw. des Quellcodes, z. B. ob alle Codepfade durchlaufen werden",
+        "Er wird ausschließlich vom Endkunden durchgeführt",
+        "Er ist identisch mit einem Lasttest"
+      ],
+      "answer": 1,
+      "explanation": "White-Box-Tests nutzen Kenntnisse der internen Struktur, um z. B. Codepfade gezielt zu prüfen."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Teststufe testet die kleinste, isolierte Programmeinheit, z. B. eine einzelne Funktion?",
+      "options": [
+        "Systemtest",
+        "Unittest (Komponententest)",
+        "Abnahmetest",
+        "Lasttest"
+      ],
+      "answer": 1,
+      "explanation": "Der Unittest (Komponententest) prüft die kleinste, isolierte Programmeinheit."
+    },
+    {
+      "id": "q4",
+      "question": "Was wird im Integrationstest geprüft?",
+      "options": [
+        "Ausschließlich eine einzelne Funktion isoliert",
+        "Das Zusammenspiel mehrerer bereits getesteter Komponenten, insbesondere ihre Schnittstellen",
+        "Die Abnahme durch den Auftraggeber",
+        "Die Belastungsgrenze unter hoher Nutzerzahl"
+      ],
+      "answer": 1,
+      "explanation": "Der Integrationstest prüft das Zusammenspiel und die Schnittstellen mehrerer bereits getesteter Komponenten."
+    },
+    {
+      "id": "q5",
+      "question": "Wer führt den Abnahmetest typischerweise durch?",
+      "options": [
+        "Ausschließlich die Entwickler:innen selbst",
+        "Der Auftraggeber, um zu prüfen, ob das System die vereinbarten Anforderungen erfüllt",
+        "Ein externes Prüfsiegel-Institut",
+        "Der Betriebsrat des Unternehmens"
+      ],
+      "answer": 1,
+      "explanation": "Der Abnahmetest wird vom Auftraggeber durchgeführt, um die Erfüllung der vereinbarten Anforderungen zu prüfen."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist das Ziel eines Lasttests?",
+      "options": [
+        "Die Prüfung einzelner Codezeilen auf Syntaxfehler",
+        "Zu ermitteln, wie ein System unter hoher Belastung reagiert und wo Belastungsgrenzen liegen",
+        "Die formale Abnahme durch den Kunden",
+        "Die Prüfung der Benutzeroberfläche auf Design-Richtlinien"
+      ],
+      "answer": 1,
+      "explanation": "Ein Lasttest ermittelt, wie ein System unter hoher Belastung (z. B. viele gleichzeitige Nutzer) reagiert."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Teststufe testet das Gesamtsystem als Ganzes gegen die festgelegten Anforderungen?",
+      "options": [
+        "Unittest",
+        "Integrationstest",
+        "Systemtest",
+        "Keine der genannten Stufen"
+      ],
+      "answer": 2,
+      "explanation": "Der Systemtest prüft das Gesamtsystem als Ganzes gegen die festgelegten Anforderungen."
+    },
+    {
+      "id": "q8",
+      "question": "Im Praxisbeispiel: Was zeigt der Lasttest vor dem Livegang der Web-Anwendung?",
+      "options": [
+        "Einen Flaschenhals in der Datenbank bei 1.000 gleichzeitigen Nutzer:innen",
+        "Einen Fehler in der Berechnung eines Rabatts",
+        "Ein Problem bei der Abnahme durch den Kunden",
+        "Einen Fehler im Zahlungsmodul bei der Integration"
+      ],
+      "answer": 0,
+      "explanation": "Der Lasttest deckt einen Flaschenhals in der Datenbank auf, der vor dem Livegang behoben werden kann."
+    }
+  ]
+}

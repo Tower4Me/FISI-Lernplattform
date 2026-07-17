@@ -1,0 +1,89 @@
+{
+  "unit": "kalkulation/zahlensysteme",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche Basis hat das Hexadezimalsystem?",
+      "options": [
+        "Basis 2",
+        "Basis 8",
+        "Basis 10",
+        "Basis 16"
+      ],
+      "answer": 3,
+      "explanation": "Hexadezimal ist ein Zahlensystem zur Basis 16 mit den Symbolen 0–9 und A–F."
+    },
+    {
+      "id": "q2",
+      "question": "Was ist der Dezimalwert der Binärzahl 0b10110010?",
+      "options": [
+        "150",
+        "178",
+        "182",
+        "202"
+      ],
+      "answer": 1,
+      "explanation": "128 + 32 + 16 + 2 = 178. Die gesetzten Bits (1) an den Stellenwerten 128, 32, 16 und 2 werden addiert."
+    },
+    {
+      "id": "q3",
+      "question": "Wie viele Hex-Stellen werden benötigt, um ein Byte (8 Bit) darzustellen?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "8"
+      ],
+      "answer": 1,
+      "explanation": "Jede Hex-Stelle entspricht 4 Bit (einem Nibble), zwei Hex-Stellen ergeben also genau 8 Bit = 1 Byte."
+    },
+    {
+      "id": "q4",
+      "question": "Wie wird beim Zweierkomplement das negative Gegenstück einer Binärzahl gebildet?",
+      "options": [
+        "Alle Bits werden invertiert, ohne weitere Schritte",
+        "Alle Bits werden invertiert und anschließend wird 1 addiert",
+        "Die Zahl wird einfach rückwärts gelesen",
+        "Das höchstwertige Bit wird gelöscht"
+      ],
+      "answer": 1,
+      "explanation": "Das Zweierkomplement bildet man, indem man alle Bits invertiert (Einerkomplement) und anschließend 1 addiert."
+    },
+    {
+      "id": "q5",
+      "question": "Welchen Wertebereich kann eine 8-Bit-Zahl im Zweierkomplement darstellen?",
+      "options": [
+        "0 bis 255",
+        "−128 bis +127",
+        "−255 bis +255",
+        "−127 bis +127"
+      ],
+      "answer": 1,
+      "explanation": "Mit 8 Bit im Zweierkomplement sind Werte von −128 bis +127 darstellbar — ein Bit dient als Vorzeichen, wodurch der positive Bereich um eins kleiner ist als bei vorzeichenlosen Zahlen."
+    },
+    {
+      "id": "q6",
+      "question": "Was sind Magic Bytes bei einer Datei?",
+      "options": [
+        "Ein Verschlüsselungsschlüssel am Dateiende",
+        "Eine feste Byte-Folge am Dateianfang, die den echten Dateityp unabhängig von der Dateiendung anzeigt",
+        "Die Prüfsumme einer Datei zur Fehlerkontrolle",
+        "Ein zufällig generierter Dateiname"
+      ],
+      "answer": 1,
+      "explanation": "Magic Bytes (Dateisignatur) stehen am Anfang einer Datei und identifizieren den tatsächlichen Dateityp, unabhängig davon, wie die Datei benannt oder umbenannt wurde."
+    },
+    {
+      "id": "q7",
+      "question": "Warum reicht das Umbenennen der Dateiendung nicht aus, um den tatsächlichen Dateityp einer Datei zu ändern?",
+      "options": [
+        "Weil die Dateiendung nur ein Hinweis fürs Betriebssystem ist, der echte Typ aber in den Magic Bytes am Dateianfang steckt",
+        "Weil Windows Dateiendungen grundsätzlich ignoriert",
+        "Weil jede Datei automatisch neu komprimiert wird",
+        "Weil sich beim Umbenennen der Inhalt der Datei löscht"
+      ],
+      "answer": 0,
+      "explanation": "Die Dateiendung ist nur eine Konvention für das Betriebssystem. Der tatsächliche Dateityp ergibt sich aus den Magic Bytes im Dateiinhalt, die durch Umbenennen nicht verändert werden."
+    }
+  ]
+}

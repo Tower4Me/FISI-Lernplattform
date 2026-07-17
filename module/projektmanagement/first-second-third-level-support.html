@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: First-, Second- &amp; Third-Level-Support</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">First-, Second- &amp; Third-Level-Support</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      First-, Second- &amp; Third-Level-Support
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Beim Hausarzt werden die meisten Beschwerden direkt behandelt.
+        Reicht das nicht aus, überweist er an eine Fachärztin. Und für
+        ganz seltene, hochspezialisierte Fälle gibt es
+        Spezialkliniken, die eng mit den Herstellern von
+        Spezialgeräten zusammenarbeiten. Genau diese Abstufung findet
+        sich im IT-Support wieder – gestaffelt in
+        <strong>First-, Second-</strong> und
+        <strong>Third-Level-Support</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <table>
+        <thead><tr><th>Ebene</th><th>Aufgabe</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>First-Level-Support</strong></td>
+            <td>erste Anlaufstelle, nimmt Anfragen entgegen und löst
+                Standardprobleme anhand bekannter Lösungen und
+                Wissensdatenbanken (z. B. Passwort zurücksetzen,
+                einfache Konfigurationsprobleme)</td>
+          </tr>
+          <tr>
+            <td><strong>Second-Level-Support</strong></td>
+            <td>übernimmt komplexere Fälle, die First-Level nicht
+                lösen kann; verfügt über tieferes Fachwissen und
+                weiterreichende Systemzugriffe</td>
+          </tr>
+          <tr>
+            <td><strong>Third-Level-Support</strong></td>
+            <td>höchste Eskalationsstufe – oft Spezialist:innen,
+                Entwicklerteams oder der Hersteller selbst; behebt
+                grundlegende technische Probleme, z. B. durch Patches
+                oder Updates am Produkt</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Ziel dieser Staffelung ist es, möglichst viele Anfragen bereits
+        auf der ersten, kostengünstigsten Ebene zu lösen (siehe Einheit
+        <a href="ticketsystem-stoerungsmanagement-eskalation.html">Ticketsystem, Störungsmanagement &amp; Eskalation</a>)
+        und nur wirklich komplexe Fälle an höhere, spezialisiertere
+        (und meist teurere) Ebenen weiterzureichen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TowerTech GmbH meldet wiederholte Abstürze einer
+        Fachanwendung.
+      </p>
+      <ul>
+        <li>
+          <strong>First-Level:</strong> prüft Standardlösungen wie
+          Neustart der Anwendung und ein verfügbares Update – die
+          Abstürze treten weiterhin auf.
+        </li>
+        <li>
+          <strong>Second-Level:</strong> analysiert die Logdateien der
+          Anwendung im Detail und identifiziert einen wiederkehrenden
+          Fehler, der auf einen Programmierfehler in der Software
+          selbst hindeutet.
+        </li>
+        <li>
+          <strong>Third-Level:</strong> Da es sich um einen echten
+          Produktfehler handelt, wird der Softwarehersteller
+          kontaktiert. Dieser bestätigt den Bug und liefert einen
+          Patch, der den Fehler behebt.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        First-Level löst Standardprobleme über bekannte Lösungen,
+        Second-Level übernimmt komplexere Fälle mit tieferem
+        Fachwissen, Third-Level (oft der Hersteller) behebt
+        grundlegende Produktfehler. Ziel ist, möglichst viel bereits
+        auf First-Level zu lösen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/first-second-third-level-support.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

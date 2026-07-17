@@ -1,0 +1,72 @@
+{
+  "unit": "hardware/auto-id",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der grundlegende Unterschied zwischen Barcode/QR-Code und RFID/NFC?",
+      "options": [
+        "Barcode und QR-Code benötigen Sichtkontakt zum Scanner, RFID und NFC funktionieren per Funk ohne Sichtkontakt",
+        "RFID und NFC benötigen zwingend Sichtkontakt, Barcode und QR-Code nicht",
+        "Es gibt keinen technischen Unterschied, nur unterschiedliche Namen",
+        "Barcode kann nur von Menschen gelesen werden, nicht von Maschinen"
+      ],
+      "answer": 0,
+      "explanation": "Barcode und QR-Code sind optische Verfahren und benötigen Sichtkontakt zwischen Code und Scanner. RFID und NFC übertragen ihre Kennung per Funk und funktionieren auch ohne Sichtkontakt, z. B. durch eine Verpackung hindurch."
+    },
+    {
+      "id": "q2",
+      "question": "Warum ist die kurze Reichweite von NFC (wenige Zentimeter) ein bewusstes Designmerkmal?",
+      "options": [
+        "Weil NFC-Chips technisch keine größere Reichweite erreichen können",
+        "Weil eine sehr kurze Reichweite verhindert, dass z. B. beim kontaktlosen Bezahlen unbeabsichtigt ein falsches Gerät reagiert",
+        "Weil NFC ausschließlich für Barcodes gedacht ist",
+        "Weil eine größere Reichweite gesetzlich verboten ist"
+      ],
+      "answer": 1,
+      "explanation": "Die bewusst sehr kurze Reichweite von NFC ist ein Sicherheitsmerkmal: Nur das Gerät, das man wirklich direkt ans Terminal hält, soll reagieren — nicht ein Gerät in der Tasche."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet einen passiven von einem aktiven RFID-Tag?",
+      "options": [
+        "Ein passiver Tag hat eine eigene Batterie, ein aktiver nicht",
+        "Ein passiver Tag wird durch das Funksignal des Lesegeräts gespeist und hat keine eigene Stromquelle, ein aktiver Tag hat eine eigene Batterie und größere Reichweite",
+        "Aktive Tags funktionieren nur mit Barcode-Scannern",
+        "Passive und aktive Tags unterscheiden sich nur in der Farbe des Etiketts"
+      ],
+      "answer": 1,
+      "explanation": "Passive RFID-Tags haben keine eigene Stromquelle und werden vom Lesegerät gespeist (kurze Reichweite, günstig). Aktive Tags besitzen eine eigene Batterie und erreichen deutlich größere Reichweiten."
+    },
+    {
+      "id": "q4",
+      "question": "Wofür wird ein Asset Tag an einem Firmen-Notebook verwendet?",
+      "options": [
+        "Um das Notebook mit dem WLAN zu verbinden",
+        "Um das physische Gerät eindeutig mit seinem Eintrag in der Inventar-/Asset-Management-Datenbank zu verknüpfen",
+        "Um die Akkulaufzeit des Notebooks zu verlängern",
+        "Um das Notebook vor Diebstahl technisch unbrauchbar zu machen"
+      ],
+      "answer": 1,
+      "explanation": "Der Asset Tag (meist Barcode/QR-Code plus Nummer) verknüpft das physische Gerät mit seinem Datensatz in der Inventarverwaltung — wichtig für Inventur und Lebenszyklus-Management."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Lager erfasst ganze Paletten automatisch, während sie durch ein Lesegerät-Tor am Warenausgang fahren, ohne dass jemand einzelne Pakete scannen muss. Welche Technologie ermöglicht das am besten?",
+      "options": ["1D-Barcode", "QR-Code", "RFID", "Ein herkömmlicher Flachbettscanner"],
+      "answer": 2,
+      "explanation": "RFID benötigt keinen Sichtkontakt und kann mehrere Tags gleichzeitig aus der Ferne erfassen — ideal, um ganze Paletten beim Durchfahren eines Tors automatisch zu erkennen."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist ein Service Tag (z. B. bei Dell- oder HP-Servern)?",
+      "options": [
+        "Ein vom Kunden selbst vergebener Name für das Gerät",
+        "Die vom Hersteller vorinstallierte, eindeutige Seriennummer, über die Garantiestatus und passende Treiber/Ersatzteile abgerufen werden können",
+        "Ein RFID-Chip zur Standortverfolgung des Geräts per GPS",
+        "Ein Aufkleber, der nur zur Dekoration dient"
+      ],
+      "answer": 1,
+      "explanation": "Der Service Tag ist die herstellerseitig vergebene eindeutige Seriennummer, mit der sich beim Hersteller direkt Garantiestatus, Treiber und Ersatzteile für genau dieses Gerät abrufen lassen."
+    }
+  ]
+}

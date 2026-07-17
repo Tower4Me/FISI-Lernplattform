@@ -1,0 +1,113 @@
+{
+  "unit": "datenbanken-sql/sql-subqueries",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist eine Subquery?",
+      "options": [
+        "Ein Index auf mehreren Spalten",
+        "Eine SELECT-Abfrage innerhalb einer anderen Abfrage",
+        "Ein spezieller JOIN-Typ",
+        "Eine gespeicherte Prozedur"
+      ],
+      "answer": 1,
+      "explanation": "Eine Subquery (Unterabfrage) ist eine SELECT-Anweisung, die innerhalb einer anderen SQL-Anweisung steht."
+    },
+    {
+      "id": "q2",
+      "question": "Wie findet man alle Mitarbeiter, die mehr als der Durchschnitt verdienen?",
+      "options": [
+        "WHERE jahresgehalt > AVG(jahresgehalt)",
+        "WHERE jahresgehalt > (SELECT AVG(jahresgehalt) FROM mitarbeiter)",
+        "GROUP BY jahresgehalt > AVG",
+        "ORDER BY AVG(jahresgehalt) DESC"
+      ],
+      "answer": 1,
+      "explanation": "Aggregatfunktionen wie AVG() dürfen nicht direkt in WHERE stehen – die Berechnung muss in einer Subquery erfolgen, deren Ergebnis dann verglichen wird."
+    },
+    {
+      "id": "q3",
+      "question": "Wann verwendet man eine Subquery mit IN statt mit einem einzelnen Vergleichsoperator?",
+      "options": [
+        "Wenn die Subquery genau einen einzelnen Wert liefert",
+        "Wenn die Subquery mehrere Werte liefert, mit denen verglichen werden soll",
+        "IN und Vergleichsoperatoren sind niemals austauschbar",
+        "Nur bei UPDATE-Befehlen"
+      ],
+      "answer": 1,
+      "explanation": "IN vergleicht einen Wert mit einer ganzen Liste von Werten, wie sie eine Subquery mit mehreren Ergebniszeilen liefert."
+    },
+    {
+      "id": "q4",
+      "question": "Was braucht eine Subquery, die im FROM als abgeleitete Tabelle verwendet wird?",
+      "options": [
+        "Einen Primärschlüssel",
+        "Einen Alias",
+        "Ein GROUP BY ist zwingend erforderlich",
+        "Mindestens zwei JOINs"
+      ],
+      "answer": 1,
+      "explanation": "Eine Subquery im FROM wird wie eine temporäre Tabelle behandelt und muss deshalb mit einem Alias benannt werden."
+    },
+    {
+      "id": "q5",
+      "question": "Was prüft EXISTS in einer Subquery?",
+      "options": [
+        "Ob die Subquery eine bestimmte Anzahl an Zeilen liefert",
+        "Ob die Subquery mindestens eine Zeile liefert – die konkreten Werte spielen keine Rolle",
+        "Ob eine Spalte NULL-Werte enthält",
+        "Ob ein Fremdschlüssel gültig ist"
+      ],
+      "answer": 1,
+      "explanation": "EXISTS liefert TRUE, sobald die Subquery mindestens eine Ergebniszeile hat – unabhängig davon, welche Werte darin stehen."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Abfrage findet Abteilungen mit Bürostandort in Essen, deren IDs man vorher nicht kennt?",
+      "options": [
+        "SELECT vollname FROM mitarbeiter WHERE abteilung_id = 'Essen';",
+        "SELECT vollname FROM mitarbeiter WHERE abteilung_id IN (SELECT abteilung_id FROM abteilung WHERE buero_standort = 'Essen');",
+        "SELECT vollname FROM mitarbeiter JOIN Essen;",
+        "SELECT vollname FROM abteilung WHERE mitarbeiter = 'Essen';"
+      ],
+      "answer": 1,
+      "explanation": "Die innere Abfrage ermittelt zunächst die passenden abteilung_id-Werte, die äußere Abfrage nutzt diese Liste mit IN."
+    },
+    {
+      "id": "q7",
+      "question": "Warum kann man AVG(jahresgehalt) nicht direkt in einer WHERE-Bedingung ohne Subquery verwenden?",
+      "options": [
+        "AVG() ist in SQL nicht erlaubt",
+        "WHERE filtert einzelne Zeilen vor jeder Aggregation und kennt daher keine Aggregatfunktionen direkt",
+        "AVG() funktioniert nur mit GROUP BY, niemals anders",
+        "Das ist möglich, es gibt keinen Grund für eine Subquery"
+      ],
+      "answer": 1,
+      "explanation": "Aggregatfunktionen benötigen entweder GROUP BY/HAVING oder eine separate Berechnung – z. B. über eine Subquery, deren Ergebnis dann in WHERE verglichen wird."
+    },
+    {
+      "id": "q8",
+      "question": "Wie lautet eine typische IHK-Aufgabenstellung, die zu Subqueries passt?",
+      "options": [
+        "„Erstellen Sie eine neue Tabelle mit drei Spalten.“",
+        "„Zeigen Sie alle Produkte, die teurer als der Durchschnitt sind.“",
+        "„Vergeben Sie Leserechte an einen neuen Benutzer.“",
+        "„Löschen Sie alle Datensätze einer Tabelle.“"
+      ],
+      "answer": 1,
+      "explanation": "Formulierungen wie „teurer als der Durchschnitt“ oder „Kunden ohne Bestellung“ sind klassische Signale für eine Subquery-Aufgabe."
+    },
+    {
+      "id": "q9",
+      "question": "Welche Aussage zu Subqueries im FROM (abgeleitete Tabellen) trifft zu?",
+      "options": [
+        "Sie werden dauerhaft als neue Tabelle in der Datenbank gespeichert",
+        "Sie verhalten sich für die Dauer der Abfrage wie eine temporäre Tabelle",
+        "Sie dürfen kein GROUP BY enthalten",
+        "Sie sind nur in Kombination mit EXISTS erlaubt"
+      ],
+      "answer": 1,
+      "explanation": "Eine Subquery im FROM existiert nur für die Dauer der äußeren Abfrage und verhält sich wie eine ganz normale Tabelle mit Alias."
+    }
+  ]
+}

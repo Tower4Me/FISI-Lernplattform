@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Auto-ID (Barcode, RFID, NFC)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Auto-ID (Barcode, RFID, NFC)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Auto-ID (Barcode, RFID, NFC)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir vor, ein Gegenstand soll „von selbst“ verraten, was er
+        ist. Ein Barcode ist wie ein Namensschild, das man frontal sehen
+        muss, um es zu lesen. Ein QR-Code ist dasselbe Namensschild, nur
+        mit viel mehr Text und selbst dann noch lesbar, wenn eine Ecke
+        beschädigt ist. RFID lässt den Gegenstand seinen Namen laut per
+        Funk rufen — auch durch eine Kartonwand hindurch, ohne dass man
+        hinschauen muss. NFC ist dasselbe Prinzip, nur im Flüsterton: Es
+        funktioniert nur, wenn man wirklich ganz nah herangeht.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Auto-ID-Technologien im Vergleich</h3>
+      <table>
+        <thead>
+          <tr><th>Technologie</th><th>Sichtkontakt nötig?</th><th>Reichweite</th><th>Datenmenge</th><th>typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Barcode</strong> (1D, z. B. EAN)</td>
+            <td>ja</td>
+            <td>wenige cm bis Meter (Laser/Kamera)</td>
+            <td>gering (meist nur eine Nummer)</td>
+            <td>Kasse, Wareneingang, Produktkennzeichnung</td>
+          </tr>
+          <tr>
+            <td><strong>QR-Code</strong> (2D)</td>
+            <td>ja</td>
+            <td>wenige cm bis Meter (Kamera)</td>
+            <td>deutlich höher, mit Fehlerkorrektur auch bei
+              Teilbeschädigung noch lesbar</td>
+            <td>Ticketing, Links/Kontaktdaten, Geräte-Inventarisierung</td>
+          </tr>
+          <tr>
+            <td><strong>RFID</strong> (Radio Frequency Identification)</td>
+            <td>nein</td>
+            <td>wenige cm (passiv) bis mehrere Meter (aktiv)</td>
+            <td>gering bis mittel, je nach Tag-Speicher</td>
+            <td>Warenlager, Zutrittskarten, Diebstahlsicherung, Paletten-
+              Tracking</td>
+          </tr>
+          <tr>
+            <td><strong>NFC</strong> (Near Field Communication)</td>
+            <td>nein</td>
+            <td>wenige Zentimeter (bewusst sehr kurz)</td>
+            <td>gering bis mittel</td>
+            <td>kontaktloses Bezahlen, Zutrittskarten, Smartphone-Pairing</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>RFID genauer: passiv vs. aktiv</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Stromversorgung</th><th>Reichweite</th><th>Kosten</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Passiver Tag</strong></td>
+            <td>keine eigene Stromquelle — wird durch das Funksignal des
+              Lesegeräts gespeist</td>
+            <td>wenige Zentimeter bis ca. 1 Meter</td>
+            <td>sehr günstig, für Massenkennzeichnung geeignet</td>
+          </tr>
+          <tr>
+            <td><strong>Aktiver Tag</strong></td>
+            <td>eigene Batterie, sendet aktiv sein Signal</td>
+            <td>mehrere Meter bis über 100 Meter</td>
+            <td>teurer, für hochwertige oder weiträumig zu trackende
+              Objekte (z. B. Container)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>NFC</strong> ist technisch eine Sonderform von RFID mit
+        bewusst sehr kurzer Reichweite (wenige Zentimeter) — dieser
+        Reichweitenverzicht ist ein Sicherheitsmerkmal: Beim kontaktlosen
+        Bezahlen soll nur das Gerät reagieren, das man auch wirklich
+        direkt an das Terminal hält.
+      </p>
+
+      <h3>Asset Tag und Service Tag</h3>
+      <p>
+        Ein <strong>Asset Tag</strong> ist eine eindeutige Kennung
+        (meist Barcode oder QR-Code plus Klartext-Nummer), die ein
+        physisches Gerät mit seinem Eintrag in der
+        Inventar-/Asset-Management-Datenbank verknüpft — wichtig für
+        Inventur, Wartungshistorie und Lebenszyklus-Management. Ein
+        <strong>Service Tag</strong> ist die vom Hersteller
+        vorinstallierte, eindeutige Seriennummer eines Geräts (z. B. bei
+        Dell/HP-Servern), über die sich beim Hersteller direkt
+        Garantiestatus und passende Treiber/Ersatzteile abrufen lassen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH nutzt Auto-ID-Technologien an drei Stellen:
+      </p>
+      <ul>
+        <li><strong>Jährliche IT-Inventur:</strong> Jedes Notebook trägt
+          einen <strong>Asset Tag mit QR-Code</strong>. Der Techniker
+          scannt beim Rundgang jedes Gerät einzeln mit dem Smartphone und
+          gleicht es automatisch mit der Inventardatenbank ab.</li>
+        <li><strong>Zutritt zum Serverraum:</strong> Mitarbeiter halten
+          eine <strong>RFID-Karte</strong> an ein Lesegerät neben der Tür
+          — ohne die Karte aus der Hülle nehmen zu müssen, da kein
+          Sichtkontakt nötig ist.</li>
+        <li><strong>Warenausgang im Lager:</strong> Ganze Paletten mit
+          <strong>passiven RFID-Tags</strong> durchfahren ein
+          Lesegerät-Tor am Tor und werden automatisch erfasst — im
+          Gegensatz zum Barcode müsste hier sonst jedes einzelne Paket per
+          Sichtkontakt gescannt werden.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Barcode und QR-Code brauchen Sichtkontakt, RFID und NFC funktionieren
+        per Funk ohne Sichtkontakt. NFC ist RFID mit bewusst sehr kurzer
+        Reichweite (Sicherheitsmerkmal). Passive RFID-Tags brauchen keine
+        eigene Stromquelle, aktive Tags haben eine Batterie und größere
+        Reichweite. Asset Tag verknüpft ein Gerät mit der
+        Inventardatenbank, Service Tag ist die herstellerseitige
+        Seriennummer.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/auto-id.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

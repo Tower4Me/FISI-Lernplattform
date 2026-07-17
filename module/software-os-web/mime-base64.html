@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: MIME-Types & Base64</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">MIME-Types & Base64</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      MIME-Types & Base64
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein MIME-Type ist wie das Etikett auf einem Paket, das dem
+        Zusteller sagt, wie er es behandeln soll — zerbrechlich, kühl
+        lagern, sofort öffnen. Ohne dieses Etikett wüsste ein Browser
+        nicht, ob er eine empfangene Datei anzeigen, ausführen oder zum
+        Download anbieten soll. Base64 wiederum ist wie das Übersetzen
+        einer Nachricht in ein einfaches Alphabet aus Buchstaben und
+        Zahlen, damit sie sicher durch Kanäle transportiert werden kann,
+        die eigentlich nur für reinen Text gebaut wurden — kein Schutz,
+        keine Komprimierung, nur ein anderes Alphabet für dieselbe
+        Nachricht.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>MIME-Types</h3>
+      <p>
+        <strong>MIME</strong> (Multipurpose Internet Mail Extensions) ist
+        ein Standard, der den Inhaltstyp einer Datei für ein
+        Übertragungsprotokoll beschreibt — ursprünglich für E-Mail
+        entwickelt, heute Standard in HTTP und überall im Web. MIME-Types
+        haben immer das Format <code>typ/subtyp</code>.
+      </p>
+      <table>
+        <thead>
+          <tr><th>MIME-Type</th><th>Dateiendung</th><th>Beschreibung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>text/html</code></td><td>.html</td><td>HTML-Webseite</td></tr>
+          <tr><td><code>text/plain</code></td><td>.txt</td><td>reiner Text</td></tr>
+          <tr><td><code>text/css</code></td><td>.css</td><td>CSS-Stylesheet</td></tr>
+          <tr><td><code>application/javascript</code></td><td>.js</td><td>JavaScript</td></tr>
+          <tr><td><code>application/json</code></td><td>.json</td><td>JSON-Daten</td></tr>
+          <tr><td><code>application/pdf</code></td><td>.pdf</td><td>PDF-Dokument</td></tr>
+          <tr><td><code>image/jpeg</code></td><td>.jpg, .jpeg</td><td>JPEG-Bild</td></tr>
+          <tr><td><code>image/svg+xml</code></td><td>.svg</td><td>SVG-Vektorgrafik</td></tr>
+          <tr><td><code>multipart/form-data</code></td><td>–</td><td>Datei-Upload in HTML-Formularen</td></tr>
+          <tr><td><code>application/octet-stream</code></td><td>beliebig</td><td>unbekannte Binärdatei — Browser bietet Download an</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Übertragen wird der MIME-Type im HTTP-Header
+        <code>Content-Type</code>, z. B. <code>Content-Type: image/jpeg</code>.
+      </p>
+      <p>
+        <strong>Sicherheitsrelevanz:</strong> Ein Angreifer könnte eine
+        <code>.exe</code>-Datei fälschlich als <code>image/jpeg</code>
+        deklarieren. Server sollten den MIME-Type deshalb nicht blind vom
+        Client übernehmen, sondern den tatsächlichen Inhalt prüfen (siehe
+        Einheit Zahlensysteme, Magic Bytes). Browser sollten umgekehrt den
+        vom Server angegebenen MIME-Type respektieren (Header
+        <code>X-Content-Type-Options: nosniff</code>).
+      </p>
+
+      <h3>Base64</h3>
+      <p>
+        <strong>Base64</strong> wandelt Binärdaten in eine Zeichenkette
+        aus 64 druckbaren ASCII-Zeichen um (A–Z, a–z, 0–9, <code>+</code>,
+        <code>/</code>) — es wird dabei nichts komprimiert oder
+        verschlüsselt, nur umgeformt. Grund: Manche Übertragungsprotokolle
+        wurden ursprünglich nur für reinen Text entworfen, in denen
+        binäre Steuerzeichen die Übertragung stören könnten.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Einsatz</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>E-Mail (SMTP)</td><td>binäre Anhänge werden als Base64 kodiert</td></tr>
+          <tr><td>Web/HTTP</td><td>Data-URLs betten kleine Bilder direkt in HTML/CSS ein (<code>data:image/png;base64,...</code>)</td></tr>
+          <tr><td>APIs/JSON</td><td>JSON kann keine Binärdaten enthalten — Bilder/Dateien werden als Base64-String verpackt</td></tr>
+          <tr><td>Tokens</td><td>JWT (JSON Web Token) ist Base64-kodiertes JSON</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Technisch nimmt Base64 je 3 Bytes (24 Bit) und teilt sie in vier
+        6-Bit-Gruppen auf — jede Gruppe wird einem der 64 druckbaren
+        Zeichen zugeordnet. Dadurch wächst die Datenmenge um etwa
+        <strong>33 %</strong> (aus 3 Bytes werden 4 Zeichen): Eine 1 MB
+        große Datei wird als Base64 rund 1,33 MB groß.
+      </p>
+      <p>
+        <strong>Wichtig: Base64 ist keine Verschlüsselung.</strong> Jeder
+        kann eine Base64-Zeichenkette in Sekunden zurückwandeln. Ein
+        Base64-kodiertes Passwort ist genauso unsicher wie Klartext — für
+        echte Sicherheit braucht es Verschlüsselung (AES, RSA) oder
+        Hashing (siehe Modul IT-Sicherheit).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Zwei Situationen bei der TechNord GmbH:
+      </p>
+      <ul>
+        <li><strong>Datei-Upload-Formular:</strong> Ein Nutzer lädt ein
+          Profilbild hoch, der Browser sendet dabei
+          <code>Content-Type: image/jpeg</code>. Der Server verlässt sich
+          jedoch nicht blind auf diese Angabe, sondern prüft zusätzlich
+          die Magic Bytes der Datei — so wird verhindert, dass eine als
+          Bild getarnte ausführbare Datei unbemerkt hochgeladen wird.</li>
+        <li><strong>Firmenlogo im CSS:</strong> Ein Entwickler bettet ein
+          kleines Firmenlogo direkt als Base64-Data-URL ins CSS ein,
+          statt eine separate Bilddatei zu laden — das spart einen
+          zusätzlichen HTTP-Request, macht die CSS-Datei aber rund 33 %
+          größer als das reine Bild.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        MIME-Type (typ/subtyp) sagt dem Browser, wie er empfangene Daten
+        behandeln soll — Server sollten ihn nicht blind vom Client
+        übernehmen, sondern den echten Inhalt prüfen. Base64 wandelt
+        Binärdaten in druckbare ASCII-Zeichen um (3 Bytes → 4 Zeichen,
+        ca. 33 % größer) — reine Umformung, keine Verschlüsselung und
+        keine Komprimierung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/mime-base64.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

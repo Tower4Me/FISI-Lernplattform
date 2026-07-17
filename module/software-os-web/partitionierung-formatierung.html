@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Partitionierung & Formatierung</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Partitionierung & Formatierung</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Partitionierung & Formatierung
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein neuer, unbenutzter Datenträger ist wie ein leeres
+        Grundstück. <strong>Partitionierung</strong> zieht darauf
+        zunächst rechtlich getrennte Grundstücksgrenzen (Partitionen) —
+        aus einem großen Grundstück können mehrere unabhängige Parzellen
+        werden. <strong>Formatierung</strong> errichtet anschließend auf
+        einer solchen Parzelle ein konkretes Gebäude (ein Dateisystem wie
+        NTFS oder ext4) — erst dann lässt sich die Parzelle tatsächlich
+        nutzen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Partitionierung</h3>
+      <p>
+        Partitionierung teilt einen physischen Datenträger in logisch
+        getrennte Bereiche (<strong>Partitionen</strong>) auf. Jede
+        Partition kann ein eigenes Dateisystem und einen eigenen
+        Laufwerksbuchstaben (Windows) bzw. Mountpoint (Linux) erhalten
+        (siehe Einheit Linux-Konsole: <code>/dev/sda</code> = gesamter
+        Datenträger, <code>/dev/sda1</code> = erste Partition darauf).
+      </p>
+
+      <h3>Partitionstabellen: MBR vs. GPT</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>MBR (Master Boot Record)</th><th>GPT (GUID Partition Table)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Alter/Verbreitung</strong></td>
+            <td>älterer Standard</td>
+            <td>moderner Standard</td>
+          </tr>
+          <tr>
+            <td><strong>Partitionsanzahl</strong></td>
+            <td>maximal 4 primäre Partitionen (oder 3 primäre + 1
+              erweiterte mit mehreren logischen Partitionen darin)</td>
+            <td>praktisch unbegrenzt viele Partitionen</td>
+          </tr>
+          <tr>
+            <td><strong>Maximale Datenträgergröße</strong></td>
+            <td>bis 2 TiB nutzbar</td>
+            <td>unterstützt Datenträger deutlich über 2 TiB</td>
+          </tr>
+          <tr>
+            <td><strong>Boot-Voraussetzung</strong></td>
+            <td>klassisches BIOS-Booten</td>
+            <td>benötigt in der Regel UEFI (siehe Einheit BIOS/UEFI &
+              Bootvorgang)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Ein Datenträger größer als 2 TiB muss mit <strong>GPT</strong>
+        partitioniert werden — mit MBR wäre nur ein Teil der Kapazität
+        überhaupt nutzbar.
+      </p>
+
+      <h3>Formatierung</h3>
+      <p>
+        Formatierung legt ein konkretes <strong>Dateisystem</strong>
+        (z. B. NTFS, ext4, FAT32) auf einer Partition an — erst danach
+        lässt sich die Partition tatsächlich zum Speichern von Dateien
+        nutzen.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Formatierungsart</th><th>Vorgang</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Schnellformatierung</strong></td>
+            <td>löscht nur den Dateisystem-Index (vergleichbar mit dem
+              Löschverhalten von Inode/MFT, siehe Einheit
+              Dateisysteme-Grundlagen) — die eigentlichen Datenbytes
+              bleiben zunächst physisch erhalten, bis sie überschrieben
+              werden; schnell, aber ohne Prüfung des Datenträgers</td>
+          </tr>
+          <tr>
+            <td><strong>Vollständige Formatierung</strong></td>
+            <td>prüft zusätzlich den gesamten Datenträger auf defekte
+              Sektoren (Bad Blocks) — deutlich langsamer, aber sinnvoll
+              bei neuen oder verdächtigen Datenträgern</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Werkzeuge unter Windows</h3>
+      <ul>
+        <li><strong>Datenträgerverwaltung</strong> — grafisches Werkzeug
+          zum Erstellen, Löschen und Formatieren von Partitionen</li>
+        <li><strong>Diskpart</strong> — Kommandozeilenwerkzeug für
+          dieselben Aufgaben, geeignet für Automatisierung/Skripte</li>
+      </ul>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Techniker der TechNord GmbH baut eine neue 4-TB-Festplatte in
+        einen Server ein:
+      </p>
+      <ul>
+        <li><strong>Partitionstabelle wählen:</strong> Da die Platte mit
+          4 TB deutlich über der 2-TiB-Grenze von MBR liegt, wird sie mit
+          <strong>GPT</strong> partitioniert — sonst wäre nur ein
+          Bruchteil der Kapazität nutzbar.</li>
+        <li><strong>Formatierung:</strong> Da es sich um eine neue,
+          bisher ungetestete Platte handelt, wählt der Techniker eine
+          <strong>vollständige Formatierung</strong> mit NTFS, um
+          gleichzeitig auf defekte Sektoren zu prüfen.</li>
+        <li><strong>Vergleichsfall:</strong> Bei einer bereits geprüften,
+          aber neu zu belegenden internen SSD reicht dagegen eine
+          schnelle <strong>Schnellformatierung</strong>, da keine
+          erneute vollständige Sektorprüfung nötig ist.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Partitionierung teilt einen Datenträger logisch auf,
+        Formatierung legt darauf ein Dateisystem an. MBR: max. 4 primäre
+        Partitionen, bis 2 TiB, BIOS-Boot. GPT: praktisch unbegrenzt
+        viele Partitionen, über 2 TiB, benötigt meist UEFI.
+        Schnellformatierung löscht nur den Index, vollständige
+        Formatierung prüft zusätzlich auf defekte Sektoren.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/partitionierung-formatierung.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

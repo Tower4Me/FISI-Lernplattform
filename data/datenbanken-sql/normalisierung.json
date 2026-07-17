@@ -1,0 +1,113 @@
+{
+  "unit": "datenbanken-sql/normalisierung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist das Ziel der Normalisierung?",
+      "options": [
+        "Tabellen möglichst groß und breit zu halten",
+        "Redundanz und Anomalien durch Aufteilung auf mehrere Tabellen zu vermeiden",
+        "Alle Daten in einer einzigen Tabelle zu vereinen",
+        "Datentypen automatisch zu erzeugen"
+      ],
+      "answer": 1,
+      "explanation": "Normalisierung teilt Daten regelbasiert auf mehrere Tabellen auf, damit jede Tatsache nur einmal gespeichert wird."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Regel beschreibt die 1. Normalform (1NF)?",
+      "options": [
+        "Jede Zelle enthält genau einen atomaren Wert, keine Listen",
+        "Jede Tabelle braucht einen Fremdschlüssel",
+        "Alle Spalten müssen NOT NULL sein",
+        "Es dürfen keine zusammengesetzten Primärschlüssel existieren"
+      ],
+      "answer": 0,
+      "explanation": "1NF verlangt atomare Werte: keine Listen oder Mehrfachwerte in einer Zelle."
+    },
+    {
+      "id": "q3",
+      "question": "Eine Tabelle hat den zusammengesetzten Primärschlüssel (auftrag_id, ersatzteil). Die Spalte kunde_name hängt nur von auftrag_id ab. Welches Problem liegt vor?",
+      "options": [
+        "Transitive Abhängigkeit (3NF-Verletzung)",
+        "Teilabhängigkeit (2NF-Verletzung)",
+        "Atomare Verletzung (1NF-Verletzung)",
+        "Kein Problem"
+      ],
+      "answer": 1,
+      "explanation": "Wenn eine Nicht-Schlüsselspalte nur von einem Teil eines zusammengesetzten Primärschlüssels abhängt, ist das eine Teilabhängigkeit – eine 2NF-Verletzung."
+    },
+    {
+      "id": "q4",
+      "question": "In einer Tabelle bestimmt die Postleitzahl (plz) den Ortsnamen (kunde_ort), obwohl beide keine Schlüsselspalten sind. Wie nennt man das?",
+      "options": [
+        "Teilabhängigkeit",
+        "Atomare Abhängigkeit",
+        "Transitive Abhängigkeit",
+        "Fremdschlüsselabhängigkeit"
+      ],
+      "answer": 2,
+      "explanation": "Hängt ein Nicht-Schlüsselfeld von einem anderen Nicht-Schlüsselfeld ab (statt vom Primärschlüssel), ist das eine transitive Abhängigkeit – eine 3NF-Verletzung."
+    },
+    {
+      "id": "q5",
+      "question": "Ist die 2NF-Regel relevant, wenn eine Tabelle nur einen einzelnen (nicht zusammengesetzten) Primärschlüssel hat?",
+      "options": [
+        "Ja, immer",
+        "Nein, Teilabhängigkeiten können nur bei zusammengesetzten Primärschlüsseln auftreten",
+        "Nur wenn die Tabelle mehr als 5 Spalten hat",
+        "Nur bei Fremdschlüsseln"
+      ],
+      "answer": 1,
+      "explanation": "Eine Teilabhängigkeit setzt voraus, dass der Primärschlüssel aus mehreren Spalten besteht – bei einem einzelnen Schlüssel ist 2NF automatisch erfüllt."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Tabellenaufteilung löst eine Teilabhängigkeit bei PK (mitarbeiter_id, projekt_id) auf, wenn mitarbeiter_name nur von mitarbeiter_id abhängt?",
+      "options": [
+        "Eine einzige Tabelle mit allen Spalten beibehalten",
+        "Zwei Tabellen: mitarbeiter (mitarbeiter_id PK, mitarbeiter_name) und projektzuordnung (mitarbeiter_id FK, projekt_id FK)",
+        "Die Spalte mitarbeiter_name einfach löschen",
+        "Einen zweiten Primärschlüssel auf projekt_id allein setzen"
+      ],
+      "answer": 1,
+      "explanation": "Attribute, die nur von einem Teil des zusammengesetzten Schlüssels abhängen, werden in eine eigene Tabelle mit diesem Teilschlüssel als Primärschlüssel ausgelagert."
+    },
+    {
+      "id": "q7",
+      "question": "Nach der Aufteilung in 2NF bestimmt in der Tabelle mitarbeiter die Spalte abteilung weiterhin abteilungsleiter. Welche Normalform ist dadurch verletzt?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "Keine, das ist zulässig"
+      ],
+      "answer": 2,
+      "explanation": "abteilungsleiter hängt von abteilung ab, nicht vom Primärschlüssel mitarbeiter_id – das ist eine transitive Abhängigkeit und verletzt 3NF."
+    },
+    {
+      "id": "q8",
+      "question": "Warum wird bei TowerTech die Tabelle plz_ort (plz PK, ort) aus der Auftragstabelle ausgelagert?",
+      "options": [
+        "Weil das SQL-Kommando das verlangt",
+        "Um die transitive Abhängigkeit plz → kunde_ort aufzulösen (3NF)",
+        "Weil Primärschlüssel niemals aus Zahlen bestehen dürfen",
+        "Um die Tabelle kleiner erscheinen zu lassen, ohne inhaltlichen Grund"
+      ],
+      "answer": 1,
+      "explanation": "Die PLZ bestimmt den Ort – das ist eine transitive Abhängigkeit. Die Auslagerung in eine eigene Tabelle stellt 3NF her."
+    },
+    {
+      "id": "q9",
+      "question": "Was ist der praktische Vorteil, wenn eine Datenbank in 3NF vorliegt?",
+      "options": [
+        "Abfragen benötigen keine JOINs mehr",
+        "Jede Tatsache steht nur an einer Stelle – Änderungen sind konsistent und ohne Anomalien möglich",
+        "Die Datenbank braucht keine Primärschlüssel mehr",
+        "Alle Tabellen lassen sich zu einer einzigen zusammenfassen"
+      ],
+      "answer": 1,
+      "explanation": "Der Kernvorteil der Normalisierung ist, dass jede Information nur einmal gespeichert wird – das verhindert Änderungs-, Einfüge- und Löschanomalien."
+    }
+  ]
+}

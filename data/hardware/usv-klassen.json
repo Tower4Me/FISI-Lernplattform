@@ -1,0 +1,79 @@
+{
+  "unit": "hardware/usv-klassen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie verhält sich eine VFD-USV (Voltage and Frequency Dependent, „Offline“) im Normalbetrieb?",
+      "options": [
+        "Sie wandelt den Strom durchgehend doppelt (AC → DC → AC)",
+        "Sie leitet das Netz direkt durch und schaltet erst bei einer Störung auf den Akku-Wechselrichter um",
+        "Sie gleicht kleine Spannungsschwankungen automatisch per AVR aus, ohne umzuschalten",
+        "Sie ist komplett unabhängig von Netzspannung und -frequenz"
+      ],
+      "answer": 1,
+      "explanation": "Die VFD-/Offline-USV leitet im Normalbetrieb das Netz direkt durch und schaltet erst bei einer Störung um — deshalb ist die Ausgangsspannung im Normalbetrieb vom Netz abhängig."
+    },
+    {
+      "id": "q2",
+      "question": "Was unterscheidet eine VI-USV (Line-Interactive) von einer VFD-USV?",
+      "options": [
+        "VI hat keinen Akku",
+        "VI besitzt einen automatischen Spannungsregler (AVR), der kleinere Schwankungen direkt ausgleicht, ohne auf Akkubetrieb umzuschalten",
+        "VI ist ausschließlich für Rechenzentren zugelassen",
+        "VI hat immer eine längere Umschaltzeit als VFD"
+      ],
+      "answer": 1,
+      "explanation": "Der Line-Interactive-Typ (VI) gleicht kleinere Spannungsabweichungen über einen AVR direkt aus und schaltet nur bei größeren Störungen oder Netzausfall auf Akkubetrieb um — das reduziert die Häufigkeit von Umschaltvorgängen gegenüber VFD."
+    },
+    {
+      "id": "q3",
+      "question": "Warum wird für einen Serverraum typischerweise eine VFI-USV (Online) empfohlen?",
+      "options": [
+        "Weil sie am günstigsten in der Anschaffung ist",
+        "Weil sie durch durchgehende Doppelwandlung eine Umschaltzeit von 0 ms erreicht und die Ausgangsspannung komplett unabhängig vom Eingangsnetz ist",
+        "Weil sie im Gegensatz zu VFD und VI keinen Akku benötigt",
+        "Weil sie ausschließlich für Heimnetzwerke konzipiert ist"
+      ],
+      "answer": 1,
+      "explanation": "VFI-USV-Anlagen wandeln den Strom ständig doppelt (AC → DC → AC), wodurch selbst ein Netzausfall ohne jede Unterbrechung (0 ms) überbrückt wird — wichtig für Server, bei denen schon Millisekunden Unterbrechung Probleme verursachen können."
+    },
+    {
+      "id": "q4",
+      "question": "Wie hängen Wirkleistung (P) und Scheinleistung (S) einer USV zusammen?",
+      "options": [
+        "P = S × cos φ",
+        "P = S + cos φ",
+        "S = P × cos φ",
+        "P und S sind immer identisch"
+      ],
+      "answer": 0,
+      "explanation": "Die Wirkleistung ergibt sich aus der Scheinleistung multipliziert mit dem Leistungsfaktor cos φ: P = S × cos φ."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Server-Rack benötigt 3.000 W Wirkleistung bei einem Leistungsfaktor (cos φ) von 0,9. Welche Scheinleistung (VA) muss die USV mindestens liefern?",
+      "options": ["2.700 VA", "3.000 VA", "≈ 3.333 VA", "4.500 VA"],
+      "answer": 2,
+      "explanation": "S = P ÷ cos φ = 3.000 W ÷ 0,9 ≈ 3.333 VA — die reine Wattangabe reicht zur Dimensionierung nicht aus, es zählt die Scheinleistung."
+    },
+    {
+      "id": "q6",
+      "question": "Warum reicht die alleinige VA-Angabe einer USV nicht aus, um zu prüfen, ob sie für ein bestimmtes Gerät geeignet ist?",
+      "options": [
+        "Weil VA-Angaben grundsätzlich falsch sind",
+        "Weil erst über den Leistungsfaktor cos φ aus der Scheinleistung (VA) die tatsächlich nutzbare Wirkleistung (W) berechnet werden kann, die das Gerät benötigt",
+        "Weil VA nur für Akkukapazität, nicht für Leistung steht",
+        "Weil Geräte grundsätzlich keine Wirkleistung benötigen"
+      ],
+      "answer": 1,
+      "explanation": "Geräte werden in Watt (Wirkleistung) angegeben. Die USV liefert Scheinleistung (VA). Erst die Umrechnung über cos φ zeigt, ob die tatsächlich nutzbare Wirkleistung ausreicht."
+    },
+    {
+      "id": "q7",
+      "question": "Welche USV-Klasse eignet sich am ehesten für einen einfachen Heim-Router, bei dem ein kurzer Umschaltmoment bei Stromausfall unkritisch ist?",
+      "options": ["VFI (Online)", "VFD (Offline)", "keine USV-Klasse eignet sich für Router", "nur eine Zero-Client-USV"],
+      "answer": 1,
+      "explanation": "Für unkritische Geräte wie einen Heim-Router genügt die einfachste und günstigste Klasse VFD (Offline), da die kurze Umschaltzeit hier keine relevanten Folgen hat."
+    }
+  ]
+}

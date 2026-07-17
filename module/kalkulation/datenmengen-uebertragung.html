@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Übertragungsdauer & Bandbreite</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Übertragungsdauer & Bandbreite</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Übertragungsdauer & Bandbreite
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Gartenschlauch mit 20 mm Durchmesser kann rein rechnerisch eine
+        bestimmte Wassermenge pro Sekunde durchlassen — das ist seine
+        maximale Kapazität. In der Praxis fließt aber meist weniger Wasser,
+        weil der Schlauch Knicke hat, an der Kupplung etwas Druck verloren
+        geht oder er nicht ganz aufgedreht ist. Die Badewanne wird also
+        langsamer voll, als es der Schlauchdurchmesser vermuten lässt.
+      </p>
+      <p>
+        Bei einer Internetleitung ist es genauso: Der Anbieter verspricht
+        „100 Mbit/s“ — das ist die maximale <strong>Bandbreite</strong>,
+        vergleichbar mit dem Schlauchdurchmesser. Wie schnell eine Datei
+        tatsächlich ankommt, hängt vom real nutzbaren
+        <strong>Durchsatz</strong> ab und lässt sich mit einer einfachen
+        Formel berechnen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Begriffe</h3>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bandbreite</strong></td>
+            <td>theoretische, maximale Kapazität einer Leitung (z. B.
+              „100 Mbit/s“ laut Vertrag)</td>
+          </tr>
+          <tr>
+            <td><strong>Datenrate</strong></td>
+            <td>Geschwindigkeit, mit der Daten tatsächlich über die Leitung
+              übertragen werden, in Bit/s</td>
+          </tr>
+          <tr>
+            <td><strong>Durchsatz</strong></td>
+            <td>real erreichte Übertragungsrate nach Abzug von Overhead
+              (Protokoll-Header, Kollisionen, Störungen) — meist kleiner als
+              die nominale Bandbreite</td>
+          </tr>
+          <tr>
+            <td><strong>Übertragungsdauer</strong></td>
+            <td>Zeit, die eine bestimmte Datenmenge für die vollständige
+              Übertragung benötigt</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Formel</h3>
+      <p>
+        Die Übertragungsdauer ergibt sich, indem man die zu übertragende
+        Datenmenge durch die Datenrate teilt:
+      </p>
+      <p>
+        <strong>Übertragungsdauer [s] = Datenmenge [Bit] ÷ Datenrate [Bit/s]</strong>
+      </p>
+      <p>
+        Damit die Formel aufgeht, müssen beide Größen in derselben Einheit
+        vorliegen — meistens in Bit. Eine Datenmenge in Byte wird also erst
+        mit dem Faktor 8 in Bit umgerechnet (1 Byte = 8 Bit).
+      </p>
+
+      <h3>Zwei verschiedene Zählweisen — eine typische Stolperfalle</h3>
+      <p>
+        Datenraten (Übertragungsgeschwindigkeiten) werden in der
+        Netzwerktechnik traditionell <strong>dezimal</strong> angegeben
+        (Faktor 1.000), während Datenmengen (Speichergrößen) seit dem
+        Prüfungskatalog 2025 verpflichtend in <strong>binären
+        Präfixen</strong> (Faktor 1.024, KiB/MiB/GiB) angegeben werden
+        (siehe Einheit „Bits & Bytes“). Wer das vermischt, verrechnet sich
+        leicht:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Größe</th><th>Präfix</th><th>Faktor</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Datenrate (Bit/s)</td>
+            <td>kbit/s, Mbit/s, Gbit/s</td>
+            <td>dezimal, ×1.000</td>
+            <td>1 Mbit/s = 1.000.000 Bit/s</td>
+          </tr>
+          <tr>
+            <td>Datenmenge (Byte)</td>
+            <td>KiB, MiB, GiB</td>
+            <td>binär, ×1.024</td>
+            <td>1 GiB = 1.024 MiB = 1.073.741.824 Byte</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Deshalb dauert ein Download meist länger, als eine naive
+        Kopfrechnung vermuten lässt: „100 Mbit/s“ sind eben nicht
+        „100 MB/s“, sondern nur 12,5 MB/s (100 ÷ 8) — und selbst das nur,
+        wenn die volle Bandbreite tatsächlich ankommt.
+      </p>
+
+      <h3>Warum Durchsatz oft unter der Bandbreite liegt</h3>
+      <p>
+        Die nominale Bandbreite ist ein Idealwert. In der Praxis reduzieren
+        mehrere Faktoren den tatsächlich nutzbaren Durchsatz:
+      </p>
+      <ul>
+        <li>Protokoll-Overhead: Jedes Paket trägt zusätzliche Header
+          (Ethernet, IP, TCP), die nicht zur Nutzdaten zählen</li>
+        <li>Kollisionen und Wartezeiten bei gemeinsam genutzten Medien
+          (z. B. WLAN, altes Halbduplex-Ethernet)</li>
+        <li>Störungen, Distanz und Signalqualität, insbesondere bei WLAN
+          und DSL</li>
+        <li>Gleichzeitige Nutzung der Leitung durch andere Geräte</li>
+      </ul>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bandbreite-title">
+          <title id="bandbreite-title">Balkendiagramm: nominale Bandbreite im Vergleich zum tatsächlich nutzbaren Durchsatz, Differenz durch Overhead</title>
+
+          <text x="10" y="28" fill="var(--text)" font-size="14">Bandbreite (Vertrag)</text>
+          <rect x="10" y="36" width="380" height="28" rx="4" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="200" y="55" text-anchor="middle" fill="var(--text)" font-size="13">100 Mbit/s (100 %)</text>
+
+          <text x="10" y="98" fill="var(--text)" font-size="14">Durchsatz (real gemessen)</text>
+          <rect x="10" y="106" width="323" height="28" rx="4" fill="var(--acc-praxis)"/>
+          <text x="171" y="125" text-anchor="middle" fill="var(--bg)" font-size="13">85 Mbit/s (85 %)</text>
+          <rect x="333" y="106" width="57" height="28" rx="4" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2" stroke-dasharray="4 3"/>
+
+          <text x="361" y="152" text-anchor="middle" fill="var(--fail)" font-size="12">Overhead</text>
+        </svg>
+        <figcaption>
+          Von der nominalen Bandbreite bleibt nach Abzug von Protokoll-Overhead
+          und Störungen meist nur ein geringerer, real nutzbarer Durchsatz übrig.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Azubi im IT-Systemhaus TechNord GmbH soll einem Kunden sagen,
+        wie lange der Download eines 4 GiB großen Windows-Installations-Images
+        über die gebuchte 100-Mbit/s-Standleitung ungefähr dauert.
+      </p>
+
+      <p><strong>Schritt 1 — Datenmenge in Bit umrechnen:</strong></p>
+      <p>
+        4 GiB = 4 × 1.024 × 1.024 × 1.024 Byte = 4.294.967.296 Byte<br>
+        4.294.967.296 Byte × 8 = 34.359.738.368 Bit
+      </p>
+
+      <p><strong>Schritt 2 — Übertragungsdauer bei voller Bandbreite:</strong></p>
+      <p>
+        100 Mbit/s = 100.000.000 Bit/s<br>
+        Übertragungsdauer = 34.359.738.368 Bit ÷ 100.000.000 Bit/s
+        ≈ 343,6 s ≈ <strong>5 Minuten 44 Sekunden</strong>
+      </p>
+
+      <p><strong>Schritt 3 — Realitätscheck mit Durchsatz:</strong></p>
+      <p>
+        Ein Messtool zeigt, dass auf der Leitung wegen Protokoll-Overhead
+        real nur 85 Mbit/s ankommen (85.000.000 Bit/s):
+      </p>
+      <p>
+        Übertragungsdauer = 34.359.738.368 Bit ÷ 85.000.000 Bit/s
+        ≈ 404,2 s ≈ <strong>6 Minuten 44 Sekunden</strong>
+      </p>
+      <p>
+        Der Azubi nennt dem Kunden deshalb besser die realistischere Zeit
+        auf Basis des gemessenen Durchsatzes statt nur die Werbeaussage
+        „100 Mbit/s“ ungeprüft in eine Downloadzeit umzurechnen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Übertragungsdauer = Datenmenge [Bit] ÷ Datenrate [Bit/s]. Datenraten
+        werden dezimal angegeben (1 Mbit/s = 1.000.000 Bit/s), Datenmengen
+        binär (1 GiB = 1.024 MiB) — vor dem Rechnen immer auf Bit als
+        gemeinsame Einheit umrechnen (1 Byte = 8 Bit). Der real nutzbare
+        Durchsatz liegt wegen Protokoll-Overhead meist unter der
+        beworbenen Bandbreite.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/datenmengen-uebertragung.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

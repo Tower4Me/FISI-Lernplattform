@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Scanner & Sensoren</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Scanner & Sensoren</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Scanner & Sensoren
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Scanner ist wie ein Auge, das die physische Welt in digitale
+        Daten übersetzt — nur ist nicht jedes Auge für jede Aufgabe gemacht.
+        Der Flachbettscanner betrachtet ein einzelnes Blatt so genau wie
+        jemand mit einer Lupe. Der Dokumentenscanner blättert wie ein
+        Bibliothekar zügig durch einen ganzen Stapel. Der Barcode-Scanner
+        interessiert sich nur für einen schmalen Streifen — den Code auf
+        einem Preisschild. Und der 3D-Scanner tastet ein Objekt von allen
+        Seiten ab wie ein Bildhauer mit einer Schieblehre, um daraus ein
+        digitales Abbild der Form zu bauen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Scanner-Typen</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Funktionsweise</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Flachbettscanner</strong></td>
+            <td>Vorlage liegt auf einer Glasplatte, ein Sensor fährt
+              darunter entlang</td>
+            <td>Einzelblätter, Fotos, gebundene Bücher</td>
+          </tr>
+          <tr>
+            <td><strong>Dokumentenscanner (ADF)</strong></td>
+            <td>automatischer Einzug (Automatic Document Feeder) zieht
+              Blatt für Blatt ein, oft <strong>Duplex</strong> (beide
+              Seiten in einem Durchlauf)</td>
+            <td>Rechnungs-/Posteingang, große Stapel, Archivierung</td>
+          </tr>
+          <tr>
+            <td><strong>Barcode-/QR-Scanner</strong></td>
+            <td>Laserscanner (nur 1D-Barcodes) oder Kamera-basierter
+              Imager (liest 1D- und 2D-Codes, auch gedreht/beschädigt)</td>
+            <td>Wareneingang, Kasse, Inventur, Ticketkontrolle</td>
+          </tr>
+          <tr>
+            <td><strong>3D-Scanner</strong></td>
+            <td>erfasst die Geometrie eines Objekts (Laser, Structured
+              Light oder Photogrammetrie) und erzeugt eine Punktwolke
+              bzw. ein 3D-Modell</td>
+            <td>Reverse Engineering, Qualitätskontrolle, Vorlage für
+              3D-Druck</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Sensortechnik im Scanner: CCD vs. CIS</h3>
+      <table>
+        <thead>
+          <tr><th>Sensor</th><th>Eigenschaften</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CCD</strong> (Charge-Coupled Device)</td>
+            <td>Licht wird über Spiegel/Linsen zum Sensor geleitet
+              (größerer Bauraum), dadurch größere Schärfentiefe — erfasst
+              auch leicht gewölbte Vorlagen (Buchseiten) noch scharf;
+              bessere Bildqualität, aber teurer und langsamer</td>
+          </tr>
+          <tr>
+            <td><strong>CIS</strong> (Contact Image Sensor)</td>
+            <td>Sensorzeile liegt direkt an der Vorlage an, kein
+              Spiegelsystem nötig — kompakt, günstig, schnell, aber
+              geringe Schärfentiefe: nur für wirklich flache Vorlagen
+              geeignet</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Weitere Sensoren am IT-Arbeitsplatz</h3>
+      <p>
+        Neben Scannern im engeren Sinn zählen weitere Sensoren zur
+        typischen Arbeitsplatz- und Infrastrukturausstattung:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Sensor</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Biometrische Sensoren</strong> (Fingerabdruck,
+              Gesichtserkennung, Iris)</td>
+            <td>Authentifizierung über den Faktor „Sein“ (Inhärenz) —
+              siehe Modul IT-Sicherheit, Authentifizierung/MFA</td>
+          </tr>
+          <tr>
+            <td><strong>Umgebungssensoren</strong> (Temperatur,
+              Luftfeuchtigkeit)</td>
+            <td>Überwachung von Serverräumen, Auslöser für
+              Klima-/Alarmierungssysteme</td>
+          </tr>
+          <tr>
+            <td><strong>Bewegungs-/Näherungssensoren</strong></td>
+            <td>Zutrittskontrolle, automatische Beleuchtung, Aktivierung
+              von Geräten aus dem Standby</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH digitalisiert ihre Prozesse an drei Stellen und
+        muss jeweils den passenden Scanner bzw. Sensor auswählen:
+      </p>
+      <ul>
+        <li><strong>Rechnungseingang:</strong> Täglich treffen zweiseitig
+          bedruckte Papierrechnungen in Stapeln ein. Lösung: ein
+          <strong>Dokumentenscanner mit ADF und Duplex</strong> — Blatt für
+          Blatt automatisch, beide Seiten in einem Durchlauf.</li>
+        <li><strong>Wareneingang im Lager:</strong> Pakete tragen teils
+          verschmutzte oder leicht geknickte Barcodes. Lösung: ein
+          <strong>2D-Imager</strong> statt eines reinen Laserscanners, weil
+          er auch gedrehte oder beschädigte Codes noch zuverlässig liest.</li>
+        <li><strong>Zutritt zum Serverraum:</strong> Nur autorisiertes
+          Personal soll eintreten können. Lösung: ein
+          <strong>Fingerabdrucksensor</strong> als zusätzlicher Faktor neben
+          der Zugangskarte — Biometrie ergänzt den Faktor Besitz.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Flachbettscanner für Einzelblätter, ADF-Dokumentenscanner (Duplex)
+        für Stapel, Barcode-/QR-Imager fürs Wareneingang, 3D-Scanner für
+        Objektgeometrie. CCD = bessere Bildqualität und Schärfentiefe, CIS
+        = kompakt, günstig, nur für flache Vorlagen. Biometrische Sensoren
+        liefern den Authentifizierungsfaktor „Sein“.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/scanner-sensoren.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

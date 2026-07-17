@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Linux-Konsole & Dateiberechtigungen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Linux-Konsole & Dateiberechtigungen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Linux-Konsole & Dateiberechtigungen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Windows organisiert Laufwerke wie separate Aktenschränke (C:, D:,
+        E:) nebeneinander. Linux kennt nur einen einzigen, riesigen
+        Aktenschrank mit einer festen Schublade an der Wurzel — jeder
+        weitere Datenträger wird als zusätzliche Schublade an einer
+        bestimmten Stelle in diesen einen Schrank eingeschoben
+        (Mounting). Und wer welche Schublade öffnen, hineinschauen oder
+        etwas hineinlegen darf, regelt ein Dreier-Schlüsselsystem: ein
+        Schlüssel für den Eigentümer, ein gemeinsamer Team-Schlüssel für
+        die Gruppe, und ein allgemeiner Schlüssel für alle anderen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Verzeichnisbaum und Mounting</h3>
+      <p>
+        Linux kennt keine Laufwerksbuchstaben wie C: oder D:. Stattdessen
+        gibt es einen einzigen <strong>Verzeichnisbaum</strong>, beginnend
+        bei der Wurzel <code>/</code>. Jeder weitere Datenträger wird
+        einem Verzeichnis in diesem Baum zugewiesen — diesen Vorgang nennt
+        man <strong>Mounting</strong> (Einhängen), das Zielverzeichnis
+        heißt <strong>Mountpoint</strong> (z. B. <code>/mnt/usb</code>).
+        Erst ab dem Moment des Mountens ist der Inhalt des Datenträgers
+        über diesen Pfad erreichbar; nach dem Aushängen
+        (<code>umount</code>) bleibt der Mountpoint selbst bestehen, nur
+        sein Inhalt ist wieder unerreichbar.
+      </p>
+      <p>
+        Die Datei <code>/etc/fstab</code> (File System Table) steuert,
+        welche Dateisysteme beim Systemstart automatisch gemountet
+        werden:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Gerät</th><th>Mountpoint</th><th>Typ</th><th>Optionen</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>/dev/sda1</td><td>/</td><td>ext4</td><td>defaults</td></tr>
+          <tr><td>UUID=1A2B-3C4D</td><td>/mnt/usb</td><td>vfat</td><td>auto,user</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Eine fehlerhafte <code>/etc/fstab</code> kann dazu führen, dass
+        Linux beim Booten hängenbleibt — deshalb vor jeder Änderung ein
+        Backup anlegen und mit <code>mount -a</code> testen (versucht alle
+        fstab-Einträge zu mounten, ohne neu zu starten).
+      </p>
+
+      <h3>Das rwx-Rechtesystem</h3>
+      <p>
+        Jede Datei und jedes Verzeichnis hat drei Rechte für drei
+        Gruppen — kurz „ugw“ genannt:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Recht</th><th>bei Dateien</th><th>bei Verzeichnissen</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>r</strong> (read)</td><td>Inhalt lesen</td><td>Inhalt auflisten (<code>ls</code>)</td></tr>
+          <tr><td><strong>w</strong> (write)</td><td>Inhalt ändern</td><td>Dateien erstellen/löschen</td></tr>
+          <tr><td><strong>x</strong> (execute)</td><td>als Programm ausführen</td><td>Verzeichnis betreten (<code>cd</code>)</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr><th>Gruppe (u/g/w)</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>u</strong> — User/Owner</td><td>der Eigentümer der Datei (Ersteller wird automatisch Eigentümer)</td></tr>
+          <tr><td><strong>g</strong> — Group</td><td>eine Benutzergruppe, alle Mitglieder teilen sich diese Rechte</td></tr>
+          <tr><td><strong>w</strong> — World/Others</td><td>alle übrigen Benutzer des Systems</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Mit <code>ls -l</code> werden die Rechte angezeigt, z. B.
+        <code>-rwxr-xr--</code>: Owner darf alles (rwx), Gruppe darf lesen
+        und ausführen (r-x), alle anderen dürfen nur lesen (r--).
+      </p>
+
+      <h3>Oktalnotation und chmod</h3>
+      <table>
+        <thead>
+          <tr><th>Recht</th><th>Wert</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>r (read)</td><td>4</td></tr>
+          <tr><td>w (write)</td><td>2</td></tr>
+          <tr><td>x (execute)</td><td>1</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die Werte einer Gruppe werden addiert: <code>rwx</code> = 7 (4+2+1),
+        <code>rw-</code> = 6 (4+2), <code>r-x</code> = 5 (4+1). Drei
+        Ziffern hintereinander (Owner-Group-Others) ergeben die
+        Oktalnotation für <code>chmod</code>:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>chmod 755 skript.sh</code></td><td>rwxr-xr-x — Owner alles, Gruppe/Andere lesen+ausführen</td></tr>
+          <tr><td><code>chmod 644 datei.txt</code></td><td>rw-r--r-- — Owner lesen+schreiben, Rest nur lesen</td></tr>
+          <tr><td><code>chmod 600 privat.key</code></td><td>rw------- — nur Owner darf lesen/schreiben</td></tr>
+          <tr><td><code>chmod 777 datei.txt</code></td><td>rwxrwxrwx — <strong>alle dürfen alles</strong> (fast immer ein Sicherheitsrisiko!)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Mit <code>chown ben:users datei.txt</code> wird der Eigentümer auf
+        „ben“ und die Gruppe auf „users“ gesetzt. Die Option
+        <code>-R</code> (z. B. <code>chmod -R 755 /var/www/</code>) wendet
+        eine Änderung rekursiv auf einen ganzen Ordner samt Inhalt an.
+      </p>
+
+      <h3>Weitere wichtige Befehle</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ls</code> / <code>ls -l</code></td><td>Verzeichnisinhalt bzw. mit Rechten/Details anzeigen</td></tr>
+          <tr><td><code>grep "muster" datei</code></td><td>durchsucht eine Datei zeilenweise nach einem Textmuster — z. B. Fehlermeldungen in Logdateien finden</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Techniker der TechNord GmbH richtet einen neuen Linux-
+        Webserver ein:
+      </p>
+      <ul>
+        <li><strong>Externe Backup-Platte einhängen:</strong>
+          <code>mount /dev/sdb1 /mnt/backup</code>, danach mit
+          <code>ls -l /mnt/backup</code> den Inhalt und die Rechte
+          prüfen.</li>
+        <li><strong>Deploy-Skript ausführbar machen:</strong>
+          <code>chmod 755 deploy.sh</code> — Owner darf alles, alle
+          anderen nur lesen und ausführen.</li>
+        <li><strong>Web-Verzeichnis dem Webserver-Prozess übergeben:</strong>
+          <code>chown www-data:www-data /var/www/technord</code>, damit
+          der Webserver-Dienst korrekt darauf zugreifen kann.</li>
+        <li><strong>Dauerhaftes Einhängen:</strong> Eintrag der
+          Backup-Platte in <code>/etc/fstab</code>, damit sie bei jedem
+          Neustart automatisch verfügbar ist.</li>
+        <li><strong>Fehlersuche:</strong> <code>grep "error" /var/log/nginx/error.log</code>
+          filtert gezielt Fehlermeldungen aus einer langen Logdatei.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Linux hat einen Verzeichnisbaum statt Laufwerksbuchstaben,
+        Datenträger werden gemountet, <code>/etc/fstab</code> steuert das
+        automatische Einhängen. Rechte gelten für Owner/Group/Others
+        (ugw) je r/w/x — Oktalwerte r=4, w=2, x=1 addiert ergeben Werte
+        wie 755, 644, 600. <code>chmod 777</code> ist fast immer ein
+        Sicherheitsrisiko. <code>chown</code> ändert den Eigentümer,
+        <code>grep</code> durchsucht Dateien nach Textmustern.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/linux-konsole.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

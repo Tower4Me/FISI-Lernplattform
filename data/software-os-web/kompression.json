@@ -1,0 +1,91 @@
+{
+  "unit": "software-os-web/kompression",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was zeichnet verlustfreie Kompression (Lossless) aus?",
+      "options": [
+        "Die Originaldatei kann exakt wiederhergestellt werden, kein Bit geht verloren",
+        "Informationen werden dauerhaft gelöscht, die Originaldatei ist danach nicht mehr exakt rekonstruierbar",
+        "Sie funktioniert ausschließlich bei Audiodateien",
+        "Sie erreicht immer eine Komprimierungsrate von über 90 %"
+      ],
+      "answer": 0,
+      "explanation": "Verlustfreie Kompression erlaubt die exakte Wiederherstellung der Originaldatei — es geht kein einziges Bit verloren."
+    },
+    {
+      "id": "q2",
+      "question": "Wie funktioniert das Grundprinzip der Lauflängenkodierung (Run-Length Encoding)?",
+      "options": [
+        "Wiederholte Werte werden durch eine kompaktere Darstellung ersetzt, z. B. „AAAAAABBB“ durch „6A3B“",
+        "Alle Daten werden verschlüsselt, bevor sie gespeichert werden",
+        "Bilder werden in 8×8-Pixel-Blöcke zerlegt und Details verworfen",
+        "Zeichen werden alphabetisch neu sortiert, um Speicherplatz zu sparen"
+      ],
+      "answer": 0,
+      "explanation": "Lauflängenkodierung ersetzt Wiederholungen durch eine kompaktere Notation (Anzahl + Wert) — die Grundlage vieler verlustfreier Kompressionsverfahren."
+    },
+    {
+      "id": "q3",
+      "question": "Wie funktioniert die verlustbehaftete Kompression bei JPEG grundlegend?",
+      "options": [
+        "Das Bild wird in 8×8-Pixel-Blöcke geteilt, per DCT transformiert, und für das Auge kaum wahrnehmbare Details werden dauerhaft verworfen",
+        "Das Bild wird nur umbenannt, ohne die Pixeldaten zu verändern",
+        "Es wird eine exakte, verlustfreie Kopie der Pixeldaten erzeugt",
+        "Alle Farben werden auf Schwarz-Weiß reduziert"
+      ],
+      "answer": 0,
+      "explanation": "JPEG teilt das Bild in 8×8-Pixel-Blöcke, wendet die Diskrete Kosinustransformation (DCT) an und verwirft dabei für das menschliche Auge kaum wahrnehmbare Details — das reduziert die Dateigröße, aber unwiederbringlich."
+    },
+    {
+      "id": "q4",
+      "question": "Was bedeutet „Generation Loss“ bei wiederholtem Speichern einer JPEG-Datei?",
+      "options": [
+        "Die Datei wird bei jedem Speichern automatisch größer",
+        "Bei jedem erneuten Speichern und Neu-Komprimieren gehen weitere Bilddetails verloren, die sich über mehrere Bearbeitungsrunden summieren",
+        "Die Bildauflösung erhöht sich automatisch mit jeder Bearbeitung",
+        "JPEG speichert grundsätzlich verlustfrei, Generation Loss betrifft nur MP3"
+      ],
+      "answer": 1,
+      "explanation": "Da JPEG bei jedem Speichern erneut verlustbehaftet komprimiert, gehen mit jeder Bearbeitungsrunde weitere Details verloren — die Verluste summieren sich über die Zeit."
+    },
+    {
+      "id": "q5",
+      "question": "Welche der folgenden Formatgruppen ist typischerweise verlustfrei?",
+      "options": ["JPEG, MP3, H.264", "PNG, FLAC, ZIP", "GIF (immer verlustbehaftet), WAV, AVI", "Alle Formate sind grundsätzlich verlustbehaftet"],
+      "answer": 1,
+      "explanation": "PNG, FLAC und ZIP zählen zu den verlustfreien Formaten — JPEG, MP3 und H.264 sind dagegen verlustbehaftet."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist der Unterschied zwischen TAR und Gzip bei einer .tar.gz-Datei?",
+      "options": [
+        "TAR bündelt mehrere Dateien nur zu einem Archiv ohne zu komprimieren, Gzip komprimiert dieses Bündel anschließend",
+        "TAR und Gzip sind exakt dasselbe Verfahren unter zwei Namen",
+        "Gzip bündelt Dateien, TAR komprimiert sie",
+        "TAR ist ein Verschlüsselungsverfahren, Gzip ein Archivformat"
+      ],
+      "answer": 0,
+      "explanation": "TAR bündelt Dateien nur zu einem Archiv (ohne Komprimierung), Gzip komprimiert dieses Bündel anschließend — .tar.gz kombiniert beide Schritte."
+    },
+    {
+      "id": "q7",
+      "question": "Welches Archivformat bietet typischerweise die höchste Komprimierungsrate kombiniert mit starker AES-256-Verschlüsselung?",
+      "options": ["ZIP", "TAR (ohne Zusatz)", "7-Zip (.7z)", "Ein reines .gz-Archiv"],
+      "answer": 2,
+      "explanation": "7-Zip nutzt den LZMA-Algorithmus mit sehr hoher Komprimierungsrate und unterstützt zusätzlich eine starke AES-256-Verschlüsselung."
+    },
+    {
+      "id": "q8",
+      "question": "Ein Fotograf bearbeitet ein Foto in mehreren Sitzungen und speichert es dabei jedes Mal erneut als JPEG. Was ist die empfohlene Vorgehensweise, um Qualitätsverlust zu vermeiden?",
+      "options": [
+        "Im verlustfreien Originalformat (z. B. RAW oder PNG) arbeiten und erst am Ende einmalig als JPEG exportieren",
+        "Die Datei bei jeder Bearbeitung erneut als JPEG mit maximaler Komprimierung speichern",
+        "Die Datei mehrfach hintereinander komprimieren, um die Dateigröße weiter zu reduzieren",
+        "Zwischen den Bearbeitungsschritten das Dateiformat beliebig wechseln"
+      ],
+      "answer": 0,
+      "explanation": "Um Generation Loss zu vermeiden, sollte im verlustfreien Originalformat gearbeitet und erst am Ende einmalig ins verlustbehaftete Zielformat exportiert werden."
+    }
+  ]
+}

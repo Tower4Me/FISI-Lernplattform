@@ -1,0 +1,86 @@
+{
+  "unit": "software-os-web/zeichensaetze-ascii-unicode",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie viele Zeichen definiert der ASCII-Standard und mit wie vielen Bit?",
+      "options": ["64 Zeichen mit 6 Bit", "128 Zeichen mit 7 Bit", "256 Zeichen mit 8 Bit", "1024 Zeichen mit 10 Bit"],
+      "answer": 1,
+      "explanation": "ASCII definiert 128 Zeichen mit den Werten 0–127, was genau 7 Bit entspricht."
+    },
+    {
+      "id": "q2",
+      "question": "Welchen ASCII-Wert hat das Zeichen „0“ (die Ziffer als Text), im Unterschied zur Zahl 0?",
+      "options": ["0", "10", "48 (0x30)", "128"],
+      "answer": 2,
+      "explanation": "Das Zeichen „0“ hat den ASCII-Wert 48 (0x30) — die Zahl 0 hat dagegen den Wert 0. Beide werden häufig verwechselt."
+    },
+    {
+      "id": "q3",
+      "question": "Warum reichte ASCII langfristig nicht aus und führte zu Kompatibilitätsproblemen?",
+      "options": [
+        "ASCII deckt nur 128 englische Zeichen ab, weshalb Länder eigene, untereinander inkompatible 256-Zeichen-Erweiterungen entwickelten",
+        "ASCII wurde nie offiziell standardisiert",
+        "ASCII konnte nur Zahlen, aber keine Buchstaben darstellen",
+        "ASCII wurde bereits 1970 komplett durch Unicode ersetzt"
+      ],
+      "answer": 0,
+      "explanation": "Da ASCII nur englische Zeichen (128 Werte) abdeckt, entwickelte jedes Land eigene Erweiterungen (z. B. ISO-8859-1, Windows-1252), die untereinander nicht kompatibel waren."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist ein Unicode-Codepoint?",
+      "options": [
+        "Eine feste Byte-Kodierung, die für jedes Zeichen exakt 2 Bytes benötigt",
+        "Eine eindeutige Kennung für ein Zeichen, geschrieben als U+XXXX, unabhängig von der konkreten Byte-Kodierung",
+        "Ein Synonym für ASCII-Wert",
+        "Ein Verfahren zur Bildkompression"
+      ],
+      "answer": 1,
+      "explanation": "Ein Codepoint (U+XXXX) identifiziert ein Zeichen eindeutig innerhalb von Unicode — wie dieses Zeichen als Bytes gespeichert wird, legt erst die Kodierung (z. B. UTF-8) fest."
+    },
+    {
+      "id": "q5",
+      "question": "Warum ist jede reine ASCII-Textdatei automatisch auch gültiges UTF-8?",
+      "options": [
+        "Weil UTF-8 alle ASCII-Zeichen (0–127) mit genau einem Byte und identischem Bitmuster kodiert — bewusstes Design, kein Zufall",
+        "Weil ASCII und UTF-8 technisch identisch sind",
+        "Weil UTF-8 nur für englische Texte entwickelt wurde",
+        "Weil ASCII-Dateien keine Bytes enthalten"
+      ],
+      "answer": 0,
+      "explanation": "UTF-8 wurde bewusst so entworfen, dass alle ASCII-Zeichen mit einem einzigen, identischen Byte kodiert werden — dadurch ist jede ASCII-Datei automatisch gültiges UTF-8."
+    },
+    {
+      "id": "q6",
+      "question": "Wie viele Bytes benötigt UTF-8 mindestens für das Euro-Zeichen (€, U+20AC)?",
+      "options": ["1 Byte", "2 Byte", "3 Byte", "4 Byte"],
+      "answer": 2,
+      "explanation": "Das Euro-Zeichen (U+20AC) wird in UTF-8 mit 3 Bytes kodiert (E2 82 AC)."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Zeilenenden-Konvention verwendet Windows im Unterschied zu Linux/macOS?",
+      "options": [
+        "Windows nutzt CRLF (0x0D 0x0A, 2 Byte), Linux/macOS nutzen LF (0x0A, 1 Byte)",
+        "Windows nutzt LF, Linux/macOS nutzen CRLF",
+        "Beide Systeme nutzen exakt dieselbe Konvention",
+        "Windows nutzt gar keine Zeilenenden-Kodierung"
+      ],
+      "answer": 0,
+      "explanation": "Windows verwendet CRLF (Carriage Return + Line Feed, 2 Byte), während Linux und aktuelles macOS nur LF (Line Feed, 1 Byte) nutzen."
+    },
+    {
+      "id": "q8",
+      "question": "Ein unter Windows bearbeitetes Shell-Skript zeigt unter Linux beim Ausführen Probleme, und cat -A zeigt am Zeilenende „^M$“ statt nur „$“. Was ist die Ursache?",
+      "options": [
+        "Das Skript enthält Windows-Zeilenenden (CRLF), das übrig gebliebene CR (0x0D) wird vom Linux-Interpreter fälschlich als Teil des Befehls interpretiert",
+        "Das Skript wurde versehentlich als Binärdatei gespeichert",
+        "Das Skript enthält ungültige UTF-8-Zeichen",
+        "Linux unterstützt grundsätzlich keine Shell-Skripte von Windows-Nutzern"
+      ],
+      "answer": 0,
+      "explanation": "Windows-CRLF-Zeilenenden hinterlassen unter Linux ein sichtbares ^M (das CR-Zeichen), das der Interpreter als Teil des Befehls missversteht — die Lösung ist die Konvertierung zu reinem LF (z. B. mit dos2unix)."
+    }
+  ]
+}

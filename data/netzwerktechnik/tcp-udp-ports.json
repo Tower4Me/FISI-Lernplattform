@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/tcp-udp-ports",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der grundlegende Unterschied zwischen TCP und UDP?",
+      "options": [
+        "TCP ist verbindungsorientiert und zuverlässig, UDP ist verbindungslos und ohne Zustellgarantie",
+        "TCP arbeitet auf Schicht 3, UDP auf Schicht 4",
+        "UDP ist grundsätzlich sicherer als TCP",
+        "Es gibt keinen praktischen Unterschied zwischen beiden"
+      ],
+      "answer": 0,
+      "explanation": "TCP baut eine Verbindung auf und garantiert Zustellung sowie Reihenfolge, UDP sendet Daten ohne Verbindungsaufbau und ohne Garantie."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Anwendung nutzt typischerweise UDP statt TCP?",
+      "options": [
+        "Ein Dateidownload per FTP",
+        "Eine verschlüsselte SSH-Sitzung",
+        "Eine VoIP-Telefonie- oder Videokonferenz-Verbindung",
+        "Das Laden einer Webseite per HTTPS"
+      ],
+      "answer": 2,
+      "explanation": "VoIP und Videokonferenzen benötigen geringe Verzögerung mehr als Vollständigkeit — deshalb wird meist UDP verwendet."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Reihenfolge beschreibt den TCP 3-Way-Handshake korrekt?",
+      "options": [
+        "ACK, SYN, SYN-ACK",
+        "SYN, SYN-ACK, ACK",
+        "SYN-ACK, ACK, SYN",
+        "FIN, SYN, ACK"
+      ],
+      "answer": 1,
+      "explanation": "Der Client sendet SYN, der Server antwortet mit SYN-ACK, der Client bestätigt mit ACK — erst danach beginnt der Datenaustausch."
+    },
+    {
+      "id": "q4",
+      "question": "Wozu dient das SYN-Flag im ersten Schritt des Handshakes?",
+      "options": [
+        "Es beendet eine bestehende Verbindung",
+        "Es signalisiert den Wunsch, eine neue Verbindung aufzubauen, und schlägt eine Startsequenznummer vor",
+        "Es bestätigt den Empfang aller vorherigen Datenpakete",
+        "Es überträgt die eigentlichen Nutzdaten"
+      ],
+      "answer": 1,
+      "explanation": "Das SYN-Flag (Synchronize) leitet den Verbindungsaufbau ein und legt die Startsequenznummer des Senders fest."
+    },
+    {
+      "id": "q5",
+      "question": "Was identifiziert ein Port innerhalb eines Netzwerkgeräts?",
+      "options": [
+        "Die physische Netzwerkschnittstelle des Geräts",
+        "Die konkrete Anwendung bzw. den Dienst, der für ein- und ausgehende Daten zuständig ist",
+        "Die geografische Position des Geräts",
+        "Die verwendete Verschlüsselungsmethode"
+      ],
+      "answer": 1,
+      "explanation": "Während die IP-Adresse das Gerät identifiziert, legt der Port fest, welche Anwendung auf diesem Gerät die Daten empfängt oder sendet."
+    },
+    {
+      "id": "q6",
+      "question": "Zu welchem Bereich gehört Port 443 (HTTPS)?",
+      "options": [
+        "Dynamic/Private Ports",
+        "Registered Ports",
+        "Well-Known Ports (0–1023)",
+        "Er gehört zu keinem definierten Bereich"
+      ],
+      "answer": 2,
+      "explanation": "Port 443 liegt im Bereich der Well-Known Ports (0–1023), der für weit verbreitete Standarddienste reserviert ist."
+    },
+    {
+      "id": "q7",
+      "question": "Warum eignet sich TCP besser als UDP für einen Dateidownload?",
+      "options": [
+        "Weil TCP grundsätzlich schneller ist als UDP",
+        "Weil TCP durch Bestätigungen und erneutes Senden garantiert, dass alle Daten vollständig und in der richtigen Reihenfolge ankommen",
+        "Weil UDP keine Ports unterstützt",
+        "Weil TCP keinen Verbindungsaufbau benötigt"
+      ],
+      "answer": 1,
+      "explanation": "Bei einem Download darf kein Byte fehlen — TCP stellt durch Bestätigungen (ACK) und erneutes Senden verlorener Pakete die Vollständigkeit sicher."
+    }
+  ]
+}

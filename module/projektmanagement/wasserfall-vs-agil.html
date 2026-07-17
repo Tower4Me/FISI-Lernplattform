@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: Wasserfall vs. agil (Scrum)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">Wasserfall vs. agil (Scrum)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Wasserfall vs. agil (Scrum)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Das Wasserfallmodell ist wie ein Haus strikt Stockwerk für
+        Stockwerk nach einem vollständig festgelegten Bauplan zu bauen —
+        ist das Fundament erst gegossen, lässt es sich kaum mehr ändern;
+        jede Phase muss komplett abgeschlossen sein, bevor die nächste
+        beginnt, wie Wasser, das nur bergab fließt, nie zurück. Agiles
+        Vorgehen (Scrum) ist dagegen wie eine Renovierung Raum für Raum
+        in kurzen Etappen — nach jedem fertigen Raum zeigt man ihn dem
+        Hausbesitzer sofort und passt die Pläne für den nächsten Raum
+        anhand seines Feedbacks an, statt sich am Anfang auf das
+        komplette Haus-Design festzulegen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Wasserfallmodell</h3>
+      <p>
+        Das <strong>Wasserfallmodell</strong> ist ein klassisches,
+        lineares Vorgehen: Die Phasen (Anforderungsanalyse, Design,
+        Implementierung, Test, Wartung) werden strikt nacheinander
+        durchlaufen — jede Phase muss abgeschlossen sein, bevor die
+        nächste beginnt. Vorteil: klare Struktur, gut planbar, geeignet
+        bei stabilen, von Anfang an bekannten Anforderungen. Nachteil:
+        unflexibel bei sich ändernden Anforderungen, Probleme werden
+        oft erst spät (im Test) sichtbar, der Kunde sieht das Ergebnis
+        meist erst ganz am Ende.
+      </p>
+
+      <h3>Agiles Vorgehen</h3>
+      <p>
+        Agile Vorgehensmodelle arbeiten <strong>iterativ-inkrementell</strong>:
+        Anforderungen dürfen sich während des Projekts ändern, es gibt
+        regelmäßiges Feedback vom Kunden, und die Software wird in
+        kurzen Zyklen lauffähig weiterentwickelt statt erst ganz am Ende
+        fertigzustehen.
+      </p>
+
+      <h3>Scrum: Rollen, Artefakte, Events</h3>
+      <p><strong>Scrum</strong> ist das bekannteste agile Rahmenwerk.</p>
+      <table>
+        <thead>
+          <tr><th>Rolle</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Product Owner</strong></td><td>verantwortlich für das Produkt-Backlog, definiert und priorisiert die Anforderungen</td></tr>
+          <tr><td><strong>Scrum Master</strong></td><td>sorgt für die Einhaltung des Scrum-Prozesses und beseitigt Hindernisse für das Team</td></tr>
+          <tr><td><strong>Entwicklungsteam</strong></td><td>setzt die Arbeit im Sprint um</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr><th>Artefakt</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Product Backlog</strong></td><td>priorisierte Liste aller Anforderungen des gesamten Produkts</td></tr>
+          <tr><td><strong>Sprint Backlog</strong></td><td>für den aktuellen Sprint ausgewählte Aufgaben</td></tr>
+          <tr><td><strong>Increment</strong></td><td>das am Sprintende fertiggestellte, potenziell auslieferbare Produktinkrement</td></tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr><th>Event</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Sprint</strong></td><td>fester Zeitraum, meist 2–4 Wochen, in dem ein Increment entsteht</td></tr>
+          <tr><td><strong>Sprint Planning</strong></td><td>Planung der Aufgaben zu Sprintbeginn</td></tr>
+          <tr><td><strong>Daily Scrum</strong></td><td>kurzes tägliches Stand-up-Meeting zur Abstimmung</td></tr>
+          <tr><td><strong>Sprint Review</strong></td><td>Präsentation des fertigen Increments am Sprintende</td></tr>
+          <tr><td><strong>Sprint Retrospektive</strong></td><td>Rückblick zur Verbesserung der Zusammenarbeit im nächsten Sprint</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH wählt für zwei Projekte bewusst unterschiedliche
+        Vorgehensmodelle:
+      </p>
+      <ul>
+        <li><strong>Kundenprojekt mit fest vorgegebener, gesetzlich
+          geregelter Schnittstelle:</strong> Die Anforderungen stehen von
+          Anfang an unveränderlich fest — hier wird nach dem
+          <strong>Wasserfallmodell</strong> vorgegangen.</li>
+        <li><strong>Interne Kundenverwaltungssoftware</strong>, deren
+          genaue Anforderungen sich erst durch Nutzerfeedback im Laufe
+          der Entwicklung klären: Hier arbeitet das Team nach
+          <strong>Scrum</strong> mit zweiwöchigen Sprints. Der Product
+          Owner priorisiert laufend das Backlog, das Entwicklungsteam
+          liefert am Ende jedes Sprints ein einsatzfähiges Increment, das
+          im Sprint Review dem Fachbereich vorgestellt wird — in der
+          anschließenden Retrospektive verbessert das Team seine eigene
+          Zusammenarbeit für den nächsten Sprint.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Wasserfall = lineare Phasenfolge, gut bei stabilen Anforderungen,
+        Ergebnis erst am Ende sichtbar. Agil/Scrum = iterativ mit
+        Sprints, laufendes Feedback. Scrum-Rollen: Product Owner, Scrum
+        Master, Entwicklungsteam. Artefakte: Product Backlog, Sprint
+        Backlog, Increment. Events: Sprint, Sprint Planning, Daily
+        Scrum, Sprint Review, Retrospektive.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/wasserfall-vs-agil.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

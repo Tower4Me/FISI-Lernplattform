@@ -1,0 +1,89 @@
+{
+  "unit": "software-os-web/website-aufruf-hosting",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was passiert bei der DNS-Auflösung während eines Website-Aufrufs?",
+      "options": [
+        "Der Domainname wird in eine IP-Adresse übersetzt",
+        "Der Inhalt der Webseite wird bereits vollständig übertragen",
+        "Der Browser verschlüsselt die Anfrage",
+        "Der Server rendert die HTML-Seite"
+      ],
+      "answer": 0,
+      "explanation": "Die DNS-Auflösung übersetzt den eingegebenen Domainnamen in die zugehörige IP-Adresse, zu der anschließend eine Verbindung aufgebaut wird."
+    },
+    {
+      "id": "q2",
+      "question": "Was passiert zusätzlich beim Verbindungsaufbau, wenn eine Website über HTTPS statt HTTP aufgerufen wird?",
+      "options": [
+        "Es findet keinerlei zusätzlicher Schritt statt",
+        "Zusätzlich zum TCP-Verbindungsaufbau erfolgt ein TLS-Handshake für die verschlüsselte Verbindung",
+        "Die DNS-Auflösung wird komplett übersprungen",
+        "Der Server sendet die Antwort unverschlüsselt zurück"
+      ],
+      "answer": 1,
+      "explanation": "Bei HTTPS wird nach dem TCP-Verbindungsaufbau zusätzlich ein TLS-Handshake durchgeführt, der die Verbindung verschlüsselt."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Information enthält der Host-Header eines HTTP-Requests?",
+      "options": [
+        "Die IP-Adresse des anfragenden Clients",
+        "Den Domainnamen, der beim Server tatsächlich angefordert wird",
+        "Das verwendete Betriebssystem des Clients",
+        "Die Bildschirmauflösung des anfragenden Geräts"
+      ],
+      "answer": 1,
+      "explanation": "Der Host-Header enthält den angeforderten Domainnamen und ermöglicht es dem Webserver, bei mehreren gehosteten Websites die richtige auszuliefern."
+    },
+    {
+      "id": "q4",
+      "question": "Was ermöglicht namensbasiertes virtuelles Hosting?",
+      "options": [
+        "Dass eine einzelne Website automatisch auf mehrere Server verteilt wird",
+        "Dass mehrere Websites auf demselben Server und derselben IP-Adresse betrieben werden können, unterschieden anhand des Host-Headers",
+        "Dass eine Website ohne DNS-Eintrag erreichbar ist",
+        "Dass HTTPS ohne Zertifikat funktioniert"
+      ],
+      "answer": 1,
+      "explanation": "Namensbasiertes virtuelles Hosting erlaubt es, mehrere Websites auf einem Server mit derselben IP-Adresse zu betreiben — der Webserver unterscheidet sie anhand des Host-Headers im HTTP-Request."
+    },
+    {
+      "id": "q5",
+      "question": "Zwei Domains, shop.technord.de und blog.technord.de, laufen auf demselben Server mit derselben IP-Adresse. Wie erkennt der Webserver, welche Website er bei einer eingehenden Anfrage ausliefern soll?",
+      "options": [
+        "Er liefert immer zufällig eine der beiden Websites aus",
+        "Anhand des Host-Headers im HTTP-Request, der den angeforderten Domainnamen enthält",
+        "Anhand der Bildschirmauflösung des anfragenden Browsers",
+        "Der Webserver kann bei gleicher IP-Adresse technisch nur eine einzige Website ausliefern"
+      ],
+      "answer": 1,
+      "explanation": "Der Webserver liest den Host-Header aus, der den angeforderten Domainnamen enthält, und liefert basierend darauf die passende Website aus — auch bei geteilter IP-Adresse."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Kunde meldet, eine Website sei nicht erreichbar. Welche Reihenfolge der Fehlerdiagnose ist sinnvoll?",
+      "options": [
+        "Direkt den gesamten Server neu starten, ohne weitere Prüfung",
+        "Prüfen, ob DNS korrekt auflöst, dann ob eine Verbindung zum Server möglich ist, dann welchen HTTP-Statuscode der Server liefert",
+        "Ausschließlich den Domainnamen registrieren lassen",
+        "Zuerst das Rendering im Browser deaktivieren"
+      ],
+      "answer": 1,
+      "explanation": "Eine strukturierte Fehlerdiagnose folgt dem Ablauf des Website-Aufrufs: erst DNS-Auflösung prüfen, dann die Erreichbarkeit des Servers (Verbindung), dann die HTTP-Antwort des Servers."
+    },
+    {
+      "id": "q7",
+      "question": "Was geschieht im letzten Schritt (Rendering) nach dem Empfang der HTTP-Response?",
+      "options": [
+        "Der Browser sendet die Seite unverändert an den Server zurück",
+        "Der Browser stellt die empfangene Seite dar und lädt bei Bedarf weitere Ressourcen wie Bilder oder Skripte per zusätzlicher Anfrage nach",
+        "Die DNS-Auflösung wird ein zweites Mal durchgeführt",
+        "Der TLS-Handshake wird nach dem Rendering erneut gestartet"
+      ],
+      "answer": 1,
+      "explanation": "Beim Rendering baut der Browser die empfangene Seite auf und fordert bei Bedarf zusätzliche Ressourcen (Bilder, Skripte, Stylesheets) über weitere HTTP-Requests an."
+    }
+  ]
+}

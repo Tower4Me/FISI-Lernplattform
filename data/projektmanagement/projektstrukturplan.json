@@ -1,0 +1,84 @@
+{
+  "unit": "projektmanagement/projektstrukturplan",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist die zentrale Funktion eines Projektstrukturplans (PSP)?",
+      "options": [
+        "Er gliedert ein Gesamtprojekt hierarchisch in überschaubare Teilaufgaben und Arbeitspakete als Basis für Termin-, Kosten- und Ressourcenplanung",
+        "Er berechnet ausschließlich das Gesamtbudget eines Projekts",
+        "Er ersetzt die Notwendigkeit eines Kick-off-Meetings",
+        "Er dokumentiert ausschließlich die Ergebnisse nach Projektabschluss"
+      ],
+      "answer": 0,
+      "explanation": "Der Projektstrukturplan gliedert ein Projekt hierarchisch in Teilprojekte und Arbeitspakete und bildet die Grundlage für die weitere Termin-, Kosten- und Ressourcenplanung."
+    },
+    {
+      "id": "q2",
+      "question": "Was ist ein Arbeitspaket im Projektstrukturplan?",
+      "options": [
+        "Die oberste Ebene des Gesamtprojekts",
+        "Die kleinste, nicht weiter zerlegte Einheit, die einer Person oder einem Team konkret zugeordnet werden kann",
+        "Ein Synonym für den gesamten Steuerkreis",
+        "Ein Dokument, das ausschließlich die Projektkosten auflistet"
+      ],
+      "answer": 1,
+      "explanation": "Ein Arbeitspaket ist die kleinste Einheit im PSP, die nicht weiter zerlegt wird und konkret einer Person oder einem Team zugeordnet werden kann."
+    },
+    {
+      "id": "q3",
+      "question": "Wie geht das Top-down-Vorgehen beim Erstellen eines Projektstrukturplans vor?",
+      "options": [
+        "Das Gesamtprojekt wird von oben nach unten in immer kleinere Teile zerlegt",
+        "Einzelne Arbeitspakete werden zuerst gesammelt und anschließend zu größeren Gruppen zusammengefasst",
+        "Es werden ausschließlich externe Berater befragt",
+        "Es wird kein Gesamtüberblick über das Projekt erstellt"
+      ],
+      "answer": 0,
+      "explanation": "Beim Top-down-Vorgehen wird das Gesamtprojekt schrittweise von oben nach unten in immer kleinere Teile zerlegt."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist ein typischer Vorteil des Bottom-up-Vorgehens gegenüber Top-down?",
+      "options": [
+        "Es nutzt das Detailwissen der ausführenden Personen, die die einzelnen Arbeitspakete direkt kennen",
+        "Es garantiert automatisch eine lückenlose, konsistente Gesamtstruktur",
+        "Es benötigt keinerlei Abstimmung mit dem Projektteam",
+        "Es funktioniert ausschließlich bei sehr kleinen Projekten"
+      ],
+      "answer": 0,
+      "explanation": "Das Bottom-up-Vorgehen sammelt zunächst die konkreten Arbeitspakete aus Sicht der Ausführenden und nutzt so deren Detailwissen — birgt dafür aber ein höheres Risiko für Lücken oder Doppelungen."
+    },
+    {
+      "id": "q5",
+      "question": "Was beschreibt das Yo-Yo-Prinzip (Gegenstromverfahren) beim Erstellen eines Projektstrukturplans?",
+      "options": [
+        "Eine reine Top-down-Zerlegung ohne jede Rückkopplung",
+        "Eine Kombination aus Top-down-Entwurf und anschließendem Bottom-up-Abgleich, iterativ in beide Richtungen angepasst",
+        "Ein Verfahren, das ausschließlich für die Kostenplanung genutzt wird",
+        "Ein Synonym für das magische Dreieck"
+      ],
+      "answer": 1,
+      "explanation": "Das Yo-Yo-Prinzip kombiniert eine grobe Top-down-Struktur mit einem anschließenden Bottom-up-Abgleich und passt das Ergebnis iterativ in beide Richtungen an."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Team erstellt zunächst eine grobe Top-down-Struktur für ein Projekt und gleicht sie anschließend mit den Fachabteilungen ab, die zusätzliche Arbeitspakete ergänzen. Welches Vorgehen beschreibt das?",
+      "options": ["Reines Top-down-Vorgehen", "Reines Bottom-up-Vorgehen", "Das Yo-Yo-Prinzip (Gegenstromverfahren)", "Ein Netzplanverfahren"],
+      "answer": 2,
+      "explanation": "Die Kombination aus grobem Top-down-Entwurf und anschließendem Bottom-up-Abgleich mit dem Team ist das klassische Yo-Yo-Prinzip."
+    },
+    {
+      "id": "q7",
+      "question": "Welches Risiko besteht beim reinen Bottom-up-Vorgehen, das beim Top-down-Vorgehen seltener auftritt?",
+      "options": [
+        "Ein zu geringer Detailgrad der Arbeitspakete",
+        "Lücken oder Doppelungen durch eine weniger konsistente Gesamtstruktur",
+        "Ein zu hoher Detailgrad, der die Planung vereinfacht",
+        "Die vollständige Abwesenheit von Arbeitspaketen"
+      ],
+      "answer": 1,
+      "explanation": "Da beim Bottom-up-Vorgehen zunächst einzelne Arbeitspakete gesammelt werden, besteht ein höheres Risiko für Lücken oder Doppelungen als bei einer von Anfang an konsistenten Top-down-Struktur."
+    }
+  ]
+}

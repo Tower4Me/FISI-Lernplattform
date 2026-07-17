@@ -1,0 +1,113 @@
+{
+  "unit": "datenbanken-sql/db-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der Unterschied zwischen einer Datenbank und einem DBMS?",
+      "options": [
+        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe",
+        "Die Datenbank ist die Software, das DBMS die gespeicherten Daten",
+        "Die Datenbank ist der gespeicherte Datenbestand, das DBMS ist die verwaltende Software",
+        "Ein DBMS ist immer NoSQL, eine Datenbank immer relational"
+      ],
+      "answer": 2,
+      "explanation": "Die Datenbank ist die organisierte Datensammlung, das DBMS die Software, die diese Sammlung verwaltet (speichern, ändern, absichern, abfragen)."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Aufgabe gehört NICHT zu den Kernaufgaben eines DBMS?",
+      "options": [
+        "Konsistenzsicherung der Daten",
+        "Mehrbenutzerbetrieb über Transaktionen",
+        "Automatisches Layout einer Webseite",
+        "Zugriffskontrolle über Rechteverwaltung"
+      ],
+      "answer": 2,
+      "explanation": "Webseiten-Layout ist keine DBMS-Aufgabe. DBMS-Aufgaben sind u. a. Datenhaltung, Konsistenzsicherung, Mehrbenutzerbetrieb, Zugriffskontrolle und Ausfallsicherheit."
+    },
+    {
+      "id": "q3",
+      "question": "Was beschreibt das Schema einer Datenbank?",
+      "options": [
+        "Die aktuellen Werte in den Tabellenzeilen",
+        "Den Bauplan: Tabellen, Spalten, Datentypen und Beziehungen",
+        "Eine Sicherungskopie der Datenbank",
+        "Die Liste aller aktiven Benutzer"
+      ],
+      "answer": 1,
+      "explanation": "Das Schema ist die Struktur (Bauplan) der Datenbank, unabhängig von den konkreten Dateninhalten."
+    },
+    {
+      "id": "q4",
+      "question": "Welche Aussage zu relationalen Datenbanken trifft zu?",
+      "options": [
+        "Sie haben kein festes Schema und keine Anfragesprache",
+        "Sie organisieren Daten in Tabellen mit festem Schema und nutzen SQL",
+        "Sie können grundsätzlich keine Beziehungen zwischen Tabellen abbilden",
+        "Sie sind immer schneller als jede NoSQL-Datenbank"
+      ],
+      "answer": 1,
+      "explanation": "Relationale Datenbanken nutzen feste Tabellenschemata, Beziehungen über Schlüssel und SQL als Anfragesprache."
+    },
+    {
+      "id": "q5",
+      "question": "Welches Beispiel ist eine dokumentenorientierte NoSQL-Datenbank?",
+      "options": [
+        "MySQL",
+        "MongoDB",
+        "PostgreSQL",
+        "MariaDB"
+      ],
+      "answer": 1,
+      "explanation": "MongoDB speichert Daten als flexible Dokumente (z. B. JSON) und gehört zur Kategorie dokumentenorientierte NoSQL-Datenbanken."
+    },
+    {
+      "id": "q6",
+      "question": "Wofür steht das „A“ in ACID?",
+      "options": [
+        "Availability",
+        "Authentication",
+        "Atomicity",
+        "Access"
+      ],
+      "answer": 2,
+      "explanation": "A steht für Atomicity (Atomarität): eine Transaktion läuft vollständig durch oder gar nicht."
+    },
+    {
+      "id": "q7",
+      "question": "Zwei Mitarbeiter buchen gleichzeitig das letzte Lagerstück. Welche ACID-Eigenschaft sorgt dafür, dass der Bestand nicht ins Negative rutscht?",
+      "options": [
+        "Durability",
+        "Isolation",
+        "Consistency",
+        "Atomicity"
+      ],
+      "answer": 1,
+      "explanation": "Isolation stellt sicher, dass parallele Transaktionen sich nicht gegenseitig stören, sodass nur eine Buchung erfolgreich durchläuft."
+    },
+    {
+      "id": "q8",
+      "question": "Was garantiert die Durability-Eigenschaft?",
+      "options": [
+        "Dass eine Transaktion beliebig oft wiederholt werden kann",
+        "Dass abgeschlossene (committete) Transaktionen auch nach einem Absturz erhalten bleiben",
+        "Dass alle Nutzer gleichzeitig schreiben dürfen",
+        "Dass Daten automatisch verschlüsselt werden"
+      ],
+      "answer": 1,
+      "explanation": "Durability (Dauerhaftigkeit) sorgt dafür, dass einmal committete Änderungen auch einen Systemabsturz überstehen."
+    },
+    {
+      "id": "q9",
+      "question": "Wofür eignet sich eine NoSQL-Datenbank typischerweise besser als eine relationale Datenbank?",
+      "options": [
+        "Für Bankbuchungen mit strikter ACID-Garantie",
+        "Für stark strukturierte Rechnungsdaten mit festen Feldern",
+        "Für große, schnell wechselnde Datenmengen mit flexibler Struktur",
+        "Für die Umsetzung komplexer Fremdschlüssel-Beziehungen"
+      ],
+      "answer": 2,
+      "explanation": "NoSQL-Systeme punkten bei großen, unstrukturierten oder sich häufig ändernden Datenmengen und hoher Skalierbarkeit."
+    }
+  ]
+}

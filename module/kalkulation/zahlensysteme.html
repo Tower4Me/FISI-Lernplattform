@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Zahlensysteme</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Zahlensysteme</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Zahlensysteme
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Uhrzeit lässt sich auf ganz unterschiedliche Arten darstellen:
+        als Ziffern auf einem digitalen Display (12:45), als Zeigerstellung
+        auf einem analogen Ziffernblatt, oder als Bitfolge auf einer
+        LED-Digitaluhr, die nur leuchtende und dunkle Segmente kennt. In
+        allen drei Fällen ist exakt dieselbe Uhrzeit gemeint — nur die
+        Darstellung unterscheidet sich. Genauso verhält es sich mit
+        Zahlensystemen: Dieselbe Zahl lässt sich dezimal, binär oder
+        hexadezimal aufschreiben — der Wert bleibt identisch, nur die
+        Symbole und die Basis des Zählsystems ändern sich.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <table>
+        <thead>
+          <tr><th>System</th><th>Basis</th><th>Symbole</th><th>Stellenwerte (von rechts)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Dezimal</strong></td><td>10</td><td>0–9</td><td>1, 10, 100, 1000, …</td></tr>
+          <tr><td><strong>Binär</strong></td><td>2</td><td>0, 1</td><td>1, 2, 4, 8, 16, 32, 64, 128, …</td></tr>
+          <tr><td><strong>Hexadezimal</strong></td><td>16</td><td>0–9, A–F (A=10 … F=15)</td><td>1, 16, 256, 4096, …</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Binärzahlen lesen</h3>
+      <p>
+        Jede Stelle einer Binärzahl hat einen Stellenwert, der sich von
+        rechts nach links verdoppelt. Man addiert die Stellenwerte aller
+        Stellen, an denen eine 1 steht:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Stellenwert</th><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr>
+        </thead>
+        <tbody>
+          <tr><th>Bit</th><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <p>
+        0b10110010 = 128 + 32 + 16 + 2 = <strong>178</strong> (Dezimal).
+      </p>
+
+      <h3>Hexadezimalzahlen lesen</h3>
+      <p>
+        Jede Hex-Stelle entspricht genau 4 Bit (einem <strong>Nibble</strong>).
+        Deshalb lässt sich ein Byte immer mit genau 2 Hex-Stellen darstellen
+        — das macht Hex so praktisch für die kompakte Darstellung von
+        Speicherinhalten.
+      </p>
+      <p>
+        0xB2 = B · 16 + 2 = 11 · 16 + 2 = <strong>178</strong> (Dezimal) —
+        derselbe Wert wie oben, nur hexadezimal notiert.
+      </p>
+
+      <p>Probiere die Umrechnung selbst aus:</p>
+      <div class="tool" data-tool="zahlensystem-konverter">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+
+      <h3>Zweierkomplement: negative Zahlen binär darstellen</h3>
+      <p>
+        Ein reiner Binärcode kennt zunächst kein Vorzeichen. Um auch
+        negative Zahlen darzustellen, verwenden Computer das
+        <strong>Zweierkomplement</strong>. Bei einer 8-Bit-Zahl gilt das
+        höchstwertige Bit (ganz links) als Vorzeichenbit: 0 = positiv,
+        1 = negativ. Damit lassen sich mit 8 Bit Werte von
+        <strong>−128 bis +127</strong> darstellen.
+      </p>
+      <p>Bildung des Zweierkomplements einer negativen Zahl:</p>
+      <ol>
+        <li>Betrag der Zahl binär darstellen (z. B. 5 = 00000101).</li>
+        <li>Alle Bits invertieren (0↔1): 00000101 → 11111010 (Einerkomplement).</li>
+        <li>1 addieren: 11111010 + 1 = 11111011.</li>
+      </ol>
+      <p>
+        11111011 stellt im Zweierkomplement also <strong>−5</strong> dar.
+        Der Vorteil: Der Prozessor kann Addition und Subtraktion mit
+        derselben Rechenschaltung ausführen, ohne Vorzeichen gesondert
+        behandeln zu müssen — (+3) + (−5) wird einfach binär addiert und
+        ergibt korrekt −2.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Support-Mitarbeiter erhält eine Datei namens
+        <code>rechnung.pdf</code>, die sich jedoch nicht öffnen lässt. Der
+        Verdacht: Jemand hat die Dateiendung manuell geändert, ohne dass
+        der Inhalt wirklich ein PDF ist.
+      </p>
+      <p>
+        Jedes Dateiformat beginnt mit einer festen Byte-Folge, den
+        sogenannten <strong>Magic Bytes</strong> (Dateisignatur) — sie
+        verraten den echten Dateityp unabhängig von der Endung. Ein
+        PDF beginnt beispielsweise immer mit den Hex-Bytes
+        <code>25 50 44 46</code> (ASCII „%PDF“). Mit einem Hex-Editor oder
+        dem Kommandozeilenbefehl <code>file</code> lassen sich die ersten
+        Bytes einer Datei prüfen — stimmen sie nicht mit den erwarteten
+        Magic Bytes überein, war die Umbenennung tatsächlich nur
+        kosmetisch, und der reale Dateityp ist ein anderer.
+      </p>
+
+      <p>Übe das Erkennen von Magic Bytes direkt:</p>
+      <div class="tool" data-tool="hex-viewer">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+
+      <p>
+        Typische Prüfungsfrage: „Warum reicht das Umbenennen der
+        Dateiendung nicht aus, um den tatsächlichen Dateityp zu ändern?“ –
+        Antwort: Die Dateiendung ist nur ein Hinweis für das
+        Betriebssystem, welches Programm die Datei öffnen soll. Der echte
+        Dateityp steckt in den ersten Bytes der Datei selbst (Magic Bytes)
+        und bleibt beim Umbenennen unverändert.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Dezimal (Basis 10), Binär (Basis 2), Hexadezimal (Basis 16)
+        beschreiben denselben Wert mit unterschiedlichen Symbolen. Ein
+        Byte = genau 2 Hex-Stellen. Das Zweierkomplement stellt negative
+        Zahlen dar: Bits invertieren, dann 1 addieren — mit 8 Bit sind so
+        Werte von −128 bis +127 darstellbar.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/zahlensysteme.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+  <script src="../../assets/tools/zahlensystem-konverter.js"></script>
+  <script src="../../assets/tools/hex-viewer.js"></script>
+</body>
+</html>

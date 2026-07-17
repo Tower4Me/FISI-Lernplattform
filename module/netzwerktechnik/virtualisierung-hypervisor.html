@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Virtualisierung & Hypervisor</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Virtualisierung & Hypervisor</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Virtualisierung & Hypervisor
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein großes Mehrfamilienhaus lässt sich in einzelne, komplett
+        voneinander abgeschlossene Wohnungen aufteilen — jede Partei hat
+        ihre eigene Küche, ihr eigenes Bad, ihren eigenen abschließbaren
+        Eingang, obwohl alle dasselbe Gebäude, dieselben Leitungen und
+        dasselbe Fundament nutzen. Ein Mieter merkt im Alltag nichts davon,
+        dass nebenan weitere Wohnungen im selben Haus existieren. Genau so
+        funktioniert <strong>Virtualisierung</strong>: Ein einzelner
+        physischer Server wird in mehrere logisch komplett getrennte
+        „virtuelle Wohnungen“ (virtuelle Maschinen) aufgeteilt, die sich
+        dieselbe Hardware teilen, ohne sich gegenseitig zu beeinflussen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>Virtualisierung</strong> erzeugt aus einer physischen
+        Ressource mehrere logisch unabhängige, virtuelle Instanzen. Die
+        Steuerungssoftware, die diese Aufteilung übernimmt, heißt
+        <strong>Hypervisor</strong>.
+      </p>
+
+      <h3>Virtualisierungsarten</h3>
+      <table>
+        <thead>
+          <tr><th>Art</th><th>Was wird virtualisiert</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Servervirtualisierung</strong></td><td>ein physischer Server wird in mehrere unabhängige virtuelle Server (VMs) aufgeteilt</td><td>ein Serverraum betreibt auf einer Hardware mehrere virtuelle Fileserver, Mailserver, Anwendungsserver</td></tr>
+          <tr><td><strong>Desktopvirtualisierung</strong></td><td>ein kompletter Arbeitsplatz-Desktop läuft zentral im Rechenzentrum und wird auf ein Endgerät gestreamt</td><td>VDI (Virtual Desktop Infrastructure) — Mitarbeitende greifen von einem Thin Client auf ihren zentral gehosteten Desktop zu</td></tr>
+          <tr><td><strong>Anwendungsvirtualisierung</strong></td><td>einzelne Anwendungen laufen isoliert, ohne lokal vollständig installiert zu sein</td><td>eine ältere Fachanwendung läuft in einer eigenen isolierten Umgebung, ohne Konflikte mit anderer lokaler Software</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Hypervisor-Typen</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Aufbau</th><th>Beispiele</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Typ 1 (Bare-Metal)</strong></td><td>läuft direkt auf der Hardware, ohne zugrunde liegendes Host-Betriebssystem — die VMs greifen direkt über den Hypervisor auf die Hardware zu</td><td>VMware ESXi, Microsoft Hyper-V (Server-Rolle), Proxmox VE</td></tr>
+          <tr><td><strong>Typ 2 (Hosted)</strong></td><td>läuft als Anwendung innerhalb eines normalen Host-Betriebssystems — ein zusätzlicher Softwarelayer zwischen Hardware und VM</td><td>VMware Workstation, VirtualBox</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Typ-1-Hypervisoren sind performanter und werden für den
+        produktiven Serverbetrieb im Rechenzentrum eingesetzt, da keine
+        zusätzliche Betriebssystemschicht Ressourcen verbraucht. Typ-2-
+        Hypervisoren sind einfacher einzurichten und eignen sich gut für
+        Testumgebungen auf einem gewöhnlichen Arbeitsplatzrechner.
+      </p>
+
+      <h3>Vorteile der Virtualisierung</h3>
+      <ul>
+        <li><strong>Bessere Hardwareauslastung</strong> — mehrere VMs teilen sich die Ressourcen eines physischen Servers, statt dass jede Anwendung einen eigenen, oft kaum ausgelasteten Server benötigt.</li>
+        <li><strong>Isolation</strong> — ein Absturz oder Sicherheitsvorfall in einer VM betrifft grundsätzlich nicht die anderen VMs auf derselben Hardware.</li>
+        <li><strong>Flexibilität</strong> — neue VMs lassen sich innerhalb von Minuten bereitstellen, klonen oder auf andere Hardware verschieben (Live-Migration).</li>
+        <li><strong>Snapshot/Rollback</strong> — der Zustand einer VM lässt sich vor riskanten Änderungen sichern und bei Bedarf zurücksetzen.</li>
+      </ul>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus modernisiert die Serverlandschaft eines Kunden,
+        der bisher fünf einzelne, jeweils schwach ausgelastete
+        Server-Hardware-Boxen betreibt (Fileserver, Mailserver,
+        Anwendungsserver, Datenbankserver, Druckserver).
+      </p>
+      <ul>
+        <li>Alle fünf Serverrollen werden als <strong>virtuelle Maschinen</strong> auf einer einzigen leistungsstarken physischen Servermaschine mit <strong>Typ-1-Hypervisor</strong> (z. B. VMware ESXi) konsolidiert.</li>
+        <li>Vor einem geplanten Update des Mailservers erstellt der Administrator einen <strong>Snapshot</strong> — schlägt das Update fehl, wird die VM in Sekunden auf den vorherigen Zustand zurückgesetzt.</li>
+        <li>Für Testzwecke installiert ein Entwickler zusätzlich <strong>VirtualBox</strong> (Typ-2-Hypervisor) auf seinem eigenen Arbeitsplatzrechner, um eine neue Softwareversion isoliert zu testen, ohne das Produktivsystem zu gefährden.</li>
+        <li>Durch die Konsolidierung sinken Stromverbrauch, Kühlbedarf und Wartungsaufwand deutlich gegenüber fünf einzelnen physischen Servern.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum wird für den produktiven
+        Servereinsatz ein Typ-1-Hypervisor gegenüber einem Typ-2-Hypervisor
+        bevorzugt?“ – Antwort: Ein Typ-1-Hypervisor läuft direkt auf der
+        Hardware ohne zusätzliches Host-Betriebssystem und bietet dadurch
+        bessere Performance und geringeren Ressourcen-Overhead als ein
+        Typ-2-Hypervisor, der innerhalb eines normalen Betriebssystems
+        läuft.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Virtualisierung teilt physische Ressourcen in mehrere logisch
+        getrennte virtuelle Instanzen (Server, Desktop oder Anwendung).
+        Typ-1-Hypervisor läuft direkt auf der Hardware (Bare-Metal,
+        produktiv), Typ-2-Hypervisor läuft innerhalb eines
+        Host-Betriebssystems (einfacher, für Tests). Vorteile: bessere
+        Auslastung, Isolation, Flexibilität, Snapshots.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/virtualisierung-hypervisor.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

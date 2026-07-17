@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenbanken & SQL: ER-Modell & Kardinalitäten</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenbanken-sql">Datenbanken & SQL</a></li>
+        <li aria-current="page">ER-Modell & Kardinalitäten</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      ER-Modell & Kardinalitäten
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Bevor ein Architekt ein Haus baut, zeichnet er einen Grundriss:
+        wie viele Räume gibt es, wie sind sie miteinander verbunden, wo
+        führt eine Tür von einem Zimmer ins nächste? Erst wenn der Plan
+        stimmt, wird gemauert. Genauso wird eine Datenbank nicht direkt
+        als Tabellen entworfen, sondern zuerst als
+        <strong>Entity-Relationship-Modell (ER-Modell)</strong>: ein
+        Bauplan, der festhält, welche „Dinge" (Entitäten) es gibt und wie
+        sie zueinander in Beziehung stehen – bevor daraus reale Tabellen
+        mit Fremdschlüsseln werden.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>Ein ER-Modell besteht aus drei Grundbausteinen:</p>
+      <ul>
+        <li><strong>Entität</strong> – ein eigenständiges „Ding", über das Daten gespeichert werden (z. B. Kunde, Bestellung, Produkt). Wird zur Tabelle.</li>
+        <li><strong>Attribut</strong> – eine Eigenschaft einer Entität (z. B. Kundenname, Bestelldatum). Wird zur Spalte.</li>
+        <li><strong>Beziehung (Relationship)</strong> – wie zwei Entitäten miteinander verknüpft sind (z. B. „Kunde <em>tätigt</em> Bestellung").</li>
+      </ul>
+
+      <p>
+        Entscheidend ist dabei die <strong>Kardinalität</strong> einer
+        Beziehung: wie viele Datensätze der einen Seite mit wie vielen
+        Datensätzen der anderen Seite verknüpft sein können.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Kardinalität</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1:1</strong></td><td>Ein Datensatz der einen Seite gehört zu genau einem der anderen Seite</td><td>Person – Personalausweis</td></tr>
+          <tr><td><strong>1:n</strong></td><td>Ein Datensatz der einen Seite kann zu mehreren der anderen Seite gehören</td><td>Kunde – Bestellungen (ein Kunde, viele Bestellungen)</td></tr>
+          <tr><td><strong>m:n</strong></td><td>Datensätze beider Seiten können mehrfach miteinander verknüpft sein</td><td>Bestellung – Produkt (eine Bestellung enthält mehrere Produkte, ein Produkt steckt in mehreren Bestellungen)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Bei der <strong>Umsetzung in Tabellen</strong> gilt eine feste
+        Regel:
+      </p>
+      <ul>
+        <li><strong>1:n</strong> – der Fremdschlüssel steht auf der „n"-Seite (jede Bestellung bekommt eine Spalte <code>Kunden_ID</code>, die auf den Kunden verweist).</li>
+        <li><strong>m:n</strong> – lässt sich nicht direkt über einen einzelnen Fremdschlüssel abbilden. Stattdessen wird eine <strong>Zwischentabelle</strong> (Verbindungstabelle, z. B. <code>Bestellposition</code>) eingefügt, die beide Fremdschlüssel enthält und die m:n-Beziehung in zwei 1:n-Beziehungen auflöst.</li>
+      </ul>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="er-title">
+          <title id="er-title">ER-Diagramm: Kunde 1:n Bestellung, Bestellung 1:n Bestellposition, Bestellposition n:1 Produkt</title>
+
+          <rect x="20" y="90" width="140" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="90" y="125" text-anchor="middle" fill="var(--text)" font-size="15">Kunde</text>
+
+          <line x1="160" y1="120" x2="230" y2="120" stroke="var(--border)" stroke-width="2"/>
+          <text x="172" y="112" fill="var(--text-muted)" font-size="13">1</text>
+          <text x="218" y="112" fill="var(--text-muted)" font-size="13">n</text>
+
+          <rect x="230" y="90" width="160" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="310" y="125" text-anchor="middle" fill="var(--text)" font-size="15">Bestellung</text>
+
+          <line x1="310" y1="150" x2="310" y2="190" stroke="var(--border)" stroke-width="2"/>
+          <text x="316" y="165" fill="var(--text-muted)" font-size="13">1</text>
+          <text x="316" y="185" fill="var(--text-muted)" font-size="13">n</text>
+
+          <rect x="220" y="190" width="180" height="55" rx="8" fill="var(--surface)" stroke="var(--acc-merksatz)" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="310" y="222" text-anchor="middle" fill="var(--text)" font-size="14">Bestellposition</text>
+
+          <line x1="400" y1="217" x2="460" y2="217" stroke="var(--border)" stroke-width="2"/>
+          <text x="410" y="209" fill="var(--text-muted)" font-size="13">n</text>
+          <text x="448" y="209" fill="var(--text-muted)" font-size="13">1</text>
+
+          <rect x="460" y="187" width="140" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="530" y="222" text-anchor="middle" fill="var(--text)" font-size="15">Produkt</text>
+        </svg>
+        <figcaption>
+          Kunde und Bestellung stehen in einer 1:n-Beziehung (ein Kunde,
+          viele Bestellungen). Bestellung und Produkt stehen eigentlich in
+          einer m:n-Beziehung, die über die Zwischentabelle
+          „Bestellposition" in zwei 1:n-Beziehungen aufgelöst wird.
+        </figcaption>
+      </figure>
+
+      <p>
+        Damit Fremdschlüssel nicht ins Leere zeigen, gilt die
+        <strong>referenzielle Integrität</strong>: ein Fremdschlüsselwert
+        muss entweder auf einen tatsächlich existierenden Primärschlüssel
+        in der referenzierten Tabelle zeigen oder <code>NULL</code> sein.
+        Das DBMS lehnt Verstöße automatisch ab, z. B. beim Versuch, eine
+        Bestellung mit einer nicht existierenden Kunden-ID einzufügen.
+        Beim Löschen des referenzierten Datensatzes legt man über
+        Löschregeln fest, was passieren soll: <code>RESTRICT</code>
+        (Löschen verhindern, solange abhängige Zeilen existieren),
+        <code>CASCADE</code> (abhängige Zeilen automatisch mitlöschen)
+        oder <code>SET NULL</code> (Fremdschlüssel auf <code>NULL</code>
+        setzen).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus modelliert seine Warenwirtschaft: Kunden geben
+        Bestellungen auf, eine Bestellung kann mehrere Produkte enthalten,
+        und ein Produkt taucht in vielen Bestellungen auf.
+      </p>
+      <ul>
+        <li>
+          <strong>Kunde – Bestellung (1:n):</strong> Die Tabelle
+          <code>Bestellung</code> bekommt eine Spalte
+          <code>Kunden_ID</code> als Fremdschlüssel, der auf
+          <code>Kunde.ID</code> verweist.
+        </li>
+        <li>
+          <strong>Bestellung – Produkt (m:n):</strong> Da eine einzelne
+          Spalte das nicht abbilden kann, entsteht die Zwischentabelle
+          <code>Bestellposition</code> mit den Spalten
+          <code>Bestellung_ID</code>, <code>Produkt_ID</code> und
+          <code>Menge</code>. Sie löst die m:n-Beziehung in zwei
+          1:n-Beziehungen auf.
+        </li>
+        <li>
+          Ein Mitarbeiter versucht, eine Bestellposition mit einer
+          <code>Produkt_ID</code> anzulegen, die es gar nicht gibt – das
+          DBMS lehnt den Einfüge-Versuch ab, weil die referenzielle
+          Integrität verletzt wäre.
+        </li>
+        <li>
+          Ein Kunde soll aus der Datenbank gelöscht werden, hat aber noch
+          offene Bestellungen. Mit der Löschregel <code>RESTRICT</code>
+          verweigert das DBMS das Löschen, solange Bestellungen existieren
+          – so gehen keine Bestelldaten „verwaist" verloren.
+        </li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Wie wird eine m:n-Beziehung in einem
+        relationalen Datenbankmodell umgesetzt?" – Antwort: über eine
+        Zwischentabelle mit zwei Fremdschlüsseln, die die m:n-Beziehung in
+        zwei 1:n-Beziehungen auflöst.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Das ER-Modell ist der Bauplan vor der Umsetzung: Entitäten werden
+        zu Tabellen, Attribute zu Spalten, Beziehungen zu Fremdschlüsseln.
+        1:n wird über einen Fremdschlüssel auf der „n"-Seite abgebildet,
+        m:n über eine Zwischentabelle mit zwei Fremdschlüsseln.
+        Referenzielle Integrität stellt sicher, dass Fremdschlüssel immer
+        auf existierende Datensätze verweisen (oder NULL sind).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/er-modell-kardinalitaeten.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

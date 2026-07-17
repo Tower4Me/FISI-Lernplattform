@@ -1,0 +1,84 @@
+{
+  "unit": "datenschutz-recht/sla-support-level",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist ein Service Level Agreement (SLA)?",
+      "options": [
+        "Eine unverbindliche Absichtserklärung ohne rechtliche Wirkung",
+        "Eine vertraglich vereinbarte Leistungszusage mit konkreten, messbaren Kennzahlen wie Reaktionszeit oder Verfügbarkeit",
+        "Ein rein internes Dokument ohne Bezug zum Kundenvertrag",
+        "Eine gesetzlich vorgeschriebene Zertifizierung für IT-Dienstleister"
+      ],
+      "answer": 1,
+      "explanation": "Ein SLA ist ein vertraglicher Bestandteil, der konkrete und messbare Leistungskennzahlen zwischen Dienstleister und Kunde festlegt, z. B. Reaktionszeit, Lösungszeit oder Verfügbarkeit."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Aufgabe übernimmt typischerweise der First-Level-Support?",
+      "options": [
+        "Ausschließlich die Behebung von Fehlern im Quellcode einer Software",
+        "Entgegennahme von Anfragen, Ticketerfassung und Lösung standardisierter, einfacher Probleme",
+        "Die Entwicklung neuer Softwarefeatures",
+        "Die Verhandlung neuer SLA-Verträge mit Kunden"
+      ],
+      "answer": 1,
+      "explanation": "Der First-Level-Support ist die erste Anlaufstelle: Er nimmt Anfragen entgegen, erfasst Tickets und löst einfache, standardisierte Probleme direkt."
+    },
+    {
+      "id": "q3",
+      "question": "Ein First-Level-Support kann ein Problem nicht lösen und gibt es an eine Ebene mit tieferer Fachkenntnis zum jeweiligen System weiter. Um welche Ebene handelt es sich dabei typischerweise?",
+      "options": ["Third Level", "Second Level", "Wieder First Level", "Es gibt keine weitere Ebene"],
+      "answer": 1,
+      "explanation": "Der Second-Level-Support verfügt über tiefere Fachkenntnisse zu bestimmten Systemen und übernimmt Fälle, die der First Level nicht abschließend lösen kann."
+    },
+    {
+      "id": "q4",
+      "question": "Wann wird typischerweise der Third-Level-Support eingeschaltet?",
+      "options": [
+        "Bei jeder eingehenden Supportanfrage sofort zuerst",
+        "Nur bei den komplexesten Fällen, z. B. echten Fehlern im Quellcode einer Software, oft durch Entwickler oder Hersteller",
+        "Ausschließlich zur Ticketerfassung",
+        "Nur für die Verhandlung von Kaufverträgen"
+      ],
+      "answer": 1,
+      "explanation": "Third-Level-Support (Spezialisten, Entwickler, Hersteller) wird nur bei den komplexesten Fällen hinzugezogen, die weder First noch Second Level lösen können."
+    },
+    {
+      "id": "q5",
+      "question": "Was versteht man unter Eskalation im Support-Kontext?",
+      "options": [
+        "Das automatische Schließen eines Tickets nach 24 Stunden",
+        "Die stufenweise Weiterleitung einer Anfrage an eine höhere Support-Ebene, wenn die aktuelle Ebene sie nicht lösen kann",
+        "Die Kündigung eines SLA-Vertrags durch den Kunden",
+        "Die Reduzierung der vereinbarten Reaktionszeit"
+      ],
+      "answer": 1,
+      "explanation": "Eskalation bezeichnet die stufenweise Weiterleitung einer Anfrage von einer niedrigeren zu einer höheren Support-Ebene, wenn die aktuelle Ebene sie nicht abschließend bearbeiten kann."
+    },
+    {
+      "id": "q6",
+      "question": "Wann gerät ein Vertragspartner grundsätzlich in Verzug (§ 286 BGB)?",
+      "options": [
+        "Sobald ein Vertrag unterschrieben wurde, unabhängig von Fälligkeit",
+        "Wenn er eine fällige Leistung trotz Fälligkeit und in der Regel trotz Mahnung nicht erbringt",
+        "Nur wenn eine gerichtliche Klage eingereicht wurde",
+        "Verzug gibt es im deutschen Recht nicht, nur Vertragsstrafen"
+      ],
+      "answer": 1,
+      "explanation": "Verzug setzt grundsätzlich Fälligkeit der Leistung sowie eine Mahnung voraus — außer bei kalendermäßig bestimmten Terminen, bei denen eine Mahnung entbehrlich ist."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Lieferant liefert trotz vereinbartem kalendermäßig bestimmten Liefertermin (z. B. „bis zum 15. des Monats“) nicht rechtzeitig. Ist eine zusätzliche Mahnung nötig, damit Verzug eintritt?",
+      "options": [
+        "Ja, ohne Mahnung kann niemals Verzug eintreten",
+        "Nein, bei einem kalendermäßig bestimmten Termin ist eine Mahnung entbehrlich",
+        "Nur wenn der Kunde eine Vertragsstrafe vereinbart hat",
+        "Nur bei Werkverträgen, bei Kaufverträgen ist immer eine Mahnung nötig"
+      ],
+      "answer": 1,
+      "explanation": "Ist für die Leistung ein kalendermäßig bestimmter Termin vereinbart, tritt Verzug auch ohne zusätzliche Mahnung ein, sobald der Termin verstrichen ist."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "unit": "wiso/soziale-sicherung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Prinzip liegt der gesetzlichen Sozialversicherung zugrunde?",
+      "options": [
+        "Das Fürsorgeprinzip",
+        "Das Versicherungsprinzip",
+        "Das Versorgungsprinzip",
+        "Das Spendenprinzip"
+      ],
+      "answer": 1,
+      "explanation": "Die gesetzliche Sozialversicherung beruht auf dem Versicherungsprinzip: Beiträge sichern einen Leistungsanspruch im Versicherungsfall."
+    },
+    {
+      "id": "q2",
+      "question": "Welche der folgenden ist KEINE der 5 Säulen der Sozialversicherung?",
+      "options": [
+        "Krankenversicherung",
+        "Rentenversicherung",
+        "Kfz-Versicherung",
+        "Unfallversicherung"
+      ],
+      "answer": 2,
+      "explanation": "Die Kfz-Versicherung ist eine private Versicherung und keine der 5 Säulen der gesetzlichen Sozialversicherung."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Säule der Sozialversicherung wird ausschließlich vom Arbeitgeber finanziert?",
+      "options": [
+        "Krankenversicherung",
+        "Pflegeversicherung",
+        "Unfallversicherung",
+        "Arbeitslosenversicherung"
+      ],
+      "answer": 2,
+      "explanation": "Die Unfallversicherung wird vollständig vom Arbeitgeber getragen, Arbeitnehmer zahlen dafür keinen eigenen Beitragsanteil."
+    },
+    {
+      "id": "q4",
+      "question": "Wie werden Krankenversicherung, Pflegeversicherung, Rentenversicherung und Arbeitslosenversicherung typischerweise finanziert?",
+      "options": [
+        "Ausschließlich durch Steuern",
+        "Paritätisch, je zur Hälfte durch Arbeitgeber und Arbeitnehmer",
+        "Ausschließlich durch den Arbeitnehmer",
+        "Ausschließlich durch den Staat"
+      ],
+      "answer": 1,
+      "explanation": "Diese vier Säulen werden paritätisch finanziert, also je zur Hälfte von Arbeitgeber und Arbeitnehmer."
+    },
+    {
+      "id": "q5",
+      "question": "Was unterscheidet das Fürsorgeprinzip (z. B. Sozialhilfe) vom Versicherungsprinzip?",
+      "options": [
+        "Beim Fürsorgeprinzip ist keine vorherige Beitragszahlung nötig, die Leistung hängt von Bedürftigkeit ab",
+        "Das Fürsorgeprinzip erfordert höhere Beiträge als das Versicherungsprinzip",
+        "Es gibt keinen Unterschied",
+        "Das Fürsorgeprinzip gilt nur für Beamte"
+      ],
+      "answer": 0,
+      "explanation": "Fürsorgeleistungen wie Sozialhilfe sind steuerfinanziert und bedürftigkeitsabhängig, ohne dass eine eigene Beitragszahlung Voraussetzung ist."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Gesetz bildet die Rechtsgrundlage der Sozialgerichtsbarkeit?",
+      "options": [
+        "Bürgerliches Gesetzbuch (BGB)",
+        "Sozialgerichtsgesetz (SGG)",
+        "Betriebsverfassungsgesetz (BetrVG)",
+        "Nachweisgesetz (NachwG)"
+      ],
+      "answer": 1,
+      "explanation": "Das Sozialgerichtsgesetz (SGG) regelt Aufbau und Verfahren der Sozialgerichtsbarkeit."
+    },
+    {
+      "id": "q7",
+      "question": "Wie lautet der Instanzenzug der Sozialgerichtsbarkeit von der ersten bis zur letzten Instanz?",
+      "options": [
+        "Amtsgericht → Landgericht → Bundesgerichtshof",
+        "Sozialgericht → Landessozialgericht → Bundessozialgericht",
+        "Arbeitsgericht → Landesarbeitsgericht → Bundesarbeitsgericht",
+        "Verwaltungsgericht → Oberverwaltungsgericht → Bundesverwaltungsgericht"
+      ],
+      "answer": 1,
+      "explanation": "Der Instanzenzug der Sozialgerichtsbarkeit läuft über Sozialgericht, Landessozialgericht bis zum Bundessozialgericht."
+    },
+    {
+      "id": "q8",
+      "question": "Welches Ereignis fällt typischerweise unter die gesetzliche Unfallversicherung, nicht unter die Krankenversicherung?",
+      "options": [
+        "Eine Grippeerkrankung im Winter",
+        "Ein Wegeunfall auf dem Arbeitsweg",
+        "Ein privater Skiunfall im Urlaub",
+        "Eine chronische Erkrankung ohne Bezug zur Arbeit"
+      ],
+      "answer": 1,
+      "explanation": "Wegeunfälle auf dem Arbeitsweg sind ein klassischer Leistungsfall der gesetzlichen Unfallversicherung."
+    }
+  ]
+}

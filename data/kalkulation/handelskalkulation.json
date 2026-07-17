@@ -1,0 +1,89 @@
+{
+  "unit": "kalkulation/handelskalkulation",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie ergibt sich der Bezugspreis (Einstandspreis) in der Einkaufskalkulation?",
+      "options": [
+        "Listeneinkaufspreis + Rabatt + Skonto − Bezugskosten",
+        "Listeneinkaufspreis − Rabatt − Skonto + Bezugskosten",
+        "Zieleinkaufspreis + Gewinnzuschlag",
+        "Bareinkaufspreis − Bezugskosten"
+      ],
+      "answer": 1,
+      "explanation": "Vom Listeneinkaufspreis werden Rabatt und Skonto abgezogen, anschließend werden die Bezugskosten (Fracht, Versicherung) addiert — das Ergebnis ist der Bezugspreis."
+    },
+    {
+      "id": "q2",
+      "question": "Ein Lieferant bietet einen Artikel zum Listeneinkaufspreis von 800,00 € bei 12 % Liefererrabatt an. Wie hoch ist der Zieleinkaufspreis?",
+      "options": [
+        "688,00 €",
+        "704,00 €",
+        "712,00 €",
+        "736,00 €"
+      ],
+      "answer": 1,
+      "explanation": "800,00 € × (1 − 0,12) = 800,00 € × 0,88 = 704,00 €."
+    },
+    {
+      "id": "q3",
+      "question": "Der Zieleinkaufspreis eines Postens beträgt 600,00 €, der Lieferer gewährt 3 % Skonto bei sofortiger Zahlung. Wie hoch ist der Bareinkaufspreis?",
+      "options": [
+        "570,00 €",
+        "582,00 €",
+        "591,00 €",
+        "594,00 €"
+      ],
+      "answer": 1,
+      "explanation": "600,00 € × (1 − 0,03) = 600,00 € × 0,97 = 582,00 €."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Bezugspreis von 350,00 € soll mit einem Gemeinkostenzuschlag von 20 % kalkuliert werden. Wie hoch ist der Selbstkostenpreis?",
+      "options": [
+        "400,00 €",
+        "410,00 €",
+        "420,00 €",
+        "430,00 €"
+      ],
+      "answer": 2,
+      "explanation": "350,00 € × 1,20 = 420,00 €. Der Gemeinkostenzuschlag wird auf den Bezugspreis aufgeschlagen, nicht abgezogen."
+    },
+    {
+      "id": "q5",
+      "question": "Warum kann der Zielverkaufspreis nicht berechnet werden, indem man den Kundenskonto-Prozentsatz einfach zum Barverkaufspreis addiert?",
+      "options": [
+        "Weil Kundenskonto in der Praxis nie gewährt wird",
+        "Weil der Barverkaufspreis bereits der um den Skontosatz verminderte Zielverkaufspreis ist — man muss durch (1 − Skontosatz) teilen, nicht mit (1 + Skontosatz) multiplizieren",
+        "Weil Skonto ausschließlich beim Einkauf, nie beim Verkauf vorkommt",
+        "Weil der Zielverkaufspreis immer identisch mit dem Barverkaufspreis ist"
+      ],
+      "answer": 1,
+      "explanation": "Der Barverkaufspreis entspricht (100 % − Skontosatz) des Zielverkaufspreises. Der gesuchte (größere) Zielverkaufspreis ergibt sich deshalb durch Division durch den Komplementärfaktor, nicht durch einfaches Aufaddieren des Prozentsatzes."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Barverkaufspreis von 485,00 € soll unter Berücksichtigung von 3 % Kundenskonto in den Zielverkaufspreis umgerechnet werden. Wie hoch ist der Zielverkaufspreis?",
+      "options": [
+        "470,45 €",
+        "499,55 €",
+        "500,00 €",
+        "514,89 €"
+      ],
+      "answer": 2,
+      "explanation": "485,00 € ÷ (1 − 0,03) = 485,00 € ÷ 0,97 = 500,00 €. Die Antwort 499,55 € entspricht dem typischen Rechenfehler, den Skontosatz einfach zu addieren (485,00 € × 1,03) statt korrekt zu dividieren."
+    },
+    {
+      "id": "q7",
+      "question": "In welcher Reihenfolge läuft die Verkaufskalkulation vom Einstandspreis zum Angebotspreis ab?",
+      "options": [
+        "Bezugspreis → + Gewinnzuschlag → + Gemeinkostenzuschlag → + Kundenrabatt → + Kundenskonto",
+        "Bezugspreis → + Gemeinkostenzuschlag → + Gewinnzuschlag → + Kundenskonto → + Kundenrabatt",
+        "Bezugspreis → + Kundenskonto → + Kundenrabatt → + Gemeinkostenzuschlag → + Gewinnzuschlag",
+        "Bezugspreis → + Kundenrabatt → + Gewinnzuschlag → + Kundenskonto → + Gemeinkostenzuschlag"
+      ],
+      "answer": 1,
+      "explanation": "Reihenfolge: Bezugspreis, + Gemeinkostenzuschlag = Selbstkostenpreis, + Gewinnzuschlag = Barverkaufspreis, + Kundenskonto = Zielverkaufspreis, + Kundenrabatt = Listenverkaufspreis."
+    }
+  ]
+}

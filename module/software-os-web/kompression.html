@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Kompression</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Kompression</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Kompression
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Verlustfreie Kompression ist wie ein Koffer, den du cleverer packst
+        — Kleidung enger gefaltet, Lücken ausgenutzt. Nichts fehlt danach,
+        du könntest alles wieder exakt auspacken wie vorher. Verlustbehaftete
+        Kompression ist dagegen wie ein Koffer, für den du bewusst Dinge
+        zu Hause lässt, die du wahrscheinlich nicht brauchst — leichter,
+        aber unwiederbringlich weg, falls doch etwas Wichtiges dabei war.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Kompression reduziert die Dateigröße. Es gibt zwei grundlegend
+        verschiedene Ansätze — die Wahl hängt davon ab, ob Qualität oder
+        Größe wichtiger ist.
+      </p>
+
+      <h3>Verlustfreie Kompression (Lossless)</h3>
+      <p>
+        Bei verlustfreier Kompression kann die Originaldatei
+        <strong>exakt</strong> wiederhergestellt werden — kein einziges
+        Bit geht verloren. Die Algorithmen suchen nach Mustern und
+        Wiederholungen: Statt „AAAAAABBB“ zu speichern, wird z. B.
+        „6A3B“ gespeichert (6-mal A, 3-mal B) — das Grundprinzip heißt
+        <strong>Lauflängenkodierung</strong> (Run-Length Encoding).
+        Modernere Algorithmen wie <strong>Huffman</strong>-Codierung
+        (häufige Zeichen bekommen kürzere Codes, seltene längere), LZ77
+        oder LZMA sind deutlich komplexer, folgen aber demselben
+        Grundprinzip: Muster erkennen und kompakter darstellen.
+      </p>
+      <p>
+        <strong>Einsatz:</strong> Dokumente (ZIP, 7z), Programmcode,
+        medizinische Bilder, Audio-Archivierung (FLAC), PNG-Grafiken mit
+        Text — überall dort, wo ein verändertes Bit einen Unterschied
+        macht. Typische Formate: PNG, FLAC, ZIP, 7z, GIF, WebP
+        (verlustfrei). Typische Komprimierungsrate: 20–80 % je nach
+        Inhalt — Textdateien lassen sich sehr gut komprimieren, bereits
+        komprimierte Dateien kaum noch.
+      </p>
+
+      <h3>Verlustbehaftete Kompression (Lossy)</h3>
+      <p>
+        Bei verlustbehafteter Kompression werden Informationen, die das
+        menschliche Auge oder Ohr kaum wahrnimmt, <strong>dauerhaft
+        gelöscht</strong>. Die Originaldatei lässt sich danach nicht mehr
+        exakt wiederherstellen.
+      </p>
+      <p>
+        Bei <strong>JPEG</strong> funktioniert das so: Das Bild wird in
+        8×8-Pixel-Blöcke geteilt, eine mathematische Transformation (DCT,
+        Diskrete Kosinustransformation) wird angewendet, und Details, die
+        das Auge schwer wahrnimmt (hohe Frequenzen, subtile
+        Farbübergänge), werden verworfen. Je höher die Komprimierung,
+        desto mehr Details gehen verloren — sichtbar an blockigen
+        Artefakten, besonders an Kanten.
+      </p>
+      <p>
+        <strong>Einsatz:</strong> Fotos im Web (JPEG), Musik-Streaming
+        (MP3, AAC), Video-Streaming (H.264) — der Qualitätsverlust ist
+        bei guten Einstellungen für die meisten Nutzer kaum wahrnehmbar.
+        Typische Komprimierungsrate: 90–99 %.
+      </p>
+      <p>
+        <strong>Warnung — Generation Loss:</strong> Bei jedem erneuten
+        Speichern und Neu-Komprimieren einer JPEG-Datei gehen weitere
+        Details verloren — die Verluste summieren sich. Deshalb immer im
+        Originalformat arbeiten und erst am Ende einmalig komprimieren.
+      </p>
+
+      <h3>Vergleich auf einen Blick</h3>
+      <table>
+        <thead>
+          <tr><th>Eigenschaft</th><th>Verlustfrei</th><th>Verlustbehaftet</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Originalqualität wiederherstellbar</td><td>ja, exakt</td><td>nein</td></tr>
+          <tr><td>Typische Komprimierungsrate</td><td>20–80 %</td><td>90–99 %</td></tr>
+          <tr><td>Mehrfach komprimieren</td><td>kein Qualitätsverlust</td><td>Qualität nimmt ab (Generation Loss)</td></tr>
+          <tr><td>Typische Formate</td><td>PNG, FLAC, ZIP, 7z</td><td>JPEG, MP3, AAC, H.264</td></tr>
+          <tr><td>Einsatz</td><td>Dokumente, Code, Archivierung</td><td>Fotos, Musik, Videos für Endnutzer</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Archivformate</h3>
+      <table>
+        <thead>
+          <tr><th>Format</th><th>Komprimierung</th><th>Verschlüsselung</th><th>Besonderheit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>ZIP</strong> (.zip)</td><td>Deflate (verlustfrei)</td><td>optional (schwach)</td><td>universell, überall unterstützt</td></tr>
+          <tr><td><strong>7-Zip</strong> (.7z)</td><td>LZMA (verlustfrei)</td><td>AES-256 (stark)</td><td>sehr hohe Komprimierungsrate</td></tr>
+          <tr><td><strong>RAR</strong> (.rar)</td><td>RAR-Algorithmus</td><td>AES-256</td><td>Wiederherstellung bei Dateifehler möglich</td></tr>
+          <tr><td><strong>TAR</strong> (.tar)</td><td>keine (nur Archivierung)</td><td>nein</td><td>Linux-Standard, oft mit .gz oder .bz2 kombiniert</td></tr>
+          <tr><td><strong>GZ</strong> (.tar.gz)</td><td>Gzip (verlustfrei)</td><td>nein</td><td>Linux-Softwarepakete, schnell</td></tr>
+        </tbody>
+      </table>
+      <p>
+        TAR und Gzip erfüllen unterschiedliche Aufgaben: TAR bündelt
+        mehrere Dateien nur zu einem Archiv, ohne zu komprimieren — Gzip
+        komprimiert anschließend dieses Bündel. <code>.tar.gz</code>
+        bedeutet also: erst packen (TAR), dann komprimieren (Gzip).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Fotograf, der für die TechNord GmbH Produktbilder liefert,
+        bearbeitet ein Foto mehrfach und speichert es dabei jedes Mal
+        erneut als JPEG:
+      </p>
+      <ul>
+        <li><strong>Problem:</strong> Nach mehreren Bearbeitungsrunden
+          zeigt das Bild sichtbare Qualitätsverluste — klassisches
+          <strong>Generation Loss</strong>, da JPEG bei jedem Speichern
+          erneut verlustbehaftet komprimiert.</li>
+        <li><strong>Lösung:</strong> Der Fotograf arbeitet künftig im
+          verlustfreien Originalformat (RAW bzw. PNG) und exportiert erst
+          ganz am Ende einmalig als JPEG.</li>
+      </ul>
+      <p>
+        Für das interne Software-Deployment nutzt die IT-Abteilung
+        <code>.tar.gz</code>-Pakete für Linux-Server (TAR bündelt, Gzip
+        komprimiert verlustfrei) — für ein Backup-Archiv mit besonders
+        hoher Komprimierungsrate und starker Verschlüsselung wird
+        stattdessen <strong>7-Zip</strong> mit AES-256 gewählt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Verlustfrei (PNG, FLAC, ZIP, 7z): exakt wiederherstellbar, 20–80 %
+        kleiner, kein Qualitätsverlust bei mehrfacher Kompression.
+        Verlustbehaftet (JPEG, MP3, H.264): dauerhaft gelöschte Details,
+        90–99 % kleiner, Generation Loss bei wiederholtem Speichern —
+        deshalb im Originalformat arbeiten und erst am Ende exportieren.
+        TAR bündelt, Gzip/7-Zip/RAR komprimieren.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/kompression.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

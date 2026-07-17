@@ -1,0 +1,101 @@
+{
+  "unit": "qualitaetssicherung/pdca-prozessorientiertes-qm",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür stehen die vier Buchstaben des PDCA-Zyklus?",
+      "options": [
+        "Plan, Do, Check, Act",
+        "Print, Design, Code, Analyze",
+        "Problem, Diagnose, Cause, Action",
+        "Plan, Develop, Control, Approve"
+      ],
+      "answer": 0,
+      "explanation": "PDCA steht für Plan, Do, Check, Act – die vier Phasen des Deming-Kreises."
+    },
+    {
+      "id": "q2",
+      "question": "Was passiert in der Check-Phase des PDCA-Zyklus?",
+      "options": [
+        "Die Ziele werden erstmals festgelegt",
+        "Die Ergebnisse werden anhand von Kennzahlen mit den geplanten Zielen verglichen",
+        "Die Maßnahme wird unternehmensweit ausgerollt",
+        "Der gesamte Prozess wird beendet"
+      ],
+      "answer": 1,
+      "explanation": "In der Check-Phase werden die tatsächlichen Ergebnisse mit den geplanten Zielen verglichen."
+    },
+    {
+      "id": "q3",
+      "question": "Was geschieht in der Act-Phase, wenn eine Maßnahme erfolgreich war?",
+      "options": [
+        "Die Maßnahme wird sofort wieder verworfen",
+        "Die Maßnahme wird standardisiert und unternehmensweit ausgerollt",
+        "Der PDCA-Zyklus wird beendet und nie wieder durchlaufen",
+        "Es erfolgt keine weitere Handlung"
+      ],
+      "answer": 1,
+      "explanation": "Bei Erfolg wird die Maßnahme in der Act-Phase standardisiert und breiter ausgerollt."
+    },
+    {
+      "id": "q4",
+      "question": "In welchem Verhältnis stehen PDCA und Kaizen laut der Einheit zueinander?",
+      "options": [
+        "Sie sind völlig unabhängig voneinander und haben nichts gemeinsam",
+        "PDCA ist das konkrete, wiederholbare Handwerkszeug, mit dem sich die Kaizen-Philosophie der kontinuierlichen Verbesserung umsetzen lässt",
+        "Kaizen ersetzt den PDCA-Zyklus vollständig",
+        "PDCA gilt nur für IT-Sicherheitsmanagementsysteme, Kaizen nur für Produktion"
+      ],
+      "answer": 1,
+      "explanation": "PDCA liefert den konkreten Regelkreis, mit dem die Kaizen-Grundhaltung kontinuierlicher Verbesserung praktisch umgesetzt wird."
+    },
+    {
+      "id": "q5",
+      "question": "Was unterscheidet prozessorientiertes Qualitätsmanagement von reiner Endkontrolle?",
+      "options": [
+        "Es prüft ausschließlich das fertige Produkt am Ende",
+        "Es überwacht und verbessert kontinuierlich die Prozesse, die zur Qualität führen",
+        "Es verzichtet vollständig auf jede Art von Kontrolle",
+        "Es betrifft nur die Buchhaltung eines Unternehmens"
+      ],
+      "answer": 1,
+      "explanation": "Prozessorientiertes QM fokussiert auf die kontinuierliche Überwachung und Verbesserung der Prozesse selbst, nicht nur auf die Endkontrolle."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Norm ist die bekannteste für Qualitätsmanagementsysteme?",
+      "options": [
+        "ISO/IEC 27001",
+        "ISO 9001",
+        "ISO 14001",
+        "DIN EN 50600"
+      ],
+      "answer": 1,
+      "explanation": "ISO 9001 ist die bekannteste Norm für Qualitätsmanagementsysteme."
+    },
+    {
+      "id": "q7",
+      "question": "Was ist erforderlich, um eine ISO-9001-Zertifizierung aufrechtzuerhalten?",
+      "options": [
+        "Keine weiteren Maßnahmen nach der ersten Zertifizierung",
+        "Regelmäßige Audits durch eine unabhängige, akkreditierte Stelle",
+        "Eine einmalige interne Prüfung ohne externe Beteiligung",
+        "Ausschließlich eine jährliche Selbstauskunft ohne Prüfung"
+      ],
+      "answer": 1,
+      "explanation": "Zur Aufrechterhaltung einer ISO-9001-Zertifizierung sind regelmäßige externe Audits notwendig."
+    },
+    {
+      "id": "q8",
+      "question": "Im Praxisbeispiel: Was ergibt die Check-Phase bei der Verbesserung der Ticket-Bearbeitungszeit?",
+      "options": [
+        "Die Bearbeitungszeit ist auf 30 Stunden gesunken, die Kundenzufriedenheit blieb konstant",
+        "Die Bearbeitungszeit ist auf 60 Stunden gestiegen",
+        "Es gab keine messbaren Ergebnisse",
+        "Die Maßnahme wurde ohne Auswertung sofort verworfen"
+      ],
+      "answer": 0,
+      "explanation": "Die Auswertung zeigt eine Verbesserung auf 30 Stunden bei gleichbleibender Kundenzufriedenheit, woraufhin die Maßnahme ausgerollt wird."
+    }
+  ]
+}

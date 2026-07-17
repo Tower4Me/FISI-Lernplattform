@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Monitore & Displays</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">Monitore & Displays</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Monitore & Displays
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Monitor-Panel ist wie unterschiedliches Malmaterial: TN ist die
+        schnelle Bleistiftskizze — flott, aber die Farben verblassen, sobald
+        man schräg draufschaut. IPS ist die Leinwand des Profis — Farben
+        bleiben aus jedem Blickwinkel treu. VA ist ein schwerer
+        Samtvorhang — sattes, tiefes Schwarz, aber etwas trägere Bewegung.
+        Und OLED ist, als würde jeder einzelne Bildpunkt seine eigene kleine
+        Kerze tragen: perfektes Schwarz, weil eine ausgeschaltete Kerze
+        wirklich dunkel ist — brennt sie aber zu lange am selben Fleck,
+        hinterlässt sie eine Spur (Burn-in).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>TFT/LCD: das Grundprinzip</h3>
+      <p>
+        Ein <strong>LCD</strong> (Liquid Crystal Display) steuert
+        Flüssigkristalle zwischen zwei Glasscheiben an, um Licht
+        durchzulassen oder zu blockieren. <strong>TFT</strong> (Thin Film
+        Transistor) beschreibt dabei die Ansteuerungstechnik: Jeder
+        einzelne Bildpunkt bekommt einen eigenen winzigen Transistor, damit
+        er unabhängig geschaltet werden kann — praktisch alle modernen
+        LCD-Monitore sind TFT-LCDs. Da Flüssigkristalle selbst kein Licht
+        erzeugen, braucht ein LCD immer eine <strong>Hintergrundbeleuchtung</strong>
+        (Backlight).
+      </p>
+
+      <h3>Panel-Technologien (TFT-Varianten)</h3>
+      <table>
+        <thead>
+          <tr><th>Panel</th><th>Reaktionszeit</th><th>Blickwinkel</th><th>Kontrast</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TN</strong> (Twisted Nematic)</td>
+            <td>~1 ms (am schnellsten)</td>
+            <td>schlecht (Farben verblassen seitlich)</td>
+            <td>~1000:1</td>
+            <td>günstig, kaum noch empfohlen außer extremes Competitive-Gaming</td>
+          </tr>
+          <tr>
+            <td><strong>IPS</strong> (In-Plane Switching)</td>
+            <td>4–6 ms</td>
+            <td>178° horizontal und vertikal, sehr farbtreu</td>
+            <td>~1000:1</td>
+            <td>Standard für Büro, Grafik, professionelle Nutzung</td>
+          </tr>
+          <tr>
+            <td><strong>VA</strong> (Vertical Alignment)</td>
+            <td>4–8 ms</td>
+            <td>besser als TN, schlechter als IPS</td>
+            <td>2500:1–6000:1 (deutlich höher)</td>
+            <td>Filme/Content-Consumption, sattes Schwarz</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>OLED: selbstleuchtende Pixel</h3>
+      <p>
+        <strong>OLED</strong> (Organic Light Emitting Diode) braucht kein
+        Backlight — jedes Pixel leuchtet selbst und lässt sich komplett
+        abschalten, was ein absolutes Schwarz und eine extrem kurze
+        Reaktionszeit (unter 0,1 ms) ergibt. Der Nachteil: Bei dauerhaft
+        gleichen statischen Bildinhalten kann sich das Bild
+        <strong>einbrennen</strong> (Burn-in), zudem ist die
+        Spitzenhelligkeit niedriger als bei LCD-Panels.
+      </p>
+
+      <h3>Auflösungen: HD bis 8K</h3>
+      <table>
+        <thead>
+          <tr><th>Auflösung</th><th>Bezeichnung</th><th>Pixel</th><th>typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1920 × 1080</td><td>Full HD (FHD)</td><td>~2,1 MP</td><td>Standard-Büro, Einsteiger</td></tr>
+          <tr><td>2560 × 1440</td><td>QHD / 2K</td><td>~3,7 MP</td><td>Produktiv, Gaming</td></tr>
+          <tr><td>3840 × 2160</td><td>UHD / 4K</td><td>~8,3 MP</td><td>Grafik, Medienproduktion</td></tr>
+          <tr><td>7680 × 4320</td><td>8K</td><td>~33,2 MP</td><td>Spezialanwendungen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        4K hat die vierfache Pixelanzahl von Full HD (doppelte Breite ×
+        doppelte Höhe), 8K wiederum die vierfache Pixelanzahl von 4K.
+      </p>
+
+      <h3>Weitere Kenngrößen</h3>
+      <table>
+        <thead>
+          <tr><th>Kenngröße</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Bildwiederholrate (Hz)</strong></td><td>Bilder pro Sekunde; 60 Hz = Büro-Standard, 144 Hz und mehr = Gaming</td></tr>
+          <tr><td><strong>Reaktionszeit (ms)</strong></td><td>wie schnell ein Pixel die Farbe wechselt; niedriger Wert = weniger Bewegungsunschärfe/Ghosting</td></tr>
+          <tr><td><strong>HDR</strong></td><td>High Dynamic Range; braucht hohe Spitzenhelligkeit und lokales Dimming, um wirklich sichtbar zu sein</td></tr>
+          <tr><td><strong>Adaptive Sync</strong></td><td>G-Sync (NVIDIA) / FreeSync (AMD) synchronisieren Monitor-Hz mit der GPU-Framerate und verhindern Screen-Tearing</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH stattet drei unterschiedliche Arbeitsplätze neu
+        aus und muss jeweils das passende Panel und die passende Auflösung
+        auswählen:
+      </p>
+      <ul>
+        <li><strong>Standard-Bürotisch:</strong> IPS-Panel, 24 Zoll, Full HD
+          oder QHD, 60–75 Hz — kein HDR nötig, Blickwinkel und Farbtreue
+          reichen für Office-Arbeit völlig aus.</li>
+        <li><strong>CAD-/Grafik-Arbeitsplatz:</strong> IPS-Panel, 27–32 Zoll,
+          QHD oder 4K, hohe Farbabdeckung — hier zählt Farbtreue über den
+          gesamten Bildschirm, nicht Reaktionszeit.</li>
+        <li><strong>Kassenarbeitsplatz:</strong> einfaches TN- oder
+          IPS-Panel, 19–24 Zoll, Full HD reicht völlig — hier ist der Preis
+          entscheidend, nicht Farbtreue oder Kontrast.</li>
+      </ul>
+      <p>
+        Die Auswahl richtet sich also nicht nach „bester Technik“, sondern
+        danach, welche Eigenschaft (Farbtreue, Kontrast, Reaktionszeit,
+        Preis) am jeweiligen Arbeitsplatz wirklich gebraucht wird.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        TFT beschreibt die Ansteuerung (ein Transistor je Pixel), LCD
+        braucht dafür immer ein Backlight. TN = schnell, aber schlechter
+        Blickwinkel. IPS = farbtreu, großer Blickwinkel — Büro-Standard.
+        VA = bester Kontrast/Schwarzwert. OLED = selbstleuchtend, perfektes
+        Schwarz, aber Burn-in-Risiko. 4K hat 4× so viele Pixel wie Full HD,
+        8K wiederum 4× so viele wie 4K.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/monitore-display.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "unit": "kalkulation/datenmengen-uebertragung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was unterscheidet Bandbreite von Durchsatz?",
+      "options": [
+        "Bandbreite ist die theoretische maximale Kapazität einer Leitung, Durchsatz die tatsächlich erreichte Übertragungsrate",
+        "Bandbreite und Durchsatz sind exakt dasselbe, nur andere Fachbegriffe dafür",
+        "Durchsatz beschreibt nur den Upload, Bandbreite nur den Download",
+        "Bandbreite wird immer in Byte/s gemessen, Durchsatz immer in Bit/s"
+      ],
+      "answer": 0,
+      "explanation": "Die Bandbreite ist der vertraglich zugesicherte Maximalwert einer Leitung. Der Durchsatz ist die real gemessene Rate, die wegen Overhead meist darunter liegt."
+    },
+    {
+      "id": "q2",
+      "question": "Wie viele Bit entsprechen 1 Byte?",
+      "options": [
+        "4",
+        "8",
+        "10",
+        "16"
+      ],
+      "answer": 1,
+      "explanation": "1 Byte besteht immer aus 8 Bit — diese Umrechnung wird bei Übertragungsdauer-Berechnungen ständig benötigt."
+    },
+    {
+      "id": "q3",
+      "question": "Mit welcher Formel berechnet man die Übertragungsdauer einer Datei?",
+      "options": [
+        "Datenrate × Datenmenge",
+        "Datenmenge ÷ Datenrate",
+        "Datenrate ÷ Datenmenge",
+        "Datenmenge − Datenrate"
+      ],
+      "answer": 1,
+      "explanation": "Übertragungsdauer = Datenmenge (in Bit) ÷ Datenrate (in Bit/s). Beide Größen müssen dafür in derselben Einheit vorliegen."
+    },
+    {
+      "id": "q4",
+      "question": "Warum werden Internet-Datenraten wie „100 Mbit/s“ dezimal (Faktor 1.000) angegeben, während Speicherkapazitäten seit 2025 verpflichtend binäre Präfixe (KiB/MiB/GiB, Faktor 1.024) verwenden?",
+      "options": [
+        "Weil Netzwerktechnik traditionell mit dezimalen SI-Präfixen rechnet, Speicherkapazitäten aber binär gezählt werden — beides sind unterschiedliche Konventionen, die vor dem Rechnen umgerechnet werden müssen",
+        "Weil binäre Präfixe für Datenraten technisch unmöglich sind",
+        "Weil Router grundsätzlich keine binären Zahlen verarbeiten können",
+        "Weil Mbit/s und MiB/s exakt denselben Zahlenwert bezeichnen"
+      ],
+      "answer": 0,
+      "explanation": "Datenraten folgen der dezimalen SI-Konvention (1 Mbit/s = 1.000.000 Bit/s), Datenmengen der binären Konvention (1 GiB = 1.024 MiB). Diese Vermischung ist eine typische Fehlerquelle bei Übertragungsberechnungen."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Kunde bucht eine Standleitung mit 100 Mbit/s Bandbreite. Ein Messtool zeigt real nur 85 Mbit/s Durchsatz. Was ist die wahrscheinlichste Ursache für die Differenz?",
+      "options": [
+        "Der Router ist grundsätzlich defekt",
+        "Protokoll-Overhead (Header von Ethernet/IP/TCP) sowie mögliche Störungen reduzieren die nutzbare Rate gegenüber der nominalen Bandbreite",
+        "100 Mbit/s ist ein Rechenfehler des Anbieters",
+        "Bandbreite und Durchsatz sind immer exakt identisch"
+      ],
+      "answer": 1,
+      "explanation": "Protokoll-Header, Kollisionen und Signalstörungen kosten immer einen Teil der nominalen Bandbreite — der real nutzbare Durchsatz liegt deshalb praktisch immer etwas darunter."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Mitarbeiter lädt eine 250-MiB-Datei über eine 50-Mbit/s-Leitung bei voller Bandbreite herunter. Wie lange dauert der Download ungefähr?",
+      "options": [
+        "5 s",
+        "21 s",
+        "42 s",
+        "336 s"
+      ],
+      "answer": 2,
+      "explanation": "250 MiB = 250 × 1.024 × 1.024 Byte = 262.144.000 Byte, × 8 = 2.097.152.000 Bit. 2.097.152.000 Bit ÷ 50.000.000 Bit/s ≈ 42 s."
+    },
+    {
+      "id": "q7",
+      "question": "Eine Datenübertragung von 10 MiB dauert genau 2 Sekunden. Wie hoch war die durchschnittliche Datenrate ungefähr?",
+      "options": [
+        "10 Mbit/s",
+        "42 Mbit/s",
+        "80 Mbit/s",
+        "168 Mbit/s"
+      ],
+      "answer": 1,
+      "explanation": "10 MiB = 10 × 1.024 × 1.024 Byte = 10.485.760 Byte, × 8 = 83.886.080 Bit. 83.886.080 Bit ÷ 2 s ≈ 41.943.040 Bit/s ≈ 42 Mbit/s."
+    }
+  ]
+}

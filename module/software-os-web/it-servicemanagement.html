@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: IT-Servicemanagement (ITIL)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">IT-Servicemanagement (ITIL)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      IT-Servicemanagement (ITIL)
+      <span class="badges">
+        <span class="badge badge--randwissen">Randwissen</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        ITIL ist wie ein bewährtes Kochbuch für den Betrieb einer
+        IT-Küche: Es schreibt keinem Restaurant vor, wie es kochen muss,
+        bietet aber erprobte Rezepte für wiederkehrende Situationen — was
+        tun, wenn ein Gericht misslingt (Incident), wie man dauerhaft
+        verhindert, dass es erneut misslingt (Problem), und wie man die
+        Speisekarte kontrolliert ändert, ohne den laufenden Betrieb zu
+        gefährden (Change). ISO/IEC 20000 ist dagegen wie das offizielle
+        Prüfsiegel eines Lebensmittelkontrolleurs, das bestätigt, dass die
+        Küche wirklich systematisch nach solchen Prozessen arbeitet.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        <strong>IT-Servicemanagement (ITSM)</strong> betrachtet IT nicht
+        nur aus technischer Sicht, sondern als Dienstleistung aus
+        Kundensicht: Planung, Bereitstellung, Betrieb und kontinuierliche
+        Verbesserung von IT-Services.
+      </p>
+
+      <h3>ITIL (IT Infrastructure Library)</h3>
+      <p>
+        <strong>ITIL</strong> ist ein weltweit verbreitetes
+        Best-Practice-Rahmenwerk für IT-Servicemanagement — kein Gesetz
+        und keine eigene Zertifizierungsnorm für Unternehmen, sondern eine
+        Sammlung erprobter Prozessempfehlungen für den gesamten
+        Lebenszyklus von IT-Services.
+      </p>
+      <table>
+        <thead>
+          <tr><th>ITIL-Prozess</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Incident Management</strong></td>
+            <td>schnelle Wiederherstellung des Normalbetriebs nach einer
+              Störung (siehe Einheit SLA & Support-Level)</td>
+          </tr>
+          <tr>
+            <td><strong>Problem Management</strong></td>
+            <td>Ursachenanalyse (siehe 5-Whys/Root-Cause im Modul
+              Projektmanagement), um wiederkehrende Störungen dauerhaft
+              zu beheben, nicht nur ihre Symptome</td>
+          </tr>
+          <tr>
+            <td><strong>Change Management</strong></td>
+            <td>kontrollierte, geplante Durchführung von Änderungen an
+              der IT-Infrastruktur (Testphase, Genehmigung,
+              Rollback-Plan), um Risiken für den laufenden Betrieb zu
+              minimieren</td>
+          </tr>
+          <tr>
+            <td><strong>Service Level Management</strong></td>
+            <td>Definition und Überwachung von SLAs (siehe Einheit SLA &
+              Support-Level)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>ISO/IEC 20000</h3>
+      <p>
+        Im Unterschied zu ITIL ist <strong>ISO/IEC 20000</strong> eine
+        offizielle, <strong>zertifizierbare</strong> internationale Norm
+        für IT-Servicemanagement-Systeme — ein Unternehmen kann sich
+        extern auditieren und zertifizieren lassen (ähnlich wie bei
+        ISO/IEC 27001 für Informationssicherheit, siehe Modul
+        IT-Sicherheit). ITIL-Prozesse dienen dabei häufig als praktische
+        Grundlage, um die Anforderungen von ISO 20000 tatsächlich
+        umzusetzen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH arbeitet nach ITIL-Prozessen:
+      </p>
+      <ul>
+        <li><strong>Ein Serverausfall</strong> wird über
+          <strong>Incident Management</strong> so schnell wie möglich
+          behoben, damit der Betrieb wieder läuft.</li>
+        <li><strong>Da derselbe Server wiederholt ausfällt</strong>,
+          untersucht das <strong>Problem Management</strong> die
+          eigentliche Ursache und findet eine fehlerhafte Netzteilserie.</li>
+        <li><strong>Der geplante Austausch</strong> aller betroffenen
+          Netzteile läuft über einen kontrollierten
+          <strong>Change-Management</strong>-Prozess mit Testphase,
+          Genehmigung und Rollback-Plan, statt spontan und unkoordiniert
+          umgesetzt zu werden.</li>
+        <li><strong>Langfristig</strong> strebt TechNord eine
+          <strong>ISO-20000-Zertifizierung</strong> an, um sich bei
+          Ausschreibungen als Dienstleister mit nachweislich
+          strukturiertem Servicemanagement zu positionieren.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ITIL ist ein Best-Practice-Rahmenwerk (kein Zertifizierungsnorm),
+        ISO/IEC 20000 ist die offizielle, zertifizierbare Norm für
+        IT-Servicemanagement. Incident Management behebt akute Störungen
+        schnell, Problem Management sucht die dauerhafte Ursache, Change
+        Management steuert Änderungen kontrolliert, Service Level
+        Management überwacht SLAs.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/it-servicemanagement.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

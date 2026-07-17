@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz & Recht: Urheberrecht & Lizenzmodelle</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#datenschutz-recht">Datenschutz & Recht</a></li>
+        <li aria-current="page">Urheberrecht & Lizenzmodelle</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Urheberrecht & Lizenzmodelle
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir Software-Lizenzen wie unterschiedliche Auto-Mietmodelle
+        vor. Die EULA ist das Regelwerk, das du beim Übergeben der
+        Schlüssel akzeptierst. Eine OEM-Lizenz ist wie ein Auto, das
+        untrennbar mit einem bestimmten Fahrgestell verschweißt ist — es
+        lässt sich nicht auf ein anderes Fahrzeug übertragen. Bei GPL
+        darfst du das Auto umbauen und sogar weiterverkaufen, musst dann
+        aber die Baupläne deiner Änderungen mitliefern. Bei MIT darfst du
+        fast alles machen, musst nur einen kleinen Herstellerhinweis
+        dranlassen. Freemium ist die Basisfahrt umsonst, Extras kosten
+        extra. Und Pay-per-Use zahlst du nicht fürs Auto, sondern für
+        jeden gefahrenen Kilometer.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Urheberrecht bei Software</h3>
+      <p>
+        Software ist urheberrechtlich geschützt (§ 69a
+        Urheberrechtsgesetz, UrhG). Das Urheberrecht entsteht automatisch
+        mit der Schöpfung — es ist keine Registrierung nötig — und bleibt
+        in Deutschland grundsätzlich beim Urheber (also bei der Person,
+        die die Software geschaffen hat). Was übertragen oder verkauft
+        wird, ist nicht das Urheberrecht selbst, sondern ein
+        <strong>Nutzungsrecht</strong> — genau das ist eine Lizenz.
+      </p>
+
+      <h3>Lizenzmodelle im Vergleich</h3>
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>EULA</strong> (End User License Agreement)</td>
+            <td>Standard-Lizenzvertrag zwischen Softwarehersteller und
+              Endnutzer, regelt erlaubte und verbotene Nutzung
+              proprietärer Software</td>
+          </tr>
+          <tr>
+            <td><strong>OEM-Lizenz</strong></td>
+            <td>an ein bestimmtes Gerät gebunden (meist bei
+              Vorinstallation), günstiger als Vollversion, aber nicht auf
+              ein anderes Gerät übertragbar</td>
+          </tr>
+          <tr>
+            <td><strong>GPL</strong> (GNU General Public License)</td>
+            <td>Copyleft-Open-Source-Lizenz: Quellcode muss offen
+              bleiben, wer eine GPL-Software modifiziert und
+              weiterverbreitet, muss den veränderten Quellcode ebenfalls
+              unter GPL zugänglich machen</td>
+          </tr>
+          <tr>
+            <td><strong>MIT-Lizenz</strong></td>
+            <td>sehr permissive Open-Source-Lizenz: nahezu uneingeschränkte
+              Nutzung, Veränderung und auch kommerzielle Nutzung erlaubt —
+              es muss lediglich der ursprüngliche Urheber-/Lizenzvermerk
+              erhalten bleiben</td>
+          </tr>
+          <tr>
+            <td><strong>Freemium</strong></td>
+            <td>Basisversion kostenlos nutzbar, erweiterte Funktionen
+              sind kostenpflichtig</td>
+          </tr>
+          <tr>
+            <td><strong>Pay-per-Use</strong></td>
+            <td>Abrechnung nach tatsächlicher Nutzung (z. B. Anzahl
+              Anfragen, genutzte Rechenzeit) statt fester Lizenzgebühr —
+              typisch bei Cloud-Diensten (siehe Modul Netzwerktechnik,
+              Cloud-Grundlagen)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Der wichtigste Unterschied zwischen GPL und MIT: Beide sind
+        Open-Source-Lizenzen und erlauben das Einsehen und Verändern des
+        Quellcodes — aber nur GPL verlangt (Copyleft-Prinzip), dass
+        abgeleitete Werke wieder unter derselben Lizenz offengelegt
+        werden. MIT stellt hier keine solche Bedingung.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH setzt bei der Ausstattung neuer Arbeitsplätze
+        gleich mehrere Lizenzmodelle gleichzeitig ein:
+      </p>
+      <ul>
+        <li><strong>Neue Notebooks</strong> kommen mit vorinstalliertem
+          Windows unter <strong>OEM-Lizenz</strong> — diese Lizenz bleibt
+          fest an das jeweilige Gerät gebunden und kann nicht auf ein
+          anderes Notebook übertragen werden.</li>
+        <li><strong>Eine interne Auswertungs-Anwendung</strong> nutzt eine
+          Open-Source-Bibliothek unter <strong>MIT-Lizenz</strong> — sie
+          darf frei in die eigene, auch kommerzielle Software integriert
+          werden, solange der ursprüngliche Lizenzvermerk erhalten
+          bleibt.</li>
+        <li><strong>Ein Cloud-Backup-Dienst</strong> wird nach
+          tatsächlich gespeichertem Datenvolumen abgerechnet —
+          <strong>Pay-per-Use</strong> statt fester monatlicher Gebühr.</li>
+        <li><strong>Eine Projektmanagement-Software</strong> wird zunächst
+          kostenlos in der Basisversion genutzt, für zusätzliche Reports
+          wird ein <strong>Freemium</strong>-Upgrade gebucht.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Das Urheberrecht selbst bleibt beim Schöpfer, übertragen wird nur
+        das Nutzungsrecht (Lizenz). EULA regelt proprietäre
+        Endnutzer-Software, OEM bindet die Lizenz an ein Gerät. GPL
+        (Copyleft) verlangt Offenlegung abgeleiteter Werke, MIT ist
+        deutlich permissiver. Freemium = Basis kostenlos, Extras
+        kostenpflichtig. Pay-per-Use = Abrechnung nach tatsächlicher
+        Nutzung statt fixer Gebühr.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenschutz-recht/urheberrecht-lizenzen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/virtualisierung-hypervisor",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist die grundlegende Aufgabe eines Hypervisors?",
+      "options": [
+        "Er verschlüsselt den Datenverkehr zwischen virtuellen Maschinen",
+        "Er teilt physische Ressourcen in mehrere logisch unabhängige virtuelle Instanzen auf und verwaltet sie",
+        "Er ersetzt die Notwendigkeit eines Betriebssystems vollständig",
+        "Er dient ausschließlich der Netzwerküberwachung"
+      ],
+      "answer": 1,
+      "explanation": "Der Hypervisor ist die Steuerungssoftware, die physische Hardware-Ressourcen auf mehrere virtuelle Maschinen aufteilt und verwaltet."
+    },
+    {
+      "id": "q2",
+      "question": "Was zeichnet einen Typ-1-Hypervisor (Bare-Metal) aus?",
+      "options": [
+        "Er läuft als Anwendung innerhalb eines normalen Host-Betriebssystems",
+        "Er läuft direkt auf der Hardware, ohne zugrunde liegendes Host-Betriebssystem",
+        "Er kann nur eine einzige virtuelle Maschine gleichzeitig betreiben",
+        "Er wird ausschließlich für Desktopvirtualisierung eingesetzt"
+      ],
+      "answer": 1,
+      "explanation": "Ein Typ-1-Hypervisor läuft direkt auf der Hardware (Bare-Metal), ohne dass ein zusätzliches Host-Betriebssystem dazwischenliegt."
+    },
+    {
+      "id": "q3",
+      "question": "Warum wird für den produktiven Servereinsatz meist ein Typ-1-Hypervisor bevorzugt?",
+      "options": [
+        "Weil er kostenlos ist, Typ-2-Hypervisoren aber immer kostenpflichtig sind",
+        "Weil er ohne zusätzliche Betriebssystemschicht arbeitet und dadurch bessere Performance bietet",
+        "Weil er einfacher auf einem gewöhnlichen Arbeitsplatzrechner zu installieren ist",
+        "Weil er keine Snapshots unterstützt"
+      ],
+      "answer": 1,
+      "explanation": "Typ-1-Hypervisoren laufen direkt auf der Hardware ohne zusätzlichen Betriebssystem-Overhead und bieten dadurch bessere Performance für den produktiven Einsatz."
+    },
+    {
+      "id": "q4",
+      "question": "Welches Beispiel gehört zu einem Typ-2-Hypervisor?",
+      "options": [
+        "VMware ESXi",
+        "Microsoft Hyper-V (Server-Rolle)",
+        "VirtualBox",
+        "Proxmox VE"
+      ],
+      "answer": 2,
+      "explanation": "VirtualBox läuft als Anwendung innerhalb eines Host-Betriebssystems und ist damit ein typischer Typ-2-Hypervisor. ESXi, Hyper-V und Proxmox sind Typ-1-Hypervisoren."
+    },
+    {
+      "id": "q5",
+      "question": "Was beschreibt Desktopvirtualisierung (z. B. VDI)?",
+      "options": [
+        "Ein physischer Server wird in mehrere virtuelle Server aufgeteilt",
+        "Ein kompletter Arbeitsplatz-Desktop läuft zentral im Rechenzentrum und wird auf ein Endgerät gestreamt",
+        "Eine einzelne Anwendung läuft isoliert ohne lokale Installation",
+        "Mehrere physische Server werden zu einem Cluster zusammengeschlossen"
+      ],
+      "answer": 1,
+      "explanation": "Bei Desktopvirtualisierung (VDI) läuft der komplette Desktop zentral im Rechenzentrum, das Endgerät (oft ein Thin Client) zeigt nur das gestreamte Bild an."
+    },
+    {
+      "id": "q6",
+      "question": "Welchen praktischen Vorteil bietet ein Snapshot einer virtuellen Maschine?",
+      "options": [
+        "Er erhöht dauerhaft die Rechenleistung der VM",
+        "Er ermöglicht es, den Zustand der VM vor riskanten Änderungen zu sichern und bei Bedarf zurückzusetzen",
+        "Er verschlüsselt automatisch alle Daten der VM",
+        "Er ersetzt die Notwendigkeit eines Backups vollständig"
+      ],
+      "answer": 1,
+      "explanation": "Ein Snapshot sichert den aktuellen Zustand einer VM, sodass bei fehlgeschlagenen Änderungen schnell zum vorherigen Stand zurückgekehrt werden kann."
+    },
+    {
+      "id": "q7",
+      "question": "Welchen Hauptvorteil bietet die Konsolidierung mehrerer schwach ausgelasteter physischer Server auf einer virtualisierten Hardware?",
+      "options": [
+        "Die Anzahl der benötigten IP-Adressen sinkt automatisch auf eins",
+        "Bessere Hardwareauslastung sowie geringerer Strom-, Kühl- und Wartungsaufwand",
+        "Jede virtuelle Maschine benötigt automatisch weniger Arbeitsspeicher als vorher",
+        "Es entfällt vollständig die Notwendigkeit von Backups"
+      ],
+      "answer": 1,
+      "explanation": "Durch Servervirtualisierung teilen sich mehrere VMs eine leistungsfähige physische Hardware, wodurch Auslastung steigt und Strom-, Kühl- sowie Wartungsaufwand gegenüber mehreren Einzelservern sinken."
+    }
+  ]
+}

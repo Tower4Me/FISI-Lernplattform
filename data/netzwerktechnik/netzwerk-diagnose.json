@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/netzwerk-diagnose",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür wird der Befehl ping verwendet?",
+      "options": [
+        "Um die eigene IP-Konfiguration anzuzeigen",
+        "Um zu prüfen, ob ein Zielgerät erreichbar ist, und Antwortzeiten zu messen",
+        "Um DNS-Einträge zu bearbeiten",
+        "Um WLAN-Passwörter anzuzeigen"
+      ],
+      "answer": 1,
+      "explanation": "ping sendet ICMP-Echo-Anfragen an ein Zielgerät und zeigt, ob und wie schnell es antwortet."
+    },
+    {
+      "id": "q2",
+      "question": "Was zeigt der Befehl tracert (bzw. traceroute) im Unterschied zu ping?",
+      "options": [
+        "Er zeigt zusätzlich die MAC-Adresse des eigenen Geräts",
+        "Er zeigt jede einzelne Zwischenstation (Hop) auf dem Weg zum Ziel",
+        "Er konfiguriert automatisch die Firewall",
+        "Er zeigt ausschließlich die DNS-Server-Adresse"
+      ],
+      "answer": 1,
+      "explanation": "tracert/traceroute listet alle Router-Hops zwischen dem eigenen Gerät und dem Ziel auf und hilft so, den Ort einer Störung einzugrenzen."
+    },
+    {
+      "id": "q3",
+      "question": "Was prüft ein Ping auf die Loopback-Adresse 127.0.0.1?",
+      "options": [
+        "Ob der Internetanbieter erreichbar ist",
+        "Ob der lokale TCP/IP-Stack des eigenen Geräts korrekt funktioniert, unabhängig vom Netzwerk",
+        "Ob der DNS-Server korrekt konfiguriert ist",
+        "Ob das Standardgateway erreichbar ist"
+      ],
+      "answer": 1,
+      "explanation": "127.0.0.1 verweist ein Gerät auf sich selbst — ein erfolgreicher Ping zeigt, dass der lokale Netzwerk-Stack funktioniert, unabhängig von einer echten Netzwerkverbindung."
+    },
+    {
+      "id": "q4",
+      "question": "Welcher Befehl zeigt unter Windows die aktuelle IP-Konfiguration eines Geräts an?",
+      "options": [
+        "nslookup",
+        "tracert",
+        "ipconfig",
+        "netsh wlan"
+      ],
+      "answer": 2,
+      "explanation": "ipconfig zeigt IP-Adresse, Subnetzmaske und Standardgateway des Geräts an; mit dem Zusatz /all auch MAC-Adresse und DNS-Server."
+    },
+    {
+      "id": "q5",
+      "question": "Wozu dient der Befehl nslookup?",
+      "options": [
+        "Um die eigene MAC-Adresse zu ändern",
+        "Um gezielt einen DNS-Server abzufragen und die IP-Auflösung eines Domainnamens zu prüfen",
+        "Um eine neue Netzwerkverbindung herzustellen",
+        "Um WLAN-Netzwerke in Reichweite anzuzeigen"
+      ],
+      "answer": 1,
+      "explanation": "nslookup fragt gezielt DNS-Server ab und zeigt, zu welcher IP-Adresse ein Domainname aufgelöst wird."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Ping auf 127.0.0.1 funktioniert, ein Ping auf das Standardgateway schlägt fehl. Wo liegt die Fehlerursache am wahrscheinlichsten?",
+      "options": [
+        "Im lokalen TCP/IP-Stack des eigenen Geräts",
+        "Zwischen dem eigenen Gerät und dem Router (z. B. Kabel, Switch-Port, WLAN)",
+        "Ausschließlich beim externen DNS-Server",
+        "Beim Webserver der besuchten Webseite"
+      ],
+      "answer": 1,
+      "explanation": "Da der Loopback-Test erfolgreich ist, funktioniert der lokale Stack. Scheitert bereits der Ping zum Gateway, liegt das Problem zwischen Gerät und Router."
+    },
+    {
+      "id": "q7",
+      "question": "In welcher Reihenfolge sollte eine systematische Netzwerk-Fehlersuche typischerweise ablaufen?",
+      "options": [
+        "Erst DNS-Server prüfen, dann Loopback, dann Gateway",
+        "Loopback → eigene IP-Konfiguration → Standardgateway → externe Adresse → DNS-Auflösung",
+        "Direkt die externe Webseite testen, ohne Zwischenschritte",
+        "Erst tracert zum Zielserver, dann ipconfig"
+      ],
+      "answer": 1,
+      "explanation": "Die systematische Fehlersuche geht von innen (eigenes Gerät) nach außen (Internet): Loopback, eigene Konfiguration, lokales Gateway, externe Erreichbarkeit, DNS-Auflösung."
+    }
+  ]
+}

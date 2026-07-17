@@ -1,0 +1,89 @@
+{
+  "unit": "datenschutz-recht/urheberrecht-lizenzen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wann entsteht das Urheberrecht an einer selbst geschaffenen Software?",
+      "options": [
+        "Erst nach amtlicher Registrierung beim Patentamt",
+        "Automatisch mit der Schöpfung, ohne dass eine Registrierung nötig ist",
+        "Erst nach Veröffentlichung des Quellcodes",
+        "Erst nach Abschluss eines EULA mit dem ersten Nutzer"
+      ],
+      "answer": 1,
+      "explanation": "Das Urheberrecht entsteht automatisch mit der Schöpfung des Werks (§ 69a UrhG bei Software) — eine Registrierung ist dafür nicht erforderlich."
+    },
+    {
+      "id": "q2",
+      "question": "Was wird bei einer Softwarelizenz tatsächlich übertragen, wenn das Urheberrecht in Deutschland grundsätzlich beim Urheber bleibt?",
+      "options": [
+        "Das vollständige Urheberrecht selbst",
+        "Ein Nutzungsrecht an der Software",
+        "Das Eigentum am Quellcode-Repository",
+        "Gar nichts, eine Lizenz hat keine rechtliche Wirkung"
+      ],
+      "answer": 1,
+      "explanation": "Eine Lizenz räumt ein Nutzungsrecht ein — das Urheberrecht selbst bleibt in Deutschland grundsätzlich beim Urheber und ist nicht übertragbar."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist ein typisches Merkmal einer OEM-Lizenz?",
+      "options": [
+        "Sie ist grundsätzlich frei auf jedes beliebige Gerät übertragbar",
+        "Sie ist an ein bestimmtes Gerät gebunden und in der Regel nicht auf ein anderes Gerät übertragbar",
+        "Sie gilt ausschließlich für Open-Source-Software",
+        "Sie erlaubt automatisch die kommerzielle Weiterverbreitung des Quellcodes"
+      ],
+      "answer": 1,
+      "explanation": "Eine OEM-Lizenz ist typischerweise fest an das Gerät gebunden, mit dem sie ausgeliefert wurde, und lässt sich nicht auf ein anderes Gerät übertragen."
+    },
+    {
+      "id": "q4",
+      "question": "Was unterscheidet die GPL (GNU General Public License) grundlegend von der MIT-Lizenz?",
+      "options": [
+        "GPL erlaubt keine kommerzielle Nutzung, MIT schon",
+        "GPL verlangt als Copyleft-Lizenz, dass abgeleitete Werke ebenfalls unter derselben Lizenz offengelegt werden — MIT stellt diese Bedingung nicht",
+        "MIT ist restriktiver als GPL",
+        "Beide Lizenzen sind inhaltlich identisch, nur der Name unterscheidet sich"
+      ],
+      "answer": 1,
+      "explanation": "Die GPL ist eine Copyleft-Lizenz: Wer GPL-Code verändert und weiterverbreitet, muss den veränderten Code ebenfalls unter GPL offenlegen. Die MIT-Lizenz ist deutlich permissiver und verlangt das nicht."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Bedingung muss bei einer MIT-lizenzierten Bibliothek in jedem Fall erhalten bleiben?",
+      "options": [
+        "Der komplette Quellcode muss unverändert bleiben",
+        "Der ursprüngliche Urheber-/Lizenzvermerk muss erhalten bleiben",
+        "Die Software darf nicht kommerziell genutzt werden",
+        "Jede Änderung muss beim ursprünglichen Autor gemeldet werden"
+      ],
+      "answer": 1,
+      "explanation": "Die MIT-Lizenz erlaubt nahezu uneingeschränkte Nutzung, Veränderung und kommerzielle Nutzung — verlangt aber, dass der ursprüngliche Urheber-/Lizenzvermerk erhalten bleibt."
+    },
+    {
+      "id": "q6",
+      "question": "Was beschreibt das Freemium-Modell?",
+      "options": [
+        "Die komplette Software ist immer vollständig kostenlos",
+        "Eine Basisversion ist kostenlos nutzbar, erweiterte Funktionen sind kostenpflichtig",
+        "Die Nutzung wird ausschließlich nach tatsächlichem Verbrauch abgerechnet",
+        "Freemium ist ein Synonym für Open-Source-Lizenzierung"
+      ],
+      "answer": 1,
+      "explanation": "Beim Freemium-Modell ist eine Basisversion kostenlos, während zusätzliche/erweiterte Funktionen kostenpflichtig freigeschaltet werden."
+    },
+    {
+      "id": "q7",
+      "question": "Was ist ein typisches Merkmal des Pay-per-Use-Modells, z. B. bei Cloud-Diensten?",
+      "options": [
+        "Eine feste monatliche Lizenzgebühr unabhängig von der Nutzung",
+        "Die Abrechnung erfolgt nach der tatsächlichen Nutzung, z. B. gespeichertem Datenvolumen oder Rechenzeit",
+        "Der Kunde muss die Software dauerhaft kaufen",
+        "Es handelt sich immer um eine Open-Source-Lizenz"
+      ],
+      "answer": 1,
+      "explanation": "Beim Pay-per-Use-Modell zahlt der Kunde nach tatsächlichem Verbrauch (z. B. Datenvolumen, Rechenzeit) statt einer festen Lizenzgebühr — typisch bei Cloud-Diensten wie IaaS/FaaS."
+    }
+  ]
+}

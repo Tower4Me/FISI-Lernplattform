@@ -1,0 +1,79 @@
+{
+  "unit": "datenschutz-recht/betroffenenrechte",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Betroffenenrecht wird umgangssprachlich als „Recht auf Vergessenwerden“ bezeichnet?",
+      "options": ["Auskunft (Art. 15)", "Berichtigung (Art. 16)", "Löschung (Art. 17)", "Widerspruch (Art. 21)"],
+      "answer": 2,
+      "explanation": "Das Recht auf Löschung (Art. 17 DSGVO) wird umgangssprachlich als „Recht auf Vergessenwerden“ bezeichnet."
+    },
+    {
+      "id": "q2",
+      "question": "Welches Recht ermöglicht es einer betroffenen Person, ihre Daten in einem maschinenlesbaren Format zu einem anderen Anbieter mitzunehmen?",
+      "options": ["Auskunft (Art. 15)", "Datenübertragbarkeit (Art. 20)", "Löschung (Art. 17)", "Berichtigung (Art. 16)"],
+      "answer": 1,
+      "explanation": "Das Recht auf Datenübertragbarkeit (Art. 20) erlaubt es, die eigenen Daten in einem strukturierten, maschinenlesbaren Format zu erhalten und mitzunehmen."
+    },
+    {
+      "id": "q3",
+      "question": "Ein Unternehmen lässt Kundendaten von einem externen Cloud-Anbieter verarbeiten. Wer bleibt datenschutzrechtlich verantwortlich?",
+      "options": [
+        "Allein der externe Cloud-Anbieter",
+        "Das Unternehmen selbst, der Cloud-Anbieter ist nur Auftragsverarbeiter",
+        "Die zuständige Aufsichtsbehörde",
+        "Niemand, da die Verantwortung mit der Auslagerung endet"
+      ],
+      "answer": 1,
+      "explanation": "Der Verantwortliche bleibt auch bei Beauftragung eines externen Dienstleisters das Unternehmen selbst. Der Cloud-Anbieter ist Auftragsverarbeiter und benötigt dafür einen Auftragsverarbeitungsvertrag (AVV, Art. 28)."
+    },
+    {
+      "id": "q4",
+      "question": "Welches Dokument ist beim Einsatz eines externen Auftragsverarbeiters zwingend vorgeschrieben?",
+      "options": [
+        "Eine reine Geheimhaltungsvereinbarung (NDA)",
+        "Ein Auftragsverarbeitungsvertrag (AVV, Art. 28)",
+        "Ein zusätzlicher Arbeitsvertrag für den Dienstleister",
+        "Eine notarielle Beglaubigung der Firmendaten"
+      ],
+      "answer": 1,
+      "explanation": "Der Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO regelt verbindlich, wie der Auftragsverarbeiter mit den personenbezogenen Daten umgehen darf."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Unternehmen ersetzt in einer Datenbank Klarnamen durch Kundennummern, kann den Personenbezug aber über eine separate Zuordnungstabelle jederzeit wiederherstellen. Wie wird dieses Verfahren bezeichnet, und gilt die DSGVO noch?",
+      "options": [
+        "Anonymisierung — die DSGVO gilt nicht mehr",
+        "Pseudonymisierung — die DSGVO gilt weiterhin, da der Personenbezug wiederherstellbar ist",
+        "Verschlüsselung — der Personenbezug ist damit automatisch entfernt",
+        "Aggregation — die Daten sind ab sofort frei verwendbar"
+      ],
+      "answer": 1,
+      "explanation": "Solange sich der Personenbezug über eine Zuordnungstabelle wiederherstellen lässt, handelt es sich um Pseudonymisierung — die Daten bleiben personenbezogen, die DSGVO gilt weiterhin."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist die zentrale Aufgabe eines betrieblichen Datenschutzbeauftragten (DSB)?",
+      "options": [
+        "Er verarbeitet als Verantwortlicher selbst alle personenbezogenen Daten",
+        "Er überwacht die Einhaltung der DSGVO im Unternehmen und berät dazu, ist aber nicht selbst Verantwortlicher",
+        "Er vergibt die Zugangsdaten aller Mitarbeiter",
+        "Er ersetzt die Aufsichtsbehörde bei Beschwerden von Kunden"
+      ],
+      "answer": 1,
+      "explanation": "Der Datenschutzbeauftragte überwacht die Einhaltung der DSGVO und berät das Unternehmen, trägt aber nicht selbst die Verantwortlichenrolle für die Datenverarbeitung."
+    },
+    {
+      "id": "q7",
+      "question": "Wohin kann sich eine betroffene Person wenden, wenn sie sich über den Umgang eines Unternehmens mit ihren Daten beschweren möchte?",
+      "options": [
+        "An die örtliche Polizei",
+        "An die zuständige Datenschutz-Aufsichtsbehörde",
+        "An den vom Unternehmen beauftragten Auftragsverarbeiter",
+        "An das zuständige Finanzamt"
+      ],
+      "answer": 1,
+      "explanation": "Die Datenschutz-Aufsichtsbehörde (in Deutschland je Bundesland organisiert) ist die zuständige Anlaufstelle für Beschwerden betroffener Personen und für Meldungen von Datenpannen."
+    }
+  ]
+}

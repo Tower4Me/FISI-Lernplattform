@@ -1,0 +1,77 @@
+{
+  "unit": "datenschutz-recht/normen-compliance",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bedeutet die CE-Kennzeichnung auf einem Produkt tatsächlich?",
+      "options": [
+        "Ein unabhängig geprüftes Gütesiegel für besondere Produktqualität",
+        "Eine Herstellererklärung, dass das Produkt den geltenden EU-Richtlinien entspricht — meist ohne zwingende unabhängige Prüfung",
+        "Eine freiwillige Auszeichnung für besonders energieeffiziente Geräte",
+        "Ein Nachweis, dass das Produkt zu 100 % recycelbar ist"
+      ],
+      "answer": 1,
+      "explanation": "Die CE-Kennzeichnung ist keine unabhängig geprüfte Gütesiegel, sondern in der Regel eine Selbsterklärung des Herstellers, dass das Produkt den EU-Richtlinien entspricht — Voraussetzung für den Marktzugang in der EU."
+    },
+    {
+      "id": "q2",
+      "question": "Was unterscheidet das GS-Zeichen von der CE-Kennzeichnung?",
+      "options": [
+        "Das GS-Zeichen ist gesetzlich verpflichtend, CE ist freiwillig",
+        "Das GS-Zeichen wird freiwillig vergeben und setzt eine tatsächliche Prüfung durch eine unabhängige Stelle voraus",
+        "Beide Kennzeichnungen bedeuten exakt dasselbe",
+        "Das GS-Zeichen gilt nur außerhalb der EU"
+      ],
+      "answer": 1,
+      "explanation": "Das GS-Zeichen („Geprüfte Sicherheit“) ist freiwillig, wird aber nur nach tatsächlicher Prüfung durch eine unabhängige Prüfstelle vergeben — im Gegensatz zur reinen Selbsterklärung bei CE."
+    },
+    {
+      "id": "q3",
+      "question": "Wie ist der übliche Charakter von technischen Normen wie DIN, ISO oder IEC einzuordnen?",
+      "options": [
+        "Sie sind grundsätzlich unmittelbar gesetzlich verpflichtend",
+        "Sie sind in der Regel freiwillige Standards, die erst durch Kunden- oder Gesetzesanforderung faktisch verpflichtend werden können",
+        "Sie gelten ausschließlich für Softwareprodukte",
+        "Sie ersetzen vollständig die CE-Kennzeichnung"
+      ],
+      "answer": 1,
+      "explanation": "Normen wie DIN, ISO oder IEC sind grundsätzlich freiwillige technische Standards — verpflichtend werden sie meist erst, wenn ein Gesetz oder ein Kunde (z. B. in einer Ausschreibung) ihre Einhaltung ausdrücklich verlangt."
+    },
+    {
+      "id": "q4",
+      "question": "Was regelt ein Code of Conduct (Verhaltenskodex) im Unternehmen?",
+      "options": [
+        "Ausschließlich die technischen IT-Sicherheitsmaßnahmen",
+        "Schriftlich festgelegtes erwartetes Verhalten von Mitarbeitenden, z. B. im Umgang mit Geschenken von Lieferanten oder bei Interessenkonflikten",
+        "Die Gehaltsstruktur des Unternehmens",
+        "Ausschließlich die Kündigungsfristen von Arbeitsverträgen"
+      ],
+      "answer": 1,
+      "explanation": "Ein Code of Conduct legt schriftlich fest, welches Verhalten von Mitarbeitenden erwartet wird — etwa im Umgang mit Geschenken, Interessenkonflikten oder vertraulichen Informationen."
+    },
+    {
+      "id": "q5",
+      "question": "Was schützt das Hinweisgeberschutzgesetz (HinSchG)?",
+      "options": [
+        "Ausschließlich die persönlichen Daten von Kunden",
+        "Mitarbeitende, die Missstände oder Rechtsverstöße im Unternehmen melden (Whistleblowing), vor Repressalien",
+        "Die Urheberrechte von Softwareentwicklern",
+        "Die Garantieansprüche von Endkunden"
+      ],
+      "answer": 1,
+      "explanation": "Das Hinweisgeberschutzgesetz schützt Personen, die interne Missstände oder Rechtsverstöße melden, vor Repressalien wie Kündigung oder Mobbing."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Unternehmen wählt für eine sicherheitskritische Anwendung (z. B. Krankenhaus-IT) bewusst ein Produkt mit zusätzlichem GS-Zeichen statt nur mit CE-Kennzeichnung. Warum?",
+      "options": [
+        "Weil das GS-Zeichen billiger in der Herstellung ist",
+        "Weil das GS-Zeichen eine tatsächliche unabhängige Prüfung voraussetzt und damit ein höheres Vertrauensniveau bietet als die reine CE-Selbsterklärung",
+        "Weil CE-Kennzeichnung außerhalb der EU nicht anerkannt wird",
+        "Weil ein GS-Zeichen automatisch eine längere Garantiezeit bedeutet"
+      ],
+      "answer": 1,
+      "explanation": "Da das GS-Zeichen eine tatsächliche Prüfung durch eine unabhängige Stelle voraussetzt, bietet es für sicherheitskritische Anwendungen ein höheres Vertrauensniveau als die reine Herstellerselbsterklärung der CE-Kennzeichnung."
+    }
+  ]
+}

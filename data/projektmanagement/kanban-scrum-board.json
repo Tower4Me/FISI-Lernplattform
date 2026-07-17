@@ -1,0 +1,74 @@
+{
+  "unit": "projektmanagement/kanban-scrum-board",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist ein Kanban-Board?",
+      "options": [
+        "Eine Tafel mit Spalten, die die Phasen eines Arbeitsablaufs darstellen, mit Aufgaben als Karten, die von Spalte zu Spalte wandern",
+        "Ein Dokument zur Kostenkalkulation eines Projekts",
+        "Ein Synonym für den Projektstrukturplan",
+        "Ein reines Berichtswesen ohne visuelle Darstellung"
+      ],
+      "answer": 0,
+      "explanation": "Ein Kanban-Board stellt den Arbeitsablauf über Spalten dar, wobei einzelne Aufgaben als Karten von Spalte zu Spalte wandern."
+    },
+    {
+      "id": "q2",
+      "question": "Wofür steht WIP im Zusammenhang mit einem WIP-Limit?",
+      "options": ["Work in Progress", "Work is Prohibited", "Weekly Item Planning", "Working in Parallel"],
+      "answer": 0,
+      "explanation": "WIP steht für Work in Progress — die laufende, noch nicht abgeschlossene Arbeit."
+    },
+    {
+      "id": "q3",
+      "question": "Was bewirkt ein WIP-Limit auf einem Kanban-Board?",
+      "options": [
+        "Es begrenzt, wie viele Karten sich gleichzeitig in einer bestimmten Spalte befinden dürfen, um Engpässe sichtbar zu machen und Stapelbildung zu vermeiden",
+        "Es legt die maximale Projektlaufzeit fest",
+        "Es bestimmt die Anzahl der Teammitglieder in einem Projekt",
+        "Es ersetzt die Notwendigkeit eines Projektstrukturplans"
+      ],
+      "answer": 0,
+      "explanation": "Ein WIP-Limit begrenzt die Anzahl gleichzeitig laufender Aufgaben pro Spalte, um Engpässe sichtbar zu machen und übermäßiges Multitasking zu vermeiden."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist ein zentraler Unterschied zwischen Kanban und einem Scrum-Board?",
+      "options": [
+        "Kanban läuft kontinuierlich ohne feste Zeitboxen, ein Scrum-Board ist an feste Sprints gebunden und wird pro Sprint neu befüllt",
+        "Scrum-Boards haben niemals Spalten, Kanban-Boards immer",
+        "Kanban kann nur in der Produktion eingesetzt werden, niemals in der Softwareentwicklung",
+        "Beide Konzepte sind technisch und organisatorisch identisch"
+      ],
+      "answer": 0,
+      "explanation": "Kanban arbeitet mit kontinuierlichem Fluss ohne feste Zeitboxen, während ein Scrum-Board an einen festen Sprint gebunden ist und zu dessen Beginn neu befüllt wird."
+    },
+    {
+      "id": "q5",
+      "question": "Ein IT-Support-Team setzt für die Spalte „In Bearbeitung“ ein WIP-Limit von 3. Was ist die Konsequenz, wenn bereits 3 Tickets in dieser Spalte liegen?",
+      "options": [
+        "Ein neues Ticket kann trotzdem beliebig oft parallel begonnen werden",
+        "Ein Techniker muss zuerst eines der laufenden Tickets abschließen, bevor ein viertes Ticket in Bearbeitung genommen wird",
+        "Das WIP-Limit hat in diesem Fall keinerlei praktische Auswirkung",
+        "Alle Tickets werden automatisch gelöscht"
+      ],
+      "answer": 1,
+      "explanation": "Ist das WIP-Limit erreicht, darf kein weiteres Ticket in die Spalte aufgenommen werden, bis eines der laufenden Tickets abgeschlossen wurde — das verhindert unbegrenztes gleichzeitiges Arbeiten an zu vielen Tickets."
+    },
+    {
+      "id": "q6",
+      "question": "Woher stammt das Kanban-Prinzip ursprünglich?",
+      "options": ["Aus dem Bankwesen", "Aus der industriellen Produktion (Toyota)", "Aus der Softwareentwicklung der 2020er Jahre", "Aus dem Marketing"],
+      "answer": 1,
+      "explanation": "Kanban stammt ursprünglich aus der industriellen Produktion, insbesondere dem Toyota-Produktionssystem, und wurde später auch auf Softwareentwicklung und IT-Support übertragen."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Entwicklerteam befüllt sein Board zu Beginn eines zweiwöchigen Zeitraums mit geplanten Aufgaben und wertet es am Ende dieses Zeitraums aus, bevor es für den nächsten Zeitraum neu aufgesetzt wird. Um welche Art von Board handelt es sich?",
+      "options": ["Ein reines Kanban-Board ohne Zeitbindung", "Ein Scrum-Board mit festen Sprints", "Ein Projektstrukturplan", "Ein Netzplan"],
+      "answer": 1,
+      "explanation": "Die Bindung an einen festen Zeitraum (Sprint), zu dessen Beginn das Board neu befüllt und an dessen Ende es ausgewertet wird, ist charakteristisch für ein Scrum-Board."
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: DNS-Grundlagen</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">DNS-Grundlagen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      DNS-Grundlagen
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Niemand merkt sich die Telefonnummer aller Freunde und Kollegen
+        auswendig — man tippt stattdessen den Namen ins Adressbuch des
+        Smartphones ein, das im Hintergrund die richtige Nummer heraussucht
+        und anruft. Genauso wenig merkt sich ein Mensch die IP-Adresse
+        jeder Webseite, die er besucht. Man tippt <code>www.example.de</code>
+        ein, und im Hintergrund übersetzt ein riesiges, weltweit verteiltes
+        „Adressbuch des Internets“ diesen Namen automatisch in die
+        passende IP-Adresse. Dieses Adressbuch heißt <strong>DNS</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>DNS</strong> (Domain Name System) übersetzt für Menschen
+        lesbare Domainnamen (z. B. <code>www.example.de</code>) in
+        IP-Adressen, die Computer für die tatsächliche Kommunikation
+        benötigen — und umgekehrt. Ohne DNS müsste man sich jede
+        Zieladresse als Zahlenkombination merken.
+      </p>
+
+      <h3>Auflösungsablauf (vereinfacht)</h3>
+      <ol>
+        <li>Der Client fragt zunächst seinen lokal konfigurierten <strong>Resolver</strong> (meist beim Internetanbieter oder im Firmennetz).</li>
+        <li>Kennt der Resolver die Antwort nicht, fragt er einen Root-Nameserver, dann den zuständigen Nameserver der Top-Level-Domain (z. B. <code>.de</code>), und schließlich den autoritativen Nameserver der Domain selbst.</li>
+        <li>Die gefundene IP-Adresse wird an den Client zurückgegeben und für eine begrenzte Zeit (TTL, Time to Live) zwischengespeichert (Caching), damit dieselbe Anfrage nicht ständig wiederholt werden muss.</li>
+      </ol>
+
+      <h3>Wichtige Record-Typen</h3>
+      <table>
+        <thead>
+          <tr><th>Record-Typ</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>A</strong></td><td>Ordnet einem Domainnamen eine IPv4-Adresse zu</td></tr>
+          <tr><td><strong>AAAA</strong></td><td>Ordnet einem Domainnamen eine IPv6-Adresse zu</td></tr>
+          <tr><td><strong>MX</strong></td><td>Benennt den zuständigen Mailserver für eine Domain (Mail Exchange), inkl. Prioritätswert</td></tr>
+          <tr><td><strong>CNAME</strong></td><td>Alias-Eintrag — verweist einen Domainnamen auf einen anderen Domainnamen (Canonical Name)</td></tr>
+          <tr><td><strong>PTR</strong></td><td>Reverse-Lookup — ordnet einer IP-Adresse einen Domainnamen zu (umgekehrte Richtung zu A/AAAA)</td></tr>
+          <tr><td><strong>SOA</strong></td><td>Start of Authority — enthält administrative Basisdaten der Zone (zuständiger Nameserver, Seriennummer, Aktualisierungsintervalle)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Lokale hosts-Datei</h3>
+      <p>
+        Neben DNS-Servern gibt es auf jedem Betriebssystem eine lokale
+        <strong>hosts-Datei</strong>, in der einzelne Domain-IP-Zuordnungen
+        manuell eingetragen werden können. Einträge in der hosts-Datei
+        werden vor jeder DNS-Anfrage geprüft und haben Vorrang — praktisch
+        z. B. zum Testen einer neuen Webseite, bevor der öffentliche
+        DNS-Eintrag umgestellt wird, oder um bestimmte Domains lokal zu
+        blockieren.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus richtet für einen Kunden eine neue Firmenwebseite
+        samt E-Mail-Hosting ein.
+      </p>
+      <ul>
+        <li>Für <code>www.musterfirma.de</code> wird ein <strong>A-Record</strong> angelegt, der auf die IPv4-Adresse des Webservers zeigt.</li>
+        <li>Damit E-Mails an <code>@musterfirma.de</code> richtig zugestellt werden, wird ein <strong>MX-Record</strong> gesetzt, der auf den Mailserver des Hosting-Anbieters verweist.</li>
+        <li>Die Kurzform <code>musterfirma.de</code> (ohne „www“) wird per <strong>CNAME</strong> auf <code>www.musterfirma.de</code> umgeleitet, damit nur eine Adresse gepflegt werden muss.</li>
+        <li>Bevor die Domain live geschaltet wird, trägt der zuständige Techniker die neue IP-Adresse testweise in seiner lokalen <strong>hosts-Datei</strong> ein, um die Webseite schon vor der öffentlichen DNS-Umstellung zu prüfen.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welcher DNS-Record-Typ ist für die
+        Zustellung von E-Mails an eine Domain zuständig?“ – Antwort: der
+        <strong>MX-Record</strong> (Mail Exchange), der den zuständigen
+        Mailserver benennt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        DNS übersetzt Domainnamen in IP-Adressen (und zurück). Wichtigste
+        Records: A/AAAA (Name → IPv4/IPv6), MX (Mailserver), CNAME (Alias),
+        PTR (IP → Name), SOA (Zonen-Verwaltungsdaten). Die lokale
+        hosts-Datei wird vor jeder DNS-Anfrage geprüft und hat Vorrang.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/dns-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

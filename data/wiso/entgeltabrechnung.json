@@ -1,0 +1,101 @@
+{
+  "unit": "wiso/entgeltabrechnung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bezeichnet das Bruttoentgelt?",
+      "options": [
+        "Den tatsächlich ausgezahlten Betrag nach allen Abzügen",
+        "Das vertraglich vereinbarte Gehalt vor allen Abzügen",
+        "Nur den Anteil der Sozialversicherungsbeiträge",
+        "Die vermögenswirksamen Leistungen"
+      ],
+      "answer": 1,
+      "explanation": "Das Bruttoentgelt ist der vertraglich vereinbarte Betrag vor Abzug von Steuern und Sozialversicherungsbeiträgen."
+    },
+    {
+      "id": "q2",
+      "question": "Welche zwei Hauptgruppen von Abzügen führen vom Brutto- zum Nettoentgelt?",
+      "options": [
+        "Steuern und Sozialversicherungsbeiträge (Arbeitnehmeranteil)",
+        "Nur Steuern",
+        "Nur Sozialversicherungsbeiträge",
+        "Vermögenswirksame Leistungen und Sachbezüge"
+      ],
+      "answer": 0,
+      "explanation": "Vom Bruttoentgelt werden Steuern (Lohnsteuer, ggf. Soli/Kirchensteuer) und der Arbeitnehmeranteil der Sozialversicherungsbeiträge abgezogen."
+    },
+    {
+      "id": "q3",
+      "question": "Warum erscheint die Unfallversicherung nicht als Abzugsposten auf der Gehaltsabrechnung eines Arbeitnehmers?",
+      "options": [
+        "Weil sie gesetzlich abgeschafft wurde",
+        "Weil sie ausschließlich vom Arbeitgeber getragen wird",
+        "Weil sie nur bei Selbstständigen anfällt",
+        "Weil sie im Bruttogehalt bereits enthalten ist"
+      ],
+      "answer": 1,
+      "explanation": "Die Unfallversicherung wird vollständig vom Arbeitgeber finanziert, deshalb erscheint kein Arbeitnehmeranteil in der Abrechnung."
+    },
+    {
+      "id": "q4",
+      "question": "Was passiert mit Sozialversicherungsbeiträgen oberhalb der Beitragsbemessungsgrenze?",
+      "options": [
+        "Sie werden weiterhin unbegrenzt erhoben",
+        "Das Einkommen oberhalb der Grenze bleibt in der jeweiligen Versicherung beitragsfrei",
+        "Sie verdoppeln sich automatisch",
+        "Sie werden vollständig vom Arbeitgeber übernommen"
+      ],
+      "answer": 1,
+      "explanation": "Oberhalb der Beitragsbemessungsgrenze werden keine weiteren Beiträge in der jeweiligen Sozialversicherung erhoben."
+    },
+    {
+      "id": "q5",
+      "question": "Wie wirkt sich die private Nutzung eines Dienstwagens (Sachbezug) auf die Abrechnung aus?",
+      "options": [
+        "Sie bleibt komplett steuer- und beitragsfrei",
+        "Sie wird als geldwerter Vorteil steuerlich wie zusätzliches Bruttoeinkommen behandelt",
+        "Sie mindert automatisch die Lohnsteuer",
+        "Sie wird nur bei Führungskräften berücksichtigt"
+      ],
+      "answer": 1,
+      "explanation": "Sachbezüge wie ein Dienstwagen gelten als geldwerter Vorteil und werden steuerlich wie zusätzliches Bruttoeinkommen behandelt."
+    },
+    {
+      "id": "q6",
+      "question": "Was bewirkt ein Kinderfreibetrag in der Entgeltabrechnung in erster Linie?",
+      "options": [
+        "Er senkt die Sozialversicherungsbeiträge direkt",
+        "Er wirkt sich auf die Höhe der Lohnsteuer aus",
+        "Er erhöht automatisch das Bruttogehalt",
+        "Er ersetzt die vermögenswirksamen Leistungen"
+      ],
+      "answer": 1,
+      "explanation": "Freibeträge wie der Kinderfreibetrag wirken sich vor allem auf die Höhe der Lohnsteuer aus, nicht direkt auf die Sozialversicherungsbeiträge."
+    },
+    {
+      "id": "q7",
+      "question": "Was sind vermögenswirksame Leistungen (VL)?",
+      "options": [
+        "Ein Pflichtabzug vom Nettogehalt",
+        "Ein (meist freiwilliger) Arbeitgeberzuschuss zu einem Sparvertrag des Arbeitnehmers",
+        "Ein Teil der gesetzlichen Rentenversicherung",
+        "Eine Form der Lohnsteuer"
+      ],
+      "answer": 1,
+      "explanation": "Vermögenswirksame Leistungen sind ein zusätzlicher Zuschuss des Arbeitgebers zu einem Sparvertrag der Arbeitnehmerin bzw. des Arbeitnehmers."
+    },
+    {
+      "id": "q8",
+      "question": "Welche Formel beschreibt korrekt den Weg vom Brutto- zum Nettoentgelt?",
+      "options": [
+        "Netto = Brutto + Steuern + Sozialversicherungsbeiträge",
+        "Netto = Brutto − Steuern − Sozialversicherungsbeiträge (Arbeitnehmeranteil)",
+        "Netto = Brutto − Unfallversicherung",
+        "Netto = Brutto, Abzüge spielen keine Rolle"
+      ],
+      "answer": 1,
+      "explanation": "Das Nettoentgelt ergibt sich aus dem Bruttoentgelt abzüglich Steuern und dem Arbeitnehmeranteil der Sozialversicherungsbeiträge."
+    }
+  ]
+}

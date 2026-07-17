@@ -1,0 +1,74 @@
+{
+  "unit": "datenschutz-recht/vertragsarten",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was wird bei einem Werkvertrag (§ 631 BGB) geschuldet?",
+      "options": [
+        "Ausschließlich die aufgewendete Arbeitszeit",
+        "Ein bestimmtes Ergebnis (Erfolg), z. B. eine funktionierende Software",
+        "Die dauerhafte Überlassung einer Sache gegen Miete",
+        "Die Übereignung einer Sache gegen einmalige Zahlung"
+      ],
+      "answer": 1,
+      "explanation": "Beim Werkvertrag wird ein konkretes Ergebnis (Erfolg) geschuldet — funktioniert das Ergebnis nicht wie vereinbart, liegt ein Mangel vor."
+    },
+    {
+      "id": "q2",
+      "question": "Was unterscheidet einen Dienstvertrag (§ 611 BGB) grundlegend von einem Werkvertrag?",
+      "options": [
+        "Beim Dienstvertrag wird nur die Tätigkeit selbst geschuldet, kein garantiertes Ergebnis",
+        "Ein Dienstvertrag garantiert immer ein konkretes Endergebnis",
+        "Dienstverträge existieren nur im IT-Bereich",
+        "Dienstvertrag und Werkvertrag sind rechtlich identisch"
+      ],
+      "answer": 0,
+      "explanation": "Beim Dienstvertrag schuldet die Vertragspartei nur die Tätigkeit selbst (z. B. Beratung), nicht ein garantiertes Ergebnis — anders als beim Werkvertrag."
+    },
+    {
+      "id": "q3",
+      "question": "Ein Unternehmen beauftragt einen externen Entwickler mit der Programmierung einer maßgeschneiderten Software nach genau festgelegtem Lastenheft. Welche Vertragsart liegt vor?",
+      "options": ["Kaufvertrag", "Mietvertrag", "Werkvertrag", "Dienstvertrag"],
+      "answer": 2,
+      "explanation": "Da ein konkretes, im Lastenheft festgelegtes Ergebnis (die funktionierende Software) geschuldet wird, handelt es sich um einen Werkvertrag."
+    },
+    {
+      "id": "q4",
+      "question": "Ein IT-Berater unterstützt ein Unternehmen laufend auf Stundenbasis bei der Systemadministration, ohne ein konkretes Endergebnis zu garantieren. Welche Vertragsart liegt vor?",
+      "options": ["Werkvertrag", "Dienstvertrag", "Mietvertrag", "Leasingvertrag"],
+      "answer": 1,
+      "explanation": "Da nur die Tätigkeit selbst geschuldet wird, ohne ein garantiertes Ergebnis, handelt es sich um einen Dienstvertrag."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist ein typisches Merkmal eines Leasingvertrags im Vergleich zu einem klassischen Mietvertrag?",
+      "options": [
+        "Leasing ist immer kurzfristiger als Miete",
+        "Leasing ist meist langfristig angelegt und enthält häufig eine Kaufoption am Laufzeitende",
+        "Bei Leasing geht das Eigentum sofort bei Vertragsschluss über",
+        "Leasingverträge sind ausschließlich für Immobilien vorgesehen"
+      ],
+      "answer": 1,
+      "explanation": "Leasingverträge sind in der Regel langfristig angelegt und enthalten häufig eine Kaufoption am Ende der Laufzeit — anders als ein klassischer, meist kurzfristigerer Mietvertrag."
+    },
+    {
+      "id": "q6",
+      "question": "Wie entsteht ein Vertrag nach deutschem Recht grundsätzlich?",
+      "options": [
+        "Durch eine einseitige Erklärung einer Partei",
+        "Durch zwei übereinstimmende Willenserklärungen: Angebot und Annahme",
+        "Ausschließlich durch notarielle Beurkundung",
+        "Durch die Zahlung eines Vorschusses"
+      ],
+      "answer": 1,
+      "explanation": "Ein Vertrag entsteht durch zwei übereinstimmende Willenserklärungen — ein Angebot der einen und die Annahme der anderen Partei."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Unternehmen kauft 20 neue Notebooks bei einem Fachhändler. Welche Vertragsart liegt hier vor?",
+      "options": ["Werkvertrag", "Dienstvertrag", "Kaufvertrag", "Leasingvertrag"],
+      "answer": 2,
+      "explanation": "Beim Kauf von Notebooks geht das Eigentum gegen Zahlung des Kaufpreises über — ein klassischer Kaufvertrag nach § 433 BGB."
+    }
+  ]
+}

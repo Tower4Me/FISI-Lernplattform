@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Zuschlagskalkulation & BAB</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Zuschlagskalkulation & BAB</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Zuschlagskalkulation & BAB
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Fertigungsbetrieb kann die Kosten für Material und
+        Fertigungslöhne einem einzelnen Produkt direkt zurechnen — das sind
+        die <strong>Einzelkosten</strong>. Aber wie viel Anteil an der
+        Werkshalle, dem Strom, dem Vertriebsteam oder der Buchhaltung
+        „gehört“ zu genau diesem einen Werkstück? Diese
+        <strong>Gemeinkosten</strong> lassen sich keinem Produkt direkt
+        zuordnen — sie fallen für den ganzen Betrieb gemeinsam an und
+        müssen rechnerisch verteilt werden. Genau das leisten der
+        Betriebsabrechnungsbogen (BAB) und die darauf aufbauende
+        Zuschlagskalkulation.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Einzelkosten vs. Gemeinkosten</h3>
+      <table>
+        <thead>
+          <tr><th>Kostenart</th><th>Merkmal</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Einzelkosten</strong></td>
+            <td>direkt einem Produkt zurechenbar</td>
+            <td>Materialeinzelkosten, Fertigungslöhne</td>
+          </tr>
+          <tr>
+            <td><strong>Gemeinkosten</strong></td>
+            <td>fallen für mehrere Produkte/den Betrieb gemeinsam an,
+              müssen verteilt werden</td>
+            <td>Miete, Energie, Verwaltung, Vertrieb</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Betriebsabrechnungsbogen (BAB)</h3>
+      <p>
+        Der BAB verteilt die Gemeinkosten eines Abrechnungszeitraums auf die
+        <strong>Kostenstellen</strong> des Betriebs (z. B. Material,
+        Fertigung, Verwaltung, Vertrieb) — meist anhand von
+        Verteilungsschlüsseln wie Fläche, Personalanzahl oder
+        Materialverbrauch. Aus dem Verhältnis von Gemeinkosten zur
+        jeweiligen Bezugsgröße (meist die Einzelkosten der Kostenstelle
+        oder die Herstellkosten) ergibt sich der
+        <strong>Gemeinkostenzuschlagssatz</strong>:
+      </p>
+      <p>
+        <strong>Zuschlagssatz [%] = Gemeinkosten ÷ Bezugsgröße × 100</strong>
+      </p>
+      <table>
+        <thead>
+          <tr><th>Kostenstelle</th><th>Gemeinkosten</th><th>Bezugsgröße</th><th>Zuschlagssatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Material</td><td>20.000 €</td><td>Materialeinzelkosten: 200.000 €</td><td>10 %</td></tr>
+          <tr><td>Fertigung</td><td>300.000 €</td><td>Fertigungslöhne: 200.000 €</td><td>150 %</td></tr>
+          <tr><td>Verwaltung</td><td>47.600 €</td><td>Herstellkosten: 595.000 €</td><td>8 %</td></tr>
+          <tr><td>Vertrieb</td><td>71.400 €</td><td>Herstellkosten: 595.000 €</td><td>12 %</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Diese Zuschlagssätze aus dem BAB werden anschließend in der
+        Zuschlagskalkulation eines konkreten Produkts verwendet.
+      </p>
+
+      <h3>Zuschlagskalkulation (Fertigungsbetrieb)</h3>
+      <p>
+        Anders als die Handelskalkulation (Wareneinkauf/-verkauf) rechnet
+        die Zuschlagskalkulation über die Fertigungsstufen eines
+        Produktionsbetriebs:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Schritt</th><th>Rechenweg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Materialeinzelkosten (MEK)</td><td>direkt zurechenbares Material</td></tr>
+          <tr><td>+ Materialgemeinkosten (MGK)</td><td>Zuschlagssatz auf MEK</td></tr>
+          <tr><td>= Materialkosten (MK)</td><td>MEK + MGK</td></tr>
+          <tr><td>+ Fertigungseinzelkosten (FEK)</td><td>direkt zurechenbare Fertigungslöhne</td></tr>
+          <tr><td>+ Fertigungsgemeinkosten (FGK)</td><td>Zuschlagssatz auf FEK</td></tr>
+          <tr><td>= Fertigungskosten (FK)</td><td>FEK + FGK</td></tr>
+          <tr><td>= Herstellkosten (HK)</td><td>MK + FK</td></tr>
+          <tr><td>+ Verwaltungsgemeinkosten (VwGK)</td><td>Zuschlagssatz auf HK</td></tr>
+          <tr><td>+ Vertriebsgemeinkosten (VtGK)</td><td>Zuschlagssatz auf HK</td></tr>
+          <tr><td>= Selbstkosten (SK)</td><td>HK + VwGK + VtGK</td></tr>
+          <tr><td>+ Gewinnzuschlag</td><td>Zuschlagssatz auf SK</td></tr>
+          <tr><td>= Barverkaufspreis</td><td>SK + Gewinn</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Ab dem Barverkaufspreis läuft die Rechnung genauso weiter wie bei
+        der Handelskalkulation: Kundenskonto und Kundenrabatt werden durch
+        Division durch (1 − Prozentsatz) „zurückgerechnet“ bis zum
+        Ziel- bzw. Listenverkaufspreis.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die Mechanik Bremer GmbH fertigt ein Bauteil und nutzt die
+        Zuschlagssätze aus dem BAB oben, um den Angebotspreis zu
+        kalkulieren:
+      </p>
+      <table>
+        <tbody>
+          <tr><td>Materialeinzelkosten (MEK)</td><td>200,00 €</td></tr>
+          <tr><td>+ 10 % Materialgemeinkosten</td><td>+ 20,00 €</td></tr>
+          <tr><td>= Materialkosten</td><td>220,00 €</td></tr>
+          <tr><td>Fertigungseinzelkosten (FEK)</td><td>150,00 €</td></tr>
+          <tr><td>+ 150 % Fertigungsgemeinkosten</td><td>+ 225,00 €</td></tr>
+          <tr><td>= Fertigungskosten</td><td>375,00 €</td></tr>
+          <tr><td><strong>= Herstellkosten</strong></td><td><strong>595,00 €</strong></td></tr>
+          <tr><td>+ 8 % Verwaltungsgemeinkosten (auf 595,00 €)</td><td>+ 47,60 €</td></tr>
+          <tr><td>+ 12 % Vertriebsgemeinkosten (auf 595,00 €)</td><td>+ 71,40 €</td></tr>
+          <tr><td>= Selbstkosten</td><td>714,00 €</td></tr>
+          <tr><td>+ 15 % Gewinnzuschlag</td><td>+ 107,10 €</td></tr>
+          <tr><td>= Barverkaufspreis</td><td>821,10 €</td></tr>
+          <tr><td>+ 2 % Kundenskonto (821,10 € ÷ 0,98)</td><td>Zielverkaufspreis ≈ 837,86 €</td></tr>
+          <tr><td>+ 5 % Kundenrabatt (837,86 € ÷ 0,95)</td><td>Listenverkaufspreis ≈ 881,96 €</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Der Angebotspreis für das Bauteil liegt damit bei rund
+        <strong>881,96 €</strong>.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Einzelkosten sind direkt zurechenbar, Gemeinkosten werden über den
+        BAB auf Kostenstellen verteilt: Zuschlagssatz = Gemeinkosten ÷
+        Bezugsgröße × 100. In der Zuschlagskalkulation ergeben
+        Materialkosten + Fertigungskosten die Herstellkosten, zuzüglich
+        Verwaltungs- und Vertriebsgemeinkosten die Selbstkosten.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/zuschlagskalkulation-bab.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

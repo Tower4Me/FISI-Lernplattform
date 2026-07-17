@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/raid-level",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches RAID-Level bietet keine Ausfalltoleranz, dafür aber maximale Kapazität und Geschwindigkeit?",
+      "options": [
+        "RAID 1",
+        "RAID 5",
+        "RAID 6",
+        "RAID 0"
+      ],
+      "answer": 3,
+      "explanation": "RAID 0 (Striping) nutzt 100 % der Rohkapazität, verliert aber bei Ausfall einer einzigen Platte alle Daten des Verbunds."
+    },
+    {
+      "id": "q2",
+      "question": "Ein RAID 5 besteht aus 5 Platten. Wie viele Platten dürfen gleichzeitig ausfallen, ohne dass Daten verloren gehen?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "5"
+      ],
+      "answer": 1,
+      "explanation": "RAID 5 verträgt genau eine ausgefallene Platte (eine Parität). Für zwei gleichzeitige Ausfälle ist RAID 6 nötig."
+    },
+    {
+      "id": "q3",
+      "question": "Ein RAID 5 wird mit 4 Platten à 6 TB aufgebaut. Wie groß ist die Nutzkapazität?",
+      "options": [
+        "24 TB",
+        "12 TB",
+        "6 TB",
+        "18 TB"
+      ],
+      "answer": 3,
+      "explanation": "Nutzkapazität RAID 5 = (n − 1) × c = (4 − 1) × 6 TB = 18 TB. Eine Platte 'kostet' die Parität."
+    },
+    {
+      "id": "q4",
+      "question": "Warum ersetzt selbst ein RAID 6 kein Backup?",
+      "options": [
+        "RAID 6 arbeitet im Betrieb schlicht zu langsam",
+        "Versehentliches Löschen, Ransomware oder Feuer betreffen den gesamten Verbund gleichermaßen",
+        "RAID 6 verwendet überhaupt keine Parität",
+        "RAID 6 speichert die Daten nur ein einziges Mal"
+      ],
+      "answer": 1,
+      "explanation": "RAID schützt nur vor physischem Plattenausfall. Logische Fehler (Löschen, Ransomware) oder Katastrophen (Feuer) betreffen den gesamten Verbund gleichzeitig — dagegen hilft nur ein echtes, separates Backup."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Datenbankserver benötigt hohe Schreib-/Leseleistung UND Ausfalltoleranz. Welches RAID-Level wird dafür typischerweise gewählt?",
+      "options": [
+        "RAID 0",
+        "RAID 1",
+        "RAID 10",
+        "JBOD"
+      ],
+      "answer": 2,
+      "explanation": "RAID 10 kombiniert Spiegelung (Sicherheit) mit Striping (Geschwindigkeit) — ideal für Datenbankserver, allerdings mit dem Preis von nur 50 % Nutzkapazität."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist der Unterschied zwischen Hot Swap und Hot Spare?",
+      "options": [
+        "Beide Begriffe meinen exakt dasselbe",
+        "Hot Swap erlaubt den Austausch einer defekten Platte im laufenden Betrieb, Hot Spare ist eine bereits eingebaute Reserveplatte, die bei Ausfall automatisch einspringt",
+        "Hot Swap ist nur bei RAID 0 möglich, Hot Spare nur bei RAID 1",
+        "Hot Spare erfordert das Herunterfahren des gesamten Systems"
+      ],
+      "answer": 1,
+      "explanation": "Hot Swap beschreibt den Austausch im laufenden Betrieb ohne Systemabschaltung. Hot Spare ist eine zusätzliche, schon eingebaute Reserveplatte, die automatisch einspringt und den Rebuild sofort startet."
+    },
+    {
+      "id": "q7",
+      "question": "Ein RAID 10 wird mit 6 Platten à 4 TB aufgebaut. Wie hoch ist die Nutzkapazität?",
+      "options": [
+        "8 TB",
+        "12 TB",
+        "16 TB",
+        "24 TB"
+      ],
+      "answer": 1,
+      "explanation": "Nutzkapazität RAID 10 = (n ÷ 2) × c = (6 ÷ 2) × 4 TB = 12 TB, da die Hälfte der Kapazität für die Spiegelung verwendet wird."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "unit": "software-os-web/bild-videoformate",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was unterscheidet eine Rastergrafik grundlegend von einer Vektorgrafik?",
+      "options": [
+        "Eine Rastergrafik besteht aus einem festen Pixelraster und wird beim Vergrößern unscharf, eine Vektorgrafik besteht aus mathematischen Kurven und ist beliebig skalierbar",
+        "Beide Grafikarten sind technisch identisch, nur der Dateiname unterscheidet sich",
+        "Vektorgrafiken werden beim Vergrößern immer unscharf, Rastergrafiken nie",
+        "Rastergrafiken können niemals komprimiert werden"
+      ],
+      "answer": 0,
+      "explanation": "Rastergrafiken bestehen aus einem festen Pixelraster (unscharf beim Vergrößern), Vektorgrafiken aus mathematischen Kurven/Formen (verlustfrei in jeder Größe skalierbar)."
+    },
+    {
+      "id": "q2",
+      "question": "Welches Bildformat ist als einziges der genannten eine echte Vektorgrafik?",
+      "options": ["JPEG", "PNG", "SVG", "BMP"],
+      "answer": 2,
+      "explanation": "SVG (Scalable Vector Graphics) ist eine Vektorgrafik und dadurch beliebig skalierbar — JPEG, PNG und BMP sind Rastergrafiken."
+    },
+    {
+      "id": "q3",
+      "question": "Welches Bildformat unterstützt Transparenz über einen Alpha-Kanal und ist verlustfrei — ideal für Screenshots und Logos mit Text?",
+      "options": ["JPEG", "PNG", "BMP (unkomprimiert)", "Keines dieser Formate unterstützt Transparenz"],
+      "answer": 1,
+      "explanation": "PNG ist verlustfrei und unterstützt Transparenz über einen Alpha-Kanal — deshalb gut geeignet für Screenshots und Logos mit scharfem Text."
+    },
+    {
+      "id": "q4",
+      "question": "Welches Audioformat ist verlustfrei und eignet sich deshalb besonders für die Archivierung von Musik in Originalqualität?",
+      "options": ["MP3", "AAC", "FLAC", "OGG"],
+      "answer": 2,
+      "explanation": "FLAC ist ein verlustfreies Audioformat und erhält die Originalqualität vollständig — ideal für Archivierung."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist der Unterschied zwischen einem Video-Container und einem Video-Codec?",
+      "options": [
+        "Der Container ist das Dateiformat (z. B. MP4), der Codec das eigentliche Komprimierungsverfahren (z. B. H.264) — ein Container kann verschiedene Codecs enthalten",
+        "Container und Codec sind exakt dasselbe, nur unterschiedlich benannt",
+        "Der Codec bestimmt das Dateiformat, der Container das Komprimierungsverfahren",
+        "Ein Container kann nur genau einen einzigen, fest zugeordneten Codec verwenden"
+      ],
+      "answer": 0,
+      "explanation": "Der Container (z. B. .mp4, .mkv) ist das Dateiformat, das Video, Audio und ggf. Untertitel zusammenhält. Der Codec (z. B. H.264, H.265) ist das eigentliche Verfahren, mit dem das Video komprimiert wird — ein Container kann verschiedene Codecs enthalten."
+    },
+    {
+      "id": "q6",
+      "question": "Was leistet OCR (Optical Character Recognition)?",
+      "options": [
+        "Es komprimiert Bilddateien verlustfrei",
+        "Es erkennt Text in einem gescannten Bild oder Foto und wandelt ihn in echten, durchsuchbaren und kopierbaren Text um",
+        "Es wandelt Vektorgrafiken automatisch in Rastergrafiken um",
+        "Es verschlüsselt gescannte Dokumente automatisch"
+      ],
+      "answer": 1,
+      "explanation": "OCR erkennt Textinhalte in Bilddaten (z. B. eingescannten Dokumenten) und wandelt sie in editierbaren, durchsuchbaren Text um."
+    },
+    {
+      "id": "q7",
+      "question": "Wovon hängt die Erkennungsgenauigkeit von OCR-Software maßgeblich ab?",
+      "options": [
+        "Ausschließlich von der Dateigröße des gescannten Bildes",
+        "Von Bildqualität, Schriftart und Kontrast der gescannten Vorlage",
+        "Von der Auflösung des Bildschirms, auf dem das Ergebnis später angezeigt wird",
+        "OCR erreicht immer 100 % Genauigkeit unabhängig von der Vorlage"
+      ],
+      "answer": 1,
+      "explanation": "Die Erkennungsgenauigkeit von OCR hängt stark von Bildqualität, Schriftart und Kontrast der eingescannten Vorlage ab."
+    },
+    {
+      "id": "q8",
+      "question": "Warum wird ein Firmenlogo für eine Webseite eher als SVG statt als PNG eingebunden, wenn es auf sehr unterschiedlichen Bildschirmgrößen scharf bleiben soll?",
+      "options": [
+        "Weil SVG als Vektorgrafik beliebig skaliert werden kann, ohne unscharf zu werden — ohne mehrere Dateigrößen vorhalten zu müssen",
+        "Weil PNG grundsätzlich nicht im Web dargestellt werden kann",
+        "Weil SVG-Dateien immer kleiner sind als jede PNG-Datei",
+        "Weil PNG keine Farben unterstützt"
+      ],
+      "answer": 0,
+      "explanation": "Da SVG eine Vektorgrafik ist, bleibt sie in jeder Größe (vom kleinen Smartphone-Icon bis zum großen 4K-Monitor) scharf, ohne dass mehrere Auflösungsvarianten vorgehalten werden müssen — ein PNG würde beim starken Skalieren unscharf."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/wlan-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bezeichnet die SSID in einem WLAN?",
+      "options": [
+        "Die MAC-Adresse des Access Points",
+        "Den Namen eines WLAN-Netzes, über den Geräte es erkennen und auswählen",
+        "Das Verschlüsselungsverfahren des Netzes",
+        "Die IP-Adresse des Routers"
+      ],
+      "answer": 1,
+      "explanation": "Die SSID (Service Set Identifier) ist der Netzname, mit dem Geräte ein bestimmtes WLAN identifizieren."
+    },
+    {
+      "id": "q2",
+      "question": "Welcher WLAN-Verschlüsselungsstandard gilt heute als veraltet und unsicher?",
+      "options": [
+        "WPA3",
+        "WPA2",
+        "WEP",
+        "Alle genannten gelten als sicher"
+      ],
+      "answer": 2,
+      "explanation": "WEP ist der älteste WLAN-Verschlüsselungsstandard und gilt heute als unsicher, ebenso das darauffolgende WPA."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet WPA2-Enterprise von WPA2-Personal?",
+      "options": [
+        "Enterprise nutzt gar keine Verschlüsselung",
+        "Bei Enterprise meldet sich jeder Nutzer mit eigenen Zugangsdaten über einen RADIUS-Server an, bei Personal teilen sich alle ein gemeinsames Passwort",
+        "Personal ist ausschließlich für Firmennetze gedacht",
+        "Es gibt keinen funktionalen Unterschied zwischen beiden"
+      ],
+      "answer": 1,
+      "explanation": "WPA2/WPA3-Enterprise authentifiziert jeden Nutzer individuell über einen RADIUS-Server, WPA2/WPA3-Personal verwendet ein gemeinsames Pre-Shared-Key-Passwort für alle."
+    },
+    {
+      "id": "q4",
+      "question": "Welche Aufgabe hat ein Access Point in einem WLAN?",
+      "options": [
+        "Er verstärkt ausschließlich ein bestehendes WLAN-Signal ohne eigene Netzwerkanbindung",
+        "Er verbindet Funkgeräte mit dem kabelgebundenen Netzwerk (LAN)",
+        "Er vergibt automatisch IP-Adressen wie ein DHCP-Server",
+        "Er verschlüsselt ausschließlich den Datenverkehr zwischen zwei Routern"
+      ],
+      "answer": 1,
+      "explanation": "Ein Access Point stellt die Funkverbindung für Endgeräte her und verbindet sie mit dem kabelgebundenen LAN."
+    },
+    {
+      "id": "q5",
+      "question": "Was ist ein typischer Nachteil beim Einsatz eines Repeaters zur Reichweitenverlängerung?",
+      "options": [
+        "Er kann keine WLAN-Signale verstärken",
+        "Er reduziert meist die nutzbare Datenrate, da derselbe Funkkanal für Empfang und Weitersendung genutzt wird",
+        "Er benötigt zwingend eine eigene SSID",
+        "Er funktioniert nur mit WPA3"
+      ],
+      "answer": 1,
+      "explanation": "Da ein Repeater dasselbe Signal empfängt und über denselben Kanal weitersendet, sinkt die effektive Datenrate im Vergleich zu einem direkten Access Point."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist ein charakteristischer Unterschied zwischen dem 2,4-GHz- und dem 5-GHz-Band?",
+      "options": [
+        "2,4 GHz hat größere Reichweite, aber mehr Störungen und weniger Kanäle als 5 GHz",
+        "5 GHz hat immer eine größere Reichweite als 2,4 GHz",
+        "Beide Bänder sind in Reichweite und Störanfälligkeit identisch",
+        "2,4 GHz wird von WLAN-Standards nicht mehr unterstützt"
+      ],
+      "answer": 0,
+      "explanation": "Das 2,4-GHz-Band hat größere Reichweite, aber weniger Kanäle und mehr Störquellen; 5 GHz bietet höhere Datenraten bei geringerer Reichweite."
+    },
+    {
+      "id": "q7",
+      "question": "Warum eignet sich WPA2/WPA3-Enterprise besonders für Firmennetze mit vielen Mitarbeitenden?",
+      "options": [
+        "Weil es keine Verschlüsselung benötigt und dadurch schneller ist",
+        "Weil einzelne Nutzerzugänge gezielt gesperrt werden können, ohne dass alle anderen ein neues gemeinsames Passwort brauchen",
+        "Weil es nur für private Heimnetze zugelassen ist",
+        "Weil es keine SSID benötigt"
+      ],
+      "answer": 1,
+      "explanation": "Durch individuelle Logins über RADIUS lässt sich der Zugang einzelner Personen sperren, ohne das gemeinsame Passwort für alle anderen zu ändern — ein klarer Vorteil gegenüber Personal-Modus in Firmenumgebungen."
+    }
+  ]
+}

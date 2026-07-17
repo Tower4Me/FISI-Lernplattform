@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Anwendungsprotokolle</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Anwendungsprotokolle</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Anwendungsprotokolle
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In einem Bürogebäude gibt es für jede Art von Anliegen einen
+        eigenen Schalter mit eigenen Spielregeln: Am Postschalter gilt ein
+        anderes Ablaufformular als am Bewerbungsschalter, und beim
+        Sicherheitsdienst am Empfang wieder ein anderes. Wer ein Paket
+        abholen will, geht zum Postschalter — nicht zum Empfang. Genauso
+        haben sich im Internet für unterschiedliche Aufgaben (Webseiten
+        abrufen, E-Mails holen, Dateien übertragen, sich per Fernzugriff
+        einloggen) jeweils eigene <strong>Anwendungsprotokolle</strong>
+        etabliert — feste Regelwerke, nach denen zwei Programme
+        miteinander „sprechen“.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Anwendungsprotokolle arbeiten auf OSI-Schicht 7 und definieren das
+        Format und den Ablauf der Kommunikation zwischen Client und Server
+        für einen bestimmten Zweck. Jedes Protokoll ist fest mit einem
+        oder mehreren <strong>Standard-Ports</strong> verknüpft.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Protokoll</th><th>Port</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>HTTP</strong></td><td>80 (TCP)</td><td>Abruf von Webseiten, unverschlüsselt</td></tr>
+          <tr><td><strong>HTTPS</strong></td><td>443 (TCP)</td><td>Abruf von Webseiten, TLS-verschlüsselt</td></tr>
+          <tr><td><strong>FTP</strong></td><td>20/21 (TCP)</td><td>Dateiübertragung (Steuerkanal 21, Datenkanal 20)</td></tr>
+          <tr><td><strong>SMTP</strong></td><td>25 / 587 (TCP)</td><td>Versand von E-Mails zwischen Mailservern bzw. vom Client zum Server</td></tr>
+          <tr><td><strong>IMAP</strong></td><td>143 / 993 (TCP)</td><td>Abruf von E-Mails, Nachrichten bleiben synchronisiert auf dem Server</td></tr>
+          <tr><td><strong>POP3</strong></td><td>110 / 995 (TCP)</td><td>Abruf von E-Mails, klassischerweise Herunterladen und Löschen vom Server</td></tr>
+          <tr><td><strong>SSH</strong></td><td>22 (TCP)</td><td>Verschlüsselter Fernzugriff auf die Kommandozeile eines Systems</td></tr>
+          <tr><td><strong>RDP</strong></td><td>3389 (TCP)</td><td>Fernzugriff auf eine grafische Windows-Desktopoberfläche</td></tr>
+          <tr><td><strong>SNMP</strong></td><td>161/162 (UDP)</td><td>Überwachung und Verwaltung von Netzwerkgeräten (z. B. Switches, Router)</td></tr>
+          <tr><td><strong>NTP</strong></td><td>123 (UDP)</td><td>Synchronisation der Systemzeit zwischen Geräten</td></tr>
+          <tr><td><strong>LDAP</strong></td><td>389 / 636 (TCP)</td><td>Abfrage und Verwaltung von Verzeichnisdiensten (z. B. Active Directory), 636 = LDAPS (verschlüsselt)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Eine wichtige Unterscheidung betrifft <strong>IMAP vs. POP3</strong>:
+        IMAP hält den Posteingang auf dem Server als „Wahrheit“ und
+        synchronisiert ihn auf mehrere Geräte (E-Mails bleiben nach dem
+        Abruf auf dem Server erhalten) — praktisch, wenn dieselbe Mailbox
+        von mehreren Geräten aus genutzt wird. POP3 lädt E-Mails
+        klassischerweise herunter und entfernt sie vom Server — gedacht für
+        ein einzelnes Gerät als alleinigen Zugriffspunkt.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Systemadministrator richtet den Arbeitsplatz einer neuen
+        Mitarbeiterin ein.
+      </p>
+      <ul>
+        <li>Der E-Mail-Client wird per <strong>IMAP</strong> (Port 993, verschlüsselt) konfiguriert, damit dieselbe Mailbox synchron auf Notebook und Smartphone verfügbar ist.</li>
+        <li>Für den Fernzugriff auf den Arbeitsplatz-PC vom Homeoffice aus wird <strong>RDP</strong> (Port 3389) über eine gesicherte VPN-Verbindung freigeschaltet.</li>
+        <li>Die IT-Abteilung wartet den Server im Rechenzentrum ausschließlich über <strong>SSH</strong> (Port 22) — verschlüsselter Kommandozeilenzugriff statt unsicherer Klartext-Protokolle.</li>
+        <li>Die Anmeldedaten der Mitarbeiterin werden zentral über <strong>LDAP</strong> gegen den Verzeichnisdienst der Firma (Active Directory) geprüft.</li>
+        <li>Alle Server im Rechenzentrum synchronisieren ihre Systemzeit automatisch per <strong>NTP</strong> — wichtig, damit Protokolldateien (Logs) zeitlich korrekt zugeordnet werden können.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welches Protokoll wird für den
+        verschlüsselten Fernzugriff auf die Kommandozeile eines
+        Linux-Servers verwendet, und über welchen Port?“ – Antwort: SSH
+        über Port 22.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Jedes Anwendungsprotokoll hat einen festen Standard-Port: HTTP 80 /
+        HTTPS 443, FTP 20/21, SMTP 25/587, IMAP 143/993, POP3 110/995,
+        SSH 22, RDP 3389, SNMP 161/162, NTP 123, LDAP 389/636. IMAP
+        synchronisiert E-Mails auf dem Server, POP3 lädt sie klassisch
+        herunter und löscht sie dort.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/anwendungsprotokolle.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

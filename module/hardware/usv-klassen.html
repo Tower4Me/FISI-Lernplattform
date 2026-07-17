@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: USV-Klassen (IEC 62040-3)</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware & Technologien</a></li>
+        <li aria-current="page">USV-Klassen (IEC 62040-3)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      USV-Klassen (IEC 62040-3)
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen Bodyguard vor, der jemanden vor dem Stolpern
+        bewahren soll. Der erste Typ reagiert erst, wenn die Person
+        tatsächlich schon zu fallen beginnt — er greift danach zu, mit
+        einer kurzen Verzögerung. Der zweite Typ hält die Person die
+        ganze Zeit locker am Arm und gleicht kleine Wackler sofort aus,
+        bevor sie zum echten Fall werden. Der dritte Typ trägt die
+        Person durchgehend selbst — völlig unabhängig davon, ob der
+        Untergrund gerade wackelt oder nicht. Genau diese drei
+        Reaktionsstufen beschreibt die Norm IEC 62040-3 für
+        USV-Anlagen: VFD, VI und VFI.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Die Grundfunktion einer USV (Stromausfall per Akku überbrücken)
+        ist bereits aus der Einheit <em>RTO/RPO & Verfügbarkeit</em>
+        bekannt. Die Norm <strong>IEC 62040-3</strong> unterscheidet
+        zusätzlich drei Betriebsklassen danach, wie stark eine USV das
+        angeschlossene System von Netzstörungen entkoppelt.
+      </p>
+
+      <h3>Die drei USV-Klassen</h3>
+      <table>
+        <thead>
+          <tr><th>Klasse</th><th>Funktionsprinzip</th><th>Umschaltzeit</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>VFD</strong> (Voltage and Frequency Dependent) —
+              „Offline-USV“</td>
+            <td>im Normalbetrieb wird das Netz direkt durchgeleitet;
+              erst bei einer Störung schaltet die USV auf den
+              Akku-Wechselrichter um</td>
+            <td>kurze Umschaltzeit (wenige Millisekunden)</td>
+            <td>unkritische Geräte: Heim-Router, einzelner Büro-PC</td>
+          </tr>
+          <tr>
+            <td><strong>VI</strong> (Voltage Independent) —
+              „Line-Interactive“</td>
+            <td>zusätzlich ein automatischer Spannungsregler (AVR),
+              der kleinere Spannungsschwankungen direkt ausgleicht, ohne
+              auf Akkubetrieb umzuschalten; nur bei größeren
+              Abweichungen/Netzausfall wird umgeschaltet</td>
+            <td>kürzer als VFD, aber nicht null</td>
+            <td>Büro-Arbeitsplätze, kleinere Netzwerkschränke</td>
+          </tr>
+          <tr>
+            <td><strong>VFI</strong> (Voltage and Frequency Independent) —
+              „Online“ / Doppelwandler-USV</td>
+            <td>durchgehende Doppelwandlung: Netzstrom wird ständig in
+              Gleichstrom und zurück in Wechselstrom gewandelt; die
+              Ausgangsspannung ist komplett unabhängig vom Eingangsnetz</td>
+            <td>0 ms (keine Umschaltung nötig, da durchgehend über den
+              Wechselrichter versorgt)</td>
+            <td>Serverräume, Rechenzentren, kritische Infrastruktur</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Je höher die Schutzklasse, desto höher aber auch Anschaffungspreis
+        und Energieverlust im Dauerbetrieb (bei VFI wird die Energie
+        ständig doppelt gewandelt) — die Wahl ist immer eine Abwägung
+        zwischen Schutzbedarf und Kosten.
+      </p>
+
+      <h3>Scheinleistung (VA) vs. Wirkleistung (W)</h3>
+      <p>
+        USV-Anlagen werden in <strong>VA</strong> (Voltampere,
+        Scheinleistung) angegeben, angeschlossene Geräte dagegen meist in
+        <strong>Watt</strong> (Wirkleistung). Beide hängen über den
+        Leistungsfaktor (<strong>cos φ</strong>) zusammen:
+      </p>
+      <p><strong>P (Wirkleistung) = S (Scheinleistung) × cos φ</strong></p>
+      <p>
+        Eine USV mit z. B. 1000 VA und einem üblichen Leistungsfaktor von
+        0,6 liefert real nur <strong>600 W</strong> nutzbare
+        Wirkleistung — die reine VA-Angabe allein reicht für die
+        Dimensionierung nicht aus. Bei der Auswahl einer USV muss
+        immer geprüft werden, ob sowohl die VA- als auch die
+        W-Angabe für die angeschlossene Last ausreicht.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH stattet drei unterschiedliche Standorte mit USV-
+        Anlagen aus:
+      </p>
+      <ul>
+        <li><strong>Serverraum:</strong> ein Server-Rack benötigt 3.000 W
+          Wirkleistung bei einem Leistungsfaktor von 0,9. Erforderliche
+          Scheinleistung: S = P ÷ cos φ = 3.000 W ÷ 0,9 ≈
+          <strong>3.333 VA</strong>. Für den Serverraum wird eine
+          <strong>VFI-USV</strong> (Online, 0 ms Umschaltzeit) mit
+          mindestens dieser Leistung gewählt, da schon eine
+          Millisekunde Unterbrechung Serverdienste stören könnte.</li>
+        <li><strong>Büro-Arbeitsplätze:</strong> hier genügt eine
+          <strong>VI-USV</strong> — kleinere Spannungsschwankungen werden
+          direkt ausgeglichen, ein kurzer Umschaltmoment bei echtem
+          Stromausfall ist für einzelne PCs unkritisch.</li>
+        <li><strong>Homeoffice-Router eines Mitarbeiters:</strong> eine
+          einfache <strong>VFD-USV</strong> reicht, um kurze
+          Stromausfälle zu überbrücken.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        VFD (Offline) schaltet erst bei Störung um, VI (Line-Interactive)
+        gleicht kleine Schwankungen per AVR ohne Umschaltung aus, VFI
+        (Online) liefert durch Doppelwandlung 0 ms Umschaltzeit — je höher
+        die Klasse, desto höher Schutz, Preis und Energieverlust. Wirkleistung
+        (W) = Scheinleistung (VA) × cos φ — eine USV muss beide Werte für die
+        angeschlossene Last erfüllen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/usv-klassen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

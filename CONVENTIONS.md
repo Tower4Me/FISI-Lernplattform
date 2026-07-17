@@ -54,6 +54,29 @@ Modul-Slugs (fix):
 - Tools sind Zusatz innerhalb von Konzept oder Praxisbeispiel; sie ersetzen
   keine der 5 Pflicht-Sektionen.
 
+### Vendorte Drittanbieter-Bibliotheken
+
+Grundsatz: keine Laufzeit-Abhängigkeit von einem CDN. Falls ein Tool eine
+Drittanbieter-Bibliothek braucht (z. B. eine SQL-Engine für den
+SQL-Editor), gilt:
+
+- Die Bibliothek liegt als Datei lokal im Repo unter
+  `assets/tools/vendor/<bibliotheksname>/` — nicht per `<script src="https://…">`
+  von einem CDN geladen.
+- Der Lizenztext der Bibliothek liegt unverändert daneben (`LICENSE`),
+  zusammen mit einer `VERSION.txt` (Quelle, Versionsnummer, Update-Hinweis).
+- Der Vendor-Code selbst bleibt unverändert (kein Patchen); projektspezifische
+  Logik steckt ausschließlich im eigenen Wrapper-Tool
+  (`assets/tools/<tool-slug>.js`), das die Bibliothek referenziert.
+- Lazy Load: Die Bibliothek wird nicht auf jeder Seite eingebunden, sondern
+  nur dort, wo das jeweilige Tool per `data-tool` eingebettet ist — und dort
+  erst bei Bedarf nachgeladen (z. B. per `IntersectionObserver`, wenn der
+  Tool-Container in den sichtbaren Bereich scrollt), nicht beim initialen
+  Seitenaufbau. Grund: CONVENTIONS §7 (mobile Zielgruppe, keine unnötige
+  Ladelast).
+- Beispiel: `assets/tools/vendor/sql.js/` (sql-wasm.js + sql-wasm.wasm,
+  MIT-Lizenz) für `assets/tools/sql-editor.js`.
+
 ---
 
 ## 2. Anzeigename & Breadcrumbs

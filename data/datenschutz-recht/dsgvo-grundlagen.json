@@ -1,0 +1,84 @@
+{
+  "unit": "datenschutz-recht/dsgvo-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was regelt die DSGVO im Unterschied zur IT-Sicherheit?",
+      "options": [
+        "Die DSGVO ersetzt vollständig alle technischen Sicherheitsmaßnahmen",
+        "Die DSGVO regelt rechtlich, welche personenbezogenen Daten überhaupt verarbeitet werden dürfen, während IT-Sicherheit Daten technisch schützt",
+        "Die DSGVO gilt nur für Behörden, nicht für Unternehmen",
+        "Die DSGVO und IT-Sicherheit behandeln exakt dasselbe Themenfeld"
+      ],
+      "answer": 1,
+      "explanation": "IT-Sicherheit schützt Daten technisch (Verschlüsselung, Firewalls etc.), die DSGVO regelt rechtlich, ob und wie personenbezogene Daten verarbeitet werden dürfen — beide Bereiche ergänzen sich."
+    },
+    {
+      "id": "q2",
+      "question": "Welche der folgenden Angaben zählt zu den besonderen Kategorien personenbezogener Daten mit besonders strengem Schutz?",
+      "options": ["Die Postleitzahl eines Kunden", "Gesundheitsdaten", "Die Bestellnummer eines Kunden", "Der Name eines Unternehmens"],
+      "answer": 1,
+      "explanation": "Gesundheitsdaten gehören zu den besonderen Kategorien personenbezogener Daten (neben z. B. Religionszugehörigkeit, biometrischen Daten, politischer Meinung) und unterliegen einem noch strengeren Schutz als gewöhnliche personenbezogene Daten."
+    },
+    {
+      "id": "q3",
+      "question": "Was verlangt der Grundsatz der Zweckbindung nach Art. 5 DSGVO?",
+      "options": [
+        "Daten dürfen nur für den Zweck genutzt werden, für den sie ursprünglich erhoben wurden",
+        "Daten müssen grundsätzlich unbegrenzt gespeichert werden",
+        "Alle Daten müssen verschlüsselt übertragen werden",
+        "Personenbezogene Daten dürfen niemals gelöscht werden"
+      ],
+      "answer": 0,
+      "explanation": "Zweckbindung bedeutet, dass erhobene Daten nicht beliebig für andere Zwecke weiterverwendet werden dürfen — ein neuer Verwendungszweck braucht eine eigene Rechtsgrundlage."
+    },
+    {
+      "id": "q4",
+      "question": "Was verlangt der Grundsatz der Datenminimierung?",
+      "options": [
+        "Erhobene Daten müssen komprimiert gespeichert werden",
+        "Es dürfen nur so viele Daten erhoben werden, wie für den jeweiligen Zweck tatsächlich erforderlich sind",
+        "Alle Daten müssen pseudonymisiert werden",
+        "Nur Unternehmen unter 50 Mitarbeitern müssen Daten minimieren"
+      ],
+      "answer": 1,
+      "explanation": "Datenminimierung bezieht sich auf Menge und Erforderlichkeit der erhobenen Daten, nicht auf technische Speicherformate."
+    },
+    {
+      "id": "q5",
+      "question": "Was besagt der Grundsatz der Speicherbegrenzung?",
+      "options": [
+        "Personenbezogene Daten dürfen nicht mehr als 1 GB Speicherplatz belegen",
+        "Daten müssen gelöscht werden, sobald der Zweck ihrer Erhebung wegfällt",
+        "Es dürfen maximal fünf Datensätze pro Kunde gespeichert werden",
+        "Daten müssen ausschließlich auf Servern innerhalb der EU gespeichert werden"
+      ],
+      "answer": 1,
+      "explanation": "Speicherbegrenzung bedeutet, dass Daten nicht unbegrenzt vorgehalten werden dürfen, sondern zu löschen sind, sobald der ursprüngliche Zweck entfällt (unter Beachtung gesetzlicher Aufbewahrungsfristen)."
+    },
+    {
+      "id": "q6",
+      "question": "Worauf muss sich jede Verarbeitung personenbezogener Daten nach Art. 6 DSGVO stützen?",
+      "options": [
+        "Ausschließlich auf eine ausdrückliche Einwilligung der betroffenen Person",
+        "Auf eine Rechtsgrundlage, z. B. Einwilligung, Vertragserfüllung, rechtliche Pflicht oder berechtigtes Interesse",
+        "Auf eine technische Verschlüsselung der betroffenen Daten",
+        "Auf die Zustimmung der zuständigen Aufsichtsbehörde im Einzelfall"
+      ],
+      "answer": 1,
+      "explanation": "Jede Verarbeitung braucht eine Rechtsgrundlage nach Art. 6 DSGVO. Einwilligung ist nur eine von mehreren möglichen Rechtsgrundlagen, nicht die einzige."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Online-Shop verarbeitet Name und Lieferadresse eines Kunden zur Ausführung einer Bestellung. Auf welche Rechtsgrundlage kann sich diese Verarbeitung stützen, ohne eine gesonderte Einwilligung einzuholen?",
+      "options": [
+        "Auf keine — jede Verarbeitung erfordert zwingend eine gesonderte Einwilligung",
+        "Auf die Erfüllung des Kaufvertrags",
+        "Auf ein rein wirtschaftliches Interesse ohne weitere Prüfung",
+        "Auf die Zustimmung des Datenschutzbeauftragten"
+      ],
+      "answer": 1,
+      "explanation": "Ist die Verarbeitung zur Erfüllung eines Vertrags erforderlich (hier: Versand der bestellten Ware), ist dies eine eigenständige Rechtsgrundlage nach Art. 6 — eine zusätzliche Einwilligung ist dafür nicht nötig."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/anwendungsprotokolle",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Über welchen Standard-Port läuft HTTPS?",
+      "options": [
+        "Port 80",
+        "Port 443",
+        "Port 21",
+        "Port 22"
+      ],
+      "answer": 1,
+      "explanation": "HTTPS (verschlüsseltes HTTP) nutzt standardmäßig Port 443, unverschlüsseltes HTTP nutzt Port 80."
+    },
+    {
+      "id": "q2",
+      "question": "Welches Protokoll wird für verschlüsselten Kommandozeilen-Fernzugriff auf Linux-Server verwendet?",
+      "options": [
+        "RDP",
+        "FTP",
+        "SSH",
+        "SNMP"
+      ],
+      "answer": 2,
+      "explanation": "SSH (Secure Shell, Port 22) ermöglicht verschlüsselten Fernzugriff auf die Kommandozeile eines Systems."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist der zentrale Unterschied zwischen IMAP und POP3?",
+      "options": [
+        "IMAP synchronisiert E-Mails auf dem Server für mehrere Geräte, POP3 lädt sie klassischerweise herunter und entfernt sie vom Server",
+        "POP3 ist grundsätzlich verschlüsselt, IMAP nicht",
+        "IMAP dient nur zum Versand, POP3 nur zum Empfang von E-Mails",
+        "Es gibt keinen funktionalen Unterschied"
+      ],
+      "answer": 0,
+      "explanation": "IMAP hält den Posteingang auf dem Server als Referenz und synchronisiert ihn auf mehrere Geräte, POP3 ist eher für den Zugriff von einem einzelnen Gerät gedacht."
+    },
+    {
+      "id": "q4",
+      "question": "Welches Protokoll dient dem Fernzugriff auf eine grafische Windows-Desktopoberfläche?",
+      "options": [
+        "SSH",
+        "RDP",
+        "LDAP",
+        "NTP"
+      ],
+      "answer": 1,
+      "explanation": "RDP (Remote Desktop Protocol, Port 3389) ermöglicht den grafischen Fernzugriff auf einen Windows-Desktop."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür wird SNMP typischerweise eingesetzt?",
+      "options": [
+        "Für die Übertragung von E-Mails zwischen Mailservern",
+        "Für die Überwachung und Verwaltung von Netzwerkgeräten wie Switches und Routern",
+        "Für die Synchronisation der Systemzeit",
+        "Für die Abfrage von Verzeichnisdiensten"
+      ],
+      "answer": 1,
+      "explanation": "SNMP (Simple Network Management Protocol) wird zur Überwachung und Verwaltung von Netzwerkgeräten eingesetzt."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Protokoll wird zur Abfrage eines Verzeichnisdiensts wie Active Directory verwendet?",
+      "options": [
+        "LDAP",
+        "FTP",
+        "NTP",
+        "POP3"
+      ],
+      "answer": 0,
+      "explanation": "LDAP (Lightweight Directory Access Protocol) wird zur Abfrage und Verwaltung von Verzeichnisdiensten wie Active Directory genutzt, Port 389 bzw. 636 (LDAPS) verschlüsselt."
+    },
+    {
+      "id": "q7",
+      "question": "Wozu dient NTP im Netzwerkbetrieb?",
+      "options": [
+        "Zur Verschlüsselung von Datenverkehr",
+        "Zur Synchronisation der Systemzeit zwischen Geräten",
+        "Zum Versand von E-Mail-Benachrichtigungen",
+        "Zur automatischen Vergabe von IP-Adressen"
+      ],
+      "answer": 1,
+      "explanation": "NTP (Network Time Protocol, Port 123) sorgt dafür, dass Geräte im Netzwerk eine synchrone Systemzeit haben — wichtig u. a. für korrekte Zeitstempel in Logdateien."
+    }
+  ]
+}

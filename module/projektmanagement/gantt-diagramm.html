@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projektmanagement: Gantt-Diagramm</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#projektmanagement">Projektmanagement</a></li>
+        <li aria-current="page">Gantt-Diagramm</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Gantt-Diagramm
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Während ein Netzplan wie eine U-Bahn-Karte der Abhängigkeiten
+        funktioniert, ist ein Gantt-Diagramm eher wie ein Wandkalender:
+        Für jede Aufgabe ein waagerechter Balken, der genau zeigt, wann
+        sie beginnt und endet — auf einen Blick sichtbar, was an welchem
+        Tag gerade läuft und wo sich Aufgaben überlappen. Nicht so
+        detailliert wie der Netzplan bei den Abhängigkeiten, dafür für
+        jeden auf Anhieb verständlich, auch ohne Projektmanagement-
+        Hintergrund.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Ein <strong>Gantt-Diagramm</strong> (benannt nach Henry Gantt)
+        ist eine balkenorientierte grafische Darstellung des zeitlichen
+        Ablaufs eines Projekts: Auf der horizontalen Achse steht die
+        Zeit, auf der vertikalen Achse die einzelnen Vorgänge — jeder
+        Vorgang wird als Balken dargestellt, dessen Länge seiner Dauer
+        entspricht.
+      </p>
+
+      <h3>Typische Bestandteile</h3>
+      <ul>
+        <li><strong>Balken</strong> — Start, Ende und Dauer jedes
+          Vorgangs</li>
+        <li><strong>Meilensteine</strong> — meist als Raute oder
+          besonderes Symbol markiert</li>
+        <li><strong>Abhängigkeitspfeile</strong> zwischen Balken —
+          zeigen Vorgänger-Nachfolger-Beziehungen</li>
+        <li><strong>Fortschrittsbalken</strong> — zeigen an, wie viel
+          Prozent eines Vorgangs bereits erledigt ist</li>
+      </ul>
+
+      <h3>Gantt-Diagramm vs. Netzplan</h3>
+      <p>
+        Ein Gantt-Diagramm zeigt vor allem <strong>wann</strong> welcher
+        Vorgang läuft — sehr anschaulich, auch für Personen ohne
+        Projektmanagement-Erfahrung leicht verständlich. Ein Netzplan
+        (siehe vorherige Einheit) zeigt dagegen vor allem die
+        <strong>logischen Abhängigkeiten</strong> und den kritischen
+        Pfad. In der Praxis wird oft zuerst ein Netzplan erstellt und
+        daraus anschließend ein übersichtliches Gantt-Diagramm für die
+        Kommunikation mit Auftraggeber und Team abgeleitet. Nachteil des
+        Gantt-Diagramms: Bei sehr komplexen Projekten mit vielen
+        Abhängigkeiten wird es schnell unübersichtlich, und Abhängigkeiten
+        sind weniger klar erkennbar als im Netzplan.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Für dasselbe Serverumzug-Projekt aus der Netzplan-Einheit
+        erstellt die TechNord GmbH ein Gantt-Diagramm für den Kunden:
+      </p>
+      <ul>
+        <li>Balken „Hardware liefern“: Tag 1–5</li>
+        <li>Balken „Installation“: Tag 6–7</li>
+        <li>Balken „Datenmigration“: Tag 8–10</li>
+        <li>Balken „Tests“: Tag 11–12</li>
+        <li>Balken „Go-Live“ (als Meilenstein markiert): Tag 13</li>
+        <li>Parallel dazu ein Balken „Schulungsvorbereitung“: Tag 1–4,
+          mit sichtbarem Puffer bis Tag 9</li>
+      </ul>
+      <p>
+        Der Kunde sieht auf einen Blick, wann was passiert und dass die
+        Schulungsvorbereitung parallel zu den anderen Arbeiten läuft —
+        ohne die Feinheiten von Pufferberechnung oder kritischem Pfad aus
+        dem zugrundeliegenden Netzplan im Detail verstehen zu müssen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Das Gantt-Diagramm stellt Vorgänge als Balken auf einer
+        Zeitachse dar — anschaulich und leicht verständlich, auch für
+        Laien. Der Netzplan zeigt dagegen die logischen Abhängigkeiten
+        und den kritischen Pfad. Beide Werkzeuge ergänzen sich: Netzplan
+        für die Logik, Gantt-Diagramm für die übersichtliche
+        Kommunikation des Zeitplans.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/gantt-diagramm.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

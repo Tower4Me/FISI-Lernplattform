@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/green-it",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was unterscheidet den Green-IT-Ansatz von einer reinen Betrachtung des Stromverbrauchs im Betrieb?",
+      "options": [
+        "Green IT betrachtet ausschließlich den Anschaffungspreis eines Geräts",
+        "Green IT betrachtet den gesamten Lebenszyklus — Herstellung, Betrieb und Entsorgung —, nicht nur den Stromverbrauch während der Nutzung",
+        "Green IT bezieht sich ausschließlich auf Server in Rechenzentren",
+        "Green IT und Stromverbrauch im Betrieb sind exakt dasselbe Konzept"
+      ],
+      "answer": 1,
+      "explanation": "Green IT betrachtet den gesamten Lebenszyklus eines Geräts inklusive Herstellung und Entsorgung — ein Gerät mit geringem Betriebsverbrauch, das aber schnell kaputtgeht, kann ökologisch schlechter abschneiden als ein langlebigeres Gerät."
+    },
+    {
+      "id": "q2",
+      "question": "Was bescheinigt das Label Energy Star einem Gerät?",
+      "options": [
+        "Eine besonders lange Garantiezeit des Herstellers",
+        "Einen niedrigen Stromverbrauch im Betrieb und im Standby-Modus",
+        "Die vollständige Recyclingfähigkeit aller verbauten Materialien",
+        "Eine besonders hohe Rechenleistung pro Watt"
+      ],
+      "answer": 1,
+      "explanation": "Energy Star ist ein freiwilliges Label, das niedrigen Stromverbrauch im Betrieb und im Standby-Modus bescheinigt."
+    },
+    {
+      "id": "q3",
+      "question": "Was geht beim Umweltzeichen „Blauer Engel“ über die Kriterien von Energy Star hinaus?",
+      "options": [
+        "Nichts, beide Labels prüfen exakt dieselben Kriterien",
+        "Zusätzlich werden Schadstoffarmut, Recyclingfähigkeit und Geräuschentwicklung berücksichtigt, nicht nur der Stromverbrauch",
+        "Der Blaue Engel bewertet ausschließlich die Verpackung eines Produkts",
+        "Der Blaue Engel gilt nur für Fahrzeuge, nicht für IT-Geräte"
+      ],
+      "answer": 1,
+      "explanation": "Der Blaue Engel ist strenger als Energy Star und bezieht neben dem Stromverbrauch auch Schadstoffarmut, Recyclingfähigkeit und Lärmentwicklung mit ein."
+    },
+    {
+      "id": "q4",
+      "question": "Warum kann die Verlängerung der Nutzungsdauer eines Desktop-PCs durch RAM-/SSD-Aufrüstung ökologisch sinnvoller sein als ein Neukauf?",
+      "options": [
+        "Weil Aufrüstung immer teurer ist als ein Neukauf",
+        "Weil dadurch der ressourcenintensive Herstellungsaufwand eines komplett neuen Geräts vermieden wird",
+        "Weil aufgerüstete Geräte automatisch weniger Strom verbrauchen als jedes Neugerät",
+        "Weil neue Geräte grundsätzlich schneller kaputtgehen als alte"
+      ],
+      "answer": 1,
+      "explanation": "Die Herstellung neuer Hardware ist ressourcen- und energieintensiv. Eine gezielte Aufrüstung verlängert die Nutzungsdauer und vermeidet diesen Herstellungsaufwand für ein komplett neues Gerät."
+    },
+    {
+      "id": "q5",
+      "question": "Was regelt die EU-Richtlinie WEEE?",
+      "options": [
+        "Die maximale Leistungsaufnahme von Netzteilen",
+        "Die Rücknahme- und Recyclingpflicht von Herstellern und Handel für Elektro- und Elektronikaltgeräte",
+        "Die Zertifizierung von Rechenzentren nach ISO 27001",
+        "Die Mindestgarantiezeit für neu verkaufte IT-Geräte"
+      ],
+      "answer": 1,
+      "explanation": "WEEE (Waste Electrical and Electronic Equipment) verpflichtet Hersteller und Handel zur Rücknahme von Elektrogeräten, um Rohstoffe zurückzugewinnen und Schadstoffe fachgerecht zu entsorgen."
+    },
+    {
+      "id": "q6",
+      "question": "Was muss vor der Entsorgung eines ausgemusterten Firmen-Notebooks mit eingebautem Datenträger zusätzlich sichergestellt werden?",
+      "options": [
+        "Nichts, das ist ausschließlich Aufgabe des Entsorgungsdienstleisters",
+        "Dass alle Daten sicher gelöscht bzw. der Datenträger physisch zerstört wurde, bevor das Gerät den Betrieb verlässt",
+        "Dass das Gerät vollständig aufgeladen ist",
+        "Dass die Garantiezeit bereits abgelaufen ist"
+      ],
+      "answer": 1,
+      "explanation": "Vor der Entsorgung muss sichergestellt sein, dass keine Daten mehr auslesbar sind — durch sicheres Löschen oder physische Zerstörung des Datenträgers, unabhängig vom anschließenden Recycling."
+    },
+    {
+      "id": "q7",
+      "question": "Was misst die Kennzahl PUE (Power Usage Effectiveness) in einem Rechenzentrum?",
+      "options": [
+        "Die Anzahl der ausgefallenen Festplatten pro Jahr",
+        "Das Verhältnis von Gesamtenergieverbrauch des Rechenzentrums zum reinen IT-Energieverbrauch — je näher an 1,0, desto effizienter",
+        "Die maximale Anzahl gleichzeitig angemeldeter Nutzer",
+        "Den prozentualen Anteil erneuerbarer Energien am Gesamtstromverbrauch"
+      ],
+      "answer": 1,
+      "explanation": "PUE setzt den Gesamtenergieverbrauch des Rechenzentrums (inkl. Kühlung, Beleuchtung) ins Verhältnis zum reinen IT-Energieverbrauch. Ein Wert nahe 1,0 bedeutet, dass kaum zusätzliche Energie für Infrastruktur wie Kühlung verloren geht."
+    }
+  ]
+}

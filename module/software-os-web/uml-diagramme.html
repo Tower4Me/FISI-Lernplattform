@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: UML-Diagramme</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">UML-Diagramme</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      UML-Diagramme
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        UML ist wie ein genormter Satz an Bauplan-Symbolen, den jede
+        Baufirma versteht, egal wer den Plan gezeichnet hat. Ein
+        Use-Case-Diagramm ist wie ein Grundriss, der zeigt, wer durch
+        welche Tür kommt und was dort erledigt wird (Akteure und ihre
+        Interaktionen). Ein Klassendiagramm ist der Bauplan der
+        Rauminnenstruktur — welche Räume gibt es, wie hängen sie
+        zusammen. Und ein Aktivitätsdiagramm ist der Ablaufplan der
+        tatsächlichen Arbeitsschritte im Gebäude — was passiert zuerst,
+        wo wird entschieden, was läuft parallel.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        <strong>UML</strong> (Unified Modeling Language) ist eine
+        genormte, programmiersprachenunabhängige grafische Notation zur
+        Modellierung von Software-Systemen. Sie hilft Entwicklern, Kunden
+        und weiteren Beteiligten, ein gemeinsames Verständnis eines
+        Systems zu entwickeln, bevor programmiert wird.
+      </p>
+
+      <h3>Use-Case-Diagramm</h3>
+      <p>
+        Zeigt, welche <strong>Akteure</strong> (Nutzer, externe Systeme)
+        mit dem System interagieren und welche <strong>Anwendungsfälle</strong>
+        (Use Cases) dabei genutzt werden.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Element</th><th>Darstellung</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Akteur</td><td>Strichmännchen</td><td>Nutzer oder externes System, das mit dem System interagiert</td></tr>
+          <tr><td>Use Case</td><td>Ellipse</td><td>ein konkreter Anwendungsfall/eine Funktion des Systems</td></tr>
+          <tr><td>Systemgrenze</td><td>Rechteck</td><td>grenzt das modellierte System vom Rest der Welt ab</td></tr>
+          <tr><td><code>&lt;&lt;include&gt;&gt;</code></td><td>gestrichelter Pfeil</td><td>ein Use Case bindet einen anderen Use Case zwingend mit ein</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Klassendiagramm</h3>
+      <p>
+        Zeigt die statische Struktur eines Systems: Klassen mit ihren
+        Attributen und Methoden sowie Beziehungen zwischen den Klassen.
+        Eine Klasse wird als Rechteck mit drei Bereichen dargestellt:
+        Klassenname, Attribute, Methoden.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Beziehungstyp</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Assoziation</strong></td><td>allgemeine Verbindung zwischen zwei Klassen</td></tr>
+          <tr><td><strong>Generalisierung</strong> (Vererbung)</td><td>eine Klasse erbt von einer allgemeineren Klasse (siehe Einheit Programmierparadigmen)</td></tr>
+          <tr><td><strong>Aggregation</strong></td><td>„hat-ein“-Beziehung, Teile können auch unabhängig vom Ganzen existieren</td></tr>
+          <tr><td><strong>Komposition</strong></td><td>starke „hat-ein“-Beziehung, Teile existieren nicht ohne das Ganze</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Aktivitätsdiagramm</h3>
+      <p>
+        Zeigt den Ablauf eines Prozesses oder Algorithmus — ähnlich einem
+        klassischen Flussdiagramm, aber als Teil des UML-Standards.
+        Wichtige Elemente: Startknoten, Aktivitäten (abgerundete
+        Rechtecke), Entscheidungsknoten (Raute — entspricht der
+        Verzweigung aus der Einheit Datentypen & Kontrollstrukturen),
+        parallele Abläufe (Balken für Fork/Join) und Endknoten.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant eine neue Online-Bestellfunktion und
+        erstellt vor der Programmierung drei UML-Diagramme:
+      </p>
+      <ul>
+        <li><strong>Use-Case-Diagramm:</strong> Der Akteur „Kunde“ nutzt
+          den Use Case „Bestellung aufgeben“, der wiederum per
+          <code>&lt;&lt;include&gt;&gt;</code> zwingend den Use Case
+          „Zahlung prüfen“ einbindet.</li>
+        <li><strong>Klassendiagramm:</strong> Die Klassen „Kunde“,
+          „Bestellung“ und „Position“ werden mit ihren jeweiligen
+          Attributen modelliert — eine Bestellung besteht aus mehreren
+          Positionen (Aggregation).</li>
+        <li><strong>Aktivitätsdiagramm</strong> für den Bestellprozess:
+          Start → Warenkorb prüfen → Entscheidung „Lagerbestand
+          ausreichend?“ → bei Ja: Zahlung abwickeln, bei Nein: Kunde
+          benachrichtigen → Ende.</li>
+      </ul>
+      <p>
+        Alle drei Diagramme entstehen, bevor eine Zeile Code geschrieben
+        wird — sie dienen der gemeinsamen Abstimmung zwischen
+        Entwicklungsteam und Fachabteilung.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        UML ist eine genormte, sprachunabhängige Modellierungsnotation.
+        Use-Case-Diagramm = wer (Akteur) nutzt was (Use Case).
+        Klassendiagramm = statische Struktur mit Klassen, Attributen,
+        Methoden und Beziehungen (Assoziation, Generalisierung,
+        Aggregation, Komposition). Aktivitätsdiagramm = Ablauf mit
+        Start/Ende, Aktivitäten, Entscheidungsknoten und parallelen
+        Abläufen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/uml-diagramme.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

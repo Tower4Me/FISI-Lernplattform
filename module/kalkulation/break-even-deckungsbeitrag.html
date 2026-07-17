@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalkulation: Break-Even & Deckungsbeitrag</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#kalkulation">Kalkulation & Grundrechnen</a></li>
+        <li aria-current="page">Break-Even & Deckungsbeitrag</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Break-Even & Deckungsbeitrag
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein IT-Systemhaus zahlt jeden Monat Miete, Software-Lizenzen und
+        Gehälter — ganz unabhängig davon, wie viele Kunden gerade einen
+        neuen Cloud-Backup-Vertrag abschließen. Diese
+        <strong>Fixkosten</strong> laufen immer weiter. Jeder neue Kunde
+        bringt dagegen zusätzliche <strong>variable Kosten</strong>
+        (Speicherplatz, Support-Zeit) mit sich, aber auch zusätzlichen
+        Umsatz. Die spannende Frage für den Geschäftsführer lautet: Ab dem
+        wievielten Kunden trägt sich das Angebot von selbst — deckt der
+        Umsatz also endlich auch die Fixkosten? Diesen Punkt nennt man
+        <strong>Break-Even-Point</strong> (Gewinnschwelle).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Fixkosten vs. variable Kosten</h3>
+      <table>
+        <thead>
+          <tr><th>Kostenart</th><th>Merkmal</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fixkosten</strong></td>
+            <td>fallen unabhängig von der Menge an</td>
+            <td>Miete, Server-Grundgebühr, feste Gehälter</td>
+          </tr>
+          <tr>
+            <td><strong>Variable Kosten</strong></td>
+            <td>steigen mit jeder zusätzlichen Einheit/jedem Kunden</td>
+            <td>Speicherplatz pro Kunde, Materialverbrauch pro Stück</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Deckungsbeitrag</h3>
+      <p>
+        Der Deckungsbeitrag (DB) zeigt, wie viel von jeder verkauften
+        Einheit übrig bleibt, um die Fixkosten zu decken — und danach zum
+        Gewinn beizutragen:
+      </p>
+      <p>
+        <strong>Deckungsbeitrag pro Stück = Verkaufspreis −
+        variable Stückkosten</strong>
+      </p>
+
+      <h3>Break-Even-Point (Gewinnschwelle)</h3>
+      <p>
+        Am Break-Even-Point ist der Gewinn genau Null: Der gesamte
+        Deckungsbeitrag aller verkauften Einheiten deckt exakt die
+        Fixkosten.
+      </p>
+      <p>
+        <strong>Break-Even-Menge = Fixkosten ÷ Deckungsbeitrag pro Stück</strong>
+      </p>
+      <p>
+        Unterhalb dieser Menge macht das Angebot Verlust, oberhalb davon
+        Gewinn — jede zusätzliche verkaufte Einheit trägt dann in voller
+        Höhe des Deckungsbeitrags zum Gewinn bei.
+      </p>
+
+      <h3>Rentabilität</h3>
+      <p>
+        Die Rentabilität setzt den erzielten Gewinn ins Verhältnis zum
+        eingesetzten Kapital und zeigt damit, wie wirtschaftlich eine
+        Investition oder ein Geschäft ist:
+      </p>
+      <p>
+        <strong>Rentabilität [%] = Gewinn ÷ eingesetztes Kapital × 100</strong>
+      </p>
+
+      <h3>Amortisation</h3>
+      <p>
+        Die Amortisationszeit gibt an, nach wie vielen Jahren sich eine
+        Investition durch die jährlichen Rückflüsse (Gewinn oder
+        Kosteneinsparung) „ausgezahlt“ hat:
+      </p>
+      <p>
+        <strong>Amortisationszeit [Jahre] = Investitionssumme ÷
+        jährlicher Rückfluss</strong>
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant ein neues Cloud-Backup-Angebot für
+        Geschäftskunden.
+      </p>
+
+      <p><strong>Schritt 1 — Deckungsbeitrag pro Kunde:</strong></p>
+      <p>
+        Verkaufspreis pro Kunde/Monat: 25,00 € · variable Kosten (Speicher,
+        Support) pro Kunde/Monat: 10,00 €<br>
+        Deckungsbeitrag = 25,00 € − 10,00 € = <strong>15,00 € pro Kunde</strong>
+      </p>
+
+      <p><strong>Schritt 2 — Break-Even-Menge:</strong></p>
+      <p>
+        Monatliche Fixkosten (Server-Miete, Lizenzen): 4.000,00 €<br>
+        Break-Even-Menge = 4.000,00 € ÷ 15,00 € ≈ 266,7 → aufgerundet
+        <strong>267 Kunden</strong>. Ab dem 267. Kunden erwirtschaftet das
+        Angebot Gewinn.
+      </p>
+
+      <p><strong>Schritt 3 — Rentabilität und Amortisation einer Investition:</strong></p>
+      <p>
+        Für das neue Angebot schafft die TechNord GmbH einen zusätzlichen
+        Fileserver für 6.000,00 € an. Durch geringeren Stromverbrauch und
+        weniger Wartungsaufwand spart das Unternehmen dadurch 1.500,00 €
+        pro Jahr:
+      </p>
+      <p>
+        Rentabilität = 1.500,00 € ÷ 6.000,00 € × 100 = <strong>25 %</strong><br>
+        Amortisationszeit = 6.000,00 € ÷ 1.500,00 € = <strong>4 Jahre</strong>
+      </p>
+      <p>
+        Nach 4 Jahren hat sich die Investition in den Fileserver über die
+        jährliche Einsparung vollständig ausgezahlt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Deckungsbeitrag = Verkaufspreis − variable Stückkosten.
+        Break-Even-Menge = Fixkosten ÷ Deckungsbeitrag pro Stück.
+        Rentabilität = Gewinn ÷ eingesetztes Kapital × 100.
+        Amortisationszeit = Investitionssumme ÷ jährlicher Rückfluss.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/kalkulation/break-even-deckungsbeitrag.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

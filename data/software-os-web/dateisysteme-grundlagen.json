@@ -1,0 +1,89 @@
+{
+  "unit": "software-os-web/dateisysteme-grundlagen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist eine Datei auf unterster technischer Ebene?",
+      "options": [
+        "Ein ausschließlich vom Betriebssystem interpretierbares Objekt",
+        "Eine benannte, geordnete Folge von Bytes auf einem Speichermedium, deren Inhalt das öffnende Programm interpretiert",
+        "Ein physischer Block auf der Festplatte ohne jede Struktur",
+        "Ein Synonym für Metadaten"
+      ],
+      "answer": 1,
+      "explanation": "Eine Datei ist im Kern nur eine Byte-Folge. Das Betriebssystem verwaltet Ort und Name, den eigentlichen Inhalt interpretiert das jeweils öffnende Programm."
+    },
+    {
+      "id": "q2",
+      "question": "Warum verändert das Umbenennen einer Datei (z. B. von .jpg zu .txt) nicht ihren tatsächlichen Inhalt?",
+      "options": [
+        "Weil die Dateiendung nur ein Hinweis für das Betriebssystem ist, welches Programm die Datei öffnen soll, aber nicht der Speicherort des echten Inhalts",
+        "Weil Umbenennen technisch unmöglich ist",
+        "Weil jede Datei automatisch dupliziert wird",
+        "Weil die Dateiendung im Dateiinhalt selbst als erstes Byte gespeichert ist"
+      ],
+      "answer": 0,
+      "explanation": "Die Dateiendung ist nur ein Metadatum, das dem Betriebssystem einen Hinweis gibt — der tatsächliche Dateityp steckt in den ersten Bytes des Inhalts selbst und ändert sich durch Umbenennung nicht."
+    },
+    {
+      "id": "q3",
+      "question": "Welche der folgenden Angaben zählt zu den Metadaten einer Datei?",
+      "options": [
+        "Der reine Byte-Inhalt der Datei",
+        "Zeitstempel für Erstellung, letzte Änderung und letzten Zugriff",
+        "Die im Programmcode verarbeiteten Variablenwerte",
+        "Der Netzwerkport, über den die Datei heruntergeladen wurde"
+      ],
+      "answer": 1,
+      "explanation": "Zeitstempel (Erstellung, Änderung, Zugriff) sind klassische Metadaten — sie beschreiben die Datei, sind aber nicht der Dateiinhalt selbst."
+    },
+    {
+      "id": "q4",
+      "question": "Was enthält ein Inode unter Linux?",
+      "options": [
+        "Ausschließlich den Dateinamen",
+        "Alle Metadaten einer Datei außer dem Dateinamen — der Dateiname ist nur ein Verweis auf den Inode",
+        "Nur die Zugriffsrechte, keine weiteren Informationen",
+        "Eine vollständige Kopie des Dateiinhalts"
+      ],
+      "answer": 1,
+      "explanation": "Der Inode speichert alle Metadaten einer Datei (Größe, Zeitstempel, Rechte, Zeiger auf Datenblöcke) — der Dateiname selbst ist nur ein Verweis auf den zugehörigen Inode."
+    },
+    {
+      "id": "q5",
+      "question": "Was passiert technisch, wenn unter Linux eine Datei gelöscht wird?",
+      "options": [
+        "Die Datenbytes werden sofort physisch überschrieben",
+        "In der Regel wird nur der Inode-Eintrag als frei markiert, die Daten bleiben zunächst auf dem Datenträger erhalten",
+        "Die Datei wird automatisch verschlüsselt und archiviert",
+        "Das gesamte Dateisystem wird neu formatiert"
+      ],
+      "answer": 1,
+      "explanation": "Beim Löschen wird meist nur der Inode-Eintrag als frei markiert. Die eigentlichen Daten bleiben so lange erhalten, bis sie durch neue Daten überschrieben werden — deshalb sind gelöschte Dateien oft wiederherstellbar."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist die MFT (Master File Table) bei Windows/NTFS?",
+      "options": [
+        "Ein Synonym für den Inode unter Linux, technisch identisch",
+        "Eine Tabelle mit einem Eintrag pro Datei, der alle Metadaten enthält — bei sehr kleinen Dateien sogar den Inhalt selbst",
+        "Ein Werkzeug zur Defragmentierung von Festplatten",
+        "Ein Verschlüsselungsverfahren für NTFS-Partitionen"
+      ],
+      "answer": 1,
+      "explanation": "Die MFT enthält für jede Datei einen Eintrag mit sämtlichen Metadaten — bei sehr kleinen Dateien (unter ca. 700 Byte) wird sogar der Inhalt direkt im MFT-Eintrag gespeichert."
+    },
+    {
+      "id": "q7",
+      "question": "Welche vier Grundprobleme löst ein Dateisystem laut Konzept dieser Einheit?",
+      "options": [
+        "Verschlüsselung, Kompression, Backup, Virenschutz",
+        "Organisation, Adressierung, Freispeicherverwaltung, Metadatenverwaltung",
+        "Drucken, Scannen, Netzwerken, Booten",
+        "RAID, NAS, SAN, iSCSI"
+      ],
+      "answer": 1,
+      "explanation": "Ein Dateisystem organisiert Dateien hierarchisch, adressiert Speicherblöcke, verwaltet freien Speicherplatz und speichert Metadaten getrennt vom Inhalt."
+    }
+  ]
+}

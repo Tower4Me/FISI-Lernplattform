@@ -1,0 +1,79 @@
+{
+  "unit": "projektmanagement/lastenheft-pflichtenheft",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wer erstellt üblicherweise das Lastenheft?",
+      "options": [
+        "Der Auftragnehmer (Anbieter/Dienstleister)",
+        "Der Auftraggeber (Kunde)",
+        "Eine unabhängige Aufsichtsbehörde",
+        "Der Projektsteuerkreis nach Projektabschluss"
+      ],
+      "answer": 1,
+      "explanation": "Das Lastenheft wird vom Auftraggeber (Kunden) erstellt und beschreibt dessen Anforderungen an die zu erbringende Leistung."
+    },
+    {
+      "id": "q2",
+      "question": "Was beschreibt ein Lastenheft inhaltlich?",
+      "options": [
+        "Was der Auftraggeber benötigt und wofür, ohne konkrete Lösungsdetails vorzugeben",
+        "Die konkrete technische Umsetzung inklusive eingesetzter Komponenten",
+        "Ausschließlich die Kündigungsfristen eines Vertrags",
+        "Die interne Projektorganisation des Auftragnehmers"
+      ],
+      "answer": 0,
+      "explanation": "Das Lastenheft beschreibt aus Sicht des Auftraggebers, was benötigt wird und wofür — noch ohne die konkrete technische Lösung festzulegen."
+    },
+    {
+      "id": "q3",
+      "question": "Wer erstellt üblicherweise das Pflichtenheft?",
+      "options": [
+        "Der Auftraggeber allein, unabhängig vom Lastenheft",
+        "Der Auftragnehmer, basierend auf dem Lastenheft des Auftraggebers",
+        "Eine externe Zertifizierungsstelle",
+        "Der Endkunde nach Abschluss des Projekts"
+      ],
+      "answer": 1,
+      "explanation": "Das Pflichtenheft wird vom Auftragnehmer erstellt und beantwortet das Lastenheft mit der konkreten Umsetzungslösung."
+    },
+    {
+      "id": "q4",
+      "question": "Was beschreibt ein Pflichtenheft im Unterschied zum Lastenheft?",
+      "options": [
+        "Wie und womit die im Lastenheft formulierten Anforderungen konkret umgesetzt werden",
+        "Ausschließlich den ursprünglichen Wunsch des Kunden ohne technische Details",
+        "Die allgemeine Unternehmensstrategie des Auftraggebers",
+        "Nur die Rechtsform des Auftragnehmers"
+      ],
+      "answer": 0,
+      "explanation": "Das Pflichtenheft beschreibt konkret, wie und womit der Auftragnehmer die im Lastenheft formulierten Anforderungen umsetzt."
+    },
+    {
+      "id": "q5",
+      "question": "Zu welchem Zeitpunkt im Projektablauf wird das Lastenheft typischerweise erstellt?",
+      "options": [
+        "Erst nach vollständigem Projektabschluss",
+        "Vor Vertragsschluss, als Grundlage für Ausschreibung bzw. Angebotsanfrage",
+        "Nur während der Durchführungsphase",
+        "Ausschließlich beim Kick-off-Meeting"
+      ],
+      "answer": 1,
+      "explanation": "Das Lastenheft entsteht vor Vertragsschluss und dient als Grundlage für die Ausschreibung bzw. Angebotsanfrage an mögliche Auftragnehmer."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Kunde formuliert die Anforderung „Verfügbarkeit von mindestens 99,9 %, Speicherkapazität mindestens 50 TB“. Zu welchem Dokument gehört diese Formulierung?",
+      "options": ["Zum Pflichtenheft", "Zum Lastenheft", "Zu einem Kick-off-Protokoll", "Zu einem Meilensteinplan"],
+      "answer": 1,
+      "explanation": "Allgemeine Anforderungen wie Verfügbarkeit und Kapazität ohne konkrete technische Lösung gehören zum Lastenheft des Auftraggebers."
+    },
+    {
+      "id": "q7",
+      "question": "Ein Dienstleister antwortet auf eine Kundenanforderung mit „Einsatz von zwei redundanten Servern des Modells Z, RAID 6, konkreter Zeitplan mit Meilensteinen“. Zu welchem Dokument gehört diese Aussage?",
+      "options": ["Zum Lastenheft", "Zum Pflichtenheft", "Zu einer Gewährleistungsklausel", "Zu einem Kick-off-Meeting-Protokoll"],
+      "answer": 1,
+      "explanation": "Konkrete technische Umsetzungsdetails wie Servermodell, RAID-Level und Zeitplan gehören zum Pflichtenheft des Auftragnehmers, das auf das Lastenheft antwortet."
+    }
+  ]
+}

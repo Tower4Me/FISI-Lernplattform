@@ -1,0 +1,101 @@
+{
+  "unit": "projektmanagement/first-second-third-level-support",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche Aufgabe übernimmt der First-Level-Support typischerweise?",
+      "options": [
+        "Die Entwicklung von Software-Patches",
+        "Die erste Anlaufstelle für Anfragen, Lösung von Standardproblemen über bekannte Lösungen",
+        "Ausschließlich die Behebung von Hardwaredefekten in Rechenzentren",
+        "Die Verhandlung von Wartungsverträgen mit Kunden"
+      ],
+      "answer": 1,
+      "explanation": "Der First-Level-Support ist die erste Anlaufstelle und löst Standardprobleme mithilfe bekannter Lösungen."
+    },
+    {
+      "id": "q2",
+      "question": "Was kennzeichnet den Second-Level-Support im Unterschied zum First-Level?",
+      "options": [
+        "Er hat weniger Fachwissen als der First-Level",
+        "Er übernimmt komplexere Fälle mit tieferem Fachwissen und weiterreichenden Systemzugriffen",
+        "Er ist ausschließlich für die Buchhaltung zuständig",
+        "Er hat keinerlei Kontakt zu Kundenanfragen"
+      ],
+      "answer": 1,
+      "explanation": "Der Second-Level-Support übernimmt komplexere Fälle und verfügt über tieferes Fachwissen sowie erweiterte Zugriffsrechte."
+    },
+    {
+      "id": "q3",
+      "question": "Wer ist häufig auf der Ebene des Third-Level-Supports tätig?",
+      "options": [
+        "Ausschließlich Auszubildende im ersten Lehrjahr",
+        "Spezialist:innen, Entwicklerteams oder der Hersteller selbst",
+        "Nur externe Callcenter-Mitarbeitende",
+        "Der Betriebsrat des Unternehmens"
+      ],
+      "answer": 1,
+      "explanation": "Third-Level-Support wird oft von Spezialist:innen, Entwicklerteams oder direkt vom Hersteller geleistet."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist ein zentrales Ziel der Staffelung in First-, Second- und Third-Level-Support?",
+      "options": [
+        "Möglichst viele Anfragen bereits auf der ersten, kostengünstigsten Ebene zu lösen",
+        "Jede Anfrage grundsätzlich bis zum Hersteller weiterzuleiten",
+        "Die Anzahl der Supportstufen zu maximieren, unabhängig von der Komplexität",
+        "Kundenanfragen möglichst lange unbeantwortet zu lassen"
+      ],
+      "answer": 0,
+      "explanation": "Ziel der Staffelung ist es, möglichst viele Anfragen bereits auf der kostengünstigeren ersten Ebene zu lösen."
+    },
+    {
+      "id": "q5",
+      "question": "Im Praxisbeispiel wird ein wiederkehrender Programmierfehler in einer Fachanwendung festgestellt. Welche Ebene wird abschließend kontaktiert, um den Fehler zu beheben?",
+      "options": [
+        "First-Level",
+        "Second-Level",
+        "Third-Level (der Softwarehersteller)",
+        "Keine weitere Ebene ist nötig"
+      ],
+      "answer": 2,
+      "explanation": "Da es sich um einen echten Produktfehler handelt, wird der Third-Level-Support in Form des Softwareherstellers kontaktiert."
+    },
+    {
+      "id": "q6",
+      "question": "Welche Art von Problemen löst der First-Level-Support typischerweise selbst, ohne Eskalation?",
+      "options": [
+        "Grundlegende Programmierfehler im Quellcode einer Anwendung",
+        "Standardprobleme wie das Zurücksetzen eines Passworts oder einfache Konfigurationsprobleme",
+        "Hardwaredefekte, die einen Austausch von Bauteilen erfordern",
+        "Verhandlungen über SLA-Vertragsinhalte"
+      ],
+      "answer": 1,
+      "explanation": "Der First-Level-Support löst typischerweise Standardprobleme wie Passwort-Rücksetzungen oder einfache Konfigurationsfragen."
+    },
+    {
+      "id": "q7",
+      "question": "Was liefert der Third-Level-Support häufig, wenn ein echter Produktfehler bestätigt wird?",
+      "options": [
+        "Einen Patch oder ein Update, das den Fehler behebt",
+        "Eine vollständige Neuausbildung der Support-Mitarbeitenden",
+        "Eine Kündigung des Kundenvertrags",
+        "Eine Ticketlöschung ohne weitere Maßnahme"
+      ],
+      "answer": 0,
+      "explanation": "Bestätigt der Hersteller (Third-Level) einen Produktfehler, liefert er häufig einen Patch oder ein Update zur Behebung."
+    },
+    {
+      "id": "q8",
+      "question": "Warum verfügt der Second-Level-Support über weiterreichende Systemzugriffe als der First-Level?",
+      "options": [
+        "Weil er komplexere Probleme analysieren und lösen muss, die tiefere Eingriffe erfordern",
+        "Weil er ausschließlich administrative Aufgaben ohne technischen Bezug übernimmt",
+        "Weil First-Level-Mitarbeitende grundsätzlich keine Systemzugriffe benötigen",
+        "Weil Second-Level-Support nur für Vertragsfragen zuständig ist"
+      ],
+      "answer": 0,
+      "explanation": "Komplexere Probleme erfordern tiefere Analysen und Eingriffe, weshalb der Second-Level-Support über weiterreichende Zugriffsrechte verfügt."
+    }
+  ]
+}

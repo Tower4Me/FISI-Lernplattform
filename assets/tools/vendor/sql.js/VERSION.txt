@@ -1,0 +1,12 @@
+sql.js v1.14.1
+Quelle: https://github.com/sql-js/sql.js/releases/tag/v1.14.1
+Asset:  sqljs-wasm.zip (sql-wasm.js + sql-wasm.wasm)
+Lizenz: MIT (siehe LICENSE in diesem Ordner)
+
+Unveränderter Vendor-Code. Kein CDN-Nachladen zur Laufzeit — beide Dateien
+liegen lokal im Repo und werden von assets/tools/sql-editor.js per
+initSqlJs({ locateFile }) referenziert.
+
+Update-Hinweis: Neue Version manuell von der GitHub-Releases-Seite laden,
+sqljs-wasm.zip entpacken, sql-wasm.js + sql-wasm.wasm hier ersetzen,
+LICENSE und diese VERSION.txt aktualisieren.

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software/OS/Web: Programmierparadigmen & Sprachhöhe</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
+        <li aria-current="page">Programmierparadigmen & Sprachhöhe</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Programmierparadigmen & Sprachhöhe
+      <span class="badges">
+        <span class="badge badge--kern">Kern</span>
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Prozedurale Programmierung ist wie ein Kochrezept mit
+        nummerierten Schritten, die von oben nach unten abgearbeitet
+        werden. Objektorientierte Programmierung ist wie ein Unternehmen,
+        das in Abteilungen (Objekte) organisiert ist — jede Abteilung
+        verwaltet ihre eigenen Daten und Aufgaben und kommuniziert über
+        klar definierte Schnittstellen mit den anderen. Funktionale
+        Programmierung ist wie ein Fließband, auf dem jede Station nur
+        das durchlaufende Werkstück verändert, ohne je auf ein
+        gemeinsames Lager zuzugreifen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Ein <strong>Programmierparadigma</strong> ist ein grundlegender
+        Stil, wie ein Problem in Code strukturiert wird.
+      </p>
+
+      <h3>Die drei wichtigsten Paradigmen</h3>
+      <table>
+        <thead>
+          <tr><th>Paradigma</th><th>Grundprinzip</th><th>Beispielsprachen</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Prozedural</strong></td>
+            <td>das Programm ist eine Folge von Anweisungen und
+              Prozeduren (Funktionen), die nacheinander ausgeführt werden
+              und auf gemeinsame Daten zugreifen</td>
+            <td>C, klassisches Pascal</td>
+          </tr>
+          <tr>
+            <td><strong>Objektorientiert (OOP)</strong></td>
+            <td>Daten und die dazugehörigen Funktionen werden in Objekten
+              bzw. Klassen gebündelt (Kapselung); weitere Kernkonzepte:
+              Vererbung (eine Klasse übernimmt Eigenschaften einer
+              anderen) und Polymorphie (gleicher Aufruf, unterschiedliches
+              Verhalten je nach Objekt)</td>
+            <td>Java, C#, Python</td>
+          </tr>
+          <tr>
+            <td><strong>Funktional</strong></td>
+            <td>das Programm besteht aus der Verkettung von (möglichst
+              zustandslosen) Funktionen, ohne einen gemeinsamen
+              veränderlichen Zustand zu verändern</td>
+            <td>Haskell; funktionale Konzepte auch in JavaScript/Python
+              nutzbar</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Sprachhöhe: Maschinensprache bis Hochsprache</h3>
+      <table>
+        <thead>
+          <tr><th>Ebene</th><th>Merkmale</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Maschinensprache</strong></td>
+            <td>reine Binärbefehle, direkt vom Prozessor ausführbar,
+              prozessorspezifisch, für Menschen praktisch nicht lesbar</td>
+          </tr>
+          <tr>
+            <td><strong>Assemblersprache</strong></td>
+            <td>mnemonische Abkürzungen für Maschinenbefehle (z. B.
+              <code>MOV</code>, <code>ADD</code>), noch sehr
+              hardwarenah, aber für Menschen lesbarer</td>
+          </tr>
+          <tr>
+            <td><strong>Hochsprache</strong></td>
+            <td>abstrahiert von der konkreten Hardware, deutlich
+              menschenlesbarer und portabler zwischen unterschiedlichen
+              Prozessoren (z. B. C, Java, Python)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Je höher die Sprachebene, desto weiter weg vom konkreten
+        Prozessor, aber desto leichter zu schreiben, zu lesen und zu
+        warten — dafür übernimmt ein Compiler oder Interpreter die
+        Übersetzung in Maschinensprache (siehe Einheit Compiler,
+        Interpreter & Linker).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH entwickelt zwei unterschiedliche Projekte:
+      </p>
+      <ul>
+        <li><strong>Automatisierungsskripte für die Serverwartung:</strong>
+          werden <strong>prozedural</strong> als einfache Python-Skripte
+          geschrieben — Schritt für Schritt abgearbeitet, ohne Bedarf an
+          einer komplexen Objektstruktur.</li>
+        <li><strong>Kundenverwaltungssoftware:</strong> wird
+          <strong>objektorientiert</strong> in Java entwickelt. Reale
+          Objekte wie Kunde, Bestellung und Rechnung lassen sich gut als
+          Klassen mit eigenen Daten und Methoden abbilden. Durch
+          <strong>Vererbung</strong> erben die Klassen „Privatkunde“ und
+          „Geschäftskunde“ gemeinsame Eigenschaften von einer
+          Basisklasse „Kunde“, statt Code doppelt zu schreiben.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Prozedural = Abfolge von Prozeduren auf gemeinsamen Daten.
+        Objektorientiert = Daten und Funktionen in Objekten/Klassen
+        gebündelt (Kapselung, Vererbung, Polymorphie). Funktional =
+        Verkettung zustandsloser Funktionen. Sprachhöhe:
+        Maschinensprache (prozessorspezifisch) → Assembler (mnemonisch) →
+        Hochsprache (abstrakt, portabel, menschenlesbar).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/programmierparadigmen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+</body>
+</html>

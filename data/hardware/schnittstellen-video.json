@@ -1,0 +1,89 @@
+{
+  "unit": "hardware/schnittstellen-video",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was unterscheidet den USB-Steckertyp von der USB-Generation (z. B. USB 3.2)?",
+      "options": [
+        "Steckertyp und Generation sind dasselbe Merkmal",
+        "Der Steckertyp (A/B/C) beschreibt die physische Form, die Generation beschreibt die Datenrate — ein USB-C-Stecker kann auch nur USB-2.0-Geschwindigkeit führen",
+        "Nur USB-C-Stecker unterstützen mehr als 480 Mbit/s",
+        "Die Generation bestimmt, ob der Stecker verpolungssicher ist"
+      ],
+      "answer": 1,
+      "explanation": "Steckerform und Datenrate sind unabhängige Eigenschaften. Ein USB-C-Anschluss sagt allein noch nichts über die tatsächliche Geschwindigkeit aus."
+    },
+    {
+      "id": "q2",
+      "question": "Was macht USB Typ C gegenüber Typ A besonders praktisch?",
+      "options": [
+        "Er ist ausschließlich für Netzwerkkabel gedacht",
+        "Er ist verpolungssicher (beidseitig einsteckbar) und kann je nach Modus Daten, Video (Alt Mode) und Strom (Power Delivery) gleichzeitig führen",
+        "Er überträgt grundsätzlich immer mit 40 Gbit/s",
+        "Er ist nur mit HDMI-Geräten kompatibel"
+      ],
+      "answer": 1,
+      "explanation": "USB-C ist beidseitig einsteckbar und kann parallel Daten, Videosignal (Alt Mode) und Ladestrom (Power Delivery) über denselben Stecker übertragen."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Aussage zu HDMI und DisplayPort trifft zu?",
+      "options": [
+        "DisplayPort kann nur einen einzigen Monitor ansteuern, HDMI beliebig viele",
+        "HDMI überträgt nur Bild, nie Ton",
+        "Beide übertragen Bild und Ton digital über ein Kabel; DisplayPort unterstützt zusätzlich Multi-Stream-Transport für mehrere Monitore in Reihe",
+        "HDMI und DisplayPort sind technisch identisch und unterscheiden sich nur im Steckernamen"
+      ],
+      "answer": 2,
+      "explanation": "Beide Standards übertragen Bild und Ton über ein Kabel. DisplayPort bietet zusätzlich Multi-Stream-Transport, mit dem mehrere Monitore an einer Leitung in Reihe geschaltet werden können."
+    },
+    {
+      "id": "q4",
+      "question": "Was macht Thunderbolt (Version 3/4) technisch besonders, obwohl es denselben Stecker wie USB-C nutzt?",
+      "options": [
+        "Thunderbolt tunnelt zusätzlich PCIe und DisplayPort im selben Kabel und erreicht bis zu 40 Gbit/s",
+        "Thunderbolt ist ausschließlich für Netzwerkverbindungen gedacht",
+        "Thunderbolt kann keinen Strom liefern, nur Daten",
+        "Thunderbolt-Kabel passen nicht in USB-C-Buchsen"
+      ],
+      "answer": 0,
+      "explanation": "Thunderbolt 3/4 nutzt den USB-C-Formfaktor, tunnelt aber zusätzlich PCIe (z. B. für externe GPUs) und DisplayPort (Bildsignal) im selben Kabel, mit bis zu 40 Gbit/s."
+    },
+    {
+      "id": "q5",
+      "question": "Wofür wird ein RJ45-Anschluss verwendet?",
+      "options": [
+        "Für die Übertragung von Bild- und Tonsignalen an einen Monitor",
+        "Für kabelgebundenes Ethernet-Netzwerk über Twisted-Pair-Kabel",
+        "Ausschließlich zum Laden von Notebooks",
+        "Für die Anbindung externer Grafikkarten per PCIe-Tunneling"
+      ],
+      "answer": 1,
+      "explanation": "RJ45 (8P8C) ist der Standardstecker für Twisted-Pair-Ethernetkabel und verbindet Endgeräte kabelgebunden mit Switch oder Router."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Notebook mit nur einem USB-C-Anschluss soll über eine Thunderbolt-4-Dockingstation an Monitor, Netzwerk und Ladegerät angeschlossen werden. Warum genügt dafür ein einziges Kabel?",
+      "options": [
+        "Weil USB-C-Kabel grundsätzlich alle Signale unterstützen, unabhängig vom Standard",
+        "Weil Thunderbolt USB-Daten, DisplayPort-Signal (Alt Mode) und Power Delivery gleichzeitig durch dieselbe Leitung tunnelt",
+        "Weil RJ45-Signale automatisch in jedes USB-Kabel eingebettet werden",
+        "Weil das Notebook dafür kein Betriebssystem-Treiber benötigt"
+      ],
+      "answer": 1,
+      "explanation": "Thunderbolt bündelt mehrere Signalarten (USB, DisplayPort, Power Delivery) in einem Kabel — die Dock verteilt sie dann auf Monitor, RJ45-Netzwerkport und Ladeausgang."
+    },
+    {
+      "id": "q7",
+      "question": "Welche HDMI-Version wird mindestens benötigt, um ein 8K-Bild bei 60 Hz auszugeben?",
+      "options": [
+        "HDMI 1.4",
+        "HDMI 2.0",
+        "HDMI 2.1",
+        "Alle HDMI-Versionen unterstützen 8K@60Hz gleichermaßen"
+      ],
+      "answer": 2,
+      "explanation": "HDMI 1.4 schafft 4K@30Hz, HDMI 2.0 4K@60Hz. Erst HDMI 2.1 unterstützt 8K bei 60 Hz bzw. 4K bei 120 Hz."
+    }
+  ]
+}

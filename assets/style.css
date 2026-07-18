@@ -383,6 +383,66 @@ code, kbd, pre {
 }
 table { display: block; max-width: 100%; overflow-x: auto; }
 
+/* ------------------------------------------------------------ Suche --- */
+.site-search {
+  position: relative;
+  margin-block: 0.75rem;
+}
+.site-search--prominent { max-width: 100%; }
+.site-search--compact { max-width: 16rem; }
+.site-search__input {
+  width: 100%;
+  font: inherit;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+}
+.site-search--compact .site-search__input { font-size: 0.85rem; padding: 0.4rem 0.75rem; }
+.site-search__input:focus,
+.site-search__input:not(:placeholder-shown) {
+  color: var(--text);
+  background: var(--surface);
+}
+.site-search__input:focus {
+  outline: none;
+  border-color: var(--link);
+}
+.site-search__results {
+  position: absolute;
+  z-index: 100;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  max-height: 22rem;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.site-search__option {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.site-search__option:hover,
+.site-search__option.is-active { background: var(--surface-2); }
+.site-search__option-name { font-weight: 600; }
+.site-search__option-path { font-size: 0.78rem; color: var(--text-muted); }
+.site-search__empty {
+  padding: 0.5rem 0.65rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 /* ------------------------------------------------------ Theme-Switcher */
 .theme-switcher {
   position: fixed;
@@ -457,6 +517,7 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 
   /* Bildschirm-UI ohne Nutzen auf Papier */
   .theme-switcher,
+  .site-search,
   .breadcrumbs,
   .site-footer { display: none; }
   .module-card__head::after { display: none; }

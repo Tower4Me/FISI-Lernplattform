@@ -13,6 +13,11 @@
 (function () {
   "use strict";
 
+  // Idempotenz-Schutz: falls dieses Skript je zweimal auf derselben Seite
+  // ausgefuehrt wuerde (doppeltes Script-Tag, Speculative-Prerendering o.ae.),
+  // sonst wuerden doppelte IDs (#site-search-input) entstehen.
+  if (document.getElementById("site-search-input")) return;
+
   var MAX_RESULTS = 20;
 
   /* -------------------------------------------------------- Pfad-Basis --- */
@@ -113,8 +118,25 @@
   wrap.appendChild(input);
   wrap.appendChild(listbox);
 
+  // Suche landet in derselben Kopfzeile wie der Breadcrumb (nicht unter
+  // Titel/Fortschrittsbalken): Breadcrumb + Suche werden gemeinsam in eine
+  // neue Flex-Zeile "site-header__top" verschoben. Das passiert rein zur
+  // Laufzeit per DOM-Umbau, die Einheiten-HTML bleibt unangetastet.
   var header = document.querySelector(".site-header");
-  (header || document.body).appendChild(wrap);
+  if (header) {
+    var breadcrumbs = header.querySelector(".breadcrumbs");
+    var topRow = document.createElement("div");
+    topRow.className = "site-header__top";
+    if (breadcrumbs && breadcrumbs.parentNode === header) {
+      header.insertBefore(topRow, breadcrumbs);
+      topRow.appendChild(breadcrumbs);
+    } else {
+      header.insertBefore(topRow, header.firstChild);
+    }
+    topRow.appendChild(wrap);
+  } else {
+    document.body.appendChild(wrap);
+  }
 
   /* --------------------------------------------------- Render/State --- */
   var currentResults = [];

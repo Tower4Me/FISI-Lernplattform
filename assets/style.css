@@ -1,5 +1,5 @@
 /* ==========================================================================
-   style.css — Vier Themes fuer FISI-Lerneinheiten (white/dark/creme/terminal)
+   style.css — Fuenf Themes fuer FISI-Lerneinheiten (white/dark/creme/terminal/sunset)
    Farbwerte gemaess CONVENTIONS.md §5 + §Theming. Aenderungen NUR hier vornehmen.
 
    Struktur:
@@ -8,6 +8,7 @@
      [data-theme="dark"]      -> Gruppe 1 (bestehende Werte aus alter :root)
      [data-theme="creme"]     -> Gruppe 1 (Vorschlag)
      [data-theme="terminal"]  -> Gruppe 1 (Vorschlag)
+     [data-theme="sunset"]    -> Gruppe 1 (Vorschlag)
    "white" hat KEINEN eigenen Block: es sind die :root-Default-Werte.
    ========================================================================== */
 
@@ -84,6 +85,18 @@
   --text-muted: #7c9c74; /* Vorschlag */
   --border: #2a332a;     /* Vorschlag */
   --link: #39ff14;       /* Vorschlag — klassisches Terminal-Gruen */
+}
+
+/* -------------------------------------------------------- Theme: sunset --- */
+/* Dunkles Lila/Violett (Retro-Sunset-Himmel), warmes Orange als Akzent. */
+[data-theme="sunset"] {
+  --bg: #1a1029;         /* Vorschlag */
+  --surface: #2b1b42;    /* Vorschlag */
+  --surface-2: #3d2659;  /* Vorschlag */
+  --text: #f3e8fb;       /* Vorschlag */
+  --text-muted: #b79bd4; /* Vorschlag */
+  --border: #4d3166;     /* Vorschlag */
+  --link: #ff8a3d;       /* Vorschlag — Sunset-Orange */
 }
 
 /* ------------------------------------------------------------------ Reset */

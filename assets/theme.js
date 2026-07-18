@@ -1,4 +1,4 @@
-/* theme.js — vier Themes: white, dark, creme, terminal.
+/* theme.js — fuenf Themes: white, dark, creme, terminal, sunset.
    Verantwortlich fuer: barrierefreies Umschalt-Menue, Persistenz (localStorage),
    Reaktion auf System-Praeferenz solange keine manuelle Wahl gespeichert ist.
 
@@ -14,12 +14,13 @@
 
   var LS_KEY = "fisi:theme";
   var THEMES = [
-    { value: "white", label: "White Mode" },
-    { value: "dark", label: "Dark Mode" },
+    { value: "white", label: "White" },
+    { value: "dark", label: "Dark" },
     { value: "creme", label: "Creme" },
-    { value: "terminal", label: "Terminal" }
+    { value: "terminal", label: "Terminal" },
+    { value: "sunset", label: "Sunset" }
   ];
-  var SPECIAL_START_INDEX = 2; // ab hier: "Spezialdesigns" (Creme/Terminal), Trenner davor
+  var SPECIAL_START_INDEX = 2; // ab hier: "Spezialdesigns" (Creme/Terminal/Sunset), Trenner davor
 
   var root = document.documentElement;
   var mql = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
@@ -49,7 +50,7 @@
 
   function updateUI(value) {
     if (!btn) return;
-    btn.textContent = "Theme: " + labelFor(value);
+    btn.textContent = "Farbe: " + labelFor(value);
     items.forEach(function (item) {
       var active = item.dataset.theme === value;
       item.setAttribute("aria-checked", active ? "true" : "false");

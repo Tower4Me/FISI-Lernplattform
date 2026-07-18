@@ -114,7 +114,12 @@
 
     wrap.appendChild(btn);
     wrap.appendChild(menu);
-    document.body.appendChild(wrap);
+    // Sitzt normalerweise direkt neben der Suche (site-search.js legt dafuer
+    // .site-header__actions an, rechtsbuendig in derselben Kopfzeile wie der
+    // Breadcrumb). Fallback auf die alte fixierte Ecke oben rechts, falls
+    // dieser Container aus irgendeinem Grund fehlt (z.B. search.js entfernt).
+    var actions = document.querySelector(".site-header__actions");
+    (actions || document.body).appendChild(wrap);
 
     function toggleMenu() {
       if (menu.hidden) { openMenu(); } else { closeMenu(); }

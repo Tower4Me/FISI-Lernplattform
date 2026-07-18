@@ -384,10 +384,11 @@ code, kbd, pre {
 table { display: block; max-width: 100%; overflow-x: auto; }
 
 /* -------------------------------------------------- Kopfzeile / Suche --- */
-/* Breadcrumb + Suche teilen sich eine Zeile auf Hoehe des Breadcrumbs
-   (search.js verschiebt den bestehenden .breadcrumbs-Nav zur Laufzeit in
-   diesen Wrapper) — passend zum Theme-Umschalter, der oben rechts fixiert
-   ist. Titel/Fortschrittsbalken bleiben unangetastet darunter. */
+/* Breadcrumb + Suche + Theme-Button teilen sich eine Zeile auf Hoehe des
+   Breadcrumbs (search.js verschiebt den bestehenden .breadcrumbs-Nav zur
+   Laufzeit in diesen Wrapper; theme.js haengt den Theme-Button in
+   .site-header__actions direkt neben die Suche, statt ihn fixiert in die
+   Ecke zu setzen). Titel/Fortschrittsbalken bleiben unangetastet darunter. */
 .site-header__top {
   display: flex;
   align-items: center;
@@ -397,6 +398,23 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   margin-bottom: 1rem;
 }
 .site-header__top .breadcrumbs { margin-bottom: 0; }
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+.site-search--prominent { min-width: 0; }
+.site-search--compact { min-width: 0; }
+/* Theme-Button verliert seine fixierte Ecken-Position, sobald er hier
+   (neben der Suche) eingehaengt ist — er bleibt aber weiterhin die
+   Positionierungs-Referenz fuer sein eigenes Dropdown-Menue. */
+.site-header__actions .theme-switcher {
+  position: relative;
+  top: auto;
+  right: auto;
+}
 
 .site-search { position: relative; }
 .site-search--prominent { flex: 0 1 20rem; }

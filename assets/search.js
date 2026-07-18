@@ -100,7 +100,7 @@
   input.type = "text";
   input.id = "site-search-input";
   input.className = "site-search__input";
-  input.placeholder = isIndex ? "Suche nach Titel (z. B. „Subnetz“, „RAID“) …" : "Suche …";
+  input.placeholder = isIndex ? "Suche nach Titel (z. B. „Subnetting“, „RAID“) …" : "Suche …";
   input.autocomplete = "off";
   input.setAttribute("role", "combobox");
   input.setAttribute("aria-autocomplete", "list");
@@ -120,8 +120,11 @@
 
   // Suche landet in derselben Kopfzeile wie der Breadcrumb (nicht unter
   // Titel/Fortschrittsbalken): Breadcrumb + Suche werden gemeinsam in eine
-  // neue Flex-Zeile "site-header__top" verschoben. Das passiert rein zur
-  // Laufzeit per DOM-Umbau, die Einheiten-HTML bleibt unangetastet.
+  // neue Flex-Zeile "site-header__top" verschoben. Die Suche steckt darin in
+  // einem eigenen Wrapper "site-header__actions" — theme.js haengt den
+  // Theme-Button dort direkt daneben ein (statt fixiert oben rechts), damit
+  // beide rechtsbuendig nebeneinander sitzen. Rein zur Laufzeit per
+  // DOM-Umbau, die Einheiten-HTML bleibt unangetastet.
   var header = document.querySelector(".site-header");
   if (header) {
     var breadcrumbs = header.querySelector(".breadcrumbs");
@@ -133,7 +136,10 @@
     } else {
       header.insertBefore(topRow, header.firstChild);
     }
-    topRow.appendChild(wrap);
+    var actions = document.createElement("div");
+    actions.className = "site-header__actions";
+    actions.appendChild(wrap);
+    topRow.appendChild(actions);
   } else {
     document.body.appendChild(wrap);
   }

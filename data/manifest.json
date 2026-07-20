@@ -8,133 +8,114 @@
         {
           "slug": "projektbegriff-magisches-dreieck",
           "name": "Projektbegriff & magisches Dreieck",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/projektbegriff-magisches-dreieck.json"
         },
         {
           "slug": "projektphasen-meilensteine",
           "name": "Projektphasen, Meilensteine & Kick-off",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/projektphasen-meilensteine.json"
         },
         {
           "slug": "lastenheft-pflichtenheft",
           "name": "Lastenheft vs. Pflichtenheft",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/lastenheft-pflichtenheft.json"
         },
         {
           "slug": "rollen-stakeholder",
           "name": "Rollen & Stakeholder",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/rollen-stakeholder.json"
         },
         {
           "slug": "smart-ziele",
           "name": "SMART-Ziele",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/projektmanagement/smart-ziele.json"
         },
         {
           "slug": "projektstrukturplan",
           "name": "Projektstrukturplan",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/projektstrukturplan.json"
         },
         {
           "slug": "netzplan",
           "name": "Netzplan & kritischer Pfad",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/netzplan.json"
         },
         {
           "slug": "gantt-diagramm",
           "name": "Gantt-Diagramm",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/gantt-diagramm.json"
         },
         {
           "slug": "kanban-scrum-board",
           "name": "Kanban- & Scrum-Board",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/projektmanagement/kanban-scrum-board.json"
         },
         {
           "slug": "wasserfall-vs-agil",
           "name": "Wasserfall vs. agil (Scrum)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/wasserfall-vs-agil.json"
         },
         {
           "slug": "bpmn",
           "name": "BPMN",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/projektmanagement/bpmn.json"
         },
         {
           "slug": "change-management",
           "name": "Change Management",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/change-management.json"
         },
         {
           "slug": "teamphasen-tuckman",
           "name": "Teamphasen nach Tuckman",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/projektmanagement/teamphasen-tuckman.json"
         },
         {
           "slug": "kommunikationsmodelle",
           "name": "Kommunikationsmodelle",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/projektmanagement/kommunikationsmodelle.json"
         },
         {
           "slug": "konfliktloesung-harvard-batna",
           "name": "Konfliktlösung (Harvard-Konzept, BATNA)",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/projektmanagement/konfliktloesung-harvard-batna.json"
         },
         {
           "slug": "feedback-retrospektive",
           "name": "Feedback & Retrospektive",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/projektmanagement/feedback-retrospektive.json"
         },
         {
           "slug": "problemanalyse-5whys-ishikawa",
           "name": "Problemanalyse (5 Whys, Ishikawa)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/problemanalyse-5whys-ishikawa.json"
         },
         {
           "slug": "ticketsystem-stoerungsmanagement-eskalation",
           "name": "Ticketsystem, Störungsmanagement & Eskalation",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/ticketsystem-stoerungsmanagement-eskalation.json"
         },
         {
           "slug": "first-second-third-level-support",
           "name": "First-, Second- & Third-Level-Support",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/projektmanagement/first-second-third-level-support.json"
         }
@@ -147,63 +128,54 @@
         {
           "slug": "bits-und-bytes",
           "name": "Bits & Bytes",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/bits-und-bytes.json"
         },
         {
           "slug": "datenmengen-uebertragung",
           "name": "Übertragungsdauer & Bandbreite",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/datenmengen-uebertragung.json"
         },
         {
           "slug": "zahlensysteme",
           "name": "Zahlensysteme",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/zahlensysteme.json"
         },
         {
           "slug": "elektrotechnik-grundformeln",
           "name": "Elektrotechnik-Grundformeln",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/elektrotechnik-grundformeln.json"
         },
         {
           "slug": "handelskalkulation",
           "name": "Handelskalkulation",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/handelskalkulation.json"
         },
         {
           "slug": "zuschlagskalkulation-bab",
           "name": "Zuschlagskalkulation & BAB",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/zuschlagskalkulation-bab.json"
         },
         {
           "slug": "nutzwertanalyse",
           "name": "Nutzwertanalyse",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/nutzwertanalyse.json"
         },
         {
           "slug": "break-even-deckungsbeitrag",
           "name": "Break-Even & Deckungsbeitrag",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/break-even-deckungsbeitrag.json"
         },
         {
           "slug": "kauf-miete-leasing-tco",
           "name": "Kauf, Miete, Leasing & TCO",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/kauf-miete-leasing-tco.json"
         }
@@ -216,126 +188,108 @@
         {
           "slug": "computer-grundaufbau",
           "name": "Computer-Grundaufbau",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/computer-grundaufbau.json"
         },
         {
           "slug": "cpu-aufbau",
           "name": "CPU-Aufbau",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/cpu-aufbau.json"
         },
         {
           "slug": "arbeitsspeicher-ram",
           "name": "Arbeitsspeicher (RAM)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/arbeitsspeicher-ram.json"
         },
         {
           "slug": "mainboard-busse",
           "name": "Mainboard & Bussysteme",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/mainboard-busse.json"
         },
         {
           "slug": "bios-uefi-boot",
           "name": "BIOS/UEFI & Bootvorgang",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/bios-uefi-boot.json"
         },
         {
           "slug": "ssd-hdd-nvme",
           "name": "SSD, HDD & NVMe",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/ssd-hdd-nvme.json"
         },
         {
           "slug": "raid-level",
           "name": "RAID-Level",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/hardware/raid-level.json"
         },
         {
           "slug": "nas-san-storage",
           "name": "NAS, SAN & Netzwerkspeicher",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/hardware/nas-san-storage.json"
         },
         {
           "slug": "schnittstellen-video",
           "name": "Schnittstellen & Video",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/schnittstellen-video.json"
         },
         {
           "slug": "drucker",
           "name": "Drucker",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/hardware/drucker.json"
         },
         {
           "slug": "monitore-display",
           "name": "Monitore & Displays",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/hardware/monitore-display.json"
         },
         {
           "slug": "scanner-sensoren",
           "name": "Scanner & Sensoren",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/hardware/scanner-sensoren.json"
         },
         {
           "slug": "geraeteklassen-arbeitsplatz",
           "name": "Geräteklassen & Arbeitsplatz",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/hardware/geraeteklassen-arbeitsplatz.json"
         },
         {
           "slug": "usv-klassen",
           "name": "USV-Klassen (IEC 62040-3)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/hardware/usv-klassen.json"
         },
         {
           "slug": "auto-id",
           "name": "Auto-ID (Barcode, RFID, NFC)",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/hardware/auto-id.json"
         },
         {
           "slug": "green-it",
           "name": "Green IT & Nachhaltigkeit",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/hardware/green-it.json"
         },
         {
           "slug": "ergonomie-barrierefreiheit",
           "name": "Ergonomie & Barrierefreiheit",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/hardware/ergonomie-barrierefreiheit.json"
         },
         {
           "slug": "gehaeuse-formfaktoren",
           "name": "Gehäuse & Formfaktoren",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/hardware/gehaeuse-formfaktoren.json"
         }
@@ -348,126 +302,108 @@
         {
           "slug": "iso-osi-tcp-ip",
           "name": "ISO/OSI vs. TCP/IP",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/iso-osi-tcp-ip.json"
         },
         {
           "slug": "netzwerkkomponenten",
           "name": "Netzwerkkomponenten",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/netzwerkkomponenten.json"
         },
         {
           "slug": "topologien-vlan-poe-qos",
           "name": "Topologien, VLAN, PoE & QoS",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/netzwerktechnik/topologien-vlan-poe-qos.json"
         },
         {
           "slug": "ipv4-subnetting",
           "name": "IPv4 & Subnetting",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/ipv4-subnetting.json"
         },
         {
           "slug": "ipv6-grundlagen",
           "name": "IPv6-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/ipv6-grundlagen.json"
         },
         {
           "slug": "mac-ip-arp-apipa",
           "name": "MAC vs. IP, ARP & APIPA",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/mac-ip-arp-apipa.json"
         },
         {
           "slug": "dhcp-dora",
           "name": "DHCP (DORA-Ablauf)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/dhcp-dora.json"
         },
         {
           "slug": "dns-grundlagen",
           "name": "DNS-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/dns-grundlagen.json"
         },
         {
           "slug": "tcp-udp-ports",
           "name": "TCP vs. UDP, 3-Way-Handshake & Ports",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/tcp-udp-ports.json"
         },
         {
           "slug": "anwendungsprotokolle",
           "name": "Anwendungsprotokolle",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/anwendungsprotokolle.json"
         },
         {
           "slug": "wlan-grundlagen",
           "name": "WLAN-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/wlan-grundlagen.json"
         },
         {
           "slug": "verkabelung-tp-lwl",
           "name": "Verkabelung (Twisted Pair & LWL)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/verkabelung-tp-lwl.json"
         },
         {
           "slug": "internetzugang-dsl",
           "name": "Internetzugang (DSL-Varianten)",
-          "importance": "randwissen",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/internetzugang-dsl.json"
         },
         {
           "slug": "netzwerk-diagnose",
           "name": "Netzwerk-Diagnose",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/netzwerk-diagnose.json"
         },
         {
           "slug": "vpn-grundlagen",
           "name": "VPN-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/vpn-grundlagen.json"
         },
         {
           "slug": "virtualisierung-hypervisor",
           "name": "Virtualisierung & Hypervisor",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/virtualisierung-hypervisor.json"
         },
         {
           "slug": "container-docker",
           "name": "Container (Docker) vs. VM",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/container-docker.json"
         },
         {
           "slug": "cloud-grundlagen",
           "name": "Cloud-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/cloud-grundlagen.json"
         }
@@ -480,126 +416,108 @@
         {
           "slug": "schutzziele-cia",
           "name": "Schutzziele (CIA)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/schutzziele-cia.json"
         },
         {
           "slug": "sicherheitsstandards-isms",
           "name": "Sicherheitsstandards (ISMS, BSI, ISO 27001)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/sicherheitsstandards-isms.json"
         },
         {
           "slug": "schutzbedarfsanalyse",
           "name": "Schutzbedarfsanalyse",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/schutzbedarfsanalyse.json"
         },
         {
           "slug": "toms",
           "name": "TOMs",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/toms.json"
         },
         {
           "slug": "kryptographie-sym-asym",
           "name": "Kryptographie (symmetrisch/asymmetrisch)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/kryptographie-sym-asym.json"
         },
         {
           "slug": "hash-signatur",
           "name": "Hashverfahren & digitale Signatur",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/hash-signatur.json"
         },
         {
           "slug": "zertifikate-tls-pki",
           "name": "Zertifikate, PKI & TLS",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/zertifikate-tls-pki.json"
         },
         {
           "slug": "schadsoftware-typen",
           "name": "Schadsoftware-Typen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/schadsoftware-typen.json"
         },
         {
           "slug": "angriffsmethoden",
           "name": "Angriffsmethoden",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/angriffsmethoden.json"
         },
         {
           "slug": "firewall-dmz",
           "name": "Firewall & DMZ",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/firewall-dmz.json"
         },
         {
           "slug": "endpoint-security",
           "name": "Endpoint-Security",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/endpoint-security.json"
         },
         {
           "slug": "authentifizierung-mfa-aaa",
           "name": "Authentifizierung, MFA & AAA",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/authentifizierung-mfa-aaa.json"
         },
         {
           "slug": "berechtigungskonzepte",
           "name": "Berechtigungskonzepte",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/berechtigungskonzepte.json"
         },
         {
           "slug": "betriebssystem-haertung",
           "name": "Betriebssystem-Härtung",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/betriebssystem-haertung.json"
         },
         {
           "slug": "physische-sicherheit",
           "name": "Physische Sicherheit & Redundanz",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/physische-sicherheit.json"
         },
         {
           "slug": "backup-arten",
           "name": "Backup-Arten",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/backup-arten.json"
         },
         {
           "slug": "rto-rpo-verfuegbarkeit",
           "name": "RTO, RPO & Verfügbarkeit",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/it-sicherheit/rto-rpo-verfuegbarkeit.json"
         },
         {
           "slug": "datensicherung-datenschutz",
           "name": "Datensicherung vs. Datensicherheit vs. Datenschutz",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/datensicherung-datenschutz.json"
         }
@@ -612,63 +530,54 @@
         {
           "slug": "dsgvo-grundlagen",
           "name": "DSGVO-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/datenschutz-recht/dsgvo-grundlagen.json"
         },
         {
           "slug": "betroffenenrechte",
           "name": "Betroffenenrechte & Rollen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/datenschutz-recht/betroffenenrechte.json"
         },
         {
           "slug": "persoenlichkeitsrechte",
           "name": "Persönlichkeitsrechte",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/datenschutz-recht/persoenlichkeitsrechte.json"
         },
         {
           "slug": "vertragsarten",
           "name": "Vertragsarten",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/datenschutz-recht/vertragsarten.json"
         },
         {
           "slug": "sla-support-level",
           "name": "SLA & Support-Level",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/datenschutz-recht/sla-support-level.json"
         },
         {
           "slug": "gewaehrleistung-garantie",
           "name": "Gewährleistung & Garantie",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/datenschutz-recht/gewaehrleistung-garantie.json"
         },
         {
           "slug": "urheberrecht-lizenzen",
           "name": "Urheberrecht & Lizenzmodelle",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/datenschutz-recht/urheberrecht-lizenzen.json"
         },
         {
           "slug": "barrierefreiheit-software",
           "name": "Barrierefreiheit Software",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/datenschutz-recht/barrierefreiheit-software.json"
         },
         {
           "slug": "normen-compliance",
           "name": "Normen, Compliance & Ethik",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/datenschutz-recht/normen-compliance.json"
         }
@@ -681,168 +590,144 @@
         {
           "slug": "software-klassifikation",
           "name": "Software-Klassifikation",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/software-klassifikation.json"
         },
         {
           "slug": "branchensoftware",
           "name": "Branchensoftware & Open Source vs. proprietär",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/branchensoftware.json"
         },
         {
           "slug": "ki-grundlagen",
           "name": "KI-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/ki-grundlagen.json"
         },
         {
           "slug": "it-servicemanagement",
           "name": "IT-Servicemanagement (ITIL)",
-          "importance": "randwissen",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/it-servicemanagement.json"
         },
         {
           "slug": "multitasking-prozesse",
           "name": "Multitasking, Prozesse & Threads",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/multitasking-prozesse.json"
         },
         {
           "slug": "windows-vs-linux",
           "name": "Windows vs. Linux/Unix & Domäne",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/windows-vs-linux.json"
         },
         {
           "slug": "linux-konsole",
           "name": "Linux-Konsole & Dateiberechtigungen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/linux-konsole.json"
         },
         {
           "slug": "windows-berechtigungen-acl",
           "name": "Windows-Konsole & ACL",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/windows-berechtigungen-acl.json"
         },
         {
           "slug": "dateisysteme-grundlagen",
           "name": "Dateisysteme-Grundlagen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/dateisysteme-grundlagen.json"
         },
         {
           "slug": "dateisysteme-vergleich",
           "name": "Dateisysteme im Vergleich",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/dateisysteme-vergleich.json"
         },
         {
           "slug": "partitionierung-formatierung",
           "name": "Partitionierung & Formatierung",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/partitionierung-formatierung.json"
         },
         {
           "slug": "zeichensaetze-ascii-unicode",
           "name": "Zeichensätze — ASCII, Unicode, UTF-8",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/zeichensaetze-ascii-unicode.json"
         },
         {
           "slug": "kompression",
           "name": "Kompression",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/kompression.json"
         },
         {
           "slug": "bild-videoformate",
           "name": "Bild-, Audio- & Videoformate",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/bild-videoformate.json"
         },
         {
           "slug": "pruefziffern-paritaet",
           "name": "Prüfziffern & Parität",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/pruefziffern-paritaet.json"
         },
         {
           "slug": "url-uri-urn",
           "name": "URL, URI & URN",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/url-uri-urn.json"
         },
         {
           "slug": "website-aufruf-hosting",
           "name": "Website-Aufruf & virtuelle Hosts",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/website-aufruf-hosting.json"
         },
         {
           "slug": "html-css-grundlagen",
           "name": "HTML/CSS-Grundlagen & Impressumspflicht",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/html-css-grundlagen.json"
         },
         {
           "slug": "programmierparadigmen",
           "name": "Programmierparadigmen & Sprachhöhe",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/programmierparadigmen.json"
         },
         {
           "slug": "datentypen-pseudocode",
           "name": "Datentypen, Kontrollstrukturen & Pseudocode",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/datentypen-pseudocode.json"
         },
         {
           "slug": "compiler-interpreter-debugging",
           "name": "Compiler, Interpreter & Debugging",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/compiler-interpreter-debugging.json"
         },
         {
           "slug": "uml-diagramme",
           "name": "UML-Diagramme",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/uml-diagramme.json"
         },
         {
           "slug": "mime-base64",
           "name": "MIME-Types & Base64",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/mime-base64.json"
         },
         {
           "slug": "deployment-formate",
           "name": "Deployment-Formate (ISO, WIM)",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/deployment-formate.json"
         }
@@ -855,70 +740,60 @@
         {
           "slug": "db-grundlagen",
           "name": "Datenbank-Grundlagen",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/db-grundlagen.json"
         },
         {
           "slug": "datentypen-constraints",
           "name": "Datentypen & Constraints",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/datentypen-constraints.json"
         },
         {
           "slug": "er-modell-kardinalitaeten",
           "name": "ER-Modell & Kardinalitäten",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/er-modell-kardinalitaeten.json"
         },
         {
           "slug": "normalisierung",
           "name": "Normalisierung",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/normalisierung.json"
         },
         {
           "slug": "sql-ddl",
           "name": "SQL & DDL",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/sql-ddl.json"
         },
         {
           "slug": "sql-dml",
           "name": "SQL & DML",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/sql-dml.json"
         },
         {
           "slug": "sql-join",
           "name": "SQL & JOIN",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/sql-join.json"
         },
         {
           "slug": "sql-dcl",
           "name": "SQL & DCL",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/sql-dcl.json"
         },
         {
           "slug": "sql-subqueries",
           "name": "Subqueries",
-          "importance": "randwissen",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/sql-subqueries.json"
         },
         {
           "slug": "sql-transaktionen",
           "name": "Transaktionen",
-          "importance": "randwissen",
           "exams": ["ap2"],
           "quiz": "data/datenbanken-sql/sql-transaktionen.json"
         }
@@ -931,28 +806,24 @@
         {
           "slug": "pdca-prozessorientiertes-qm",
           "name": "PDCA-Zyklus & prozessorientiertes QM",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/qualitaetssicherung/pdca-prozessorientiertes-qm.json"
         },
         {
           "slug": "qualitaetsplanung-guetesiegel",
           "name": "Qualitätsplanung, -lenkung & Gütesiegel",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/qualitaetssicherung/qualitaetsplanung-guetesiegel.json"
         },
         {
           "slug": "testverfahren-black-white-box",
           "name": "Testverfahren (Black-/White-Box, Teststufen)",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/qualitaetssicherung/testverfahren-black-white-box.json"
         },
         {
           "slug": "testprotokoll-arbeitsplatzeinrichtung",
           "name": "Testprotokoll Arbeitsplatzeinrichtung",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/qualitaetssicherung/testprotokoll-arbeitsplatzeinrichtung.json"
         }
@@ -965,105 +836,90 @@
         {
           "slug": "wirtschaftssektoren-grundfunktionen",
           "name": "Wirtschaftssektoren & betriebliche Grundfunktionen",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/wirtschaftssektoren-grundfunktionen.json"
         },
         {
           "slug": "marktformen",
           "name": "Marktformen & Marktgleichgewicht",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/marktformen.json"
         },
         {
           "slug": "zielgruppen-kundentypologien",
           "name": "Zielgruppen & Kundentypologien",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/zielgruppen-kundentypologien.json"
         },
         {
           "slug": "unternehmens-gesellschaftsformen",
           "name": "Unternehmens- & Gesellschaftsformen",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kaufmaennisches/unternehmens-gesellschaftsformen.json"
         },
         {
           "slug": "abc-analyse-aida-produktlebenszyklus",
           "name": "ABC-Analyse, AIDA & Produktlebenszyklus",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/abc-analyse-aida-produktlebenszyklus.json"
         },
         {
           "slug": "vertriebsformen-b2b-b2c-marktforschung",
           "name": "Vertriebsformen, B2B/B2C/B2G & Marktforschung",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/vertriebsformen-b2b-b2c-marktforschung.json"
         },
         {
           "slug": "outsourcing-offshoring-geschaeftsmodelle",
           "name": "Outsourcing, Offshoring & Internet-Geschäftsmodelle",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/outsourcing-offshoring-geschaeftsmodelle.json"
         },
         {
           "slug": "informationsrecherche-quellenbewertung",
           "name": "Informationsrecherche & Quellenbewertung",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/informationsrecherche-quellenbewertung.json"
         },
         {
           "slug": "praesentationstechniken-medienkompetenz",
           "name": "Präsentations- & Argumentationstechniken",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/praesentationstechniken-medienkompetenz.json"
         },
         {
           "slug": "make-or-buy-angebotsvergleich",
           "name": "Make-or-Buy & Angebotsvergleich",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kaufmaennisches/make-or-buy-angebotsvergleich.json"
         },
         {
           "slug": "ausschreibung-leistungsverzeichnis",
           "name": "Ausschreibung, Leistungsverzeichnis & Preis-Leistungs-Verhältnis",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/ausschreibung-leistungsverzeichnis.json"
         },
         {
           "slug": "aufbauorganisation-organigramm",
           "name": "Aufbauorganisation & Organigramm",
-          "importance": "kern",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kaufmaennisches/aufbauorganisation-organigramm.json"
         },
         {
           "slug": "vollmachten-prokura",
           "name": "Vollmachten (Prokura, i. V., i. A.)",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/vollmachten-prokura.json"
         },
         {
           "slug": "abnahme-abnahmeprotokoll",
           "name": "Abnahme, Abnahmeprotokoll & Soll-Ist-Vergleich",
-          "importance": "kern",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/abnahme-abnahmeprotokoll.json"
         },
         {
           "slug": "lessons-learned-nachfolgeauftraege",
           "name": "Lessons Learned & Nachfolgeaufträge",
-          "importance": "randwissen",
           "exams": ["ap1"],
           "quiz": "data/kaufmaennisches/lessons-learned-nachfolgeauftraege.json"
         }
@@ -1076,147 +932,126 @@
         {
           "slug": "duales-system-ausbildungsvertrag",
           "name": "Duales System & Ausbildungsvertrag",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/duales-system-ausbildungsvertrag.json"
         },
         {
           "slug": "arbeitsschutzgesetze",
           "name": "Arbeitsschutzgesetze",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/arbeitsschutzgesetze.json"
         },
         {
           "slug": "arbeitsvertrag-kuendigung",
           "name": "Arbeitsvertrag & Kündigungsfristen",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/arbeitsvertrag-kuendigung.json"
         },
         {
           "slug": "tarifrecht",
           "name": "Tarifrecht",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/tarifrecht.json"
         },
         {
           "slug": "betriebliche-mitbestimmung",
           "name": "Betriebliche Mitbestimmung",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/betriebliche-mitbestimmung.json"
         },
         {
           "slug": "wandel-arbeitswelt-digitalisierung",
           "name": "Wandel der Arbeitswelt & Digitalisierung",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/wandel-arbeitswelt-digitalisierung.json"
         },
         {
           "slug": "fort-weiterbildung-umschulung",
           "name": "Fort-/Weiterbildung, Umschulung & beruflicher Aufstieg",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/fort-weiterbildung-umschulung.json"
         },
         {
           "slug": "arbeiten-lernen-europa",
           "name": "Leben, Lernen & Arbeiten in Europa",
-          "importance": "randwissen",
           "exams": ["ap2"],
           "quiz": "data/wiso/arbeiten-lernen-europa.json"
         },
         {
           "slug": "soziale-sicherung",
           "name": "Soziale Sicherung (5 Säulen)",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/soziale-sicherung.json"
         },
         {
           "slug": "grenzen-sozialer-sicherung-vorsorge",
           "name": "Grenzen sozialer Sicherung & private Vorsorge",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/grenzen-sozialer-sicherung-vorsorge.json"
         },
         {
           "slug": "entgeltabrechnung",
           "name": "Entgeltabrechnung (Brutto/Netto)",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/entgeltabrechnung.json"
         },
         {
           "slug": "karriere-familienplanung-rollenreflexion",
           "name": "Karriere- & Familienplanung, Rollenreflexion",
-          "importance": "randwissen",
           "exams": ["ap2"],
           "quiz": "data/wiso/karriere-familienplanung-rollenreflexion.json"
         },
         {
           "slug": "existenzgruendung",
           "name": "Existenzgründung",
-          "importance": "randwissen",
           "exams": ["ap2"],
           "quiz": "data/wiso/existenzgruendung.json"
         },
         {
           "slug": "wirtschaftskreislauf-wertschoepfungskette",
           "name": "Wirtschaftskreislauf & Wertschöpfungskette",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/wirtschaftskreislauf-wertschoepfungskette.json"
         },
         {
           "slug": "wandel-maerkte-nachhaltige-entwicklung",
           "name": "Wandel der Märkte & nachhaltige Entwicklung",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/wandel-maerkte-nachhaltige-entwicklung.json"
         },
         {
           "slug": "rechtsgeschaefte-geschaeftsfaehigkeit-vertraege",
           "name": "Rechtsgeschäfte, Geschäftsfähigkeit & Verträge",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/rechtsgeschaefte-geschaeftsfaehigkeit-vertraege.json"
         },
         {
           "slug": "wirksamkeit-rechtsgeschaefte-verbraucherschutz",
           "name": "Wirksamkeit von Rechtsgeschäften & Verbraucherschutz",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/wirksamkeit-rechtsgeschaefte-verbraucherschutz.json"
         },
         {
           "slug": "beduerfnis-bedarf-kaufkraft",
           "name": "Bedürfnis, Bedarf & Kaufkraft",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/beduerfnis-bedarf-kaufkraft.json"
         },
         {
           "slug": "soziale-marktwirtschaft",
           "name": "Soziale Marktwirtschaft",
-          "importance": "kern",
           "exams": ["ap2"],
           "quiz": "data/wiso/soziale-marktwirtschaft.json"
         },
         {
           "slug": "standortwettbewerb-lohnniveau",
           "name": "Standortwettbewerb, Lohnniveau & Nachhaltigkeitsstandards",
-          "importance": "randwissen",
           "exams": ["ap2"],
           "quiz": "data/wiso/standortwettbewerb-lohnniveau.json"
         },
         {
           "slug": "chancen-risiken-europa-globalisierung",
           "name": "Chancen & Risiken Europa & Globalisierung",
-          "importance": "randwissen",
           "exams": ["ap2"],
           "quiz": "data/wiso/chancen-risiken-europa-globalisierung.json"
         }

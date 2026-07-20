@@ -34,6 +34,7 @@
 
   <script src="assets/theme.js"></script>
   <script src="assets/search.js"></script>
+  <script src="assets/filter.js"></script>
   <script>
   (function () {
     "use strict";
@@ -48,8 +49,6 @@
 
     function badge(type) {
       var map = {
-        kern: ["badge--kern", "Kern"],
-        randwissen: ["badge--randwissen", "Randwissen"],
         ap1: ["badge--ap1", "AP1"],
         ap2: ["badge--ap2", "AP2"]
       };
@@ -96,13 +95,12 @@
           li.appendChild(link);
 
           var badges = el("span", "badges");
-          var a = badge(u.importance);
-          if (a) badges.appendChild(a);
           (u.exams || []).forEach(function (ex) {
             var b = badge(ex);
             if (b) badges.appendChild(b);
           });
           li.appendChild(badges);
+          li.dataset.exams = (u.exams || []).join(",");
           ul.appendChild(li);
         });
         card.appendChild(ul);

@@ -63,6 +63,7 @@
     resetItem.setAttribute("aria-checked", allActive ? "true" : "false");
     resetItem.classList.toggle("is-active", allActive);
     items.forEach(function (item) {
+      if (item === resetItem) return; // hat eigene Checked-Logik oben (kein dataset.exam)
       var on = active.indexOf(item.dataset.exam) !== -1;
       item.setAttribute("aria-checked", on ? "true" : "false");
       item.classList.toggle("is-active", on);

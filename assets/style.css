@@ -192,6 +192,13 @@ code, kbd, pre {
 .module-card__units { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; }
 .module-card__unit { display: flex; align-items: center; gap: 0.5rem; }
 .module-card__empty { color: var(--text-muted); font-style: italic; font-size: 0.9rem; }
+/* Author-CSS ueberschreibt sonst das UA-Standardverhalten von [hidden]
+   (display: none), weil .module-card/.module-card__unit selbst display:flex
+   setzen — Autor-Regeln gewinnen immer gegen das UA-Stylesheet, unabhaengig
+   von Spezifitaet. Ohne diese beiden Zeilen setzt filter.js zwar das
+   hidden-Attribut korrekt, visuell bleibt die Karte/Einheit aber sichtbar. */
+.module-card[hidden],
+.module-card__unit[hidden] { display: none; }
 
 /* ------------------------------------------------------- Fortschritt */
 .progress {

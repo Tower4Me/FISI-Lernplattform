@@ -379,8 +379,9 @@
         </div>
         <div class="tool__row">
           <div class="subnet-calc-field">
-            <label class="tool__label" for="subnet-calc-base">Basis-Präfix (optional, für Anzahl Subnetze)</label>
-            <input class="tool__input" type="text" id="subnet-calc-base" placeholder="z. B. /24" autocomplete="off">
+            <label class="tool__label" for="subnet-calc-base">Ausgangsnetz / Basis-Präfix (optional)</label>
+            <input class="tool__input" type="text" id="subnet-calc-base" placeholder="z. B. /24 — muss kleiner als die Maske sein" autocomplete="off">
+            <p class="subnet-calc-note">Das größere Netz, das in kleinere Subnetze aufgeteilt wird. Muss ein kleineres Präfix haben als die Maske oben, z. B. Basis /24 bei Maske /26 → 4 Subnetze à 62 Hosts.</p>
           </div>
         </div>
 
@@ -595,12 +596,16 @@
       var baseResult = parseCidrOnly(baseInput.value);
       if (baseResult === null) {
         outSubnets.textContent = "—";
+        outSubnets.style.color = "";
       } else if (baseResult.invalid) {
-        outSubnets.textContent = "— (Basis-Präfix muss zwischen 0 und 32 liegen)";
-      } else if (baseResult.cidr > cidr) {
-        outSubnets.textContent = "— (Basis-Präfix muss kürzer oder gleich dem Subnetz-Präfix sein)";
+        outSubnets.textContent = "Basis-Präfix muss zwischen 0 und 32 liegen.";
+        outSubnets.style.color = "var(--fail)";
+      } else if (baseResult.cidr >= cidr) {
+        outSubnets.textContent = "Das Basis-Präfix muss kleiner sein als die Maske (/" + cidr + "). Beispiel: Basis /24 bei Maske /26.";
+        outSubnets.style.color = "var(--fail)";
       } else {
-        outSubnets.textContent = String(Math.pow(2, cidr - baseResult.cidr)) + " (ausgehend von /" + baseResult.cidr + ")";
+        outSubnets.textContent = String(Math.pow(2, cidr - baseResult.cidr)) + " (= 2^(" + cidr + "−" + baseResult.cidr + "))";
+        outSubnets.style.color = "";
       }
 
       resultsEl.hidden = false;

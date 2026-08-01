@@ -1,0 +1,77 @@
+{
+  "unit": "software-os-web/pap-programmablaufplan",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welches Symbol steht in einem PAP für Start bzw. Ende des Programms?",
+      "options": [
+        "Die Raute",
+        "Das Parallelogramm",
+        "Der Terminator (abgerundetes Rechteck/Oval)",
+        "Der Konnektor-Kreis"
+      ],
+      "answer": 2,
+      "explanation": "Der Terminator markiert Start und Ende eines Programmablaufplans."
+    },
+    {
+      "id": "q2",
+      "question": "Welches Symbol wird für eine Ja/Nein-Entscheidung im PAP verwendet?",
+      "options": [
+        "Das Rechteck (Prozess)",
+        "Die Raute (Verzweigung)",
+        "Das Parallelogramm (Ein-/Ausgabe)",
+        "Der Kreis (Konnektor)"
+      ],
+      "answer": 1,
+      "explanation": "Die Raute stellt eine Verzweigung mit mindestens zwei Ausgängen dar, z. B. Ja/Nein."
+    },
+    {
+      "id": "q3",
+      "question": "Wofür steht das Parallelogramm im PAP?",
+      "options": [
+        "Für eine Berechnung oder Verarbeitung",
+        "Für Ein- oder Ausgabe von Daten",
+        "Für den Start des Programms",
+        "Für eine Sprungmarke ohne durchgezogenen Pfeil"
+      ],
+      "answer": 1,
+      "explanation": "Das Parallelogramm markiert Ein- und Ausgabeschritte, etwa das Einlesen einer Zahl oder das Ausgeben eines Ergebnisses."
+    },
+    {
+      "id": "q4",
+      "question": "Wozu dient der Konnektor (Kreis) in einem PAP?",
+      "options": [
+        "Er markiert eine Endlosschleife",
+        "Er verbindet Teile des Plans als Sprungmarke, z. B. wenn zwei Zweige wieder zusammenlaufen, ohne dass ein durchgezogener Pfeil gezeichnet wird",
+        "Er stellt eine Verzweigung mit drei Ausgängen dar",
+        "Er ersetzt den Terminator am Ende"
+      ],
+      "answer": 1,
+      "explanation": "Der Konnektor dient als Sprungmarke, etwa um zwei Zweige einer Verzweigung wieder zusammenzuführen oder Seitenumbrüche im Diagramm zu überbrücken."
+    },
+    {
+      "id": "q5",
+      "question": "Was hat sich beim Prüfungskatalog ab 2025 bezüglich des PAP geändert?",
+      "options": [
+        "Der PAP wurde neu in die AP1 aufgenommen",
+        "Der PAP wurde aus der AP1 gestrichen, bleibt aber als Grundlage und für die AP2 relevant",
+        "Der PAP wurde komplett aus dem Prüfungsstoff entfernt",
+        "Der PAP ersetzt seitdem UML in der AP1"
+      ],
+      "answer": 1,
+      "explanation": "Mit der Katalog-Neuordnung 2025 wurden PAP und Struktogramm aus der AP1 gestrichen (zusammen mit SQL und RAID) — neu bzw. verstärkt sind BPMN, UML und KI. Der PAP bleibt für AP2 und als Grundlage relevant."
+    },
+    {
+      "id": "q6",
+      "question": "Wie viele Flusspfeile gehen mindestens von einer Verzweigung (Raute) aus?",
+      "options": [
+        "Einer",
+        "Mindestens zwei, je einer pro möglichem Ausgang",
+        "Genau vier",
+        "Keiner, die Raute hat keine ausgehenden Pfeile"
+      ],
+      "answer": 1,
+      "explanation": "Eine Verzweigung hat mindestens zwei Ausgänge (z. B. Ja/Nein), jeder Ausgang ist ein eigener Flusspfeil."
+    }
+  ]
+}

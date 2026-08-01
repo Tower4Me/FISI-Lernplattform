@@ -84,6 +84,30 @@
       ],
       "answer": 1,
       "explanation": "Die Zahl nach dem Schrägstrich gibt die Anzahl gesetzter Netz-Bits an. /24 entspricht der Maske 255.255.255.0 mit 8 verbleibenden Hostbits."
+    },
+    {
+      "id": "q8",
+      "question": "Wie wird die Netzadresse aus IP-Adresse und Subnetzmaske berechnet?",
+      "options": [
+        "Durch Addition beider Werte",
+        "Durch eine bitweise UND-Verknüpfung: nur wenn IP-Bit und Masken-Bit beide 1 sind, ergibt sich eine 1",
+        "Durch Subtraktion der Maske von der IP-Adresse",
+        "Die Netzadresse muss manuell aus einer Tabelle abgelesen werden"
+      ],
+      "answer": 1,
+      "explanation": "ANDing verknüpft IP-Adresse und Maske Bit für Bit: 1 UND 1 = 1, jede andere Kombination ergibt 0. Das Ergebnis ist die Netzadresse."
+    },
+    {
+      "id": "q9",
+      "question": "Welche Netzadresse ergibt sich für 192.168.10.42 mit der Maske 255.255.255.192 (/26)?",
+      "options": [
+        "192.168.10.0",
+        "192.168.10.42",
+        "192.168.10.64",
+        "192.168.10.255"
+      ],
+      "answer": 0,
+      "explanation": "Im vierten Oktett ergibt die UND-Verknüpfung von 42 (0010 1010) mit 192 (1100 0000) den Wert 0 (0000 0000) — die ersten drei Oktette bleiben durch die Maske 255 unverändert. Netzadresse: 192.168.10.0."
     }
   ]
 }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: Ports &amp; Portbereiche</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">Ports &amp; Portbereiche</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Ports &amp; Portbereiche
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Mehrfamilienhaus hat eine einzige Hausadresse — aber jede
+        Wohnung darin eine eigene Tür mit eigener Wohnungsnummer. Post an
+        die Hausadresse allein reicht nicht: Erst die Wohnungsnummer sagt,
+        bei wem im Haus sie ankommen soll. Genauso funktioniert ein
+        <strong>Port</strong>: Die <strong>IP-Adresse</strong> ist die
+        Hausadresse des Geräts, der Port die Nummer der „Tür“, hinter der
+        eine bestimmte Anwendung auf Daten wartet.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein <strong>Port</strong> ist eine 16-Bit-Nummer (0–65535), die
+        innerhalb eines Geräts festlegt, <em>welche Anwendung</em> für
+        eingehende Daten zuständig ist — die IP-Adresse identifiziert das
+        Gerät, der Port identifiziert den Dienst darauf. Sowohl TCP als
+        auch UDP nutzen Ports, um mehrere gleichzeitige Verbindungen bzw.
+        Dienste auf demselben Gerät sauber voneinander zu trennen.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Bereich</th><th>Bezeichnung</th><th>Beispiele</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0–1023</td><td>Well-Known Ports</td><td>80 (HTTP), 443 (HTTPS), 22 (SSH), 25 (SMTP), 53 (DNS)</td></tr>
+          <tr><td>1024–49151</td><td>Registered Ports</td><td>von Softwareherstellern registrierte Dienste</td></tr>
+          <tr><td>49152–65535</td><td>Dynamic/Private Ports</td><td>temporär vom Client für ausgehende Verbindungen genutzt</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="port-title port-desc">
+          <title id="port-title">Host mit mehreren Port-„Türen“ und die drei Portbereiche</title>
+          <desc id="port-desc">Ein Host hat mehrere Ports als Türen zu einzelnen Diensten: Port 80 zum Webserver (HTTP), Port 443 zum Webserver (HTTPS), Port 22 zum SSH-Dienst. Darunter die drei Portbereiche 0 bis 1023, 1024 bis 49151 und 49152 bis 65535.</desc>
+
+          <defs>
+            <marker id="port-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <text x="200" y="14" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">Ein Host mit mehreren Diensten</text>
+
+          <rect x="20" y="20" width="120" height="150" rx="6" fill="var(--surface-2)" stroke="var(--border)" stroke-width="2"/>
+          <text x="80" y="40" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="600">Host</text>
+          <text x="80" y="56" text-anchor="middle" fill="var(--text-muted)" font-size="9">IP 192.168.1.10</text>
+
+          <rect x="126" y="42" width="28" height="26" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="140" y="59" text-anchor="middle" fill="var(--text)" font-size="11">80</text>
+          <line x1="154" y1="55" x2="196" y2="55" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#port-arrow)"/>
+          <rect x="200" y="40" width="160" height="30" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="280" y="60" text-anchor="middle" fill="var(--text)" font-size="11">Webserver (HTTP)</text>
+
+          <rect x="126" y="87" width="28" height="26" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="140" y="104" text-anchor="middle" fill="var(--text)" font-size="11">443</text>
+          <line x1="154" y1="100" x2="196" y2="100" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#port-arrow)"/>
+          <rect x="200" y="85" width="160" height="30" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="280" y="105" text-anchor="middle" fill="var(--text)" font-size="11">Webserver (HTTPS)</text>
+
+          <rect x="126" y="132" width="28" height="26" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="140" y="149" text-anchor="middle" fill="var(--text)" font-size="11">22</text>
+          <line x1="154" y1="145" x2="196" y2="145" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#port-arrow)"/>
+          <rect x="200" y="130" width="160" height="30" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="280" y="150" text-anchor="middle" fill="var(--text)" font-size="11">SSH-Dienst</text>
+
+          <line x1="20" y1="192" x2="380" y2="192" stroke="var(--border)" stroke-width="1"/>
+
+          <text x="200" y="212" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">Die drei Portbereiche</text>
+
+          <rect x="20" y="230" width="120" height="30" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="80" y="224" text-anchor="middle" fill="var(--text-muted)" font-size="10">Well-Known</text>
+          <text x="80" y="250" text-anchor="middle" fill="var(--text)" font-size="11">0–1023</text>
+
+          <rect x="140" y="230" width="120" height="30" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="200" y="224" text-anchor="middle" fill="var(--text-muted)" font-size="10">Registered</text>
+          <text x="200" y="250" text-anchor="middle" fill="var(--text)" font-size="11">1024–49151</text>
+
+          <rect x="260" y="230" width="120" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="320" y="224" text-anchor="middle" fill="var(--text-muted)" font-size="10">Dynamic/Private</text>
+          <text x="320" y="250" text-anchor="middle" fill="var(--text)" font-size="11">49152–65535</text>
+
+          <text x="80" y="278" text-anchor="middle" fill="var(--text-muted)" font-size="10">80, 443, 22 liegen hier</text>
+        </svg>
+        <figcaption>
+          Oben: Ein Host bietet mehrere Dienste gleichzeitig an — jeder
+          über einen eigenen Port als „Tür“. Unten: Die drei Portbereiche;
+          Well-Known Ports wie 80, 443 und 22 liegen alle im untersten
+          Bereich 0–1023.
+        </figcaption>
+      </figure>
+
+      <p>
+        Auf der <strong>Server-Seite</strong> lauschen Dienste meist auf
+        einem festen, bekannten Port (Well-Known Port) — ein Webserver
+        z. B. auf Port 80/443, ein SSH-Dienst auf Port 22. Auf der
+        <strong>Client-Seite</strong> wählt das Betriebssystem für jede
+        ausgehende Verbindung automatisch einen freien
+        <strong>dynamischen Port</strong> aus dem oberen Bereich — dadurch
+        kann ein Gerät gleichzeitig mehrere Verbindungen zum selben
+        Zielserver offen halten, ohne dass sich die Antworten vermischen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Server im Rechenzentrum eines IT-Systemhauses stellt gleichzeitig
+        mehrere Dienste bereit: eine Firmenwebseite, einen Mailserver und
+        einen SSH-Zugang für die Administration.
+      </p>
+      <ul>
+        <li>Anfragen an <strong>Port 443</strong> werden vom Betriebssystem an den <strong>Webserver-Prozess</strong> weitergeleitet.</li>
+        <li>Anfragen an <strong>Port 25</strong> werden an den <strong>Mailserver-Prozess</strong> weitergeleitet.</li>
+        <li>Eine Verbindung auf <strong>Port 22</strong> geht an den <strong>SSH-Dienst</strong>, über den Administratoren sich aus der Ferne einloggen.</li>
+        <li>Alle drei Dienste laufen unter derselben IP-Adresse — allein der Zielport entscheidet, welcher Dienst die eingehenden Pakete erhält.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum kann ein Client gleichzeitig mehrere
+        Verbindungen zu demselben Webserver aufbauen (z. B. mehrere
+        Browser-Tabs), ohne dass sich die Antworten vermischen?“ – Antwort:
+        Jede Verbindung nutzt clientseitig einen eigenen, vom Betriebssystem
+        vergebenen dynamischen Port — die Kombination aus IP-Adresse und
+        Port macht jede Verbindung eindeutig unterscheidbar.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ports (0–65535) identifizieren die zuständige Anwendung auf einem
+        Gerät. 0–1023 = Well-Known Ports (feste Standarddienste),
+        1024–49151 = Registered Ports, 49152–65535 = dynamische Ports für
+        ausgehende Client-Verbindungen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/ports.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

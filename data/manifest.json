@@ -198,6 +198,12 @@
           "quiz": "data/hardware/cpu-aufbau.json"
         },
         {
+          "slug": "grafikkarte-gpu",
+          "name": "Grafikkarte & GPU",
+          "exams": ["ap1"],
+          "quiz": "data/hardware/grafikkarte-gpu.json"
+        },
+        {
           "slug": "arbeitsspeicher-ram",
           "name": "Arbeitsspeicher (RAM)",
           "exams": ["ap1", "ap2"],
@@ -348,10 +354,22 @@
           "quiz": "data/netzwerktechnik/dns-grundlagen.json"
         },
         {
-          "slug": "tcp-udp-ports",
-          "name": "TCP vs. UDP, 3-Way-Handshake & Ports",
+          "slug": "tcp-udp",
+          "name": "TCP vs. UDP",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/netzwerktechnik/tcp-udp-ports.json"
+          "quiz": "data/netzwerktechnik/tcp-udp.json"
+        },
+        {
+          "slug": "tcp-handshake",
+          "name": "TCP 3-Way-Handshake",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/tcp-handshake.json"
+        },
+        {
+          "slug": "ports",
+          "name": "Ports & Portbereiche",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/ports.json"
         },
         {
           "slug": "anwendungsprotokolle",
@@ -696,6 +714,12 @@
           "quiz": "data/software-os-web/html-css-grundlagen.json"
         },
         {
+          "slug": "bildschirmausgabemasken",
+          "name": "Bildschirmausgabemasken",
+          "exams": ["ap1"],
+          "quiz": "data/software-os-web/bildschirmausgabemasken.json"
+        },
+        {
           "slug": "programmierparadigmen",
           "name": "Programmierparadigmen & Sprachhöhe",
           "exams": ["ap1"],
@@ -720,6 +744,24 @@
           "quiz": "data/software-os-web/uml-diagramme.json"
         },
         {
+          "slug": "pap-programmablaufplan",
+          "name": "PAP (Programmablaufplan)",
+          "exams": ["ap2"],
+          "quiz": "data/software-os-web/pap-programmablaufplan.json"
+        },
+        {
+          "slug": "struktogramm-nassi-shneiderman",
+          "name": "Struktogramm (Nassi-Shneiderman)",
+          "exams": ["ap2"],
+          "quiz": "data/software-os-web/struktogramm-nassi-shneiderman.json"
+        },
+        {
+          "slug": "epk-ereignisgesteuerte-prozesskette",
+          "name": "EPK (Ereignisgesteuerte Prozesskette)",
+          "exams": ["ap1"],
+          "quiz": "data/software-os-web/epk-ereignisgesteuerte-prozesskette.json"
+        },
+        {
           "slug": "mime-base64",
           "name": "MIME-Types & Base64",
           "exams": ["ap1"],
@@ -740,7 +782,7 @@
         {
           "slug": "db-grundlagen",
           "name": "Datenbank-Grundlagen",
-          "exams": ["ap2"],
+          "exams": ["ap1", "ap2"],
           "quiz": "data/datenbanken-sql/db-grundlagen.json"
         },
         {
@@ -752,7 +794,7 @@
         {
           "slug": "er-modell-kardinalitaeten",
           "name": "ER-Modell & Kardinalitäten",
-          "exams": ["ap2"],
+          "exams": ["ap1", "ap2"],
           "quiz": "data/datenbanken-sql/er-modell-kardinalitaeten.json"
         },
         {

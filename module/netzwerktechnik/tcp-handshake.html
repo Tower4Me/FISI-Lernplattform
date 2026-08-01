@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: TCP 3-Way-Handshake</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">TCP 3-Way-Handshake</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      TCP 3-Way-Handshake
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Am Telefon vergewissern sich zwei Gesprächspartner oft erst, ob die
+        Verbindung überhaupt funktioniert, bevor das eigentliche Gespräch
+        beginnt: Person A fragt „Hallo, hörst du mich?“. Person B antwortet
+        „Ja, ich höre dich — hörst du mich auch?“. Erst wenn Person A
+        ebenfalls bestätigt „Ja, ich höre dich“, redet man über das
+        eigentliche Thema. Drei Wortmeldungen, bevor der eigentliche Inhalt
+        ausgetauscht wird — genau nach diesem Muster baut auch
+        <strong>TCP</strong> eine Verbindung auf, bevor die ersten
+        Nutzdaten fließen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Bevor <strong>TCP</strong> tatsächlich Daten überträgt, bauen
+        beide Seiten die Verbindung in drei Schritten auf — dem
+        sogenannten <strong>3-Way-Handshake</strong>:
+      </p>
+      <ol>
+        <li><strong>SYN</strong> — Der Client sendet ein Segment mit gesetztem SYN-Flag („Synchronize“) und schlägt eine Startsequenznummer vor: „Ich möchte eine Verbindung aufbauen.“</li>
+        <li><strong>SYN-ACK</strong> — Der Server antwortet mit gesetztem SYN- und ACK-Flag: „Verstanden, ich bin bereit, hier ist meine eigene Startsequenznummer.“</li>
+        <li><strong>ACK</strong> — Der Client bestätigt mit gesetztem ACK-Flag: „Verstanden, Verbindung steht.“ Erst jetzt beginnt der eigentliche Datenaustausch.</li>
+      </ol>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="handshake-title">
+          <title id="handshake-title">3-Way-Handshake: Client sendet SYN, Server antwortet SYN-ACK, Client bestätigt mit ACK</title>
+
+          <defs>
+            <marker id="hs-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="14">Client</text>
+          <line x1="75" y1="53" x2="75" y2="225" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="14">Server</text>
+          <line x1="425" y1="53" x2="425" y2="225" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <line x1="75" y1="90" x2="423" y2="90" stroke="var(--text)" stroke-width="2" marker-end="url(#hs-arrow)"/>
+          <text x="250" y="83" text-anchor="middle" fill="var(--text)" font-size="13">1. SYN</text>
+
+          <line x1="425" y1="140" x2="77" y2="140" stroke="var(--text)" stroke-width="2" marker-end="url(#hs-arrow)"/>
+          <text x="250" y="133" text-anchor="middle" fill="var(--text)" font-size="13">2. SYN-ACK</text>
+
+          <line x1="75" y1="190" x2="423" y2="190" stroke="var(--text)" stroke-width="2" marker-end="url(#hs-arrow)"/>
+          <text x="250" y="183" text-anchor="middle" fill="var(--text)" font-size="13">3. ACK</text>
+
+          <text x="250" y="215" text-anchor="middle" fill="var(--text-muted)" font-size="12">Verbindung steht — Datenübertragung beginnt</text>
+        </svg>
+        <figcaption>
+          3-Way-Handshake: Der Client sendet SYN, der Server antwortet mit
+          SYN-ACK, der Client bestätigt mit ACK — erst danach beginnt die
+          eigentliche Datenübertragung.
+        </figcaption>
+      </figure>
+
+      <h3>4-Way-Handshake (TCP-Verbindungsabbau)</h3>
+      <p>
+        Der Verbindungsabbau läuft spiegelbildlich zum Aufbau, aber in vier
+        statt drei Schritten — weil TCP eine Vollduplex-Verbindung ist und
+        <strong>jede Richtung einzeln beendet</strong> werden muss:
+      </p>
+      <ol>
+        <li><strong>FIN</strong> — Der Client sendet ein Segment mit gesetztem FIN-Flag („Finish“): „Ich bin fertig mit Senden.“</li>
+        <li><strong>ACK</strong> — Der Server bestätigt den Empfang: „Verstanden.“ Der Server kann in diesem Moment noch weiter Daten an den Client senden.</li>
+        <li><strong>FIN</strong> — Sobald auch der Server fertig ist, sendet er selbst ein Segment mit FIN-Flag: „Jetzt bin auch ich fertig.“</li>
+        <li><strong>ACK</strong> — Der Client bestätigt den Empfang: „Verstanden, Verbindung wird geschlossen.“ Erst jetzt ist die Verbindung vollständig beendet.</li>
+      </ol>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fin-title">
+          <title id="fin-title">4-Way-Handshake: Client sendet FIN, Server bestätigt mit ACK und sendet selbst FIN, Client bestätigt mit ACK</title>
+
+          <defs>
+            <marker id="fin-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="14">Client</text>
+          <line x1="75" y1="53" x2="75" y2="265" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="14">Server</text>
+          <line x1="425" y1="53" x2="425" y2="265" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <line x1="75" y1="85" x2="423" y2="85" stroke="var(--text)" stroke-width="2" marker-end="url(#fin-arrow)"/>
+          <text x="250" y="78" text-anchor="middle" fill="var(--text)" font-size="13">1. FIN</text>
+
+          <line x1="425" y1="125" x2="77" y2="125" stroke="var(--text)" stroke-width="2" marker-end="url(#fin-arrow)"/>
+          <text x="250" y="118" text-anchor="middle" fill="var(--text)" font-size="13">2. ACK</text>
+
+          <line x1="425" y1="185" x2="77" y2="185" stroke="var(--text)" stroke-width="2" marker-end="url(#fin-arrow)"/>
+          <text x="250" y="178" text-anchor="middle" fill="var(--text)" font-size="13">3. FIN</text>
+
+          <line x1="75" y1="225" x2="423" y2="225" stroke="var(--text)" stroke-width="2" marker-end="url(#fin-arrow)"/>
+          <text x="250" y="218" text-anchor="middle" fill="var(--text)" font-size="13">4. ACK</text>
+
+          <text x="250" y="255" text-anchor="middle" fill="var(--text-muted)" font-size="12">Verbindung vollständig geschlossen</text>
+        </svg>
+        <figcaption>
+          4-Way-Handshake: Der Client sendet FIN, der Server bestätigt mit
+          ACK und sendet — sobald er selbst fertig ist — ein eigenes FIN,
+          das der Client wiederum mit ACK bestätigt. Erst danach ist die
+          Verbindung in beide Richtungen geschlossen.
+        </figcaption>
+      </figure>
+
+      <p>
+        Die Portnummern, über die eine solche Verbindung eine bestimmte
+        Anwendung adressiert, behandelt die Einheit
+        <a href="ports.html">Ports &amp; Portbereiche</a>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde meldet: „Ich kann die neue Firmenwebseite nicht öffnen,
+        aber <code>ping</code> auf den Server funktioniert.“
+      </p>
+      <ul>
+        <li><code>ping</code> nutzt <strong>ICMP</strong>, nicht TCP — ein erfolgreicher Ping zeigt nur, dass der Server grundsätzlich erreichbar ist, sagt aber nichts über einen bestimmten Dienst aus.</li>
+        <li>Ein Mitschnitt des Datenverkehrs zeigt: Der Browser sendet ein <strong>SYN</strong>-Paket an Port 443, aber es kommt kein <strong>SYN-ACK</strong> zurück — der Handshake bleibt im ersten Schritt stecken.</li>
+        <li>Fazit: Der Server selbst ist erreichbar (Ping funktioniert), aber der Webserver-Dienst auf Port 443 antwortet nicht — z. B. weil eine Firewall den Port blockiert oder der Webserver-Dienst nicht läuft.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Woran erkennt man in einem Netzwerkmitschnitt,
+        dass ein TCP-Verbindungsaufbau fehlgeschlagen ist?“ – Antwort: Es
+        wird zwar ein SYN-Paket gesendet, aber es folgt kein SYN-ACK vom
+        Zielsystem — der Handshake bricht nach dem ersten Schritt ab.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        TCP-Verbindungsaufbau = 3-Way-Handshake: SYN, SYN-ACK, ACK. Erst
+        danach fließen Nutzdaten. Der Abbau braucht vier Schritte
+        (FIN, ACK, FIN, ACK), weil beide Übertragungsrichtungen einzeln
+        beendet werden müssen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/tcp-handshake.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

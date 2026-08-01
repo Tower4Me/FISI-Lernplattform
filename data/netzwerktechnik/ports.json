@@ -1,0 +1,77 @@
+{
+  "unit": "netzwerktechnik/ports",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was identifiziert ein Port innerhalb eines Netzwerkgeräts?",
+      "options": [
+        "Die physische Netzwerkschnittstelle des Geräts",
+        "Die konkrete Anwendung bzw. den Dienst, der für ein- und ausgehende Daten zuständig ist",
+        "Die geografische Position des Geräts",
+        "Die verwendete Verschlüsselungsmethode"
+      ],
+      "answer": 1,
+      "explanation": "Während die IP-Adresse das Gerät identifiziert, legt der Port fest, welche Anwendung auf diesem Gerät die Daten empfängt oder sendet."
+    },
+    {
+      "id": "q2",
+      "question": "Zu welchem Bereich gehört Port 443 (HTTPS)?",
+      "options": [
+        "Dynamic/Private Ports",
+        "Registered Ports",
+        "Well-Known Ports (0–1023)",
+        "Er gehört zu keinem definierten Bereich"
+      ],
+      "answer": 2,
+      "explanation": "Port 443 liegt im Bereich der Well-Known Ports (0–1023), der für weit verbreitete Standarddienste reserviert ist."
+    },
+    {
+      "id": "q3",
+      "question": "Welcher Port ist typischerweise für SSH-Zugänge reserviert?",
+      "options": [
+        "Port 21",
+        "Port 22",
+        "Port 80",
+        "Port 3389"
+      ],
+      "answer": 1,
+      "explanation": "Port 22 ist der Well-Known Port für SSH (Secure Shell), über den verschlüsselte Fernzugriffe auf Server erfolgen."
+    },
+    {
+      "id": "q4",
+      "question": "Wie viele Bit umfasst eine Portnummer, und welcher Wertebereich ergibt sich daraus?",
+      "options": [
+        "8 Bit, 0–255",
+        "16 Bit, 0–65535",
+        "32 Bit, 0–4294967295",
+        "Portnummern haben keine feste Bitbreite"
+      ],
+      "answer": 1,
+      "explanation": "Eine Portnummer ist ein 16-Bit-Wert, daraus ergibt sich der Bereich 0–65535."
+    },
+    {
+      "id": "q5",
+      "question": "Wozu nutzt ein Client beim Aufbau einer ausgehenden Verbindung typischerweise einen dynamischen Port?",
+      "options": [
+        "Um den Zielserver zu verschlüsseln",
+        "Als eigenen Absende-Port, damit mehrere gleichzeitige Verbindungen eindeutig unterscheidbar bleiben",
+        "Weil Well-Known Ports für Clients gesperrt sind",
+        "Um die IP-Adresse des Servers zu verbergen"
+      ],
+      "answer": 1,
+      "explanation": "Das Betriebssystem vergibt für jede ausgehende Verbindung automatisch einen freien dynamischen Port als Absende-Port — dadurch lassen sich mehrere gleichzeitige Verbindungen zum selben Ziel eindeutig zuordnen."
+    },
+    {
+      "id": "q6",
+      "question": "Warum können ein Webserver (Port 443) und ein Mailserver (Port 25) auf demselben physischen Server gleichzeitig laufen?",
+      "options": [
+        "Weil beide Dienste dieselbe IP-Adresse, aber unterschiedliche Ports nutzen, über die eingehende Pakete dem jeweils richtigen Dienst zugeordnet werden",
+        "Weil TCP und UDP getrennte IP-Adressen verwenden",
+        "Weil jeder Dienst automatisch eine eigene IP-Adresse erhält",
+        "Das ist technisch nicht möglich"
+      ],
+      "answer": 0,
+      "explanation": "Eine einzelne IP-Adresse kann beliebig viele Dienste bereitstellen, solange jeder Dienst auf einem eigenen Port lauscht — der Port entscheidet, an welchen Prozess eingehende Daten weitergeleitet werden."
+    }
+  ]
+}

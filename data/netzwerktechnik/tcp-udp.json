@@ -1,0 +1,77 @@
+{
+  "unit": "netzwerktechnik/tcp-udp",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der grundlegende Unterschied zwischen TCP und UDP?",
+      "options": [
+        "TCP ist verbindungsorientiert und zuverlässig, UDP ist verbindungslos und ohne Zustellgarantie",
+        "TCP arbeitet auf Schicht 3, UDP auf Schicht 4",
+        "UDP ist grundsätzlich sicherer als TCP",
+        "Es gibt keinen praktischen Unterschied zwischen beiden"
+      ],
+      "answer": 0,
+      "explanation": "TCP baut eine Verbindung auf und garantiert Zustellung sowie Reihenfolge, UDP sendet Daten ohne Verbindungsaufbau und ohne Garantie."
+    },
+    {
+      "id": "q2",
+      "question": "Auf welcher Schicht des OSI-Modells arbeiten TCP und UDP?",
+      "options": [
+        "Schicht 2 (Sicherungsschicht)",
+        "Schicht 3 (Vermittlungsschicht)",
+        "Schicht 4 (Transportschicht)",
+        "Schicht 7 (Anwendungsschicht)"
+      ],
+      "answer": 2,
+      "explanation": "TCP und UDP sind die beiden zentralen Protokolle der Transportschicht (Schicht 4) und sorgen für die Zustellung an die richtige Anwendung."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Anwendung nutzt typischerweise UDP statt TCP?",
+      "options": [
+        "Ein Dateidownload per FTP",
+        "Eine verschlüsselte SSH-Sitzung",
+        "Eine VoIP-Telefonie- oder Videokonferenz-Verbindung",
+        "Das Laden einer Webseite per HTTPS"
+      ],
+      "answer": 2,
+      "explanation": "VoIP und Videokonferenzen benötigen geringe Verzögerung mehr als Vollständigkeit — deshalb wird meist UDP verwendet."
+    },
+    {
+      "id": "q4",
+      "question": "Warum hat TCP im Vergleich zu UDP einen höheren Overhead?",
+      "options": [
+        "Weil TCP über eine andere IP-Version läuft",
+        "Weil TCP Verbindungsaufbau (Handshake), größere Header und Bestätigungen benötigt",
+        "Weil TCP grundsätzlich verschlüsselt überträgt",
+        "Weil TCP nur auf drahtlosen Netzwerken eingesetzt wird"
+      ],
+      "answer": 1,
+      "explanation": "Der Handshake vor der Datenübertragung, größere Paket-Header und laufende Bestätigungen (ACKs) erzeugen bei TCP zusätzlichen Verwaltungsaufwand gegenüber dem schlanken UDP."
+    },
+    {
+      "id": "q5",
+      "question": "Warum eignet sich TCP besser als UDP für einen Dateidownload?",
+      "options": [
+        "Weil TCP grundsätzlich schneller ist als UDP",
+        "Weil TCP durch Bestätigungen und erneutes Senden garantiert, dass alle Daten vollständig und in der richtigen Reihenfolge ankommen",
+        "Weil UDP keine Ports unterstützt",
+        "Weil TCP keinen Verbindungsaufbau benötigt"
+      ],
+      "answer": 1,
+      "explanation": "Bei einem Download darf kein Byte fehlen — TCP stellt durch Bestätigungen (ACK) und erneutes Senden verlorener Pakete die Vollständigkeit sicher."
+    },
+    {
+      "id": "q6",
+      "question": "Wieso nutzen viele DNS-Anfragen UDP statt TCP?",
+      "options": [
+        "Weil DNS keine Ports benötigt",
+        "Weil eine DNS-Anfrage meist aus einer kurzen Anfrage und einer kurzen Antwort besteht, bei der sich ein voller Verbindungsaufbau nicht lohnt",
+        "Weil UDP verschlüsselt überträgt und TCP nicht",
+        "Weil DNS-Server nur UDP-Pakete verarbeiten können"
+      ],
+      "answer": 1,
+      "explanation": "Für eine einzelne kurze Anfrage-Antwort-Kommunikation wie bei DNS lohnt sich der Aufwand eines TCP-Verbindungsaufbaus in der Regel nicht — UDP reicht aus und ist schneller."
+    }
+  ]
+}

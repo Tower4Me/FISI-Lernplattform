@@ -108,6 +108,37 @@
       ],
       "answer": 2,
       "explanation": "Eine Person besitzt genau einen Personalausweis und umgekehrt – ein klassisches 1:1-Beispiel."
+    },
+    {
+      "id": "q10",
+      "question": "Wofür steht der auffächernde „Krähenfuß“ am Ende einer Verbindungslinie in der Krähenfuß-Notation?",
+      "options": [
+        "Für die Kardinalität „genau 1“",
+        "Für die Kardinalität „viele (n)“",
+        "Für einen Primärschlüssel",
+        "Für eine 1:1-Beziehung"
+      ],
+      "answer": 1,
+      "explanation": "Der Krähenfuß (drei auffächernde Linien) markiert in der Krähenfuß-Notation die „viele“-Seite (n) einer Beziehung, ein einzelner Strich steht für „genau 1“."
+    },
+    {
+      "id": "q11",
+      "question": "Wofür steht ein Kreis vor einem Strich bzw. Krähenfuß in der Krähenfuß-Notation?",
+      "options": [
+        "Für einen Primärschlüssel",
+        "Dafür, dass die Beziehung optional ist (0 möglich) statt verpflichtend",
+        "Für eine m:n-Beziehung",
+        "Für eine Zwischentabelle"
+      ],
+      "answer": 1,
+      "explanation": "Ein Kreis vor dem Strich/Krähenfuß macht aus einer verpflichtenden Beziehung eine optionale — „0 oder 1“ bzw. „0 oder mehrere“ statt „genau 1“ bzw. „viele“."
+    },
+    {
+      "id": "q12",
+      "question": "Welches Symbol steht für eine Entität in der Chen-Notation?",
+      "options": ["Eine Ellipse", "Eine Raute", "Ein Rechteck", "Ein Kreis"],
+      "answer": 2,
+      "explanation": "In der Chen-Notation wird eine Entität als Rechteck dargestellt, ein Attribut als Ellipse und eine Beziehung als Raute."
     }
   ]
 }

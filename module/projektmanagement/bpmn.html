@@ -71,6 +71,39 @@
         </tbody>
       </table>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 75" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bpmn-legend-title bpmn-legend-desc">
+          <title id="bpmn-legend-title">Legende der BPMN-Kernsymbole: Start-Ereignis, End-Ereignis, Aufgabe, Gateway, Sequenzfluss</title>
+          <desc id="bpmn-legend-desc">Fünf Symbole: dünner Kreis für Start-Ereignis, dicker Kreis für End-Ereignis, abgerundetes Rechteck für Aufgabe, Raute für Gateway, Pfeil für Sequenzfluss.</desc>
+
+          <defs>
+            <marker id="bpmn-legend-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <circle cx="48" cy="30" r="14" fill="none" stroke="var(--text)" stroke-width="1.5"/>
+          <text x="48" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="10">Start-Ereignis</text>
+
+          <circle cx="144" cy="30" r="14" fill="none" stroke="var(--text)" stroke-width="4"/>
+          <text x="144" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="10">End-Ereignis</text>
+
+          <rect x="204" y="16" width="72" height="28" rx="14" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="240" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="10">Aufgabe</text>
+
+          <polygon points="336,14 358,30 336,46 314,30" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="336" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="10">Gateway</text>
+
+          <line x1="402" y1="30" x2="462" y2="30" stroke="var(--text)" stroke-width="2" marker-end="url(#bpmn-legend-arrow)"/>
+          <text x="432" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="10">Sequenzfluss</text>
+        </svg>
+        <figcaption>
+          Die fünf BPMN-Kernsymbole: Start-Ereignis (dünner Kreis),
+          End-Ereignis (dicker Kreis), Aufgabe (abgerundetes Rechteck),
+          Gateway (Raute) und Sequenzfluss (Pfeil).
+        </figcaption>
+      </figure>
+
       <h3>Abgrenzung zum UML-Aktivitätsdiagramm</h3>
       <p>
         BPMN und das UML-Aktivitätsdiagramm verfolgen ein ähnliches Ziel
@@ -108,6 +141,59 @@
         Textbeschreibung hätte hier leicht zu Missverständnissen
         zwischen Vertrieb und Lager geführt.
       </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 660 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bpmn-title">
+          <title id="bpmn-title">BPMN-Diagramm des Bestellprozesses mit den Swimlanes Vertrieb und Lager</title>
+
+          <defs>
+            <marker id="bpmn-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="10" y="10" width="640" height="260" fill="none" stroke="var(--border)" stroke-width="2"/>
+          <line x1="10" y1="140" x2="650" y2="140" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="80" y1="10" x2="80" y2="270" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="45" y="75" transform="rotate(-90 45 75)" text-anchor="middle" fill="var(--text-muted)" font-size="13">Vertrieb</text>
+          <text x="45" y="205" transform="rotate(-90 45 205)" text-anchor="middle" fill="var(--text-muted)" font-size="13">Lager</text>
+
+          <circle cx="115" cy="75" r="14" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <text x="115" y="102" text-anchor="middle" fill="var(--text-muted)" font-size="9">Best. eingegangen</text>
+          <line x1="129" y1="75" x2="163" y2="75" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#bpmn-arrow)"/>
+
+          <rect x="165" y="55" width="140" height="40" rx="18" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="235" y="79" text-anchor="middle" fill="var(--text)" font-size="12">Bestellung prüfen</text>
+          <line x1="305" y1="75" x2="343" y2="75" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#bpmn-arrow)"/>
+
+          <polygon points="390,35 435,75 390,115 345,75" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="390" y="71" text-anchor="middle" fill="var(--text)" font-size="10">Lagerbestand</text>
+          <text x="390" y="84" text-anchor="middle" fill="var(--text)" font-size="10">ausreichend?</text>
+
+          <line x1="435" y1="75" x2="478" y2="75" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#bpmn-arrow)"/>
+          <text x="456" y="65" text-anchor="middle" fill="var(--text-muted)" font-size="11">nein</text>
+          <rect x="480" y="55" width="120" height="40" rx="18" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="540" y="79" text-anchor="middle" fill="var(--text)" font-size="11">Kunde informieren</text>
+          <line x1="600" y1="75" x2="612" y2="75" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#bpmn-arrow)"/>
+
+          <circle cx="628" cy="75" r="14" fill="none" stroke="var(--text)" stroke-width="3"/>
+
+          <line x1="390" y1="115" x2="390" y2="183" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#bpmn-arrow)"/>
+          <text x="404" y="150" fill="var(--text-muted)" font-size="11">ja</text>
+
+          <rect x="315" y="185" width="150" height="40" rx="18" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="390" y="209" text-anchor="middle" fill="var(--text)" font-size="12">Ware versenden</text>
+
+          <polyline points="465,205 628,205 628,90" fill="none" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#bpmn-arrow)"/>
+        </svg>
+        <figcaption>
+          BPMN-Diagramm des Bestellprozesses: Swimlane „Vertrieb" prüft die
+          Bestellung und das Gateway entscheidet über den Lagerbestand — bei
+          „ja" versendet die Swimlane „Lager" die Ware, bei „nein"
+          informiert „Vertrieb" den Kunden. Beide Pfade laufen im gemeinsamen
+          End-Ereignis zusammen.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 4. MERKSATZ -->

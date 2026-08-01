@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software, OS & Web: Struktogramm (Nassi-Shneiderman)</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, OS &amp; Web</a></li>
+        <li aria-current="page">Struktogramm (Nassi-Shneiderman)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Struktogramm (Nassi-Shneiderman)
+      <span class="badges">
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Matroschka-Puppe besteht aus ineinander verschachtelten
+        Figuren — jede größere Puppe enthält eine kleinere, ohne dass ein
+        Pfeil nötig ist, um die Reihenfolge zu zeigen: Man öffnet einfach
+        von außen nach innen. Ein <strong>Struktogramm</strong> (auch
+        Nassi-Shneiderman-Diagramm) stellt einen Algorithmus nach genau
+        diesem Prinzip dar: Statt Kästchen mit Pfeilen zu verbinden wie
+        beim PAP, werden Sequenzen, Verzweigungen und Schleifen als
+        ineinander <strong>verschachtelte Kästen</strong> gezeichnet — die
+        Reihenfolge ergibt sich allein aus der Anordnung von oben nach
+        unten und der Verschachtelung.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein <strong>Struktogramm</strong> stellt denselben Algorithmus dar
+        wie ein Programmablaufplan (PAP), verzichtet aber vollständig auf
+        <strong>Flusspfeile</strong>. Stattdessen wird der Ablauf durch die
+        räumliche Anordnung und Verschachtelung rechteckiger Blöcke
+        codiert. Das erzwingt automatisch <strong>strukturierte
+        Programmierung</strong> ohne Sprünge (kein „GOTO“), da sich ein
+        unstrukturierter Sprung im Diagramm gar nicht darstellen lässt.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Block</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Sequenz</strong></td><td>mehrere Verarbeitungsschritte werden als übereinanderliegende Kästen dargestellt, von oben nach unten abgearbeitet</td></tr>
+          <tr><td><strong>Verzweigung (if/else)</strong></td><td>ein Kasten wird durch eine schräge Linie in zwei Felder geteilt — Bedingung oben, „Ja“-Zweig und „Nein“-Zweig darunter nebeneinander</td></tr>
+          <tr><td><strong>Fallunterscheidung</strong></td><td>wie die Verzweigung, aber mit mehreren nebeneinanderliegenden Feldern für mehrere mögliche Fallwerte (Mehrfachauswahl)</td></tr>
+          <tr><td><strong>Kopfgesteuerte Schleife</strong></td><td>die Bedingung steht oben in einem schmalen Kopf-Streifen, der Schleifenkörper als eingerückter Kasten darunter (Prüfung <em>vor</em> jedem Durchlauf, „while“)</td></tr>
+          <tr><td><strong>Fußgesteuerte Schleife</strong></td><td>der Schleifenkörper steht oben, die Bedingung in einem Fuß-Streifen darunter (Prüfung <em>nach</em> jedem Durchlauf, „do-while“ — der Körper läuft mindestens einmal)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Dieselbe Beispiel-Logik wie beim PAP — „Zahl einlesen, prüfen ob
+        gerade, Ergebnis ausgeben“ — sieht als Struktogramm so aus: ein
+        Sequenz-Kasten „Zahl einlesen“, darunter ein Verzweigungs-Kasten
+        mit der Bedingung „Zahl durch 2 teilbar?“, „Ja“-Feld „gerade“ und
+        „Nein“-Feld „ungerade“, darunter wieder ein Sequenz-Kasten
+        „Ergebnis ausgeben“. Kein einziger Pfeil ist dafür nötig — die
+        Verschachtelung allein zeigt den Ablauf.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="struk-title struk-desc">
+          <title id="struk-title">Struktogramm-Bausteine und vollständiges Beispiel „Zahl einlesen, prüfen ob gerade, Ergebnis ausgeben“</title>
+          <desc id="struk-desc">Legende der Struktogramm-Bausteine Sequenz, Verzweigung, Fallunterscheidung, kopfgesteuerte und fußgesteuerte Schleife, darunter dasselbe Beispiel wie im PAP als verschachtelte Kästen ohne Pfeile.</desc>
+
+          <text x="240" y="14" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">Bausteine</text>
+
+          <rect x="35" y="30" width="110" height="55" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <line x1="35" y1="57.5" x2="145" y2="57.5" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="90" y="48" text-anchor="middle" fill="var(--text)" font-size="9">Schritt 1</text>
+          <text x="90" y="75" text-anchor="middle" fill="var(--text)" font-size="9">Schritt 2</text>
+          <text x="90" y="100" text-anchor="middle" fill="var(--text-muted)" font-size="10">Sequenz</text>
+
+          <rect x="185" y="30" width="110" height="55" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <line x1="185" y1="30" x2="240" y2="50" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="295" y1="30" x2="240" y2="50" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="240" y1="50" x2="240" y2="85" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="240" y="41" text-anchor="middle" fill="var(--text)" font-size="8">Bed.?</text>
+          <text x="212" y="72" text-anchor="middle" fill="var(--text-muted)" font-size="8">ja</text>
+          <text x="268" y="72" text-anchor="middle" fill="var(--text-muted)" font-size="8">nein</text>
+          <text x="240" y="100" text-anchor="middle" fill="var(--text-muted)" font-size="10">Verzweigung</text>
+
+          <rect x="335" y="30" width="110" height="55" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <line x1="335" y1="46" x2="445" y2="46" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="372" y1="46" x2="372" y2="85" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="408" y1="46" x2="408" y2="85" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="390" y="42" text-anchor="middle" fill="var(--text)" font-size="8">Fall?</text>
+          <text x="353" y="70" text-anchor="middle" fill="var(--text-muted)" font-size="8">1</text>
+          <text x="390" y="70" text-anchor="middle" fill="var(--text-muted)" font-size="8">2</text>
+          <text x="427" y="70" text-anchor="middle" fill="var(--text-muted)" font-size="8">…</text>
+          <text x="390" y="100" text-anchor="middle" fill="var(--text-muted)" font-size="10">Fallunterscheidung</text>
+
+          <line x1="20" y1="120" x2="460" y2="120" stroke="var(--border)" stroke-width="1"/>
+
+          <rect x="20" y="140" width="140" height="60" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <line x1="20" y1="158" x2="160" y2="158" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="34" y1="158" x2="34" y2="200" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="90" y="152" text-anchor="middle" fill="var(--text)" font-size="8">solange: Bed.</text>
+          <text x="97" y="183" text-anchor="middle" fill="var(--text)" font-size="9">Anweisung</text>
+          <text x="90" y="214" text-anchor="middle" fill="var(--text-muted)" font-size="9">Kopfgesteuerte Schleife</text>
+
+          <rect x="185" y="140" width="140" height="60" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <line x1="185" y1="182" x2="325" y2="182" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="199" y1="140" x2="199" y2="182" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="262" y="164" text-anchor="middle" fill="var(--text)" font-size="9">Anweisung</text>
+          <text x="255" y="195" text-anchor="middle" fill="var(--text)" font-size="8">bis: Bed.</text>
+          <text x="255" y="214" text-anchor="middle" fill="var(--text-muted)" font-size="9">Fußgesteuerte Schleife</text>
+
+          <line x1="20" y1="230" x2="460" y2="230" stroke="var(--border)" stroke-width="1"/>
+
+          <text x="240" y="248" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Beispiel: Zahl einlesen, prüfen ob gerade, Ergebnis ausgeben</text>
+
+          <rect x="90" y="260" width="300" height="180" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <line x1="90" y1="300" x2="390" y2="300" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="90" y1="400" x2="390" y2="400" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="240" y="285" text-anchor="middle" fill="var(--text)" font-size="11">Zahl einlesen</text>
+
+          <line x1="90" y1="300" x2="240" y2="335" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="390" y1="300" x2="240" y2="335" stroke="var(--border)" stroke-width="1.5"/>
+          <line x1="240" y1="335" x2="240" y2="400" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="240" y="316" text-anchor="middle" fill="var(--text)" font-size="10">Zahl durch 2 teilbar?</text>
+
+          <text x="165" y="350" text-anchor="middle" fill="var(--text-muted)" font-size="10">ja</text>
+          <text x="165" y="370" text-anchor="middle" fill="var(--text)" font-size="10">Ergebnis:</text>
+          <text x="165" y="386" text-anchor="middle" fill="var(--text)" font-size="10">„gerade“</text>
+
+          <text x="315" y="350" text-anchor="middle" fill="var(--text-muted)" font-size="10">nein</text>
+          <text x="315" y="370" text-anchor="middle" fill="var(--text)" font-size="10">Ergebnis:</text>
+          <text x="315" y="386" text-anchor="middle" fill="var(--text)" font-size="10">„ungerade“</text>
+
+          <text x="240" y="425" text-anchor="middle" fill="var(--text)" font-size="11">Ergebnis ausgeben</text>
+        </svg>
+        <figcaption>
+          Oben: die Struktogramm-Bausteine als Legende. Unten: dieselbe
+          Logik wie im PAP-Beispiel, hier ohne Pfeile — die Reihenfolge
+          ergibt sich allein aus der Anordnung und Verschachtelung der
+          Kästen.
+        </figcaption>
+      </figure>
+
+      <p>
+        <strong>Einordnung:</strong> Wie der PAP wurde auch das Struktogramm
+        mit der Neuordnung des Prüfungskatalogs ab 2025 aus der
+        <strong>AP1</strong> gestrichen. Es bleibt aber als
+        Grundlagenwissen zur strukturierten Programmierung sinnvoll und ist
+        für die <strong>AP2</strong> weiterhin relevant.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Dieselbe Rabattprüfung wie im PAP — „Bestellwert ≥ 100 € → 10 %
+        Rabatt“ — als Struktogramm:
+      </p>
+      <ul>
+        <li>Sequenz-Kasten: <strong>Bestellwert einlesen</strong></li>
+        <li>Verzweigungs-Kasten mit Bedingung <strong>„Bestellwert ≥ 100 €?“</strong>
+          <ul>
+            <li>„Ja“-Feld: Rabatt von 10 % berechnen und abziehen</li>
+            <li>„Nein“-Feld: Bestellwert bleibt unverändert</li>
+          </ul>
+        </li>
+        <li>Sequenz-Kasten: <strong>Endbetrag ausgeben</strong></li>
+      </ul>
+      <p>
+        Im direkten Vergleich mit dem PAP derselben Logik fällt auf: Beide
+        Darstellungen enthalten dieselben Informationen (Eingabe,
+        Bedingung, zwei Zweige, Ausgabe) — das Struktogramm zeigt sie
+        jedoch rein über Verschachtelung, der PAP über Symbole und Pfeile.
+        Typische Prüfungsfrage: „Welchen Vorteil hat ein Struktogramm
+        gegenüber einem PAP?“ – Antwort: Es erzwingt strukturierte
+        Programmierung, da sich unstrukturierte Sprünge (GOTO) im
+        Diagramm nicht darstellen lassen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Struktogramm stellt Sequenz, Verzweigung, Fallunterscheidung
+        und Schleifen (kopf-/fußgesteuert) als verschachtelte Kästen ohne
+        Pfeile dar — das erzwingt strukturierte Programmierung ohne
+        Sprünge. Seit 2025 nicht mehr AP1-, aber weiterhin AP2-relevant.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/struktogramm-nassi-shneiderman.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

@@ -299,6 +299,10 @@ code, kbd, pre {
 .figure--diagram svg { max-width: 100%; height: auto; }
 .figure--diagram figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
 
+/* Sprungmarken-Leiste innerhalb von Konzept (z. B. mehrere Diagrammtypen) */
+.jump-nav { font-size: 0.85rem; color: var(--text-muted); }
+.jump-nav a { color: var(--link); }
+
 /* ------------------------------------------------------ Tools (interaktiv) */
 .tool {
   background: var(--surface-2);
@@ -626,6 +630,7 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .site-search,
   .site-header__top,
   .breadcrumbs,
+  .jump-nav,
   .site-footer { display: none; }
   .module-card__head::after { display: none; }
 
@@ -663,4 +668,41 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 
   /* Interaktive Tools (SQL-Terminal, Rechner etc.) komplett raus */
   .tool { display: none; }
+}
+
+/* ---------------------------------------- Mobile: Suche lesbar (C2) --- */
+/* .site-search__results ist auf Desktop absolut positioniert und erbt die
+   Breite von .site-search (14rem im kompakten Modus auf Einheiten-Seiten) —
+   auf schmalen Screens reicht das nicht fuer lange Einheiten-Titel. Ab hier
+   wird das Panel aus der schmalen Header-Spalte geloest und ueber die
+   (nahezu) volle Bildschirmbreite gelegt, fixiert unterhalb der Kopfzeile.
+   `top` ist bewusst grosszuegig gewaehlt (deckt auch den Fall ab, in dem
+   .site-header__top bei langen Breadcrumbs auf zwei Zeilen umbricht). */
+@media (max-width: 600px) {
+  .site-search--compact,
+  .site-search--prominent { flex: 1 1 auto; min-width: 0; }
+
+  .site-search__results {
+    position: fixed;
+    left: 0.5rem;
+    right: 0.5rem;
+    top: 8.5rem;
+    max-height: calc(100vh - 9.5rem);
+    overflow-y: auto;
+  }
+
+  .site-search__option {
+    padding: 0.7rem 0.75rem;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+  .site-search__option-name {
+    font-size: 1rem;
+    line-height: 1.35;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  .site-search__option-path {
+    font-size: 0.8rem;
+  }
 }

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software, OS & Web: Bildschirmausgabemasken</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, OS &amp; Web</a></li>
+        <li aria-current="page">Bildschirmausgabemasken</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Bildschirmausgabemasken
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein gut gestaltetes Überweisungsformular am Bankschalter hat für
+        jede Angabe ein eigenes, passend großes Feld, markiert
+        Pflichtangaben deutlich mit einem Stern und weist sofort darauf
+        hin, wenn eine IBAN nicht ins Feld passt. Ein schlecht gestaltetes
+        Formular dagegen lässt die Reihenfolge der Felder raten und zeigt
+        Fehler erst ganz am Ende, wenn schon alles ausgefüllt ist — dann
+        muss man von vorn beginnen. Genau diese Sorgfalt braucht auch eine
+        digitale <strong>Bildschirmausgabemaske</strong>: Sie entscheidet
+        maßgeblich darüber, ob eine Software angenehm oder frustrierend zu
+        bedienen ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>Bildschirmausgabemaske</strong> (auch Eingabemaske
+        oder Dialogmaske) ist die grafische Oberfläche, über die Nutzer
+        Daten eingeben oder Ergebnisse angezeigt bekommen — z. B. ein
+        Formular zur Kundenanlage oder eine Bestellmaske. Ihre Gestaltung
+        folgt Grundsätzen aus drei Bereichen: <strong>Softwareergonomie</strong>,
+        <strong>Corporate Identity</strong> und <strong>Barrierefreiheit</strong>.
+      </p>
+
+      <h3>Softwareergonomie: Feldanordnung, Pflichtfelder, Validierung</h3>
+      <table>
+        <thead>
+          <tr><th>Gestaltungsprinzip</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Feldanordnung</strong></td><td>logische, der Aufgabe entsprechende Reihenfolge (z. B. Name vor Adresse vor Zahlungsart), zusammengehörige Felder werden visuell gruppiert</td></tr>
+          <tr><td><strong>Pflichtfelder</strong></td><td>eindeutig gekennzeichnet (z. B. Sternchen <code>*</code> plus Textbeschreibung „Pflichtfeld“) — nicht nur über Farbe, da das für farbenblinde Nutzer nicht erkennbar wäre</td></tr>
+          <tr><td><strong>Validierung</strong></td><td>Eingaben werden auf Format und Plausibilität geprüft, idealerweise direkt beim Verlassen des Feldes statt erst beim Absenden des gesamten Formulars</td></tr>
+          <tr><td><strong>Fehlermeldungen</strong></td><td>konkret und verständlich formuliert, direkt beim betroffenen Feld platziert, sagen was zu tun ist (nicht nur „Fehler bei Eingabe“)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Diese Grundsätze sind Teil der <strong>Softwareergonomie</strong>
+        (u. a. genormt in ISO 9241-110): Software soll aufgabenangemessen,
+        selbstbeschreibungsfähig, erwartungskonform und fehlertolerant
+        gestaltet sein — eine Maske, die diese Kriterien erfüllt, führt
+        Nutzer nahezu von selbst durch die Eingabe.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="mask-title mask-desc">
+          <title id="mask-title">Beispiel-Skizze einer gut gestalteten Eingabemaske</title>
+          <desc id="mask-desc">Kontaktformular mit den Feldern Name (Pflichtfeld), E-Mail (Pflichtfeld, mit Fehlermeldung wegen ungültigem Format) und Telefon (optional), darunter ein Absenden-Button.</desc>
+
+          <rect x="20" y="10" width="360" height="245" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="40" y="32" fill="var(--text)" font-size="13" font-weight="600">Kontaktformular</text>
+          <line x1="20" y1="42" x2="380" y2="42" stroke="var(--border)" stroke-width="1"/>
+
+          <text x="40" y="62" font-size="11" fill="var(--text)">Name <tspan fill="var(--fail)">*</tspan></text>
+          <rect x="40" y="68" width="320" height="24" rx="3" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+
+          <text x="40" y="107" font-size="11" fill="var(--text)">E-Mail <tspan fill="var(--fail)">*</tspan></text>
+          <rect x="40" y="113" width="320" height="24" rx="3" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2"/>
+          <text x="40" y="147" font-size="9" fill="var(--fail)">Bitte gültige E-Mail-Adresse eingeben (z. B. name@beispiel.de)</text>
+
+          <text x="40" y="169" font-size="11" fill="var(--text)">Telefon</text>
+          <rect x="40" y="175" width="320" height="24" rx="3" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+
+          <text x="40" y="205" font-size="9" fill="var(--text-muted)">* Pflichtfeld</text>
+
+          <rect x="280" y="215" width="80" height="26" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="320" y="232" text-anchor="middle" fill="var(--text)" font-size="10">Absenden</text>
+        </svg>
+        <figcaption>
+          Beispiel-Eingabemaske: Pflichtfelder sind mit Sternchen markiert
+          und in einer Legende erklärt, das E-Mail-Feld zeigt eine
+          feldnahe, konkrete Fehlermeldung statt einer allgemeinen
+          Sammelmeldung.
+        </figcaption>
+      </figure>
+
+      <h3>Corporate Identity (CI)</h3>
+      <p>
+        Alle Masken einer Software sollten ein <strong>einheitliches
+        Erscheinungsbild</strong> zeigen: dieselben Farben, Schriftarten,
+        Abstände und dasselbe Logo wie in der übrigen
+        Unternehmenskommunikation. Das schafft Wiedererkennung und
+        signalisiert Nutzern, dass sie sich innerhalb einer
+        vertrauenswürdigen, zusammengehörigen Anwendung bewegen — ein
+        Stilbruch zwischen zwei Masken wirkt dagegen unprofessionell und
+        wirft Fragen zur Seriosität der Anwendung auf.
+      </p>
+
+      <h3>Barrierefreiheit in der Maskengestaltung</h3>
+      <p>
+        Barrierefreie Masken achten zusätzlich auf ausreichenden
+        <strong>Kontrast</strong> zwischen Text und Hintergrund, korrekt
+        mit dem Eingabefeld verknüpfte <strong>Beschriftungen</strong>
+        (Labels, damit ein Screenreader weiß, wozu ein Feld gehört) und
+        eine logische <strong>Tab-Reihenfolge</strong>, mit der sich die
+        gesamte Maske auch ohne Maus allein über die Tastatur bedienen
+        lässt. Die technischen Details dazu (WCAG, Screenreader,
+        Sprachein-/ausgabe) behandelt die Einheit
+        <a href="../datenschutz-recht/barrierefreiheit-software.html">Barrierefreiheit Software</a>
+        vertiefend; die physisch-ergonomische Gestaltung des
+        Bildschirmarbeitsplatzes selbst (Abstand, Höhe, Hilfsmittel wie
+        Braillezeilen) behandelt die Einheit
+        <a href="../hardware/ergonomie-barrierefreiheit.html">Ergonomie &amp; Barrierefreiheit</a>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH überarbeitet die Kontaktmaske ihrer
+        Kundenportal-Software, nachdem sich Nutzer über eine „verwirrende
+        Eingabe“ beschwert haben:
+      </p>
+      <ul>
+        <li><strong>Vorher:</strong> Felder standen in willkürlicher Reihenfolge, Pflichtfelder waren nicht gekennzeichnet, und nach dem Absenden erschien eine einzige Sammelmeldung „3 Fehler gefunden“ ohne Hinweis, welche Felder betroffen waren.</li>
+        <li><strong>Nachher:</strong> Felder sind logisch gruppiert (Kontaktdaten, dann Anliegen), Pflichtfelder tragen ein Sternchen mit Legende, jedes Feld wird direkt beim Verlassen validiert, und Fehlermeldungen erscheinen unmittelbar unter dem jeweils betroffenen Feld mit einer konkreten Korrekturanweisung (z. B. „Bitte E-Mail-Adresse im Format name@beispiel.de eingeben“).</li>
+        <li>Die überarbeitete Maske übernimmt außerdem Farben und Schriftart aus dem übrigen Kundenportal (Corporate Identity) und lässt sich vollständig per Tabulatortaste in logischer Reihenfolge durchlaufen.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Nennen Sie zwei Gestaltungsgrundsätze
+        einer benutzerfreundlichen Bildschirmausgabemaske und erläutern
+        Sie diese kurz.“ – mögliche Antwort: klare Kennzeichnung von
+        Pflichtfeldern (schnelle Erkennbarkeit, was zwingend auszufüllen
+        ist) und feldnahe, konkrete Fehlermeldungen (Nutzer müssen nicht
+        raten, was falsch war).
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Eine gute Bildschirmausgabemaske ordnet Felder logisch, kennzeichnet
+        Pflichtfelder eindeutig, validiert Eingaben mit konkreten,
+        feldnahen Fehlermeldungen, folgt einem einheitlichen Corporate
+        Design und ist barrierefrei bedienbar (Kontrast, Labels,
+        Tab-Reihenfolge).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/bildschirmausgabemasken.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

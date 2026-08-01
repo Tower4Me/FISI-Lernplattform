@@ -85,6 +85,73 @@
         beschreibt, wie das Internet tatsächlich funktioniert.
       </p>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="osi-title osi-desc">
+          <title id="osi-title">OSI-7-Schichten-Stapel neben dem TCP/IP-4-Schichten-Stapel mit sichtbarer Zuordnung</title>
+          <desc id="osi-desc">Links die sieben OSI-Schichten von 1 (Bitübertragung) bis 7 (Anwendung) übereinander gestapelt. Rechts die vier TCP/IP-Schichten in gleicher Höhe: Anwendungsschicht deckt OSI 5 bis 7 ab, Transportschicht OSI 4, Internetschicht OSI 3, Netzzugangsschicht OSI 1 bis 2.</desc>
+
+          <text x="90" y="12" text-anchor="middle" fill="var(--text-muted)" font-size="11">OSI (7 Schichten)</text>
+          <text x="320" y="12" text-anchor="middle" fill="var(--text-muted)" font-size="11">TCP/IP (4 Schichten)</text>
+
+          <rect x="20" y="20" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <circle cx="35" cy="38" r="10" fill="none" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <text x="35" y="42" text-anchor="middle" fill="var(--text)" font-size="10">7</text>
+          <text x="52" y="42" fill="var(--text)" font-size="11">Anwendung</text>
+
+          <rect x="20" y="56" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <circle cx="35" cy="74" r="10" fill="none" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <text x="35" y="78" text-anchor="middle" fill="var(--text)" font-size="10">6</text>
+          <text x="52" y="78" fill="var(--text)" font-size="11">Darstellung</text>
+
+          <rect x="20" y="92" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <circle cx="35" cy="110" r="10" fill="none" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <text x="35" y="114" text-anchor="middle" fill="var(--text)" font-size="10">5</text>
+          <text x="52" y="114" fill="var(--text)" font-size="11">Sitzung</text>
+
+          <rect x="20" y="128" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="35" cy="146" r="10" fill="none" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="35" y="150" text-anchor="middle" fill="var(--text)" font-size="10">4</text>
+          <text x="52" y="150" fill="var(--text)" font-size="11">Transport</text>
+
+          <rect x="20" y="164" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <circle cx="35" cy="182" r="10" fill="none" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="35" y="186" text-anchor="middle" fill="var(--text)" font-size="10">3</text>
+          <text x="52" y="186" fill="var(--text)" font-size="11">Vermittlung</text>
+
+          <rect x="20" y="200" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <circle cx="35" cy="218" r="10" fill="none" stroke="var(--acc-merksatz)" stroke-width="1.5"/>
+          <text x="35" y="222" text-anchor="middle" fill="var(--text)" font-size="10">2</text>
+          <text x="52" y="222" fill="var(--text)" font-size="11">Sicherung</text>
+
+          <rect x="20" y="236" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <circle cx="35" cy="254" r="10" fill="none" stroke="var(--acc-merksatz)" stroke-width="1.5"/>
+          <text x="35" y="258" text-anchor="middle" fill="var(--text)" font-size="10">1</text>
+          <text x="52" y="258" fill="var(--text)" font-size="11">Bitübertragung</text>
+
+          <line x1="160" y1="128" x2="260" y2="128" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="160" y1="164" x2="260" y2="164" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="160" y1="200" x2="260" y2="200" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+          <rect x="260" y="20" width="120" height="108" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="320" y="78" text-anchor="middle" fill="var(--text)" font-size="11">Anwendungsschicht</text>
+
+          <rect x="260" y="128" width="120" height="36" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="320" y="150" text-anchor="middle" fill="var(--text)" font-size="11">Transportschicht</text>
+
+          <rect x="260" y="164" width="120" height="36" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="320" y="186" text-anchor="middle" fill="var(--text)" font-size="11">Internetschicht</text>
+
+          <rect x="260" y="200" width="120" height="72" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <text x="320" y="240" text-anchor="middle" fill="var(--text)" font-size="11">Netzzugangsschicht</text>
+        </svg>
+        <figcaption>
+          OSI-Schichten 5–7 entsprechen zusammen der TCP/IP-Anwendungsschicht,
+          Schicht 4 der Transportschicht, Schicht 3 der Internetschicht und
+          Schichten 1–2 zusammen der Netzzugangsschicht — gleiche Höhe im
+          Diagramm macht die Zuordnung direkt sichtbar.
+        </figcaption>
+      </figure>
+
       <p>
         Merkhilfe für die Reihenfolge von unten nach oben (1→7):
         <strong>B</strong>itübertragung, <strong>S</strong>icherung,

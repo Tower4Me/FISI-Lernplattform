@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software, OS & Web: EPK (Ereignisgesteuerte Prozesskette)</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#software-os-web">Software, OS &amp; Web</a></li>
+        <li aria-current="page">EPK (Ereignisgesteuerte Prozesskette)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      EPK (Ereignisgesteuerte Prozesskette)
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Staffellauf-Team funktioniert nach einem strikten Wechselspiel:
+        Das <em>Ereignis</em> „Läufer A hat den Stab“ löst die
+        <em>Funktion</em> „Läufer A rennt“ aus. Sobald er am Ziel seines
+        Abschnitts ankommt, tritt das nächste <em>Ereignis</em> ein: „Stab
+        wird übergeben“ — und das löst die nächste <em>Funktion</em> aus:
+        „Läufer B rennt“. Immer abwechselnd: Ereignis löst Funktion aus,
+        Funktion führt zu einem neuen Ereignis. Genau dieses Prinzip nutzt
+        die <strong>Ereignisgesteuerte Prozesskette (EPK)</strong>, um
+        Geschäftsprozesse darzustellen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>EPK</strong> beschreibt einen Geschäftsprozess als
+        strikt abwechselnde Kette aus <strong>Ereignissen</strong> und
+        <strong>Funktionen</strong>: Ein Ereignis beschreibt einen
+        eingetretenen Zustand („Bestellung ist eingegangen“) und löst eine
+        Funktion aus, eine Funktion beschreibt eine Aktivität
+        („Bestellung prüfen“) und führt zu einem neuen Ereignis. Zwei
+        Funktionen dürfen nie direkt aufeinander folgen, ebenso wenig zwei
+        Ereignisse — dazwischen steht immer das jeweils andere Element.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Symbol</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Ereignis</strong> (Sechseck)</td><td>ein eingetretener Zustand, passiv, löst eine Funktion aus oder beendet den Prozess</td></tr>
+          <tr><td><strong>Funktion</strong> (abgerundetes Rechteck)</td><td>eine Aktivität/Tätigkeit, aktiv, wird durch ein Ereignis ausgelöst</td></tr>
+          <tr><td><strong>XOR-Konnektor</strong></td><td>entweder-oder — genau einer der folgenden Pfade wird tatsächlich durchlaufen</td></tr>
+          <tr><td><strong>UND-Konnektor</strong></td><td>alle folgenden Pfade werden gleichzeitig durchlaufen</td></tr>
+          <tr><td><strong>ODER-Konnektor</strong></td><td>mindestens einer der folgenden Pfade wird durchlaufen, auch mehrere gleichzeitig möglich</td></tr>
+          <tr><td><strong>Kontrollfluss-Pfeil</strong></td><td>verbindet die Elemente und legt die Ablaufreihenfolge fest</td></tr>
+          <tr><td><strong>Organisationseinheit</strong> (optional, Oval/Ellipse)</td><td>zeigt, welche Abteilung/Rolle eine Funktion ausführt</td></tr>
+          <tr><td><strong>Informationsobjekt</strong> (optional, Rechteck mit Eselsohr)</td><td>zeigt, welches Dokument/welche Information eine Funktion verwendet oder erzeugt</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Beispiel-Ablauf, der die wichtigsten Symbole einmal verwendet —
+        Bewerbungseingang in der Personalabteilung:
+      </p>
+      <ol>
+        <li><strong>Ereignis</strong>: „Bewerbung ist eingegangen“</li>
+        <li><strong>Funktion</strong>: „Bewerbung prüfen“ (ausgeführt von der Organisationseinheit „Personalabteilung“)</li>
+        <li><strong>XOR-Konnektor</strong>: entweder vollständig oder unvollständig</li>
+        <li>Zweig 1 — <strong>Ereignis</strong>: „Bewerbung ist vollständig“ → <strong>Funktion</strong>: „Zusage zum Gespräch vorbereiten“</li>
+        <li>Zweig 2 — <strong>Ereignis</strong>: „Bewerbung ist unvollständig“ → <strong>Funktion</strong>: „Nachforderung versenden“</li>
+      </ol>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="epk-title epk-desc">
+          <title id="epk-title">EPK-Symbol-Legende und vollständiges Beispiel Bewerbungsprozess</title>
+          <desc id="epk-desc">Legende der EPK-Symbole Ereignis, Funktion, XOR, UND, ODER und Kontrollfluss-Pfeil, darunter der Bewerbungsprozess: Ereignis Bewerbung eingegangen, Funktion Bewerbung prüfen mit Organisationseinheit Personalabteilung, XOR-Verzweigung in die Ereignisse vollständig oder unvollständig mit jeweils anschließender Funktion.</desc>
+
+          <defs>
+            <marker id="epk-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <text x="240" y="14" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="600">Symbol-Legende</text>
+
+          <polygon points="45,48 65,30 115,30 135,48 115,66 65,66" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="90" y="86" text-anchor="middle" fill="var(--text-muted)" font-size="10">Ereignis</text>
+
+          <rect x="195" y="30" width="90" height="36" rx="12" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="240" y="86" text-anchor="middle" fill="var(--text-muted)" font-size="10">Funktion</text>
+
+          <circle cx="390" cy="48" r="18" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <line x1="382" y1="40" x2="398" y2="56" stroke="var(--text)" stroke-width="1.5"/>
+          <line x1="398" y1="40" x2="382" y2="56" stroke="var(--text)" stroke-width="1.5"/>
+          <text x="390" y="86" text-anchor="middle" fill="var(--text-muted)" font-size="10">XOR</text>
+
+          <line x1="20" y1="104" x2="460" y2="104" stroke="var(--border)" stroke-width="1"/>
+
+          <circle cx="90" cy="140" r="18" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="90" y="145" text-anchor="middle" fill="var(--text)" font-size="13">&amp;</text>
+          <text x="90" y="178" text-anchor="middle" fill="var(--text-muted)" font-size="10">UND</text>
+
+          <circle cx="240" cy="140" r="18" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="240" y="144" text-anchor="middle" fill="var(--text)" font-size="10">≥1</text>
+          <text x="240" y="178" text-anchor="middle" fill="var(--text-muted)" font-size="10">ODER</text>
+
+          <line x1="362" y1="140" x2="418" y2="140" stroke="var(--text)" stroke-width="2" marker-end="url(#epk-arrow)"/>
+          <text x="390" y="178" text-anchor="middle" fill="var(--text-muted)" font-size="10">Kontrollfluss</text>
+
+          <line x1="20" y1="196" x2="460" y2="196" stroke="var(--border)" stroke-width="1"/>
+
+          <text x="240" y="214" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Beispiel: Bewerbungsprozess</text>
+
+          <polygon points="170,240 190,222 290,222 310,240 290,258 190,258" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="240" y="237" text-anchor="middle" fill="var(--text)" font-size="9">Bewerbung</text>
+          <text x="240" y="249" text-anchor="middle" fill="var(--text)" font-size="9">eingegangen</text>
+
+          <line x1="240" y1="258" x2="240" y2="275" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#epk-arrow)"/>
+
+          <rect x="170" y="275" width="140" height="36" rx="14" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="240" y="297" text-anchor="middle" fill="var(--text)" font-size="10">Bewerbung prüfen</text>
+
+          <line x1="310" y1="293" x2="355" y2="293" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <ellipse cx="400" cy="293" rx="45" ry="20" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="400" y="289" text-anchor="middle" fill="var(--text)" font-size="8">Personal-</text>
+          <text x="400" y="299" text-anchor="middle" fill="var(--text)" font-size="8">abteilung</text>
+
+          <line x1="240" y1="311" x2="240" y2="330" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#epk-arrow)"/>
+
+          <circle cx="240" cy="348" r="18" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <line x1="232" y1="340" x2="248" y2="356" stroke="var(--text)" stroke-width="1.5"/>
+          <line x1="248" y1="340" x2="232" y2="356" stroke="var(--text)" stroke-width="1.5"/>
+
+          <line x1="240" y1="366" x2="240" y2="380" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <line x1="140" y1="380" x2="340" y2="380" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <line x1="140" y1="380" x2="140" y2="400" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#epk-arrow)"/>
+          <line x1="340" y1="380" x2="340" y2="400" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#epk-arrow)"/>
+
+          <polygon points="60,418 80,400 200,400 220,418 200,436 80,436" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="140" y="415" text-anchor="middle" fill="var(--text)" font-size="9">Bewerbung ist</text>
+          <text x="140" y="427" text-anchor="middle" fill="var(--text)" font-size="9">vollständig</text>
+
+          <polygon points="260,418 280,400 400,400 420,418 400,436 280,436" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="340" y="415" text-anchor="middle" fill="var(--text)" font-size="9">Bewerbung ist</text>
+          <text x="340" y="427" text-anchor="middle" fill="var(--text)" font-size="9">unvollständig</text>
+
+          <line x1="140" y1="436" x2="140" y2="455" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#epk-arrow)"/>
+          <line x1="340" y1="436" x2="340" y2="455" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#epk-arrow)"/>
+
+          <rect x="60" y="455" width="160" height="36" rx="14" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="140" y="477" text-anchor="middle" fill="var(--text)" font-size="9">Zusage vorbereiten</text>
+
+          <rect x="260" y="455" width="160" height="36" rx="14" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="340" y="477" text-anchor="middle" fill="var(--text)" font-size="9">Nachforderung senden</text>
+        </svg>
+        <figcaption>
+          Oben: die EPK-Symbole als Legende. Unten: der Bewerbungsprozess —
+          nach der Prüfung entscheidet der XOR-Konnektor über genau einen
+          der beiden Zweige (vollständig oder unvollständig), jeweils
+          gefolgt von der passenden Funktion.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus möchte den Prozess „eingehender Support-Anruf“
+        als EPK modellieren, um Zuständigkeiten und Entscheidungspunkte
+        sichtbar zu machen:
+      </p>
+      <ul>
+        <li><strong>Ereignis</strong>: „Anruf ist eingegangen“ → <strong>Funktion</strong>: „Ticket anlegen“ (Organisationseinheit: First-Level-Support)</li>
+        <li><strong>Ereignis</strong>: „Ticket ist angelegt“ → <strong>Funktion</strong>: „Problem einordnen“</li>
+        <li><strong>XOR-Konnektor</strong>: „einfaches Problem“ oder „komplexes Problem“</li>
+        <li>Zweig „einfach“ → <strong>Ereignis</strong>: „Problem ist gelöst“ (Ende)</li>
+        <li>Zweig „komplex“ → <strong>Ereignis</strong>: „Eskalation ist nötig“ → <strong>Funktion</strong>: „An Second-Level-Support weiterleiten“ (Organisationseinheit: Second-Level-Support)</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Dürfen in einer EPK zwei Funktionen direkt
+        aufeinanderfolgen?“ – Antwort: Nein, zwischen zwei Funktionen steht
+        immer mindestens ein Ereignis (bzw. ein Konnektor mit
+        nachfolgendem Ereignis) — Ereignisse und Funktionen wechseln sich
+        strikt ab.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Eine EPK besteht aus streng abwechselnden Ereignissen (Sechseck,
+        passiver Zustand) und Funktionen (abgerundetes Rechteck, aktive
+        Tätigkeit), verbunden über Kontrollfluss-Pfeile und die
+        Konnektoren XOR/UND/ODER. EPK bleibt AP1-relevant.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/epk-ereignisgesteuerte-prozesskette.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

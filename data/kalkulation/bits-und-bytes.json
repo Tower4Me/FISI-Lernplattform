@@ -84,6 +84,18 @@
       ],
       "answer": 3,
       "explanation": "Ein Byte besteht aus 8 Bit, daraus ergeben sich 2^8 = 256 mögliche Kombinationen (Dezimalwerte 0–255)."
+    },
+    {
+      "id": "q8",
+      "question": "Welche Schreibweise ist in der Prüfung korrekt, wenn 1024 Byte gemeint sind?",
+      "options": [
+        "1 KB = 1024 Byte",
+        "1 KiB = 1024 Byte",
+        "1 kbit = 1024 Byte",
+        "Beide Schreibweisen sind gleichwertig korrekt"
+      ],
+      "answer": 1,
+      "explanation": "Für Datenmengen mit Faktor 1024 ist ausschließlich das Binärpräfix KiB korrekt. „1 KB = 1024 Byte“ vermischt die dezimale Einheit KB mit dem binären Faktor 1024 und gilt in der Prüfung als falsch."
     }
   ]
 }

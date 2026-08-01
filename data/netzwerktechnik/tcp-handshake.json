@@ -1,0 +1,77 @@
+{
+  "unit": "netzwerktechnik/tcp-handshake",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche Reihenfolge beschreibt den TCP 3-Way-Handshake korrekt?",
+      "options": [
+        "ACK, SYN, SYN-ACK",
+        "SYN, SYN-ACK, ACK",
+        "SYN-ACK, ACK, SYN",
+        "FIN, SYN, ACK"
+      ],
+      "answer": 1,
+      "explanation": "Der Client sendet SYN, der Server antwortet mit SYN-ACK, der Client bestätigt mit ACK — erst danach beginnt der Datenaustausch."
+    },
+    {
+      "id": "q2",
+      "question": "Wozu dient das SYN-Flag im ersten Schritt des Handshakes?",
+      "options": [
+        "Es beendet eine bestehende Verbindung",
+        "Es signalisiert den Wunsch, eine neue Verbindung aufzubauen, und schlägt eine Startsequenznummer vor",
+        "Es bestätigt den Empfang aller vorherigen Datenpakete",
+        "Es überträgt die eigentlichen Nutzdaten"
+      ],
+      "answer": 1,
+      "explanation": "Das SYN-Flag (Synchronize) leitet den Verbindungsaufbau ein und legt die Startsequenznummer des Senders fest."
+    },
+    {
+      "id": "q3",
+      "question": "Wie viele Pakete werden beim TCP-Verbindungsabbau insgesamt ausgetauscht?",
+      "options": [
+        "Zwei",
+        "Drei, genau wie beim Aufbau",
+        "Vier — je ein FIN/ACK-Paar pro Übertragungsrichtung",
+        "Der Abbau erfordert keinen erneuten Austausch"
+      ],
+      "answer": 2,
+      "explanation": "Da TCP eine Vollduplex-Verbindung ist, muss jede Richtung einzeln mit einem eigenen FIN und einer eigenen Bestätigung beendet werden — macht in Summe vier Schritte."
+    },
+    {
+      "id": "q4",
+      "question": "Warum sendet der Server im zweiten Schritt ein kombiniertes SYN-ACK-Paket statt zwei getrennter Pakete?",
+      "options": [
+        "Weil UDP zwei getrennte Pakete nicht erlaubt",
+        "Weil damit gleichzeitig das Client-SYN bestätigt und der eigene Verbindungswunsch des Servers signalisiert wird — effizienter als zwei Pakete",
+        "Weil ein kombiniertes Paket keine Sequenznummer benötigt",
+        "Weil der 3-Way-Handshake sonst fünf Schritte hätte"
+      ],
+      "answer": 1,
+      "explanation": "Das kombinierte SYN-ACK-Paket erledigt zwei Aufgaben in einem Schritt: Bestätigung des Client-SYN und eigener Verbindungsaufbau-Wunsch des Servers. Dadurch kommt der Handshake mit drei statt vier Schritten aus."
+    },
+    {
+      "id": "q5",
+      "question": "Woran erkennt man in einem Netzwerkmitschnitt einen fehlgeschlagenen TCP-Verbindungsaufbau?",
+      "options": [
+        "Es wird ein SYN-Paket gesendet, aber es folgt kein SYN-ACK vom Zielsystem",
+        "Es werden nur UDP-Pakete beobachtet",
+        "Der Ping-Befehl schlägt ebenfalls fehl",
+        "Es fehlt das erste FIN-Paket"
+      ],
+      "answer": 0,
+      "explanation": "Bleibt die Antwort auf ein gesendetes SYN-Paket aus (kein SYN-ACK), ist der Verbindungsaufbau bereits im ersten Schritt gescheitert — z. B. weil der Zielport blockiert ist oder kein Dienst dort lauscht."
+    },
+    {
+      "id": "q6",
+      "question": "Was zeigt ein erfolgreicher Ping auf einen Server, dessen Webseite nicht erreichbar ist?",
+      "options": [
+        "Dass der TCP-Handshake auf Port 443 ebenfalls funktioniert",
+        "Dass der Server grundsätzlich erreichbar ist — über den konkreten Webserver-Dienst sagt das nichts aus, da Ping ICMP statt TCP nutzt",
+        "Dass die Firewall alle Ports geöffnet hat",
+        "Dass keine weitere Fehlersuche nötig ist"
+      ],
+      "answer": 1,
+      "explanation": "Ping basiert auf ICMP, nicht auf TCP. Ein erfolgreicher Ping bestätigt nur die grundsätzliche Erreichbarkeit des Geräts, nicht die Funktion eines bestimmten Dienstes wie eines Webservers."
+    }
+  ]
+}

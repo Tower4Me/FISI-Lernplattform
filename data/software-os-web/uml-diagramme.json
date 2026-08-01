@@ -33,6 +33,18 @@
       "explanation": "Ein Akteur wird in UML als Strichmännchen dargestellt — ein Use Case dagegen als Ellipse."
     },
     {
+      "id": "q3b",
+      "question": "Was unterscheidet die Use-Case-Beziehung <<extend>> von <<include>>?",
+      "options": [
+        "Es gibt keinen Unterschied, beide sind gleichbedeutend",
+        "<<extend>> bindet einen Use Case immer zwingend ein, <<include>> nur optional",
+        "<<extend>> erweitert einen Use Case nur optional unter einer Bedingung, <<include>> bindet zwingend ein",
+        "<<extend>> gibt es nur bei Akteuren, nicht bei Use Cases"
+      ],
+      "answer": 2,
+      "explanation": "<<include>> bindet einen anderen Use Case immer zwingend ein. <<extend>> erweitert einen Use Case nur optional, wenn eine bestimmte Bedingung zutrifft — der Pfeil zeigt dabei zum Basis-Use-Case, bei include zum eingebundenen Use Case."
+    },
+    {
       "id": "q4",
       "question": "Was zeigt ein Klassendiagramm?",
       "options": [
@@ -69,6 +81,42 @@
       "options": ["Der Startknoten", "Ein Entscheidungsknoten (Raute)", "Eine Aktivität (abgerundetes Rechteck)", "Der Endknoten"],
       "answer": 1,
       "explanation": "Der Entscheidungsknoten (als Raute dargestellt) im Aktivitätsdiagramm entspricht einer Verzweigung (if/else) im tatsächlichen Programmcode."
+    },
+    {
+      "id": "q8",
+      "question": "Was zeigt ein Sequenzdiagramm im Unterschied zum Klassendiagramm?",
+      "options": [
+        "Die statische Struktur der Klassen mit ihren Attributen",
+        "Die zeitliche Reihenfolge von Nachrichten zwischen konkreten Objekten oder Akteuren",
+        "Ausschließlich die Akteure eines Systems",
+        "Die Netzwerktopologie eines Rechenzentrums"
+      ],
+      "answer": 1,
+      "explanation": "Ein Sequenzdiagramm stellt dar, in welcher zeitlichen Reihenfolge Objekte über Nachrichten miteinander kommunizieren — das Klassendiagramm zeigt dagegen die statische Struktur."
+    },
+    {
+      "id": "q9",
+      "question": "Wie unterscheidet man im Sequenzdiagramm eine Nachricht (Aufruf) von einer Rückgabe (Antwort)?",
+      "options": [
+        "Beide werden identisch als durchgezogener Pfeil dargestellt",
+        "Ein durchgezogener Pfeil ist der Aufruf, ein gestrichelter Pfeil die Rückgabe",
+        "Rückgaben werden nie dargestellt, nur Aufrufe",
+        "Nur die Pfeilfarbe unterscheidet beide"
+      ],
+      "answer": 1,
+      "explanation": "Nachrichten/Aufrufe werden als durchgezogener Pfeil dargestellt, Rückgaben (Antworten) als gestrichelter Pfeil."
+    },
+    {
+      "id": "q10",
+      "question": "Wofür steht der schmale rechteckige Balken auf einer Lebenslinie im Sequenzdiagramm?",
+      "options": [
+        "Er markiert das Ende der Lebenslinie",
+        "Er zeigt den Aktivierungszeitraum, in dem das Objekt eine Nachricht aktiv verarbeitet",
+        "Er stellt eine Vererbungsbeziehung dar",
+        "Er kennzeichnet einen Entscheidungsknoten"
+      ],
+      "answer": 1,
+      "explanation": "Der Aktivierungsbalken zeigt, wie lange ein Objekt aktiv mit der Verarbeitung einer Nachricht beschäftigt ist."
     }
   ]
 }

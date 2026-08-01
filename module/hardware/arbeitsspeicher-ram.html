@@ -116,39 +116,41 @@
       </table>
 
       <figure class="figure--diagram">
-        <svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dualchannel-title">
-          <title id="dualchannel-title">Diagramm: 4 DIMM-Slots A1, A2, B1, B2 — für Dual Channel müssen die Module in A2 und B2 stecken, nicht nebeneinander in A1 und A2</title>
+        <svg viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dualchannel-title dualchannel-desc">
+          <title id="dualchannel-title">Diagramm: 4 schmale, hohe DIMM-Slots A1, A2, B1, B2 auf dem Mainboard — für Dual Channel müssen die Module in A2 und B2 stecken</title>
+          <desc id="dualchannel-desc">CPU mit vier nebeneinanderliegenden, hohen schmalen DIMM-Steckplätzen A1, A2, B1, B2. A1 und A2 gehören zu Kanal A, B1 und B2 zu Kanal B. Bestückt (grün gefüllt) sind A2 und B2 — je ein Modul pro Kanal ergibt Dual Channel.</desc>
 
           <text x="10" y="16" fill="var(--text-muted)" font-size="11">CPU / Memory Controller — 2 Kanäle</text>
 
-          <rect x="10" y="30" width="60" height="90" rx="4" fill="var(--surface-2)" stroke="var(--link)" stroke-width="2"/>
-          <text x="40" y="80" text-anchor="middle" fill="var(--link)" font-size="10" font-weight="600">CPU</text>
+          <rect x="15" y="35" width="65" height="110" rx="4" fill="var(--surface-2)" stroke="var(--link)" stroke-width="2"/>
+          <text x="47" y="95" text-anchor="middle" fill="var(--link)" font-size="11" font-weight="600">CPU</text>
 
-          <rect x="110" y="30" width="30" height="40" rx="3" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
-          <text x="125" y="53" text-anchor="middle" fill="var(--text-muted)" font-size="8">A1</text>
-          <text x="125" y="64" text-anchor="middle" fill="var(--text-muted)" font-size="7">leer</text>
+          <line x1="80" y1="90" x2="120" y2="90" stroke="var(--border)" stroke-width="2"/>
 
-          <rect x="150" y="30" width="30" height="40" rx="3" fill="var(--acc-praxis)" stroke="var(--acc-praxis)" stroke-width="2"/>
-          <text x="165" y="53" text-anchor="middle" fill="var(--bg)" font-size="8" font-weight="700">A2</text>
+          <rect x="120" y="35" width="24" height="110" rx="2" fill="var(--surface-2)" stroke="var(--link)" stroke-width="2"/>
+          <rect x="160" y="35" width="24" height="110" rx="2" fill="var(--acc-praxis)" stroke="var(--link)" stroke-width="2"/>
+          <rect x="200" y="35" width="24" height="110" rx="2" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <rect x="240" y="35" width="24" height="110" rx="2" fill="var(--acc-praxis)" stroke="var(--acc-quiz)" stroke-width="2"/>
 
-          <rect x="110" y="80" width="30" height="40" rx="3" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
-          <text x="125" y="103" text-anchor="middle" fill="var(--text-muted)" font-size="8">B1</text>
-          <text x="125" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="7">leer</text>
+          <text x="132" y="160" text-anchor="middle" fill="var(--text)" font-size="11">A1</text>
+          <text x="172" y="160" text-anchor="middle" fill="var(--text)" font-size="11">A2</text>
+          <text x="212" y="160" text-anchor="middle" fill="var(--text)" font-size="11">B1</text>
+          <text x="252" y="160" text-anchor="middle" fill="var(--text)" font-size="11">B2</text>
 
-          <rect x="150" y="80" width="30" height="40" rx="3" fill="var(--acc-praxis)" stroke="var(--acc-praxis)" stroke-width="2"/>
-          <text x="165" y="103" text-anchor="middle" fill="var(--bg)" font-size="8" font-weight="700">B2</text>
+          <polyline points="132,168 132,173 172,173 172,168" fill="none" stroke="var(--link)" stroke-width="1.5"/>
+          <text x="152" y="187" text-anchor="middle" fill="var(--link)" font-size="10">Kanal A</text>
 
-          <text x="230" y="55" fill="var(--text-muted)" font-size="9">Kanal A</text>
-          <text x="230" y="105" fill="var(--text-muted)" font-size="9">Kanal B</text>
+          <polyline points="212,168 212,173 252,173 252,168" fill="none" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="232" y="187" text-anchor="middle" fill="var(--acc-quiz)" font-size="10">Kanal B</text>
 
-          <text x="180" y="140" text-anchor="middle" fill="var(--acc-praxis)" font-size="10">
-            Module in A2 + B2 (gleiche Farbe) = Dual Channel
-          </text>
+          <text x="190" y="215" text-anchor="middle" fill="var(--acc-praxis)" font-size="10">Bestückt: A2 + B2 (je 1 Modul pro Kanal) = Dual Channel</text>
         </svg>
         <figcaption>
-          Bei 4 DIMM-Slots gehören abwechselnd je 2 Slots zu einem Kanal
-          (A1/B1, A2/B2). Zwei Module müssen in dieselbe Farbe (hier A2 + B2),
-          sonst läuft das System nur im Single Channel mit halber Bandbreite.
+          Vier reale DIMM-Slots stehen als schmale, hohe Steckplätze
+          nebeneinander auf dem Mainboard. A1/A2 gehören zu Kanal A
+          (blauer Rahmen), B1/B2 zu Kanal B (violetter Rahmen). Bestückt
+          sind hier A2 und B2 (grün gefüllt) — je ein Modul pro Kanal
+          ergibt Dual Channel statt halber Bandbreite im Single Channel.
         </figcaption>
       </figure>
       <p>

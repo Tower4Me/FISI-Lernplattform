@@ -21,6 +21,7 @@
     <h1 class="unit-title">
       ER-Modell & Kardinalitäten
       <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
         <span class="badge badge--ap2">AP2</span>
       </span>
     </h1>
@@ -40,7 +41,11 @@
         <strong>Entity-Relationship-Modell (ER-Modell)</strong>: ein
         Bauplan, der festhält, welche „Dinge" (Entitäten) es gibt und wie
         sie zueinander in Beziehung stehen – bevor daraus reale Tabellen
-        mit Fremdschlüsseln werden.
+        mit Fremdschlüsseln werden. Der Fragenkomplex „Grundlagen
+        relationaler Datenbanken" ist laut Prüfungskatalog auch in der
+        <strong>AP1</strong> prüfbar — dort genügen meist einfache
+        ER-Modelle mit wenigen Entitäten, oft in Chen-Notation
+        dargestellt.
       </p>
     </section>
 
@@ -54,6 +59,13 @@
         <li><strong>Attribut</strong> – eine Eigenschaft einer Entität (z. B. Kundenname, Bestelldatum). Wird zur Spalte.</li>
         <li><strong>Beziehung (Relationship)</strong> – wie zwei Entitäten miteinander verknüpft sind (z. B. „Kunde <em>tätigt</em> Bestellung").</li>
       </ul>
+
+      <p class="jump-nav">
+        Sprung zu:
+        <a href="#er-kraehenfuss">Krähenfuß-Notation</a> ·
+        <a href="#er-chen">Chen-Notation</a> ·
+        <a href="#er-integritaet">Referenzielle Integrität</a>
+      </p>
 
       <p>
         Entscheidend ist dabei die <strong>Kardinalität</strong> einer
@@ -72,51 +84,249 @@
         </tbody>
       </table>
 
+      <h3 id="er-kraehenfuss">Krähenfuß-Notation</h3>
       <p>
-        Bei der <strong>Umsetzung in Tabellen</strong> gilt eine feste
-        Regel:
+        Die gängigste Schreibweise für Kardinalitäten in ER-Diagrammen ist
+        die <strong>Krähenfuß-Notation</strong> (englisch „Crow's Foot
+        Notation"): Entitäten sind Rechtecke, die Beziehung selbst ist nur
+        eine Linie zwischen ihnen — ohne eigene Form. Die Kardinalität
+        steht als Symbol direkt am jeweiligen Linienende: ein einzelner
+        Strich quer zur Linie steht für „genau 1", ein sich auffächernder
+        „Krähenfuß" für „viele (n)". Zusätzlich lässt sich mit einem
+        <strong>Kreis</strong> vor dem Strich bzw. Krähenfuß ausdrücken, ob
+        die Beziehung <strong>optional</strong> ist (0 möglich) oder
+        <strong>verpflichtend</strong> (mindestens 1 erforderlich) — damit
+        deckt die Notation alle vier Fälle ab.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kraehenfuss-title kraehenfuss-desc">
+          <title id="kraehenfuss-title">Legende Krähenfuß-Notation: genau 1, 0 oder 1, viele, 0 oder mehrere</title>
+          <desc id="kraehenfuss-desc">Vier Symbole: einfacher Strich für genau 1, Kreis plus Strich für 0 oder 1, Krähenfuß für viele, Kreis plus Krähenfuß für 0 oder mehrere.</desc>
+
+          <line x1="20" y1="30" x2="140" y2="30" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="110" y1="22" x2="110" y2="38" stroke="var(--text-muted)" stroke-width="2"/>
+          <text x="163" y="35" fill="var(--text)" font-size="13">genau 1 (verpflichtend, ein Strich)</text>
+
+          <line x1="20" y1="80" x2="140" y2="80" stroke="var(--text-muted)" stroke-width="2"/>
+          <circle cx="100" cy="80" r="8" fill="var(--surface)" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="125" y1="72" x2="125" y2="88" stroke="var(--text-muted)" stroke-width="2"/>
+          <text x="163" y="85" fill="var(--text)" font-size="13">0 oder 1 (optional, Kreis + Strich)</text>
+
+          <line x1="20" y1="130" x2="115" y2="130" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="115" y1="130" x2="140" y2="115" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="115" y1="130" x2="140" y2="130" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="115" y1="130" x2="140" y2="145" stroke="var(--text-muted)" stroke-width="2"/>
+          <text x="163" y="135" fill="var(--text)" font-size="13">viele / n (verpflichtend, Krähenfuß)</text>
+
+          <line x1="20" y1="185" x2="95" y2="185" stroke="var(--text-muted)" stroke-width="2"/>
+          <circle cx="95" cy="185" r="8" fill="var(--surface)" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="103" y1="185" x2="118" y2="185" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="118" y1="185" x2="143" y2="170" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="118" y1="185" x2="143" y2="185" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="118" y1="185" x2="143" y2="200" stroke="var(--text-muted)" stroke-width="2"/>
+          <text x="163" y="190" fill="var(--text)" font-size="13">0 oder mehrere (optional, Kreis + Krähenfuß)</text>
+        </svg>
+        <figcaption>
+          Legende: Krähenfuß-Notation für Kardinalitäten — der Kreis macht
+          jeweils aus einer verpflichtenden eine optionale Beziehung.
+        </figcaption>
+      </figure>
+
+      <p>
+        Einfaches Beispiel: Ein Kunde kann mehrere Bestellungen aufgeben,
+        jede Bestellung gehört aber zu genau einem Kunden. Auf der
+        Kunden-Seite steht deshalb ein einfacher Strich („genau 1"), auf
+        der Bestellungs-Seite ein Krähenfuß („viele“).
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kf-beispiel-title kf-beispiel-desc">
+          <title id="kf-beispiel-title">Krähenfuß-Beispiel: Ein Kunde hat viele Bestellungen</title>
+          <desc id="kf-beispiel-desc">Kunde und Bestellung als Rechtecke, verbunden durch eine Linie. Auf der Kunden-Seite ein einfacher Strich (genau 1), auf der Bestellungs-Seite ein Krähenfuß (viele).</desc>
+
+          <rect x="30" y="45" width="140" height="50" rx="8" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="100" y="75" text-anchor="middle" fill="var(--text)" font-size="14">Kunde</text>
+
+          <rect x="290" y="45" width="140" height="50" rx="8" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="360" y="75" text-anchor="middle" fill="var(--text)" font-size="14">Bestellung</text>
+
+          <line x1="170" y1="70" x2="290" y2="70" stroke="var(--border)" stroke-width="2"/>
+          <line x1="185" y1="62" x2="185" y2="78" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="275" y1="70" x2="290" y2="60" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="275" y1="70" x2="290" y2="70" stroke="var(--text-muted)" stroke-width="2"/>
+          <line x1="275" y1="70" x2="290" y2="80" stroke="var(--text-muted)" stroke-width="2"/>
+
+          <text x="185" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="12">1</text>
+          <text x="275" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="12">n</text>
+        </svg>
+        <figcaption>
+          Ein Kunde (genau 1) hat viele Bestellungen (Krähenfuß) — jede
+          Bestellung gehört wiederum zu genau einem Kunden.
+        </figcaption>
+      </figure>
+
+      <h3 id="er-chen">Chen-Notation</h3>
+      <p>
+        Neben der Krähenfuß-Notation ist in Lehrbüchern und Handouts auch
+        die ältere <strong>Chen-Notation</strong> verbreitet — dieselben
+        drei Grundbausteine (Entität, Attribut, Beziehung), aber mit
+        eigenen Symbolen statt Linienenden: die <strong>Entität</strong>
+        ist ein Rechteck, ein <strong>Attribut</strong> eine Ellipse (mit
+        Linie zur Entität verbunden, Schlüsselattribut unterstrichen), die
+        <strong>Beziehung</strong> selbst eine Raute. Kardinalitäten stehen
+        als Zahlen/Buchstaben direkt an den Verbindungslinien statt als
+        Krähenfuß-Symbol. Chen und Krähenfuß werden dabei nicht gemischt —
+        jedes Diagramm folgt konsequent einer der beiden Notationen.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chen-title chen-desc">
+          <title id="chen-title">Chen-Notation: Kunde tätigt Bestellung, mit Attribut kundenNr als Rechteck-Ellipse-Raute-Diagramm</title>
+          <desc id="chen-desc">Entität Kunde als Rechteck mit Attribut kundenNr als Ellipse, verbunden über die Raute „tätigt“ mit der Entität Bestellung. Kardinalitäten 1 und n als Text an den Verbindungslinien.</desc>
+
+          <ellipse cx="90" cy="28" rx="55" ry="20" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="90" y="25" text-anchor="middle" fill="var(--text)" font-size="12">kundenNr</text>
+          <line x1="65" y1="31" x2="115" y2="31" stroke="var(--text)" stroke-width="1"/>
+          <line x1="90" y1="48" x2="90" y2="90" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="30" y="90" width="120" height="55" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="90" y="122" text-anchor="middle" fill="var(--text)" font-size="14">Kunde</text>
+
+          <line x1="150" y1="117" x2="205" y2="117" stroke="var(--border)" stroke-width="2"/>
+          <text x="177" y="104" text-anchor="middle" fill="var(--text-muted)" font-size="12">1</text>
+
+          <polygon points="260,87 315,117 260,147 205,117" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="260" y="121" text-anchor="middle" fill="var(--text)" font-size="12">tätigt</text>
+
+          <line x1="315" y1="117" x2="365" y2="117" stroke="var(--border)" stroke-width="2"/>
+          <text x="340" y="104" text-anchor="middle" fill="var(--text-muted)" font-size="12">n</text>
+
+          <rect x="365" y="90" width="105" height="55" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="418" y="122" text-anchor="middle" fill="var(--text)" font-size="13">Bestellung</text>
+        </svg>
+        <figcaption>
+          Dieselbe Kunde–Bestellung-Beziehung in Chen-Notation: Entitäten
+          als Rechtecke, die Beziehung „tätigt" als Raute, das
+          Schlüsselattribut „kundenNr" als unterstrichene Ellipse.
+          Kardinalitäten (1, n) stehen als Text an der Linie statt als
+          Krähenfuß-Symbol.
+        </figcaption>
+      </figure>
+
+      <h3>Chen erlaubt m:n direkt</h3>
+      <p>
+        Ein Vorteil der Chen-Notation: Eine m:n-Beziehung lässt sich direkt
+        mit einer Raute darstellen, ganz ohne Zwischentabelle — z. B.
+        „Bestellung enthält Produkt“: eine Bestellung enthält mehrere
+        Produkte (n), ein Produkt steckt in mehreren Bestellungen (m).
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chen-mn-title chen-mn-desc">
+          <title id="chen-mn-title">Chen-Notation: Bestellung enthält Produkt, direkte m:n-Beziehung ohne Zwischentabelle</title>
+          <desc id="chen-mn-desc">Bestellung und Produkt als Rechtecke, verbunden über die Raute „enthält“ mit den Kardinalitäten m und n — eine direkte m:n-Beziehung, wie sie nur in der konzeptionellen Chen-Notation, nicht aber in einer einzelnen Tabelle darstellbar ist.</desc>
+
+          <rect x="20" y="45" width="120" height="50" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="80" y="75" text-anchor="middle" fill="var(--text)" font-size="13">Bestellung</text>
+
+          <line x1="140" y1="70" x2="185" y2="70" stroke="var(--border)" stroke-width="2"/>
+          <text x="162" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="12">m</text>
+
+          <polygon points="225,42 265,70 225,98 185,70" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="225" y="74" text-anchor="middle" fill="var(--text)" font-size="11">enthält</text>
+
+          <line x1="265" y1="70" x2="310" y2="70" stroke="var(--border)" stroke-width="2"/>
+          <text x="287" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="12">n</text>
+
+          <rect x="310" y="45" width="120" height="50" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="370" y="75" text-anchor="middle" fill="var(--text)" font-size="13">Produkt</text>
+        </svg>
+        <figcaption>
+          Konzeptionell erlaubt Chen eine direkte m:n-Beziehung — ohne
+          Zwischentabelle. Erst bei der Umsetzung in echte Tabellen wird
+          eine Zwischentabelle nötig (siehe unten).
+        </figcaption>
+      </figure>
+
+      <p>
+        Bei der <strong>Umsetzung in Tabellen</strong> gilt dagegen eine
+        feste Regel:
       </p>
       <ul>
         <li><strong>1:n</strong> – der Fremdschlüssel steht auf der „n"-Seite (jede Bestellung bekommt eine Spalte <code>Kunden_ID</code>, die auf den Kunden verweist).</li>
         <li><strong>m:n</strong> – lässt sich nicht direkt über einen einzelnen Fremdschlüssel abbilden. Stattdessen wird eine <strong>Zwischentabelle</strong> (Verbindungstabelle, z. B. <code>Bestellposition</code>) eingefügt, die beide Fremdschlüssel enthält und die m:n-Beziehung in zwei 1:n-Beziehungen auflöst.</li>
       </ul>
+      <p>
+        <strong>Warum eigentlich?</strong> In einer relationalen Tabelle
+        kann eine Fremdschlüssel-Spalte pro Zeile immer nur
+        <strong>einen einzigen Wert</strong> speichern (1. Normalform –
+        keine Mehrfachwerte in einer Zelle). Bei einer m:n-Beziehung müsste
+        eine Bestellung aber gleichzeitig auf mehrere Produkte verweisen
+        <em>und umgekehrt</em> ein Produkt auf mehrere Bestellungen — das
+        lässt sich mit einer einzelnen FK-Spalte auf keiner der beiden
+        Seiten abbilden. Die Zwischentabelle löst dieses Problem: Jede
+        einzelne Zuordnung („diese eine Bestellung enthält dieses eine
+        Produkt") wird zu genau einer eigenen Zeile — dadurch entstehen
+        zwei saubere 1:n-Beziehungen, die sich beide ganz normal über
+        einen einzelnen Fremdschlüssel abbilden lassen.
+      </p>
 
       <figure class="figure--diagram">
-        <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="er-title">
-          <title id="er-title">ER-Diagramm: Kunde 1:n Bestellung, Bestellung 1:n Bestellposition, Bestellposition n:1 Produkt</title>
+        <svg viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="resolved-title resolved-desc">
+          <title id="resolved-title">Aufgelöste m:n-Beziehung über die Zwischentabelle Bestellposition</title>
+          <desc id="resolved-desc">Bestellung und Produkt sind nicht mehr direkt verbunden, sondern jeweils über eine 1:n-Beziehung mit der Zwischentabelle Bestellposition — Bestellung 1 zu n Bestellposition, Bestellposition n zu 1 Produkt.</desc>
 
-          <rect x="20" y="90" width="140" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
-          <text x="90" y="125" text-anchor="middle" fill="var(--text)" font-size="15">Kunde</text>
+          <rect x="20" y="45" width="110" height="50" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="75" y="75" text-anchor="middle" fill="var(--text)" font-size="12">Bestellung</text>
 
-          <line x1="160" y1="120" x2="230" y2="120" stroke="var(--border)" stroke-width="2"/>
-          <text x="172" y="112" fill="var(--text-muted)" font-size="13">1</text>
-          <text x="218" y="112" fill="var(--text-muted)" font-size="13">n</text>
+          <line x1="130" y1="70" x2="180" y2="70" stroke="var(--border)" stroke-width="2"/>
+          <text x="140" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="11">1</text>
+          <text x="170" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="11">n</text>
 
-          <rect x="230" y="90" width="160" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
-          <text x="310" y="125" text-anchor="middle" fill="var(--text)" font-size="15">Bestellung</text>
+          <rect x="180" y="45" width="140" height="50" fill="var(--surface)" stroke="var(--acc-merksatz)" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="250" y="75" text-anchor="middle" fill="var(--text)" font-size="12">Bestellposition</text>
 
-          <line x1="310" y1="150" x2="310" y2="190" stroke="var(--border)" stroke-width="2"/>
-          <text x="316" y="165" fill="var(--text-muted)" font-size="13">1</text>
-          <text x="316" y="185" fill="var(--text-muted)" font-size="13">n</text>
+          <line x1="320" y1="70" x2="370" y2="70" stroke="var(--border)" stroke-width="2"/>
+          <text x="330" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="11">n</text>
+          <text x="360" y="58" text-anchor="middle" fill="var(--text-muted)" font-size="11">1</text>
 
-          <rect x="220" y="190" width="180" height="55" rx="8" fill="var(--surface)" stroke="var(--acc-merksatz)" stroke-width="2" stroke-dasharray="6 4"/>
-          <text x="310" y="222" text-anchor="middle" fill="var(--text)" font-size="14">Bestellposition</text>
-
-          <line x1="400" y1="217" x2="460" y2="217" stroke="var(--border)" stroke-width="2"/>
-          <text x="410" y="209" fill="var(--text-muted)" font-size="13">n</text>
-          <text x="448" y="209" fill="var(--text-muted)" font-size="13">1</text>
-
-          <rect x="460" y="187" width="140" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
-          <text x="530" y="222" text-anchor="middle" fill="var(--text)" font-size="15">Produkt</text>
+          <rect x="370" y="45" width="110" height="50" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="425" y="75" text-anchor="middle" fill="var(--text)" font-size="12">Produkt</text>
         </svg>
         <figcaption>
-          Kunde und Bestellung stehen in einer 1:n-Beziehung (ein Kunde,
-          viele Bestellungen). Bestellung und Produkt stehen eigentlich in
-          einer m:n-Beziehung, die über die Zwischentabelle
-          „Bestellposition" in zwei 1:n-Beziehungen aufgelöst wird.
+          Die aufgelöste Form: „Bestellposition“ steht in einer 1:n-Beziehung
+          sowohl zu Bestellung als auch zu Produkt — aus der einen
+          m:n-Beziehung werden zwei saubere 1:n-Beziehungen.
         </figcaption>
       </figure>
 
+      <h3>Chen im Vergleich zu Krähenfuß</h3>
+      <p>
+        Dieselbe Kunde–Bestellung-Beziehung in beiden Notationen im
+        direkten Vergleich:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>Chen-Notation</th><th>Krähenfuß-Notation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Entität</td><td>Rechteck</td><td>Rechteck</td></tr>
+          <tr><td>Beziehung</td><td>eigene Raute zwischen den Entitäten</td><td>nur eine Linie, keine eigene Form</td></tr>
+          <tr><td>Kardinalität</td><td>Zahl/Buchstabe als Text an der Linie (z. B. „1", „n")</td><td>Symbol am Linienende (Strich = genau 1, Krähenfuß = viele)</td></tr>
+          <tr><td>Optionalität (0 möglich)</td><td>meist nicht dargestellt</td><td>zusätzlicher Kreis am Linienende</td></tr>
+          <tr><td>Attribute</td><td>eigene Ellipsen, per Linie an der Entität</td><td>meist als Spaltenliste in der Box selbst</td></tr>
+        </tbody>
+      </table>
+      <p>
+        In Prüfungsaufgaben ist meist erkennbar, welche Notation gemeint
+        ist: <strong>Rauten und Ellipsen</strong> deuten auf Chen hin,
+        <strong>Linienenden mit Strichen/Gabeln</strong> auf Krähenfuß.
+        Beide beschreiben dieselben Kardinalitäten — nur die Symbole
+        unterscheiden sich.
+      </p>
+
+      <h3 id="er-integritaet">Referenzielle Integrität</h3>
       <p>
         Damit Fremdschlüssel nicht ins Leere zeigen, gilt die
         <strong>referenzielle Integrität</strong>: ein Fremdschlüsselwert

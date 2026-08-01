@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware: Grafikkarte &amp; GPU</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#hardware">Hardware &amp; Technologien</a></li>
+        <li aria-current="page">Grafikkarte &amp; GPU</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Grafikkarte &amp; GPU
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein einzelner Meisterkoch kann sehr komplexe Gerichte kochen, aber
+        immer nur eines nach dem anderen — das ist die <strong>CPU</strong>:
+        wenige, aber extrem vielseitige Recheneinheiten. Für eine
+        Gemüseplatte mit tausend gleich geschnittenen Karottenscheiben ist
+        dagegen ein Team aus tausend Küchenhilfen effizienter, die alle
+        gleichzeitig dieselbe einfache Aufgabe erledigen — Scheibe für
+        Scheibe, parallel statt nacheinander. Genau das leistet eine
+        <strong>GPU</strong> (Graphics Processing Unit): Statt weniger
+        komplexer Kerne besitzt sie hunderte bis tausende einfache Kerne,
+        die dieselbe Berechnung massiv parallel ausführen — ideal für die
+        Millionen Pixel eines Bildes.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Die <strong>GPU</strong> ist der Prozessor, der Bilder berechnet
+        und für die Bildschirmausgabe aufbereitet — von 2D-Fensterinhalten
+        über 3D-Spiele bis zu Videowiedergabe. Ihre Bauweise mit sehr
+        vielen einfachen Rechenkernen (im Gegensatz zu den wenigen,
+        komplexeren Kernen einer CPU, siehe Einheit
+        <a href="cpu-aufbau.html">CPU-Aufbau</a>) macht sie außerdem
+        zunehmend für <strong>KI-Berechnungen</strong> interessant, da
+        neuronale Netze aus sehr vielen gleichartigen, parallelisierbaren
+        Matrixoperationen bestehen.
+      </p>
+
+      <h3>Integrierte vs. dedizierte Grafik</h3>
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>Integrierte Grafik (iGPU)</th><th>Dedizierte Grafik (dGPU)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bauweise</td><td>Teil desselben Chips wie die CPU</td><td>eigener Chip auf einer separaten Steckkarte</td></tr>
+          <tr><td>Speicher</td><td>nutzt einen Teil des System-RAM mit</td><td>eigener, dedizierter Grafikspeicher (VRAM)</td></tr>
+          <tr><td>Leistung</td><td>ausreichend für Büroanwendungen, Video, einfache Grafik</td><td>deutlich höher, für Gaming, 3D-Rendering, KI-Training</td></tr>
+          <tr><td>Energiebedarf/Kühlung</td><td>gering, kein eigener Lüfter nötig</td><td>hoch, meist eigener Kühlkörper/Lüfter</td></tr>
+          <tr><td>Kosten</td><td>im CPU-Preis bereits enthalten</td><td>zusätzliche Anschaffungskosten</td></tr>
+        </tbody>
+      </table>
+
+      <h3>VRAM (Video-RAM)</h3>
+      <p>
+        <strong>VRAM</strong> ist der eigene Arbeitsspeicher einer
+        dedizierten Grafikkarte. Er hält Texturen, den Frame-Buffer
+        (das gerade berechnete Bild) und weitere Grafikdaten bereit und
+        ist direkt und sehr breitbandig an die GPU angebunden — deutlich
+        schneller als der Umweg über den normalen System-Arbeitsspeicher
+        (RAM). Je höher die Auflösung und je aufwendiger die Texturen,
+        desto mehr VRAM wird benötigt.
+      </p>
+
+      <h3>Anschluss ans System: PCIe</h3>
+      <p>
+        Eine dedizierte Grafikkarte steckt in einem <strong>PCIe-Steckplatz</strong>
+        auf dem Mainboard (meist ein PCIe-x16-Slot für die volle
+        Bandbreite) — Details zu PCIe und weiteren Bussystemen stehen in
+        der Einheit <a href="mainboard-busse.html">Mainboard &amp; Bussysteme</a>.
+        Eine integrierte Grafik benötigt dagegen keinen eigenen
+        Steckplatz, da sie bereits im CPU-Gehäuse mitverbaut ist.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gpu-title gpu-desc">
+          <title id="gpu-title">Integrierte Grafik vs. dedizierte Grafik mit PCIe-Anbindung</title>
+          <desc id="gpu-desc">Links: Integrierte Grafik als Teil des CPU-Chips, nutzt System-RAM mit. Rechts: Dedizierte Grafikkarte mit eigenem GPU-Chip und VRAM, angebunden über einen PCIe-Steckplatz auf dem Mainboard.</desc>
+
+          <text x="120" y="16" text-anchor="middle" fill="var(--acc-einstieg)" font-size="12" font-weight="600">Integrierte Grafik</text>
+
+          <rect x="45" y="26" width="150" height="26" rx="4" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="120" y="43" text-anchor="middle" fill="var(--text)" font-size="10">System-RAM (gemeinsam genutzt)</text>
+          <line x1="120" y1="52" x2="120" y2="70" stroke="var(--text-muted)" stroke-width="1.5"/>
+
+          <rect x="45" y="70" width="150" height="65" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <rect x="55" y="82" width="60" height="40" rx="3" fill="var(--surface)" stroke="var(--border)"/>
+          <text x="85" y="98" text-anchor="middle" fill="var(--text)" font-size="9">CPU-</text>
+          <text x="85" y="110" text-anchor="middle" fill="var(--text)" font-size="9">Kerne</text>
+          <rect x="125" y="82" width="55" height="40" rx="3" fill="var(--surface)" stroke="var(--acc-praxis)"/>
+          <text x="152" y="105" text-anchor="middle" fill="var(--text)" font-size="10">iGPU</text>
+
+          <line x1="120" y1="135" x2="120" y2="140" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <rect x="20" y="140" width="200" height="26" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="120" y="157" text-anchor="middle" fill="var(--text-muted)" font-size="10">Mainboard</text>
+
+          <line x1="240" y1="10" x2="240" y2="180" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 3"/>
+
+          <text x="360" y="16" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="600">Dedizierte Grafik</text>
+
+          <rect x="350" y="40" width="100" height="70" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="400" y="52" text-anchor="middle" fill="var(--text-muted)" font-size="9">Grafikkarte</text>
+          <rect x="358" y="56" width="84" height="24" rx="3" fill="var(--surface)" stroke="var(--border)"/>
+          <text x="400" y="72" text-anchor="middle" fill="var(--text)" font-size="10">GPU-Chip</text>
+          <rect x="358" y="84" width="84" height="22" rx="3" fill="var(--surface)" stroke="var(--acc-quiz)"/>
+          <text x="400" y="99" text-anchor="middle" fill="var(--text)" font-size="10">VRAM</text>
+
+          <line x1="400" y1="110" x2="400" y2="134" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <rect x="375" y="134" width="50" height="10" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="400" y="128" text-anchor="middle" fill="var(--text-muted)" font-size="9">PCIe</text>
+
+          <rect x="270" y="70" width="70" height="65" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="305" y="107" text-anchor="middle" fill="var(--text)" font-size="11">CPU</text>
+          <line x1="305" y1="135" x2="305" y2="140" stroke="var(--text-muted)" stroke-width="1.5"/>
+
+          <rect x="260" y="140" width="200" height="26" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="360" y="157" text-anchor="middle" fill="var(--text-muted)" font-size="10">Mainboard</text>
+        </svg>
+        <figcaption>
+          Links: Die integrierte Grafik (iGPU) sitzt im selben Chip wie
+          die CPU-Kerne und nutzt den System-RAM mit. Rechts: Die
+          dedizierte Grafikkarte hat einen eigenen GPU-Chip mit eigenem
+          VRAM und steckt über einen PCIe-Steckplatz auf dem Mainboard.
+        </figcaption>
+      </figure>
+
+      <p>
+        <strong>Abgrenzung zur Einheit „Schnittstellen &amp; Video":</strong>
+        Die GPU ist die <strong>Komponente</strong>, die das Bild
+        berechnet. Die Anschlüsse HDMI und DisplayPort (siehe Einheit
+        <a href="schnittstellen-video.html">Schnittstellen &amp; Video</a>)
+        sind dagegen nur die physischen <strong>Ausgänge</strong>, über
+        die das fertig berechnete Bild zum Monitor übertragen wird — eine
+        Grafikkarte kann mehrere solcher Ausgänge gleichzeitig besitzen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH stattet drei Arbeitsplätze für einen Kunden aus:
+        eine Bürokraft für E-Mail und Textverarbeitung, einen
+        CAD-Konstrukteur für 3D-Modellierung und eine
+        Video-Schnittkraft für 4K-Videobearbeitung.
+      </p>
+      <ul>
+        <li><strong>Bürokraft:</strong> Die <strong>integrierte Grafik</strong> der CPU reicht völlig aus — Office-Anwendungen und Videokonferenzen benötigen keine dedizierte Grafikleistung, das spart Anschaffungskosten und Stromverbrauch.</li>
+        <li><strong>CAD-Konstrukteur:</strong> Für flüssiges 3D-Modellieren wird eine <strong>dedizierte Grafikkarte</strong> mit ausreichend VRAM benötigt — die iGPU wäre bei komplexen 3D-Szenen deutlich zu langsam.</li>
+        <li><strong>Video-Schnitt:</strong> Auch hier ist eine dedizierte GPU sinnvoll — viele Schnittprogramme nutzen die GPU gezielt zur Beschleunigung von Effekten und Videoexport, was die Renderzeit erheblich verkürzt.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welchen Vorteil bietet eine dedizierte
+        Grafikkarte gegenüber einer integrierten Grafiklösung?“ – Antwort:
+        eigener, schneller VRAM statt geteiltem System-RAM sowie deutlich
+        mehr parallele Rechenkerne — dadurch spürbar höhere Leistung bei
+        3D-Grafik, Videobearbeitung und ähnlichen Aufgaben.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Die GPU berechnet Bilder über sehr viele einfache, parallele
+        Rechenkerne. Integrierte Grafik teilt sich CPU-Chip und
+        System-RAM, dedizierte Grafik hat eigenen Chip, eigenen VRAM und
+        steckt über PCIe im Mainboard. Die GPU berechnet das Bild — HDMI/
+        DisplayPort geben es nur aus.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/grafikkarte-gpu.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

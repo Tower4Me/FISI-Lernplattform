@@ -93,6 +93,187 @@
         vergeben werden dürfen.
       </p>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="netzhost-title netzhost-desc">
+          <title id="netzhost-title">Netz- und Hostanteil im Vergleich: /24 gegenüber /26</title>
+          <desc id="netzhost-desc">Zwei 32-Bit-Balken zeigen, wie die Subnetzmaske die Aufteilung zwischen Netzanteil und Hostanteil verschiebt: Bei /24 sind die ersten 24 Bit Netzanteil und die letzten 8 Bit Hostanteil. Bei /26 wandern zwei weitere Bit vom Host- in den Netzanteil, sodass nur noch 6 Bit für Hosts bleiben.</desc>
+
+          <text x="230" y="25" text-anchor="middle" fill="var(--text)" font-size="12">/24 = 255.255.255.0</text>
+          <rect x="30" y="32" width="300" height="30" fill="var(--acc-praxis)"/>
+          <rect x="330" y="32" width="100" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="180" y="76" text-anchor="middle" fill="var(--text-muted)" font-size="10">Netzanteil (24 Bit)</text>
+          <text x="380" y="76" text-anchor="middle" fill="var(--text-muted)" font-size="10">Host (8 Bit)</text>
+
+          <text x="230" y="100" text-anchor="middle" fill="var(--text)" font-size="12">/26 = 255.255.255.192</text>
+          <rect x="30" y="107" width="325" height="30" fill="var(--acc-praxis)"/>
+          <rect x="355" y="107" width="75" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="193" y="151" text-anchor="middle" fill="var(--text-muted)" font-size="10">Netzanteil (26 Bit)</text>
+          <text x="393" y="151" text-anchor="middle" fill="var(--text-muted)" font-size="10">Host (6 Bit)</text>
+
+          <line x1="130" y1="32" x2="130" y2="137" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="230" y1="32" x2="230" y2="137" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="330" y1="32" x2="330" y2="137" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <text x="80" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">1. Oktett</text>
+          <text x="180" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">2. Oktett</text>
+          <text x="280" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">3. Oktett</text>
+          <text x="380" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">4. Oktett</text>
+        </svg>
+        <figcaption>
+          Je länger der CIDR-Wert, desto mehr Bit gehören zum Netzanteil
+          (grün) und desto weniger bleiben für den Hostanteil übrig: Bei
+          /26 sind zwei Bit mehr vom vierten Oktett dem Netz zugeschlagen
+          als bei /24 — deshalb bleiben nur noch 6 statt 8 Hostbit.
+        </figcaption>
+      </figure>
+
+      <h3>Netzadresse berechnen: bitweises UND (ANDing)</h3>
+      <p>
+        Um aus einer IP-Adresse und ihrer Subnetzmaske die tatsächliche
+        <strong>Netzadresse</strong> zu berechnen, werden beide Werte
+        <strong>Bit für Bit UND-verknüpft</strong> (ANDing): Nur wenn
+        <strong>beide</strong> Bits an derselben Stelle 1 sind, ergibt sich
+        eine 1 im Ergebnis — sonst immer 0.
+      </p>
+      <table>
+        <thead>
+          <tr><th>IP-Bit</th><th>Masken-Bit</th><th>UND-Ergebnis</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>1</td><td><strong>1</strong></td></tr>
+          <tr><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td>0</td><td>0</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Durchgerechnetes Beispiel: <code>192.168.10.42</code> mit der
+        Maske <code>255.255.255.192</code> (<code>/26</code>). In den
+        ersten drei Oktetten ist die Maske jeweils <code>255</code>
+        (binär <code>1111 1111</code>) — jedes IP-Bit wird dort mit 1
+        UND-verknüpft und bleibt dadurch unverändert. Die ersten drei
+        Oktette der Netzadresse entsprechen also einfach der IP-Adresse:
+        <code>192.168.10.</code>. Interessant wird es erst im vierten
+        Oktett, wo die Maske nicht mehr durchgehend 1 ist:
+      </p>
+      <table>
+        <thead>
+          <tr><th>4. Oktett</th><th>Dezimal</th><th>Binär</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>IP-Adresse</td><td>42</td><td>0010 1010</td></tr>
+          <tr><td>Subnetzmaske</td><td>192</td><td>1100 0000</td></tr>
+          <tr><td><strong>UND-Ergebnis</strong></td><td><strong>0</strong></td><td><strong>0000 0000</strong></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Das Ergebnis der UND-Verknüpfung ist im vierten Oktett
+        <code>0</code> — die Netzadresse lautet also
+        <strong>192.168.10.0</strong>.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="and-title and-desc">
+          <title id="and-title">ANDing von 192.168.10.42 mit der Maske 255.255.255.192</title>
+          <desc id="and-desc">Die ersten drei Oktette bleiben unverändert, da die Maske dort 255 ist. Im vierten Oktett wird 42 (0010 1010) mit 192 (1100 0000) UND-verknüpft und ergibt 0 (0000 0000) — die Netzadresse ist 192.168.10.0.</desc>
+
+          <text x="20" y="32" fill="var(--text-muted)" font-size="15">192</text>
+          <text x="64" y="32" fill="var(--text-muted)" font-size="15">.</text>
+          <text x="74" y="32" fill="var(--text-muted)" font-size="15">168</text>
+          <text x="118" y="32" fill="var(--text-muted)" font-size="15">.</text>
+          <text x="128" y="32" fill="var(--text-muted)" font-size="15">10</text>
+          <text x="156" y="32" fill="var(--text-muted)" font-size="15">.</text>
+          <rect x="166" y="12" width="44" height="28" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="188" y="32" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">42</text>
+
+          <text x="20" y="52" fill="var(--text-muted)" font-size="11">4. Oktett im Detail (Bit für Bit):</text>
+
+          <rect x="94" y="58" width="284" height="130" rx="6" fill="none" stroke="var(--acc-praxis)" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+          <text x="20" y="84" fill="var(--text)" font-size="12">IP</text>
+          <g font-size="13" fill="var(--text)">
+            <rect x="100" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="117" y="84" text-anchor="middle">0</text>
+            <rect x="134" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="151" y="84" text-anchor="middle">0</text>
+            <rect x="168" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="185" y="84" text-anchor="middle">1</text>
+            <rect x="202" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="219" y="84" text-anchor="middle">0</text>
+            <rect x="236" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="253" y="84" text-anchor="middle">1</text>
+            <rect x="270" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="287" y="84" text-anchor="middle">0</text>
+            <rect x="304" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="321" y="84" text-anchor="middle">1</text>
+            <rect x="338" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="355" y="84" text-anchor="middle">0</text>
+          </g>
+
+          <text x="20" y="126" fill="var(--text)" font-size="12">Maske (UND)</text>
+          <g font-size="13" fill="var(--text)">
+            <rect x="100" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="117" y="126" text-anchor="middle">1</text>
+            <rect x="134" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="151" y="126" text-anchor="middle">1</text>
+            <rect x="168" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="185" y="126" text-anchor="middle">0</text>
+            <rect x="202" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="219" y="126" text-anchor="middle">0</text>
+            <rect x="236" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="253" y="126" text-anchor="middle">0</text>
+            <rect x="270" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="287" y="126" text-anchor="middle">0</text>
+            <rect x="304" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="321" y="126" text-anchor="middle">0</text>
+            <rect x="338" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="355" y="126" text-anchor="middle">0</text>
+          </g>
+
+          <line x1="95" y1="142" x2="376" y2="142" stroke="var(--text)" stroke-width="1.5"/>
+
+          <text x="20" y="171" fill="var(--text)" font-size="12" font-weight="600">Ergebnis</text>
+          <g font-size="13" font-weight="600" fill="var(--text)">
+            <rect x="100" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="117" y="171" text-anchor="middle">0</text>
+            <rect x="134" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="151" y="171" text-anchor="middle">0</text>
+            <rect x="168" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="185" y="171" text-anchor="middle">0</text>
+            <rect x="202" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="219" y="171" text-anchor="middle">0</text>
+            <rect x="236" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="253" y="171" text-anchor="middle">0</text>
+            <rect x="270" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="287" y="171" text-anchor="middle">0</text>
+            <rect x="304" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="321" y="171" text-anchor="middle">0</text>
+            <rect x="338" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="355" y="171" text-anchor="middle">0</text>
+          </g>
+
+          <text x="236" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="11">Ergebnis 4. Oktett = 0 → Netzadresse 192.168.10.0</text>
+        </svg>
+        <figcaption>
+          Bitweises UND für das vierte Oktett von 192.168.10.42 mit der
+          Maske 255.255.255.192: 42 (0010 1010) UND 192 (1100 0000)
+          ergibt 0 (0000 0000). Die ersten drei Oktette bleiben unverändert,
+          da dort die Maske durchgehend 255 ist.
+        </figcaption>
+      </figure>
+
+      <p>
+        Aus der Netzadresse lassen sich die übrigen Adressen direkt
+        ableiten: Die <strong>Broadcast-Adresse</strong> ergibt sich, wenn
+        man in der Netzadresse alle <strong>Hostbits</strong> (die Bits,
+        die nicht zur Maske gehören) auf 1 setzt — bei <code>/26</code>
+        sind das die letzten 6 Bit des vierten Oktetts:
+        <code>0000 0000</code> → <code>0011 1111</code> = 63, also
+        <strong>192.168.10.63</strong>. Die nutzbaren Host-Adressen liegen
+        dazwischen: <strong>192.168.10.1</strong> (erste) bis
+        <strong>192.168.10.62</strong> (letzte).
+      </p>
+
       <h3>Netz-, Broadcast- und Host-Adressen</h3>
       <p>
         In jedem Subnetz sind zwei Adressen reserviert:
@@ -145,6 +326,79 @@
         Hostbits, also 2⁴ − 2 = 14 nutzbare Adressen (Netz- und
         Broadcast-Adresse abgezogen).
       </p>
+
+      <div class="tool" id="subnet-calc-widget">
+        <style>
+          #subnet-calc-widget .subnet-calc-field { flex: 1 1 12rem; }
+          #subnet-calc-widget .subnet-calc-error {
+            color: var(--fail);
+            font-weight: 600;
+            margin-top: 0.75rem;
+          }
+          #subnet-calc-widget .subnet-calc-results {
+            margin: 0.75rem 0 0;
+          }
+          #subnet-calc-widget .subnet-calc-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid var(--border);
+          }
+          #subnet-calc-widget .subnet-calc-row:last-child { border-bottom: none; }
+          #subnet-calc-widget .subnet-calc-row dt { color: var(--text-muted); }
+          #subnet-calc-widget .subnet-calc-row dd {
+            margin: 0;
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+          }
+          #subnet-calc-widget .subnet-calc-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0.25rem 0 0.75rem;
+          }
+        </style>
+
+        <p class="subnet-calc-note">
+          Interaktiver Subnetzrechner — rechnet mit derselben
+          bitweisen UND-Verknüpfung, die oben in
+          <a href="#konzept">Konzept</a> Schritt für Schritt erklärt wird.
+          Zum Ausprobieren mit eigenen Werten.
+        </p>
+
+        <div class="tool__row">
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-ip">IP-Adresse</label>
+            <input class="tool__input" type="text" id="subnet-calc-ip" placeholder="z. B. 192.168.10.42" autocomplete="off">
+          </div>
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-mask">Maske (CIDR oder Dezimal)</label>
+            <input class="tool__input" type="text" id="subnet-calc-mask" placeholder="z. B. /26 oder 255.255.255.192" autocomplete="off">
+          </div>
+        </div>
+        <div class="tool__row">
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-base">Basis-Präfix (optional, für Anzahl Subnetze)</label>
+            <input class="tool__input" type="text" id="subnet-calc-base" placeholder="z. B. /24" autocomplete="off">
+          </div>
+        </div>
+
+        <button class="btn btn--primary" type="button" id="subnet-calc-btn">Berechnen</button>
+
+        <p class="subnet-calc-error" id="subnet-calc-error" hidden></p>
+
+        <dl class="subnet-calc-results" id="subnet-calc-results" hidden>
+          <div class="subnet-calc-row"><dt>Netzadresse</dt><dd id="subnet-calc-net"></dd></div>
+          <div class="subnet-calc-row"><dt>Broadcast-Adresse</dt><dd id="subnet-calc-broadcast"></dd></div>
+          <div class="subnet-calc-row"><dt>Erste nutzbare Adresse</dt><dd id="subnet-calc-first"></dd></div>
+          <div class="subnet-calc-row"><dt>Letzte nutzbare Adresse</dt><dd id="subnet-calc-last"></dd></div>
+          <div class="subnet-calc-row"><dt>Nutzbare Hosts</dt><dd id="subnet-calc-hosts"></dd></div>
+          <div class="subnet-calc-row"><dt>Subnetzmaske (dezimal)</dt><dd id="subnet-calc-mask-decimal"></dd></div>
+          <div class="subnet-calc-row"><dt>CIDR</dt><dd id="subnet-calc-cidr-out"></dd></div>
+          <div class="subnet-calc-row"><dt>Anzahl Subnetze</dt><dd id="subnet-calc-subnets"></dd></div>
+        </dl>
+      </div>
     </section>
 
     <!-- 4. MERKSATZ -->
@@ -176,5 +430,189 @@
   <script src="../../assets/theme.js"></script>
 
   <script src="../../assets/search.js"></script>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var ipInput = document.getElementById("subnet-calc-ip");
+    var maskInput = document.getElementById("subnet-calc-mask");
+    var baseInput = document.getElementById("subnet-calc-base");
+    var btn = document.getElementById("subnet-calc-btn");
+    var errorEl = document.getElementById("subnet-calc-error");
+    var resultsEl = document.getElementById("subnet-calc-results");
+
+    var outNet = document.getElementById("subnet-calc-net");
+    var outBroadcast = document.getElementById("subnet-calc-broadcast");
+    var outFirst = document.getElementById("subnet-calc-first");
+    var outLast = document.getElementById("subnet-calc-last");
+    var outHosts = document.getElementById("subnet-calc-hosts");
+    var outMaskDecimal = document.getElementById("subnet-calc-mask-decimal");
+    var outCidr = document.getElementById("subnet-calc-cidr-out");
+    var outSubnets = document.getElementById("subnet-calc-subnets");
+
+    if (!ipInput || !maskInput || !btn) return;
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+      resultsEl.hidden = true;
+    }
+
+    function toUint32(o1, o2, o3, o4) {
+      return ((o1 << 24) | (o2 << 16) | (o3 << 8) | o4) >>> 0;
+    }
+
+    function toOctetString(n) {
+      return [(n >>> 24) & 255, (n >>> 16) & 255, (n >>> 8) & 255, n & 255].join(".");
+    }
+
+    function parseIp(raw) {
+      var parts = String(raw || "").trim().split(".");
+      if (parts.length !== 4) return null;
+      var octets = [];
+      for (var i = 0; i < 4; i++) {
+        if (!/^\d{1,3}$/.test(parts[i])) return null;
+        var n = parseInt(parts[i], 10);
+        if (n < 0 || n > 255) return null;
+        octets.push(n);
+      }
+      return toUint32(octets[0], octets[1], octets[2], octets[3]);
+    }
+
+    function cidrToMaskNum(n) {
+      return n === 0 ? 0 : (0xFFFFFFFF << (32 - n)) >>> 0;
+    }
+
+    // Prueft, ob eine Maske aus zusammenhaengenden Einsen gefolgt von
+    // zusammenhaengenden Nullen besteht (keine "Loecher"), und liefert
+    // die passende Praefixlaenge zurueck -- sonst null.
+    function maskNumToCidr(maskNum) {
+      var seenZero = false;
+      var count = 0;
+      for (var i = 31; i >= 0; i--) {
+        var bit = (maskNum >>> i) & 1;
+        if (bit === 1) {
+          if (seenZero) return null;
+          count++;
+        } else {
+          seenZero = true;
+        }
+      }
+      return count;
+    }
+
+    // Akzeptiert entweder CIDR ("/26", "26") oder Dezimalmaske
+    // ("255.255.255.192"). Gibt { cidr, maskNum } zurueck oder null.
+    function parseMask(raw) {
+      var s = String(raw || "").trim();
+      if (!s) return null;
+
+      if (s.indexOf(".") !== -1) {
+        var parts = s.split(".");
+        if (parts.length !== 4) return null;
+        var octets = [];
+        for (var i = 0; i < 4; i++) {
+          if (!/^\d{1,3}$/.test(parts[i])) return null;
+          var n = parseInt(parts[i], 10);
+          if (n < 0 || n > 255) return null;
+          octets.push(n);
+        }
+        var maskNum = toUint32(octets[0], octets[1], octets[2], octets[3]);
+        var cidr = maskNumToCidr(maskNum);
+        if (cidr === null) return { holes: true };
+        return { cidr: cidr, maskNum: maskNum };
+      }
+
+      var cidrStr = s.charAt(0) === "/" ? s.slice(1) : s;
+      if (!/^\d{1,2}$/.test(cidrStr)) return null;
+      var cidrNum = parseInt(cidrStr, 10);
+      if (cidrNum < 0 || cidrNum > 32) return null;
+      return { cidr: cidrNum, maskNum: cidrToMaskNum(cidrNum) };
+    }
+
+    // Fuer das optionale Basis-Praefix genuegt eine reine CIDR-Zahl.
+    function parseCidrOnly(raw) {
+      var s = String(raw || "").trim();
+      if (!s) return null;
+      var cidrStr = s.charAt(0) === "/" ? s.slice(1) : s;
+      if (!/^\d{1,2}$/.test(cidrStr)) return { invalid: true };
+      var n = parseInt(cidrStr, 10);
+      if (n < 0 || n > 32) return { invalid: true };
+      return { cidr: n };
+    }
+
+    function calculate() {
+      errorEl.hidden = true;
+      resultsEl.hidden = true;
+
+      var ipNum = parseIp(ipInput.value);
+      if (ipNum === null) {
+        showError("Ungültige IP-Adresse — bitte vier Oktette zwischen 0 und 255 durch Punkte getrennt eingeben (z. B. 192.168.10.42).");
+        return;
+      }
+
+      var maskResult = parseMask(maskInput.value);
+      if (maskResult === null) {
+        showError("Ungültige Maske — als CIDR (z. B. /26) oder als Dezimalmaske (z. B. 255.255.255.192) eingeben.");
+        return;
+      }
+      if (maskResult.holes) {
+        showError("Ungültige Subnetzmaske — die Bits müssen zusammenhängend sein (keine „Löcher“ wie z. B. 255.0.255.0).");
+        return;
+      }
+
+      var cidr = maskResult.cidr;
+      var maskNum = maskResult.maskNum;
+
+      var netNum = (ipNum & maskNum) >>> 0;
+      var broadcastNum = (netNum | (~maskNum >>> 0)) >>> 0;
+      var hostBits = 32 - cidr;
+
+      var firstNum, lastNum, hostsLabel;
+      if (cidr === 32) {
+        firstNum = netNum;
+        lastNum = netNum;
+        hostsLabel = "1 (/32 = Punktadresse für ein einzelnes Gerät, kein Netz-/Broadcast-Konzept)";
+      } else if (cidr === 31) {
+        firstNum = netNum;
+        lastNum = broadcastNum;
+        hostsLabel = "2 (/31 = Punkt-zu-Punkt-Link nach RFC 3021, keine separate Broadcast-Adresse)";
+      } else {
+        firstNum = (netNum + 1) >>> 0;
+        lastNum = (broadcastNum - 1) >>> 0;
+        hostsLabel = String(Math.pow(2, hostBits) - 2);
+      }
+
+      outNet.textContent = toOctetString(netNum);
+      outBroadcast.textContent = (cidr >= 31) ? toOctetString(broadcastNum) + " (siehe Hinweis bei Hosts)" : toOctetString(broadcastNum);
+      outFirst.textContent = toOctetString(firstNum);
+      outLast.textContent = toOctetString(lastNum);
+      outHosts.textContent = hostsLabel;
+      outMaskDecimal.textContent = toOctetString(maskNum);
+      outCidr.textContent = "/" + cidr;
+
+      var baseResult = parseCidrOnly(baseInput.value);
+      if (baseResult === null) {
+        outSubnets.textContent = "—";
+      } else if (baseResult.invalid) {
+        outSubnets.textContent = "— (Basis-Präfix muss zwischen 0 und 32 liegen)";
+      } else if (baseResult.cidr > cidr) {
+        outSubnets.textContent = "— (Basis-Präfix muss kürzer oder gleich dem Subnetz-Präfix sein)";
+      } else {
+        outSubnets.textContent = String(Math.pow(2, cidr - baseResult.cidr)) + " (ausgehend von /" + baseResult.cidr + ")";
+      }
+
+      resultsEl.hidden = false;
+    }
+
+    btn.addEventListener("click", calculate);
+    [ipInput, maskInput, baseInput].forEach(function (el) {
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") calculate();
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

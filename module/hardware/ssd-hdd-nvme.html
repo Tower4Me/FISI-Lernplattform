@@ -66,26 +66,28 @@
       </table>
 
       <figure class="figure--diagram">
-        <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="speed-title">
+        <svg viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="speed-title speed-desc">
           <title id="speed-title">Balkendiagramm der sequenziellen Lesegeschwindigkeit: HDD ~200 MB/s, SATA-SSD ~550 MB/s, NVMe Gen4 ~7000 MB/s, NVMe Gen5 ~14000 MB/s</title>
+          <desc id="speed-desc">Vier Balken zeigen die ungefähre sequenzielle Lesegeschwindigkeit von HDD, SATA-SSD, NVMe Gen4 und NVMe Gen5 im Größenvergleich, nicht maßstabsgetreu.</desc>
 
-          <text x="10" y="14" fill="var(--text-muted)" font-size="10">Sequenzielle Lesegeschwindigkeit (MB/s, logarithmisch verkürzt dargestellt)</text>
+          <text x="10" y="14" fill="var(--text-muted)" font-size="10">Sequenzielle Lesegeschwindigkeit (MB/s)</text>
+          <text x="10" y="26" fill="var(--text-muted)" font-size="9">Balken nicht maßstabsgetreu, zur Lesbarkeit gestaucht</text>
 
-          <text x="10" y="35" fill="var(--text)" font-size="11">HDD</text>
-          <rect x="90" y="24" width="14" height="16" rx="2" fill="var(--fail)"/>
-          <text x="112" y="36" fill="var(--text-muted)" font-size="10">~200 MB/s</text>
+          <text x="10" y="49" fill="var(--text)" font-size="11">HDD</text>
+          <rect x="90" y="38" width="14" height="16" rx="2" fill="var(--fail)"/>
+          <text x="112" y="50" fill="var(--text-muted)" font-size="10">~200 MB/s</text>
 
-          <text x="10" y="65" fill="var(--text)" font-size="11">SATA SSD</text>
-          <rect x="90" y="54" width="40" height="16" rx="2" fill="var(--acc-merksatz)"/>
-          <text x="138" y="66" fill="var(--text-muted)" font-size="10">~550 MB/s</text>
+          <text x="10" y="79" fill="var(--text)" font-size="11">SATA SSD</text>
+          <rect x="90" y="68" width="40" height="16" rx="2" fill="var(--acc-merksatz)"/>
+          <text x="138" y="80" fill="var(--text-muted)" font-size="10">~550 MB/s</text>
 
-          <text x="10" y="95" fill="var(--text)" font-size="11">NVMe Gen4</text>
-          <rect x="90" y="84" width="180" height="16" rx="2" fill="var(--acc-praxis)"/>
-          <text x="278" y="96" fill="var(--text-muted)" font-size="10">~7.000 MB/s</text>
+          <text x="10" y="109" fill="var(--text)" font-size="11">NVMe Gen4</text>
+          <rect x="90" y="98" width="180" height="16" rx="2" fill="var(--acc-praxis)"/>
+          <text x="278" y="110" fill="var(--text-muted)" font-size="10">~7.000 MB/s</text>
 
-          <text x="10" y="125" fill="var(--text)" font-size="11">NVMe Gen5</text>
-          <rect x="90" y="114" width="260" height="16" rx="2" fill="var(--link)"/>
-          <text x="278" y="146" fill="var(--text-muted)" font-size="10">~14.000 MB/s</text>
+          <text x="10" y="139" fill="var(--text)" font-size="11">NVMe Gen5</text>
+          <rect x="90" y="128" width="260" height="16" rx="2" fill="var(--link)"/>
+          <text x="278" y="160" fill="var(--text-muted)" font-size="10">~14.000 MB/s</text>
         </svg>
         <figcaption>
           Sequenzielle Lesegeschwindigkeit im Vergleich — NVMe nutzt PCIe direkt

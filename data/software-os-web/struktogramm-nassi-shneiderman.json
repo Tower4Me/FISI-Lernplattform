@@ -1,0 +1,77 @@
+{
+  "unit": "software-os-web/struktogramm-nassi-shneiderman",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist das zentrale Gestaltungsmerkmal eines Struktogramms im Vergleich zum PAP?",
+      "options": [
+        "Es verwendet zusätzliche Farben für jeden Schritt",
+        "Es kommt vollständig ohne Flusspfeile aus — der Ablauf ergibt sich aus Anordnung und Verschachtelung der Kästen",
+        "Es kann ausschließlich Schleifen darstellen",
+        "Es ersetzt Rechtecke durch Rauten"
+      ],
+      "answer": 1,
+      "explanation": "Struktogramme verzichten komplett auf Pfeile — Reihenfolge und Verschachtelung der Kästen zeigen den Ablauf."
+    },
+    {
+      "id": "q2",
+      "question": "Wie wird eine Verzweigung (if/else) im Struktogramm dargestellt?",
+      "options": [
+        "Als Raute mit zwei ausgehenden Pfeilen",
+        "Als Kasten mit schräger Trennlinie: Bedingung oben, „Ja“- und „Nein“-Zweig als Felder darunter",
+        "Als Kreis mit einer Sprungmarke",
+        "Struktogramme können keine Verzweigungen darstellen"
+      ],
+      "answer": 1,
+      "explanation": "Die Verzweigung wird durch einen Kasten mit schräger Trennlinie dargestellt: oben die Bedingung, darunter nebeneinander die beiden Zweige."
+    },
+    {
+      "id": "q3",
+      "question": "Was unterscheidet eine kopfgesteuerte von einer fußgesteuerten Schleife im Struktogramm?",
+      "options": [
+        "Es gibt keinen Unterschied, beide sehen identisch aus",
+        "Bei der kopfgesteuerten Schleife steht die Bedingung oben und wird vor jedem Durchlauf geprüft, bei der fußgesteuerten unten und nach jedem Durchlauf",
+        "Fußgesteuerte Schleifen können nie durchlaufen werden",
+        "Kopfgesteuerte Schleifen benötigen zwingend einen Flusspfeil"
+      ],
+      "answer": 1,
+      "explanation": "Kopfgesteuert (while) prüft die Bedingung vor jedem Durchlauf, fußgesteuert (do-while) danach — der Körper einer fußgesteuerten Schleife läuft deshalb mindestens einmal."
+    },
+    {
+      "id": "q4",
+      "question": "Warum erzwingt ein Struktogramm automatisch strukturierte Programmierung?",
+      "options": [
+        "Weil es nur für objektorientierte Sprachen geeignet ist",
+        "Weil sich unstrukturierte Sprünge (GOTO) in der reinen Verschachtelungsdarstellung nicht abbilden lassen",
+        "Weil jede Zeile im Struktogramm nummeriert werden muss",
+        "Weil Struktogramme keine Schleifen erlauben"
+      ],
+      "answer": 1,
+      "explanation": "Da es keine Pfeile gibt, kann man im Struktogramm nicht an eine beliebige Stelle springen — nur Sequenz, Verzweigung, Fallunterscheidung und Schleife sind darstellbar."
+    },
+    {
+      "id": "q5",
+      "question": "Was stellt die Fallunterscheidung im Struktogramm dar?",
+      "options": [
+        "Eine Schleife mit fester Wiederholungszahl",
+        "Eine Mehrfachauswahl mit mehreren nebeneinanderliegenden Feldern für verschiedene Fallwerte",
+        "Den Start und das Ende des Programms",
+        "Eine einzelne Ein-/Ausgabe-Operation"
+      ],
+      "answer": 1,
+      "explanation": "Die Fallunterscheidung erweitert die einfache Verzweigung auf mehrere mögliche Fälle, die als nebeneinanderliegende Felder dargestellt werden."
+    },
+    {
+      "id": "q6",
+      "question": "Wie ist der Prüfungsstatus des Struktogramms seit der Katalogänderung 2025?",
+      "options": [
+        "Neu in die AP1 aufgenommen",
+        "Aus der AP1 gestrichen, aber weiterhin für AP2 und als Grundlage relevant",
+        "Vollständig aus dem Prüfungsstoff entfernt",
+        "Nur noch in der AP1 relevant, nicht mehr in der AP2"
+      ],
+      "answer": 1,
+      "explanation": "Struktogramme wurden zusammen mit dem PAP, SQL und RAID aus der AP1 gestrichen, bleiben aber für die AP2 und als Grundlagenwissen relevant."
+    }
+  ]
+}

@@ -79,9 +79,10 @@
 
       <h3>SQL-Injection im Detail</h3>
       <p>
-        SQL-Injection steht seit Jahren auf Platz 1 der OWASP Top 10 der
-        Web-Sicherheitslücken und entsteht, wenn Benutzereingaben
-        ungefiltert in einen SQL-Befehl eingebaut werden:
+        SQL-Injection gehört zur Kategorie „Injection“ (A03:2021, Platz 3)
+        der OWASP Top 10 der Web-Sicherheitslücken und entsteht, wenn
+        Benutzereingaben ungefiltert in einen SQL-Befehl eingebaut
+        werden:
       </p>
       <pre><code>// Unsicher: Eingabe direkt in SQL eingebaut
 $sql = "SELECT * FROM users WHERE name='" . $_POST['name'] . "'";

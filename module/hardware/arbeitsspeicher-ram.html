@@ -75,12 +75,12 @@
         <tbody>
           <tr>
             <td><strong>DDR4</strong></td>
-            <td>Standard 2014–2022, 1,2 V, 2133–3200 MHz typisch, 288 Pins,
+            <td>Standard 2014–2022, 1,2 V, 2133–3200 MT/s typisch, 288 Pins,
               max. 64 GB/Modul, nicht kompatibel mit DDR5-Sockeln</td>
           </tr>
           <tr>
             <td><strong>DDR5</strong></td>
-            <td>aktueller Standard seit 2021, 1,1 V, 4800–8000+ MHz, 288 Pins
+            <td>aktueller Standard seit 2021, 1,1 V, 4800–8000+ MT/s, 288 Pins
               (anderer Kerb), max. 128 GB/Modul, On-Die-ECC eingebaut</td>
           </tr>
           <tr>
@@ -188,11 +188,11 @@
         Timing-Angaben wie <strong>CL16-18-18-38</strong> beschreiben
         Latenzen in Taktzyklen (CL = CAS Latency, weitere Werte für
         Zeilenaktivierung/-schließung). Niedrigere Werte sind schneller —
-        aber Takt und Timing zusammen entscheiden über die tatsächliche
-        Latenz in Nanosekunden:
+        aber Datenrate und Timing zusammen entscheiden über die
+        tatsächliche Latenz in Nanosekunden:
       </p>
       <p>
-        <strong>Latenz [ns] = (CL ÷ Takt [MHz]) × 2000</strong>
+        <strong>Latenz [ns] = (CL ÷ Datenrate [MT/s]) × 2000</strong>
       </p>
       <p>
         Beispiel: DDR4-3200 mit CL16 → (16 ÷ 3200) × 2000 = 10 ns. Ein

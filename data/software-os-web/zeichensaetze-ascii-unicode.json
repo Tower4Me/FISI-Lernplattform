@@ -53,7 +53,7 @@
     },
     {
       "id": "q6",
-      "question": "Wie viele Bytes benötigt UTF-8 mindestens für das Euro-Zeichen (€, U+20AC)?",
+      "question": "Wie viele Bytes benötigt UTF-8 für das Euro-Zeichen (€, U+20AC)?",
       "options": ["1 Byte", "2 Byte", "3 Byte", "4 Byte"],
       "answer": 2,
       "explanation": "Das Euro-Zeichen (U+20AC) wird in UTF-8 mit 3 Bytes kodiert (E2 82 AC)."

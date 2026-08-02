@@ -86,7 +86,7 @@
       <h3>Das rwx-Rechtesystem</h3>
       <p>
         Jede Datei und jedes Verzeichnis hat drei Rechte für drei
-        Gruppen — kurz „ugw“ genannt:
+        Gruppen — kurz „ugo“ genannt:
       </p>
       <table>
         <thead>
@@ -100,12 +100,12 @@
       </table>
       <table>
         <thead>
-          <tr><th>Gruppe (u/g/w)</th><th>Bedeutung</th></tr>
+          <tr><th>Gruppe (u/g/o)</th><th>Bedeutung</th></tr>
         </thead>
         <tbody>
           <tr><td><strong>u</strong> — User/Owner</td><td>der Eigentümer der Datei (Ersteller wird automatisch Eigentümer)</td></tr>
           <tr><td><strong>g</strong> — Group</td><td>eine Benutzergruppe, alle Mitglieder teilen sich diese Rechte</td></tr>
-          <tr><td><strong>w</strong> — World/Others</td><td>alle übrigen Benutzer des Systems</td></tr>
+          <tr><td><strong>o</strong> — Others</td><td>alle übrigen Benutzer des Systems</td></tr>
         </tbody>
       </table>
       <p>
@@ -194,7 +194,7 @@
         Linux hat einen Verzeichnisbaum statt Laufwerksbuchstaben,
         Datenträger werden gemountet, <code>/etc/fstab</code> steuert das
         automatische Einhängen. Rechte gelten für Owner/Group/Others
-        (ugw) je r/w/x — Oktalwerte r=4, w=2, x=1 addiert ergeben Werte
+        (ugo) je r/w/x — Oktalwerte r=4, w=2, x=1 addiert ergeben Werte
         wie 755, 644, 600. <code>chmod 777</code> ist fast immer ein
         Sicherheitsrisiko. <code>chown</code> ändert den Eigentümer,
         <code>grep</code> durchsucht Dateien nach Textmustern.

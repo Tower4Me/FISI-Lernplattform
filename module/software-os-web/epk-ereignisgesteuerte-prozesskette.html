@@ -73,6 +73,16 @@
           <tr><td><strong>Informationsobjekt</strong> (optional, Rechteck mit Eselsohr)</td><td>zeigt, welches Dokument/welche Information eine Funktion verwendet oder erzeugt</td></tr>
         </tbody>
       </table>
+      <p>
+        Wichtige Modellierungsregel: Ein <strong>XOR-</strong> oder
+        <strong>ODER-Konnektor</strong> darf nur direkt nach einer
+        <strong>Funktion</strong> stehen, nie nach einem Ereignis — nur
+        eine Funktion trifft aktiv eine Entscheidung, ein Ereignis ist
+        ein passiv eingetretener Zustand und „entscheidet“ nichts. Nach
+        einem Ereignis ist als Verzweigung deshalb höchstens ein
+        <strong>UND-Konnektor</strong> zulässig (mehrere Ereignisse
+        treten gleichzeitig ein, ohne dass etwas „entschieden“ wird).
+      </p>
 
       <p>
         Beispiel-Ablauf, der die wichtigsten Symbole einmal verwendet —

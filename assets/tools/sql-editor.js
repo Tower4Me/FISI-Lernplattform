@@ -276,6 +276,7 @@
       try {
         if (db) db.close();
         db = new window.__sqlJsModule.Database();
+        db.run("PRAGMA foreign_keys = ON;");
         runSeed(db);
         renderOk("Zurückgesetzt. Ausgangszustand wiederhergestellt.");
       } catch (err) {
@@ -295,6 +296,7 @@
         .then(function (SQL) {
           window.__sqlJsModule = SQL;
           db = new SQL.Database();
+          db.run("PRAGMA foreign_keys = ON;");
           runSeed(db);
           renderOk("Bereit.");
         })

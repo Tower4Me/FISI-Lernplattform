@@ -115,6 +115,16 @@
         muss die referenzierte Tabelle <strong>zuerst</strong> angelegt
         werden – <code>abteilung</code> vor <code>mitarbeiter</code>.
       </p>
+      <p>
+        SQLite-Besonderheit: Längen-/Präzisionsangaben wie
+        <code>VARCHAR(100)</code> oder <code>DECIMAL(10,2)</code> werden
+        von SQLite akzeptiert, aber technisch <strong>nicht
+        erzwungen</strong> (dynamische Typisierung/„Type Affinity“) — im
+        Editor oben lässt sich z. B. auch ein deutlich längerer Text als
+        100 Zeichen problemlos in eine <code>VARCHAR(100)</code>-Spalte
+        schreiben. In streng typisierten Systemen wie MySQL oder
+        PostgreSQL würde ein solcher Wert dagegen abgelehnt.
+      </p>
 
       <h3>ALTER TABLE</h3>
       <p>

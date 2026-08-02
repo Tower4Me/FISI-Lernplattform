@@ -70,6 +70,15 @@
         Gesamtendtermin des Projekts zu gefährden. Vorgänge mit Puffer
         größer als null haben zeitlichen Spielraum.
       </p>
+      <p>
+        Berechnet wird der Puffer über vier Eckwerte je Vorgang:
+        <strong>FAZ</strong> (frühester Anfangszeitpunkt),
+        <strong>FEZ</strong> (frühester Endzeitpunkt),
+        <strong>SAZ</strong> (spätester Anfangszeitpunkt) und
+        <strong>SEZ</strong> (spätester Endzeitpunkt). Es gilt
+        FEZ = FAZ + Dauer, und der Puffer ergibt sich als
+        Puffer = SAZ − FAZ = SEZ − FEZ.
+      </p>
 
       <h3>Kritischer Pfad</h3>
       <p>

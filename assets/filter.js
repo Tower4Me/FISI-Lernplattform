@@ -1,10 +1,9 @@
 /* filter.js — AP1/AP2-Filter fuer die Modulliste auf index.html.
    Optik/Aufbau analog theme.js (Button + injiziertes Dropdown-Menue,
-   selbst in .site-header__actions eingehaengt). Anders als theme.js sind
-   die Menuepunkte Checkboxen: AP1 und AP2 sind unabhaengig voneinander
-   an-/abwaehlbar, Treffer = Einheit hat mindestens eine der aktiven
-   Pruefungsteil-Markierungen (Vereinigung, keine Schnittmenge). Keine
-   Auswahl = alles sichtbar.
+   selbst in .site-header__actions eingehaengt). Single-Select mit genau
+   drei sich gegenseitig ausschliessenden Zustaenden: "alle", "ap1", "ap2"
+   (role="menuitemradio", wie beim Theme-Menue — anders als die fruehere
+   Checkbox-Variante mit Vereinigungslogik). Standard beim Laden: "alle".
 
    Existiert nur auf Seiten mit #module-list (aktuell nur index.html) —
    auf Einheiten-Seiten gibt es keine Modulliste zum Filtern, daher baut
@@ -14,32 +13,41 @@
   "use strict";
 
   var LS_KEY = "fisi:filter";
-  var EXAMS = ["ap1", "ap2"];
+  var VALUES = ["alle", "ap1", "ap2"];
 
   function getStored() {
     try {
       var raw = localStorage.getItem(LS_KEY);
-      if (!raw) return [];
-      var arr = JSON.parse(raw);
-      return Array.isArray(arr) ? arr.filter(function (v) { return EXAMS.indexOf(v) !== -1; }) : [];
-    } catch (e) { return []; }
+      if (!raw) return "alle";
+      // Altformat (JSON-Array ["ap1","ap2"] o.ae. aus der frueheren
+      // Checkbox-Variante) migrieren: genau ein gueltiger Wert -> uebernehmen,
+      // sonst (leer oder beide) -> "alle".
+      if (raw.charAt(0) === "[") {
+        try {
+          var arr = JSON.parse(raw);
+          if (Array.isArray(arr) && arr.length === 1 && VALUES.indexOf(arr[0]) !== -1) {
+            return arr[0];
+          }
+        } catch (e) { /* fall through zu "alle" */ }
+        return "alle";
+      }
+      return VALUES.indexOf(raw) !== -1 ? raw : "alle";
+    } catch (e) { return "alle"; }
   }
-  function setStored(arr) {
-    try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); } catch (e) { /* Storage gesperrt/voll: ignorieren */ }
+  function setStored(value) {
+    try { localStorage.setItem(LS_KEY, value); } catch (e) { /* Storage gesperrt/voll: ignorieren */ }
   }
 
   var active = getStored();
-  var btn, menu, resetItem, items = [];
+  var btn, menu, items = [];
 
-  function labelFor(sel) {
-    if (sel.length === 0) return "Alle";
-    return sel.map(function (v) { return v.toUpperCase(); }).join("+");
+  function labelFor(value) {
+    return value === "alle" ? "Alle" : value.toUpperCase();
   }
 
   function applyFilter() {
     var list = document.getElementById("module-list");
     if (!list) return;
-    var anyFilter = active.length > 0;
     var cards = list.querySelectorAll(".module-card");
     for (var i = 0; i < cards.length; i++) {
       var card = cards[i];
@@ -48,23 +56,19 @@
       for (var j = 0; j < unitEls.length; j++) {
         var li = unitEls[j];
         var exams = (li.dataset.exams || "").split(",").filter(Boolean);
-        var match = !anyFilter || exams.some(function (e) { return active.indexOf(e) !== -1; });
+        var match = active === "alle" || exams.indexOf(active) !== -1;
         li.hidden = !match;
         if (match) visibleCount++;
       }
-      card.hidden = anyFilter && visibleCount === 0;
+      card.hidden = active !== "alle" && visibleCount === 0;
     }
   }
 
   function updateUI() {
     if (!btn) return;
     btn.textContent = "Filter: " + labelFor(active);
-    var allActive = active.length === 0;
-    resetItem.setAttribute("aria-checked", allActive ? "true" : "false");
-    resetItem.classList.toggle("is-active", allActive);
     items.forEach(function (item) {
-      if (item === resetItem) return; // hat eigene Checked-Logik oben (kein dataset.exam)
-      var on = active.indexOf(item.dataset.exam) !== -1;
+      var on = item.dataset.value === active;
       item.setAttribute("aria-checked", on ? "true" : "false");
       item.classList.toggle("is-active", on);
     });
@@ -79,16 +83,8 @@
     btn.setAttribute("aria-expanded", "false");
   }
 
-  function toggleExam(value) {
-    var idx = active.indexOf(value);
-    if (idx === -1) active.push(value); else active.splice(idx, 1);
-    setStored(active);
-    updateUI();
-    applyFilter();
-  }
-
-  function resetExams() {
-    active = [];
+  function selectValue(value) {
+    active = value;
     setStored(active);
     updateUI();
     applyFilter();
@@ -115,49 +111,39 @@
     menu.setAttribute("aria-labelledby", "filter-switcher-btn");
     menu.hidden = true;
 
-    // "Alle" schaltet den Filter explizit aus (active = []), statt dass man
-    // AP1/AP2 einzeln manuell abwaehlen muss — steht oben, durch einen
-    // Trenner von den beiden Checkboxen abgesetzt (analog SPECIAL_START_INDEX
-    // in theme.js).
-    var resetLi = document.createElement("li");
-    resetLi.setAttribute("role", "none");
-    resetItem = document.createElement("button");
-    resetItem.type = "button";
-    resetItem.setAttribute("role", "menuitemradio");
-    resetItem.setAttribute("aria-checked", "false");
-    resetItem.className = "filter-switcher__item";
-    resetItem.textContent = "Alle";
-    resetItem.addEventListener("click", function () {
-      resetExams();
-      closeMenu();
-      btn.focus();
-    });
-    resetLi.appendChild(resetItem);
-    menu.appendChild(resetLi);
-    items.push(resetItem);
+    function addItem(value, text) {
+      var li = document.createElement("li");
+      li.setAttribute("role", "none");
+
+      var item = document.createElement("button");
+      item.type = "button";
+      item.setAttribute("role", "menuitemradio");
+      item.setAttribute("aria-checked", "false");
+      item.className = "filter-switcher__item";
+      item.textContent = text;
+      item.dataset.value = value;
+      item.addEventListener("click", function () {
+        selectValue(value);
+        closeMenu();
+        btn.focus();
+      });
+
+      li.appendChild(item);
+      menu.appendChild(li);
+      items.push(item);
+    }
+
+    // "Alle" steht oben, durch einen Trenner von AP1/AP2 abgesetzt — alle
+    // drei sind aber ein einziges menuitemradio-Set (genau ein aktiver Wert).
+    addItem("alle", "Alle");
 
     var sep = document.createElement("li");
     sep.setAttribute("role", "separator");
     sep.className = "filter-switcher__sep";
     menu.appendChild(sep);
 
-    EXAMS.forEach(function (value) {
-      var li = document.createElement("li");
-      li.setAttribute("role", "none");
-
-      var item = document.createElement("button");
-      item.type = "button";
-      item.setAttribute("role", "menuitemcheckbox");
-      item.setAttribute("aria-checked", "false");
-      item.className = "filter-switcher__item";
-      item.textContent = value.toUpperCase();
-      item.dataset.exam = value;
-      item.addEventListener("click", function () { toggleExam(value); });
-
-      li.appendChild(item);
-      menu.appendChild(li);
-      items.push(item);
-    });
+    addItem("ap1", "AP1");
+    addItem("ap2", "AP2");
 
     wrap.appendChild(btn);
     wrap.appendChild(menu);

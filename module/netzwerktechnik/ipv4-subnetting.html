@@ -358,6 +358,16 @@
             color: var(--text-muted);
             margin: 0.25rem 0 0.75rem;
           }
+          #subnet-calc-widget .subnet-calc-subresult {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 2px solid var(--border);
+          }
+          #subnet-calc-widget .subnet-calc-subresult h4 {
+            margin: 0 0 0.5rem;
+            font-size: 1rem;
+            color: var(--text);
+          }
         </style>
 
         <p class="subnet-calc-note">
@@ -384,6 +394,13 @@
             <p class="subnet-calc-note">Das größere Netz, das in kleinere Subnetze aufgeteilt wird. Muss ein kleineres Präfix haben als die Maske oben, z. B. Basis /24 bei Maske /26 → 4 Subnetze à 62 Hosts.</p>
           </div>
         </div>
+        <div class="tool__row">
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-n">Subnetz Nr. anzeigen (optional)</label>
+            <input class="tool__input" type="number" id="subnet-calc-n" min="1" step="1" placeholder="z. B. 14" autocomplete="off" disabled>
+            <p class="subnet-calc-note" id="subnet-calc-n-hint">Basis-Präfix eingeben, um einzelne Subnetze anzuzeigen.</p>
+          </div>
+        </div>
 
         <button class="btn btn--primary" type="button" id="subnet-calc-btn">Berechnen</button>
 
@@ -399,6 +416,19 @@
           <div class="subnet-calc-row"><dt>CIDR</dt><dd id="subnet-calc-cidr-out"></dd></div>
           <div class="subnet-calc-row"><dt>Anzahl Subnetze</dt><dd id="subnet-calc-subnets"></dd></div>
         </dl>
+
+        <p class="subnet-calc-error" id="subnet-calc-sub-error" hidden></p>
+
+        <div class="subnet-calc-subresult" id="subnet-calc-subresult" hidden>
+          <h4 id="subnet-calc-subresult-title">Subnetz Nr.</h4>
+          <dl class="subnet-calc-results">
+            <div class="subnet-calc-row"><dt>Netzadresse</dt><dd id="subnet-calc-sub-net"></dd></div>
+            <div class="subnet-calc-row"><dt>Broadcast-Adresse</dt><dd id="subnet-calc-sub-broadcast"></dd></div>
+            <div class="subnet-calc-row"><dt>Erste nutzbare Adresse</dt><dd id="subnet-calc-sub-first"></dd></div>
+            <div class="subnet-calc-row"><dt>Letzte nutzbare Adresse</dt><dd id="subnet-calc-sub-last"></dd></div>
+            <div class="subnet-calc-row"><dt>Nutzbare Hosts</dt><dd id="subnet-calc-sub-hosts"></dd></div>
+          </dl>
+        </div>
       </div>
     </section>
 
@@ -439,6 +469,8 @@
     var ipInput = document.getElementById("subnet-calc-ip");
     var maskInput = document.getElementById("subnet-calc-mask");
     var baseInput = document.getElementById("subnet-calc-base");
+    var nInput = document.getElementById("subnet-calc-n");
+    var nHint = document.getElementById("subnet-calc-n-hint");
     var btn = document.getElementById("subnet-calc-btn");
     var errorEl = document.getElementById("subnet-calc-error");
     var resultsEl = document.getElementById("subnet-calc-results");
@@ -451,6 +483,17 @@
     var outMaskDecimal = document.getElementById("subnet-calc-mask-decimal");
     var outCidr = document.getElementById("subnet-calc-cidr-out");
     var outSubnets = document.getElementById("subnet-calc-subnets");
+
+    var subErrorEl = document.getElementById("subnet-calc-sub-error");
+    var subresultEl = document.getElementById("subnet-calc-subresult");
+    var subTitle = document.getElementById("subnet-calc-subresult-title");
+    var outSubNet = document.getElementById("subnet-calc-sub-net");
+    var outSubBroadcast = document.getElementById("subnet-calc-sub-broadcast");
+    var outSubFirst = document.getElementById("subnet-calc-sub-first");
+    var outSubLast = document.getElementById("subnet-calc-sub-last");
+    var outSubHosts = document.getElementById("subnet-calc-sub-hosts");
+
+    var N_HINT_DEFAULT = "Basis-Präfix eingeben, um einzelne Subnetze anzuzeigen.";
 
     if (!ipInput || !maskInput || !btn) return;
 
@@ -546,6 +589,10 @@
     function calculate() {
       errorEl.hidden = true;
       resultsEl.hidden = true;
+      subErrorEl.hidden = true;
+      subresultEl.hidden = true;
+      nInput.disabled = true;
+      nHint.textContent = N_HINT_DEFAULT;
 
       var ipNum = parseIp(ipInput.value);
       if (ipNum === null) {
@@ -594,6 +641,7 @@
       outCidr.textContent = "/" + cidr;
 
       var baseResult = parseCidrOnly(baseInput.value);
+      var subnetCount = null;
       if (baseResult === null) {
         outSubnets.textContent = "—";
         outSubnets.style.color = "";
@@ -604,15 +652,62 @@
         outSubnets.textContent = "Das Basis-Präfix muss kleiner sein als die Maske (/" + cidr + "). Beispiel: Basis /24 bei Maske /26.";
         outSubnets.style.color = "var(--fail)";
       } else {
-        outSubnets.textContent = String(Math.pow(2, cidr - baseResult.cidr)) + " (= 2^(" + cidr + "−" + baseResult.cidr + "))";
+        subnetCount = Math.pow(2, cidr - baseResult.cidr);
+        outSubnets.textContent = String(subnetCount) + " (= 2^(" + cidr + "−" + baseResult.cidr + "))";
         outSubnets.style.color = "";
+      }
+
+      if (subnetCount !== null) {
+        nInput.disabled = false;
+        nHint.textContent = "gültig: 1–" + subnetCount;
+
+        var nRaw = nInput.value.trim();
+        if (nRaw !== "") {
+          var nVal = Number(nRaw);
+          if (!Number.isInteger(nVal) || nVal < 1 || nVal > subnetCount) {
+            subErrorEl.textContent = "Es gibt nur " + subnetCount + " Subnetze.";
+            subErrorEl.hidden = false;
+            subresultEl.hidden = true;
+          } else {
+            var baseMaskNum = cidrToMaskNum(baseResult.cidr);
+            var baseNetNum = (ipNum & baseMaskNum) >>> 0;
+            var subnetSize = Math.pow(2, 32 - cidr);
+            var startNum = (baseNetNum + (nVal - 1) * subnetSize) >>> 0;
+            var subBroadcastNum = (startNum + subnetSize - 1) >>> 0;
+
+            var subFirstNum, subLastNum, subHostsLabel;
+            if (cidr === 32) {
+              subFirstNum = startNum;
+              subLastNum = startNum;
+              subHostsLabel = "1 (/32 = Punktadresse für ein einzelnes Gerät, kein Netz-/Broadcast-Konzept)";
+            } else if (cidr === 31) {
+              subFirstNum = startNum;
+              subLastNum = subBroadcastNum;
+              subHostsLabel = "2 (/31 = Punkt-zu-Punkt-Link nach RFC 3021, keine separate Broadcast-Adresse)";
+            } else {
+              subFirstNum = (startNum + 1) >>> 0;
+              subLastNum = (subBroadcastNum - 1) >>> 0;
+              subHostsLabel = String(subnetSize - 2);
+            }
+
+            subTitle.textContent = "Subnetz Nr. " + nVal + " von " + subnetCount;
+            outSubNet.textContent = toOctetString(startNum);
+            outSubBroadcast.textContent = (cidr >= 31) ? toOctetString(subBroadcastNum) + " (siehe Hinweis bei Hosts)" : toOctetString(subBroadcastNum);
+            outSubFirst.textContent = toOctetString(subFirstNum);
+            outSubLast.textContent = toOctetString(subLastNum);
+            outSubHosts.textContent = subHostsLabel;
+
+            subErrorEl.hidden = true;
+            subresultEl.hidden = false;
+          }
+        }
       }
 
       resultsEl.hidden = false;
     }
 
     btn.addEventListener("click", calculate);
-    [ipInput, maskInput, baseInput].forEach(function (el) {
+    [ipInput, maskInput, baseInput, nInput].forEach(function (el) {
       el.addEventListener("keydown", function (e) {
         if (e.key === "Enter") calculate();
       });

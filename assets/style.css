@@ -340,6 +340,7 @@ code, kbd, pre {
   min-height: 1.5em;
 }
 .tool__hint { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+.tool__range { width: 100%; margin: 0.3rem 0; }
 .tool__cards { display: grid; gap: 0.6rem; margin-top: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
 .tool__card {
   background: var(--surface);

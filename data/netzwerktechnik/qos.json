@@ -1,0 +1,53 @@
+{
+  "unit": "netzwerktechnik/qos",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wozu dient QoS (Quality of Service) im Netzwerk?",
+      "options": [
+        "QoS verschlüsselt den gesamten Datenverkehr im Netzwerk",
+        "QoS priorisiert zeitkritischen Datenverkehr (z. B. VoIP) gegenüber weniger zeitkritischem bei Bandbreitenengpässen",
+        "QoS ersetzt die Notwendigkeit von VLANs",
+        "QoS versorgt Netzwerkgeräte mit Strom"
+      ],
+      "answer": 1,
+      "explanation": "QoS klassifiziert und priorisiert Datenverkehr, damit zeitkritische Anwendungen wie VoIP-Telefonie bei knapper Bandbreite bevorzugt weitergeleitet werden."
+    },
+    {
+      "id": "q2",
+      "question": "Was bedeutet „Best Effort“ im Zusammenhang mit einem Netzwerk ohne QoS?",
+      "options": [
+        "Alle Pakete werden gleich behandelt, unabhängig davon, wie zeitkritisch sie sind",
+        "Nur VoIP-Verkehr wird überhaupt übertragen",
+        "Das Netzwerk garantiert für jede Anwendung eine Mindestbandbreite",
+        "Datenverkehr wird automatisch verschlüsselt übertragen"
+      ],
+      "answer": 0,
+      "explanation": "Ohne QoS gilt Best Effort: Alle Pakete werden gleich behandelt, egal ob es sich um ein zeitkritisches VoIP-Paket oder einen unkritischen Datei-Download handelt."
+    },
+    {
+      "id": "q3",
+      "question": "Wonach können QoS-Regeln Datenverkehr klassifizieren, um ihm eine Prioritätsstufe zuzuweisen?",
+      "options": [
+        "Ausschließlich nach der Uhrzeit der Übertragung",
+        "Nach Kriterien wie Protokoll, Port oder VLAN",
+        "Ausschließlich nach der MAC-Adresse des Absenders",
+        "QoS kann Pakete nicht klassifizieren, sondern nur komplett blockieren"
+      ],
+      "answer": 1,
+      "explanation": "QoS-Regeln klassifizieren Pakete z. B. nach Protokoll, Port oder VLAN und weisen ihnen dann eine Prioritätsstufe zu."
+    },
+    {
+      "id": "q4",
+      "question": "Was passiert mit zeitkritischem VoIP-Verkehr, wenn kein QoS konfiguriert ist und die Bandbreite knapp wird?",
+      "options": [
+        "Er wird automatisch bevorzugt, auch ohne QoS-Konfiguration",
+        "Er kann genauso wie jeder andere Verkehr verzögert werden und dadurch ruckeln oder abreißen",
+        "Er wird vom Switch komplett blockiert",
+        "Er wird automatisch auf ein anderes VLAN umgeleitet"
+      ],
+      "answer": 1,
+      "explanation": "Ohne QoS-Priorisierung gilt Best Effort: VoIP-Pakete konkurrieren gleichberechtigt mit allen anderen Paketen um die knappe Bandbreite und können dadurch ruckeln oder abreißen."
+    }
+  ]
+}

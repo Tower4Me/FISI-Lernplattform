@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: PoE (Power over Ethernet)</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">PoE (Power over Ethernet)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      PoE (Power over Ethernet)
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Radio, das seinen Strom über dieselbe Antennenleitung bekommt,
+        über die auch das Signal läuft, bräuchte kein zusätzliches
+        Stromkabel mehr. Genau das macht <strong>PoE</strong> im Netzwerk:
+        Ein IP-Telefon oder ein WLAN-Access-Point bekommt Strom und Daten
+        über dasselbe Netzwerkkabel geliefert — eine eigene Steckdose in der
+        Zimmerdecke oder an der Wand wird überflüssig.
+      </p>
+      <p>
+        <strong>Prüfungsrelevanz:</strong> PoE kam in AP1 2026 dran — nicht
+        nur ein AP2-Thema für Netzwerktechniker.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        PoE liefert Strom und Daten über dasselbe Twisted-Pair-Kabel (RJ45).
+        Damit entfällt ein separates Netzteil für Geräte wie IP-Telefone,
+        WLAN-Access-Points oder Netzwerkkameras. Der PoE-Switch (oder ein
+        vorgeschalteter PoE-Injector) übernimmt die Stromversorgung, das
+        Endgerät muss PoE-fähig sein.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Typ</th>
+            <th>Standard</th>
+            <th>Jahr</th>
+            <th>Max. Leistung (Quelle)</th>
+            <th>Max. Leistung (Endgerät)</th>
+            <th>Adernpaare</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Type 1 (PoE)</td><td>IEEE 802.3af</td><td>2003</td><td>15,4 W</td><td>12,95 W</td><td>2</td></tr>
+          <tr><td>Type 2 (PoE+)</td><td>IEEE 802.3at</td><td>2009</td><td>30 W</td><td>25,5 W</td><td>2</td></tr>
+          <tr><td>Type 3 (PoE++)</td><td>IEEE 802.3bt</td><td>2018</td><td>60 W</td><td>51 W</td><td>4</td></tr>
+          <tr><td>Type 4 (PoE++)</td><td>IEEE 802.3bt</td><td>2018</td><td>100 W</td><td>71 W</td><td>4</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die Differenz zwischen der Leistung an der Quelle und der Leistung,
+        die am Endgerät tatsächlich ankommt, ist der Übertragungsverlust im
+        Kabel.
+      </p>
+
+      <ul>
+        <li>PoE überträgt Daten <strong>und</strong> Strom über ein einziges
+          RJ45-Kabel.</li>
+        <li>Der Leistungssprung ab <strong>Type 3</strong> kommt daher, dass
+          ab hier alle <strong>4 Adernpaare</strong> statt nur 2 zur
+          Stromübertragung genutzt werden.</li>
+        <li>Alle Typen sind <strong>abwärtskompatibel</strong>: Ein
+          Type-4-fähiger Switch kann auch ein älteres Type-1-Gerät
+          versorgen, dann eben nur mit dessen geringerer Leistung.</li>
+        <li>Typische Verbraucher: <strong>Access Points</strong>,
+          <strong>IP-Telefone</strong>, <strong>Netzwerkkameras</strong>.</li>
+      </ul>
+      <p>
+        <strong>Merkhilfe:</strong> 15 / 30 / 60 / 100 W — die maximale
+        Leistung an der Quelle für Type 1 bis Type 4, in dieser Reihenfolge.
+      </p>
+
+      <p>
+        <strong>Randnotiz — UPoE / UPoE+:</strong> Das sind
+        <strong>Cisco-proprietäre Herstellerbegriffe</strong>, keine
+        IEEE-Standards. UPoE liefert bis zu 60 W (ein Vorläufer aus der Zeit
+        vor der 802.3bt-Standardisierung), UPoE+ bis zu 90 W. In
+        IHK-Prüfungen wird nach den IEEE-Standards (af/at/bt) gefragt, nicht
+        nach Herstellerbegriffen — UPoE/UPoE+ sind hier nur als
+        Praxis-Hinweis relevant, nicht als gleichwertige Prüfungsstandards.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus rüstet den Empfangsbereich eines Kunden mit neuen
+        IP-Telefonen und einem WLAN-Access-Point aus.
+      </p>
+      <ul>
+        <li>Die <strong>IP-Telefone</strong> werden über <strong>PoE+
+          (Type 2)</strong> versorgt — kein zusätzliches Netzteil nötig, ein
+          Kabel liefert Strom und Daten.</li>
+        <li>Der neue <strong>WLAN-Access-Point</strong> benötigt mit
+          integrierter Kamera-Funktion mehr Leistung und wird deshalb an
+          einen Port mit <strong>PoE++ (Type 3)</strong> angeschlossen.</li>
+        <li>Da der eingesetzte Switch abwärtskompatibel ist, lassen sich am
+          selben Gerät weiterhin auch ältere <strong>Type-1-Geräte</strong>
+          (z. B. ein bestehendes IP-Telefon) ohne Probleme mitbetreiben.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum benötigt Type 3 (PoE++) deutlich mehr
+        Adernpaare als Type 1 (PoE)?“ – Antwort: Ab Type 3 werden alle 4
+        Adernpaare des Kabels zur Stromübertragung genutzt statt nur 2 —
+        dadurch steigt die maximal übertragbare Leistung deutlich.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        PoE liefert Strom und Daten über ein RJ45-Kabel. Merkhilfe 15 / 30 /
+        60 / 100 W für Type 1–4 (IEEE 802.3af/at/bt). Ab Type 3 werden alle
+        4 statt 2 Adernpaare genutzt — daher der Leistungssprung. Alle Typen
+        sind abwärtskompatibel. UPoE/UPoE+ sind proprietäre
+        Cisco-Herstellerbegriffe, keine IEEE-Standards.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/poe.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

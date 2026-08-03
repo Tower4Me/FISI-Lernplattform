@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Netzwerktechnik: Topologien, VLAN, PoE & QoS</title>
+  <title>Netzwerktechnik: Netzwerktopologien</title>
   <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
@@ -14,12 +14,12 @@
       <ol>
         <li><a href="../../index.html">Lernplan</a></li>
         <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
-        <li aria-current="page">Topologien, VLAN, PoE & QoS</li>
+        <li aria-current="page">Netzwerktopologien</li>
       </ol>
     </nav>
 
     <h1 class="unit-title">
-      Topologien, VLAN, PoE & QoS
+      Netzwerktopologien
       <span class="badges">
         <span class="badge badge--ap2">AP2</span>
       </span>
@@ -34,17 +34,10 @@
       <p>
         Stell dir ein Bürogebäude vor. Die <strong>Verkabelung der Flure</strong>
         entscheidet, wie die Räume physisch miteinander verbunden sind – ein
-        einziger langer Flur, ein Stern von einer zentralen Lobby aus, oder ein
-        Rundweg. Innerhalb des Gebäudes teilt der Hausmeister die Mitarbeitenden
-        dann per <strong>Zutrittskarte</strong> in getrennte Abteilungen ein,
-        auch wenn sie im selben Flur sitzen – Buchhaltung hört nichts von der
-        Entwicklungsabteilung, obwohl beide dasselbe Kabelnetz nutzen. Manche
-        Geräte wie IP-Telefone bekommen ihren <strong>Strom gleich über das
-        Netzwerkkabel</strong> mitgeliefert, brauchen also keine eigene
-        Steckdose. Und wenn in der Mittagspause alle gleichzeitig telefonieren
-        und Dateien hochladen, sorgt ein Vorrangsystem dafür, dass das
-        Telefonat nicht zerhackt klingt, während der Datei-Upload notfalls
-        etwas warten muss.
+        einziger langer Flur, ein Stern von einer zentralen Lobby aus, ein
+        Rundweg oder ein Gewirr aus Abkürzungen zwischen fast allen Räumen.
+        Genau diese Frage – wie die Kabel physisch bzw. logisch verlaufen –
+        beantwortet die <strong>Netzwerktopologie</strong>.
       </p>
     </section>
 
@@ -52,12 +45,6 @@
     <section id="konzept" class="section section--konzept">
       <h2>Konzept</h2>
 
-      <p>
-        Vier Themen, die im Betriebsalltag häufig zusammen auftauchen, wenn es
-        um den Aufbau und Betrieb lokaler Netze geht:
-      </p>
-
-      <h3>Netzwerktopologien</h3>
       <p>
         Die Topologie beschreibt, wie Geräte physisch bzw. logisch miteinander
         verbunden sind.
@@ -129,56 +116,8 @@
       <p>
         In der Praxis dominiert die <strong>physische Sterntopologie</strong>
         mit einem Switch im Zentrum — auch wenn logisch durch VLANs andere
-        Strukturen abgebildet werden.
-      </p>
-
-      <h3>VLAN (Virtual LAN)</h3>
-      <p>
-        Ein VLAN teilt ein physisches Netzwerk in mehrere logisch getrennte
-        Broadcast-Domänen, ohne dass zusätzliche Verkabelung nötig ist. Jeder
-        Switch-Port wird einer VLAN-ID zugeordnet (nach IEEE 802.1Q). Geräte in
-        unterschiedlichen VLANs erreichen sich nur über einen Router
-        (Inter-VLAN-Routing) — genau wie physisch getrennte Netze.
-      </p>
-      <table>
-        <thead>
-          <tr><th>Port-Typ</th><th>Bedeutung</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Untagged (Access-Port)</strong></td><td>Der Port gehört fest zu genau einem VLAN. Angeschlossene Endgeräte (PC, Drucker) senden und empfangen ohne VLAN-Tag — sie merken selbst nichts vom VLAN.</td></tr>
-          <tr><td><strong>Tagged (Trunk-Port)</strong></td><td>Der Port transportiert Datenverkehr mehrerer VLANs gleichzeitig. Jeder Frame trägt ein VLAN-Tag (4 Byte, VLAN-ID 1–4094), damit der Empfänger-Switch weiß, zu welchem VLAN er gehört. Wird typischerweise zwischen Switches oder zu einem Router verwendet.</td></tr>
-        </tbody>
-      </table>
-
-      <h3>PoE (Power over Ethernet)</h3>
-      <p>
-        PoE liefert Strom und Daten über dasselbe Twisted-Pair-Kabel (RJ45).
-        Damit entfällt ein separates Netzteil für Geräte wie IP-Telefone,
-        WLAN-Access-Points oder Netzwerkkameras. Der PoE-Switch (oder ein
-        vorgeschalteter PoE-Injector) übernimmt die Stromversorgung, das
-        Endgerät muss PoE-fähig sein.
-      </p>
-      <table>
-        <thead>
-          <tr><th>Standard</th><th>Bezeichnung</th><th>Max. Leistung am Endgerät</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>IEEE 802.3af</td><td>PoE</td><td>ca. 12,95 W</td></tr>
-          <tr><td>IEEE 802.3at</td><td>PoE+</td><td>ca. 25,5 W</td></tr>
-          <tr><td>IEEE 802.3bt</td><td>PoE++ / 4PPoE</td><td>ca. 51–71 W (je nach Typ)</td></tr>
-        </tbody>
-      </table>
-
-      <h3>QoS (Quality of Service)</h3>
-      <p>
-        QoS priorisiert bestimmten Datenverkehr, wenn die Bandbreite knapp
-        wird. Ohne QoS werden alle Pakete gleich behandelt (Best Effort) —
-        zeitkritischer Verkehr wie VoIP-Telefonie oder Videokonferenzen kann
-        dann ruckeln oder abreißen, während weniger zeitkritischer Verkehr
-        (z. B. ein Datei-Download) genauso viel Vorrang bekommt. QoS-Regeln
-        klassifizieren Pakete (z. B. nach Protokoll, Port oder VLAN) und
-        weisen ihnen Prioritätsstufen zu, sodass wichtiger Verkehr bei
-        Engpässen bevorzugt weitergeleitet wird.
+        Strukturen abgebildet werden (siehe Einheit
+        <a href="vlan.html">VLAN</a>).
       </p>
     </section>
 
@@ -186,22 +125,26 @@
     <section id="praxis" class="section section--praxis">
       <h2>Praxisbeispiel</h2>
       <p>
-        Ein IT-Systemhaus richtet das Netzwerk für ein Großraumbüro mit
-        Empfangsbereich neu ein.
+        Ein IT-Systemhaus verkabelt ein neues Großraumbüro mit 40
+        Arbeitsplätzen.
       </p>
       <ul>
-        <li>Alle Arbeitsplätze werden in <strong>Sterntopologie</strong> an einen zentralen Switch angeschlossen — fällt ein Kabel aus, betrifft das nur einen Arbeitsplatz.</li>
-        <li>Der Switch wird in zwei <strong>VLANs</strong> unterteilt: VLAN 10 für die Buchhaltung, VLAN 20 für den Empfang und Gäste-WLAN. Die Access-Ports der PCs sind <strong>untagged</strong> ihrem jeweiligen VLAN zugeordnet, die Verbindung zum Router ist ein <strong>tagged Trunk-Port</strong>, der beide VLANs gleichzeitig transportiert.</li>
-        <li>Die neuen <strong>IP-Telefone</strong> am Empfang werden über <strong>PoE+</strong> versorgt — kein zusätzliches Netzteil nötig, ein Kabel liefert Strom und Daten.</li>
-        <li>Damit Telefonate auch bei hoher Netzlast klar bleiben, wird <strong>QoS</strong> so konfiguriert, dass VoIP-Verkehr (erkennbar am Protokoll/Port) gegenüber normalem Datenverkehr priorisiert wird.</li>
+        <li>Statt einer historischen <strong>Bus-Topologie</strong> (ein
+          Kabelbruch würde alle 40 Arbeitsplätze gleichzeitig lahmlegen)
+          wählt der Techniker eine <strong>Sterntopologie</strong>: Jeder
+          Arbeitsplatz erhält ein eigenes Kabel zu einem zentralen
+          Switch-Schrank.</li>
+        <li>Fällt später das Kabel eines einzelnen Arbeitsplatzes aus (z. B.
+          durch einen Stuhl, der darüberfährt), ist ausschließlich dieser
+          eine Arbeitsplatz betroffen — der Rest des Büros arbeitet
+          ungestört weiter.</li>
       </ul>
       <p>
-        Typische Prüfungsfrage: „Warum lässt sich mit VLANs Sicherheit
-        erhöhen, obwohl alle Geräte am selben physischen Switch hängen?“ –
-        Antwort: VLANs trennen Broadcast-Domänen logisch; Geräte in
-        unterschiedlichen VLANs können sich nur über einen Router erreichen,
-        genau wie in physisch getrennten Netzen — ein Angreifer im
-        Gäste-VLAN kommt so nicht direkt an die Buchhaltung heran.
+        Typische Prüfungsfrage: „Warum wird in modernen LANs praktisch immer
+        eine Sterntopologie statt einer Bus-Topologie eingesetzt?“ – Antwort:
+        Bei der Sterntopologie betrifft ein Kabelausfall nur ein einzelnes
+        Gerät, während bei der Bus-Topologie ein Kabelbruch das gesamte
+        Segment lahmlegt.
       </p>
     </section>
 
@@ -209,18 +152,17 @@
     <section id="merksatz" class="section section--merksatz">
       <h2>Merksatz</h2>
       <p>
-        Topologie = physischer/logischer Aufbau (heute meist Stern). VLAN
-        trennt Broadcast-Domänen logisch über einen physischen Switch —
-        untagged für Endgeräte, tagged für Trunks zwischen Switches/Router.
-        PoE liefert Strom und Daten über ein Kabel. QoS priorisiert
-        zeitkritischen Verkehr (z. B. VoIP) bei Bandbreitenengpässen.
+        Bus = ein Strang, ein Bruch legt alles lahm. Stern = Standard in
+        modernen LANs, ein Kabelausfall betrifft nur ein Gerät. Ring = jedes
+        Gerät hat zwei Nachbarn. Mesh = sehr ausfallsicher, aber
+        verkabelungsaufwendig.
       </p>
     </section>
 
     <!-- 5. QUIZ -->
     <section id="quiz" class="section section--quiz">
       <h2>Quiz</h2>
-      <div data-quiz-src="../../data/netzwerktechnik/topologien-vlan-poe-qos.json">
+      <div data-quiz-src="../../data/netzwerktechnik/netzwerktopologien.json">
         <p class="muted">Quiz wird geladen …</p>
       </div>
     </section>

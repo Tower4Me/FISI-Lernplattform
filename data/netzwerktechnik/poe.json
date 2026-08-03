@@ -1,0 +1,65 @@
+{
+  "unit": "netzwerktechnik/poe",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht PoE und welchen Vorteil bietet es?",
+      "options": [
+        "Power over Ethernet — liefert Strom und Daten über ein einziges Netzwerkkabel",
+        "Priority over Ethernet — priorisiert bestimmten Datenverkehr im Netzwerk",
+        "Protocol over Ethernet — kapselt beliebige Protokolle in Ethernet-Frames",
+        "Port over Ethernet — vergrößert die Anzahl verfügbarer Switch-Ports"
+      ],
+      "answer": 0,
+      "explanation": "PoE (Power over Ethernet) versorgt Endgeräte wie IP-Telefone oder Access-Points über dasselbe Kabel mit Strom, über das auch die Daten laufen — ein separates Netzteil entfällt."
+    },
+    {
+      "id": "q2",
+      "question": "Welche der folgenden PoE-Standard-Zuordnungen ist korrekt?",
+      "options": [
+        "IEEE 802.3af liefert mehr Leistung als IEEE 802.3bt",
+        "IEEE 802.3at (PoE+) liefert mehr Leistung als IEEE 802.3af (PoE)",
+        "PoE-Standards regeln ausschließlich die Datengeschwindigkeit, nicht die Leistung",
+        "Alle PoE-Standards liefern exakt dieselbe maximale Leistung"
+      ],
+      "answer": 1,
+      "explanation": "802.3af (PoE/Type 1) liefert bis 15,4 W an der Quelle, 802.3at (PoE+/Type 2) bis 30 W — die Leistung steigt mit dem Standard."
+    },
+    {
+      "id": "q3",
+      "question": "Warum steigt die maximale Leistung ab Type 3 (PoE++, IEEE 802.3bt) deutlich an?",
+      "options": [
+        "Weil ab Type 3 ein zusätzliches Netzteil verbaut wird",
+        "Weil ab Type 3 alle 4 Adernpaare des Kabels zur Stromübertragung genutzt werden statt nur 2",
+        "Weil Type 3 eine höhere Datenrate als Type 1 und 2 nutzt",
+        "Weil Type 3 ausschließlich über Glasfaserkabel läuft"
+      ],
+      "answer": 1,
+      "explanation": "Type 1 und Type 2 nutzen 2 Adernpaare zur Stromübertragung, Type 3 und Type 4 nutzen alle 4 Adernpaare — dadurch steigt die maximale Leistung von 30 W auf 60 W bzw. 100 W an der Quelle."
+    },
+    {
+      "id": "q4",
+      "question": "Was gilt für UPoE und UPoE+?",
+      "options": [
+        "Es sind offizielle IEEE-Standards wie 802.3af/at/bt",
+        "Es sind Cisco-proprietäre Herstellerbegriffe, keine IEEE-Standards",
+        "Sie ersetzen offiziell den IEEE-802.3bt-Standard",
+        "Sie bezeichnen dieselbe Leistung wie Type 1 (PoE)"
+      ],
+      "answer": 1,
+      "explanation": "UPoE (bis 60 W) und UPoE+ (bis 90 W) sind Cisco-proprietäre Herstellerbegriffe. In IHK-Prüfungen wird nach den IEEE-Standards af/at/bt gefragt, nicht nach Herstellerbezeichnungen."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Merkhilfe fasst die maximale Leistung an der Quelle für Type 1 bis Type 4 zusammen?",
+      "options": [
+        "10 / 20 / 40 / 80 W",
+        "15 / 30 / 60 / 100 W",
+        "12,95 / 25,5 / 51 / 71 W",
+        "5 / 10 / 20 / 40 W"
+      ],
+      "answer": 1,
+      "explanation": "15 / 30 / 60 / 100 W sind die maximalen Leistungen an der Quelle für Type 1 (802.3af) bis Type 4 (802.3bt) — die Werte am Endgerät liegen jeweils etwas niedriger (Übertragungsverlust)."
+    }
+  ]
+}

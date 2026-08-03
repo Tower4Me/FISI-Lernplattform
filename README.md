@@ -9,10 +9,12 @@ Teilweise können Inhalte ausführlicher sein als wirklich relevant für die APs
 ## Features
 
 - Modulare Lerneinheiten mit einheitlichem Aufbau: Einstieg, Konzept, Praxisbeispiel, Merksatz, Quiz
-- Interaktive Quizzes mit lokal gespeichertem Fortschritt
+- Interaktive Quizzes mit lokal gespeichertem Fortschritt (eine Einheit gilt ab 80 % richtiger Antworten als erledigt)
+- Suche nach Einheiten-Titeln sowie Filter nach Prüfungsteil (AP1/AP2)
+- Fortschrittsanzeige pro Modul, Navigation zur jeweils nächsten Einheit am Seitenende
 - Interaktive Tools: SQL-Editor, Subnetzrechner, RAID-Rechner, Zahlensystem-Konverter u. a.
-- Vier Farbschemata (White, Dark, Creme, Terminal), Systemeinstellung wird automatisch erkannt
-- Druckoptimierte Ansicht: Lerneinheiten als PDF oder auf Papier, Quiz zum Ankreuzen ohne Lösungen
+- Verschiedene Farbschemata, Systemeinstellung wird automatisch erkannt
+- Druckoptimierte Ansicht: Lerneinheiten als PDF oder auf Papier (Strg+P), Quiz zum Ankreuzen ohne Lösungen, interaktive Tools werden beim Drucken ausgeblendet
 
 ## Lokal starten
 

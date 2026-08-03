@@ -39,6 +39,13 @@
   --ok: #2f8f46;   /* Vorschlag — war #3fb950, gedeckter fuer Hell-Kontrast (Option B) */
   --fail: #e5484d; /* Vorschlag — war #f85149, gedeckter fuer Hell-Kontrast (Option B) */
 
+  /* Aderfarben TP-/LWL-Diagramme (Gruppe 2, faktische Kabelfarben — kein
+     Theme-Bezug, siehe CONVENTIONS §11: keine Hex-Werte direkt im SVG). */
+  --wire-blue: #2f5fa8;
+  --wire-orange: #d9772f;
+  --wire-green: #2f8f46;
+  --wire-brown: #7a4a2f;
+
   /* Layout */
   --maxw: 820px;
   --radius: 10px;
@@ -123,6 +130,11 @@ code, kbd, pre {
   color: var(--text-muted);
   font-size: 0.85rem;
   border-top: 1px solid var(--border);
+}
+.site-footer__next {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 /* ---------------------------------------------------------- Breadcrumbs */
@@ -700,8 +712,16 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .quiz__option--correct,
   .quiz__option--wrong { border-color: transparent; }
 
-  /* Interaktive Tools (SQL-Terminal, Rechner etc.) komplett raus */
-  .tool { display: none; }
+  /* Interaktive Tools (SQL-Terminal, Rechner etc.) komplett raus. Dazu
+     die kurzen Einleitungssaetze direkt vor einem Tool ("Probiere …",
+     "Berechne …", jeweils class="tool-intro") — ohne das Tool darunter
+     wuerden sie im Ausdruck sinnlos allein/als Frage ohne Antwort stehen
+     bleiben. Nur die reine Instruktionszeile traegt die Klasse, keine
+     Erklaerungsabsaetze mit eigenstaendigem Lerninhalt (siehe FIXLOG.md
+     zum Sonderfall "Projektbegriff & magisches Dreieck", wo ein
+     Mischsatz dafuer aufgeteilt wurde). */
+  .tool,
+  .tool-intro { display: none; }
 }
 
 /* ---------------------------------------- Mobile: Suche lesbar (C2) --- */

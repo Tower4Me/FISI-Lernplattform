@@ -357,3 +357,71 @@ Kategorien und wurden nicht angefasst.
 
 ZEICHNUNG- und TOOL-Befunde aus QUALITAETSKONTROLLE.md wurden in diesem
 Durchlauf komplett ignoriert, wie beauftragt.
+
+---
+
+## Verschiebe-Aufgabe: Text-Encoder von Bits & Bytes → Zeichensätze
+
+Betrifft ausschließlich zwei Einheiten, keine anderen Änderungen.
+
+### `bits-und-bytes` (Modul 2, Kalkulation) — Tool entfernt
+Der Text-Encoder (`assets/tools/bits-konverter.js`, Eingabefeld +
+Tabelle Zeichen/Byte/Binär/Hex/Dezimal, Beispiel „Hi!“) gehörte
+thematisch nicht zu Bits & Bytes, sondern zur Zeichenkodierung.
+Entfernt:
+- Absatz „Probiere die Bit-Kodierung von Text direkt aus:“ plus
+  `<div class="tool" data-tool="bits-konverter">` im Konzept-Abschnitt
+  (stand zwischen dem KiB/MiB/GiB-Prüfungsfallstrick-Absatz und
+  „Speicherbedarf berechnen: Auflösung × Farbtiefe“).
+- `<script src="../../assets/tools/bits-konverter.js"></script>` am
+  Seitenende.
+- Der erklärende Text „X Zeichen ergeben X Byte … Ein einfaches
+  ASCII-Zeichen … belegt in UTF-8 genau 1 Byte, Sonderzeichen/Umlaute
+  können 2–4 Byte benötigen“ steht nicht als eigener HTML-Absatz,
+  sondern wird vom Tool selbst zur Laufzeit erzeugt
+  (`bits-konverter.js`, Funktion `render()`) — er ist damit automatisch
+  mitentfernt worden, da das gesamte Tool entfernt wurde.
+Geprüft: kein verwaister Verweis, keine leere Section, Merksatz/Quiz
+referenzieren das Tool nicht (Quiz-JSON durchsucht — kein Treffer).
+
+### `zeichensaetze-ascii-unicode` (Modul 7, Software/OS/Web) — Tool eingefügt
+Tool im Praxisbeispiel-Abschnitt ergänzt, nach der Platzierungs-
+Konvention der Plattform (Vorbild: Subnetz-Rechner in
+`ipv4-subnetting.html`, Hex-Viewer in `zahlensysteme.html`,
+Verschlüsselungs-Demo in `kryptographie-sym-asym.html` — kurzer
+„Probiere …“-Lead-Satz direkt gefolgt vom `<div class="tool">`).
+Eingefügt, als erstes Element im Praxisbeispiel-Abschnitt (vor dem
+bestehenden CRLF-Praxisfall, damit die Reihenfolge dem Konzept-Teil
+folgt: erst ASCII/UTF-8, danach CR/LF):
+```html
+<p>
+  Probiere direkt aus, wie ein Text zeichenweise in seine
+  Byte-Darstellung zerlegt wird — genau das Prinzip hinter der
+  ASCII-Tabelle aus dem Konzept-Teil, hier erweitert auf
+  beliebigen UTF-8-Text:
+</p>
+<div class="tool" data-tool="bits-konverter">
+  <p class="muted">Tool wird geladen …</p>
+</div>
+```
+Plus `<script src="../../assets/tools/bits-konverter.js"></script>`
+vor dem bereits vorhandenen `crlf-visualizer.js`-Tag am Seitenende.
+Bestehender Inhalt (CRLF-Praxisfall, ISO-8859-1-Fall) unverändert
+darunter erhalten.
+
+**Hinweis zur Vorgabe „Codepoint→UTF-8-Bytes-Tool existiert bereits“:**
+In der Einheit existiert kein separates interaktives Codepoint→Bytes-
+Tool — nur eine statische Tabelle (A/ä/€/😀 → Codepoint → UTF-8-Bytes)
+im Konzept-Abschnitt sowie der `crlf-visualizer` (Zeilenenden LF/CRLF/
+CR, nicht Zeichenkodierung). Beides wurde wie vorgegeben nicht
+angefasst. Der ursprünglich in QUALITAETSKONTROLLE.md notierte
+TOOL-Befund „UTF-8-Byte-Encoder fehlt“ bleibt damit inhaltlich weiter
+zutreffend für einen reinen Codepoint-Eingabe-Rechner — der jetzt
+verschobene Text-Encoder deckt einen ähnlichen, aber nicht identischen
+Anwendungsfall ab (ganzer Text statt einzelner Codepoint).
+
+Im Browser verifiziert: `bits-und-bytes.html` zeigt kein Tool mehr im
+Konzept-Abschnitt (keine Konsolenfehler). `zeichensaetze-ascii-unicode.html`
+zeigt `bits-konverter` im Praxis-Abschnitt und `crlf-visualizer`
+unverändert im Konzept-Abschnitt; Testeingabe „Hi!“ liefert korrekt
+H = 0x48 = 72, i = 0x69 = 105, ! = 0x21 = 33.

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Netzwerktechnik: QoS (Quality of Service)</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
+        <li aria-current="page">QoS (Quality of Service)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      QoS (Quality of Service)
+      <span class="badges">
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In der Mittagspause telefonieren plötzlich alle gleichzeitig und
+        laden Dateien hoch. Ohne eine Art Vorrangsystem an der Poststelle des
+        Bürogebäudes würde ein dringendes Telefonat genauso lange in der
+        Warteschlange stehen wie ein normales Paket. Ein guter Hausmeister
+        würde dringende, zeitkritische Sendungen (das Telefonat) vorziehen
+        und weniger dringende (den großen Datei-Upload) notfalls etwas
+        warten lassen. Genau das leistet <strong>QoS</strong> im Netzwerk.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        QoS priorisiert bestimmten Datenverkehr, wenn die Bandbreite knapp
+        wird. Ohne QoS werden alle Pakete gleich behandelt (Best Effort) —
+        zeitkritischer Verkehr wie VoIP-Telefonie oder Videokonferenzen kann
+        dann ruckeln oder abreißen, während weniger zeitkritischer Verkehr
+        (z. B. ein Datei-Download) genauso viel Vorrang bekommt. QoS-Regeln
+        klassifizieren Pakete (z. B. nach Protokoll, Port oder VLAN) und
+        weisen ihnen Prioritätsstufen zu, sodass wichtiger Verkehr bei
+        Engpässen bevorzugt weitergeleitet wird.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus stellt in der Firmenzentrale eines Kunden fest,
+        dass Telefonate über die neue VoIP-Anlage in der Mittagspause
+        regelmäßig stocken.
+      </p>
+      <ul>
+        <li>Der Techniker konfiguriert <strong>QoS</strong> auf dem Switch
+          so, dass VoIP-Verkehr (erkennbar am Protokoll/Port) gegenüber
+          normalem Datenverkehr priorisiert wird.</li>
+        <li>Bei knapper Bandbreite in der Mittagspause werden
+          Telefonpakete jetzt bevorzugt weitergeleitet, während ein
+          gleichzeitiger Datei-Upload notfalls minimal langsamer läuft.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Was passiert mit zeitkritischem
+        VoIP-Verkehr, wenn kein QoS konfiguriert ist?“ – Antwort: Ohne QoS
+        gilt Best Effort — alle Pakete werden gleich behandelt, sodass
+        VoIP-Verkehr bei Bandbreitenengpässen genauso wie jeder andere
+        Verkehr verzögert werden kann und dadurch ruckeln oder abreißen
+        kann.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        QoS priorisiert zeitkritischen Verkehr (z. B. VoIP) bei
+        Bandbreitenengpässen. Ohne QoS gilt Best Effort — alle Pakete
+        werden gleich behandelt. QoS-Regeln klassifizieren Pakete nach
+        Protokoll, Port oder VLAN und weisen ihnen Prioritätsstufen zu.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/qos.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+</body>
+</html>

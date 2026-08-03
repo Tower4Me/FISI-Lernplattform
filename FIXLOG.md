@@ -425,3 +425,86 @@ Konzept-Abschnitt (keine Konsolenfehler). `zeichensaetze-ascii-unicode.html`
 zeigt `bits-konverter` im Praxis-Abschnitt und `crlf-visualizer`
 unverändert im Konzept-Abschnitt; Testeingabe „Hi!“ liefert korrekt
 H = 0x48 = 72, i = 0x69 = 105, ! = 0x21 = 33.
+
+---
+
+## Modul 4 – Netzwerktechnik: Struktur-Split (kein QC-Befund, Ben-Auftrag)
+
+### `topologien-vlan-poe-qos` → vier eigenständige Einheiten
+
+Die kombinierte Einheit „Topologien, VLAN, PoE & QoS“ wurde auf
+ausdrücklichen Wunsch in vier eigenständige Einheiten aufgeteilt, jede mit
+eigenem Einstieg/Konzept/Praxisbeispiel/Merksatz/Quiz (Struktur exakt nach
+Vorbild `ipv4-subnetting.html`). Das bisherige gemeinsame
+Großraumbüro-Praxisbeispiel wurde **nicht** übernommen — jede Einheit hat
+jetzt ein eigenes, kleineres, themenreines Beispiel.
+
+**Angelegt/umbenannt:**
+- `module/netzwerktechnik/topologien-vlan-poe-qos.html` →
+  **umbenannt** (`git mv`) zu `module/netzwerktechnik/netzwerktopologien.html`
+  (Topologien-Teil, inkl. bestehendem Bus/Stern/Ring/Mesh-SVG unverändert
+  übernommen). Zugehörige Quiz-JSON ebenfalls umbenannt:
+  `data/netzwerktechnik/topologien-vlan-poe-qos.json` →
+  `data/netzwerktechnik/netzwerktopologien.json` (4 Fragen, davon 1 aus
+  der alten Datei übernommen, 3 neu für Bus/Ring/Mesh ergänzt, da die
+  alte Datei nur 1 von 7 Fragen zu Topologien hatte).
+- **Neu angelegt:** `module/netzwerktechnik/vlan.html` +
+  `data/netzwerktechnik/vlan.json` (4 Fragen, 3 aus der alten Datei
+  übernommen + 1 neu zu Inter-VLAN-Routing).
+- **Neu angelegt:** `module/netzwerktechnik/poe.html` +
+  `data/netzwerktechnik/poe.json` (5 Fragen, 2 aus der alten Datei
+  übernommen + 3 neu zur erweiterten Type-1–4-Tabelle/UPoE).
+- **Neu angelegt:** `module/netzwerktechnik/qos.html` +
+  `data/netzwerktechnik/qos.json` (4 Fragen, 1 aus der alten Datei
+  übernommen + 3 neu).
+
+**PoE zusätzlich ausgebaut** (nicht nur unverändert übernommen):
+Vergleichstabelle von 3 auf 4 Zeilen erweitert (Type 1–4 statt nur 3
+Standard-Zeilen), neue Spalten Jahr/Leistung-Quelle/Adernpaare ergänzt,
+Kernpunkte-Liste (Datenübertragung, Leistungssprung ab Type 3 wegen 4
+statt 2 Adernpaaren, Abwärtskompatibilität, typische Verbraucher,
+Merkhilfe 15/30/60/100 W) sowie eine Randnotiz zu UPoE/UPoE+ (Cisco-
+proprietär, keine IEEE-Standards, ausdrücklich nicht als gleichwertig
+dargestellt) ergänzt. Badge auf AP1+AP2 erweitert (vorher nur AP2), da
+laut Ben PoE 2026 in AP1 drankam — Einstieg enthält entsprechenden
+Prüfungsrelevanz-Hinweis.
+
+**`data/manifest.json` geändert:** der eine Eintrag `slug:
+"topologien-vlan-poe-qos"` wurde durch vier Einträge in derselben
+Position ersetzt (Reihenfolge: `netzwerktopologien`, `vlan`, `poe`,
+`qos` — passend zur Vorgabe 1–4). `index.html` selbst musste nicht
+angefasst werden, da es Modulliste/Badges ausschließlich aus
+`data/manifest.json` rendert (siehe CONVENTIONS §14) — im Browser
+gegen einen frischen (nicht gecachten) Server-Port geprüft: alle vier
+neuen Einheiten erscheinen unter Netzwerktechnik an der richtigen
+Stelle mit korrekten Links/Badges.
+
+**Cross-Referenz-Prüfung:**
+- `module/hardware/schnittstellen-video.html` und alle anderen Dateien
+  in `module/hardware/` enthalten **keinen** Verweis auf PoE oder die
+  alte Einheit — nichts zu korrigieren (per `grep -rl "PoE\|topologien-
+  vlan-poe-qos"` projektweit geprüft).
+- Kein anderes `module/**/*.html` verlinkte auf
+  `topologien-vlan-poe-qos.html` — keine toten Links durch die
+  Umbenennung entstanden.
+- Neuer interner Link `netzwerktopologien.html` → `vlan.html` (Konzept,
+  „siehe Einheit VLAN“) und umgekehrt `vlan.html` → `netzwerktopologien.html`
+  (Konzept, „siehe Einheit Netzwerktopologien“) ergänzt, da beide Themen
+  eng zusammenhängen (physische vs. logische Struktur).
+- `PLAN.md` Thema 4.1 aktualisiert: ein Bullet wurde zu vier Bullets
+  aufgeteilt, jeweils mit Verweis auf die neue Einheit und einem Hinweis
+  auf den Split-Zeitpunkt.
+- `QUALITAETSKONTROLLE.md` und `ZEICHNUNGSLOG.md` **nicht** verändert:
+  Ersteres ist ein eingefrorener Prüfbericht (keine Historie von
+  Korrekturmarkierungen im restlichen Dokument, siehe übrige Einträge),
+  Letzteres ist ein reines Ereignisprotokoll vergangener Zeichnungs-Fixes
+  — beide bleiben als historische Snapshots unverändert korrekt, auch
+  wenn sich der Dateiname der betroffenen Einheit seither geändert hat.
+
+**Verifiziert** (lokaler Python-HTTP-Server auf frischem Port wegen
+Browser-Caching des alten `manifest.json` auf zuvor genutzten Ports):
+alle vier Einheiten laden fehlerfrei, Breadcrumbs/„Zurück zum
+Lernplan“-Link korrekt, Quiz rendert mit quiz-engine.js (4/4/5/4
+Fragen), PoE-Tabelle zeigt exakt die vorgegebenen Werte, PoE-Tabelle
+scrollt bei 360 px Breite horizontal innerhalb der Tabelle (kein
+Seiten-Scroll, CONVENTIONS §7 global table-Regel greift unverändert).

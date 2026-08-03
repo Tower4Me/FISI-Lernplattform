@@ -318,10 +318,28 @@
           "quiz": "data/netzwerktechnik/netzwerkkomponenten.json"
         },
         {
-          "slug": "topologien-vlan-poe-qos",
-          "name": "Topologien, VLAN, PoE & QoS",
+          "slug": "netzwerktopologien",
+          "name": "Netzwerktopologien",
           "exams": ["ap2"],
-          "quiz": "data/netzwerktechnik/topologien-vlan-poe-qos.json"
+          "quiz": "data/netzwerktechnik/netzwerktopologien.json"
+        },
+        {
+          "slug": "vlan",
+          "name": "VLAN (Virtual LAN)",
+          "exams": ["ap2"],
+          "quiz": "data/netzwerktechnik/vlan.json"
+        },
+        {
+          "slug": "poe",
+          "name": "PoE (Power over Ethernet)",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/poe.json"
+        },
+        {
+          "slug": "qos",
+          "name": "QoS (Quality of Service)",
+          "exams": ["ap2"],
+          "quiz": "data/netzwerktechnik/qos.json"
         },
         {
           "slug": "ipv4-subnetting",

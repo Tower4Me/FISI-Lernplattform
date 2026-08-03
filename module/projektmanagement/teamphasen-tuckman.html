@@ -94,6 +94,53 @@
         die Aufgabe grundlegend, kann ein Team in frühere Phasen
         zurückfallen.
       </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tuckman-title tuckman-desc">
+          <title id="tuckman-title">Die Tuckman-Kurve: Leistungsfähigkeit über die fünf Teamphasen</title>
+          <desc id="tuckman-desc">Liniendiagramm über die fünf Phasen Forming, Storming, Norming, Performing und Adjourning. Die Leistungsfähigkeit startet mittel bei Forming, sinkt bei Storming ab, steigt über Norming bis zum Höhepunkt bei Performing und fällt bei Adjourning wieder ab. Eine gestrichelte Rückfall-Linie von Performing zurück zu Storming zeigt, dass ein Team bei Veränderungen in frühere Phasen zurückfallen kann.</desc>
+
+          <defs>
+            <marker id="tuckman-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+            <marker id="tuckman-arrow-fail" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--fail)"/>
+            </marker>
+          </defs>
+
+          <line x1="40" y1="220" x2="450" y2="220" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#tuckman-arrow)"/>
+          <text x="460" y="224" fill="var(--text-muted)" font-size="10">Zeit</text>
+          <line x1="40" y1="220" x2="40" y2="20" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#tuckman-arrow)"/>
+          <text x="15" y="120" text-anchor="middle" fill="var(--text-muted)" font-size="9" transform="rotate(-90 15 120)">Leistungsfähigkeit / Zusammenhalt</text>
+
+          <polyline points="70,170 150,195 230,120 310,55 390,150" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+
+          <path d="M300,60 C 260,208 190,208 158,192" fill="none" stroke="var(--fail)" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#tuckman-arrow-fail)"/>
+          <text x="230" y="234" text-anchor="middle" fill="var(--fail)" font-size="9">Rückfall möglich</text>
+
+          <circle cx="70" cy="170" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="150" cy="195" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="230" cy="120" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="310" cy="55" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="390" cy="150" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+
+          <g text-anchor="middle" fill="var(--text)" font-size="9">
+            <text x="70" y="250">Forming</text>
+            <text x="150" y="250">Storming</text>
+            <text x="230" y="250">Norming</text>
+            <text x="310" y="250">Performing</text>
+            <text x="390" y="250">Adjourning</text>
+          </g>
+        </svg>
+        <figcaption>
+          Die Leistungsfähigkeit sinkt beim Storming zunächst ab, bevor
+          sie über Norming bis zum Performing-Höhepunkt steigt und beim
+          Adjourning wieder abfällt. Kommen neue Mitglieder hinzu oder
+          ändert sich die Aufgabe grundlegend, kann ein Team auch aus
+          späteren Phasen wieder zurückfallen (gestrichelt).
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->

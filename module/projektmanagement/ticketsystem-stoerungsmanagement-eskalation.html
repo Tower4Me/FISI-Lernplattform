@@ -114,6 +114,57 @@
           </tr>
         </tbody>
       </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 410 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eskalation-title eskalation-desc">
+          <title id="eskalation-title">Zwei Eskalationsachsen: fachlich (waagerecht) und hierarchisch (senkrecht)</title>
+          <desc id="eskalation-desc">Ausgehend vom First-Level-Support führt die fachliche Eskalation waagerecht über Second-Level zu Third-Level-Support, wenn die Fachkompetenz nicht ausreicht. Die hierarchische Eskalation führt senkrecht über den Teamleiter bis zur Geschäftsleitung, wenn Fristen oder Kundenzufriedenheit betroffen sind. Beide Achsen sind unabhängig voneinander und können gleichzeitig genutzt werden.</desc>
+
+          <defs>
+            <marker id="eskalation-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="20" y1="232" x2="390" y2="232" stroke="var(--acc-praxis)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <text x="205" y="222" text-anchor="middle" fill="var(--acc-praxis)" font-size="10" font-weight="600">fachliche (funktionale) Eskalation</text>
+
+          <line x1="10" y1="294" x2="10" y2="60" stroke="var(--acc-quiz)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <text x="10" y="180" text-anchor="middle" fill="var(--acc-quiz)" font-size="9" font-weight="600" transform="rotate(-90 10 180)">hierarchische Eskalation</text>
+
+          <rect x="20" y="250" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="75" y="276" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">First-Level</text>
+
+          <rect x="150" y="250" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="205" y="276" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Second-Level</text>
+
+          <rect x="280" y="250" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="335" y="276" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Third-Level</text>
+
+          <line x1="130" y1="272" x2="150" y2="272" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <line x1="260" y1="272" x2="280" y2="272" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+
+          <rect x="20" y="150" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="75" y="176" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Teamleiter</text>
+
+          <rect x="20" y="65" width="110" height="44" rx="6" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="75" y="83" text-anchor="middle" fill="var(--text-muted)" font-size="9">Geschäfts-</text>
+          <text x="75" y="96" text-anchor="middle" fill="var(--text-muted)" font-size="9">leitung</text>
+
+          <line x1="75" y1="250" x2="75" y2="194" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <line x1="75" y1="150" x2="75" y2="109" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#eskalation-arrow)"/>
+
+          <text x="140" y="215" fill="var(--text-muted)" font-size="8">z. B. Standardlösung reicht nicht</text>
+          <text x="140" y="145" fill="var(--text-muted)" font-size="8">z. B. SLA-Frist droht zu reißen</text>
+        </svg>
+        <figcaption>
+          Die beiden Eskalationsachsen sind unabhängig: fachliche
+          Eskalation (grün, waagerecht) sucht mehr Fachkompetenz,
+          hierarchische Eskalation (violett, senkrecht) bindet
+          Vorgesetzte ein — beide können, wie im Praxisbeispiel,
+          gleichzeitig genutzt werden.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->

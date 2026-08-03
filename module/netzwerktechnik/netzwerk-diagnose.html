@@ -85,6 +85,76 @@
         <li><code>ping</code> auf eine bekannte externe IP-Adresse — funktioniert die Verbindung nach außen?</li>
         <li><code>nslookup</code> bzw. <code>ping</code> auf einen Domainnamen — funktioniert die DNS-Auflösung?</li>
       </ol>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 470 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diag-title diag-desc">
+          <title id="diag-title">Flussdiagramm der systematischen Netzwerk-Fehlersuche von innen nach außen</title>
+          <desc id="diag-desc">Fünf aufeinanderfolgende Ja/Nein-Entscheidungen: Funktioniert der Loopback-Test? Ist die IP-Adresse gültig? Ist das Gateway erreichbar? Ist eine externe IP-Adresse erreichbar? Funktioniert die DNS-Auflösung? Bei Nein wird jeweils die vermutliche Fehlerursache benannt, bei Ja geht es zur nächsten Prüfung, bis am Ende die Verbindung als funktionsfähig bestätigt wird.</desc>
+
+          <defs>
+            <marker id="diag-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="70" y="10" width="140" height="30" rx="5" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="140" y="30" text-anchor="middle" fill="var(--text)" font-size="10">Kein Zugriff auf Ziel</text>
+          <line x1="140" y1="40" x2="140" y2="53" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+
+          <polygon points="140,55 210,80 140,105 70,80" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="84" text-anchor="middle" fill="var(--text)" font-size="8.5">ping 127.0.0.1 OK?</text>
+          <line x1="210" y1="80" x2="278" y2="80" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="73" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="60" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="84" text-anchor="middle" fill="var(--text)" font-size="9">Lokaler TCP/IP-Stack defekt</text>
+          <line x1="140" y1="105" x2="140" y2="153" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="130" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,155 210,180 140,205 70,180" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="184" text-anchor="middle" fill="var(--text)" font-size="8.5">IP gültig (kein APIPA)?</text>
+          <line x1="210" y1="180" x2="278" y2="180" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="173" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="160" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="184" text-anchor="middle" fill="var(--text)" font-size="9">DHCP-Problem (APIPA)</text>
+          <line x1="140" y1="205" x2="140" y2="253" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="230" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,255 210,280 140,305 70,280" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="284" text-anchor="middle" fill="var(--text)" font-size="8.5">Gateway erreichbar?</text>
+          <line x1="210" y1="280" x2="278" y2="280" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="273" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="260" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="284" text-anchor="middle" fill="var(--text)" font-size="9">Lokales Netz gestört</text>
+          <line x1="140" y1="305" x2="140" y2="353" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="330" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,355 210,380 140,405 70,380" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="384" text-anchor="middle" fill="var(--text)" font-size="8.5">Externe IP erreichbar?</text>
+          <line x1="210" y1="380" x2="278" y2="380" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="373" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="360" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="384" text-anchor="middle" fill="var(--text)" font-size="9">Problem bei WAN/Provider</text>
+          <line x1="140" y1="405" x2="140" y2="453" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="430" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,455 210,480 140,505 70,480" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="484" text-anchor="middle" fill="var(--text)" font-size="8.5">DNS-Auflösung OK?</text>
+          <line x1="210" y1="480" x2="278" y2="480" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="473" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="460" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="484" text-anchor="middle" fill="var(--text)" font-size="9">DNS-Problem</text>
+          <line x1="140" y1="505" x2="140" y2="548" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="530" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <rect x="55" y="550" width="170" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="140" y="573" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Verbindung funktioniert</text>
+        </svg>
+        <figcaption>
+          Jede Stufe grenzt den Fehler weiter ein: von innen (eigener
+          TCP/IP-Stack) über das lokale Netz bis nach außen (Internet,
+          DNS) — bei „Nein" steht die vermutliche Ursache direkt daneben.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->

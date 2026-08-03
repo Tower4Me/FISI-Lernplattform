@@ -82,6 +82,48 @@
         <li>Das Gerät mit dieser IP-Adresse antwortet mit einer <strong>ARP-Reply</strong> und teilt seine MAC-Adresse direkt (unicast) mit.</li>
         <li>Die Zuordnung wird im ARP-Cache gespeichert, damit nicht bei jedem Paket erneut gefragt werden muss.</li>
       </ol>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="arp-title arp-desc">
+          <title id="arp-title">ARP-Ablauf: Broadcast-Anfrage, Unicast-Antwort und Cache-Eintrag</title>
+          <desc id="arp-desc">Der Sender schickt eine ARP-Request als Broadcast an alle Geräte im Segment und fragt, wer die IP-Adresse 192.168.1.50 hat. Andere Geräte empfangen die Anfrage, ignorieren sie aber, da sie nicht gemeint sind. Nur der Ziel-Host mit passender IP-Adresse antwortet direkt per Unicast mit seiner MAC-Adresse. Der Sender speichert die Zuordnung anschließend im ARP-Cache.</desc>
+
+          <defs>
+            <marker id="arp-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="13">Sender</text>
+          <line x1="75" y1="53" x2="75" y2="250" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="195" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <text x="250" y="39" text-anchor="middle" fill="var(--text-muted)" font-size="12">Andere Geräte</text>
+          <line x1="250" y1="53" x2="250" y2="250" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="13">Ziel-Host</text>
+          <line x1="425" y1="53" x2="425" y2="250" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <text x="250" y="72" text-anchor="middle" fill="var(--text)" font-size="11">1. ARP-Request (Broadcast): „Wer hat 192.168.1.50?“</text>
+          <line x1="75" y1="80" x2="248" y2="80" stroke="var(--text)" stroke-width="2" marker-end="url(#arp-arrow)"/>
+          <line x1="75" y1="90" x2="423" y2="90" stroke="var(--text)" stroke-width="2" marker-end="url(#arp-arrow)"/>
+          <text x="250" y="108" text-anchor="middle" fill="var(--text-muted)" font-size="9">nicht gemeint, ignoriert</text>
+
+          <text x="250" y="148" text-anchor="middle" fill="var(--text)" font-size="11">2. ARP-Reply (Unicast): „MAC AA:BB:CC:DD:EE:FF“</text>
+          <line x1="425" y1="156" x2="77" y2="156" stroke="var(--text)" stroke-width="2" marker-end="url(#arp-arrow)"/>
+
+          <text x="75" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="10">3. Sender trägt</text>
+          <text x="75" y="213" text-anchor="middle" fill="var(--text-muted)" font-size="10">IP↔MAC in</text>
+          <text x="75" y="226" text-anchor="middle" fill="var(--text-muted)" font-size="10">ARP-Cache ein</text>
+        </svg>
+        <figcaption>
+          Nur der gesuchte Ziel-Host antwortet auf die Broadcast-Anfrage —
+          alle anderen Geräte empfangen sie zwar, ignorieren sie aber, da
+          ihre IP-Adresse nicht angefragt wurde.
+        </figcaption>
+      </figure>
+
       <p>
         ARP arbeitet ausschließlich innerhalb eines lokalen Netzsegments —
         über Netzgrenzen (Router) hinweg wird ARP nicht verwendet, dort

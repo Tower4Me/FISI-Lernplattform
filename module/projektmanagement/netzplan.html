@@ -108,6 +108,142 @@
           (4 Tage), die vor dem Go-Live abgeschlossen sein muss, aber
           erst nach 9 Tagen benötigt wird — sie hat also 5 Tage Puffer.</li>
       </ul>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 610 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="netzplan-title netzplan-desc">
+          <title id="netzplan-title">Vorgangsknotennetz des Serverumzugs mit FAZ/FEZ/SAZ/SEZ und kritischem Pfad</title>
+          <desc id="netzplan-desc">Fünf Vorgänge in Reihe (Lieferung, Installation, Migration, Tests, Go-Live) bilden mit Puffer null den kritischen Pfad von Tag 0 bis Tag 13, grün hervorgehoben. Parallel dazu läuft die Schulungsvorbereitung von Tag 0 bis Tag 4 mit spätestem Endzeitpunkt Tag 9 und damit 5 Tagen Puffer, gestrichelt dargestellt, und mündet vor dem Go-Live-Knoten ein.</desc>
+
+          <defs>
+            <marker id="netzplan-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <text x="305" y="16" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Vorgangsknoten-Aufbau</text>
+          <text x="305" y="32" text-anchor="middle" fill="var(--text-muted)" font-size="10">FAZ · Dauer · FEZ (oben) — Vorgang (Mitte) — SAZ · Puffer · SEZ (unten)</text>
+
+          <!-- Kette: Lieferung -->
+          <g>
+            <rect x="10" y="50" width="100" height="72" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+            <line x1="10" y1="74" x2="110" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="10" y1="98" x2="110" y2="98" stroke="var(--border)" stroke-width="1"/>
+            <line x1="43" y1="50" x2="43" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="77" y1="50" x2="77" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="43" y1="98" x2="43" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <line x1="77" y1="98" x2="77" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <text x="26" y="67" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="60" y="67" text-anchor="middle" fill="var(--text)" font-size="9">5</text>
+            <text x="93" y="67" text-anchor="middle" fill="var(--text)" font-size="9">5</text>
+            <text x="60" y="90" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Lieferung</text>
+            <text x="26" y="115" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="60" y="115" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="93" y="115" text-anchor="middle" fill="var(--text)" font-size="9">5</text>
+          </g>
+          <line x1="110" y1="86" x2="130" y2="86" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#netzplan-arrow)"/>
+
+          <!-- Installation -->
+          <g>
+            <rect x="130" y="50" width="100" height="72" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+            <line x1="130" y1="74" x2="230" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="130" y1="98" x2="230" y2="98" stroke="var(--border)" stroke-width="1"/>
+            <line x1="163" y1="50" x2="163" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="197" y1="50" x2="197" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="163" y1="98" x2="163" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <line x1="197" y1="98" x2="197" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <text x="146" y="67" text-anchor="middle" fill="var(--text)" font-size="9">5</text>
+            <text x="180" y="67" text-anchor="middle" fill="var(--text)" font-size="9">2</text>
+            <text x="213" y="67" text-anchor="middle" fill="var(--text)" font-size="9">7</text>
+            <text x="180" y="90" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Installation</text>
+            <text x="146" y="115" text-anchor="middle" fill="var(--text)" font-size="9">5</text>
+            <text x="180" y="115" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="213" y="115" text-anchor="middle" fill="var(--text)" font-size="9">7</text>
+          </g>
+          <line x1="230" y1="86" x2="250" y2="86" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#netzplan-arrow)"/>
+
+          <!-- Migration -->
+          <g>
+            <rect x="250" y="50" width="100" height="72" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+            <line x1="250" y1="74" x2="350" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="250" y1="98" x2="350" y2="98" stroke="var(--border)" stroke-width="1"/>
+            <line x1="283" y1="50" x2="283" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="317" y1="50" x2="317" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="283" y1="98" x2="283" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <line x1="317" y1="98" x2="317" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <text x="266" y="67" text-anchor="middle" fill="var(--text)" font-size="9">7</text>
+            <text x="300" y="67" text-anchor="middle" fill="var(--text)" font-size="9">3</text>
+            <text x="333" y="67" text-anchor="middle" fill="var(--text)" font-size="9">10</text>
+            <text x="300" y="90" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Migration</text>
+            <text x="266" y="115" text-anchor="middle" fill="var(--text)" font-size="9">7</text>
+            <text x="300" y="115" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="333" y="115" text-anchor="middle" fill="var(--text)" font-size="9">10</text>
+          </g>
+          <line x1="350" y1="86" x2="370" y2="86" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#netzplan-arrow)"/>
+
+          <!-- Tests -->
+          <g>
+            <rect x="370" y="50" width="100" height="72" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+            <line x1="370" y1="74" x2="470" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="370" y1="98" x2="470" y2="98" stroke="var(--border)" stroke-width="1"/>
+            <line x1="403" y1="50" x2="403" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="437" y1="50" x2="437" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="403" y1="98" x2="403" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <line x1="437" y1="98" x2="437" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <text x="386" y="67" text-anchor="middle" fill="var(--text)" font-size="9">10</text>
+            <text x="420" y="67" text-anchor="middle" fill="var(--text)" font-size="9">2</text>
+            <text x="453" y="67" text-anchor="middle" fill="var(--text)" font-size="9">12</text>
+            <text x="420" y="90" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Tests</text>
+            <text x="386" y="115" text-anchor="middle" fill="var(--text)" font-size="9">10</text>
+            <text x="420" y="115" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="453" y="115" text-anchor="middle" fill="var(--text)" font-size="9">12</text>
+          </g>
+          <line x1="470" y1="86" x2="490" y2="86" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#netzplan-arrow)"/>
+
+          <!-- Go-Live -->
+          <g>
+            <rect x="490" y="50" width="100" height="72" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+            <line x1="490" y1="74" x2="590" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="490" y1="98" x2="590" y2="98" stroke="var(--border)" stroke-width="1"/>
+            <line x1="523" y1="50" x2="523" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="557" y1="50" x2="557" y2="74" stroke="var(--border)" stroke-width="1"/>
+            <line x1="523" y1="98" x2="523" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <line x1="557" y1="98" x2="557" y2="122" stroke="var(--border)" stroke-width="1"/>
+            <text x="506" y="67" text-anchor="middle" fill="var(--text)" font-size="9">12</text>
+            <text x="540" y="67" text-anchor="middle" fill="var(--text)" font-size="9">1</text>
+            <text x="573" y="67" text-anchor="middle" fill="var(--text)" font-size="9">13</text>
+            <text x="540" y="90" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Go-Live</text>
+            <text x="506" y="115" text-anchor="middle" fill="var(--text)" font-size="9">12</text>
+            <text x="540" y="115" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="573" y="115" text-anchor="middle" fill="var(--text)" font-size="9">13</text>
+          </g>
+
+          <!-- Parallel: Schulungsvorbereitung (mit Puffer, nicht kritisch) -->
+          <g>
+            <rect x="10" y="180" width="240" height="72" rx="4" fill="var(--surface-2)" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="5 3"/>
+            <line x1="10" y1="204" x2="250" y2="204" stroke="var(--border)" stroke-width="1"/>
+            <line x1="10" y1="228" x2="250" y2="228" stroke="var(--border)" stroke-width="1"/>
+            <line x1="90" y1="180" x2="90" y2="204" stroke="var(--border)" stroke-width="1"/>
+            <line x1="170" y1="180" x2="170" y2="204" stroke="var(--border)" stroke-width="1"/>
+            <line x1="90" y1="228" x2="90" y2="252" stroke="var(--border)" stroke-width="1"/>
+            <line x1="170" y1="228" x2="170" y2="252" stroke="var(--border)" stroke-width="1"/>
+            <text x="50" y="197" text-anchor="middle" fill="var(--text)" font-size="9">0</text>
+            <text x="130" y="197" text-anchor="middle" fill="var(--text)" font-size="9">4</text>
+            <text x="210" y="197" text-anchor="middle" fill="var(--text)" font-size="9">4</text>
+            <text x="130" y="220" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Schulungsvorbereitung</text>
+            <text x="50" y="245" text-anchor="middle" fill="var(--text)" font-size="9">5</text>
+            <text x="130" y="245" text-anchor="middle" fill="var(--text)" font-size="9">5</text>
+            <text x="210" y="245" text-anchor="middle" fill="var(--text)" font-size="9">9</text>
+          </g>
+          <polyline points="250,216 537,216 537,122" fill="none" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#netzplan-arrow)"/>
+        </svg>
+        <figcaption>
+          Grün/durchgezogen = kritischer Pfad (Puffer 0, Tag 0 bis 13):
+          Lieferung → Installation → Migration → Tests → Go-Live.
+          Gestrichelt = Schulungsvorbereitung mit 5 Tagen Puffer
+          (SAZ − FAZ = 5 − 0 = 5), mündet vor Go-Live ein.
+        </figcaption>
+      </figure>
+
       <p>
         Der <strong>kritische Pfad</strong> verläuft über Lieferung →
         Installation → Migration → Tests → Go-Live (13 Tage, Puffer

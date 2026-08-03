@@ -100,6 +100,50 @@
         Fortschrittskontrolle. Beispiele: „Prototyp fertiggestellt“,
         „Testphase abgeschlossen“.
       </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 445 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="phasen-title phasen-desc">
+          <title id="phasen-title">Die vier Projektphasen als Zeitstrahl mit Meilensteinen</title>
+          <desc id="phasen-desc">Vier aufeinanderfolgende Phasenblöcke — Definition, Planung, Durchführung, Abschluss — über einem Zeitstrahl. Auf dem Zeitstrahl markieren zwei Rauten als Meilensteine feste Zeitpunkte, hier nach der Planung und nach der Testphase innerhalb der Durchführung.</desc>
+
+          <defs>
+            <marker id="phasen-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="25" width="90" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <rect x="118" y="25" width="90" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <rect x="216" y="25" width="90" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <rect x="314" y="25" width="90" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+
+          <text x="65" y="53" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="700">1</text>
+          <text x="163" y="53" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="700">2</text>
+          <text x="261" y="53" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="700">3</text>
+          <text x="359" y="53" text-anchor="middle" fill="var(--text)" font-size="18" font-weight="700">4</text>
+
+          <text x="65" y="84" text-anchor="middle" fill="var(--text-muted)" font-size="10">Definition</text>
+          <text x="163" y="84" text-anchor="middle" fill="var(--text-muted)" font-size="10">Planung</text>
+          <text x="261" y="84" text-anchor="middle" fill="var(--text-muted)" font-size="10">Durchführung</text>
+          <text x="359" y="84" text-anchor="middle" fill="var(--text-muted)" font-size="10">Abschluss</text>
+
+          <line x1="20" y1="150" x2="404" y2="150" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#phasen-arrow)"/>
+          <text x="412" y="154" fill="var(--text-muted)" font-size="10">Zeit</text>
+
+          <polygon points="213,142 221,150 213,158 205,150" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <polygon points="311,142 319,150 311,158 303,150" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="2"/>
+
+          <text x="213" y="130" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">M1</text>
+          <text x="213" y="176" text-anchor="middle" fill="var(--text-muted)" font-size="9">Planung fertig</text>
+          <text x="311" y="130" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">M2</text>
+          <text x="311" y="176" text-anchor="middle" fill="var(--text-muted)" font-size="9">Testphase fertig</text>
+        </svg>
+        <figcaption>
+          Phasen sind Zeiträume (Balken oben), Meilensteine sind feste
+          Zeitpunkte auf dem Zeitstrahl (Rauten unten) — keine eigene
+          Dauer, nur ein überprüfbares Ereignis.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->

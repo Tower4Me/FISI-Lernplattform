@@ -76,6 +76,58 @@
           <tr><td><strong>Management</strong></td><td>unklare Zuständigkeiten, fehlende Ressourcenplanung</td></tr>
         </tbody>
       </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fischgraet-title fischgraet-desc">
+          <title id="fischgraet-title">Ishikawa-Fischgrätdiagramm mit den sechs M-Kategorien</title>
+          <desc id="fischgraet-desc">Eine waagerechte Wirbelsäule führt zum Problem-Kopf rechts. Sechs schräge Gräten münden in die Wirbelsäule: oben Mensch, Maschine und Methode, unten Material, Umgebung und Management, jeweils mit einem Beispiel aus dem IT-Kontext.</desc>
+
+          <defs>
+            <marker id="fischgraet-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+            <marker id="fischgraet-bone-arrow" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto">
+              <path d="M0,0 L7,2.5 L0,5" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="40" y1="160" x2="475" y2="160" stroke="var(--text)" stroke-width="2.5" marker-end="url(#fischgraet-arrow)"/>
+
+          <rect x="480" y="125" width="110" height="70" rx="6" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2.5"/>
+          <text x="535" y="158" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="700">Problem</text>
+          <text x="535" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="9">„Fischkopf“</text>
+
+          <line x1="65" y1="72" x2="120" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="65" y="64" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Mensch</text>
+          <text x="65" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">fehlende Schulung</text>
+
+          <line x1="185" y1="72" x2="240" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="185" y="64" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Maschine</text>
+          <text x="185" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">Hardwaredefekt</text>
+
+          <line x1="305" y1="72" x2="360" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="305" y="64" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Methode</text>
+          <text x="305" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">fehlerhafter Prozess</text>
+
+          <line x1="65" y1="248" x2="120" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="65" y="262" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Material</text>
+          <text x="65" y="276" text-anchor="middle" fill="var(--text-muted)" font-size="8">falsche Konfiguration</text>
+
+          <line x1="185" y1="248" x2="240" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="185" y="262" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Umgebung</text>
+          <text x="185" y="276" text-anchor="middle" fill="var(--text-muted)" font-size="8">Temperatur, Strom</text>
+
+          <line x1="305" y1="248" x2="360" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="305" y="262" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Management</text>
+          <text x="305" y="276" text-anchor="middle" fill="var(--text-muted)" font-size="8">unklare Zuständigkeit</text>
+        </svg>
+        <figcaption>
+          Sechs Gräten (die „6 M“) münden in die Wirbelsäule, die zum
+          Problem-Kopf führt — je Kategorie wird gesammelt, welche
+          Ursachen konkret beigetragen haben könnten.
+        </figcaption>
+      </figure>
+
       <p>
         In der Praxis wird meist im Team (Brainstorming) je Kategorie
         gesammelt, welche Ursachen zum Problem beigetragen haben

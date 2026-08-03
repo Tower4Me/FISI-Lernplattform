@@ -74,6 +74,54 @@
         </tbody>
       </table>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 420 305" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="joinvenn-title joinvenn-desc">
+          <title id="joinvenn-title">Venn-Diagramme der vier JOIN-Typen</title>
+          <desc id="joinvenn-desc">Vier Mengendiagramme zeigen, welcher Bereich der Tabellen A (mitarbeiter) und B (abteilung) im Ergebnis erscheint: INNER JOIN nur die Schnittmenge, LEFT JOIN die vollständige Menge A, RIGHT JOIN die vollständige Menge B, FULL OUTER JOIN die Vereinigung beider Mengen.</desc>
+
+          <defs>
+            <clipPath id="joinvenn-clipA1">
+              <circle cx="80" cy="85" r="32"/>
+            </clipPath>
+          </defs>
+
+          <text x="101" y="20" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">INNER JOIN</text>
+          <g clip-path="url(#joinvenn-clipA1)">
+            <circle cx="122" cy="85" r="32" fill="var(--acc-quiz)" fill-opacity="0.5"/>
+          </g>
+          <circle cx="80" cy="85" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="122" cy="85" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <text x="63" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="139" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="311" y="20" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">LEFT JOIN</text>
+          <circle cx="290" cy="85" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="332" cy="85" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <text x="273" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="349" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="101" y="170" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">RIGHT JOIN</text>
+          <circle cx="80" cy="235" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="122" cy="235" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <text x="63" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="139" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="311" y="170" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">FULL OUTER JOIN</text>
+          <circle cx="290" cy="235" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="332" cy="235" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <text x="273" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="349" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="210" y="292" text-anchor="middle" fill="var(--text-muted)" font-size="9">A = mitarbeiter (links) — B = abteilung (rechts)</text>
+        </svg>
+        <figcaption>
+          Die schattierte Fläche zeigt, welche Zeilen im Ergebnis
+          erscheinen: INNER JOIN nur Übereinstimmungen, LEFT/RIGHT JOIN
+          zusätzlich alle unverknüpften Zeilen der genannten Seite,
+          FULL OUTER JOIN beide Seiten vollständig.
+        </figcaption>
+      </figure>
+
       <p>
         Für die Prüfung sind vor allem <strong>INNER JOIN</strong> und
         <strong>LEFT JOIN</strong> relevant. Bei den Dialekten gibt es

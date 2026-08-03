@@ -100,6 +100,60 @@
         </tbody>
       </table>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="savepoint-title savepoint-desc">
+          <title id="savepoint-title">Zeitstrahl: SAVEPOINT erlaubt gezieltes Zurückrollen innerhalb einer Transaktion</title>
+          <desc id="savepoint-desc">BEGIN startet die Transaktion, INSERT legt eine Bestellposition an, SAVEPOINT markiert diesen Stand. Die folgende UPDATE-Anweisung enthält einen Tippfehler. ROLLBACK TO nach_position macht nur diese fehlerhafte Änderung rückgängig, ohne die Transaktion abzubrechen — der INSERT bleibt erhalten. COMMIT speichert anschließend den bereinigten Stand dauerhaft.</desc>
+
+          <defs>
+            <marker id="sp-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+            <marker id="sp-arrow-fail" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--fail)"/>
+            </marker>
+          </defs>
+
+          <line x1="25" y1="110" x2="475" y2="110" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#sp-arrow)"/>
+          <text x="483" y="114" fill="var(--text-muted)" font-size="9">Zeit</text>
+
+          <path d="M370,103 C 330,40 250,40 214,96" fill="none" stroke="var(--fail)" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#sp-arrow-fail)"/>
+          <text x="292" y="45" text-anchor="middle" fill="var(--fail)" font-size="9">verwirft UPDATE</text>
+
+          <circle cx="50" cy="110" r="7" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <circle cx="130" cy="110" r="7" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <circle cx="210" cy="110" r="7" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <circle cx="290" cy="110" r="7" fill="var(--surface)" stroke="var(--fail)" stroke-width="2.5"/>
+          <line x1="285" y1="105" x2="295" y2="115" stroke="var(--fail)" stroke-width="1.5"/>
+          <line x1="295" y1="105" x2="285" y2="115" stroke="var(--fail)" stroke-width="1.5"/>
+          <circle cx="370" cy="110" r="7" fill="var(--surface)" stroke="var(--text-muted)" stroke-width="2.5"/>
+          <circle cx="450" cy="110" r="7" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+
+          <g text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text)">
+            <text x="50" y="132">BEGIN</text>
+            <text x="130" y="132">INSERT</text>
+            <text x="210" y="132">SAVEPOINT</text>
+            <text x="290" y="132" fill="var(--fail)">UPDATE</text>
+            <text x="370" y="132">ROLLBACK TO</text>
+            <text x="450" y="132">COMMIT</text>
+          </g>
+          <g text-anchor="middle" font-size="7.5" fill="var(--text-muted)">
+            <text x="130" y="144">Bestellposition</text>
+            <text x="210" y="144">nach_position</text>
+            <text x="290" y="144" fill="var(--fail)">Tippfehler!</text>
+            <text x="370" y="144">nach_position</text>
+          </g>
+
+          <text x="250" y="230" text-anchor="middle" fill="var(--text-muted)" font-size="9.5">Ergebnis nach COMMIT: INSERT bleibt erhalten — die fehlerhafte UPDATE ist verworfen</text>
+        </svg>
+        <figcaption>
+          ROLLBACK TO rollt nur bis zum benannten SAVEPOINT zurück, nicht
+          bis zum Transaktionsbeginn — die fehlerhafte UPDATE wird
+          verworfen, die vorherige INSERT bleibt erhalten und wird am Ende
+          mit COMMIT dauerhaft gespeichert.
+        </figcaption>
+      </figure>
+
       <h3>Autocommit</h3>
       <p>
         In den meisten DBMS läuft standardmäßig jeder einzelne SQL-Befehl

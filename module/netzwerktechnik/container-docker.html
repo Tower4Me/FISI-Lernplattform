@@ -71,6 +71,54 @@
         </tbody>
       </table>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="container-title container-desc">
+          <title id="container-title">Schichtenvergleich virtuelle Maschine vs. Container</title>
+          <desc id="container-desc">Bei der virtuellen Maschine bringt jede Instanz ein eigenes Gast-Betriebssystem mit, oberhalb von Hardware, Host-Betriebssystem und Hypervisor. Beim Container entfällt das eigene Gast-Betriebssystem: Container enthalten nur die Anwendung mit ihren Abhängigkeiten und teilen sich oberhalb von Hardware, Host-Betriebssystem und Container-Engine denselben Kernel des Host-Betriebssystems.</desc>
+
+          <text x="115" y="18" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Virtuelle Maschine</text>
+          <rect x="20" y="28" width="86" height="64" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <rect x="24" y="32" width="78" height="26" fill="var(--surface)" stroke="var(--border)"/>
+          <text x="63" y="49" text-anchor="middle" fill="var(--text)" font-size="8">App</text>
+          <rect x="24" y="62" width="78" height="26" fill="var(--surface)" stroke="var(--border)"/>
+          <text x="63" y="79" text-anchor="middle" fill="var(--text-muted)" font-size="7">Gast-OS</text>
+
+          <rect x="114" y="28" width="86" height="64" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <rect x="118" y="32" width="78" height="26" fill="var(--surface)" stroke="var(--border)"/>
+          <text x="157" y="49" text-anchor="middle" fill="var(--text)" font-size="8">App</text>
+          <rect x="118" y="62" width="78" height="26" fill="var(--surface)" stroke="var(--border)"/>
+          <text x="157" y="79" text-anchor="middle" fill="var(--text-muted)" font-size="7">Gast-OS</text>
+
+          <rect x="20" y="100" width="190" height="32" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="115" y="121" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Hypervisor</text>
+          <rect x="20" y="136" width="190" height="32" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="115" y="157" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Host-Betriebssystem</text>
+          <rect x="20" y="172" width="190" height="32" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="115" y="193" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Hardware</text>
+
+          <text x="345" y="18" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Container</text>
+          <rect x="250" y="28" width="86" height="64" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="293" y="58" text-anchor="middle" fill="var(--text)" font-size="9">App</text>
+          <text x="293" y="72" text-anchor="middle" fill="var(--text-muted)" font-size="7">(+ Libs)</text>
+          <rect x="344" y="28" width="86" height="64" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="387" y="58" text-anchor="middle" fill="var(--text)" font-size="9">App</text>
+          <text x="387" y="72" text-anchor="middle" fill="var(--text-muted)" font-size="7">(+ Libs)</text>
+
+          <rect x="250" y="100" width="190" height="32" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="345" y="121" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Container-Engine</text>
+          <rect x="250" y="136" width="190" height="32" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="345" y="157" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Host-Betriebssystem</text>
+          <rect x="250" y="172" width="190" height="32" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="345" y="193" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Hardware</text>
+        </svg>
+        <figcaption>
+          Jede VM trägt ihr eigenes Gast-Betriebssystem mit sich herum,
+          Container teilen sich stattdessen direkt den Kernel des
+          Host-Betriebssystems — deshalb sind Container kleiner und
+          starten schneller.
+        </figcaption>
+      </figure>
+
       <p>
         <strong>Docker</strong> ist die bekannteste Plattform zur
         Erstellung und Verwaltung von Containern. Eine Anwendung wird dabei

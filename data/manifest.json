@@ -402,10 +402,16 @@
           "quiz": "data/netzwerktechnik/wlan-grundlagen.json"
         },
         {
-          "slug": "verkabelung-tp-lwl",
-          "name": "Verkabelung (Twisted Pair & LWL)",
+          "slug": "verkabelung-twisted-pair",
+          "name": "Verkabelung Twisted Pair",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/netzwerktechnik/verkabelung-tp-lwl.json"
+          "quiz": "data/netzwerktechnik/verkabelung-twisted-pair.json"
+        },
+        {
+          "slug": "verkabelung-lwl",
+          "name": "Verkabelung Lichtwellenleiter (LWL)",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/verkabelung-lwl.json"
         },
         {
           "slug": "internetzugang-dsl",

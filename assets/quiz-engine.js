@@ -23,6 +23,13 @@
    fisi:progress -> {
      "it-sicherheit/toms": { "done": true, "score": 3, "total": 3, "ts": 169... }
    }
+
+   "done" bedeutet: die Einheit wurde MINDESTENS EINMAL mit >= 80 % Score
+   bestanden (aufgerundet/exakt 80 % zaehlt als bestanden). "done" ist
+   STICKY: ist es einmal true, bleibt es true, auch wenn ein spaeterer
+   Versuch schlechter ausfaellt (score/total spiegeln dagegen immer den
+   letzten Versuch, nicht den besten). Genutzt u.a. von index.html, um
+   abgeschlossene Module beim Laden eingeklappt darzustellen.
 */
 
 (function () {
@@ -158,11 +165,20 @@ li.addEventListener("click", function (e) {
       });
 
       result.textContent = "Ergebnis: " + score + " / " + questions.length;
-      Progress.set(unit, { done: true, score: score, total: questions.length });
+
+      // Bestanden = mindestens 80 %. Ganzzahlig geprueft (score * 5 >= total * 4),
+      // um Fliesskomma-Rundungsprobleme bei der 80%-Schwelle zu vermeiden.
+      var passed = questions.length > 0 && (score * 5 >= questions.length * 4);
+      var prev = Progress.get(unit);
+      var alreadyDone = !!(prev && prev.done);
+      Progress.set(unit, { done: alreadyDone || passed, score: score, total: questions.length });
     });
 
     resetBtn.addEventListener("click", function () {
-      Progress.reset(unit);
+      // Setzt nur die aktuelle Quiz-Ansicht zurueck (neue Auswahl moeglich),
+      // NICHT den gespeicherten Fortschritt — ein einmal erreichtes "done"
+      // (>= 80 %) soll durch einen erneuten, schlechteren Versuch nicht
+      // verloren gehen.
       renderQuiz(container, data);
     });
   }

@@ -27,7 +27,8 @@
   </main>
 
   <footer class="site-footer">
-    Fortschritt lokal im Browser gespeichert (localStorage). Kein Server, keine Anmeldung.
+    <p>Fortschritt lokal im Browser gespeichert (localStorage). Kein Server, keine Anmeldung.</p>
+    <p>Jede Einheit lässt sich einzeln über die Druckfunktion des Browsers (Strg+P bzw. Cmd+P) als PDF speichern oder ausdrucken.</p>
   </footer>
 
   <script src="assets/quiz-engine.js"></script>
@@ -38,7 +39,10 @@
   <script>
   (function () {
     "use strict";
-    var Progress = window.FISIProgress;
+    // Fallback, falls quiz-engine.js aus irgendeinem Grund nicht geladen hat
+    // (z. B. Netzwerkfehler) — dann gilt einfach nichts als erledigt, keine
+    // Exception, Module bleiben aufgeklappt (robust gegen fehlende Daten).
+    var Progress = window.FISIProgress || { get: function () { return null; } };
 
     function el(tag, cls, text) {
       var n = document.createElement(tag);
@@ -60,7 +64,6 @@
       var wrapper = el("li");
       var card = el("details", "module-card");
       card.id = mod.slug;
-      card.open = true;
       wrapper.appendChild(card);
 
       var units = mod.units || [];
@@ -68,6 +71,12 @@
         var p = Progress.get(mod.slug + "/" + u.slug);
         return p && p.done;
       }).length;
+
+      // Vollstaendig abgeschlossene Module (alle Einheiten erledigt) starten
+      // eingeklappt; alles andere (inkl. leerer Module ohne Einheiten) offen.
+      // Rein aus dem beim Laden berechneten Fortschritt abgeleitet — der
+      // Nutzer kann jederzeit manuell wieder aufklappen (natives <details>).
+      card.open = !(units.length > 0 && doneCount === units.length);
 
       var head = el("summary", "module-card__head");
       head.appendChild(el("h2", "module-card__title", mod.name));

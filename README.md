@@ -2,6 +2,8 @@
 
 Web-basierte Lernplattform zur Prüfungsvorbereitung (AP1 & AP2) für die Ausbildung zum Fachinformatiker Systemintegration.
 
+Teilweise können Inhalte ausführlicher sein als wirklich relevant für die APs. Sie sind dennoch für die Vollständigkeit behandelt.
+
 **→ [Zur Lernplattform](https://tower4me.github.io/FISI-Lernplattform/)**
 
 ## Features

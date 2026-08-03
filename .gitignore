@@ -1,6 +1,10 @@
-CONVENTIONS.md
-ROADMAP.md
-PLAN.md
-CLAUDE.md
+# Markdown-Dateien im Projektwurzel-Bereich sind interne Arbeitsdokumente
+# (Konventionen, Planung, Logs) und bleiben nur lokal/offline vorhanden.
+# Einzige Ausnahme: README.md bleibt oeffentlich im Repo. Reihenfolge
+# wichtig: erst alle Root-*.md ignorieren, dann README.md gezielt wieder
+# aufnehmen (Negation muss nach der Ignore-Regel stehen).
+/*.md
+!/README.md
+
 quellen/
 alt/

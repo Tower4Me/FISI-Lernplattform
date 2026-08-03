@@ -383,6 +383,39 @@ code, kbd, pre {
 .tool__terminal-status--error { color: var(--fail); }
 .tool__terminal-status--ok { color: var(--ok); }
 
+/* Fehlermeldung + Ergebnis-/Rechenweg-Anzeige, gemeinsam genutzt von allen
+   Rechner-Tools (Konvention: analog zum Subnetzrechner in ipv4-subnetting.html) */
+.tool__error { color: var(--fail); font-weight: 600; margin-top: 0.75rem; }
+.tool__result { margin: 0.75rem 0 0; }
+.tool__result-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.tool__result-row:last-child { border-bottom: none; }
+.tool__result-row dt { color: var(--text-muted); min-width: 0; }
+.tool__result-row dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+  text-align: right;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 420px) {
+  .tool__result-row { flex-direction: column; gap: 0.15rem; }
+  .tool__result-row dd { text-align: left; }
+}
+.tool__steps {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+}
+.tool__steps li { margin-bottom: 0.4rem; }
+.tool__steps code { word-break: break-all; }
+
 /* --------------------------------------------------------------- Utility */
 .muted { color: var(--text-muted); }
 .visually-hidden {

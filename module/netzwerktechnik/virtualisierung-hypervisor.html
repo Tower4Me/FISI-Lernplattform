@@ -79,6 +79,45 @@
           <tr><td><strong>Typ 2 (Hosted)</strong></td><td>läuft als Anwendung innerhalb eines normalen Host-Betriebssystems — ein zusätzlicher Softwarelayer zwischen Hardware und VM</td><td>VMware Workstation, VirtualBox</td></tr>
         </tbody>
       </table>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hyp-title hyp-desc">
+          <title id="hyp-title">Schichtenvergleich Typ-1- vs. Typ-2-Hypervisor</title>
+          <desc id="hyp-desc">Bei Typ 1 (Bare-Metal) sitzt der Hypervisor direkt auf der Hardware, darüber laufen die virtuellen Maschinen. Bei Typ 2 (Hosted) liegt zwischen Hardware und Hypervisor zusätzlich ein normales Host-Betriebssystem, der Hypervisor läuft dort nur als Anwendung.</desc>
+
+          <text x="115" y="20" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Typ 1 — Bare-Metal</text>
+          <rect x="25" y="30" width="86" height="46" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="68" y="49" text-anchor="middle" fill="var(--text)" font-size="8">VM 1</text>
+          <text x="68" y="61" text-anchor="middle" fill="var(--text-muted)" font-size="7">Gast-OS+App</text>
+          <rect x="119" y="30" width="86" height="46" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="162" y="49" text-anchor="middle" fill="var(--text)" font-size="8">VM 2</text>
+          <text x="162" y="61" text-anchor="middle" fill="var(--text-muted)" font-size="7">Gast-OS+App</text>
+          <rect x="20" y="90" width="190" height="34" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="115" y="111" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Hypervisor (Typ 1)</text>
+          <rect x="20" y="130" width="190" height="34" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="115" y="151" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Hardware</text>
+
+          <text x="345" y="20" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Typ 2 — Hosted</text>
+          <rect x="255" y="30" width="86" height="46" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="298" y="49" text-anchor="middle" fill="var(--text)" font-size="8">VM 1</text>
+          <text x="298" y="61" text-anchor="middle" fill="var(--text-muted)" font-size="7">Gast-OS+App</text>
+          <rect x="349" y="30" width="86" height="46" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="392" y="49" text-anchor="middle" fill="var(--text)" font-size="8">VM 2</text>
+          <text x="392" y="61" text-anchor="middle" fill="var(--text-muted)" font-size="7">Gast-OS+App</text>
+          <rect x="275" y="90" width="140" height="30" rx="4" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="345" y="109" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="600">Hypervisor (Typ 2)</text>
+          <rect x="250" y="124" width="190" height="34" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="345" y="145" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="600">Host-Betriebssystem</text>
+          <rect x="250" y="164" width="190" height="34" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="345" y="185" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Hardware</text>
+        </svg>
+        <figcaption>
+          Typ 1 läuft direkt auf der Hardware (weniger Overhead), Typ 2
+          zusätzlich innerhalb eines normalen Host-Betriebssystems (blau)
+          — deshalb ist Typ 1 performanter, Typ 2 aber einfacher
+          einzurichten.
+        </figcaption>
+      </figure>
+
       <p>
         Typ-1-Hypervisoren sind performanter und werden für den
         produktiven Serverbetrieb im Rechenzentrum eingesetzt, da keine

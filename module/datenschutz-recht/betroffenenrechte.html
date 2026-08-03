@@ -84,6 +84,77 @@
         Verarbeitung beim Auftragsverarbeiter läuft.
       </p>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 520 434" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dsgvo-title dsgvo-desc">
+          <title id="dsgvo-title">Beziehungsdiagramm der DSGVO-Rollen</title>
+          <desc id="dsgvo-desc">Die betroffene Person übt ihre Rechte gegenüber dem Verantwortlichen aus. Der Verantwortliche beauftragt bei Bedarf einen Auftragsverarbeiter per Auftragsverarbeitungsvertrag, bleibt dabei aber selbst verantwortlich. Ein interner Datenschutzbeauftragter überwacht und berät den Verantwortlichen. Bei Datenpannen meldet der Verantwortliche dies der Aufsichtsbehörde, bei der auch die betroffene Person Beschwerde einlegen kann.</desc>
+
+          <defs>
+            <marker id="dsgvo-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+            <marker id="dsgvo-arrow-fail" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--fail)"/>
+            </marker>
+          </defs>
+
+          <!-- Betroffene Person -->
+          <rect x="150" y="10" width="180" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="240" y="32" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Betroffene Person</text>
+          <text x="240" y="46" text-anchor="middle" fill="var(--text-muted)" font-size="8">z. B. Kunde, Mitarbeiter</text>
+
+          <!-- Verantwortlicher -->
+          <rect x="150" y="130" width="180" height="54" rx="6" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2.5"/>
+          <text x="240" y="150" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Verantwortlicher</text>
+          <text x="240" y="164" text-anchor="middle" fill="var(--text-muted)" font-size="8">entscheidet über Zweck &amp; Mittel</text>
+          <text x="240" y="176" text-anchor="middle" fill="var(--text-muted)" font-size="8" font-style="italic">bleibt verantwortlich</text>
+
+          <!-- Auftragsverarbeiter -->
+          <rect x="10" y="250" width="160" height="54" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="90" y="270" text-anchor="middle" fill="var(--text)" font-size="10.5" font-weight="700">Auftragsverarbeiter</text>
+          <text x="90" y="284" text-anchor="middle" fill="var(--text-muted)" font-size="8">verarbeitet im Auftrag</text>
+          <text x="90" y="295" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">(AVV, Art. 28)</text>
+
+          <!-- DSB -->
+          <rect x="310" y="250" width="160" height="54" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="390" y="266" text-anchor="middle" fill="var(--text)" font-size="10.5" font-weight="700">Datenschutz-</text>
+          <text x="390" y="278" text-anchor="middle" fill="var(--text)" font-size="10.5" font-weight="700">beauftragter (DSB)</text>
+          <text x="390" y="292" text-anchor="middle" fill="var(--text-muted)" font-size="8">überwacht &amp; berät</text>
+
+          <!-- Aufsichtsbehörde -->
+          <rect x="150" y="360" width="180" height="54" rx="6" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2.5"/>
+          <text x="240" y="382" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Aufsichtsbehörde</text>
+          <text x="240" y="397" text-anchor="middle" fill="var(--text-muted)" font-size="8">z. B. Landesdatenschutzbehörde</text>
+
+          <!-- Betroffene Person -> Verantwortlicher -->
+          <line x1="240" y1="54" x2="240" y2="127" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#dsgvo-arrow)"/>
+          <text x="248" y="96" fill="var(--text-muted)" font-size="8.5">übt Rechte aus</text>
+
+          <!-- Verantwortlicher -> Auftragsverarbeiter -->
+          <line x1="185" y1="184" x2="127" y2="248" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#dsgvo-arrow)"/>
+          <text x="16" y="222" fill="var(--text-muted)" font-size="8.5">beauftragt (AVV)</text>
+
+          <!-- DSB -> Verantwortlicher (überwacht) -->
+          <line x1="350" y1="248" x2="292" y2="186" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#dsgvo-arrow)"/>
+          <text x="342" y="222" fill="var(--text-muted)" font-size="8.5">überwacht &amp; berät</text>
+
+          <!-- Verantwortlicher -> Aufsichtsbehörde -->
+          <line x1="240" y1="184" x2="240" y2="357" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#dsgvo-arrow)"/>
+          <text x="248" y="266" fill="var(--text-muted)" font-size="8.5">meldet Datenpannen</text>
+          <text x="248" y="277" fill="var(--text-muted)" font-size="7.5">(Art. 33 DSGVO)</text>
+
+          <!-- Betroffene Person -> Aufsichtsbehörde (Beschwerde) -->
+          <path d="M330,32 L500,32 L500,387 L333,387" fill="none" stroke="var(--fail)" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#dsgvo-arrow-fail)"/>
+          <text x="414" y="24" text-anchor="middle" fill="var(--fail)" font-size="8">Beschwerde bei Verstoß</text>
+        </svg>
+        <figcaption>
+          Der Verantwortliche bleibt gegenüber der betroffenen Person und
+          der Aufsichtsbehörde in der Pflicht — auch wenn ein
+          Auftragsverarbeiter beauftragt wird oder ein
+          Datenschutzbeauftragter intern überwacht und berät.
+        </figcaption>
+      </figure>
+
       <h3>Pseudonymisierung vs. Anonymisierung</h3>
       <table>
         <thead>

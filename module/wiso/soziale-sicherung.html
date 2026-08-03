@@ -92,6 +92,66 @@
           </tr>
         </tbody>
       </table>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="saeulen-title saeulen-desc">
+          <title id="saeulen-title">Die fünf Säulen der gesetzlichen Sozialversicherung</title>
+          <desc id="saeulen-desc">Fünf tragende Säulen unter dem gemeinsamen Dach der gesetzlichen Sozialversicherung: Kranken-, Pflege-, Renten- und Arbeitslosenversicherung sind paritätisch von Arbeitgeber und Arbeitnehmer finanziert. Die Unfallversicherung ist als einzige Säule ausschließlich vom Arbeitgeber finanziert, erkennbar an der schraffierten Füllung.</desc>
+
+          <defs>
+            <pattern id="saeule-hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="var(--acc-merksatz)" stroke-width="2"/>
+            </pattern>
+          </defs>
+
+          <rect x="20" y="20" width="440" height="22" rx="4" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="240" y="35" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Gesetzliche Sozialversicherung</text>
+
+          <rect x="26" y="44" width="76" height="176" fill="var(--acc-einstieg)" fill-opacity="0.22" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="64" y="75" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">KV</text>
+          <text x="64" y="98" text-anchor="middle" fill="var(--text-muted)" font-size="7">Kranken-</text>
+          <text x="64" y="109" text-anchor="middle" fill="var(--text-muted)" font-size="7">versicherung</text>
+          <text x="64" y="158" text-anchor="middle" fill="var(--text)" font-size="7.5">Krankheit</text>
+          <text x="64" y="205" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-weight="700">paritätisch</text>
+
+          <rect x="114" y="44" width="76" height="176" fill="var(--acc-quiz)" fill-opacity="0.22" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="152" y="75" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">PV</text>
+          <text x="152" y="98" text-anchor="middle" fill="var(--text-muted)" font-size="7">Pflege-</text>
+          <text x="152" y="109" text-anchor="middle" fill="var(--text-muted)" font-size="7">versicherung</text>
+          <text x="152" y="158" text-anchor="middle" fill="var(--text)" font-size="7.5">Pflegebedarf</text>
+          <text x="152" y="205" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-weight="700">paritätisch</text>
+
+          <rect x="202" y="44" width="76" height="176" fill="var(--acc-praxis)" fill-opacity="0.22" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="240" y="75" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">RV</text>
+          <text x="240" y="98" text-anchor="middle" fill="var(--text-muted)" font-size="7">Renten-</text>
+          <text x="240" y="109" text-anchor="middle" fill="var(--text-muted)" font-size="7">versicherung</text>
+          <text x="240" y="158" text-anchor="middle" fill="var(--text)" font-size="7.5">Alter</text>
+          <text x="240" y="205" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-weight="700">paritätisch</text>
+
+          <rect x="290" y="44" width="76" height="176" fill="var(--acc-konzept)" fill-opacity="0.22" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="328" y="75" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">AV</text>
+          <text x="328" y="98" text-anchor="middle" fill="var(--text-muted)" font-size="7">Arbeitslosen-</text>
+          <text x="328" y="109" text-anchor="middle" fill="var(--text-muted)" font-size="7">versicherung</text>
+          <text x="328" y="158" text-anchor="middle" fill="var(--text)" font-size="7.5">Arbeitslosigkeit</text>
+          <text x="328" y="205" text-anchor="middle" fill="var(--text-muted)" font-size="7" font-weight="700">paritätisch</text>
+
+          <rect x="378" y="44" width="76" height="176" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2.5"/>
+          <rect x="378" y="44" width="76" height="176" fill="url(#saeule-hatch)"/>
+          <text x="416" y="75" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="700">UV</text>
+          <text x="416" y="98" text-anchor="middle" fill="var(--text-muted)" font-size="7">Unfall-</text>
+          <text x="416" y="109" text-anchor="middle" fill="var(--text-muted)" font-size="7">versicherung</text>
+          <text x="416" y="158" text-anchor="middle" fill="var(--text)" font-size="7.5">Arbeitsunfälle</text>
+          <text x="416" y="205" text-anchor="middle" fill="var(--acc-merksatz)" font-size="7" font-weight="700">nur Arbeitgeber</text>
+
+          <line x1="15" y1="220" x2="465" y2="220" stroke="var(--text)" stroke-width="2.5"/>
+          <text x="240" y="238" text-anchor="middle" fill="var(--text-muted)" font-size="8">Versicherungsprinzip: laufender Beitrag → Anspruch im Versicherungsfall</text>
+        </svg>
+        <figcaption>
+          Vier der fünf Säulen werden paritätisch finanziert — nur die
+          Unfallversicherung (schraffiert) trägt allein der Arbeitgeber,
+          ohne eigenen Beitragsanteil der Arbeitnehmer:innen.
+        </figcaption>
+      </figure>
+
       <p>
         Die Unfallversicherung ist die einzige Säule, bei der
         Arbeitnehmer:innen keinen eigenen Beitragsanteil zahlen – sie

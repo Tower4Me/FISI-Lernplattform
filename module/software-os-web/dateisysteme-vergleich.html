@@ -134,6 +134,37 @@
         gesamten 4-KB-Block — die übrigen 3 KB bleiben ungenutzt. Dieser
         verschwendete Platz heißt <strong>Slack Space</strong>.
       </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="slack-title slack-desc">
+          <title id="slack-title">Slack Space: ungenutzter Rest eines festen Blocks</title>
+          <desc id="slack-desc">Eine 1-KB-Datei belegt trotzdem einen ganzen 4-KB-Block; 3 KB bleiben als Slack Space ungenutzt. Eine 4-KB-Datei füllt denselben Blocktyp dagegen vollständig aus, ohne Slack Space.</desc>
+
+          <defs>
+            <pattern id="slack-hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="var(--fail)" stroke-width="2"/>
+            </pattern>
+          </defs>
+
+          <text x="40" y="14" fill="var(--text)" font-size="10" font-weight="700">Datei A (1 KB) im 4-KB-Block</text>
+          <rect x="40" y="28" width="80" height="55" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="80" y="52" text-anchor="middle" fill="var(--text)" font-size="8.5">Datei-Inhalt</text>
+          <text x="80" y="64" text-anchor="middle" fill="var(--text-muted)" font-size="8">1 KB</text>
+          <rect x="120" y="28" width="240" height="55" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2" stroke-dasharray="4 3"/>
+          <rect x="120" y="28" width="240" height="55" fill="url(#slack-hatch)"/>
+          <text x="240" y="52" text-anchor="middle" fill="var(--fail)" font-size="8.5">Slack Space — ungenutzt</text>
+          <text x="240" y="64" text-anchor="middle" fill="var(--fail)" font-size="8">3 KB verschwendet</text>
+
+          <text x="40" y="113" fill="var(--text)" font-size="10" font-weight="700">Datei B (4 KB) im 4-KB-Block</text>
+          <rect x="40" y="127" width="320" height="55" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="200" y="150" text-anchor="middle" fill="var(--text)" font-size="8.5">Datei-Inhalt (voll ausgenutzt)</text>
+          <text x="200" y="163" text-anchor="middle" fill="var(--text-muted)" font-size="8">4 KB — kein Slack Space</text>
+        </svg>
+        <figcaption>
+          Feste Blockgrößen führen bei kleinen Dateien zu ungenutztem
+          Slack Space — bei genau blockgroßen Dateien entsteht keiner.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->

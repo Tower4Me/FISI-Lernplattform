@@ -111,6 +111,50 @@
           <tr><td><strong>Rückgang</strong></td><td>sinkender Umsatz, das Produkt wird durch Nachfolger abgelöst</td></tr>
         </tbody>
       </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="plz-title plz-desc">
+          <title id="plz-title">Produktlebenszyklus: Umsatzverlauf über die vier Phasen</title>
+          <desc id="plz-desc">S-förmige Umsatzkurve über die vier Phasen Einführung, Wachstum, Reife/Sättigung und Rückgang: Der Umsatz startet niedrig, steigt in der Einführungsphase langsam, wächst in der Wachstumsphase steil an, erreicht in der Reifephase seinen Höhepunkt und sinkt in der Rückgangsphase wieder ab.</desc>
+
+          <defs>
+            <marker id="plz-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="160" y1="210" x2="160" y2="20" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="260" y1="210" x2="260" y2="20" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="360" y1="210" x2="360" y2="20" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 2"/>
+
+          <path d="M60,205 C 100,200 140,190 160,175 C 190,140 220,70 260,50 C 290,38 330,35 360,55 C 390,80 420,110 440,140" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+
+          <line x1="60" y1="210" x2="450" y2="210" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#plz-arrow)"/>
+          <text x="435" y="224" text-anchor="middle" fill="var(--text-muted)" font-size="10">Zeit</text>
+          <line x1="60" y1="210" x2="60" y2="18" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#plz-arrow)"/>
+          <text x="15" y="110" text-anchor="middle" fill="var(--text-muted)" font-size="9" transform="rotate(-90 15 110)">Umsatz</text>
+
+          <g text-anchor="middle" font-size="9" font-weight="700" fill="var(--text)">
+            <text x="110" y="228">Einführung</text>
+            <text x="210" y="228">Wachstum</text>
+            <text x="310" y="228">Reife/Sättigung</text>
+            <text x="400" y="228">Rückgang</text>
+          </g>
+          <g text-anchor="middle" font-size="7.5" fill="var(--text-muted)">
+            <text x="110" y="240">hohe Kosten</text>
+            <text x="210" y="240">steigender Umsatz</text>
+            <text x="310" y="240">Höhepunkt</text>
+            <text x="400" y="240">sinkender Umsatz</text>
+          </g>
+        </svg>
+        <figcaption>
+          Die typische S-Kurve: langsamer Start in der Einführung,
+          steiler Anstieg im Wachstum, Höhepunkt in der Reifephase,
+          danach Rückgang, bis das Produkt durch einen Nachfolger
+          abgelöst wird.
+        </figcaption>
+      </figure>
+
       <p>
         Marketing- und Preisstrategie müssen an die jeweilige Phase
         angepasst werden – z. B. hohe Werbeinvestitionen in der

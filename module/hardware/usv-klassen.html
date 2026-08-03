@@ -94,6 +94,61 @@
           </tr>
         </tbody>
       </table>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="usv-title usv-desc">
+          <title id="usv-title">Leistungspfade der drei USV-Klassen VFD, VI und VFI</title>
+          <desc id="usv-desc">Drei übereinander angeordnete Leistungspfade von Netz zu Last. Bei VFD läuft das Netz direkt durch, der Akku mit Wechselrichter hängt gestrichelt daneben und wird erst bei einer Störung zugeschaltet. Bei VI läuft das Netz über einen automatischen Spannungsregler (AVR), der Akku ist ebenfalls gestrichelt und wird nur bei größeren Abweichungen zugeschaltet. Bei VFI läuft das Netz durchgehend über Gleichrichter und Wechselrichter, der Akku hängt durchgezogen dazwischen und ist ständig im Pfad — Umschaltzeit 0 Millisekunden.</desc>
+
+          <text x="10" y="22" fill="var(--text)" font-size="10" font-weight="600">VFD — Offline (Umschaltung erst bei Störung)</text>
+          <rect x="10" y="40" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="45" y="62" text-anchor="middle" fill="var(--text)" font-size="9">Netz</text>
+          <rect x="400" y="40" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="435" y="62" text-anchor="middle" fill="var(--text)" font-size="9">Last</text>
+          <line x1="80" y1="58" x2="400" y2="58" stroke="var(--text-muted)" stroke-width="2.5"/>
+          <circle cx="240" cy="58" r="4" fill="var(--surface)" stroke="var(--text)" stroke-width="1.5"/>
+          <line x1="240" y1="58" x2="240" y2="90" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <rect x="190" y="90" width="100" height="30" rx="5" fill="var(--surface)" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="240" y="109" text-anchor="middle" fill="var(--text-muted)" font-size="8">Akku + Wechselrichter</text>
+          <text x="240" y="132" text-anchor="middle" fill="var(--text-muted)" font-size="8">Netz läuft normal durch, Akku springt erst bei Störung ein</text>
+
+          <text x="10" y="162" fill="var(--text)" font-size="10" font-weight="600">VI — Line-Interactive (AVR gleicht Schwankungen aus)</text>
+          <rect x="10" y="180" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="45" y="202" text-anchor="middle" fill="var(--text)" font-size="9">Netz</text>
+          <rect x="205" y="180" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="240" y="202" text-anchor="middle" fill="var(--text)" font-size="9">AVR</text>
+          <rect x="400" y="180" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="435" y="202" text-anchor="middle" fill="var(--text)" font-size="9">Last</text>
+          <line x1="80" y1="198" x2="205" y2="198" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <line x1="275" y1="198" x2="400" y2="198" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <line x1="240" y1="216" x2="240" y2="230" stroke="var(--acc-praxis)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <rect x="190" y="230" width="100" height="30" rx="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="240" y="249" text-anchor="middle" fill="var(--acc-praxis)" font-size="8">Akku + Wechselrichter</text>
+          <text x="240" y="272" text-anchor="middle" fill="var(--text-muted)" font-size="8">AVR gleicht kleine Schwankungen ohne Akku aus</text>
+
+          <text x="10" y="302" fill="var(--text)" font-size="10" font-weight="600">VFI — Online (Doppelwandlung, 0 ms)</text>
+          <rect x="10" y="320" width="65" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="42" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Netz</text>
+          <rect x="85" y="320" width="110" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="140" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Gleichrichter</text>
+          <rect x="285" y="320" width="110" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="340" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Wechselrichter</text>
+          <rect x="405" y="320" width="65" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="437" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Last</text>
+          <line x1="75" y1="338" x2="85" y2="338" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <line x1="195" y1="338" x2="285" y2="338" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <line x1="395" y1="338" x2="405" y2="338" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <line x1="240" y1="338" x2="240" y2="365" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <rect x="190" y="365" width="100" height="30" rx="5" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="240" y="384" text-anchor="middle" fill="var(--text)" font-size="8">Akku (ständig aktiv)</text>
+          <text x="240" y="407" text-anchor="middle" fill="var(--text-muted)" font-size="8">Doppelwandlung durchgehend, Akku permanent im Pfad</text>
+        </svg>
+        <figcaption>
+          Gestrichelte Akku-Anbindung = wird erst bei Bedarf zugeschaltet
+          (VFD, VI). Durchgezogene Akku-Anbindung bei VFI = ständig im
+          Leistungspfad, daher 0 ms Umschaltzeit.
+        </figcaption>
+      </figure>
+
       <p>
         Je höher die Schutzklasse, desto höher aber auch Anschaffungspreis
         und Energieverlust im Dauerbetrieb (bei VFI wird die Energie

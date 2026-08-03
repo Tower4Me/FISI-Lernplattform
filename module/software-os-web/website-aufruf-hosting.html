@@ -71,6 +71,56 @@
           Skripte) mit zusätzlichen Anfragen nach.</li>
       </ol>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="webcall-title webcall-desc">
+          <title id="webcall-title">Sequenzdiagramm: Ablauf eines Website-Aufrufs</title>
+          <desc id="webcall-desc">Der Browser fragt zunächst per DNS die IP-Adresse der Domain ab. Danach baut er eine TCP- bzw. TLS-Verbindung zum Webserver auf und sendet einen HTTP-Request mit Host-Header. Der Webserver antwortet mit einer HTTP-Response, die der Browser abschließend rendert.</desc>
+
+          <defs>
+            <marker id="webcall-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="12">Browser</text>
+          <line x1="75" y1="53" x2="75" y2="355" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="195" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="250" y="39" text-anchor="middle" fill="var(--text)" font-size="12">DNS-Server</text>
+          <line x1="250" y1="53" x2="250" y2="355" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="12">Webserver</text>
+          <line x1="425" y1="53" x2="425" y2="355" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <line x1="75" y1="90" x2="248" y2="90" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="163" y="83" text-anchor="middle" fill="var(--text)" font-size="9">1. DNS-Anfrage</text>
+
+          <line x1="250" y1="125" x2="77" y2="125" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="163" y="118" text-anchor="middle" fill="var(--text)" font-size="9">2. DNS-Antwort (IP)</text>
+
+          <line x1="75" y1="170" x2="423" y2="170" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="250" y="163" text-anchor="middle" fill="var(--text)" font-size="9">3. TCP/TLS-Verbindungsaufbau</text>
+
+          <line x1="75" y1="215" x2="423" y2="215" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="250" y="208" text-anchor="middle" fill="var(--text)" font-size="9">4. HTTP-Request (Host-Header)</text>
+
+          <line x1="425" y1="260" x2="77" y2="260" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="250" y="253" text-anchor="middle" fill="var(--text)" font-size="9">5. HTTP-Response (HTML, CSS, …)</text>
+
+          <line x1="75" y1="290" x2="75" y2="300" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="20" y="300" width="110" height="42" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2" stroke-dasharray="3 2"/>
+          <text x="75" y="317" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="700">6. Rendering</text>
+          <text x="75" y="330" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">Seite wird dargestellt</text>
+        </svg>
+        <figcaption>
+          Erst nach der DNS-Auflösung baut der Browser die eigentliche
+          Verbindung zum Webserver auf — Rendering (Schritt 6) läuft rein
+          lokal im Browser, ohne weitere Netzwerknachricht.
+        </figcaption>
+      </figure>
+
       <h3>Virtuelle Hosts (Virtual Hosts)</h3>
       <p>
         Mehrere Websites können auf demselben physischen Server und

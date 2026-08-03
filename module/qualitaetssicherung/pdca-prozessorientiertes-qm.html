@@ -73,6 +73,50 @@
           </tr>
         </tbody>
       </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pdca-title pdca-desc">
+          <title id="pdca-title">Der PDCA-Zyklus als fortlaufender Kreislauf: Plan, Do, Check, Act</title>
+          <desc id="pdca-desc">Vier Stationen im Kreis, im Uhrzeigersinn verbunden durch Pfeile: Plan (planen), Do (umsetzen), Check (prüfen), Act (verbessern) — danach beginnt der Kreislauf erneut bei Plan, symbolisiert durch den geschlossenen Ring aus vier Pfeilsegmenten um eine zentrale Beschriftung „kontinuierliche Verbesserung".</desc>
+
+          <defs>
+            <marker id="pdca-arrow" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto">
+              <path d="M0,0 L7,2.5 L0,5" fill="var(--acc-praxis)"/>
+            </marker>
+          </defs>
+
+          <path d="M176,53 A100,100 0 0 1 247,124" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+          <path d="M247,176 A100,100 0 0 1 176,247" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+          <path d="M124,247 A100,100 0 0 1 53,176" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+          <path d="M53,124 A100,100 0 0 1 124,53" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+
+          <text x="150" y="146" text-anchor="middle" fill="var(--text-muted)" font-size="8">kontinuierliche</text>
+          <text x="150" y="158" text-anchor="middle" fill="var(--text-muted)" font-size="8">Verbesserung</text>
+
+          <rect x="115" y="30" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="150" y="46" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Plan</text>
+          <text x="150" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="8">planen</text>
+
+          <rect x="215" y="130" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="250" y="146" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Do</text>
+          <text x="250" y="160" text-anchor="middle" fill="var(--text-muted)" font-size="8">umsetzen</text>
+
+          <rect x="115" y="230" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <text x="150" y="246" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Check</text>
+          <text x="150" y="260" text-anchor="middle" fill="var(--text-muted)" font-size="8">prüfen</text>
+
+          <rect x="15" y="130" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="50" y="146" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Act</text>
+          <text x="50" y="160" text-anchor="middle" fill="var(--text-muted)" font-size="8">verbessern</text>
+        </svg>
+        <figcaption>
+          Der PDCA-Zyklus läuft nie ab, sondern beginnt nach Act wieder
+          bei Plan — genau dieser wiederholbare Regelkreis macht
+          kontinuierliche Verbesserung zu einem fortlaufenden Prozess
+          statt einem Einmalprojekt.
+        </figcaption>
+      </figure>
+
       <p>
         Der PDCA-Zyklus ist das strukturierte Handwerkszeug, mit dem
         sich die kontinuierliche Verbesserung im Sinne von

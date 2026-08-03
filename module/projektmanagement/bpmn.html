@@ -104,6 +104,54 @@
         </figcaption>
       </figure>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bpmn-parallel-title bpmn-parallel-desc">
+          <title id="bpmn-parallel-title">Paralleles Gateway: gleichzeitige Aufspaltung und Zusammenführung zweier Pfade</title>
+          <desc id="bpmn-parallel-desc">Nach der Aktivität Auftrag erfassen spaltet ein paralleles Gateway (Raute mit Pluszeichen) den Ablauf in zwei gleichzeitig laufende Pfade auf: Lager prüfen und Bonität prüfen. Ein zweites paralleles Gateway führt beide Pfade wieder zusammen, erst danach folgt Auftrag freigeben.</desc>
+
+          <defs>
+            <marker id="bpmn-parallel-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="10" y="45" width="90" height="32" rx="16" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="55" y="65" text-anchor="middle" fill="var(--text)" font-size="9">Auftrag erfassen</text>
+          <line x1="100" y1="61" x2="112" y2="61" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
+
+          <polygon points="130,43 148,61 130,79 112,61" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <line x1="130" y1="52" x2="130" y2="70" stroke="var(--text)" stroke-width="2"/>
+          <line x1="121" y1="61" x2="139" y2="61" stroke="var(--text)" stroke-width="2"/>
+
+          <line x1="148" y1="61" x2="180" y2="24" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
+          <line x1="148" y1="61" x2="180" y2="109" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
+
+          <rect x="182" y="10" width="88" height="28" rx="14" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="226" y="28" text-anchor="middle" fill="var(--text)" font-size="9">Lager prüfen</text>
+
+          <rect x="182" y="95" width="88" height="28" rx="14" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="226" y="113" text-anchor="middle" fill="var(--text)" font-size="9">Bonität prüfen</text>
+
+          <line x1="270" y1="24" x2="302" y2="52" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
+          <line x1="270" y1="109" x2="302" y2="70" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
+
+          <polygon points="320,43 338,61 320,79 302,61" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <line x1="320" y1="52" x2="320" y2="70" stroke="var(--text)" stroke-width="2"/>
+          <line x1="311" y1="61" x2="329" y2="61" stroke="var(--text)" stroke-width="2"/>
+
+          <line x1="338" y1="61" x2="350" y2="61" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
+
+          <rect x="352" y="45" width="98" height="32" rx="16" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="401" y="65" text-anchor="middle" fill="var(--text)" font-size="9">Auftrag freigeben</text>
+        </svg>
+        <figcaption>
+          Paralleles Gateway (Raute mit „+“): alle abgehenden Pfade
+          laufen gleichzeitig, und die Zusammenführung wartet, bis
+          beide fertig sind — im Unterschied zum exklusiven Gateway
+          oben, bei dem nur genau ein Pfad durchlaufen wird.
+        </figcaption>
+      </figure>
+
       <h3>Abgrenzung zum UML-Aktivitätsdiagramm</h3>
       <p>
         BPMN und das UML-Aktivitätsdiagramm verfolgen ein ähnliches Ziel

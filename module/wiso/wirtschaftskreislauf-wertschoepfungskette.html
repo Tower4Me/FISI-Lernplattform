@@ -116,6 +116,71 @@
         </li>
       </ul>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wke-title wke-desc">
+          <title id="wke-title">Erweiterter Wirtschaftskreislauf mit Staat, Banken und Ausland</title>
+          <desc id="wke-desc">Zusätzlich zum einfachen Kreislauf zwischen Haushalten und Unternehmen zeigt der erweiterte Kreislauf drei weitere Akteure: Der Staat erhebt Steuern von Haushalten und Unternehmen und zahlt dafür Transferleistungen bzw. stellt öffentliche Güter bereit. Banken nehmen Ersparnisse der Haushalte auf und vergeben Kredite an Unternehmen, jeweils gegen Zinsen. Das Ausland ist über Export- und Importströme mit den Unternehmen verbunden.</desc>
+
+          <defs>
+            <marker id="wke-arrow-link" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--link)"/>
+            </marker>
+            <marker id="wke-arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--text-muted)"/>
+            </marker>
+            <marker id="wke-arrow-muted-start" markerWidth="10" markerHeight="10" refX="2" refY="3" orient="auto">
+              <path d="M8,0 L0,3 L8,6 Z" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="220" y1="90" x2="110" y2="215" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="188" y="150" text-anchor="start" fill="var(--text-muted)" font-size="9">Steuern /</text>
+          <text x="188" y="161" text-anchor="start" fill="var(--text-muted)" font-size="9">Transfers</text>
+
+          <line x1="340" y1="90" x2="430" y2="215" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="362" y="150" text-anchor="end" fill="var(--text-muted)" font-size="9">Steuern /</text>
+          <text x="362" y="161" text-anchor="end" fill="var(--text-muted)" font-size="9">öff. Güter</text>
+
+          <line x1="220" y1="400" x2="110" y2="285" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="198" y="345" text-anchor="start" fill="var(--text-muted)" font-size="9">Ersparnis /</text>
+          <text x="198" y="356" text-anchor="start" fill="var(--text-muted)" font-size="9">Zinsen</text>
+
+          <line x1="340" y1="400" x2="430" y2="285" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="352" y="345" text-anchor="end" fill="var(--text-muted)" font-size="9">Kredit /</text>
+          <text x="352" y="356" text-anchor="end" fill="var(--text-muted)" font-size="9">Zinsen</text>
+
+          <line x1="505" y1="250" x2="550" y2="250" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="527" y="242" text-anchor="middle" fill="var(--text-muted)" font-size="8.5">Export /</text>
+          <text x="527" y="266" text-anchor="middle" fill="var(--text-muted)" font-size="8.5">Import</text>
+
+          <path d="M 185 235 H 355" fill="none" stroke="var(--link)" stroke-width="2.2" marker-end="url(#wke-arrow-link)"/>
+          <text x="270" y="228" text-anchor="middle" fill="var(--link)" font-size="9">Arbeitskraft, Güter</text>
+          <path d="M 355 265 H 185" fill="none" stroke="var(--text-muted)" stroke-width="2.2" marker-end="url(#wke-arrow-muted)"/>
+          <text x="270" y="280" text-anchor="middle" fill="var(--text-muted)" font-size="9">Löhne, Entgelte</text>
+
+          <rect x="185" y="30" width="170" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2.5"/>
+          <text x="270" y="65" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Staat</text>
+
+          <rect x="35" y="215" width="150" height="70" rx="8" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2.5"/>
+          <text x="110" y="256" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Haushalte</text>
+
+          <rect x="355" y="215" width="150" height="70" rx="8" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="430" y="256" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Unternehmen</text>
+
+          <rect x="185" y="400" width="170" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <text x="270" y="435" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Banken</text>
+
+          <rect x="550" y="215" width="140" height="70" rx="8" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2.5"/>
+          <text x="620" y="256" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Ausland</text>
+        </svg>
+        <figcaption>
+          Zusätzlich zum einfachen Kreislauf: Der Staat erhebt Steuern und
+          zahlt Transfers bzw. öffentliche Güter zurück, Banken
+          vermitteln zwischen Ersparnissen und Krediten, das Ausland ist
+          über Export/Import mit den Unternehmen verbunden.
+        </figcaption>
+      </figure>
+
       <h3>Wertschöpfungskette</h3>
       <p>
         Die <strong>Wertschöpfungskette</strong> beschreibt die Abfolge

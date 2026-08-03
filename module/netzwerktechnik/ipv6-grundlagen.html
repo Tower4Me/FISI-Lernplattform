@@ -106,6 +106,68 @@
         Interface-Identifier ableiten, ohne dass ein Server Adressen
         verwalten oder Kollisionen verhindern muss.
       </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eui64-title eui64-desc">
+          <title id="eui64-title">EUI-64-Verfahren Schritt für Schritt am Beispiel MAC 00:1A:2B:3C:4D:5E</title>
+          <desc id="eui64-desc">Die MAC-Adresse 00:1A:2B:3C:4D:5E wird in der Mitte zwischen Herstellerkennung und Gerätekennung aufgetrennt. Dazwischen wird FFFE eingefügt, wodurch acht Byte entstehen: 00:1A:2B:FF:FE:3C:4D:5E. Anschließend wird das Universal/Local-Bit des ersten Byte invertiert, aus 00 wird 02. Das Ergebnis, in IPv6-Blöcke gruppiert, ist der Interface-Identifier 021A:2BFF:FE3C:4D5E.</desc>
+
+          <text x="10" y="35" fill="var(--text-muted)" font-size="9">MAC-Adresse</text>
+          <rect x="100" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="140" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="180" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="220" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="260" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="300" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <g text-anchor="middle" fill="var(--text)" font-size="11">
+            <text x="118" y="60">00</text><text x="158" y="60">1A</text><text x="198" y="60">2B</text>
+            <text x="238" y="60">3C</text><text x="278" y="60">4D</text><text x="318" y="60">5E</text>
+          </g>
+          <line x1="218" y1="35" x2="218" y2="75" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="118" y="28" fill="var(--acc-einstieg)" font-size="8">Hersteller (OUI)</text>
+          <text x="277" y="28" fill="var(--acc-quiz)" font-size="8">Gerät</text>
+
+          <text x="10" y="100" fill="var(--text-muted)" font-size="9">+ FFFE</text>
+          <text x="10" y="112" fill="var(--text-muted)" font-size="9">eingefügt</text>
+          <rect x="100" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="140" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="180" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="220" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <rect x="260" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <rect x="300" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="340" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="380" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <g text-anchor="middle" fill="var(--text)" font-size="11">
+            <text x="118" y="120">00</text><text x="158" y="120">1A</text><text x="198" y="120">2B</text>
+            <text x="238" y="120" font-weight="700">FF</text><text x="278" y="120" font-weight="700">FE</text>
+            <text x="318" y="120">3C</text><text x="358" y="120">4D</text><text x="398" y="120">5E</text>
+          </g>
+
+          <text x="10" y="160" fill="var(--text-muted)" font-size="9">U/L-Bit</text>
+          <text x="10" y="172" fill="var(--text-muted)" font-size="9">geflippt</text>
+          <rect x="100" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2.5"/>
+          <rect x="140" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="180" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="220" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="260" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="300" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="340" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="380" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <g text-anchor="middle" fill="var(--text)" font-size="11">
+            <text x="118" y="180" fill="var(--fail)" font-weight="700">02</text>
+            <text x="158" y="180">1A</text><text x="198" y="180">2B</text>
+            <text x="238" y="180">FF</text><text x="278" y="180">FE</text>
+            <text x="318" y="180">3C</text><text x="358" y="180">4D</text><text x="398" y="180">5E</text>
+          </g>
+
+          <text x="220" y="215" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Interface-ID: 021A:2BFF:FE3C:4D5E</text>
+        </svg>
+        <figcaption>
+          Die MAC wird in der Mitte getrennt (blau/violett), FFFE
+          eingefügt (gelb) und im ersten Byte das U/L-Bit invertiert
+          (00 → 02, rot) — daraus ergibt sich der 64-Bit-Interface-Identifier.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->

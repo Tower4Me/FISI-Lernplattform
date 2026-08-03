@@ -88,7 +88,52 @@
         </tbody>
       </table>
 
-      <h3>Ausnahme: der „Taschengeldparagraf“ (§ 110 BGB)</h3>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="geschaeftsf-title geschaeftsf-desc">
+          <title id="geschaeftsf-title">Zeitstrahl der Geschäftsfähigkeit nach Alter (§§ 104 ff. BGB)</title>
+          <desc id="geschaeftsf-desc">Von 0 bis unter 7 Jahren ist eine Person geschäftsunfähig, Willenserklärungen sind nichtig. Von 7 bis unter 18 Jahren ist sie beschränkt geschäftsfähig und benötigt grundsätzlich die Zustimmung der gesetzlichen Vertreter. Ab 18 Jahren ist sie voll geschäftsfähig und kann Rechtsgeschäfte eigenständig abschließen. Der Taschengeldparagraf (§ 110 BGB) erlaubt beschränkt Geschäftsfähigen wirksame Geschäfte, wenn sie sofort und vollständig mit eigenen Mitteln erfüllt werden.</desc>
+
+          <defs>
+            <marker id="gf-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="30" y="60" width="150" height="25" fill="var(--fail)" fill-opacity="0.22" stroke="var(--fail)" stroke-width="2"/>
+          <rect x="180" y="60" width="220" height="25" fill="var(--acc-merksatz)" fill-opacity="0.22" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <rect x="400" y="60" width="50" height="25" fill="var(--acc-praxis)" fill-opacity="0.22" stroke="var(--acc-praxis)" stroke-width="2"/>
+
+          <line x1="30" y1="90" x2="450" y2="90" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#gf-arrow)"/>
+          <text x="30" y="85" text-anchor="middle" fill="var(--text)" font-size="8.5">0</text>
+          <text x="180" y="85" text-anchor="middle" fill="var(--text)" font-size="8.5">7</text>
+          <text x="400" y="85" text-anchor="middle" fill="var(--text)" font-size="8.5">18</text>
+          <line x1="30" y1="85" x2="30" y2="95" stroke="var(--text)" stroke-width="1.3"/>
+          <line x1="180" y1="85" x2="180" y2="95" stroke="var(--text)" stroke-width="1.3"/>
+          <line x1="400" y1="85" x2="400" y2="95" stroke="var(--text)" stroke-width="1.3"/>
+          <text x="440" y="105" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">Alter</text>
+
+          <text x="105" y="123" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">geschäftsunfähig</text>
+          <text x="105" y="135" text-anchor="middle" fill="var(--text-muted)" font-size="7">Willenserklärung nichtig</text>
+
+          <text x="290" y="123" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">beschränkt geschäftsfähig</text>
+          <text x="290" y="135" text-anchor="middle" fill="var(--text-muted)" font-size="7">Zustimmung der Eltern nötig</text>
+
+          <text x="425" y="123" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">voll geschäftsfähig</text>
+          <text x="425" y="135" text-anchor="middle" fill="var(--text-muted)" font-size="7">eigenständig wirksam</text>
+
+          <line x1="290" y1="140" x2="290" y2="150" stroke="var(--acc-quiz)" stroke-width="1.3" stroke-dasharray="3 2"/>
+          <text x="290" y="162" text-anchor="middle" fill="var(--acc-quiz)" font-size="7.5" font-style="italic">Ausnahme § 110 BGB: sofort &amp; vollständig</text>
+          <text x="290" y="173" text-anchor="middle" fill="var(--acc-quiz)" font-size="7.5" font-style="italic">mit eigenen Mitteln erfüllt → auch ohne Zustimmung wirksam</text>
+        </svg>
+        <figcaption>
+          Die Geschäftsfähigkeit ist nach Alter gestaffelt: geschäftsunfähig
+          bis 7, beschränkt geschäftsfähig bis 18, danach voll
+          geschäftsfähig — der Taschengeldparagraf durchbricht die
+          mittlere Stufe nur bei sofortiger, vollständiger Erfüllung.
+        </figcaption>
+      </figure>
+
+      <h3>Ausnahme: der „Taschengeldparagraf” (§ 110 BGB)</h3>
       <p>
         Beschränkt Geschäftsfähige können ein Rechtsgeschäft auch ohne
         Zustimmung der gesetzlichen Vertreter wirksam abschließen, wenn

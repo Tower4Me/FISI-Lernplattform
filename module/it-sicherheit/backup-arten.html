@@ -87,6 +87,59 @@
         getesteten Wiederherstellungen.
       </p>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="backup-title backup-desc">
+          <title id="backup-title">Restore-Kette: inkrementelle vs. differenzielle Backup-Strategie bei Ausfall am Mittwoch</title>
+          <desc id="backup-desc">Bei der inkrementellen Strategie werden für die Wiederherstellung am Mittwoch das Vollbackup vom Sonntag sowie lückenlos beide inkrementellen Backups von Montag und Dienstag benötigt. Bei der differenziellen Strategie werden nur das Vollbackup vom Sonntag und das letzte differenzielle Backup vom Dienstag benötigt, das Backup vom Montag wird nicht gebraucht, da das Dienstags-Backup bereits alle Änderungen seit Sonntag enthält.</desc>
+
+          <defs>
+            <marker id="backup-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <text x="30" y="15" fill="var(--text)" font-size="10" font-weight="600">Inkrementell-Strategie (alle Backups nötig)</text>
+          <rect x="30" y="30" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="65" y="48" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">So</text>
+          <text x="65" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Vollbackup</text>
+          <line x1="100" y1="47" x2="148" y2="47" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="150" y="30" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="185" y="48" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Mo</text>
+          <text x="185" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Inkrementell</text>
+          <line x1="220" y1="47" x2="268" y2="47" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="270" y="30" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="305" y="48" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Di</text>
+          <text x="305" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Inkrementell</text>
+          <line x1="340" y1="47" x2="378" y2="47" stroke="var(--fail)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="380" y="30" width="70" height="34" rx="5" fill="var(--fail)" fill-opacity="0.12" stroke="var(--fail)" stroke-width="2"/>
+          <text x="415" y="48" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Mi</text>
+          <text x="415" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Restore</text>
+
+          <text x="30" y="145" fill="var(--text)" font-size="10" font-weight="600">Differenziell-Strategie (nur letztes Diff. nötig)</text>
+          <rect x="30" y="160" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="65" y="178" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">So</text>
+          <text x="65" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Vollbackup</text>
+          <rect x="150" y="160" width="70" height="34" rx="5" fill="var(--surface)" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="185" y="178" text-anchor="middle" fill="var(--text-muted)" font-size="12" font-weight="700">Mo</text>
+          <text x="185" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Differenziell</text>
+          <text x="185" y="204" text-anchor="middle" fill="var(--text-muted)" font-size="7">nicht benötigt</text>
+          <path d="M100,177 Q185,135 270,177" fill="none" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="270" y="160" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="305" y="178" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Di</text>
+          <text x="305" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Differenziell</text>
+          <line x1="340" y1="177" x2="378" y2="177" stroke="var(--fail)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="380" y="160" width="70" height="34" rx="5" fill="var(--fail)" fill-opacity="0.12" stroke="var(--fail)" stroke-width="2"/>
+          <text x="415" y="178" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Mi</text>
+          <text x="415" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Restore</text>
+        </svg>
+        <figcaption>
+          Inkrementell braucht die lückenlose Kette aller Backups seit
+          dem Vollbackup. Differenziell überspringt frühere
+          Zwischenbackups (gestrichelt) — das letzte enthält bereits
+          alle Änderungen seit dem Vollbackup.
+        </figcaption>
+      </figure>
+
       <p>
         Wichtig: RAID (Modul 3.2) ist <strong>kein</strong> Ersatz für ein
         Backup. RAID schützt vor dem Ausfall einzelner Festplatten, aber

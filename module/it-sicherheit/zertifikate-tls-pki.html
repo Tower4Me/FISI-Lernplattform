@@ -84,6 +84,51 @@
         können ein gültiges Zertifikat besitzen.
       </p>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pki-title pki-desc">
+          <title id="pki-title">PKI-Vertrauenskette: Root-CA signiert Intermediate-CA signiert End-Zertifikat, der Browser prüft die Kette</title>
+          <desc id="pki-desc">Die Root-CA, im Browser vorinstalliert, signiert die Intermediate-CA. Diese wiederum signiert das End-Zertifikat einer konkreten Website. Der Browser vertraut der Root-CA direkt und prüft anhand der Signaturkette, ob das End-Zertifikat der Website lückenlos bis zu einer vertrauten Root-CA zurückverfolgt werden kann.</desc>
+
+          <defs>
+            <marker id="pki-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="60" y="15" width="180" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="150" y="35" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Root-CA</text>
+          <text x="150" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">im Browser vorinstalliert</text>
+
+          <line x1="150" y1="59" x2="150" y2="117" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#pki-arrow)"/>
+          <text x="158" y="93" fill="var(--text-muted)" font-size="9">signiert</text>
+
+          <rect x="60" y="120" width="180" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="150" y="140" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Intermediate-CA</text>
+          <text x="150" y="155" text-anchor="middle" fill="var(--text-muted)" font-size="8">Zwischenzertifikat</text>
+
+          <line x1="150" y1="164" x2="150" y2="222" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#pki-arrow)"/>
+          <text x="158" y="198" fill="var(--text-muted)" font-size="9">signiert</text>
+
+          <rect x="60" y="225" width="180" height="50" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="150" y="248" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">End-Zertifikat</text>
+          <text x="150" y="263" text-anchor="middle" fill="var(--text-muted)" font-size="8">z. B. musterhandel.de</text>
+
+          <rect x="280" y="130" width="140" height="44" rx="6" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="350" y="157" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Browser</text>
+
+          <line x1="280" y1="140" x2="242" y2="45" stroke="var(--text-muted)" stroke-width="1.3" stroke-dasharray="4 3"/>
+          <text x="335" y="95" text-anchor="middle" fill="var(--text-muted)" font-size="8">vertraut direkt</text>
+
+          <line x1="280" y1="162" x2="242" y2="250" stroke="var(--acc-einstieg)" stroke-width="1.5" marker-end="url(#pki-arrow)"/>
+          <text x="335" y="215" text-anchor="middle" fill="var(--acc-einstieg)" font-size="8">prüft Kette</text>
+        </svg>
+        <figcaption>
+          Der Browser vertraut nur der Root-CA direkt — ein
+          End-Zertifikat gilt nur als echt, wenn sich die Signaturkette
+          lückenlos bis zu einer vertrauten Root-CA zurückverfolgen lässt.
+        </figcaption>
+      </figure>
+
       <table>
         <thead>
           <tr><th>Begriff</th><th>Rolle</th></tr>

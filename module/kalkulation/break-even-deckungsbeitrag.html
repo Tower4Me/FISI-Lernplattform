@@ -95,6 +95,52 @@
         Höhe des Deckungsbeitrags zum Gewinn bei.
       </p>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="breakeven-title breakeven-desc">
+          <title id="breakeven-title">Break-Even-Diagramm des Cloud-Backup-Angebots</title>
+          <desc id="breakeven-desc">Liniendiagramm mit Menge in Kunden auf der x-Achse und Euro auf der y-Achse. Die waagerechte Fixkostenlinie liegt bei 4.000 Euro. Die Gesamtkostenlinie startet bei 4.000 Euro und steigt mit 10 Euro je Kunde. Die Erlöslinie startet bei 0 Euro und steigt mit 25 Euro je Kunde. Beide Linien schneiden sich am Break-Even-Point bei 267 Kunden und 6.675 Euro — links davon liegt die rot schattierte Verlustzone, rechts davon die grün schattierte Gewinnzone.</desc>
+
+          <defs>
+            <marker id="breakeven-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <polygon points="60,220 314,93 60,144" fill="var(--fail)" fill-opacity="0.1"/>
+          <polygon points="314,93 440,30 440,68" fill="var(--acc-praxis)" fill-opacity="0.1"/>
+
+          <line x1="60" y1="220" x2="450" y2="220" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#breakeven-arrow)"/>
+          <text x="440" y="234" text-anchor="middle" fill="var(--text-muted)" font-size="10">Kunden</text>
+          <line x1="60" y1="220" x2="60" y2="18" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#breakeven-arrow)"/>
+          <text x="15" y="120" text-anchor="middle" fill="var(--text-muted)" font-size="9" transform="rotate(-90 15 120)">Kosten / Erlös (€)</text>
+
+          <line x1="60" y1="144" x2="440" y2="144" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="5 3"/>
+          <text x="65" y="112" fill="var(--text-muted)" font-size="9">Fixkosten (4.000 €)</text>
+
+          <line x1="60" y1="144" x2="440" y2="68" stroke="var(--fail)" stroke-width="2.5"/>
+          <text x="246" y="82" text-anchor="middle" fill="var(--fail)" font-size="10" font-weight="600">Gesamtkosten</text>
+
+          <line x1="60" y1="220" x2="440" y2="30" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="345" y="45" fill="var(--acc-praxis)" font-size="10" font-weight="600">Erlös</text>
+
+          <line x1="314" y1="93" x2="314" y2="220" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="60" y1="93" x2="314" y2="93" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 2"/>
+          <circle cx="314" cy="93" r="5" fill="var(--surface)" stroke="var(--text)" stroke-width="2"/>
+          <text x="314" y="240" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="600">267 Kunden</text>
+          <text x="30" y="90" text-anchor="middle" fill="var(--text)" font-size="8">6.675 €</text>
+
+          <text x="120" y="205" fill="var(--fail)" font-size="9" font-weight="600">Verlustzone</text>
+          <text x="365" y="115" fill="var(--acc-praxis)" font-size="9" font-weight="600">Gewinnzone</text>
+
+          <text x="60" y="234" text-anchor="middle" fill="var(--text-muted)" font-size="9">0</text>
+        </svg>
+        <figcaption>
+          Break-Even-Point bei 267 Kunden / 6.675 € — hier schneiden sich
+          Gesamtkosten- und Erlöslinie (4.000 € ÷ 15 € ≈ 266,7,
+          aufgerundet 267). Links davon Verlust, rechts davon Gewinn.
+        </figcaption>
+      </figure>
+
       <h3>Rentabilität</h3>
       <p>
         Die Rentabilität setzt den erzielten Gewinn ins Verhältnis zum

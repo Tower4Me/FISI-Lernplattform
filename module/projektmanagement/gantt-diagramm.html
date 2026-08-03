@@ -100,6 +100,71 @@
         <li>Parallel dazu ein Balken „Schulungsvorbereitung“: Tag 1–4,
           mit sichtbarem Puffer bis Tag 9</li>
       </ul>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="gantt-title gantt-desc">
+          <title id="gantt-title">Gantt-Diagramm des Serverumzugs, Tag 1 bis 13</title>
+          <desc id="gantt-desc">Balken je Vorgang über einer Tagesachse von 1 bis 13: Hardware liefern Tag 1–5, Installation Tag 6–7, Datenmigration Tag 8–10, Tests Tag 11–12, Go-Live als Raute an Tag 13. Parallel dazu Schulungsvorbereitung als Balken Tag 1–4 mit gestrichelt angehängtem Pufferbereich bis Tag 9.</desc>
+
+          <line x1="140" y1="25" x2="452" y2="25" stroke="var(--border)" stroke-width="1"/>
+          <line x1="140" y1="25" x2="140" y2="196" stroke="var(--border)" stroke-width="1"/>
+          <line x1="164" y1="25" x2="164" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="188" y1="25" x2="188" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="212" y1="25" x2="212" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="236" y1="25" x2="236" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="260" y1="25" x2="260" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="284" y1="25" x2="284" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="308" y1="25" x2="308" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="332" y1="25" x2="332" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="356" y1="25" x2="356" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="380" y1="25" x2="380" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="404" y1="25" x2="404" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="428" y1="25" x2="428" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="452" y1="25" x2="452" y2="196" stroke="var(--border)" stroke-width="0.5"/>
+
+          <g fill="var(--text-muted)" font-size="8.5" text-anchor="middle">
+            <text x="152" y="19">1</text><text x="176" y="19">2</text><text x="200" y="19">3</text>
+            <text x="224" y="19">4</text><text x="248" y="19">5</text><text x="272" y="19">6</text>
+            <text x="296" y="19">7</text><text x="320" y="19">8</text><text x="344" y="19">9</text>
+            <text x="368" y="19">10</text><text x="392" y="19">11</text><text x="416" y="19">12</text>
+            <text x="440" y="19">13</text>
+          </g>
+
+          <g fill="var(--text)" font-size="9" text-anchor="end">
+            <text x="132" y="46">Hardware liefern</text>
+            <text x="132" y="74">Installation</text>
+            <text x="132" y="102">Datenmigration</text>
+            <text x="132" y="130">Tests</text>
+            <text x="132" y="158">Go-Live</text>
+            <text x="132" y="186">Schulungsvorbereitung</text>
+          </g>
+
+          <rect x="140" y="33" width="120" height="18" rx="3" fill="var(--acc-praxis)"/>
+          <rect x="260" y="61" width="48" height="18" rx="3" fill="var(--acc-praxis)"/>
+          <rect x="308" y="89" width="72" height="18" rx="3" fill="var(--acc-praxis)"/>
+          <rect x="380" y="117" width="48" height="18" rx="3" fill="var(--acc-praxis)"/>
+
+          <polygon points="440,145 449,154 440,163 431,154" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="2"/>
+
+          <rect x="140" y="173" width="96" height="18" rx="3" fill="var(--acc-praxis)"/>
+          <rect x="236" y="173" width="120" height="18" rx="3" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+          <g font-size="9" fill="var(--text-muted)">
+            <rect x="140" y="212" width="18" height="12" rx="2" fill="var(--acc-praxis)"/>
+            <text x="163" y="222">Vorgang</text>
+            <rect x="230" y="212" width="18" height="12" rx="2" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <text x="253" y="222">Puffer</text>
+            <polygon points="335,212 344,218 335,224 326,218" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+            <text x="352" y="222">Meilenstein</text>
+          </g>
+        </svg>
+        <figcaption>
+          Jeder Balken zeigt Start, Ende und Dauer eines Vorgangs auf der
+          Tagesachse; Go-Live ist ein Meilenstein (Raute) ohne eigene
+          Dauer. Die Schulungsvorbereitung reicht bis Tag 4, der
+          gestrichelte Anschluss bis Tag 9 zeigt ihren Puffer.
+        </figcaption>
+      </figure>
+
       <p>
         Der Kunde sieht auf einen Blick, wann was passiert und dass die
         Schulungsvorbereitung parallel zu den anderen Arbeiten läuft —

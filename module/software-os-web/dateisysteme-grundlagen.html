@@ -114,6 +114,62 @@
         Datenblock.
       </p>
 
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 315" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="inode-title inode-desc">
+          <title id="inode-title">Vom Verzeichniseintrag über Inode/MFT zu den Datenblöcken</title>
+          <desc id="inode-desc">Der Verzeichniseintrag verweist über den Dateinamen auf einen Inode- bzw. MFT-Eintrag. Dieser enthält alle Metadaten wie Größe, Zeitstempel und Berechtigungen sowie Zeiger auf die tatsächlichen Datenblöcke auf dem Datenträger, die nicht zwingend zusammenhängend liegen müssen.</desc>
+
+          <defs>
+            <marker id="inode-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="150" y="10" width="160" height="46" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="230" y="30" text-anchor="middle" fill="var(--text)" font-size="10.5" font-weight="700">Verzeichnis-Eintrag</text>
+          <text x="230" y="44" text-anchor="middle" fill="var(--text-muted)" font-size="8">Name: projekt.txt</text>
+
+          <line x1="230" y1="56" x2="230" y2="92" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#inode-arrow)"/>
+
+          <rect x="110" y="95" width="240" height="90" rx="6" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2.5"/>
+          <text x="230" y="116" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Inode / MFT-Eintrag</text>
+          <text x="230" y="132" text-anchor="middle" fill="var(--text-muted)" font-size="8">Größe, Zeitstempel, Berechtigungen</text>
+          <text x="230" y="144" text-anchor="middle" fill="var(--text-muted)" font-size="8">(kein Dateiname — nur der</text>
+          <text x="230" y="155" text-anchor="middle" fill="var(--text-muted)" font-size="8">Verzeichniseintrag verweist hierher)</text>
+          <text x="230" y="172" text-anchor="middle" fill="var(--acc-praxis)" font-size="9" font-weight="700">Zeiger auf Datenblöcke ↓</text>
+
+          <text x="230" y="203" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">zeigt auf</text>
+
+          <line x1="180" y1="185" x2="90" y2="228" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#inode-arrow)"/>
+          <line x1="210" y1="185" x2="190" y2="228" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#inode-arrow)"/>
+          <line x1="250" y1="185" x2="290" y2="228" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#inode-arrow)"/>
+          <line x1="280" y1="185" x2="390" y2="228" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#inode-arrow)"/>
+
+          <rect x="50" y="230" width="80" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="90" y="252" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">Block 12</text>
+          <text x="90" y="265" text-anchor="middle" fill="var(--text-muted)" font-size="7">Daten</text>
+
+          <rect x="150" y="230" width="80" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="190" y="252" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">Block 45</text>
+          <text x="190" y="265" text-anchor="middle" fill="var(--text-muted)" font-size="7">Daten</text>
+
+          <rect x="250" y="230" width="80" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="290" y="252" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">Block 46</text>
+          <text x="290" y="265" text-anchor="middle" fill="var(--text-muted)" font-size="7">Daten</text>
+
+          <rect x="350" y="230" width="80" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="390" y="252" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">Block 108</text>
+          <text x="390" y="265" text-anchor="middle" fill="var(--text-muted)" font-size="7">Daten</text>
+
+          <text x="230" y="300" text-anchor="middle" fill="var(--text-muted)" font-size="8">Datenblöcke müssen nicht zusammenhängend liegen (siehe Fragmentierung)</text>
+        </svg>
+        <figcaption>
+          Der Dateiname im Verzeichnis ist nur ein Verweis auf den
+          Inode/MFT-Eintrag — dieser trägt die eigentlichen Metadaten und
+          zeigt auf die tatsächlichen, ggf. verstreuten Datenblöcke.
+        </figcaption>
+      </figure>
+
       <h3>Was macht ein Dateisystem allgemein?</h3>
       <p>Ein Dateisystem löst vier Grundprobleme:</p>
       <ul>

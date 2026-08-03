@@ -130,7 +130,7 @@ li.addEventListener("click", function (e) {
 
     var actions = el("div");
     var checkBtn = el("button", "btn btn--primary", "Auswerten");
-    var resetBtn = el("button", "btn", "Zuruecksetzen");
+    var resetBtn = el("button", "btn", "Zurücksetzen");
     resetBtn.style.marginLeft = "0.5rem";
     actions.appendChild(checkBtn);
     actions.appendChild(resetBtn);

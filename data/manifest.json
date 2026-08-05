@@ -318,6 +318,12 @@
           "quiz": "data/netzwerktechnik/netzwerkkomponenten.json"
         },
         {
+          "slug": "ethernet-zugriffsverfahren",
+          "name": "Ethernet, LAN-Standards & Zugriffsverfahren",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/ethernet-zugriffsverfahren.json"
+        },
+        {
           "slug": "netzwerktopologien",
           "name": "Netzwerktopologien",
           "exams": ["ap2"],
@@ -394,6 +400,12 @@
           "name": "Anwendungsprotokolle",
           "exams": ["ap1", "ap2"],
           "quiz": "data/netzwerktechnik/anwendungsprotokolle.json"
+        },
+        {
+          "slug": "header-uebersicht",
+          "name": "Protokoll-Header im Überblick",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/header-uebersicht.json"
         },
         {
           "slug": "wlan-grundlagen",

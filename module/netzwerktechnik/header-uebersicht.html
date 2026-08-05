@@ -165,6 +165,21 @@
         Mindestgröße aufgefüllt) bis maximal <strong>1518 Byte</strong>
         (14 Byte Header + 1500 Byte MTU-Payload + 4 Byte FCS).
       </p>
+      <p>
+        Frames außerhalb dieser Grenzen gelten als fehlerhaft und tauchen
+        in der Praxis in den Fehlerzählern von Switch-Ports auf:
+        <strong>Runts</strong> sind Frames <strong>kleiner als
+        64 Byte</strong> — meist Fragmente einer Kollision oder Hinweis
+        auf eine defekte Netzwerkkarte. <strong>Giants</strong> sind
+        Frames <strong>größer als 1518 Byte</strong>, ohne als
+        Jumbo-Frame beabsichtigt zu sein — meist ein Konfigurationsfehler.
+        <strong>Jumbo-Frames</strong> dagegen sind bewusst übergroße
+        Frames (üblich bis ca. 9000 Byte Payload), um bei Storage-/
+        Backup-Netzen mit hohem Durchsatz den Overhead pro Frame zu
+        senken — kein offizieller Ethernet-Standard, sondern eine
+        Erweiterung, die auf der gesamten Strecke (NIC, Switches)
+        unterstützt werden muss, sonst werden die Frames verworfen.
+      </p>
 
       <h3>Welcher Header sitzt auf welcher OSI-Schicht?</h3>
       <table>

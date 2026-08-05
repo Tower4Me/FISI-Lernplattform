@@ -282,7 +282,7 @@
       <figure class="figure--diagram">
         <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ipv4bits-title ipv4bits-desc">
           <title id="ipv4bits-title">IPv4-Header als Bitfeld-Diagramm</title>
-          <desc id="ipv4bits-desc">Fünf Zeilen zu je 32 Bit (4 Byte), jede Zeile von links nach rechts gelesen, Zeilen von oben nach unten: Version/IHL/DSCP-ECN/Total Length; Identification/Flags/Fragment Offset; TTL/Protocol/Header Checksum; Quell-IP-Adresse; Ziel-IP-Adresse. Darunter eine gestrichelte Optionen-Zeile als optionales Zusatzfeld.</desc>
+          <desc id="ipv4bits-desc">Fünf Zeilen zu je 32 Bit (4 Byte), jede Zeile von links nach rechts gelesen, Zeilen von oben nach unten: Version/IHL/DSCP-ECN/Total Length; Identification/Flags/Fragment Offset; TTL/Protocol/Header Checksum; Quell-IP-Adresse; Ziel-IP-Adresse. Darunter eine gestrichelte Zeile mit den optionalen Zusatzfeldern Optionen und Padding.</desc>
 
           <!-- Bit-Lineal oben -->
           <g font-size="7" fill="var(--text-muted)">
@@ -336,17 +336,22 @@
             <rect x="50" y="194" width="576" height="36" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.6"/>
             <text x="338" y="209">Ziel-IP-Adresse</text><text x="338" y="220" font-size="6.5" fill="var(--text-muted)">32 Bit</text>
 
-            <!-- Optionen (variabel, optional) -->
-            <rect x="50" y="236" width="576" height="24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4 3"/>
-            <text x="338" y="252" font-size="7" fill="var(--text-muted)">Optionen (variable Länge, optional — nicht Teil der 20 Byte)</text>
+            <!-- Optionen + Padding (variabel, optional) -->
+            <rect x="50" y="236" width="432" height="24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="266" y="252" font-size="7" fill="var(--text-muted)">Optionen (variable Länge)</text>
+            <rect x="482" y="236" width="144" height="24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="554" y="252" font-size="7" fill="var(--text-muted)">Padding</text>
           </g>
 
-          <text x="338" y="274" text-anchor="middle" font-size="7" fill="var(--text-muted)">Lesereihenfolge: Zeile für Zeile von oben nach unten, innerhalb jeder Zeile von links nach rechts.</text>
+          <text x="338" y="272" text-anchor="middle" font-size="6.5" fill="var(--text-muted)">Optionen + Padding: optional, nicht Teil der 20 Byte — Padding füllt nur auf die nächste 32-Bit-Grenze auf.</text>
         </svg>
         <figcaption>
           IPv4-Header als Bitfeld-Diagramm: fünf Zeilen zu je 32 Bit
           (4 Byte) ergeben die 20 Byte Grundgröße. Die gestrichelte
-          Optionen-Zeile ist optional und nicht in den 20 Byte enthalten.
+          Optionen-Zeile ist optional; das Padding-Feld danach füllt sie
+          bei Bedarf auf die nächste volle 32-Bit-Grenze auf (die IHL
+          zählt den Header in 32-Bit-Wörtern) — beides ist nicht Teil der
+          20 Byte.
         </figcaption>
       </figure>
 

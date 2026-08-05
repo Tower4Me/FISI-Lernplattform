@@ -131,21 +131,21 @@
       </p>
       <table>
         <thead>
-          <tr><th>Bezeichnung</th><th>Datenrate</th><th>Umgangsname</th></tr>
+          <tr><th>Bezeichnung</th><th>Datenrate</th><th>Umgangsname</th><th>Mindest-Kabelkategorie</th></tr>
         </thead>
         <tbody>
-          <tr><td>10BASE-T</td><td>10 Mbit/s</td><td>Ethernet</td></tr>
-          <tr><td>100BASE-TX</td><td>100 Mbit/s</td><td>Fast Ethernet</td></tr>
-          <tr><td>1000BASE-T</td><td>1000 Mbit/s (1 Gbit/s)</td><td>Gigabit Ethernet</td></tr>
-          <tr><td>10GBASE-T</td><td>10 Gbit/s</td><td>10-Gigabit Ethernet</td></tr>
+          <tr><td>10BASE-T</td><td>10 Mbit/s</td><td>Ethernet</td><td>Cat 3</td></tr>
+          <tr><td>100BASE-TX</td><td>100 Mbit/s</td><td>Fast Ethernet</td><td>Cat 5</td></tr>
+          <tr><td>1000BASE-T</td><td>1000 Mbit/s (1 Gbit/s)</td><td>Gigabit Ethernet</td><td>Cat 5e</td></tr>
+          <tr><td>10GBASE-T</td><td>10 Gbit/s</td><td>10-Gigabit Ethernet</td><td>Cat 6a</td></tr>
         </tbody>
       </table>
       <p>
-        Welche Kabelkategorie welche dieser Datenraten trägt, behandelt
-        bereits die Einheit
+        Details zu den Kabelkategorien selbst (Schirmungsarten,
+        Steckerbelegung T568A/B, Segmentlängen) behandelt die Einheit
         <a href="verkabelung-twisted-pair.html">Verkabelung Twisted
-        Pair</a> im Detail (z. B. Cat 5e für Gigabit, Cat 6a für
-        10 Gbit/s) — hier nicht erneut aufgeführt.
+        Pair</a> vertiefend — hier nur die Mindestanforderung je
+        Ethernet-Standard.
       </p>
 
       <h3>Einordnung: 802.3 vs. 802.11</h3>
@@ -168,7 +168,100 @@
         neues WLAN ein.
       </p>
 
-      <!-- TODO Zeichnung: CSMA/CD Ablauf (lauschen→senden→Kollision→ Backoff) vs. CSMA/CA (lauschen→warten→senden→ACK) nebeneinander -->
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="csma-title csma-desc">
+          <title id="csma-title">Ablauf CSMA/CD im Vergleich zu CSMA/CA</title>
+          <desc id="csma-desc">Links CSMA/CD: Lauschen, Senden, bei Kollision Abbruch und Backoff mit erneutem Versuch, ohne Kollision fertig. Rechts CSMA/CA: Lauschen, zufällige Wartezeit vor dem Senden, Senden, ACK abwarten — bei ACK fertig, ohne ACK erneuter Versuch von vorn.</desc>
+
+          <defs>
+            <marker id="csma-arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <line x1="320" y1="28" x2="320" y2="335" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 3"/>
+
+          <text x="130" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="var(--acc-einstieg)">CSMA/CD — Kabel/Ethernet</text>
+          <text x="510" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="var(--acc-praxis)">CSMA/CA — Funk/WLAN</text>
+
+          <!-- CD Boxen -->
+          <g font-size="9" fill="var(--text)" text-anchor="middle">
+            <rect x="20" y="35" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="56">1. Lauschen —</text>
+            <text x="130" y="70">Medium frei?</text>
+
+            <rect x="20" y="115" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="145">2. Senden</text>
+
+            <rect x="20" y="195" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="216">3. Kollision erkannt</text>
+            <text x="130" y="230">(Spannungsanomalie)</text>
+
+            <rect x="20" y="275" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="296">4. Abbruch + Backoff</text>
+            <text x="130" y="310">(zufällige Wartezeit)</text>
+          </g>
+
+          <!-- CD Pfeile -->
+          <line x1="130" y1="85" x2="130" y2="112" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <line x1="130" y1="165" x2="130" y2="192" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <text x="136" y="182" font-size="7" fill="var(--text-muted)">bei Kollision</text>
+          <line x1="130" y1="245" x2="130" y2="272" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+
+          <!-- CD "keine Kollision -> fertig" -->
+          <line x1="240" y1="140" x2="270" y2="140" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <text x="255" y="132" text-anchor="middle" font-size="6.5" fill="var(--text-muted)">keine Kollision</text>
+          <rect x="272" y="125" width="44" height="30" rx="4" fill="var(--surface)" stroke="var(--ok)" stroke-width="1.5"/>
+          <text x="294" y="144" text-anchor="middle" font-size="8" fill="var(--ok)">Fertig</text>
+
+          <!-- CD Ruecksprung-Schleife -->
+          <path d="M20,300 L10,300 L10,60 L18,60" fill="none" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#csma-arrow)"/>
+          <text x="14" y="185" font-size="7" fill="var(--text-muted)" transform="rotate(-90 14 185)">erneuter Versuch</text>
+
+          <text x="130" y="350" text-anchor="middle" font-size="7" fill="var(--text-muted)">Relevant vor allem bei Hubs / Halbduplex.</text>
+
+          <!-- CA Boxen -->
+          <g font-size="9" fill="var(--text)" text-anchor="middle">
+            <rect x="400" y="35" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="56">1. Lauschen</text>
+            <text x="510" y="70">(länger als bei CD)</text>
+
+            <rect x="400" y="115" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="136">2. Zufällige Wartezeit</text>
+            <text x="510" y="150">(Backoff vor dem Senden)</text>
+
+            <rect x="400" y="195" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="225">3. Senden</text>
+
+            <rect x="400" y="275" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="305">4. ACK abwarten</text>
+          </g>
+
+          <!-- CA Pfeile -->
+          <line x1="510" y1="85" x2="510" y2="112" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <line x1="510" y1="165" x2="510" y2="192" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <line x1="510" y1="245" x2="510" y2="272" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+
+          <!-- CA "ACK erhalten -> fertig" -->
+          <line x1="400" y1="300" x2="368" y2="300" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <text x="384" y="292" text-anchor="middle" font-size="6.5" fill="var(--text-muted)">ACK erhalten</text>
+          <rect x="322" y="285" width="44" height="30" rx="4" fill="var(--surface)" stroke="var(--ok)" stroke-width="1.5"/>
+          <text x="344" y="304" text-anchor="middle" font-size="8" fill="var(--ok)">Fertig</text>
+
+          <!-- CA Ruecksprung-Schleife -->
+          <path d="M620,300 L632,300 L632,60 L622,60" fill="none" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#csma-arrow)"/>
+          <text x="636" y="185" font-size="7" fill="var(--text-muted)" transform="rotate(-90 636 185)">kein ACK → erneut</text>
+
+          <text x="510" y="345" text-anchor="middle" font-size="7" fill="var(--text-muted)">Optional: RTS/CTS reserviert</text>
+          <text x="510" y="356" text-anchor="middle" font-size="7" fill="var(--text-muted)">das Medium vorab (Hidden Node).</text>
+        </svg>
+        <figcaption>
+          CSMA/CD (links): Kollision wird erkannt, danach Backoff und
+          erneuter Versuch. CSMA/CA (rechts): Kollision wird durch
+          Lauschen und Warten vor dem Senden vermieden, ein ausbleibendes
+          ACK löst einen neuen Versuch aus.
+        </figcaption>
+      </figure>
 
       <ul>
         <li>Im alten Netz hingen alle PCs an einem <strong>Hub</strong> im

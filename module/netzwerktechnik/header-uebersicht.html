@@ -100,7 +100,8 @@
           <tr><td>Sequenznummer</td><td>32 Bit</td></tr>
           <tr><td>Bestätigungsnummer (ACK-Nummer)</td><td>32 Bit</td></tr>
           <tr><td>Data Offset</td><td>4 Bit</td></tr>
-          <tr><td>Flags (SYN, ACK, FIN, RST, PSH, URG)</td><td>9 Bit</td></tr>
+          <tr><td>Reserviert</td><td>6 Bit</td></tr>
+          <tr><td>Flags (URG, ACK, PSH, RST, SYN, FIN)</td><td>6 Bit</td></tr>
           <tr><td>Window</td><td>16 Bit</td></tr>
           <tr><td>Prüfsumme (Checksum)</td><td>16 Bit</td></tr>
           <tr><td>Urgent Pointer</td><td>16 Bit</td></tr>
@@ -158,7 +159,11 @@
         maximale Payload-Größe ist durch die <strong>MTU</strong>
         (Maximum Transmission Unit) von <strong>1500 Byte</strong>
         begrenzt — größere Pakete müssen vorher auf IP-Ebene fragmentiert
-        werden.
+        werden. Daraus ergibt sich die Ethernet-Frame-Größe (Ziel-MAC bis
+        FCS, ohne Präambel/SFD): minimal <strong>64 Byte</strong> (bei nur
+        46 Byte Payload — kleinere Frames werden mit Füllbytes auf diese
+        Mindestgröße aufgefüllt) bis maximal <strong>1518 Byte</strong>
+        (14 Byte Header + 1500 Byte MTU-Payload + 4 Byte FCS).
       </p>
 
       <h3>Welcher Header sitzt auf welcher OSI-Schicht?</h3>
@@ -184,7 +189,75 @@
         schickt.
       </p>
 
-      <!-- TODO Zeichnung: geschachtelte Header (Ethernet⊃IP⊃TCP⊃Daten) mit Feldgrößen -->
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 610 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kaps-title kaps-desc">
+          <title id="kaps-title">Gekapselter Ethernet-Frame mit Ethernet-, IP- und TCP-Header</title>
+          <desc id="kaps-desc">Horizontale Leiste von links nach rechts: Präambel+SFD (außerhalb des Frames), Ziel-MAC, Quell-MAC, EtherType, IP-Header, TCP-Header, Daten, FCS. Drei Klammern darüber zeigen die Verschachtelung: Ethernet-Frame umfasst Ziel-MAC bis FCS, IP-Paket umfasst IP-Header bis Daten, TCP-Segment umfasst TCP-Header und Daten.</desc>
+
+          <!-- Klammer 1: Ethernet-Frame (Ziel-MAC .. FCS) -->
+          <line x1="74" y1="17" x2="590" y2="17" stroke="var(--text)" stroke-width="1.2"/>
+          <line x1="74" y1="17" x2="74" y2="22" stroke="var(--text)" stroke-width="1.2"/>
+          <line x1="590" y1="17" x2="590" y2="22" stroke="var(--text)" stroke-width="1.2"/>
+          <text x="332" y="11" text-anchor="middle" font-size="8.5" fill="var(--text)">Ethernet-Frame (64–1518 Byte)</text>
+
+          <!-- Klammer 2: IP-Paket (IP-Header .. Daten) -->
+          <line x1="248" y1="34" x2="544" y2="34" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="248" y1="34" x2="248" y2="39" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="544" y1="34" x2="544" y2="39" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <text x="396" y="28" text-anchor="middle" font-size="8" fill="var(--text-muted)">IP-Paket</text>
+
+          <!-- Klammer 3: TCP-Segment (TCP-Header .. Daten) -->
+          <line x1="326" y1="51" x2="544" y2="51" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="326" y1="51" x2="326" y2="56" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="544" y1="51" x2="544" y2="56" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <text x="435" y="45" text-anchor="middle" font-size="8" fill="var(--text-muted)">TCP-Segment</text>
+
+          <!-- Hauptleiste -->
+          <g font-size="7.5" fill="var(--text)" text-anchor="middle">
+            <rect x="10" y="60" width="54" height="58" rx="3" fill="var(--bg)" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <text x="37" y="86">Präambel</text>
+            <text x="37" y="97">+SFD</text>
+            <text x="37" y="110" font-size="7" fill="var(--text-muted)">8 Byte</text>
+
+            <rect x="74" y="60" width="64" height="58" rx="3" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="106" y="90">Ziel-MAC</text>
+            <text x="106" y="103" font-size="7" fill="var(--text-muted)">6 Byte</text>
+
+            <rect x="138" y="60" width="64" height="58" rx="3" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="170" y="90">Quell-MAC</text>
+            <text x="170" y="103" font-size="7" fill="var(--text-muted)">6 Byte</text>
+
+            <rect x="202" y="60" width="46" height="58" rx="3" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="225" y="90">EtherType</text>
+            <text x="225" y="103" font-size="7" fill="var(--text-muted)">2 Byte</text>
+
+            <rect x="248" y="60" width="78" height="58" rx="3" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+            <text x="287" y="90">IP-Header</text>
+            <text x="287" y="103" font-size="7" fill="var(--text-muted)">20 Byte</text>
+
+            <rect x="326" y="60" width="78" height="58" rx="3" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="365" y="90">TCP-Header</text>
+            <text x="365" y="103" font-size="7" fill="var(--text-muted)">20 Byte</text>
+
+            <rect x="404" y="60" width="140" height="58" rx="3" fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+            <text x="474" y="90">Daten</text>
+            <text x="474" y="103" font-size="7" fill="var(--text-muted)">z. B. 1000 Byte</text>
+
+            <rect x="544" y="60" width="46" height="58" rx="3" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+            <text x="567" y="90">FCS</text>
+            <text x="567" y="103" font-size="7" fill="var(--text-muted)">4 Byte</text>
+          </g>
+
+          <text x="10" y="133" font-size="7" fill="var(--text-muted)">Präambel/SFD: nur Bit-Synchronisation, nicht Teil der Frame-Größe.</text>
+        </svg>
+        <figcaption>
+          Von außen nach innen gekapselt: Ethernet-Header (Ziel-/Quell-MAC,
+          EtherType) umschließt das IP-Paket, das TCP-Segment umschließt
+          wiederum die Nutzdaten. FCS als Trailer am Ende. Präambel/SFD
+          stehen vor dem eigentlichen Frame und zählen nicht zu dessen
+          Größe.
+        </figcaption>
+      </figure>
 
       <p>Von außen nach innen packt jede Schicht ihren Header davor:</p>
       <ul>
@@ -206,9 +279,137 @@
         Ethernet-Paket, ohne dass IP fragmentieren muss.
       </p>
 
-      <!-- TODO Zeichnung: Feldleiste IPv4-Header mit Feldgrößen -->
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 660 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ipv4bits-title ipv4bits-desc">
+          <title id="ipv4bits-title">IPv4-Header als Bitfeld-Diagramm</title>
+          <desc id="ipv4bits-desc">Fünf Zeilen zu je 32 Bit (4 Byte), jede Zeile von links nach rechts gelesen, Zeilen von oben nach unten: Version/IHL/DSCP-ECN/Total Length; Identification/Flags/Fragment Offset; TTL/Protocol/Header Checksum; Quell-IP-Adresse; Ziel-IP-Adresse. Darunter eine gestrichelte Optionen-Zeile als optionales Zusatzfeld.</desc>
 
-      <!-- TODO Zeichnung: Feldleiste TCP-Header mit Feldgrößen -->
+          <!-- Bit-Lineal oben -->
+          <g font-size="7" fill="var(--text-muted)">
+            <text x="50" y="12" text-anchor="middle">0</text>
+            <text x="194" y="12" text-anchor="middle">8</text>
+            <text x="338" y="12" text-anchor="middle">16</text>
+            <text x="482" y="12" text-anchor="middle">24</text>
+            <text x="626" y="12" text-anchor="middle">32 Bit</text>
+            <line x1="50" y1="15" x2="50" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="194" y1="15" x2="194" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="338" y1="15" x2="338" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="482" y1="15" x2="482" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="626" y1="15" x2="626" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+          </g>
+
+          <!-- Linker Randtext -->
+          <text x="18" y="128" text-anchor="middle" font-size="8.5" font-weight="600" fill="var(--text)" transform="rotate(-90 18 128)">IPv4-Header — 20 Byte</text>
+
+          <g font-size="7.5" fill="var(--text)" text-anchor="middle">
+            <!-- Zeile 1 -->
+            <rect x="50" y="26" width="72" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="86" y="41">Version</text><text x="86" y="52" font-size="6.5" fill="var(--text-muted)">4 Bit</text>
+            <rect x="122" y="26" width="72" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="158" y="41">IHL</text><text x="158" y="52" font-size="6.5" fill="var(--text-muted)">4 Bit</text>
+            <rect x="194" y="26" width="144" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="266" y="41">DSCP / ECN</text><text x="266" y="52" font-size="6.5" fill="var(--text-muted)">8 Bit</text>
+            <rect x="338" y="26" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="482" y="41">Total Length</text><text x="482" y="52" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+
+            <!-- Zeile 2 -->
+            <rect x="50" y="68" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="194" y="83">Identification</text><text x="194" y="94" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+            <rect x="338" y="68" width="54" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="365" y="83">Flags</text><text x="365" y="94" font-size="6.5" fill="var(--text-muted)">3 Bit</text>
+            <rect x="392" y="68" width="234" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="509" y="83">Fragment Offset</text><text x="509" y="94" font-size="6.5" fill="var(--text-muted)">13 Bit</text>
+
+            <!-- Zeile 3 -->
+            <rect x="50" y="110" width="144" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="122" y="125">TTL</text><text x="122" y="136" font-size="6.5" fill="var(--text-muted)">8 Bit</text>
+            <rect x="194" y="110" width="144" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="266" y="125">Protocol</text><text x="266" y="136" font-size="6.5" fill="var(--text-muted)">8 Bit</text>
+            <rect x="338" y="110" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="482" y="125">Header Checksum</text><text x="482" y="136" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+
+            <!-- Zeile 4 -->
+            <rect x="50" y="152" width="576" height="36" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.6"/>
+            <text x="338" y="167">Quell-IP-Adresse</text><text x="338" y="178" font-size="6.5" fill="var(--text-muted)">32 Bit</text>
+
+            <!-- Zeile 5 -->
+            <rect x="50" y="194" width="576" height="36" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.6"/>
+            <text x="338" y="209">Ziel-IP-Adresse</text><text x="338" y="220" font-size="6.5" fill="var(--text-muted)">32 Bit</text>
+
+            <!-- Optionen (variabel, optional) -->
+            <rect x="50" y="236" width="576" height="24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="338" y="252" font-size="7" fill="var(--text-muted)">Optionen (variable Länge, optional — nicht Teil der 20 Byte)</text>
+          </g>
+
+          <text x="338" y="274" text-anchor="middle" font-size="7" fill="var(--text-muted)">Lesereihenfolge: Zeile für Zeile von oben nach unten, innerhalb jeder Zeile von links nach rechts.</text>
+        </svg>
+        <figcaption>
+          IPv4-Header als Bitfeld-Diagramm: fünf Zeilen zu je 32 Bit
+          (4 Byte) ergeben die 20 Byte Grundgröße. Die gestrichelte
+          Optionen-Zeile ist optional und nicht in den 20 Byte enthalten.
+        </figcaption>
+      </figure>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tcpbits-title tcpbits-desc">
+          <title id="tcpbits-title">TCP-Header als Bitfeld-Diagramm</title>
+          <desc id="tcpbits-desc">Fünf Zeilen zu je 32 Bit (4 Byte), jede Zeile von links nach rechts gelesen, Zeilen von oben nach unten: Quellport/Zielport; Sequenznummer; Bestätigungsnummer; Data Offset/Reserviert/Flags/Window; Prüfsumme/Urgent Pointer.</desc>
+
+          <g font-size="7" fill="var(--text-muted)">
+            <text x="50" y="12" text-anchor="middle">0</text>
+            <text x="194" y="12" text-anchor="middle">8</text>
+            <text x="338" y="12" text-anchor="middle">16</text>
+            <text x="482" y="12" text-anchor="middle">24</text>
+            <text x="626" y="12" text-anchor="middle">32 Bit</text>
+            <line x1="50" y1="15" x2="50" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="194" y1="15" x2="194" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="338" y1="15" x2="338" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="482" y1="15" x2="482" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+            <line x1="626" y1="15" x2="626" y2="20" stroke="var(--text-muted)" stroke-width="1"/>
+          </g>
+
+          <text x="18" y="128" text-anchor="middle" font-size="8.5" font-weight="600" fill="var(--text)" transform="rotate(-90 18 128)">TCP-Header — 20 Byte</text>
+
+          <g font-size="7.5" fill="var(--text)" text-anchor="middle">
+            <!-- Zeile 1 -->
+            <rect x="50" y="26" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="194" y="41">Quellport</text><text x="194" y="52" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+            <rect x="338" y="26" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="482" y="41">Zielport</text><text x="482" y="52" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+
+            <!-- Zeile 2 -->
+            <rect x="50" y="68" width="576" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="338" y="83">Sequenznummer</text><text x="338" y="94" font-size="6.5" fill="var(--text-muted)">32 Bit</text>
+
+            <!-- Zeile 3 -->
+            <rect x="50" y="110" width="576" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="338" y="125">Bestätigungsnummer (ACK)</text><text x="338" y="136" font-size="6.5" fill="var(--text-muted)">32 Bit</text>
+
+            <!-- Zeile 4 -->
+            <rect x="50" y="152" width="72" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="86" y="167">Data</text><text x="86" y="176" font-size="6.5">Offset</text><text x="86" y="186" font-size="6" fill="var(--text-muted)">4 Bit</text>
+            <rect x="122" y="152" width="108" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="176" y="171">Reserviert</text><text x="176" y="182" font-size="6.5" fill="var(--text-muted)">6 Bit</text>
+            <rect x="230" y="152" width="108" height="36" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="1.6"/>
+            <text x="284" y="171">Flags</text><text x="284" y="182" font-size="6.5" fill="var(--text-muted)">6 Bit</text>
+            <rect x="338" y="152" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="482" y="167">Window</text><text x="482" y="178" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+
+            <!-- Zeile 5 -->
+            <rect x="50" y="194" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="194" y="209">Prüfsumme</text><text x="194" y="220" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+            <rect x="338" y="194" width="288" height="36" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="482" y="209">Urgent Pointer</text><text x="482" y="220" font-size="6.5" fill="var(--text-muted)">16 Bit</text>
+          </g>
+
+          <text x="338" y="243" text-anchor="middle" font-size="7" fill="var(--text-muted)">Flags = URG, ACK, PSH, RST, SYN, FIN (je 1 Bit innerhalb der 6-Bit-Flags-Zelle).</text>
+        </svg>
+        <figcaption>
+          TCP-Header als Bitfeld-Diagramm: fünf Zeilen zu je 32 Bit
+          (4 Byte) ergeben die 20 Byte Grundgröße. Die Flags-Zelle in
+          Zeile 4 enthält die sechs Einzel-Flags URG/ACK/PSH/RST/SYN/FIN.
+        </figcaption>
+      </figure>
 
       <p>
         Typische Prüfungsfrage: „Auf welcher OSI-Schicht arbeitet der

@@ -50,14 +50,26 @@
       <h2>Konzept</h2>
 
       <h3>WLAN-Standards (IEEE 802.11)</h3>
+      <p>
+        Die 802.11-Reihe wurde über die Jahre schrittweise erweitert —
+        von 802.11a/b in den späten 1990ern bis zum aktuellen Wi-Fi 6/6E.
+        Bei den Datenraten gilt: „bis zu“ statt falscher Präzision, da die
+        theoretische Maximalrate in der Praxis kaum erreicht wird.
+      </p>
+
+      <!-- TODO Zeichnung: 802.11-Standards Zeitstrahl mit Frequenz/Speed -->
+
       <table>
         <thead>
-          <tr><th>Standard</th><th>Marketing-Name</th><th>Frequenzband</th><th>Max. Datenrate (theoretisch)</th></tr>
+          <tr><th>Standard</th><th>Wi-Fi-Name</th><th>Frequenzband</th><th>Max. Datenrate (theoretisch)</th></tr>
         </thead>
         <tbody>
-          <tr><td>802.11n</td><td>Wi-Fi 4</td><td>2,4 / 5 GHz</td><td>bis 600 Mbit/s</td></tr>
-          <tr><td>802.11ac</td><td>Wi-Fi 5</td><td>5 GHz</td><td>bis mehrere Gbit/s</td></tr>
-          <tr><td>802.11ax</td><td>Wi-Fi 6 / 6E</td><td>2,4 / 5 / 6 GHz</td><td>bis mehrere Gbit/s, effizienter bei vielen Geräten</td></tr>
+          <tr><td>802.11a</td><td>—</td><td>5 GHz</td><td>bis zu 54 Mbit/s</td></tr>
+          <tr><td>802.11b</td><td>—</td><td>2,4 GHz</td><td>bis zu 11 Mbit/s</td></tr>
+          <tr><td>802.11g</td><td>—</td><td>2,4 GHz</td><td>bis zu 54 Mbit/s</td></tr>
+          <tr><td>802.11n</td><td>Wi-Fi 4</td><td>2,4 / 5 GHz</td><td>bis zu 600 Mbit/s</td></tr>
+          <tr><td>802.11ac</td><td>Wi-Fi 5</td><td>5 GHz</td><td>bis zu mehreren Gbit/s</td></tr>
+          <tr><td>802.11ax</td><td>Wi-Fi 6 / 6E</td><td>2,4 / 5 / 6 GHz</td><td>bis zu mehreren Gbit/s, effizienter bei vielen Geräten</td></tr>
         </tbody>
       </table>
       <p>
@@ -66,6 +78,15 @@
         Mikrowellen). Das <strong>5-GHz-Band</strong> bietet mehr Kanäle
         und höhere Datenraten, aber geringere Reichweite und schlechtere
         Wanddurchdringung.
+      </p>
+      <p>
+        Damit sich mehrere WLAN-Geräte den gemeinsamen Funkkanal
+        überhaupt teilen können, kommt das Zugriffsverfahren
+        <strong>CSMA/CA</strong> zum Einsatz — Details dazu (und warum
+        WLAN nicht wie kabelgebundenes Ethernet auf CSMA/CD setzen kann)
+        behandelt die Einheit
+        <a href="ethernet-zugriffsverfahren.html">Ethernet, LAN-Standards
+        &amp; Zugriffsverfahren</a>.
       </p>
 
       <h3>SSID</h3>

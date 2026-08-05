@@ -84,6 +84,30 @@
       ],
       "answer": 1,
       "explanation": "Durch individuelle Logins über RADIUS lässt sich der Zugang einzelner Personen sperren, ohne das gemeinsame Passwort für alle anderen zu ändern — ein klarer Vorteil gegenüber Personal-Modus in Firmenumgebungen."
+    },
+    {
+      "id": "q8",
+      "question": "Welches Frequenzband nutzt der Standard 802.11b ausschließlich?",
+      "options": [
+        "2,4 GHz",
+        "5 GHz",
+        "6 GHz",
+        "2,4 und 5 GHz gleichzeitig"
+      ],
+      "answer": 0,
+      "explanation": "802.11b arbeitet ausschließlich im 2,4-GHz-Band mit einer theoretischen Höchstrate von bis zu 11 Mbit/s."
+    },
+    {
+      "id": "q9",
+      "question": "Welches Zugriffsverfahren regelt, wie sich mehrere Geräte im WLAN den gemeinsamen Funkkanal teilen?",
+      "options": [
+        "CSMA/CD",
+        "CSMA/CA",
+        "Token Ring",
+        "Round Robin"
+      ],
+      "answer": 1,
+      "explanation": "WLAN nutzt CSMA/CA (Collision Avoidance), da Kollisionen im Funk anders als im Kabel nicht zuverlässig erkannt werden können — siehe die Einheit Ethernet, LAN-Standards & Zugriffsverfahren."
     }
   ]
 }

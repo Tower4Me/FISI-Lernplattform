@@ -84,6 +84,30 @@
       ],
       "answer": 1,
       "explanation": "Einträge in der MAC-Adresstabelle verfallen nach der sogenannten Aging Time (häufig ca. 300 Sekunden) ohne weiteren Datenverkehr — das verhindert veraltete Einträge, z. B. nach dem Umstecken eines Geräts an einen anderen Port."
+    },
+    {
+      "id": "q8",
+      "question": "Was ist der Nachteil von Port-based Memory (Port-Buffered Memory) gegenüber Shared Memory?",
+      "options": [
+        "Port-based Memory unterstützt keine MAC-Adresstabelle",
+        "Der feste Puffer eines einzelnen Ports kann überlaufen, obwohl an anderen Ports noch reichlich freier Speicher vorhanden wäre",
+        "Port-based Memory kann keine Frames zwischenspeichern",
+        "Port-based Memory ist grundsätzlich langsamer als Cut-Through"
+      ],
+      "answer": 1,
+      "explanation": "Bei Port-based Memory hat jeder Port einen eigenen, festen Pufferspeicher. Läuft dieser bei hoher Last über, werden Frames verworfen — selbst wenn an anderen Ports noch viel freier Speicher zur Verfügung stünde. Shared Memory vermeidet das durch einen gemeinsamen, dynamisch zugewiesenen Speicherpool."
+    },
+    {
+      "id": "q9",
+      "question": "Worin unterscheidet sich die Frage „Shared Memory vs. Port-based Memory“ von der Frage „Store-and-Forward vs. Cut-Through vs. Fragment-Free“?",
+      "options": [
+        "Es gibt keinen Unterschied, beide Begriffspaare meinen dasselbe",
+        "Speicherarchitektur beantwortet, wo ein Frame zwischengespeichert wird — die Switching-Verfahren beantworten, wann die Weiterleitung beginnt",
+        "Speicherarchitektur betrifft nur Router, nie Switches",
+        "Switching-Verfahren betreffen nur die MAC-Adresstabelle, nicht die Weiterleitung"
+      ],
+      "answer": 1,
+      "explanation": "Shared Memory und Port-based Memory sind zwei Architekturen dafür, wo (in welchem Speicherbereich) ein Switch Frames zwischenspeichert. Store-and-Forward, Cut-Through und Fragment-Free beantworten dagegen, wann die Weiterleitung eines bereits empfangenen Frames beginnt — beide Fragen sind unabhängig voneinander."
     }
   ]
 }

@@ -77,6 +77,44 @@
           z. B. wenn ein Gerät an einen anderen Port umgesteckt wurde.</li>
       </ul>
 
+      <h3>Pufferspeicher-Architektur: Shared Memory vs. Port-based Memory</h3>
+      <p>
+        Davon zu unterscheiden ist eine zweite Speicherfrage: <em>Wo</em>
+        legt der Switch Frames ab, während er auf einen freien
+        Ausgangsport wartet oder — bei Store-and-Forward — den kompletten
+        Frame puffert?
+      </p>
+      <table>
+        <thead>
+          <tr><th>Architektur</th><th>Speicherzuordnung</th><th>Vor-/Nachteil</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Port-based Memory</strong> (Port-Buffered Memory)</td>
+            <td>jeder Port hat seinen eigenen, festen Pufferspeicher</td>
+            <td>einfach und vorhersehbar, aber ineffizient: Ein einzelner
+              Port-Puffer kann überlaufen (Frames werden verworfen), obwohl
+              an anderen Ports noch reichlich freier Speicher vorhanden
+              wäre</td>
+          </tr>
+          <tr>
+            <td><strong>Shared Memory</strong></td>
+            <td>ein gemeinsamer Speicherpool für alle Ports, dynamisch
+              zugewiesen</td>
+            <td>nutzt den vorhandenen Speicher effizienter und verkraftet
+              ungleichmäßige Lastspitzen besser, benötigt dafür aber mehr
+              Steuerungsaufwand (Speicherverwaltung)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Diese Speicherarchitektur ist unabhängig von den drei
+        Switching-Verfahren weiter unten: Sie beantwortet, <em>wo</em>
+        ein Frame zwischengespeichert wird, während Store-and-Forward,
+        Cut-Through und Fragment-Free beantworten, <em>wann</em> die
+        Weiterleitung beginnt.
+      </p>
+
       <h3>Die drei Switching-Verfahren</h3>
       <p>
         Unabhängig von der MAC-Adresstabelle stellt sich eine zweite

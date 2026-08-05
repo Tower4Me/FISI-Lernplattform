@@ -170,7 +170,10 @@
         in der Praxis in den Fehlerzählern von Switch-Ports auf:
         <strong>Runts</strong> sind Frames <strong>kleiner als
         64 Byte</strong> — meist Fragmente einer Kollision oder Hinweis
-        auf eine defekte Netzwerkkarte. <strong>Giants</strong> sind
+        auf eine defekte Netzwerkkarte (genau diese Fragmente erkennt das
+        Fragment-Free-Switching-Verfahren, siehe
+        <a href="switching-verfahren.html">Switching-Verfahren</a>).
+        <strong>Giants</strong> sind
         Frames <strong>größer als 1518 Byte</strong>, ohne als
         Jumbo-Frame beabsichtigt zu sein — meist ein Konfigurationsfehler.
         <strong>Jumbo-Frames</strong> dagegen sind bewusst übergroße

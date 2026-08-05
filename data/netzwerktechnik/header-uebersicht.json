@@ -84,6 +84,30 @@
       ],
       "answer": 0,
       "explanation": "Die MTU (Maximum Transmission Unit) von 1500 Byte legt fest, wie viel Payload ein Ethernet-Frame maximal transportieren kann. Ist das IP-Paket größer, muss es vorher auf IP-Ebene fragmentiert werden."
+    },
+    {
+      "id": "q8",
+      "question": "Ein Switch-Port zeigt in seiner Fehlerstatistik viele „Runts“ an. Was bedeutet das?",
+      "options": [
+        "Es wurden absichtlich Jumbo-Frames mit bis zu 9000 Byte übertragen",
+        "Es kamen Frames kleiner als 64 Byte an — meist Kollisionsfragmente oder Hinweis auf eine defekte Netzwerkkarte",
+        "Der Port hat die MTU auf 9000 Byte umgestellt",
+        "Der Port empfängt ausschließlich fehlerfreie Frames"
+      ],
+      "answer": 1,
+      "explanation": "Runts sind Frames unterhalb der Mindestgröße von 64 Byte — sie deuten meist auf Kollisionsfragmente oder eine defekte Netzwerkkarte hin und gelten als Fehler."
+    },
+    {
+      "id": "q9",
+      "question": "Was unterscheidet ein „Giant“-Frame von einem bewusst eingesetzten Jumbo-Frame?",
+      "options": [
+        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe",
+        "Ein Giant ist ein unbeabsichtigt übergroßer, meist fehlerhafter Frame über 1518 Byte, ein Jumbo-Frame ist absichtlich größer und muss auf der ganzen Strecke unterstützt werden",
+        "Giants sind kleiner als 64 Byte, Jumbo-Frames größer als 64 Byte",
+        "Giants treten nur bei UDP auf, Jumbo-Frames nur bei TCP"
+      ],
+      "answer": 1,
+      "explanation": "Ein Giant ist ein unbeabsichtigt zu großer, meist fehlerhafter Frame (Konfigurationsfehler). Ein Jumbo-Frame ist dagegen eine bewusste Erweiterung für höheren Durchsatz (z. B. Storage-Netze), die nicht Teil des offiziellen Ethernet-Standards ist und von allen beteiligten Geräten (NIC, Switches) unterstützt werden muss."
     }
   ]
 }

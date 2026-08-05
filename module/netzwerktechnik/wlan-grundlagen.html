@@ -52,12 +52,62 @@
       <h3>WLAN-Standards (IEEE 802.11)</h3>
       <p>
         Die 802.11-Reihe wurde über die Jahre schrittweise erweitert —
-        von 802.11a/b in den späten 1990ern bis zum aktuellen Wi-Fi 6/6E.
+        von 802.11a/b in den späten 1990ern bis zum aktuellen Wi-Fi 7.
         Bei den Datenraten gilt: „bis zu“ statt falscher Präzision, da die
         theoretische Maximalrate in der Praxis kaum erreicht wird.
       </p>
 
-      <!-- TODO Zeichnung: 802.11-Standards Zeitstrahl mit Frequenz/Speed -->
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 660 165" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wifi-zeit-title wifi-zeit-desc">
+          <title id="wifi-zeit-title">Zeitstrahl der WLAN-Standards 802.11</title>
+          <desc id="wifi-zeit-desc">Horizontaler Zeitstrahl mit sechs Punkten von links nach rechts: 802.11a/802.11b (1999), 802.11g (2003), 802.11n / Wi-Fi 4 (2009), 802.11ac / Wi-Fi 5 (2013), 802.11ax / Wi-Fi 6 (2019) und 802.11be / Wi-Fi 7 (2024), mit jeweiligem Frequenzband und grober Datenrate.</desc>
+
+          <line x1="40" y1="90" x2="620" y2="90" stroke="var(--border)" stroke-width="2"/>
+
+          <g font-size="8" text-anchor="middle">
+            <!-- 802.11a/b -->
+            <circle cx="40" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="40" y1="95" x2="40" y2="108" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="40" y="120" fill="var(--text)" font-weight="600">802.11a / 802.11b</text>
+            <text x="40" y="132" fill="var(--text-muted)" font-size="7">1999 — 5 GHz / 2,4 GHz</text>
+
+            <!-- 802.11g -->
+            <circle cx="156" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="156" y1="85" x2="156" y2="72" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="156" y="60" fill="var(--text)" font-weight="600">802.11g</text>
+            <text x="156" y="48" fill="var(--text-muted)" font-size="7">2003 — 2,4 GHz</text>
+
+            <!-- 802.11n -->
+            <circle cx="272" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="272" y1="95" x2="272" y2="108" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="272" y="120" fill="var(--text)" font-weight="600">802.11n (Wi-Fi 4)</text>
+            <text x="272" y="132" fill="var(--text-muted)" font-size="7">2009 — bis 600 Mbit/s</text>
+
+            <!-- 802.11ac -->
+            <circle cx="388" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="388" y1="85" x2="388" y2="72" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="388" y="60" fill="var(--text)" font-weight="600">802.11ac (Wi-Fi 5)</text>
+            <text x="388" y="48" fill="var(--text-muted)" font-size="7">2013 — mehrere Gbit/s</text>
+
+            <!-- 802.11ax -->
+            <circle cx="504" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="504" y1="95" x2="504" y2="108" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="504" y="120" fill="var(--text)" font-weight="600">802.11ax (Wi-Fi 6/6E)</text>
+            <text x="504" y="132" fill="var(--text-muted)" font-size="7">2019 — effizienter, 6 GHz</text>
+
+            <!-- 802.11be -->
+            <circle cx="620" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="620" y1="85" x2="620" y2="72" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="620" y="60" fill="var(--text)" font-weight="600">802.11be (Wi-Fi 7)</text>
+            <text x="620" y="48" fill="var(--text-muted)" font-size="7">2024 — bis 46 Gbit/s</text>
+          </g>
+        </svg>
+        <figcaption>
+          Zeitstrahl der 802.11-Standards von 802.11a/b (1999) bis
+          802.11be / Wi-Fi 7 (2024) — steigende Frequenzbänder und
+          Datenraten über die Jahre.
+        </figcaption>
+      </figure>
 
       <table>
         <thead>
@@ -70,6 +120,7 @@
           <tr><td>802.11n</td><td>Wi-Fi 4</td><td>2,4 / 5 GHz</td><td>bis zu 600 Mbit/s</td></tr>
           <tr><td>802.11ac</td><td>Wi-Fi 5</td><td>5 GHz</td><td>bis zu mehreren Gbit/s</td></tr>
           <tr><td>802.11ax</td><td>Wi-Fi 6 / 6E</td><td>2,4 / 5 / 6 GHz</td><td>bis zu mehreren Gbit/s, effizienter bei vielen Geräten</td></tr>
+          <tr><td>802.11be</td><td>Wi-Fi 7</td><td>2,4 / 5 / 6 GHz</td><td>bis zu ca. 46 Gbit/s (theoretisch, u. a. durch Multi-Link Operation)</td></tr>
         </tbody>
       </table>
       <p>

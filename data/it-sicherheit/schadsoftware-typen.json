@@ -5,12 +5,12 @@
       "id": "q1",
       "question": "Was unterscheidet einen Virus am deutlichsten von einem Wurm?",
       "options": [
-        "Ein Virus verschlüsselt immer Daten, ein Wurm nie",
-        "Ein Virus braucht einen Wirt und eine Nutzeraktion, ein Wurm verbreitet sich selbstständig",
-        "Ein Wurm braucht einen Wirt, ein Virus nicht",
-        "Beide sind technisch identisch, nur der Name unterscheidet sich"
+        "Ein Virus verschlüsselt grundsätzlich immer sämtliche Daten, ein Wurm dagegen nie",
+        "Ein Wurm braucht zwingend einen Wirt, ein Virus dagegen nicht",
+        "Beide Begriffe sind technisch identisch, nur der Name unterscheidet sich",
+        "Ein Virus braucht Wirt und Nutzeraktion, ein Wurm verbreitet sich selbstständig"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Der Virus hängt sich an eine Datei und braucht eine Nutzeraktion (z. B. Öffnen). Der Wurm verbreitet sich eigenständig über das Netzwerk."
     },
     {
@@ -18,57 +18,57 @@
       "question": "Eine Schadsoftware verschlüsselt den gesamten Fileserver und fordert eine Zahlung für die Entschlüsselung. Wie heißt dieser Malware-Typ?",
       "options": [
         "Spyware",
-        "Rootkit",
         "Ransomware",
-        "Trojaner"
+        "Keylogger",
+        "Backdoor-Trojaner"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Ransomware verschlüsselt Daten und fordert Lösegeld (englisch: ransom) für die Entschlüsselung."
     },
     {
       "id": "q3",
       "question": "Eine als nützliches Programm getarnte Anwendung installiert im Hintergrund weitere Schadsoftware. Um welchen Typ handelt es sich?",
       "options": [
-        "Wurm",
         "Trojaner",
+        "Wurm",
         "Virus",
         "Ransomware"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein Trojaner tarnt sich als nützliches Programm, um unbemerkt Schadfunktionen einzuschleusen."
     },
     {
       "id": "q4",
       "question": "Welcher Malware-Typ versteckt sich tief im Betriebssystem, um andere Schadsoftware zu verschleiern?",
       "options": [
-        "Rootkit",
         "Spyware",
         "Virus",
-        "Wurm"
+        "Rootkit",
+        "Keylogger"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Ein Rootkit nistet sich tief im System ein und verschleiert die Existenz weiterer Malware."
     },
     {
       "id": "q5",
       "question": "Welcher Malware-Typ sammelt heimlich Daten über den Nutzer, ohne dessen Wissen?",
       "options": [
-        "Spyware",
         "Ransomware",
+        "Spyware",
         "Wurm",
         "Rootkit"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Spyware spioniert im Hintergrund Nutzerdaten aus, ohne dass der Nutzer davon erfährt."
     },
     {
       "id": "q6",
       "question": "Welche Aussage zur Verbreitung von Würmern trifft zu?",
       "options": [
-        "Würmer benötigen zwingend eine geöffnete Datei durch den Nutzer",
-        "Würmer verbreiten sich selbstständig über das Netzwerk, oft über Sicherheitslücken",
-        "Würmer können sich nur über USB-Sticks verbreiten",
-        "Würmer sind eine veraltete Bezeichnung für Viren"
+        "Würmer benötigen in jedem einzelnen Fall zwingend immer eine vom Nutzer geöffnete Datei",
+        "Würmer verbreiten sich eigenständig übers Netzwerk, oft über Sicherheitslücken",
+        "Würmer können sich ausschließlich über angeschlossene USB-Sticks verbreiten",
+        "Würmer sind lediglich eine veraltete, heute nicht mehr gebräuchliche Bezeichnung für Viren"
       ],
       "answer": 1,
       "explanation": "Würmer nutzen Sicherheitslücken aus und verbreiten sich eigenständig im Netzwerk, ganz ohne Zutun des Nutzers."

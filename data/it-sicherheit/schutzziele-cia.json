@@ -6,9 +6,9 @@
       "question": "Wofür steht das C in der CIA-Triade der IT-Sicherheit?",
       "options": [
         "Confidentiality (Vertraulichkeit)",
-        "Compliance",
-        "Continuity",
-        "Certification"
+        "Compliance (Regelkonformität)",
+        "Continuity (Geschäftskontinuität, BCM)",
+        "Certification (Zertifizierung)"
       ],
       "answer": 0,
       "explanation": "CIA = Confidentiality (Vertraulichkeit), Integrity (Integrität), Availability (Verfügbarkeit)."
@@ -30,21 +30,21 @@
       "question": "Ein DDoS-Angriff legt einen Webshop für mehrere Stunden lahm. Welches Schutzziel ist betroffen?",
       "options": [
         "Integrität",
-        "Verfügbarkeit",
         "Authentizität",
-        "Zurechenbarkeit"
+        "Zurechenbarkeit",
+        "Verfügbarkeit"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Verfügbarkeit bedeutet, dass Systeme erreichbar sind, wenn sie gebraucht werden. DDoS-Angriffe zielen genau darauf."
     },
     {
       "id": "q4",
       "question": "Was ist der Unterschied zwischen Integrität und Authentizität?",
       "options": [
-        "Integrität und Authentizität bedeuten dasselbe",
-        "Integrität prüft, ob Daten verändert wurden; Authentizität prüft, ob sie wirklich vom angegebenen Absender stammen",
-        "Integrität betrifft nur Passwörter, Authentizität nur Dateien",
-        "Authentizität prüft, ob Daten verändert wurden; Integrität prüft die Herkunft"
+        "Integrität und Authentizität bedeuten in der IT-Sicherheit exakt dasselbe",
+        "Integrität prüft Datenveränderung; Authentizität die Herkunft vom Absender",
+        "Integrität betrifft ausschließlich Passwörter, Authentizität ausschließlich Dateien",
+        "Authentizität prüft, ob Daten verändert wurden; Integrität prüft dagegen die Herkunft"
       ],
       "answer": 1,
       "explanation": "Integrität = unverändert. Authentizität = echte Herkunft vom angegebenen Absender. Eine Nachricht kann integer und trotzdem gefälscht sein."
@@ -53,36 +53,36 @@
       "id": "q5",
       "question": "Eine gefälschte E-Mail gibt vor, von der Geschäftsführung zu stammen, um eine Überweisung anzuweisen (CEO-Fraud). Welches Schutzziel wird primär verletzt?",
       "options": [
-        "Verfügbarkeit",
         "Authentizität",
+        "Verfügbarkeit",
         "Zutrittskontrolle",
         "Verfügbarkeitskontrolle"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der vorgetäuschte Absender verletzt die Authentizität: Der wirkliche Urheber der Nachricht ist nicht der angegebene Absender."
     },
     {
       "id": "q6",
       "question": "Welche drei Ziele erweitern die klassische CIA-Triade um Herkunfts- und Nachweisfragen?",
       "options": [
-        "Verschlüsselung, Signatur, Hashwert",
-        "Authentizität, Verbindlichkeit, Zurechenbarkeit",
-        "Backup, RAID, USV",
-        "Zutritt, Zugang, Zugriff"
+        "Verschlüsselung, digitale Signatur und kryptografischer Hashwert",
+        "Backup, RAID und unterbrechungsfreie Stromversorgung (USV)",
+        "Zutritt, Zugang und Zugriff (die drei Zugriffsebenen)",
+        "Authentizität, Verbindlichkeit, Zurechenbarkeit"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Authentizität (echter Absender), Verbindlichkeit (nicht abstreitbar) und Zurechenbarkeit (einem Verursacher zuordenbar) ergänzen die CIA-Triade."
     },
     {
       "id": "q7",
       "question": "Ein Ransomware-Angriff verschlüsselt Firmendaten und die Angreifer drohen zusätzlich, gestohlene Daten zu veröffentlichen. Welche Schutzziele sind verletzt?",
       "options": [
-        "Nur Verfügbarkeit",
-        "Nur Vertraulichkeit",
-        "Verfügbarkeit und Vertraulichkeit",
-        "Nur Zurechenbarkeit"
+        "Ausschließlich die Verfügbarkeit der verschlüsselten Daten",
+        "Verfügbarkeit und Vertraulichkeit gemeinsam",
+        "Ausschließlich die Vertraulichkeit der gestohlenen Daten",
+        "Ausschließlich die Zurechenbarkeit zum Angreifer"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Die Verschlüsselung verletzt die Verfügbarkeit (Daten nicht mehr nutzbar), der Datenabfluss zusätzlich die Vertraulichkeit."
     }
   ]

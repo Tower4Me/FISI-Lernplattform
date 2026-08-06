@@ -5,46 +5,46 @@
       "id": "q1",
       "question": "Was bestätigt ein digitales Zertifikat?",
       "options": [
-        "Dass eine Website keine Fehler in der Software hat",
-        "Dass ein öffentlicher Schlüssel wirklich zu einer bestimmten Domain/Person gehört",
-        "Dass eine Website kostenlos nutzbar ist",
-        "Dass ein Server niemals ausfällt"
+        "Dass eine Website vollständig fehlerfrei programmiert und ausführlich getestet wurde",
+        "Dass eine Website dauerhaft und für jeden kostenlos nutzbar ist",
+        "Dass ein Server unter allen Umständen niemals ausfällt",
+        "Dass ein öffentlicher Schlüssel zu einer bestimmten Domain/Person gehört"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Ein Zertifikat bindet einen öffentlichen Schlüssel nachweislich an eine Identität (z. B. eine Domain)."
     },
     {
       "id": "q2",
       "question": "Wer signiert ein Website-Zertifikat und bürgt damit für dessen Echtheit?",
       "options": [
-        "Der Website-Betreiber selbst, ohne weitere Prüfung",
-        "Eine Zertifizierungsstelle (Certificate Authority, CA)",
-        "Der Internetprovider des Nutzers",
-        "Der Webbrowser des Nutzers"
+        "Eine Zertifizierungsstelle (Certificate Authority)",
+        "Der Website-Betreiber ganz allein, ohne jede weitere externe Prüfung",
+        "Der Internetprovider (ISP) des jeweiligen anfragenden Nutzers",
+        "Der verwendete Webbrowser des Nutzers selbst"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Eine CA prüft die Identität und signiert das Zertifikat. Der Browser vertraut einer festen Liste bekannter CAs."
     },
     {
       "id": "q3",
       "question": "Wie nennt man die gesamte Vertrauenskette aus Root-CA, Zwischen- und Endzertifikaten?",
       "options": [
+        "OCSP (Online Certificate Status Protocol)",
+        "DMZ (Demilitarisierte Zone)",
         "PKI (Public Key Infrastructure)",
-        "DNS (Domain Name System)",
-        "VPN (Virtual Private Network)",
-        "DMZ (Demilitarisierte Zone)"
+        "VPN (Virtual Private Network)"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "PKI bezeichnet die gesamte Infrastruktur aus Zertifikaten, CAs und Vertrauensketten."
     },
     {
       "id": "q4",
       "question": "Was bedeutet das Schloss-Symbol in der Browser-Adressleiste genau?",
       "options": [
-        "Die Website ist auf jeden Fall seriös und vertrauenswürdig",
-        "Die Verbindung ist verschlüsselt und das Zertifikat ist gültig",
-        "Die Website hat keine Werbung",
-        "Der Server steht in Deutschland"
+        "Die Website ist in jedem Fall vollständig seriös und vertrauenswürdig",
+        "Die Verbindung ist verschlüsselt, das Zertifikat gültig",
+        "Die Website hat garantiert überhaupt keine Werbung",
+        "Der Server steht garantiert ausschließlich in Deutschland"
       ],
       "answer": 1,
       "explanation": "Das Schloss bestätigt nur verschlüsselte Übertragung und ein gültiges Zertifikat — nicht die Seriosität des Angebots."
@@ -53,22 +53,22 @@
       "id": "q5",
       "question": "Wofür steht die Abkürzung TLS?",
       "options": [
-        "Total Link Security",
-        "Transport Layer Security",
+        "Total Link Security Standard",
         "Trusted Login System",
-        "Transfer List Service"
+        "Transfer List Service",
+        "Transport Layer Security"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "TLS = Transport Layer Security, das Protokoll hinter HTTPS."
     },
     {
       "id": "q6",
       "question": "Was passiert beim TLS-Handshake unter anderem?",
       "options": [
-        "Der Client prüft das Server-Zertifikat und beide handeln einen symmetrischen Sitzungsschlüssel aus",
-        "Der Server sendet sein Passwort im Klartext",
-        "Es wird ausschließlich asymmetrisch für die gesamte Datenübertragung verschlüsselt",
-        "Der Browser lädt automatisch alle Cookies der Seite"
+        "Der Client prüft das Zertifikat, beide handeln einen Sitzungsschlüssel aus",
+        "Der Server sendet sein Passwort unverschlüsselt im Klartext an den Client",
+        "Es wird ausschließlich und dauerhaft asymmetrisch für die komplette Datenübertragung verschlüsselt",
+        "Der Browser lädt beim Handshake automatisch alle Cookies der Seite"
       ],
       "answer": 0,
       "explanation": "Beim Handshake wird die Serveridentität per Zertifikat geprüft und anschließend ein symmetrischer Sitzungsschlüssel für die schnelle weitere Übertragung ausgehandelt."
@@ -78,11 +78,11 @@
       "question": "HTTPS lässt sich am treffendsten wie beschreiben?",
       "options": [
         "HTTPS ist ein komplett eigenständiges Protokoll ohne Bezug zu HTTP",
-        "HTTPS ist HTTP über TLS",
         "HTTPS ist nur eine schnellere Version von HTTP ohne Verschlüsselung",
+        "HTTPS ist HTTP über TLS",
         "HTTPS ersetzt DNS vollständig"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "HTTPS ist schlicht HTTP, das über eine TLS-verschlüsselte Verbindung läuft."
     }
   ]

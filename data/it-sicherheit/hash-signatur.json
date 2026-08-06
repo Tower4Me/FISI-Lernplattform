@@ -5,12 +5,12 @@
       "id": "q1",
       "question": "Welches Schutzziel sichert ein Hashwert in erster Linie ab?",
       "options": [
-        "Verfügbarkeit",
         "Integrität",
+        "Verfügbarkeit",
         "Verbindlichkeit",
         "Zurechenbarkeit"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein Hash zeigt zuverlässig an, ob Daten unverändert (integer) sind."
     },
     {
@@ -29,12 +29,12 @@
       "id": "q3",
       "question": "Warum werden Passwörter nicht im Klartext, sondern als Hash gespeichert?",
       "options": [
-        "Weil Hashes weniger Speicherplatz brauchen",
-        "Damit beim Login ein direkter Textvergleich schneller geht",
-        "Damit bei einem Datenbank-Diebstahl die echten Passwörter nicht direkt lesbar sind",
-        "Weil Hashwerte sich leicht zurückrechnen lassen"
+        "Weil Hashes grundsätzlich deutlich weniger Speicherplatz benötigen",
+        "Damit beim Login ausschließlich ein direkter Textvergleich schneller vonstattengeht",
+        "Weil sich Hashwerte angeblich leicht in das Original zurückrechnen lassen",
+        "Damit die echten Passwörter bei einem Datenbank-Diebstahl nicht lesbar sind"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Da ein Hash eine Einwegfunktion ist, bleibt das ursprüngliche Passwort auch bei gestohlenen Hash-Werten geschützt (zusätzlich mit Salt gegen Rainbow-Tables)."
     },
     {
@@ -53,12 +53,12 @@
       "id": "q5",
       "question": "Mit welchem Schlüssel erstellt der Sender eine digitale Signatur?",
       "options": [
-        "Mit seinem eigenen öffentlichen Schlüssel",
         "Mit seinem eigenen privaten Schlüssel",
+        "Mit seinem eigenen öffentlichen Schlüssel",
         "Mit dem öffentlichen Schlüssel des Empfängers",
         "Mit einem gemeinsamen symmetrischen Schlüssel"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Signieren erfolgt mit dem privaten Schlüssel des Senders — nur er kann diese Signatur erzeugen."
     },
     {
@@ -78,9 +78,9 @@
       "question": "Der Empfänger prüft eine Signatur, indem er sie mit welchem Schlüssel entschlüsselt?",
       "options": [
         "Mit seinem eigenen privaten Schlüssel",
-        "Mit dem privaten Schlüssel des Senders",
+        "Mit dem geheimen privaten Schlüssel des ursprünglichen Senders selbst",
         "Mit dem öffentlichen Schlüssel des Senders",
-        "Mit einem beliebigen Hashwert"
+        "Mit einem beliebigen, selbst gewählten Hashwert"
       ],
       "answer": 2,
       "explanation": "Die Signatur wurde mit dem privaten Schlüssel des Senders erstellt und lässt sich nur mit dessen öffentlichem Schlüssel prüfen."
@@ -89,12 +89,12 @@
       "id": "q8",
       "question": "Ein Angebot wird nachträglich manipuliert, nachdem es signiert wurde. Was passiert bei der Prüfung?",
       "options": [
-        "Die Signatur bleibt trotzdem gültig",
-        "Der neu berechnete Hash stimmt nicht mehr mit der entschlüsselten Signatur überein — die Manipulation fällt auf",
-        "Der Empfänger kann die Manipulation nicht erkennen",
-        "Die Signatur wird automatisch korrigiert"
+        "Die Signatur bleibt trotz der nachträglichen Manipulation vollständig gültig",
+        "Der Empfänger kann eine solche Manipulation grundsätzlich nicht erkennen",
+        "Die Signatur wird bei erkannter Manipulation automatisch korrigiert",
+        "Der Hash-Vergleich schlägt fehl, die Manipulation fällt auf"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Schon eine minimale Änderung ändert den Hash (Lawineneffekt), wodurch der Vergleich mit der Signatur fehlschlägt."
     }
   ]

@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Was beschreibt die Make-or-Buy-Entscheidung?",
       "options": [
-        "Die Wahl der Rechtsform eines Unternehmens",
-        "Die Abwägung, ob eine Leistung selbst erstellt oder extern bezogen wird",
-        "Die Entscheidung über den Standort eines Unternehmens",
-        "Die Wahl zwischen Primär- und Sekundärforschung"
+        "Die grundsätzliche Wahl der passenden Rechtsform eines Unternehmens",
+        "Die strategische Entscheidung über den optimalen Standort eines Unternehmens",
+        "Die methodische Wahl zwischen Primär- und Sekundärforschung bei Marktdaten",
+        "Die Abwägung zwischen Eigenerstellung und externem Bezug einer Leistung"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die Make-or-Buy-Entscheidung wägt ab, ob eine Leistung selbst erstellt (Make) oder von außen bezogen wird (Buy)."
     },
     {
       "id": "q2",
       "question": "Welches Kriterium spricht eher für eine Eigenerstellung (Make)?",
       "options": [
-        "Die Leistung gehört zur Kernkompetenz des Unternehmens",
         "Die Leistung ist völlig unwichtig für das Geschäftsmodell",
+        "Die Leistung gehört zur Kernkompetenz des Unternehmens",
         "Es besteht keinerlei eigenes Fachwissen dazu",
         "Die eigenen Kapazitäten sind bereits vollständig ausgelastet"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Leistungen, die zur Kernkompetenz gehören, werden eher selbst erstellt statt fremdbezogen."
     },
     {
@@ -42,35 +42,35 @@
       "question": "Welches Kriterium zählt zum quantitativen Angebotsvergleich?",
       "options": [
         "Die Reputation des Anbieters",
-        "Der Preis und die Lieferzeit",
         "Das persönliche Vertrauen zum Anbieter",
+        "Der Preis und die Lieferzeit",
         "Die Beratungsqualität"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Preis und Lieferzeit sind objektiv messbare, quantitative Vergleichskriterien."
     },
     {
       "id": "q5",
       "question": "Welches Kriterium zählt zum qualitativen Angebotsvergleich?",
       "options": [
-        "Der reine Listenpreis",
-        "Die Garantiedauer in Monaten",
-        "Referenzen und Reputation des Anbieters",
-        "Die exakte Lieferzeit in Tagen"
+        "Der reine, unverhandelte Listenpreis des Angebots",
+        "Die vertraglich zugesicherte Garantiedauer in Monaten",
+        "Die exakt zugesagte Lieferzeit in Werktagen",
+        "Referenzen und die Reputation des Anbieters"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Referenzen und Reputation sind schwerer messbare, qualitative Vergleichskriterien."
     },
     {
       "id": "q6",
       "question": "Welches bereits behandelte Werkzeug eignet sich, um quantitative und qualitative Kriterien zu einer Gesamtbewertung zusammenzuführen?",
       "options": [
-        "Das AIDA-Modell",
         "Die Nutzwertanalyse",
-        "Die ABC-Analyse",
+        "Das AIDA-Modell",
+        "Die ABC-Analyse-Methode",
         "Das PDCA-Modell"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Die Nutzwertanalyse gewichtet und bewertet mehrere Kriterien zu einer vergleichbaren Gesamtpunktzahl."
     },
     {
@@ -78,23 +78,23 @@
       "question": "Warum entscheidet sich TowerTech GmbH im Praxisbeispiel für Buy statt Make bei der Beschaffung eines Ticketsystems?",
       "options": [
         "Weil Ticketsystem-Entwicklung zur Kernkompetenz von TowerTech gehört",
-        "Weil die Entwicklung nicht zur Kernkompetenz gehört und der Kapazitätsaufwand hoch wäre",
-        "Weil TowerTech grundsätzlich nie eigene Software entwickelt",
-        "Weil es gesetzlich vorgeschrieben ist"
+        "Weil TowerTech grundsätzlich niemals eigene Software selbst entwickelt",
+        "Weil die Entwicklung nicht zur Kernkompetenz gehört und Kapazität fehlt",
+        "Weil die Eigenentwicklung eines Ticketsystems gesetzlich vorgeschrieben ist"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Da Ticketsystem-Entwicklung nicht zur Kernkompetenz gehört und die Eigenentwicklung viel Kapazität binden würde, fällt die Entscheidung auf Buy."
     },
     {
       "id": "q8",
       "question": "Was ist ein enger begrifflicher Verwandter der Make-or-Buy-Entscheidung, der bereits in einer anderen Einheit behandelt wurde?",
       "options": [
-        "Outsourcing",
         "Die Sozialversicherung",
+        "Outsourcing",
         "Das AIDA-Modell",
         "Die Wertschöpfungskette"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Make-or-Buy ist eng mit dem Konzept des Outsourcings verwandt, das bereits in einer vorherigen Einheit behandelt wurde."
     }
   ]

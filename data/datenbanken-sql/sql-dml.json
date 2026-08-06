@@ -17,34 +17,34 @@
       "id": "q2",
       "question": "Wie findet man alle Mitarbeiter ohne eingetragene E-Mail-Adresse?",
       "options": [
-        "WHERE email = NULL",
         "WHERE email IS NULL",
-        "WHERE email = ''",
-        "WHERE NOT email"
+        "WHERE email = NULL",
+        "WHERE email = '' (leerer String)",
+        "WHERE NOT email IS SET"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "NULL steht für „kein Wert“ und kann nur mit IS NULL bzw. IS NOT NULL geprüft werden, nicht mit dem Gleichheitszeichen."
     },
     {
       "id": "q3",
       "question": "Welche Klausel liefert nur die drei bestbezahlten Mitarbeiter?",
       "options": [
+        "WHERE jahresgehalt = TOP 3 ROWS ONLY",
+        "ORDER BY jahresgehalt ASC FIRST 3",
         "ORDER BY jahresgehalt DESC LIMIT 3",
-        "WHERE jahresgehalt = TOP 3",
-        "GROUP BY jahresgehalt LIMIT 3",
-        "ORDER BY jahresgehalt ASC FIRST 3"
+        "GROUP BY jahresgehalt LIMIT 3"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "ORDER BY jahresgehalt DESC sortiert absteigend nach Gehalt, LIMIT 3 begrenzt auf die ersten drei Ergebniszeilen."
     },
     {
       "id": "q4",
       "question": "Warum sollte man vor einem UPDATE oder DELETE zuerst dieselbe Bedingung mit SELECT testen?",
       "options": [
-        "Damit die Datenbank schneller wird",
-        "Um vorher zu prüfen, welche Zeilen tatsächlich betroffen wären",
-        "SELECT ist technisch zwingend vor jedem UPDATE nötig",
-        "Um automatisch ein Backup zu erstellen"
+        "Damit die Datenbank dadurch insgesamt spürbar schneller wird",
+        "Um vorher zu prüfen, welche Zeilen betroffen wären",
+        "Weil SELECT vor jedem UPDATE zwingend ausgeführt werden muss",
+        "Um dadurch automatisch ein vollständiges Backup zu erstellen"
       ],
       "answer": 1,
       "explanation": "Ein UPDATE oder DELETE ohne korrekte WHERE-Bedingung kann ungewollt viele Zeilen verändern – SELECT zeigt vorher, welche Zeilen betroffen sind."
@@ -53,12 +53,12 @@
       "id": "q5",
       "question": "Was bewirkt UPDATE mitarbeiter SET jahresgehalt = 0; ohne WHERE-Klausel?",
       "options": [
-        "Fehler, weil WHERE Pflicht ist",
-        "Nur die erste Zeile wird geändert",
-        "Das Gehalt aller Mitarbeiter wird auf 0 gesetzt",
-        "Der Befehl wird ignoriert"
+        "Ein Fehler wird geworfen, weil WHERE zwingend Pflicht ist",
+        "Nur die jeweils erste gefundene Zeile wird geändert",
+        "Der Befehl wird stillschweigend ignoriert und nichts passiert",
+        "Das Gehalt aller Mitarbeiter wird auf 0 gesetzt"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Ohne WHERE-Bedingung betrifft UPDATE alle Zeilen der Tabelle – ein häufiger, gefährlicher Fehler."
     },
     {
@@ -66,47 +66,47 @@
       "question": "Welche Aggregatfunktion liefert die Anzahl aller Zeilen einer Tabelle?",
       "options": [
         "SUM(*)",
+        "AVG(*)",
         "COUNT(*)",
-        "TOTAL(*)",
-        "AVG(*)"
+        "TOTAL(*)"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "COUNT(*) zählt alle Zeilen der Ergebnismenge, unabhängig von NULL-Werten in einzelnen Spalten."
     },
     {
       "id": "q7",
       "question": "Was macht GROUP BY abteilung_id?",
       "options": [
-        "Sortiert die Ergebnisse nach abteilung_id",
-        "Löscht doppelte abteilung_id-Werte",
         "Fasst alle Zeilen mit derselben abteilung_id zu einer Gruppe zusammen",
-        "Erstellt eine neue Tabelle je Abteilung"
+        "Erstellt automatisch eine vollständig neue, eigenständige Tabelle je Abteilung",
+        "Sortiert lediglich die Ergebnisse aufsteigend nach abteilung_id",
+        "Löscht alle Zeilen mit doppelten abteilung_id-Werten dauerhaft"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "GROUP BY fasst Zeilen mit gleichem Wert in der angegebenen Spalte zu Gruppen zusammen, auf die dann Aggregatfunktionen angewendet werden können."
     },
     {
       "id": "q8",
       "question": "Was ist der Unterschied zwischen WHERE und HAVING?",
       "options": [
-        "WHERE und HAVING sind vollständig austauschbar",
-        "WHERE filtert Zeilen vor der Gruppierung, HAVING filtert Gruppen nach GROUP BY und darf Aggregatfunktionen nutzen",
-        "HAVING filtert Zeilen vor der Gruppierung, WHERE filtert danach",
-        "WHERE kann nur bei INSERT verwendet werden"
+        "WHERE und HAVING sind in ihrer Funktion vollständig austauschbar und identisch",
+        "HAVING filtert einzelne Zeilen vor der Gruppierung, WHERE filtert erst danach",
+        "WHERE kann laut Standard ausschließlich in Kombination mit INSERT verwendet werden",
+        "WHERE filtert Zeilen vor der Gruppierung, HAVING filtert Gruppen nach GROUP BY"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "WHERE filtert einzelne Zeilen vor GROUP BY (keine Aggregatfunktionen erlaubt), HAVING filtert die gebildeten Gruppen und darf AVG(), COUNT() usw. verwenden."
     },
     {
       "id": "q9",
       "question": "Welcher Befehl fügt einen neuen Mitarbeiter mit ausdrücklich benannten Spalten ein?",
       "options": [
-        "ADD INTO mitarbeiter VALUES (...)",
-        "INSERT INTO mitarbeiter (vollname, email) VALUES ('Lea Fischer', 'lea.fischer@towertech.de')",
-        "UPDATE mitarbeiter NEW VALUES (...)",
-        "CREATE ROW mitarbeiter (...)"
+        "ADD INTO mitarbeiter (vollname, email) VALUES (...)",
+        "UPDATE mitarbeiter SET NEW (vollname, email) VALUES (...)",
+        "INSERT INTO mitarbeiter (vollname, email) VALUES (...)",
+        "CREATE ROW mitarbeiter (vollname, email) VALUES (...)"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "INSERT INTO tabelle (spalten) VALUES (werte) ist die empfohlene Schreibweise, weil sie unabhängig von der Spaltenreihenfolge in der Tabelle funktioniert."
     }
   ]

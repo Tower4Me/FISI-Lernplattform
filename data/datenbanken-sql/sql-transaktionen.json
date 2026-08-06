@@ -5,22 +5,22 @@
       "id": "q1",
       "question": "Was ist eine Transaktion in einer Datenbank?",
       "options": [
-        "Ein einzelner SELECT-Befehl",
-        "Eine Gruppe von SQL-Befehlen, die als eine unteilbare Einheit behandelt werden",
-        "Ein Backup der gesamten Datenbank",
-        "Ein Synonym für Index"
+        "Eine Gruppe von SQL-Befehlen, die als unteilbare Einheit gilt",
+        "Ein einzelner, isoliert für sich ausgeführter SELECT-Befehl",
+        "Ein vollständiges Backup der gesamten Datenbank inklusive Struktur",
+        "Ein anderes Wort für einen Index auf einer Tabelle"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Eine Transaktion bündelt mehrere Befehle so, dass entweder alle oder keiner davon wirksam werden."
     },
     {
       "id": "q2",
       "question": "Was macht COMMIT?",
       "options": [
-        "Macht alle Änderungen seit BEGIN rückgängig",
-        "Speichert alle Änderungen der Transaktion dauerhaft",
-        "Startet eine neue Transaktion",
-        "Löscht die aktuelle Tabelle"
+        "Macht sämtliche Änderungen seit dem letzten BEGIN vollständig rückgängig",
+        "Speichert alle Änderungen der laufenden Transaktion dauerhaft",
+        "Startet eine komplett neue, leere Transaktion ab diesem Zeitpunkt",
+        "Löscht die aktuell verwendete Tabelle vollständig aus der Datenbank"
       ],
       "answer": 1,
       "explanation": "COMMIT macht die Änderungen der Transaktion permanent — danach lassen sie sich nicht mehr per ROLLBACK zurücknehmen."
@@ -29,24 +29,24 @@
       "id": "q3",
       "question": "Der Server stürzt ab, nachdem der Lagerbestand reduziert, aber bevor die Bestellposition angelegt wurde. Welches Problem entsteht ohne Transaktion?",
       "options": [
-        "Kein Problem, SQLite gleicht das automatisch aus",
+        "Die gesamte Datenbank löscht sich in diesem Fall automatisch selbst",
+        "Der Lagerbestand wird durch den Absturz automatisch verdoppelt",
         "Ein inkonsistenter Datenbestand: Bestand reduziert, aber keine Bestellposition vorhanden",
-        "Die Datenbank löscht sich automatisch",
-        "Der Lagerbestand wird automatisch verdoppelt"
+        "Kein Problem, SQLite gleicht so etwas laut Dokumentation grundsätzlich automatisch wieder aus"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ohne Transaktion können zusammengehörige Schritte auseinanderfallen, wenn zwischen ihnen ein Fehler auftritt — Atomarität fehlt."
     },
     {
       "id": "q4",
       "question": "Welches ACID-Prinzip setzen Transaktionen (BEGIN/COMMIT/ROLLBACK) praktisch um?",
       "options": [
-        "Isolation",
-        "Durability",
-        "Atomicity (Atomarität)",
-        "Consistency"
+        "Isolation der beteiligten Transaktion",
+        "Durability nach einem Systemabsturz",
+        "Consistency der gespeicherten Daten",
+        "Atomicity (Atomarität)"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Transaktionen sorgen dafür, dass eine Gruppe von Befehlen entweder vollständig oder gar nicht ausgeführt wird — das ist Atomarität."
     },
     {
@@ -65,36 +65,36 @@
       "id": "q6",
       "question": "Was ist ein SAVEPOINT?",
       "options": [
-        "Ein automatisches Backup der gesamten Datenbank",
-        "Ein Zwischenpunkt innerhalb einer Transaktion, bis zu dem gezielt zurückgerollt werden kann",
-        "Ein Synonym für COMMIT",
-        "Eine Kopie der Tabelle vor jedem DELETE"
+        "Ein Zwischenpunkt in einer Transaktion, bis zu dem gezielt zurückgerollt wird",
+        "Ein vollständiges, automatisch erstelltes Backup der gesamten Datenbank inklusive Struktur",
+        "Ein anderes Wort, das synonym für den Befehl COMMIT verwendet wird",
+        "Eine vollständige Kopie der Tabelle direkt vor jedem einzelnen DELETE"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein SAVEPOINT markiert einen Punkt innerhalb der laufenden Transaktion, zu dem man mit ROLLBACK TO zurückkehren kann, ohne die ganze Transaktion zu verwerfen."
     },
     {
       "id": "q7",
       "question": "Nach ROLLBACK TO nach_position; COMMIT; — was passiert mit Änderungen vor dem Savepoint und danach?",
       "options": [
-        "Alles wird verworfen",
-        "Änderungen vor dem Savepoint bleiben erhalten, Änderungen danach werden verworfen",
-        "Alles bleibt erhalten, nichts wird verworfen",
-        "Nur die Tabellenstruktur bleibt erhalten"
+        "Ausnahmslos alles wird beim Ausführen dieser Befehlsfolge verworfen",
+        "Ausnahmslos alles bleibt erhalten, nichts davon wird jemals verworfen",
+        "Änderungen vor dem Savepoint bleiben erhalten, danach werden sie verworfen",
+        "Nur die reine Tabellenstruktur bleibt am Ende erhalten, alle übrigen Daten dagegen nicht"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "ROLLBACK TO savepoint verwirft nur die Änderungen nach diesem Punkt; die davor bleiben bestehen und werden mit dem folgenden COMMIT gespeichert."
     },
     {
       "id": "q8",
       "question": "Was bedeutet Autocommit?",
       "options": [
-        "Jeder SQL-Befehl läuft automatisch als eigene, sofort committete Mini-Transaktion",
-        "Alle Befehle werden automatisch zurückgerollt",
-        "COMMIT wird komplett überflüssig",
-        "Die Datenbank erstellt automatisch tägliche Backups"
+        "Alle Befehle werden dabei grundsätzlich automatisch zurückgerollt",
+        "Der Befehl COMMIT wird dadurch vollständig überflüssig und unnötig",
+        "Die Datenbank erstellt dadurch automatisch tägliche vollständige Backups",
+        "Jeder SQL-Befehl läuft als eigene, sofort committete Mini-Transaktion"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Ohne ausdrückliches BEGIN läuft in den meisten DBMS jeder einzelne Befehl im Autocommit-Modus und wird sofort dauerhaft gespeichert."
     },
     {
@@ -102,11 +102,11 @@
       "question": "Wie schaltet man Autocommit für einen Block von Befehlen ab, um sie als eine Transaktion zu behandeln?",
       "options": [
         "Mit SAVEPOINT am Anfang",
-        "Mit BEGIN am Anfang des Blocks",
         "Das ist nicht möglich",
+        "Mit BEGIN am Anfang des Blocks",
         "Mit COMMIT am Anfang des Blocks"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "BEGIN markiert den Start einer Transaktion und schaltet damit Autocommit für die folgenden Befehle ab, bis COMMIT oder ROLLBACK folgt."
     }
   ]

@@ -5,12 +5,12 @@
       "id": "q1",
       "question": "Wie funktioniert ein Laserdrucker im Kern?",
       "options": [
-        "Tintentröpfchen werden durch feine Düsen gespritzt",
-        "Eine elektrostatisch geladene Bildtrommel zieht Toner an, der anschließend durch Hitze/Druck fixiert wird",
-        "Ein Nadelkopf schlägt mechanisch durch ein Farbband",
+        "Eine geladene Bildtrommel zieht Toner an, der per Hitze/Druck fixiert wird",
+        "Feine Tintentröpfchen werden präzise durch winzige Düsen auf das Papier gespritzt",
+        "Ein Nadelkopf schlägt mechanisch durch ein Farbband auf das darunterliegende Papier",
         "Das Objekt wird Schicht für Schicht aus geschmolzenem Kunststoff aufgebaut"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Beim Laserdruck wird Toner elektrostatisch an die geladene Bildtrommel gebunden und dann per Hitze/Druck dauerhaft auf dem Papier fixiert."
     },
     {
@@ -19,40 +19,45 @@
       "options": [
         "Tintenstrahldrucker",
         "Laserdrucker",
-        "Nadeldrucker",
-        "3D-Drucker"
+        "3D-Drucker",
+        "Nadeldrucker"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Nur der mechanische Anschlag eines Nadeldruckers durchdringt mehrere übereinanderliegende Papierlagen mit Kohlepapier und erzeugt so echte Durchschläge."
     },
     {
       "id": "q3",
       "question": "Was misst die Angabe DPI (Dots per Inch) bei einem Drucker?",
       "options": [
-        "Die Druckgeschwindigkeit in Seiten pro Minute",
-        "Die Auflösung — wie viele Punkte auf einem Zoll (2,54 cm) Strecke platziert werden",
-        "Die maximale Papiergröße, die der Drucker unterstützt",
-        "Den Stromverbrauch des Druckers in Watt"
+        "Die Druckgeschwindigkeit des Geräts, gemessen in Seiten pro Minute",
+        "Die maximale Papiergröße, die der Drucker verarbeiten kann",
+        "Die Auflösung in Punkten pro Zoll (2,54 cm)",
+        "Den Stromverbrauch des Druckers im Betrieb, angegeben in Watt"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "DPI (Dots per Inch) gibt die Auflösung an: mehr Punkte pro Zoll bedeuten ein feineres, detailreicheres Druckbild."
     },
     {
       "id": "q4",
       "question": "Warum lohnt sich ein Laserdrucker trotz höherer Anschaffungskosten oft bei hohem Druckvolumen?",
       "options": [
-        "Weil Laserdrucker grundsätzlich leiser sind als Tintenstrahldrucker",
-        "Weil die Kosten pro Seite (Toner im Verhältnis zur Seitenzahl) meist niedriger sind als bei Tintenstrahldruckern",
-        "Weil Laserdrucker keine Wartung benötigen",
-        "Weil Laserdrucker automatisch Durchschläge erzeugen können"
+        "Weil die Kosten pro Seite bei hohem Volumen niedriger sind",
+        "Weil Laserdrucker grundsätzlich deutlich leiser arbeiten als Tintenstrahldrucker",
+        "Weil Laserdrucker im laufenden Betrieb überhaupt keine Wartung benötigen",
+        "Weil Laserdrucker automatisch mehrlagige Durchschläge erzeugen können"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Laserdrucker haben zwar höhere Anschaffungskosten, aber niedrigere Kosten pro Seite — bei hohem Druckvolumen amortisiert sich das schnell gegenüber Tintenstrahldruckern."
     },
     {
       "id": "q5",
       "question": "Ein Tonerkassette kostet 80 € und reicht laut Hersteller für 3.000 Seiten. Wie hoch sind die reinen Verbrauchskosten pro Seite (ohne Papier)?",
-      "options": ["0,08 €", "0,027 €", "0,27 €", "2,67 €"],
+      "options": [
+        "0,08 €",
+        "0,027 €",
+        "0,27 €",
+        "2,6667 €"
+      ],
       "answer": 1,
       "explanation": "80 € ÷ 3.000 Seiten = 0,0267 €, gerundet ≈ 0,027 € pro Seite."
     },
@@ -60,12 +65,12 @@
       "id": "q6",
       "question": "Was unterscheidet einen 3D-Drucker grundsätzlich von den anderen genannten Druckertypen?",
       "options": [
-        "Er druckt ausschließlich in Schwarz-Weiß",
-        "Er erzeugt durch additive Fertigung (Schicht für Schicht) physische, dreidimensionale Objekte statt einer bedruckten Papierseite",
-        "Er benötigt keine Steuersoftware",
-        "Er kann nur auf Endlospapier drucken"
+        "Er druckt grundsätzlich ausschließlich in Schwarz-Weiß, nie in Farbe",
+        "Er benötigt für den Betrieb überhaupt keine eigene Steuersoftware",
+        "Er kann ausschließlich auf speziellem Endlospapier drucken",
+        "Er baut Objekte additiv, Schicht für Schicht, physisch auf"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "3D-Drucker bauen Objekte additiv Schicht für Schicht auf (z. B. FDM mit geschmolzenem Kunststofffaden) — das Ergebnis ist ein greifbares Objekt, keine bedruckte Seite."
     }
   ]

@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Was passiert, wenn ein System zu wenig RAM hat und der Arbeitsspeicher voll ist?",
       "options": [
-        "Das Betriebssystem stürzt sofort ab",
-        "Das Betriebssystem lagert Daten auf die SSD/HDD aus (Swap), was deutlich langsamer ist",
-        "Der Prozessor übernimmt automatisch die Speicherung im Cache",
-        "Überschüssige Daten werden automatisch gelöscht"
+        "Das Betriebssystem lagert Daten aus dem RAM auf die SSD/HDD aus (Swap)",
+        "Das Betriebssystem stürzt in diesem Fall grundsätzlich sofort mit einem Bluescreen ab",
+        "Der Prozessor übernimmt automatisch die komplette Zwischenspeicherung im CPU-Cache",
+        "Überschüssige, nicht mehr benötigte Daten werden automatisch dauerhaft gelöscht"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Bei zu wenig RAM lagert das Betriebssystem Daten in eine Auslagerungsdatei auf der SSD/HDD aus (Swap) — das ist deutlich langsamer als RAM-Zugriff und belastet die SSD zusätzlich."
     },
     {
       "id": "q2",
       "question": "Was unterscheidet DRAM grundlegend von SRAM?",
       "options": [
-        "DRAM ist grundsätzlich schneller als SRAM",
-        "DRAM speichert Bits als Ladung in einem Kondensator und muss ständig aufgefrischt werden, SRAM speichert in einem Flip-Flop ohne Refresh, ist aber teurer und platzhungriger",
-        "SRAM wird ausschließlich als Hauptspeicher eingesetzt",
-        "DRAM und SRAM unterscheiden sich nur im Preis, technisch sind sie identisch"
+        "DRAM ist im Zugriff grundsätzlich schneller als SRAM, dafür aber deutlich teurer pro Bit",
+        "SRAM wird in der Praxis ausschließlich als großer Hauptspeicher eingesetzt, nie als Cache",
+        "DRAM und SRAM unterscheiden sich technisch nicht, nur im Verkaufspreis pro Speicherriegel",
+        "DRAM speichert Bits als Ladung mit Refresh-Zwang, SRAM nutzt ein Flip-Flop ohne Refresh"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "DRAM braucht nur 1 Transistor pro Zelle, muss aber ständig aufgefrischt werden. SRAM (6 Transistoren pro Zelle) braucht keinen Refresh, ist sehr schnell, aber teuer — deshalb als kleiner CPU-Cache statt als großer Hauptspeicher im Einsatz."
     },
     {
@@ -41,48 +41,48 @@
       "id": "q4",
       "question": "Was bewirkt Dual Channel gegenüber Single Channel?",
       "options": [
-        "Die RAM-Kapazität verdoppelt sich automatisch",
-        "Die effektive Busbreite und damit die Bandbreite verdoppelt sich (64 Bit auf 128 Bit)",
-        "Die Latenz einzelner Speicherzugriffe wird halbiert",
-        "Es hat keinen messbaren Effekt auf die Leistung"
+        "Die gesamte RAM-Kapazität des Systems verdoppelt sich dadurch automatisch",
+        "Die Latenz einzelner Speicherzugriffe wird dadurch spürbar halbiert",
+        "Die effektive Busbreite verdoppelt sich auf 128 Bit",
+        "Es hat in der Praxis keinen messbaren Effekt auf die Systemleistung"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Dual Channel nutzt zwei parallele 64-Bit-Kanäle gleichzeitig (128 Bit effektive Busbreite) und verdoppelt dadurch die Bandbreite gegenüber Single Channel."
     },
     {
       "id": "q5",
       "question": "Ein DDR4-3600-Modul mit CL18 wird mit einem DDR4-3200-Modul mit CL16 verglichen. Wie fällt der Vergleich der absoluten Latenz in Nanosekunden aus?",
       "options": [
-        "DDR4-3600 CL18 ist deutlich schneller",
-        "DDR4-3200 CL16 ist deutlich schneller",
-        "Beide erreichen exakt dieselbe absolute Latenz von 10 ns",
-        "Die Formel lässt sich hier nicht anwenden"
+        "Beide erreichen exakt dieselbe absolute Latenz von 10 Nanosekunden",
+        "DDR4-3600 CL18 ist durch den höheren Takt spürbar schneller",
+        "DDR4-3200 CL16 ist trotz niedrigerem Takt spürbar schneller",
+        "Die Latenz-Formel gilt hier nicht, da beide Module unterschiedlich getaktet sind"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "(18 ÷ 3600) × 2000 = 10 ns und (16 ÷ 3200) × 2000 = 10 ns — trotz unterschiedlichem Takt identische absolute Latenz, da der CAS-Latency-Wert proportional mitsteigt."
     },
     {
       "id": "q6",
       "question": "Ein RAM-Modul hat die Angabe DDR4-3200 CL16. Wie hoch ist die absolute Latenz in Nanosekunden?",
       "options": [
-        "5 ns",
         "8 ns",
         "10 ns",
-        "16 ns"
+        "5 ns",
+        "160 ns"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Latenz [ns] = (CL ÷ Takt) × 2000 = (16 ÷ 3200) × 2000 = 10 ns."
     },
     {
       "id": "q7",
       "question": "Warum ist ECC-RAM in Servern und Workstations häufig Pflicht?",
       "options": [
-        "Weil ECC-RAM grundsätzlich billiger ist als non-ECC-RAM",
-        "Weil ECC-RAM automatisch die Speicherkapazität verdoppelt",
-        "Weil ECC-RAM Einzelbit-Fehler automatisch erkennt und korrigiert und dadurch die Zuverlässigkeit deutlich erhöht",
-        "Weil ECC-RAM keinen passenden Prozessor benötigt"
+        "Weil ECC-RAM grundsätzlich günstiger in der Anschaffung ist als vergleichbares non-ECC-RAM",
+        "Weil ECC-RAM automatisch die nutzbare Speicherkapazität des Systems verdoppelt",
+        "Weil ECC-RAM keinen zum RAM passenden Prozessor oder Mainboard benötigt",
+        "Weil ECC-RAM Einzelbit-Fehler erkennt und automatisch korrigiert"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "ECC (Error-Correcting Code) erkennt und korrigiert Einzelbit-Fehler automatisch. Das erhöht die Zuverlässigkeit deutlich, ist etwas langsamer als non-ECC-RAM und benötigt einen passenden Prozessor sowie ein ECC-fähiges Mainboard."
     }
   ]

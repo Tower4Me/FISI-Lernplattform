@@ -5,36 +5,36 @@
       "id": "q1",
       "question": "Wonach klassifiziert die ABC-Analyse Objekte wie Produkte oder Kunden?",
       "options": [
-        "Nach dem Alphabet ihres Namens",
-        "Nach ihrem Wertanteil (z. B. Umsatzanteil)",
-        "Nach dem Einkaufsdatum",
-        "Nach der Anzahl der Mitarbeitenden"
+        "Alphabetische Reihenfolge",
+        "Einkaufsdatum",
+        "Wertanteil (z. B. Umsatzanteil)",
+        "Anzahl der beschäftigten Mitarbeitenden"
       ],
-      "answer": 1,
-      "explanation": "Die ABC-Analyse klassifiziert Objekte nach ihrem wirtschaftlichen Wertanteil."
+      "answer": 2,
+      "explanation": "Die ABC-Analyse klassifiziert Objekte nach ihrem wirtschaftlichen Wertanteil, z. B. dem Umsatzanteil."
     },
     {
       "id": "q2",
-      "question": "Was kennzeichnet A-Güter in der ABC-Analyse typischerweise?",
+      "question": "Nach dem Pareto-Prinzip stehen die wenigen A-Güter für einen großen Anteil am Gesamtwert. Wie hoch ist dieser Anteil typischerweise?",
       "options": [
-        "Viele Objekte mit geringem Wertanteil",
-        "Wenige Objekte mit hohem Wertanteil, oft nach dem Pareto-Prinzip (ca. 20 %/80 %)",
-        "Ausschließlich Objekte ohne jeden wirtschaftlichen Wert",
-        "Objekte, die nie kontrolliert werden müssen"
+        "ca. 80 %",
+        "ca. 50 %",
+        "ca. 20 %",
+        "ca. 65 %"
       ],
-      "answer": 1,
-      "explanation": "A-Güter sind meist wenige Objekte mit hohem Wertanteil, häufig nach dem Pareto-Prinzip beschrieben."
+      "answer": 0,
+      "explanation": "Nach dem Pareto-Prinzip machen A-Güter nur einen kleinen Teil der Objekte aus, stehen aber für ca. 80 % des Gesamtwerts."
     },
     {
       "id": "q3",
       "question": "Wofür steht das „D“ im AIDA-Modell?",
       "options": [
         "Diskussion",
-        "Desire (Wunsch/Verlangen)",
         "Design",
-        "Diagnose"
+        "Diagnose",
+        "Desire"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Das D im AIDA-Modell steht für Desire – das Wecken eines Wunsches oder Verlangens."
     },
     {
@@ -53,24 +53,24 @@
       "id": "q5",
       "question": "Welche Phase des Produktlebenszyklus ist durch hohe Kosten und geringen Umsatz gekennzeichnet?",
       "options": [
-        "Wachstum",
         "Einführung",
+        "Wachstum",
         "Reife/Sättigung",
         "Rückgang"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Die Einführungsphase ist typischerweise durch hohe Kosten und noch geringen Umsatz gekennzeichnet."
     },
     {
       "id": "q6",
       "question": "Welche Phase des Produktlebenszyklus ist durch den Umsatzhöhepunkt und verstärkten Wettbewerb gekennzeichnet?",
       "options": [
-        "Einführung",
+        "Einführungsphase",
         "Wachstum",
-        "Reife/Sättigung",
-        "Rückgang"
+        "Rückgang",
+        "Reife/Sättigung"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "In der Reife-/Sättigungsphase erreicht der Umsatz seinen Höhepunkt bei gleichzeitig verstärktem Wettbewerb."
     },
     {
@@ -78,11 +78,11 @@
       "question": "Welche Methode zur Entscheidungsfindung bei mehreren Kriterien wurde bereits in einer anderen Einheit ausführlich behandelt und wird hier nur referenziert?",
       "options": [
         "Die ABC-Analyse",
-        "Das AIDA-Modell",
         "Die Nutzwertanalyse",
+        "Das AIDA-Modell",
         "Der Produktlebenszyklus"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Die Nutzwertanalyse wurde bereits in der Einheit `kalkulation/nutzwertanalyse` ausführlich behandelt."
     },
     {
@@ -90,11 +90,11 @@
       "question": "Im Praxisbeispiel: In welcher Phase des Produktlebenszyklus befindet sich das neue Cloud-Produkt der TowerTech GmbH?",
       "options": [
         "Einführungsphase",
-        "Wachstumsphase",
         "Reifephase",
+        "Wachstumsphase",
         "Rückgangsphase"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Laut Praxisbeispiel befindet sich das Cloud-Produkt in der Wachstumsphase, weshalb verstärkt in Marketing investiert wird."
     }
   ]

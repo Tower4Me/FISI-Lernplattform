@@ -5,36 +5,36 @@
       "id": "q1",
       "question": "Welches Merkmal unterscheidet Personengesellschaften grundsätzlich von Kapitalgesellschaften?",
       "options": [
-        "Personengesellschaften haften i. d. R. persönlich, Kapitalgesellschaften beschränken die Haftung meist auf das Gesellschaftsvermögen",
-        "Kapitalgesellschaften benötigen niemals ein Mindestkapital",
-        "Personengesellschaften dürfen keine Mitarbeitenden beschäftigen",
-        "Es gibt keinen grundsätzlichen Unterschied"
+        "Kapitalgesellschaften benötigen unter keinen Umständen ein Mindestkapital",
+        "Personengesellschaften haften meist persönlich, Kapitalgesellschaften beschränkt",
+        "Personengesellschaften dürfen grundsätzlich keinerlei Mitarbeitenden beschäftigen",
+        "Es gibt zwischen beiden Formen keinen grundsätzlichen rechtlichen Unterschied"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Personengesellschaften haften typischerweise persönlich, während Kapitalgesellschaften die Haftung auf das Gesellschaftsvermögen beschränken."
     },
     {
       "id": "q2",
       "question": "Welche Voraussetzung gilt für eine GbR (Gesellschaft bürgerlichen Rechts)?",
       "options": [
-        "Ein Mindeststammkapital von 25.000 €",
-        "Mindestens 2 Personen, keine Handelsregistereintragung bei Kleingewerbe nötig, unbeschränkte persönliche Haftung",
-        "Zwingende Börsennotierung",
-        "Mindestens ein Aufsichtsrat"
+        "Mindestens 2 Personen und unbeschränkte persönliche Haftung aller Gesellschafter",
+        "Ein vorgeschriebenes Mindeststammkapital von exakt 25.000 Euro",
+        "Eine zwingend vorgeschriebene Börsennotierung des Unternehmens",
+        "Ein gesetzlich vorgeschriebener, mindestens dreiköpfiger Aufsichtsrat von Anfang an"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Eine GbR benötigt mindestens 2 Personen, keine Handelsregistereintragung bei Kleingewerbe und alle Gesellschafter haften unbeschränkt."
     },
     {
       "id": "q3",
       "question": "Was unterscheidet einen Komplementär von einem Kommanditisten bei einer KG?",
       "options": [
-        "Der Komplementär haftet unbeschränkt und führt die Geschäfte, der Kommanditist haftet nur mit seiner Einlage und führt nicht die Geschäfte",
-        "Beide haften immer unbeschränkt",
-        "Der Kommanditist führt allein die Geschäfte",
-        "Es gibt keinen Unterschied zwischen beiden Rollen"
+        "Beide Gesellschafterrollen haften in jedem Fall unbeschränkt",
+        "Der Kommanditist führt bei der KG stets allein die Geschäfte",
+        "Es gibt zwischen beiden Gesellschafterrollen keinerlei rechtlichen Unterschied",
+        "Der Komplementär haftet unbeschränkt, der Kommanditist nur mit seiner Einlage"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Der Komplementär haftet unbeschränkt und führt die Geschäfte, der Kommanditist haftet nur mit seiner Einlage und ist von der Geschäftsführung ausgeschlossen."
     },
     {
@@ -53,24 +53,24 @@
       "id": "q5",
       "question": "Wie hoch ist das Mindestgrundkapital einer AG (Aktiengesellschaft)?",
       "options": [
+        "50.000 €",
         "1 €",
         "25.000 €",
-        "50.000 €",
         "1.000.000 €"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Das Grundkapital einer AG muss mindestens 50.000 € betragen."
     },
     {
       "id": "q6",
       "question": "Welche drei Organe kennzeichnen die Aktiengesellschaft (AG)?",
       "options": [
-        "Vorstand, Aufsichtsrat, Hauptversammlung",
         "Komplementär, Kommanditist, Gesellschafterversammlung",
         "Geschäftsführer, Betriebsrat, Gewerkschaft",
-        "Vorstand, Betriebsrat, Aufsichtsrat"
+        "Vorstand, Betriebsrat, Aufsichtsrat",
+        "Vorstand, Aufsichtsrat, Hauptversammlung"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Die AG besteht aus den Organen Vorstand (Geschäftsführung), Aufsichtsrat (Kontrolle) und Hauptversammlung (Aktionär:innen)."
     },
     {
@@ -89,12 +89,12 @@
       "id": "q8",
       "question": "Im Praxisbeispiel wandeln zwei Gründer ihre GbR in eine GmbH um. Was ist der Hauptgrund dafür?",
       "options": [
-        "Um mehr persönliche Haftung zu übernehmen",
-        "Um das Haftungsrisiko zu begrenzen, da die GmbH nur mit dem Gesellschaftsvermögen haftet",
-        "Weil eine GbR grundsätzlich verboten ist",
-        "Weil eine GmbH kein Mindestkapital benötigt"
+        "Um deutlich mehr persönliche Haftung freiwillig zu übernehmen",
+        "Weil eine GbR als Rechtsform grundsätzlich gesetzlich verboten ist",
+        "Um das Haftungsrisiko zu begrenzen, da die GmbH beschränkt haftet",
+        "Weil eine GmbH überhaupt kein Mindeststammkapital benötigt"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die Umwandlung in eine GmbH begrenzt die Haftung auf das Gesellschaftsvermögen und reduziert damit das persönliche Haftungsrisiko der Gründer."
     }
   ]

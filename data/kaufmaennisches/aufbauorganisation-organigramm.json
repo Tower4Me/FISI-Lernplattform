@@ -5,72 +5,72 @@
       "id": "q1",
       "question": "Was zeigt ein Organigramm?",
       "options": [
-        "Den zeitlichen Ablauf eines Projekts",
-        "Die grafische Darstellung der Aufbauorganisation eines Unternehmens (Stellen und Unterstellungsverhältnisse)",
-        "Die Finanzkennzahlen eines Unternehmens",
-        "Die Kundenzufriedenheit eines Unternehmens"
+        "Den zeitlichen Ablauf und die Terminplanung eines laufenden Projekts",
+        "Ausschließlich die aktuellen Finanzkennzahlen und sämtliche Bilanzdaten eines Unternehmens",
+        "Die grafische Darstellung der Aufbauorganisation (Stellen, Unterstellungsverhältnisse)",
+        "Ausschließlich die gemessene Kundenzufriedenheit eines Unternehmens"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ein Organigramm bildet grafisch die Aufbauorganisation ab, also Stellen, Abteilungen und ihre Unterstellungsverhältnisse."
     },
     {
       "id": "q2",
       "question": "Was kennzeichnet das Einliniensystem?",
       "options": [
-        "Jede Person hat mehrere gleichzeitig zuständige Vorgesetzte",
         "Jede Person hat genau eine:n Vorgesetzte:n",
+        "Jede Person hat mehrere gleichzeitig zuständige Vorgesetzte",
         "Es gibt keine Vorgesetzten",
         "Es basiert ausschließlich auf beratenden Stabsstellen"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Im Einliniensystem hat jede Person genau eine:n Vorgesetzte:n."
     },
     {
       "id": "q3",
       "question": "Was ist ein typisches Risiko des Mehrliniensystems?",
       "options": [
-        "Zu wenige fachliche Ansprechpartner",
-        "Widersprüchliche Anweisungen durch mehrere fachlich zuständige Vorgesetzte",
-        "Vollständige Abwesenheit jeglicher Führung",
-        "Es gibt bei diesem System keinerlei Risiken"
+        "Zu wenige fachliche Ansprechpartner für die tägliche Zusammenarbeit",
+        "Vollständige Abwesenheit jeglicher Führung in der gesamten Organisation",
+        "Es gibt bei diesem Organisationssystem grundsätzlich keinerlei Risiken",
+        "Widersprüchliche Anweisungen mehrerer fachlich zuständiger Vorgesetzter"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Im Mehrliniensystem können Anweisungen mehrerer Vorgesetzter im Widerspruch zueinander stehen."
     },
     {
       "id": "q4",
       "question": "Was unterscheidet eine Stabsstelle von einer Linienstelle im Stabliniensystem?",
       "options": [
-        "Die Stabsstelle hat volle Weisungsbefugnis über die Linie",
-        "Die Stabsstelle berät, hat aber keine Weisungsbefugnis gegenüber der Linie",
-        "Es gibt keinen Unterschied zwischen beiden",
-        "Stabsstellen existieren nur in Matrixorganisationen"
+        "Die Stabsstelle berät, besitzt aber keine Weisungsbefugnis",
+        "Die Stabsstelle besitzt die volle Weisungsbefugnis über die Linie",
+        "Zwischen beiden Stellenarten besteht praktisch kein Unterschied",
+        "Stabsstellen kommen ausschließlich in reinen Matrixorganisationen vor"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Stabsstellen beraten die Linie, besitzen aber selbst keine Weisungsbefugnis gegenüber ihr."
     },
     {
       "id": "q5",
       "question": "Was ist charakteristisch für eine Matrixorganisation?",
       "options": [
-        "Mitarbeitende sind gleichzeitig zwei Leitungslinien unterstellt, meist einer fachlichen und einer projektbezogenen",
-        "Es existiert nur eine einzige Führungsebene im gesamten Unternehmen",
-        "Es gibt grundsätzlich keine Vorgesetzten",
-        "Sie wird ausschließlich für die Buchhaltung eingesetzt"
+        "Es existiert im gesamten Unternehmen nur eine einzige Führungsebene",
+        "Mitarbeitende sind zwei Leitungslinien gleichzeitig unterstellt",
+        "Es gibt in dieser Organisationsform grundsätzlich keine Vorgesetzten",
+        "Sie wird in der Praxis ausschließlich für die Buchhaltung eingesetzt"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "In der Matrixorganisation sind Mitarbeitende typischerweise zwei Leitungslinien gleichzeitig unterstellt."
     },
     {
       "id": "q6",
       "question": "Welches Risiko ist mit der Matrixorganisation typischerweise verbunden?",
       "options": [
-        "Zu kurze Kommunikationswege ohne jeden Nachteil",
+        "Durchgehend zu kurze Kommunikationswege ohne jeglichen Nachteil",
+        "Der vollständige und dauerhafte Wegfall jeglicher Führungsverantwortung",
         "Mögliche Kompetenzkonflikte zwischen den beiden Leitungslinien",
-        "Der vollständige Wegfall von Führungsverantwortung",
-        "Die Unmöglichkeit von Projektarbeit"
+        "Die grundsätzliche Unmöglichkeit jeglicher Form von Projektarbeit"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Da Mitarbeitende zwei Leitungslinien unterstehen, kann es zu Kompetenzkonflikten kommen."
     },
     {
@@ -90,11 +90,11 @@
       "question": "Welche Art von Linie stellt im Organigramm typischerweise eine beratende Stabsstelle ohne Weisungsbefugnis dar?",
       "options": [
         "Eine durchgezogene Linie",
-        "Eine gestrichelte Linie",
         "Ein Doppelpfeil",
-        "Gar keine Linie"
+        "Gar keine Linie",
+        "Eine gestrichelte Linie"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Gestrichelte Linien kennzeichnen im Organigramm typischerweise beratende Stabsstellen ohne Weisungsbefugnis."
     }
   ]

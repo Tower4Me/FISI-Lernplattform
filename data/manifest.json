@@ -366,10 +366,22 @@
           "quiz": "data/netzwerktechnik/ipv6-grundlagen.json"
         },
         {
-          "slug": "mac-ip-arp-apipa",
-          "name": "MAC vs. IP, ARP & APIPA",
+          "slug": "mac-llc",
+          "name": "MAC & LLC",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/netzwerktechnik/mac-ip-arp-apipa.json"
+          "quiz": "data/netzwerktechnik/mac-llc.json"
+        },
+        {
+          "slug": "arp",
+          "name": "ARP (Address Resolution Protocol)",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/arp.json"
+        },
+        {
+          "slug": "apipa",
+          "name": "APIPA (169.254.0.0/16)",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/netzwerktechnik/apipa.json"
         },
         {
           "slug": "dhcp-dora",

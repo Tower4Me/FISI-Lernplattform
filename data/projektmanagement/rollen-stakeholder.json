@@ -5,22 +5,22 @@
       "id": "q1",
       "question": "Was ist die zentrale Aufgabe des Auftraggebers in einem Projekt?",
       "options": [
-        "Die tägliche operative Koordination des Projektteams",
-        "Das Projekt zu beauftragen, Budget/Ressourcen bereitzustellen, Ziele vorzugeben und das Ergebnis am Ende abzunehmen",
-        "Die Ausführung der einzelnen Arbeitspakete",
-        "Ausschließlich die technische Umsetzung der Lösung"
+        "Das Projekt zu beauftragen und das Ergebnis am Ende abzunehmen",
+        "Die tägliche operative Koordination des gesamten Projektteams vor Ort",
+        "Die eigenständige Ausführung der einzelnen Arbeitspakete im Projekt",
+        "Ausschließlich die konkrete technische Umsetzung der gewählten Lösung"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der Auftraggeber beauftragt das Projekt, stellt Budget und Ressourcen bereit, definiert die Ziele und nimmt am Ende das Ergebnis ab."
     },
     {
       "id": "q2",
       "question": "Was ist die zentrale Aufgabe des Projektleiters (PL)?",
       "options": [
-        "Ausschließlich die Bereitstellung des Budgets",
-        "Die operative Leitung: Planung, Steuerung und Controlling des Tagesgeschäfts sowie Koordination des Projektteams",
-        "Die endgültige Abnahme des Projektergebnisses",
-        "Die strategische Entscheidung über das Gesamtbudget des Unternehmens"
+        "Ausschließlich die finanzielle Bereitstellung des gesamten Projektbudgets",
+        "Die operative Leitung des Projektteams im Tagesgeschäft",
+        "Die endgültige, formale Abnahme des fertigen Projektergebnisses",
+        "Die strategische Entscheidung über das Gesamtbudget des ganzen Unternehmens"
       ],
       "answer": 1,
       "explanation": "Der Projektleiter übernimmt die operative Leitung des Projekts im Tagesgeschäft — Planung, Steuerung, Controlling und Teamkoordination."
@@ -29,50 +29,50 @@
       "id": "q3",
       "question": "Was ist die Funktion eines Steuerkreises (Lenkungsausschuss)?",
       "options": [
-        "Er führt die täglichen operativen Arbeiten des Projekts selbst aus",
-        "Er trifft in regelmäßigen Abständen übergeordnete, strategische Entscheidungen und wird bei größeren Problemen einbezogen, ohne im Tagesgeschäft involviert zu sein",
-        "Er ersetzt vollständig die Rolle des Projektleiters",
-        "Er ist ausschließlich für die technische Implementierung zuständig"
+        "Er führt gemeinsam mit dem Projektteam die täglichen operativen Arbeiten des gesamten Projekts eigenverantwortlich und selbstständig aus",
+        "Er ersetzt innerhalb der gesamten Projektorganisation dauerhaft und vollständig die Rolle sowie alle Aufgaben des Projektleiters",
+        "Er trifft übergeordnete, strategische Entscheidungen in regelmäßigen Abständen, ohne im Tagesgeschäft involviert zu sein",
+        "Er ist innerhalb des gesamten Projekts ausschließlich für die konkrete technische Implementierung und begleitende Dokumentation zuständig"
       ],
-      "answer": 1,
-      "explanation": "Der Steuerkreis trifft in Abständen übergeordnete Entscheidungen und wird bei eskalierten Problemen einbezogen, ist aber nicht ins operative Tagesgeschäft eingebunden."
+      "answer": 2,
+      "explanation": "Der Steuerkreis trifft in Abständen übergeordnete, strategische Entscheidungen und wird bei eskalierten Problemen einbezogen, ist aber nicht ins operative Tagesgeschäft eingebunden."
     },
     {
       "id": "q4",
       "question": "Was versteht man unter einem Stakeholder eines Projekts?",
       "options": [
-        "Ausschließlich Mitglieder des offiziellen Projektteams",
-        "Jede Person oder Gruppe, die ein Interesse am Projekt hat oder von seinem Ergebnis betroffen ist",
-        "Nur externe Behörden, niemals interne Mitarbeiter",
-        "Ausschließlich der Auftraggeber selbst"
+        "Ausschließlich die offiziell benannten Mitglieder des Projektteams selbst",
+        "Ausschließlich externe Behörden, niemals interne Mitarbeitende des Unternehmens",
+        "Ausschließlich der Auftraggeber selbst, keine weiteren beteiligten Personen",
+        "Jede Person mit Interesse am Projekt oder Betroffenheit vom Ergebnis"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Stakeholder umfassen alle Personen und Gruppen mit Interesse am Projekt oder Betroffenheit von dessen Ergebnis — intern wie extern."
     },
     {
       "id": "q5",
       "question": "Wonach ordnet eine Stakeholder-Analyse die Beteiligten typischerweise ein, um die passende Kommunikationsstrategie festzulegen?",
       "options": [
-        "Ausschließlich nach Alter und Betriebszugehörigkeit",
         "Nach Einfluss und Interesse (Macht-Interesse-Matrix)",
+        "Ausschließlich nach Alter und Betriebszugehörigkeit",
         "Ausschließlich nach Gehaltsstufe",
         "Nach der Reihenfolge ihres Eintritts ins Unternehmen"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Eine Stakeholder-Analyse ordnet Beteiligte häufig nach Einfluss und Interesse ein (Macht-Interesse-Matrix), um passende Kommunikationsstrategien abzuleiten."
     },
     {
       "id": "q6",
       "question": "Ein Datenschutzbeauftragter des Kunden ist nicht Teil der täglichen Projektarbeit, hat aber wegen möglicher Compliance-Anforderungen ein hohes Interesse am Projektausgang. Welche Rolle nimmt er ein?",
-      "options": ["Projektleiter", "Stakeholder mit hohem Interesse, aber geringer direkter Einbindung", "Auftraggeber", "Mitglied des Steuerkreises"],
+      "options": ["Projektleiter mit voller operativer Entscheidungs- und Weisungsbefugnis", "Stakeholder mit hohem Interesse, aber ohne direkte Einbindung", "Auftraggeber mit vollständiger Budgetverantwortung", "Mitglied des Steuerkreises mit Entscheidungsbefugnis"],
       "answer": 1,
       "explanation": "Der Datenschutzbeauftragte ist ein Stakeholder mit hohem Interesse am Projektausgang, auch ohne direkt ins Tagesgeschäft oder die Entscheidungsebene eingebunden zu sein."
     },
     {
       "id": "q7",
       "question": "Bei einem Projekt entscheiden IT-Leiter des Kunden und Geschäftsführung des Dienstleisters monatlich gemeinsam über Budget-Nachträge und Terminverschiebungen. Welche Rolle üben sie damit aus?",
-      "options": ["Projektteam", "Steuerkreis (Lenkungsausschuss)", "Reine Stakeholder ohne Entscheidungsbefugnis", "Externe Prüfstelle"],
-      "answer": 1,
+      "options": ["Projektteam", "Reine Stakeholder ohne Entscheidungsbefugnis", "Steuerkreis (Lenkungsausschuss)", "Externe Prüfstelle"],
+      "answer": 2,
       "explanation": "Ein Gremium, das in regelmäßigen Abständen übergeordnete Entscheidungen wie Budget-Nachträge oder Terminverschiebungen trifft, entspricht der Rolle des Steuerkreises."
     }
   ]

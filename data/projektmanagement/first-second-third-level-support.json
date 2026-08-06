@@ -5,48 +5,48 @@
       "id": "q1",
       "question": "Welche Aufgabe übernimmt der First-Level-Support typischerweise?",
       "options": [
-        "Die Entwicklung von Software-Patches",
-        "Die erste Anlaufstelle für Anfragen, Lösung von Standardproblemen über bekannte Lösungen",
-        "Ausschließlich die Behebung von Hardwaredefekten in Rechenzentren",
-        "Die Verhandlung von Wartungsverträgen mit Kunden"
+        "Entwicklung neuer Software-Patches für gemeldete Produktfehler",
+        "Verhandlung und Abschluss von Wartungsverträgen mit Kunden",
+        "Erste Anlaufstelle für Anfragen, löst Standardprobleme mit bekannten Lösungen",
+        "Ausschließliche Behebung sämtlicher Hardwaredefekte direkt im gesamten Rechenzentrum"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der First-Level-Support ist die erste Anlaufstelle und löst Standardprobleme mithilfe bekannter Lösungen."
     },
     {
       "id": "q2",
       "question": "Was kennzeichnet den Second-Level-Support im Unterschied zum First-Level?",
       "options": [
-        "Er hat weniger Fachwissen als der First-Level",
-        "Er übernimmt komplexere Fälle mit tieferem Fachwissen und weiterreichenden Systemzugriffen",
-        "Er ist ausschließlich für die Buchhaltung zuständig",
-        "Er hat keinerlei Kontakt zu Kundenanfragen"
+        "Übernimmt komplexere Fälle mit tieferem Fachwissen und weiterreichenden Systemzugriffen",
+        "Verfügt grundsätzlich über weniger Fachwissen und weniger Zugriffsrechte als der First-Level",
+        "Ist ausschließlich für buchhalterische und vertragliche Aufgaben im Unternehmen zuständig",
+        "Hat im Tagesgeschäft keinerlei direkten oder indirekten Kontakt zu Kundenanfragen"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der Second-Level-Support übernimmt komplexere Fälle und verfügt über tieferes Fachwissen sowie erweiterte Zugriffsrechte."
     },
     {
       "id": "q3",
       "question": "Wer ist häufig auf der Ebene des Third-Level-Supports tätig?",
       "options": [
-        "Ausschließlich Auszubildende im ersten Lehrjahr",
-        "Spezialist:innen, Entwicklerteams oder der Hersteller selbst",
-        "Nur externe Callcenter-Mitarbeitende",
-        "Der Betriebsrat des Unternehmens"
+        "Ausschließlich Auszubildende im ersten Lehrjahr des Unternehmens",
+        "Ausschließlich extern beauftragte Callcenter-Mitarbeitende ohne Fachwissen",
+        "Der Betriebsrat und die Personalabteilung des Unternehmens",
+        "Spezialist:innen, Entwicklerteams oder der Hersteller selbst"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Third-Level-Support wird oft von Spezialist:innen, Entwicklerteams oder direkt vom Hersteller geleistet."
     },
     {
       "id": "q4",
       "question": "Was ist ein zentrales Ziel der Staffelung in First-, Second- und Third-Level-Support?",
       "options": [
+        "Jede Anfrage grundsätzlich sofort bis zum Hersteller weiterzuleiten",
         "Möglichst viele Anfragen bereits auf der ersten, kostengünstigsten Ebene zu lösen",
-        "Jede Anfrage grundsätzlich bis zum Hersteller weiterzuleiten",
-        "Die Anzahl der Supportstufen zu maximieren, unabhängig von der Komplexität",
-        "Kundenanfragen möglichst lange unbeantwortet zu lassen"
+        "Die Anzahl der eingerichteten Supportstufen unabhängig von der jeweiligen Komplexität zu maximieren",
+        "Kundenanfragen möglichst lange ohne Rückmeldung unbeantwortet zu lassen"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Ziel der Staffelung ist es, möglichst viele Anfragen bereits auf der kostengünstigeren ersten Ebene zu lösen."
     },
     {
@@ -55,7 +55,7 @@
       "options": [
         "First-Level",
         "Second-Level",
-        "Third-Level (der Softwarehersteller)",
+        "Third-Level",
         "Keine weitere Ebene ist nötig"
       ],
       "answer": 2,
@@ -65,12 +65,12 @@
       "id": "q6",
       "question": "Welche Art von Problemen löst der First-Level-Support typischerweise selbst, ohne Eskalation?",
       "options": [
-        "Grundlegende Programmierfehler im Quellcode einer Anwendung",
+        "Grundlegende Programmierfehler direkt im Quellcode einer komplexen Anwendung",
+        "Hardwaredefekte, die einen vollständigen physischen Austausch von Bauteilen direkt vor Ort erfordern",
         "Standardprobleme wie das Zurücksetzen eines Passworts oder einfache Konfigurationsprobleme",
-        "Hardwaredefekte, die einen Austausch von Bauteilen erfordern",
-        "Verhandlungen über SLA-Vertragsinhalte"
+        "Verhandlungen über die konkreten Inhalte von SLA-Verträgen mit Kunden"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der First-Level-Support löst typischerweise Standardprobleme wie Passwort-Rücksetzungen oder einfache Konfigurationsfragen."
     },
     {
@@ -89,12 +89,12 @@
       "id": "q8",
       "question": "Warum verfügt der Second-Level-Support über weiterreichende Systemzugriffe als der First-Level?",
       "options": [
-        "Weil er komplexere Probleme analysieren und lösen muss, die tiefere Eingriffe erfordern",
-        "Weil er ausschließlich administrative Aufgaben ohne technischen Bezug übernimmt",
-        "Weil First-Level-Mitarbeitende grundsätzlich keine Systemzugriffe benötigen",
-        "Weil Second-Level-Support nur für Vertragsfragen zuständig ist"
+        "Weil er ausschließlich rein administrative Aufgaben völlig ohne jeglichen technischen Bezug übernimmt",
+        "Weil First-Level-Mitarbeitende grundsätzlich überhaupt keine Systemzugriffe benötigen",
+        "Weil der Second-Level-Support ausschließlich für reine Vertragsfragen zuständig ist",
+        "Weil er komplexere Probleme analysieren und lösen muss, die tiefere Eingriffe erfordern"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Komplexere Probleme erfordern tiefere Analysen und Eingriffe, weshalb der Second-Level-Support über weiterreichende Zugriffsrechte verfügt."
     }
   ]

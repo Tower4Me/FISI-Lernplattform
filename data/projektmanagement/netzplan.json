@@ -5,34 +5,34 @@
       "id": "q1",
       "question": "Was stellt ein Netzplan dar?",
       "options": [
-        "Ausschließlich die Kosten eines Projekts",
-        "Alle Vorgänge eines Projekts und ihre zeitlichen bzw. logischen Abhängigkeiten zueinander",
-        "Nur die beteiligten Personen eines Projekts",
-        "Ausschließlich das Endergebnis nach Projektabschluss"
+        "Ausschließlich die geplanten Gesamtkosten eines Projekts über die Laufzeit",
+        "Ausschließlich die am Projekt beteiligten Personen und ihre Rollen",
+        "Ausschließlich das fertige Endergebnis nach dem vollständigen Projektabschluss",
+        "Alle Vorgänge eines Projekts und ihre Abhängigkeiten zueinander"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Ein Netzplan stellt grafisch alle Vorgänge eines Projekts sowie ihre zeitlichen und logischen Abhängigkeiten dar."
     },
     {
       "id": "q2",
       "question": "Was ist ein Vorgang im Sinne eines Netzplans?",
       "options": [
-        "Eine einzelne Tätigkeit mit definierter Dauer sowie frühestem und spätestem Start-/Endzeitpunkt",
-        "Ein Synonym für den gesamten Projektstrukturplan",
-        "Ausschließlich ein Meilenstein ohne Dauer",
-        "Ein Dokument zur Budgetplanung"
+        "Ein Synonym für den gesamten Projektstrukturplan des kompletten Projekts",
+        "Eine einzelne Tätigkeit mit definierter Dauer und festen Zeitpunkten",
+        "Ausschließlich ein Meilenstein ohne jede zeitliche Dauer im Ablauf",
+        "Ein reines Dokument zur groben Budgetplanung des gesamten Projekts"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Ein Vorgang ist eine einzelne Tätigkeit mit definierter Dauer und definiertem frühesten/spätesten Start- bzw. Endzeitpunkt."
     },
     {
       "id": "q3",
       "question": "Was beschreibt der Puffer eines Vorgangs?",
       "options": [
-        "Die Zeitspanne, um die sich ein Vorgang verschieben oder verlängern kann, ohne den Gesamtendtermin des Projekts zu gefährden",
-        "Die Gesamtdauer des kompletten Projekts",
-        "Die Anzahl der am Vorgang beteiligten Personen",
-        "Das Budget, das für einen Vorgang eingeplant ist"
+        "Der zeitliche Spielraum eines Vorgangs, ohne den Endtermin zu gefährden",
+        "Die vollständige Gesamtdauer des kompletten Projekts von Anfang bis Ende",
+        "Die genaue Anzahl der an einem Vorgang beteiligten Personen",
+        "Das konkrete Budget, das für einen einzelnen Vorgang im Projekt eingeplant wurde"
       ],
       "answer": 0,
       "explanation": "Der Puffer gibt an, wie viel zeitlicher Spielraum ein Vorgang hat, ohne dass sich der Gesamtendtermin des Projekts verschiebt."
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Was zeichnet den kritischen Pfad in einem Netzplan aus?",
       "options": [
-        "Er ist die kürzeste Kette von Vorgängen im gesamten Projekt",
-        "Er ist die längste Kette von Vorgängen mit jeweils Puffer null — er bestimmt die minimale Projektdauer",
-        "Er enthält ausschließlich Vorgänge mit dem größten Puffer",
-        "Er wird erst nach Projektabschluss ermittelt"
+        "Er ist die kürzeste denkbare Kette von Vorgängen im gesamten Projekt",
+        "Er ist die längste Kette von Vorgängen, deren Puffer jeweils null beträgt",
+        "Er enthält ausschließlich die Vorgänge mit dem größten verfügbaren Puffer",
+        "Er wird grundsätzlich erst nach dem vollständigen Projektabschluss ermittelt"
       ],
       "answer": 1,
       "explanation": "Der kritische Pfad ist die längste Vorgangskette im Netzplan, deren Vorgänge alle Puffer null haben — er bestimmt die minimale Gesamtdauer des Projekts."
@@ -65,24 +65,24 @@
       "id": "q6",
       "question": "Ein Vorgang „Mitarbeiterschulung vorbereiten“ hat laut Netzplan 5 Tage Puffer. Was bedeutet das konkret?",
       "options": [
-        "Der Vorgang liegt auf dem kritischen Pfad",
-        "Der Vorgang kann sich um bis zu 5 Tage verschieben oder verlängern, ohne den Projektendtermin zu gefährden",
-        "Der Vorgang muss exakt 5 Tage dauern, keinen Tag mehr oder weniger",
-        "Der Vorgang hat keinerlei Bedeutung für das Projekt"
+        "Der Vorgang liegt in diesem konkreten Fall eindeutig auf dem kritischen Pfad des gesamten Projekts",
+        "Der Vorgang muss exakt 5 Tage dauern, keinen einzigen Tag mehr oder weniger",
+        "Der Vorgang darf sich um bis zu 5 Tage verschieben, ohne den Endtermin zu gefährden",
+        "Der Vorgang hat für den weiteren Projektverlauf überhaupt keine Bedeutung"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ein Puffer von 5 Tagen bedeutet, dass sich der Vorgang um bis zu 5 Tage verschieben oder verlängern kann, ohne dass sich der Projektendtermin verändert."
     },
     {
       "id": "q7",
       "question": "Warum überwacht ein Projektleiter besonders die Vorgänge auf dem kritischen Pfad, statt gleichmäßig alle Vorgänge zu kontrollieren?",
       "options": [
-        "Weil nur Vorgänge auf dem kritischen Pfad überhaupt Kosten verursachen",
-        "Weil Verzögerungen auf dem kritischen Pfad direkt den Projektendtermin gefährden, während Vorgänge mit Puffer etwas Spielraum bieten",
-        "Weil Vorgänge außerhalb des kritischen Pfads grundsätzlich irrelevant für das Projekt sind",
-        "Weil der kritische Pfad die günstigsten Vorgänge des Projekts enthält"
+        "Weil ausschließlich Vorgänge auf dem kritischen Pfad überhaupt Kosten verursachen",
+        "Weil Vorgänge außerhalb des kritischen Pfads grundsätzlich vollständig irrelevant für das Projekt sind",
+        "Weil der kritische Pfad ausschließlich die günstigsten Vorgänge des gesamten Projekts enthält",
+        "Weil Verzögerungen auf dem kritischen Pfad direkt den Projektendtermin gefährden"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Da Vorgänge auf dem kritischen Pfad keinerlei Puffer haben, gefährdet jede Verzögerung dort unmittelbar den Gesamtendtermin — deshalb verdienen sie besondere Aufmerksamkeit."
     }
   ]

@@ -5,34 +5,34 @@
       "id": "q1",
       "question": "Was ist ein zentrales Merkmal des Wasserfallmodells?",
       "options": [
-        "Die Phasen werden strikt nacheinander durchlaufen, jede Phase muss abgeschlossen sein, bevor die nächste beginnt",
-        "Anforderungen ändern sich fortlaufend während des gesamten Projekts",
-        "Der Kunde erhält nach jeder Woche ein neues Produktinkrement",
-        "Es gibt keine feste Reihenfolge der Projektphasen"
+        "Anforderungen ändern sich nach diesem Modell fortlaufend während des gesamten Projekts",
+        "Die Phasen werden strikt nacheinander durchlaufen und einzeln abgeschlossen",
+        "Der Kunde erhält nach diesem Modell nach jeder einzelnen Woche ein neues Produktinkrement",
+        "Es gibt in diesem Modell grundsätzlich keine feste Reihenfolge der einzelnen Projektphasen"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Das Wasserfallmodell durchläuft die Phasen (Anforderungsanalyse, Design, Implementierung, Test, Wartung) strikt nacheinander, ohne zur vorherigen Phase zurückzukehren."
     },
     {
       "id": "q2",
       "question": "Was ist ein typischer Nachteil des Wasserfallmodells?",
       "options": [
-        "Es ist bei sich ändernden Anforderungen unflexibel, und Probleme werden oft erst spät im Projekt sichtbar",
-        "Es lässt sich grundsätzlich nicht planen",
-        "Es erlaubt keinerlei Dokumentation der Anforderungen",
-        "Es kann nur für sehr kleine Projekte eingesetzt werden"
+        "Es lässt sich als Vorgehensmodell grundsätzlich überhaupt nicht im Voraus planen",
+        "Es erlaubt bei der Durchführung keinerlei Dokumentation der gestellten Anforderungen",
+        "Es kann als Vorgehensmodell nur für sehr kleine, überschaubare Projekte eingesetzt werden",
+        "Es ist bei sich ändernden Anforderungen unflexibel, Probleme zeigen sich oft erst spät"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Da alle Phasen strikt nacheinander ablaufen, ist das Wasserfallmodell bei sich ändernden Anforderungen unflexibel — Probleme zeigen sich oft erst spät, z. B. in der Testphase."
     },
     {
       "id": "q3",
       "question": "Was zeichnet agile Vorgehensmodelle im Vergleich zum Wasserfallmodell aus?",
       "options": [
-        "Iteratives, inkrementelles Vorgehen mit regelmäßigem Kundenfeedback, Anforderungen dürfen sich während des Projekts ändern",
-        "Alle Anforderungen müssen vor Projektbeginn vollständig und unveränderlich feststehen",
-        "Es gibt keinerlei Kundenkontakt während des Projekts",
-        "Das Ergebnis wird ausschließlich am Projektende einmalig geliefert"
+        "Iteratives Vorgehen mit regelmäßigem Kundenfeedback, Anforderungen dürfen sich ändern",
+        "Alle Anforderungen müssen bereits vor Projektbeginn vollständig und unveränderlich feststehen",
+        "Es gibt während der gesamten Projektlaufzeit grundsätzlich keinerlei direkten Kundenkontakt",
+        "Das fertige Ergebnis wird ausschließlich einmalig ganz am Ende des Projekts geliefert"
       ],
       "answer": 0,
       "explanation": "Agile Vorgehensmodelle arbeiten iterativ-inkrementell, erlauben sich ändernde Anforderungen und beziehen den Kunden durch regelmäßiges Feedback laufend ein."
@@ -40,30 +40,30 @@
     {
       "id": "q4",
       "question": "Welche Scrum-Rolle ist für die Priorisierung des Product Backlogs verantwortlich?",
-      "options": ["Scrum Master", "Product Owner", "Entwicklungsteam", "Steuerkreis"],
-      "answer": 1,
+      "options": ["Scrum Master", "Entwicklungsteam", "Steuerkreis", "Product Owner"],
+      "answer": 3,
       "explanation": "Der Product Owner ist für das Product Backlog verantwortlich und priorisiert die darin enthaltenen Anforderungen."
     },
     {
       "id": "q5",
       "question": "Welche Aufgabe hat der Scrum Master?",
       "options": [
-        "Er priorisiert die Anforderungen im Product Backlog",
+        "Er priorisiert eigenständig die Anforderungen im gesamten Product Backlog",
+        "Er setzt die einzelnen Arbeitspakete des laufenden Sprints inhaltlich vollständig selbst und allein um",
         "Er sorgt für die Einhaltung des Scrum-Prozesses und beseitigt Hindernisse für das Team",
-        "Er setzt die Arbeitspakete des Sprints inhaltlich um",
-        "Er ist identisch mit dem Auftraggeber des Projekts"
+        "Er ist innerhalb des Projekts vollständig identisch mit dem eigentlichen Auftraggeber"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der Scrum Master achtet auf die Einhaltung des Scrum-Prozesses und beseitigt Hindernisse, die das Entwicklungsteam behindern."
     },
     {
       "id": "q6",
       "question": "Was ist ein Increment in Scrum?",
       "options": [
-        "Die vollständige Liste aller jemals möglichen Anforderungen an das Produkt",
+        "Die vollständige Liste aller jemals denkbaren Anforderungen an das gesamte Produkt",
         "Das am Sprintende fertiggestellte, potenziell auslieferbare Produktinkrement",
-        "Ein Synonym für den Sprint Backlog",
-        "Ein Meeting zu Sprintbeginn"
+        "Ein anderes Synonym für den Sprint Backlog des laufenden Sprints",
+        "Ein festes Meeting, das grundsätzlich immer zu Beginn eines Sprints stattfindet"
       ],
       "answer": 1,
       "explanation": "Das Increment ist das konkrete, am Ende eines Sprints fertiggestellte und potenziell auslieferbare Teilergebnis des Produkts."
@@ -72,19 +72,19 @@
       "id": "q7",
       "question": "Wozu dient die Sprint Retrospektive?",
       "options": [
-        "Zur Präsentation des fertigen Increments vor dem Kunden",
-        "Zum Rückblick des Teams auf die eigene Zusammenarbeit, um sie im nächsten Sprint zu verbessern",
-        "Zur Priorisierung des Product Backlogs",
-        "Zur täglichen kurzen Status-Abstimmung im Team"
+        "Zur Präsentation des fertigen Increments vor dem Kunden am Ende des Sprints",
+        "Zur laufenden Priorisierung des gesamten Product Backlogs durch das Team",
+        "Zur täglichen, kurzen Status-Abstimmung innerhalb des gesamten Teams",
+        "Zum Rückblick des Teams auf die eigene Zusammenarbeit im letzten Sprint"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die Sprint Retrospektive ist ein Rückblick des Teams auf die eigene Zusammenarbeit im vergangenen Sprint, um Verbesserungen für den nächsten Sprint abzuleiten."
     },
     {
       "id": "q8",
       "question": "Ein Kundenprojekt hat eine von Anfang an fest vorgegebene, gesetzlich geregelte technische Schnittstelle, die sich während des Projekts nicht ändern wird. Welches Vorgehensmodell passt hier eher als Scrum?",
-      "options": ["Kanban ohne WIP-Limit", "Das Wasserfallmodell", "Ein reines Daily Scrum ohne weitere Events", "Ein Product Backlog ohne Sprints"],
-      "answer": 1,
+      "options": ["Das Wasserfallmodell", "Kanban ohne WIP-Limit", "Ein reines Daily Scrum ohne weitere Events", "Ein Product Backlog ohne Sprints"],
+      "answer": 0,
       "explanation": "Bei von Anfang an feststehenden, unveränderlichen Anforderungen eignet sich das planbare, lineare Wasserfallmodell oft besser als ein iteratives agiles Vorgehen."
     }
   ]

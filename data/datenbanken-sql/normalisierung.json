@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Was ist das Ziel der Normalisierung?",
       "options": [
-        "Tabellen möglichst groß und breit zu halten",
         "Redundanz und Anomalien durch Aufteilung auf mehrere Tabellen zu vermeiden",
-        "Alle Daten in einer einzigen Tabelle zu vereinen",
-        "Datentypen automatisch zu erzeugen"
+        "Tabellen bewusst möglichst groß und breit mit vielen Spalten zu halten",
+        "Alle vorhandenen Daten grundsätzlich in einer einzigen großen Tabelle zu vereinen",
+        "Datentypen für alle Spalten einer Tabelle automatisch zu erzeugen"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Normalisierung teilt Daten regelbasiert auf mehrere Tabellen auf, damit jede Tatsache nur einmal gespeichert wird."
     },
     {
       "id": "q2",
       "question": "Welche Regel beschreibt die 1. Normalform (1NF)?",
       "options": [
-        "Jede Zelle enthält genau einen atomaren Wert, keine Listen",
         "Jede Tabelle braucht einen Fremdschlüssel",
+        "Jede Zelle enthält genau einen atomaren Wert, keine Listen",
         "Alle Spalten müssen NOT NULL sein",
         "Es dürfen keine zusammengesetzten Primärschlüssel existieren"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "1NF verlangt atomare Werte: keine Listen oder Mehrfachwerte in einer Zelle."
     },
     {
@@ -30,45 +30,45 @@
       "question": "Eine Tabelle hat den zusammengesetzten Primärschlüssel (auftrag_id, ersatzteil). Die Spalte kunde_name hängt nur von auftrag_id ab. Welches Problem liegt vor?",
       "options": [
         "Transitive Abhängigkeit (3NF-Verletzung)",
+        "Kein Problem",
         "Teilabhängigkeit (2NF-Verletzung)",
-        "Atomare Verletzung (1NF-Verletzung)",
-        "Kein Problem"
+        "Atomare Verletzung (1NF-Verletzung)"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Wenn eine Nicht-Schlüsselspalte nur von einem Teil eines zusammengesetzten Primärschlüssels abhängt, ist das eine Teilabhängigkeit – eine 2NF-Verletzung."
     },
     {
       "id": "q4",
       "question": "In einer Tabelle bestimmt die Postleitzahl (plz) den Ortsnamen (kunde_ort), obwohl beide keine Schlüsselspalten sind. Wie nennt man das?",
       "options": [
-        "Teilabhängigkeit",
+        "Fremdschlüsselabhängigkeit",
         "Atomare Abhängigkeit",
-        "Transitive Abhängigkeit",
-        "Fremdschlüsselabhängigkeit"
+        "Teilabhängigkeit",
+        "Transitive Abhängigkeit"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Hängt ein Nicht-Schlüsselfeld von einem anderen Nicht-Schlüsselfeld ab (statt vom Primärschlüssel), ist das eine transitive Abhängigkeit – eine 3NF-Verletzung."
     },
     {
       "id": "q5",
       "question": "Ist die 2NF-Regel relevant, wenn eine Tabelle nur einen einzelnen (nicht zusammengesetzten) Primärschlüssel hat?",
       "options": [
-        "Ja, immer",
         "Nein, Teilabhängigkeiten können nur bei zusammengesetzten Primärschlüsseln auftreten",
-        "Nur wenn die Tabelle mehr als 5 Spalten hat",
-        "Nur bei Fremdschlüsseln"
+        "Nur bei Tabellen mit mindestens einem definierten Fremdschlüssel",
+        "Nur wenn die betroffene Tabelle insgesamt mehr als fünf Spalten besitzt und mehrere Fremdschlüssel enthält",
+        "Ja, die 2NF-Regel gilt immer, unabhängig vom Aufbau des Primärschlüssels"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Eine Teilabhängigkeit setzt voraus, dass der Primärschlüssel aus mehreren Spalten besteht – bei einem einzelnen Schlüssel ist 2NF automatisch erfüllt."
     },
     {
       "id": "q6",
       "question": "Welche Tabellenaufteilung löst eine Teilabhängigkeit bei PK (mitarbeiter_id, projekt_id) auf, wenn mitarbeiter_name nur von mitarbeiter_id abhängt?",
       "options": [
-        "Eine einzige Tabelle mit allen Spalten beibehalten",
+        "Die Spalte mitarbeiter_name komplett löschen und stattdessen nur die reine ID ohne Namen speichern",
         "Zwei Tabellen: mitarbeiter (mitarbeiter_id PK, mitarbeiter_name) und projektzuordnung (mitarbeiter_id FK, projekt_id FK)",
-        "Die Spalte mitarbeiter_name einfach löschen",
-        "Einen zweiten Primärschlüssel auf projekt_id allein setzen"
+        "Einen zweiten, zusätzlichen Primärschlüssel allein auf der Spalte projekt_id definieren und verwenden",
+        "Eine einzige unveränderte Tabelle mit allen Spalten (mitarbeiter_id, projekt_id, mitarbeiter_name) beibehalten, ohne Aufteilung"
       ],
       "answer": 1,
       "explanation": "Attribute, die nur von einem Teil des zusammengesetzten Schlüssels abhängen, werden in eine eigene Tabelle mit diesem Teilschlüssel als Primärschlüssel ausgelagert."
@@ -79,10 +79,10 @@
       "options": [
         "1NF",
         "2NF",
-        "3NF",
-        "Keine, das ist zulässig"
+        "Keine, das ist zulässig",
+        "3NF"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "abteilungsleiter hängt von abteilung ab, nicht vom Primärschlüssel mitarbeiter_id – das ist eine transitive Abhängigkeit und verletzt 3NF."
     },
     {
@@ -90,23 +90,23 @@
       "question": "Warum wird bei TowerTech die Tabelle plz_ort (plz PK, ort) aus der Auftragstabelle ausgelagert?",
       "options": [
         "Weil das SQL-Kommando das verlangt",
-        "Um die transitive Abhängigkeit plz → kunde_ort aufzulösen (3NF)",
         "Weil Primärschlüssel niemals aus Zahlen bestehen dürfen",
+        "Um die transitive Abhängigkeit plz → kunde_ort aufzulösen (3NF)",
         "Um die Tabelle kleiner erscheinen zu lassen, ohne inhaltlichen Grund"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die PLZ bestimmt den Ort – das ist eine transitive Abhängigkeit. Die Auslagerung in eine eigene Tabelle stellt 3NF her."
     },
     {
       "id": "q9",
       "question": "Was ist der praktische Vorteil, wenn eine Datenbank in 3NF vorliegt?",
       "options": [
-        "Abfragen benötigen keine JOINs mehr",
+        "Abfragen benötigen ab 3NF grundsätzlich überhaupt keine JOINs mehr",
+        "Die Datenbank braucht ab 3NF grundsätzlich überhaupt keine Primärschlüssel mehr",
         "Jede Tatsache steht nur an einer Stelle – Änderungen sind konsistent und ohne Anomalien möglich",
-        "Die Datenbank braucht keine Primärschlüssel mehr",
-        "Alle Tabellen lassen sich zu einer einzigen zusammenfassen"
+        "Alle Tabellen lassen sich ab 3NF automatisch und ohne Datenverlust zu einer einzigen zusammenfassen"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der Kernvorteil der Normalisierung ist, dass jede Information nur einmal gespeichert wird – das verhindert Änderungs-, Einfüge- und Löschanomalien."
     }
   ]

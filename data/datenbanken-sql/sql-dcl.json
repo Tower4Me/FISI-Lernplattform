@@ -29,46 +29,46 @@
       "id": "q3",
       "question": "Was bewirkt GRANT ALL PRIVILEGES ON *.* TO 'admin_towertech';?",
       "options": [
-        "Nur Leserechte auf eine einzelne Tabelle",
+        "Nur Leserechte auf genau eine einzelne Tabelle der Datenbank",
+        "Löscht rückwirkend alle vorhandenen Rechte von admin_towertech",
         "Alle Rechte auf alle Tabellen der Datenbank",
-        "Löscht alle Rechte von admin_towertech",
-        "Erstellt einen neuen Benutzer ohne Rechte"
+        "Erstellt einen neuen Benutzer komplett ohne jegliche Rechte"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "*.* steht für alle Datenbanken/Tabellen, ALL PRIVILEGES für sämtliche Rechte."
     },
     {
       "id": "q4",
       "question": "Was ermöglicht die Klausel WITH GRANT OPTION?",
       "options": [
-        "Der Benutzer darf das erhaltene Recht an andere weitergeben",
-        "Das Recht gilt nur für einen Tag",
-        "Der Benutzer bekommt automatisch Adminrechte",
-        "Das Recht kann nicht mehr entzogen werden"
+        "Das erhaltene Recht gilt nur für die Dauer eines einzigen Tages, danach verfällt es automatisch",
+        "Der Benutzer bekommt dadurch automatisch vollständige Administratorrechte für die gesamte Datenbank",
+        "Das einmal erteilte Recht kann anschließend nicht mehr entzogen werden, auch nicht per REVOKE",
+        "Der Benutzer darf das Recht an andere weitergeben"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "WITH GRANT OPTION erlaubt es dem Empfänger, das Recht seinerseits weiterzugeben."
     },
     {
       "id": "q5",
       "question": "Was ist eine Rolle (Role) im Kontext von DCL?",
       "options": [
-        "Ein Alias für eine Tabelle",
-        "Eine benannte Gruppe von Rechten, die mehreren Benutzern zugewiesen werden kann",
-        "Ein spezieller Datentyp",
-        "Ein Synonym für Primärschlüssel"
+        "Eine benannte Gruppe von Rechten für mehrere Benutzer",
+        "Ein reiner Alias für den Namen einer Tabelle",
+        "Ein spezieller, für Rechte reservierter Datentyp einer Spalte in der Tabelle",
+        "Ein anderes Wort für den Primärschlüssel einer Tabelle in der Datenbank"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Rollen bündeln Rechte, sodass bei Änderungen nicht jeder Benutzer einzeln angepasst werden muss."
     },
     {
       "id": "q6",
       "question": "Was besagt das Principle of Least Privilege?",
       "options": [
-        "Jeder Benutzer bekommt automatisch alle Rechte",
-        "Jeder Benutzer bekommt nur die Rechte, die er für seine Aufgabe wirklich braucht",
-        "Rechte werden nie wieder entzogen",
-        "Nur Administratoren dürfen SELECT verwenden"
+        "Jeder Benutzer bekommt beim Anlegen automatisch sofort alle Rechte",
+        "Jeder Benutzer bekommt nur die Rechte, die er für seine Aufgabe braucht",
+        "Einmal vergebene Rechte werden grundsätzlich nie wieder entzogen, egal was passiert",
+        "Nur Administratoren dürfen den Befehl SELECT überhaupt jemals verwenden"
       ],
       "answer": 1,
       "explanation": "Das Prinzip der minimalen Rechte begrenzt Schaden durch Fehlbedienung oder kompromittierte Zugänge."
@@ -77,36 +77,36 @@
       "id": "q7",
       "question": "Warum funktioniert echtes GRANT/REVOKE nicht in SQLite?",
       "options": [
-        "SQLite unterstützt nur GRANT, nicht REVOKE",
+        "SQLite unterstützt in seiner Syntax nur GRANT, nicht REVOKE",
+        "GRANT ist in SQLite grundsätzlich nur für Administratoren reserviert",
         "SQLite hat kein eingebautes Benutzer- und Rechtesystem",
-        "GRANT ist in SQLite nur für Admins reserviert",
-        "SQLite erlaubt GRANT nur mit WITH GRANT OPTION"
+        "SQLite erlaubt GRANT ausschließlich zusammen mit WITH GRANT OPTION, sonst nie"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "SQLite verwaltet Zugriffsrechte über Dateiberechtigungen des Betriebssystems, nicht über SQL-Befehle wie GRANT/REVOKE."
     },
     {
       "id": "q8",
-      "question": "Lea hat SELECT- und INSERT-Rechte auf mitarbeiter. Welcher Befehl entzieht ihr beide auf einmal?",
+      "question": "Lea hat SELECT-, INSERT- und UPDATE-Rechte auf mitarbeiter. Welcher Befehl entzieht ihr nur SELECT und INSERT, während UPDATE erhalten bleibt?",
       "options": [
-        "REVOKE SELECT, INSERT ON mitarbeiter FROM 'lea_fischer';",
         "REVOKE ALL PRIVILEGES ON mitarbeiter FROM 'lea_fischer';",
         "DELETE GRANTS FOR 'lea_fischer';",
-        "Beide oberen Befehle entziehen SELECT und INSERT"
+        "REVOKE UPDATE ON mitarbeiter FROM 'lea_fischer';",
+        "REVOKE SELECT, INSERT ON mitarbeiter FROM 'lea_fischer';"
       ],
       "answer": 3,
-      "explanation": "Sowohl die explizite Aufzählung (SELECT, INSERT) als auch ALL PRIVILEGES entziehen in diesem Fall beide vorhandenen Rechte."
+      "explanation": "REVOKE SELECT, INSERT entzieht gezielt genau diese beiden Rechte, UPDATE bleibt bestehen. ALL PRIVILEGES würde auch UPDATE entziehen, DELETE GRANTS ist kein gültiger SQL-Befehl."
     },
     {
       "id": "q9",
       "question": "Welcher Befehl zeigt an, welche Rechte ein Benutzer aktuell hat?",
       "options": [
         "LIST GRANTS 'user';",
+        "SELECT * FROM grants;",
         "SHOW GRANTS FOR 'user';",
-        "DESCRIBE RIGHTS 'user';",
-        "SELECT * FROM grants;"
+        "DESCRIBE RIGHTS 'user';"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "SHOW GRANTS FOR 'user'; listet die aktuell vergebenen Rechte dieses Benutzers auf."
     }
   ]

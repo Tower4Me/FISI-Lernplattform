@@ -5,48 +5,48 @@
       "id": "q1",
       "question": "Welcher Datentyp eignet sich am besten für einen Rechnungsbetrag in Euro?",
       "options": [
-        "FLOAT",
         "DECIMAL",
+        "FLOAT",
         "BOOLEAN",
         "CHAR(1)"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "DECIMAL speichert Kommazahlen exakt und vermeidet die Rundungsfehler, die FLOAT bei Geldbeträgen verursachen kann."
     },
     {
       "id": "q2",
       "question": "Für welches Feld ist CHAR(n) sinnvoller als VARCHAR(n)?",
       "options": [
-        "Für eine lange, variable Produktbeschreibung",
-        "Für einen Ländercode fester Länge wie „DE“",
-        "Für ein Datum",
-        "Für eine Kundennummer"
+        "Für eine variable, unterschiedlich lange Kundenadresse",
+        "Für ein Bestelldatum mit variablem Format",
+        "Für eine fortlaufend generierte Kundennummer",
+        "Für einen Ländercode fester Länge wie „DE“"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "CHAR(n) ist für Felder mit immer gleicher Länge geeignet, z. B. zweistellige Ländercodes."
     },
     {
       "id": "q3",
       "question": "Welcher Constraint verhindert, dass ein Feld leer bleibt?",
       "options": [
-        "UNIQUE",
         "DEFAULT",
         "NOT NULL",
-        "CHECK"
+        "AUTO_INCREMENT",
+        "UNIQUE"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "NOT NULL erzwingt, dass beim Einfügen ein Wert für diese Spalte angegeben werden muss."
     },
     {
       "id": "q4",
       "question": "Was leistet der FOREIGN-KEY-Constraint?",
       "options": [
-        "Er verhindert doppelte Werte in einer Spalte",
-        "Er stellt sicher, dass ein Wert auf einen existierenden Primärschlüssel einer anderen Tabelle verweist",
-        "Er vergibt automatisch fortlaufende IDs",
-        "Er verschlüsselt die referenzierte Spalte"
+        "Er verhindert, dass in dieser Spalte doppelte Werte gespeichert werden können, unabhängig vom Inhalt",
+        "Er vergibt automatisch fortlaufende, eindeutige IDs für jede neu eingefügte Zeile der Tabelle",
+        "Er verweist auf einen existierenden Primärschlüssel einer anderen, referenzierten Tabelle",
+        "Er verschlüsselt automatisch den gespeicherten Inhalt der referenzierten Spalte beim Einfügen"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "FOREIGN KEY sorgt für referenzielle Integrität: der Wert muss auf einen existierenden Datensatz in der referenzierten Tabelle zeigen (oder NULL sein)."
     },
     {
@@ -55,10 +55,10 @@
       "options": [
         "Änderungsanomalie",
         "Löschanomalie",
-        "Einfügeanomalie",
-        "Redundanzanomalie"
+        "Redundanzanomalie",
+        "Einfügeanomalie"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Das Nichteinfügen von Daten ohne zugehörigen Fremddatensatz ist die klassische Einfügeanomalie."
     },
     {
@@ -80,7 +80,7 @@
         "Löschanomalie",
         "Einfügeanomalie",
         "Änderungsanomalie",
-        "Schema-Anomalie"
+        "Konsistenzanomalie"
       ],
       "answer": 2,
       "explanation": "Wenn redundante Kopien bei einer Änderung nicht alle konsistent aktualisiert werden, entsteht eine Änderungsanomalie."
@@ -89,24 +89,24 @@
       "id": "q8",
       "question": "Was ist der eigentliche, langfristige Weg, um Redundanz und die daraus folgenden Anomalien zu beseitigen?",
       "options": [
-        "Möglichst viele CHECK-Constraints hinzufügen",
-        "Nur DEFAULT-Werte konsequent setzen",
-        "Die Tabellenstruktur normalisieren",
-        "Alle Spalten als VARCHAR definieren"
+        "Möglichst viele CHECK-Constraints auf allen Spalten ergänzen",
+        "Konsequent DEFAULT-Werte für jede Spalte festlegen",
+        "Alle Spalten grundsätzlich als VARCHAR definieren",
+        "Die Tabellenstruktur regelbasiert normalisieren"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Constraints verhindern nur falsche Einzelwerte; die strukturelle Ursache (Redundanz) wird durch Normalisierung behoben."
     },
     {
       "id": "q9",
       "question": "Welche Kombination beschreibt einen PRIMARY KEY korrekt?",
       "options": [
-        "Er erlaubt beliebig viele NULL-Werte",
-        "Er kombiniert UNIQUE und NOT NULL für eine eindeutige Zeilenidentifikation",
-        "Er ist nur ein anderer Name für FOREIGN KEY",
-        "Er legt nur den Datentyp einer Spalte fest"
+        "Er kombiniert UNIQUE und NOT NULL zur eindeutigen Identifikation jeder Zeile",
+        "Er erlaubt in derselben Spalte beliebig viele NULL-Werte gleichzeitig, ohne Einschränkung",
+        "Er legt ausschließlich den Datentyp der jeweiligen Spalte fest, nicht deren Eindeutigkeit",
+        "Er ist lediglich ein anderer Name für den FOREIGN-KEY-Constraint einer Tabelle"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein PRIMARY KEY muss eindeutig und darf nicht NULL sein – er identifiziert jede Zeile einer Tabelle eindeutig."
     }
   ]

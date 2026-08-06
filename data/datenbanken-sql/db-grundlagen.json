@@ -5,22 +5,22 @@
       "id": "q1",
       "question": "Was ist der Unterschied zwischen einer Datenbank und einem DBMS?",
       "options": [
-        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe",
-        "Die Datenbank ist die Software, das DBMS die gespeicherten Daten",
-        "Die Datenbank ist der gespeicherte Datenbestand, das DBMS ist die verwaltende Software",
-        "Ein DBMS ist immer NoSQL, eine Datenbank immer relational"
+        "Die Datenbank ist der gespeicherte Datenbestand, das DBMS die verwaltende Software",
+        "Es gibt keinen Unterschied, beide Begriffe meinen exakt dasselbe technische Konzept",
+        "Die Datenbank ist die Software, das DBMS ist der gespeicherte Datenbestand selbst",
+        "Ein DBMS ist grundsätzlich NoSQL, eine Datenbank dagegen immer relational aufgebaut"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Die Datenbank ist die organisierte Datensammlung, das DBMS die Software, die diese Sammlung verwaltet (speichern, ändern, absichern, abfragen)."
     },
     {
       "id": "q2",
       "question": "Welche Aufgabe gehört NICHT zu den Kernaufgaben eines DBMS?",
       "options": [
-        "Konsistenzsicherung der Daten",
-        "Mehrbenutzerbetrieb über Transaktionen",
-        "Automatisches Layout einer Webseite",
-        "Zugriffskontrolle über Rechteverwaltung"
+        "Konsistenzsicherung der gespeicherten Daten über alle Zugriffe hinweg",
+        "Mehrbenutzerbetrieb über gleichzeitig laufende Transaktionen",
+        "Automatisches Layout und Design einer Webseite im Browser",
+        "Zugriffskontrolle über eine differenzierte Rechteverwaltung"
       ],
       "answer": 2,
       "explanation": "Webseiten-Layout ist keine DBMS-Aufgabe. DBMS-Aufgaben sind u. a. Datenhaltung, Konsistenzsicherung, Mehrbenutzerbetrieb, Zugriffskontrolle und Ausfallsicherheit."
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Was beschreibt das Schema einer Datenbank?",
       "options": [
-        "Die aktuellen Werte in den Tabellenzeilen",
-        "Den Bauplan: Tabellen, Spalten, Datentypen und Beziehungen",
-        "Eine Sicherungskopie der Datenbank",
-        "Die Liste aller aktiven Benutzer"
+        "Die aktuellen Werte, die gerade konkret in den Tabellenzeilen stehen",
+        "Den Bauplan: Tabellen, Spalten, Datentypen und ihre Beziehungen",
+        "Eine vollständige Sicherungskopie der gesamten Datenbank",
+        "Die Liste aller aktuell aktiven, angemeldeten Benutzer"
       ],
       "answer": 1,
       "explanation": "Das Schema ist die Struktur (Bauplan) der Datenbank, unabhängig von den konkreten Dateninhalten."
@@ -41,24 +41,24 @@
       "id": "q4",
       "question": "Welche Aussage zu relationalen Datenbanken trifft zu?",
       "options": [
-        "Sie haben kein festes Schema und keine Anfragesprache",
-        "Sie organisieren Daten in Tabellen mit festem Schema und nutzen SQL",
-        "Sie können grundsätzlich keine Beziehungen zwischen Tabellen abbilden",
-        "Sie sind immer schneller als jede NoSQL-Datenbank"
+        "Sie haben grundsätzlich kein festes Schema und keine Anfragesprache",
+        "Sie können grundsätzlich keinerlei Beziehungen zwischen Tabellen abbilden",
+        "Sie sind grundsätzlich immer schneller als jede vergleichbare NoSQL-Datenbank",
+        "Sie organisieren Daten in Tabellen mit festem Schema und nutzen SQL"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Relationale Datenbanken nutzen feste Tabellenschemata, Beziehungen über Schlüssel und SQL als Anfragesprache."
     },
     {
       "id": "q5",
       "question": "Welches Beispiel ist eine dokumentenorientierte NoSQL-Datenbank?",
       "options": [
-        "MySQL",
         "MongoDB",
+        "MySQL",
         "PostgreSQL",
         "MariaDB"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "MongoDB speichert Daten als flexible Dokumente (z. B. JSON) und gehört zur Kategorie dokumentenorientierte NoSQL-Datenbanken."
     },
     {
@@ -67,10 +67,10 @@
       "options": [
         "Availability",
         "Authentication",
-        "Atomicity",
-        "Access"
+        "Access",
+        "Atomicity"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "A steht für Atomicity (Atomarität): eine Transaktion läuft vollständig durch oder gar nicht."
     },
     {
@@ -89,10 +89,10 @@
       "id": "q8",
       "question": "Was garantiert die Durability-Eigenschaft?",
       "options": [
-        "Dass eine Transaktion beliebig oft wiederholt werden kann",
-        "Dass abgeschlossene (committete) Transaktionen auch nach einem Absturz erhalten bleiben",
-        "Dass alle Nutzer gleichzeitig schreiben dürfen",
-        "Dass Daten automatisch verschlüsselt werden"
+        "Dass eine einmal ausgeführte Transaktion sich beliebig oft automatisch wiederholt",
+        "Dass abgeschlossene, committete Transaktionen auch einen Systemabsturz überstehen",
+        "Dass grundsätzlich alle angemeldeten Nutzer gleichzeitig schreibend zugreifen dürfen",
+        "Dass alle gespeicherten Daten automatisch und ohne Zutun verschlüsselt werden"
       ],
       "answer": 1,
       "explanation": "Durability (Dauerhaftigkeit) sorgt dafür, dass einmal committete Änderungen auch einen Systemabsturz überstehen."
@@ -101,10 +101,10 @@
       "id": "q9",
       "question": "Wofür eignet sich eine NoSQL-Datenbank typischerweise besser als eine relationale Datenbank?",
       "options": [
-        "Für Bankbuchungen mit strikter ACID-Garantie",
-        "Für stark strukturierte Rechnungsdaten mit festen Feldern",
+        "Für Bankbuchungen, die eine strikte ACID-Garantie über Transaktionen benötigen",
+        "Für stark strukturierte Rechnungsdaten mit von Anfang an festen Feldern",
         "Für große, schnell wechselnde Datenmengen mit flexibler Struktur",
-        "Für die Umsetzung komplexer Fremdschlüssel-Beziehungen"
+        "Für die Umsetzung komplexer, mehrstufiger Fremdschlüssel-Beziehungen"
       ],
       "answer": 2,
       "explanation": "NoSQL-Systeme punkten bei großen, unstrukturierten oder sich häufig ändernden Datenmengen und hoher Skalierbarkeit."

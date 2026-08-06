@@ -5,12 +5,12 @@
       "id": "q1",
       "question": "Was wird aus einer Entität bei der Umsetzung in eine relationale Datenbank?",
       "options": [
-        "Eine Spalte",
         "Eine Tabelle",
+        "Eine Spalte",
         "Ein Constraint",
         "Ein Fremdschlüssel"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Entitäten (z. B. Kunde, Produkt) werden bei der Umsetzung zu Tabellen."
     },
     {
@@ -41,34 +41,34 @@
       "id": "q4",
       "question": "Wie wird eine 1:n-Beziehung in Tabellen umgesetzt?",
       "options": [
-        "Über eine zusätzliche Zwischentabelle",
-        "Über einen Fremdschlüssel auf der „n“-Seite",
-        "Über einen Fremdschlüssel auf der „1“-Seite",
-        "Gar nicht, 1:n lässt sich nicht relational abbilden"
+        "Über eine zusätzliche Zwischentabelle mit zwei Fremdschlüsseln",
+        "Über einen Fremdschlüssel auf der „1“-Seite der Beziehung",
+        "Über einen Fremdschlüssel auf der „n“-Seite der Beziehung",
+        "Gar nicht, 1:n lässt sich grundsätzlich nicht relational abbilden"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Bei 1:n bekommt die Tabelle auf der „n“-Seite eine Fremdschlüssel-Spalte, die auf die „1“-Seite verweist."
     },
     {
       "id": "q5",
       "question": "Eine Bestellung enthält mehrere Produkte, ein Produkt taucht in mehreren Bestellungen auf. Wie wird diese Beziehung umgesetzt?",
       "options": [
-        "Über einen einzelnen Fremdschlüssel in der Tabelle Bestellung",
         "Über eine Zwischentabelle mit zwei Fremdschlüsseln",
-        "Über einen CHECK-Constraint",
-        "Gar nicht, m:n wird immer in der Anwendung gelöst"
+        "Über einen einzelnen CHECK-Constraint auf beiden Tabellen",
+        "Gar nicht, m:n wird grundsätzlich nur in der Anwendung gelöst",
+        "Über einen einzelnen Fremdschlüssel direkt in der Tabelle Bestellung"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "m:n-Beziehungen werden über eine Zwischentabelle (z. B. Bestellposition) mit zwei Fremdschlüsseln in zwei 1:n-Beziehungen aufgelöst."
     },
     {
       "id": "q6",
       "question": "Was besagt referenzielle Integrität?",
       "options": [
-        "Jede Tabelle muss mindestens eine Spalte haben",
+        "Jede Tabelle muss mindestens eine einzelne Spalte besitzen, sonst ist sie ungültig",
         "Ein Fremdschlüssel muss auf einen existierenden Primärschlüssel verweisen oder NULL sein",
-        "Jede Spalte muss einen eindeutigen Namen tragen",
-        "Alle Tabellen müssen dieselbe Anzahl Spalten haben"
+        "Alle Tabellen einer Datenbank müssen exakt dieselbe Anzahl an Spalten besitzen",
+        "Jede Spalte muss datenbankweit über alle vorhandenen Tabellen hinweg einen eindeutigen Namen tragen"
       ],
       "answer": 1,
       "explanation": "Referenzielle Integrität verhindert „verwaiste“ Fremdschlüssel, die auf nicht existierende Datensätze zeigen."
@@ -90,54 +90,54 @@
       "question": "Welche Löschregel löscht abhängige Datensätze automatisch mit?",
       "options": [
         "RESTRICT",
-        "CASCADE",
         "SET NULL",
-        "UNIQUE"
+        "UNIQUE",
+        "CASCADE"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "CASCADE sorgt dafür, dass beim Löschen des referenzierten Datensatzes auch alle abhängigen Zeilen automatisch gelöscht werden."
     },
     {
       "id": "q9",
       "question": "Welche Beispielbeziehung passt zur Kardinalität 1:1?",
       "options": [
-        "Kunde – Bestellung",
-        "Bestellung – Produkt",
-        "Person – Personalausweis",
-        "Mitarbeiter – Projekt"
+        "Bestellung – mehrere Produkte",
+        "Kunde – mehrere Bestellungen",
+        "Mitarbeiter – mehrere Projekte",
+        "Person – Personalausweis"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Eine Person besitzt genau einen Personalausweis und umgekehrt – ein klassisches 1:1-Beispiel."
     },
     {
       "id": "q10",
       "question": "Wofür steht der auffächernde „Krähenfuß“ am Ende einer Verbindungslinie in der Krähenfuß-Notation?",
       "options": [
-        "Für die Kardinalität „genau 1“",
-        "Für die Kardinalität „viele (n)“",
-        "Für einen Primärschlüssel",
-        "Für eine 1:1-Beziehung"
+        "Für die Kardinalität „genau 1“ auf dieser Seite der Beziehung",
+        "Für eine feste 1:1-Beziehung zwischen den beiden verbundenen Tabellen",
+        "Für die Kardinalität „viele (n)“ auf dieser Seite der Beziehung",
+        "Für einen Primärschlüssel der referenzierten Tabelle auf dieser Seite"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der Krähenfuß (drei auffächernde Linien) markiert in der Krähenfuß-Notation die „viele“-Seite (n) einer Beziehung, ein einzelner Strich steht für „genau 1“."
     },
     {
       "id": "q11",
       "question": "Wofür steht ein Kreis vor einem Strich bzw. Krähenfuß in der Krähenfuß-Notation?",
       "options": [
-        "Für einen Primärschlüssel",
-        "Dafür, dass die Beziehung optional ist (0 möglich) statt verpflichtend",
-        "Für eine m:n-Beziehung",
-        "Für eine Zwischentabelle"
+        "Für einen Primärschlüssel der jeweils angeschlossenen Tabelle auf dieser Seite",
+        "Für eine m:n-Beziehung zwischen den beiden verbundenen Tabellen",
+        "Für eine zusätzliche Zwischentabelle innerhalb dieser Notation",
+        "Dafür, dass die Beziehung optional ist (0 möglich) statt verpflichtend"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Ein Kreis vor dem Strich/Krähenfuß macht aus einer verpflichtenden Beziehung eine optionale — „0 oder 1“ bzw. „0 oder mehrere“ statt „genau 1“ bzw. „viele“."
     },
     {
       "id": "q12",
       "question": "Welches Symbol steht für eine Entität in der Chen-Notation?",
-      "options": ["Eine Ellipse", "Eine Raute", "Ein Rechteck", "Ein Kreis"],
-      "answer": 2,
+      "options": ["Ein Rechteck", "Eine Ellipse", "Eine Raute", "Ein Kreis"],
+      "answer": 0,
       "explanation": "In der Chen-Notation wird eine Entität als Rechteck dargestellt, ein Attribut als Ellipse und eine Beziehung als Raute."
     }
   ]

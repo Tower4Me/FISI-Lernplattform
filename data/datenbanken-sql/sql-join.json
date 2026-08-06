@@ -5,22 +5,22 @@
       "id": "q1",
       "question": "Was macht ein JOIN grundsätzlich?",
       "options": [
-        "Er löscht doppelte Zeilen aus einer Tabelle",
         "Er verknüpft Zeilen aus zwei oder mehr Tabellen über eine gemeinsame Spalte",
-        "Er sortiert eine Tabelle nach mehreren Spalten",
-        "Er erstellt automatisch einen Index"
+        "Er löscht automatisch und dauerhaft alle doppelt vorkommenden Zeilen aus einer Tabelle",
+        "Er sortiert den Inhalt einer einzelnen Tabelle nach mehreren Spalten",
+        "Er erstellt automatisch und ohne weiteres Zutun einen neuen Index"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "JOIN kombiniert passende Zeilen aus mehreren Tabellen, typischerweise über Primär-/Fremdschlüssel."
     },
     {
       "id": "q2",
       "question": "Welche Zeilen liefert ein INNER JOIN?",
       "options": [
-        "Alle Zeilen aus beiden Tabellen, unabhängig von Übereinstimmungen",
+        "Alle Zeilen aus beiden Tabellen, komplett unabhängig von Übereinstimmungen",
         "Nur Zeilen, die auf beiden Seiten eine Übereinstimmung haben",
-        "Nur Zeilen der linken Tabelle",
-        "Nur Zeilen ohne Übereinstimmung"
+        "Ausschließlich alle Zeilen der linken Tabelle, egal ob mit oder ohne Treffer",
+        "Ausschließlich Zeilen, die auf keiner der beiden Seiten eine Übereinstimmung haben"
       ],
       "answer": 1,
       "explanation": "INNER JOIN liefert ausschließlich Zeilen, bei denen die Verknüpfungsbedingung auf beiden Seiten erfüllt ist."
@@ -29,46 +29,46 @@
       "id": "q3",
       "question": "Rangi Cole hat keine abteilung_id (NULL). Welcher JOIN zeigt ihn trotzdem in einer Abfrage mit der Abteilungstabelle an?",
       "options": [
-        "INNER JOIN",
+        "INNER JOIN, weil das der Standard-JOIN-Typ ist",
+        "Kein JOIN-Typ kann das leisten, egal welcher",
         "LEFT JOIN (mitarbeiter LEFT JOIN abteilung)",
-        "Kein JOIN kann das",
-        "CROSS JOIN ohne ON-Bedingung"
+        "CROSS JOIN vollständig ohne jede ON-Bedingung"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "LEFT JOIN liefert alle Zeilen der linken Tabelle (hier: mitarbeiter) auch dann, wenn es keine passende rechte Zeile gibt – die rechten Spalten sind dann NULL."
     },
     {
       "id": "q4",
       "question": "Wie findet man mit einem LEFT JOIN gezielt Mitarbeiter ohne zugewiesene Abteilung?",
       "options": [
-        "WHERE abteilung_id = NULL nach dem JOIN",
-        "WHERE a.abteilung_id IS NULL nach einem LEFT JOIN von mitarbeiter auf abteilung",
-        "Das geht nur mit INNER JOIN",
-        "ORDER BY abteilung_id DESC"
+        "WHERE abteilung_id = NULL direkt nach dem JOIN, ganz ohne weitere Bedingung dabei",
+        "Das geht ausschließlich mit einem klassischen INNER JOIN, sonst überhaupt nicht",
+        "ORDER BY abteilung_id DESC direkt im Anschluss an den vollständigen JOIN-Aufruf",
+        "WHERE a.abteilung_id IS NULL nach einem LEFT JOIN von mitarbeiter auf abteilung"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Nach einem LEFT JOIN zeigt IS NULL auf der Spalte der rechten Tabelle genau die Zeilen ohne Gegenstück."
     },
     {
       "id": "q5",
       "question": "Welcher JOIN würde die Abteilung „Geschäftsführung“ (ohne Personal) zusammen mit NULL-Werten für Mitarbeiterdaten anzeigen?",
       "options": [
-        "INNER JOIN",
         "RIGHT JOIN (mitarbeiter RIGHT JOIN abteilung)",
+        "INNER JOIN",
         "Kein JOIN-Typ kann leere Abteilungen anzeigen",
         "GROUP JOIN"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "RIGHT JOIN liefert alle Zeilen der rechten Tabelle (hier: abteilung) auch ohne passende linke Zeile."
     },
     {
       "id": "q6",
       "question": "Welche Aussage zu FULL OUTER JOIN ist korrekt?",
       "options": [
-        "Er liefert nur Zeilen mit Übereinstimmung",
+        "Er liefert grundsätzlich nur Zeilen mit einer echten, beidseitigen Übereinstimmung",
         "Er liefert alle Zeilen aus beiden Tabellen, unabhängig von Übereinstimmungen",
-        "Er ist identisch mit INNER JOIN",
-        "Er kann nur bei genau zwei Spalten verwendet werden"
+        "Er ist in seiner Wirkung vollständig identisch mit einem einfachen INNER JOIN",
+        "Er kann laut Definition ausschließlich bei genau zwei Spalten verwendet werden"
       ],
       "answer": 1,
       "explanation": "FULL OUTER JOIN vereint LEFT JOIN und RIGHT JOIN: alle Zeilen aus beiden Tabellen, mit NULL wo keine Übereinstimmung existiert."
@@ -90,23 +90,23 @@
       "question": "Welche zwei JOIN-Typen sind laut Einheit für die IHK-Prüfung am wichtigsten?",
       "options": [
         "RIGHT JOIN und FULL OUTER JOIN",
-        "INNER JOIN und LEFT JOIN",
         "CROSS JOIN und SELF JOIN",
-        "Nur FULL OUTER JOIN"
+        "Nur FULL OUTER JOIN",
+        "INNER JOIN und LEFT JOIN"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "INNER JOIN und LEFT JOIN sind die in der Prüfung am häufigsten verlangten JOIN-Typen."
     },
     {
       "id": "q9",
       "question": "Was legt die ON-Klausel bei einem JOIN fest?",
       "options": [
-        "Die Sortierreihenfolge des Ergebnisses",
+        "Die vollständige Sortierreihenfolge des zurückgegebenen Ergebnisses",
+        "Wie viele Zeilen im Ergebnis maximal zurückgegeben werden dürfen",
         "Welche Spalten beider Tabellen als Verknüpfungsbedingung dienen",
-        "Wie viele Zeilen maximal zurückgegeben werden",
-        "Welche Tabelle zuerst angelegt wird"
+        "Welche der beiden Tabellen im Schema zuerst angelegt wurde"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "ON definiert die Bedingung, über die Zeilen der beiden Tabellen einander zugeordnet werden, typischerweise Primär- gleich Fremdschlüssel."
     }
   ]

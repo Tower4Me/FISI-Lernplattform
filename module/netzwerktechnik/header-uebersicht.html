@@ -65,21 +65,21 @@
       <h3>IPv4-Header (20 Byte ohne Options)</h3>
       <table>
         <thead>
-          <tr><th>Feld</th><th>Größe</th></tr>
+          <tr><th>Nr.</th><th>Feld</th><th>Größe</th><th>Funktion / Beschreibung</th></tr>
         </thead>
         <tbody>
-          <tr><td>Version</td><td>4 Bit</td></tr>
-          <tr><td>IHL (Internet Header Length)</td><td>4 Bit</td></tr>
-          <tr><td>DSCP/ECN</td><td>8 Bit</td></tr>
-          <tr><td>Total Length</td><td>16 Bit</td></tr>
-          <tr><td>Identification</td><td>16 Bit</td></tr>
-          <tr><td>Flags</td><td>3 Bit</td></tr>
-          <tr><td>Fragment Offset</td><td>13 Bit</td></tr>
-          <tr><td>TTL (Time to Live)</td><td>8 Bit</td></tr>
-          <tr><td>Protocol</td><td>8 Bit</td></tr>
-          <tr><td>Header Checksum</td><td>16 Bit</td></tr>
-          <tr><td>Quell-IP-Adresse</td><td>32 Bit</td></tr>
-          <tr><td>Ziel-IP-Adresse</td><td>32 Bit</td></tr>
+          <tr><td>1</td><td>Version</td><td>4 Bit</td><td>IP-Version des Pakets, bei IPv4 immer der Wert 4</td></tr>
+          <tr><td>2</td><td>IHL (Internet Header Length)</td><td>4 Bit</td><td>Länge des Headers in 32-Bit-Wörtern, zeigt an, wo die Nutzdaten beginnen</td></tr>
+          <tr><td>3</td><td>DSCP/ECN</td><td>8 Bit</td><td>Priorisierung (QoS) sowie Kennzeichnung von Netzwerkstau</td></tr>
+          <tr><td>4</td><td>Total Length</td><td>16 Bit</td><td>Gesamtlänge des Pakets aus Header und Nutzdaten</td></tr>
+          <tr><td>5</td><td>Identification</td><td>16 Bit</td><td>ordnet mehrere Fragmente demselben Ursprungspaket zu</td></tr>
+          <tr><td>6</td><td>Flags</td><td>3 Bit</td><td>steuert, ob Fragmentierung erlaubt ist und ob weitere Fragmente folgen</td></tr>
+          <tr><td>7</td><td>Fragment Offset</td><td>13 Bit</td><td>gibt die Position eines Fragments im ursprünglichen Paket an</td></tr>
+          <tr><td>8</td><td>TTL (Time to Live)</td><td>8 Bit</td><td>begrenzt die maximale Anzahl an Hops und verhindert Endlosschleifen</td></tr>
+          <tr><td>9</td><td>Protocol</td><td>8 Bit</td><td>nennt das Protokoll der nächsten Schicht (z. B. 6 = TCP, 17 = UDP)</td></tr>
+          <tr><td>10</td><td>Header Checksum</td><td>16 Bit</td><td>Prüfsumme ausschließlich über den IP-Header</td></tr>
+          <tr><td>11</td><td>Quell-IP-Adresse</td><td>32 Bit</td><td>IP-Adresse des Absenders</td></tr>
+          <tr><td>12</td><td>Ziel-IP-Adresse</td><td>32 Bit</td><td>IP-Adresse des Empfängers</td></tr>
         </tbody>
       </table>
       <p>
@@ -92,19 +92,19 @@
       <h3>TCP-Header (20 Byte ohne Options)</h3>
       <table>
         <thead>
-          <tr><th>Feld</th><th>Größe</th></tr>
+          <tr><th>Nr.</th><th>Feld</th><th>Größe</th><th>Funktion / Beschreibung</th></tr>
         </thead>
         <tbody>
-          <tr><td>Quellport</td><td>16 Bit</td></tr>
-          <tr><td>Zielport</td><td>16 Bit</td></tr>
-          <tr><td>Sequenznummer</td><td>32 Bit</td></tr>
-          <tr><td>Bestätigungsnummer (ACK-Nummer)</td><td>32 Bit</td></tr>
-          <tr><td>Data Offset</td><td>4 Bit</td></tr>
-          <tr><td>Reserviert</td><td>6 Bit</td></tr>
-          <tr><td>Flags (URG, ACK, PSH, RST, SYN, FIN)</td><td>6 Bit</td></tr>
-          <tr><td>Window</td><td>16 Bit</td></tr>
-          <tr><td>Prüfsumme (Checksum)</td><td>16 Bit</td></tr>
-          <tr><td>Urgent Pointer</td><td>16 Bit</td></tr>
+          <tr><td>1</td><td>Quellport</td><td>16 Bit</td><td>Port der sendenden Anwendung</td></tr>
+          <tr><td>2</td><td>Zielport</td><td>16 Bit</td><td>Port der empfangenden Anwendung</td></tr>
+          <tr><td>3</td><td>Sequenznummer</td><td>32 Bit</td><td>zählt die gesendeten Nutzdaten-Bytes für die richtige Reihenfolge</td></tr>
+          <tr><td>4</td><td>Bestätigungsnummer (ACK-Nummer)</td><td>32 Bit</td><td>nennt das nächste vom Empfänger erwartete Byte</td></tr>
+          <tr><td>5</td><td>Data Offset</td><td>4 Bit</td><td>gibt die Länge des TCP-Headers in 32-Bit-Wörtern an</td></tr>
+          <tr><td>6</td><td>Reserviert</td><td>6 Bit</td><td>für künftige Nutzung reserviert, aktuell ohne Funktion</td></tr>
+          <tr><td>7</td><td>Flags (URG, ACK, PSH, RST, SYN, FIN)</td><td>6 Bit</td><td>steuern Verbindungsauf-/-abbau und Datenübertragung, z. B. SYN/ACK beim Handshake</td></tr>
+          <tr><td>8</td><td>Window</td><td>16 Bit</td><td>Flusskontrolle: wie viele Byte der Empfänger aktuell noch annehmen kann</td></tr>
+          <tr><td>9</td><td>Prüfsumme (Checksum)</td><td>16 Bit</td><td>Prüfsumme über Header und Nutzdaten</td></tr>
+          <tr><td>10</td><td>Urgent Pointer</td><td>16 Bit</td><td>markiert dringende Daten innerhalb des Datenstroms</td></tr>
         </tbody>
       </table>
       <p>
@@ -119,13 +119,13 @@
       <h3>UDP-Header (8 Byte)</h3>
       <table>
         <thead>
-          <tr><th>Feld</th><th>Größe</th></tr>
+          <tr><th>Nr.</th><th>Feld</th><th>Größe</th><th>Funktion / Beschreibung</th></tr>
         </thead>
         <tbody>
-          <tr><td>Quellport</td><td>16 Bit</td></tr>
-          <tr><td>Zielport</td><td>16 Bit</td></tr>
-          <tr><td>Länge</td><td>16 Bit</td></tr>
-          <tr><td>Prüfsumme (Checksum)</td><td>16 Bit</td></tr>
+          <tr><td>1</td><td>Quellport</td><td>16 Bit</td><td>Port der sendenden Anwendung</td></tr>
+          <tr><td>2</td><td>Zielport</td><td>16 Bit</td><td>Port der empfangenden Anwendung</td></tr>
+          <tr><td>3</td><td>Länge</td><td>16 Bit</td><td>Gesamtlänge aus UDP-Header und Nutzdaten</td></tr>
+          <tr><td>4</td><td>Prüfsumme (Checksum)</td><td>16 Bit</td><td>Prüfsumme über Header und Daten, unter IPv4 optional</td></tr>
         </tbody>
       </table>
       <p>
@@ -140,14 +140,14 @@
       <h3>Ethernet-II-Frame</h3>
       <table>
         <thead>
-          <tr><th>Feld</th><th>Größe</th></tr>
+          <tr><th>Nr.</th><th>Feld</th><th>Größe</th><th>Funktion / Beschreibung</th></tr>
         </thead>
         <tbody>
-          <tr><td>Ziel-MAC-Adresse</td><td>6 Byte</td></tr>
-          <tr><td>Quell-MAC-Adresse</td><td>6 Byte</td></tr>
-          <tr><td>EtherType</td><td>2 Byte</td></tr>
-          <tr><td>Payload (Nutzdaten)</td><td>46–1500 Byte</td></tr>
-          <tr><td>FCS (Frame Check Sequence)</td><td>4 Byte</td></tr>
+          <tr><td>1</td><td>Ziel-MAC-Adresse</td><td>6 Byte</td><td>MAC-Adresse des Empfängers</td></tr>
+          <tr><td>2</td><td>Quell-MAC-Adresse</td><td>6 Byte</td><td>MAC-Adresse des Absenders</td></tr>
+          <tr><td>3</td><td>EtherType</td><td>2 Byte</td><td>kennzeichnet das Protokoll der nächsten Schicht, z. B. 0x0800 = IPv4, 0x0806 = ARP</td></tr>
+          <tr><td>4</td><td>Payload (Nutzdaten)</td><td>46–1500 Byte</td><td>die eigentlichen Nutzdaten des Frames, bei Bedarf mit Füllbytes auf 46 Byte aufgefüllt</td></tr>
+          <tr><td>5</td><td>FCS (Frame Check Sequence)</td><td>4 Byte</td><td>Prüfsumme über den gesamten Frame zur Fehlererkennung</td></tr>
         </tbody>
       </table>
       <p>

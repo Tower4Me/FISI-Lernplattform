@@ -6,23 +6,23 @@
       "question": "Welche drei Kategorien nutzt die klassische Schutzbedarfsfeststellung?",
       "options": [
         "Niedrig, mittel, hoch",
-        "Normal, hoch, sehr hoch",
         "Öffentlich, intern, geheim",
-        "Grün, gelb, rot"
+        "Grün, gelb, rot",
+        "Normal, hoch, sehr hoch"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die Schutzbedarfsfeststellung unterscheidet üblicherweise normal, hoch und sehr hoch."
     },
     {
       "id": "q2",
       "question": "Wie lautet die Grundformel zur Risikobewertung?",
       "options": [
-        "Risiko = Schadenshöhe − Eintrittswahrscheinlichkeit",
-        "Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe",
-        "Risiko = Schadenshöhe / Anzahl Maßnahmen",
-        "Risiko = Anzahl Vorfälle pro Jahr"
+        "Risiko = Eintrittswahrscheinlichkeit mal Schadenshöhe",
+        "Risiko = Schadenshöhe minus Eintrittswahrscheinlichkeit",
+        "Risiko = Schadenshöhe geteilt durch Anzahl Maßnahmen",
+        "Risiko = Anzahl der Vorfälle pro Jahr"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe. So werden auch seltene, aber katastrophale Schäden richtig priorisiert."
     },
     {
@@ -41,12 +41,12 @@
       "id": "q4",
       "question": "Ein veraltetes Testsystem ohne produktive Daten wird komplett abgeschaltet statt abgesichert. Welche Risikostrategie liegt vor?",
       "options": [
-        "Vermeiden",
         "Vermindern",
+        "Vermeiden",
         "Akzeptieren",
         "Übertragen"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Beim Vermeiden wird die riskante Tätigkeit (hier: Betrieb des unsicheren Systems) ganz unterlassen."
     },
     {
@@ -54,11 +54,11 @@
       "question": "Welchen Schutzbedarf hat typischerweise eine Kundendatenbank mit Zahlungsdaten?",
       "options": [
         "Normal",
-        "Hoch",
         "Keinen, da öffentlich",
-        "Nur bei Bankunternehmen relevant"
+        "Nur bei Bankunternehmen relevant",
+        "Hoch"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Personenbezogene und finanzielle Daten gelten in der Regel als hoher Schutzbedarf, da ein Schaden beträchtlich wäre."
     },
     {

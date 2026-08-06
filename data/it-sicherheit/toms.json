@@ -5,36 +5,36 @@
       "id": "q1",
       "question": "Wofür steht die Abkürzung TOM im Datenschutz?",
       "options": [
-        "Technische oder manuelle Maßnahmen",
-        "Technische und organisatorische Maßnahmen",
-        "Tabellarische Objekt-Modelle",
-        "Transport- und Ordnungsmerkmale"
+        "Ausschließlich technische oder rein manuelle Maßnahmen",
+        "Tabellarische Objekt-Modelle in der Datenmodellierung",
+        "Transport- und Ordnungsmerkmale von Datenpaketen",
+        "Technische und organisatorische Maßnahmen"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "TOM = technische und organisatorische Maßnahmen, gefordert von Art. 32 DSGVO."
     },
     {
       "id": "q2",
       "question": "Welche Vorschrift fordert die TOMs ausdrücklich?",
       "options": [
+        "Art. 17 DSGVO (Recht auf Löschung personenbezogener Daten)",
         "Art. 32 DSGVO (Sicherheit der Verarbeitung)",
-        "Art. 6 DSGVO (Rechtmäßigkeit)",
-        "Paragraf 202a StGB",
-        "Art. 17 DSGVO (Recht auf Löschung)"
+        "Art. 6 DSGVO (Rechtmäßigkeit der Datenverarbeitung im Detail)",
+        "Paragraf 202a StGB (Ausspähen von Daten im Strafrecht)"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Art. 32 DSGVO regelt die Sicherheit der Verarbeitung und verlangt ein risikoangemessenes Schutzniveau."
     },
     {
       "id": "q3",
       "question": "Eine Festplattenverschlüsselung des Notebooks ist welche Art von Maßnahme?",
       "options": [
-        "Organisatorische Maßnahme",
         "Technische Maßnahme",
+        "Organisatorische Maßnahme",
         "Keine TOM",
         "Auftragskontrolle"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Verschlüsselung steckt in der Technik selbst und ist damit eine technische Maßnahme."
     },
     {
@@ -53,60 +53,60 @@
       "id": "q5",
       "question": "Was ist der Unterschied zwischen Zugang und Zutritt?",
       "options": [
-        "Zugang = Raum betreten, Zutritt = System nutzen",
-        "Zugang = System/Gerät nutzen, Zutritt = Raum betreten",
-        "Beides bedeutet dasselbe",
-        "Zugang betrifft nur Papierakten"
+        "Zugang bedeutet Raum betreten, Zutritt bedeutet System nutzen",
+        "Beides bedeutet in der Praxis exakt dasselbe",
+        "Zugang betrifft ausschließlich physische Papierakten",
+        "Zugang = Gerät nutzen, Zutritt = Raum betreten"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Zutritt = physisch in den Raum. Zugang = in das System/Gerät. Zugriff = an die konkreten Daten."
     },
     {
       "id": "q6",
       "question": "Ein tägliches automatisches Backup dient vor allem welcher Kontrolle?",
       "options": [
-        "Trennungskontrolle",
-        "Eingabekontrolle",
         "Verfügbarkeitskontrolle",
-        "Zutrittskontrolle"
+        "Trennungskontrolle (getrennte Verarbeitung unterschiedlicher Zwecke)",
+        "Eingabekontrolle (Nachvollziehbarkeit von Dateneingaben)",
+        "Zutrittskontrolle (physischer Zugang zu Räumen)"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Backups schützen Daten gegen Verlust und sichern die Verfügbarkeit (Verfügbarkeitskontrolle)."
     },
     {
       "id": "q7",
       "question": "Welche der vier in Art. 32 DSGVO ausdrücklich genannten Maßnahmen ist korrekt?",
       "options": [
+        "Kündigung und arbeitsrechtliche Abmahnung des Mitarbeiters",
+        "Normalisierung und Indizierung von Datenbanktabellen",
         "Pseudonymisierung und Verschlüsselung",
-        "Kündigung und Abmahnung",
-        "Inventur und Skontierung",
-        "Normalisierung und Indizierung"
+        "Inventur und kaufmännische Skontierung im Rechnungswesen"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Art. 32 nennt u. a. Pseudonymisierung und Verschlüsselung sowie Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit."
     },
     {
       "id": "q8",
       "question": "Ein Auftragsverarbeitungsvertrag mit einem Cloud-Anbieter ist Teil welcher Kontrolle?",
       "options": [
-        "Auftragskontrolle",
         "Eingabekontrolle",
+        "Auftragskontrolle",
         "Zugangskontrolle",
         "Trennungskontrolle"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Die Auftragskontrolle stellt sicher, dass ein Dienstleister Daten nur weisungsgemäß verarbeitet (AV-Vertrag, Kontrollen)."
     },
     {
       "id": "q9",
       "question": "Innerhalb welcher Frist muss eine Datenpanne in der Regel der Aufsichtsbehörde gemeldet werden?",
       "options": [
-        "24 Stunden",
         "72 Stunden",
+        "Sofort, ohne feste Frist",
         "7 Tage",
         "1 Monat"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Nach Art. 33 DSGVO gilt in der Regel eine Meldefrist von 72 Stunden an die zuständige Aufsichtsbehörde."
     }
   ]

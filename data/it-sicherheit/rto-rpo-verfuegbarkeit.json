@@ -3,38 +3,38 @@
   "questions": [
     {
       "id": "q1",
-      "question": "In welcher Reihenfolge laufen die fünf Phasen eines Vorfalls im Business Continuity Management ab?",
+      "question": "Welche Phase folgt im BCM-Ablauf unmittelbar auf die 'Erkennung' eines Vorfalls?",
       "options": [
-        "Erkennung → Vorbereitung → Behebung → Eindämmung → Nachbereitung",
-        "Vorbereitung → Erkennung → Eindämmung → Behebung → Nachbereitung",
-        "Nachbereitung → Vorbereitung → Erkennung → Eindämmung → Behebung",
-        "Eindämmung → Erkennung → Vorbereitung → Nachbereitung → Behebung"
+        "Vorbereitung",
+        "Behebung",
+        "Nachbereitung",
+        "Eindämmung"
       ],
-      "answer": 1,
-      "explanation": "Der klassische Ablauf ist: Vorbereitung, Erkennung, Eindämmung, Behebung, Nachbereitung (Lessons Learned)."
+      "answer": 3,
+      "explanation": "Der klassische Ablauf ist Vorbereitung → Erkennung → Eindämmung → Behebung → Nachbereitung (Lessons Learned) — auf die Erkennung folgt unmittelbar die Eindämmung."
     },
     {
       "id": "q2",
       "question": "Was beschreibt die Kennzahl RTO (Recovery Time Objective)?",
       "options": [
-        "Wie viel Datenverlust maximal tolerierbar ist",
-        "Wie lange ein Ausfall maximal dauern darf, bis der Betrieb wiederhergestellt ist",
-        "Wie oft ein Backup durchgeführt werden muss",
-        "Die Anzahl der Redundanzstufen eines Systems"
+        "Wie lange ein Ausfall maximal dauern darf, bis der Betrieb wieder läuft",
+        "Wie viel an Datenverlust in Stunden oder Minuten insgesamt maximal tolerierbar ist",
+        "Wie oft ein Backup planmäßig durchgeführt werden sollte",
+        "Die Anzahl der Redundanzstufen eines gesamten Systems"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "RTO legt fest, wie schnell nach einem Ausfall wieder alles laufen muss — der Blick nach vorn."
     },
     {
       "id": "q3",
       "question": "Was beschreibt die Kennzahl RPO (Recovery Point Objective)?",
       "options": [
-        "Wie lange der Wiederanlauf maximal dauern darf",
-        "Wie viel Datenverlust maximal tolerierbar ist und wie oft entsprechend gesichert werden muss",
-        "Die maximale Anzahl gleichzeitiger Nutzer eines Systems",
-        "Die Kapazität einer USV in Kilowattstunden"
+        "Wie lange der komplette Wiederanlauf des Systems maximal dauern darf",
+        "Die Kapazität einer angeschlossenen USV in Kilowattstunden",
+        "Wie viel Datenverlust maximal tolerierbar ist",
+        "Die maximale Anzahl gleichzeitig angemeldeter Nutzer eines Systems"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "RPO bestimmt die Backup-Frequenz: Ein RPO von 1 Stunde bedeutet maximal 1 Stunde Datenverlust — der Blick zurück."
     },
     {
@@ -53,12 +53,12 @@
       "id": "q5",
       "question": "Wofür sorgt eine USV (Unterbrechungsfreie Stromversorgung) in erster Linie?",
       "options": [
-        "Sie verschlüsselt Daten bei einem Stromausfall",
-        "Sie überbrückt kurze Stromausfälle per Akku, damit Systeme geordnet heruntergefahren werden können",
-        "Sie ersetzt vollständig ein Backup-System",
-        "Sie erhöht dauerhaft die Rechenleistung der Server"
+        "Sie verschlüsselt sämtliche gespeicherten Daten automatisch während eines Stromausfalls",
+        "Sie ersetzt vollständig und dauerhaft ein reguläres Backup-System",
+        "Sie erhöht dauerhaft die Rechenleistung sämtlicher angeschlossener Server",
+        "Sie überbrückt kurze Stromausfälle per Akku für ein geordnetes Herunterfahren"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Eine USV überbrückt Stromausfälle, bis ein Notstromaggregat anspringt oder ein geordnetes Herunterfahren möglich ist."
     },
     {
@@ -77,12 +77,12 @@
       "id": "q7",
       "question": "Warum ist ein ungeübter Notfallplan riskant, selbst wenn er inhaltlich vollständig ist?",
       "options": [
-        "Weil Notfallpläne rechtlich nach einem Jahr automatisch ungültig werden",
-        "Weil sich im Ernstfall erst zeigt, ob z. B. ein Backup überhaupt wiederherstellbar ist",
-        "Weil ungeübte Pläne die RTO automatisch verlängern",
-        "Weil Notfallpläne ausschließlich für Großunternehmen vorgeschrieben sind"
+        "Weil Notfallpläne rechtlich nach spätestens einem Jahr automatisch ungültig werden",
+        "Weil Notfallpläne ausschließlich für sehr große Konzerne gesetzlich vorgeschrieben sind",
+        "Weil sich im Ernstfall erst zeigt, ob ein Backup wirklich wiederherstellbar ist",
+        "Weil ungeübte Pläne automatisch und in jedem Fall die RTO drastisch und dauerhaft verlängern"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ohne regelmäßige Tests zeigt sich oft erst im Ernstfall, dass etwa ein Backup fehlerhaft oder unvollständig ist."
     }
   ]

@@ -5,36 +5,36 @@
       "id": "q1",
       "question": "Was ist das Leitprinzip der Betriebssystem-Härtung?",
       "options": [
-        "Möglichst viele Sicherheitsprogramme parallel installieren",
-        "Die minimale Angriffsfläche: alles Unnötige deaktivieren oder entfernen",
-        "Regelmäßiges Neuinstallieren des gesamten Systems",
-        "Alle Benutzerkonten mit Administratorrechten ausstatten"
+        "Möglichst viele verschiedene Sicherheitsprogramme parallel installieren und betreiben",
+        "Alle Benutzerkonten grundsätzlich mit vollen Administratorrechten ausstatten",
+        "Minimale Angriffsfläche: alles Unnötige deaktivieren oder entfernen",
+        "Regelmäßiges, vollständiges Neuinstallieren des gesamten Betriebssystems"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Härtung folgt dem Prinzip der minimalen Angriffsfläche: Alles, was nicht gebraucht wird, wird deaktiviert."
     },
     {
       "id": "q2",
       "question": "Warum werden Standardkonten wie 'Administrator' oder 'root' häufig umbenannt oder deaktiviert?",
       "options": [
-        "Weil sie technisch nicht funktionieren",
         "Weil sie Angreifern als bekanntes Angriffsziel dienen",
-        "Weil das Betriebssystem sie automatisch löscht",
-        "Weil sie ausschließlich für Backups genutzt werden"
+        "Weil sie aus rein technischen Gründen grundsätzlich nicht funktionieren",
+        "Weil das Betriebssystem solche Konten automatisch nach 90 Tagen löscht",
+        "Weil sie ausschließlich für automatisierte Backup-Prozesse genutzt werden"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Standardkonten sind als Angriffsziel bekannt, deshalb werden sie umbenannt, deaktiviert oder zumindest mit starken Zugangsdaten abgesichert."
     },
     {
       "id": "q3",
       "question": "Was bezeichnen CIS Benchmarks?",
       "options": [
-        "Geprüfte, dokumentierte Konfigurationsvorlagen für eine sichere Grundeinstellung",
-        "Eine Liste bekannter Schadsoftware-Signaturen",
-        "Ein Protokoll zur Verschlüsselung von Netzwerkverkehr",
-        "Ein Zertifizierungsverfahren ausschließlich für Firewalls"
+        "Eine ständig aktualisierte, öffentlich gepflegte Liste bekannter Schadsoftware-Signaturen",
+        "Ein spezielles Protokoll zur Verschlüsselung von Netzwerkverkehr",
+        "Ein Zertifizierungsverfahren ausschließlich für Hardware-Firewalls",
+        "Geprüfte, dokumentierte Vorlagen für eine sichere Grundkonfiguration"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "CIS Benchmarks sind vom Center for Internet Security veröffentlichte Baseline-Konfigurationen für verschiedene Betriebssysteme und Anwendungen."
     },
     {
@@ -53,24 +53,24 @@
       "id": "q5",
       "question": "Warum werden Server typischerweise strenger gehärtet als Client-Rechner?",
       "options": [
-        "Weil Server keine Updates benötigen",
-        "Weil Server einen klar definierten Zweck haben und entsprechend mehr Funktionen abschalten können",
-        "Weil Client-Rechner grundsätzlich nicht gehärtet werden dürfen",
-        "Weil Server nie mit dem Internet verbunden sind"
+        "Weil Server einen klar definierten Zweck haben und mehr Funktionen abschalten können",
+        "Weil Server grundsätzlich und unter allen Umständen keine Updates benötigen",
+        "Weil Client-Rechner aus lizenzrechtlichen Gründen grundsätzlich nicht gehärtet werden dürfen",
+        "Weil Server prinzipiell nie mit dem öffentlichen Internet verbunden sind"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein Server mit klarem Einsatzzweck (z. B. nur Webserver) kann fast alles Unnötige deaktivieren, während ein Client-PC flexibler bleiben muss."
     },
     {
       "id": "q6",
       "question": "Ein neuer Webserver soll gehärtet werden. Welche Maßnahme passt NICHT zum Prinzip der minimalen Angriffsfläche?",
       "options": [
-        "Nur Port 443 in der Firewall freigeben",
-        "Alle nicht benötigten vorinstallierten Dienste deaktivieren",
-        "Zusätzlich alle Standardports für Fernwartung dauerhaft offen lassen, falls sie mal gebraucht werden",
-        "Nicht benötigte Software deinstallieren"
+        "Ausschließlich Port 443 für den verschlüsselten Webzugriff in der Firewall freigeben",
+        "Zusätzlich alle Fernwartungsports dauerhaft offen lassen, falls mal gebraucht",
+        "Alle nicht benötigten, vorinstallierten Hintergrunddienste vollständig deaktivieren",
+        "Sämtliche nicht benötigte Software rückstandslos deinstallieren"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Offene, ungenutzte Ports „auf Vorrat“ widersprechen dem Prinzip der minimalen Angriffsfläche — nur tatsächlich benötigte Ports bleiben offen."
     }
   ]

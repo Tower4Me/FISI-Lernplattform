@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Was ist der zentrale Unterschied zwischen Kauf und Miete bei der Beschaffung von IT-Geräten?",
       "options": [
-        "Beim Kauf geht das Eigentum sofort über und bindet Kapital, bei der Miete bleibt das Gerät im Eigentum des Vermieters und es entsteht keine Kapitalbindung",
-        "Beim Kauf entstehen nie Wartungskosten, bei der Miete immer",
-        "Miete ist grundsätzlich langfristiger gebunden als Kauf",
-        "Es gibt keinen relevanten Unterschied zwischen Kauf und Miete"
+        "Beim Kauf entstehen grundsätzlich niemals irgendwelche Wartungskosten, während bei der Miete stets sämtliche Wartungskosten anfallen",
+        "Miete ist grundsätzlich immer langfristiger vertraglich gebunden als ein vergleichbarer Kauf auf Rechnung",
+        "Zwischen Kauf und Miete besteht wirtschaftlich kein relevanter Unterschied, beide Formen sind gleichwertig",
+        "Beim Kauf geht das Eigentum sofort über und bindet Kapital, bei der Miete bleibt es beim Vermieter, es entsteht keine Kapitalbindung"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Kauf bedeutet sofortigen Eigentumsübergang und hohe Kapitalbindung. Bei der Miete bleibt das Eigentum beim Vermieter, es entsteht keine Kapitalbindung, dafür meist eine flexiblere, kürzere Laufzeit."
     },
     {
       "id": "q2",
       "question": "Was beschreibt die Total Cost of Ownership (TCO)?",
       "options": [
-        "Nur den reinen Anschaffungspreis eines Geräts",
-        "Alle Kosten eines Geräts über die gesamte Nutzungsdauer, einschließlich Betriebs- und Folgekosten abzüglich des Restwerts",
-        "Ausschließlich die Leasingrate über die Vertragslaufzeit",
-        "Die Kosten für die Entsorgung eines Geräts"
+        "Alle Kosten eines Geräts über die Nutzungsdauer — Anschaffung, Betrieb und Folgekosten abzüglich Restwert",
+        "Ausschließlich den reinen Anschaffungspreis eines Geräts, ganz unabhängig von jeglichen später anfallenden Folgekosten",
+        "Ausschließlich die monatliche Leasingrate über die gesamte vereinbarte Vertragslaufzeit",
+        "Ausschließlich die Kosten für die fachgerechte Entsorgung eines Geräts am Nutzungsende"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "TCO = Anschaffungskosten + Betriebskosten + Folgekosten − Restwert. Sie erfasst die tatsächlichen Gesamtkosten über den gesamten Lebenszyklus, nicht nur den Kaufpreis."
     },
     {
@@ -41,12 +41,12 @@
       "id": "q4",
       "question": "Warum kann ein Gerät mit niedrigerem Anschaffungspreis über die Nutzungsdauer trotzdem teurer sein als eine teurere Alternative?",
       "options": [
-        "Weil der Anschaffungspreis grundsätzlich keinen Einfluss auf die TCO hat",
-        "Weil hohe Betriebs- oder Folgekosten (z. B. teure Verbrauchsmaterialien) den niedrigeren Anschaffungspreis über die Zeit übersteigen können",
-        "Weil billigere Geräte immer eine kürzere Nutzungsdauer haben müssen",
-        "Weil der Restwert bei günstigeren Geräten immer negativ ist"
+        "Weil hohe Betriebs- oder Folgekosten, etwa teure Verbrauchsmaterialien, den niedrigeren Anschaffungspreis über die Zeit übersteigen",
+        "Weil der Anschaffungspreis laut Definition grundsätzlich überhaupt keinerlei Einfluss auf die Gesamtkosten (TCO) eines IT-Geräts haben kann",
+        "Weil billigere Geräte aus technischen Gründen zwangsläufig eine kürzere Nutzungsdauer haben müssen",
+        "Weil der Restwert bei günstiger angeschafften Geräten grundsätzlich immer negativ ausfällt"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Klassisches Beispiel: ein günstiger Drucker mit teuren Patronen. Die laufenden Betriebskosten können den anfänglichen Preisvorteil über die Nutzungsdauer mehr als ausgleichen."
     },
     {
@@ -54,11 +54,11 @@
       "question": "Welches Merkmal trifft typischerweise auf Leasing zu?",
       "options": [
         "Sofortiger vollständiger Eigentumsübergang wie beim Kauf, ohne jede vertragliche Bindung",
-        "Planbare monatliche Raten über eine meist langfristige Vertragslaufzeit, oft mit Kaufoption am Vertragsende",
-        "Immer kürzere Laufzeit als eine reine Miete",
-        "Keinerlei Auswirkung auf die Liquidität des Unternehmens"
+        "Leasingverträge haben grundsätzlich immer eine kürzere Laufzeit als eine vergleichbare reine Miete",
+        "Leasingraten haben grundsätzlich keinerlei Auswirkung auf die Liquidität oder Bilanzstruktur eines Unternehmens",
+        "Planbare monatliche Raten über eine meist langfristige Vertragslaufzeit, oft mit Kaufoption am Vertragsende"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Leasing verteilt die Kosten planbar über eine meist langfristige Laufzeit und bietet häufig eine Kaufoption am Ende — ein Mittelweg zwischen Kauf und Miete."
     },
     {
@@ -66,23 +66,23 @@
       "question": "Ein Leasingvertrag sieht eine monatliche Rate von 300,00 € über 24 Monate vor. Wie hoch sind die Gesamtkosten des Leasingvertrags?",
       "options": [
         "3.600,00 €",
-        "6.000,00 €",
         "7.200,00 €",
+        "6.000,00 €",
         "8.400,00 €"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "300,00 € × 24 Monate = 7.200,00 €."
     },
     {
       "id": "q7",
       "question": "Welchen Vorteil bietet Miete gegenüber Kauf typischerweise bei kurzfristigem oder unsicherem Bedarf?",
       "options": [
-        "Miete bindet immer mehr Kapital als ein Kauf",
+        "Miete bindet grundsätzlich immer wesentlich mehr Kapital in einer großen einmaligen Anschaffungsinvestition als ein vergleichbarer Kauf",
+        "Bei Miete entfällt jegliche laufende Zahlung während der gesamten Nutzungsdauer des Geräts",
         "Miete erlaubt eine flexible, meist kurzfristig kündbare Nutzung ohne Kapitalbindung durch eine große Einmalinvestition",
-        "Miete führt automatisch zu niedrigeren Gesamtkosten als Kauf, unabhängig von der Nutzungsdauer",
-        "Bei Miete entfällt jegliche Zahlung während der Nutzung"
+        "Miete führt automatisch zu niedrigeren Gesamtkosten als Kauf, unabhängig von der Nutzungsdauer"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Miete bindet kein Kapital in einer Einmalinvestition und lässt sich meist flexibel und kurzfristig beenden — ideal bei unsicherem oder kurzfristigem Bedarf."
     }
   ]

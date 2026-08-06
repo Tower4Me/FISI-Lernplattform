@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Was unterscheidet Einzelkosten von Gemeinkosten?",
       "options": [
-        "Einzelkosten sind direkt einem Produkt zurechenbar, Gemeinkosten fallen für mehrere Produkte/den Betrieb gemeinsam an",
-        "Einzelkosten fallen nur einmalig an, Gemeinkosten laufend",
-        "Gemeinkosten sind immer höher als Einzelkosten",
-        "Einzelkosten und Gemeinkosten sind zwei Begriffe für denselben Sachverhalt"
+        "Einzelkosten fallen grundsätzlich nur einmalig an, während Gemeinkosten stets laufend anfallen",
+        "Gemeinkosten sind der Höhe nach grundsätzlich immer größer als die Einzelkosten eines Produkts",
+        "Einzelkosten und Gemeinkosten sind letztlich nur zwei verschiedene Begriffe für denselben betrieblichen Sachverhalt",
+        "Einzelkosten sind direkt einem Produkt zurechenbar, Gemeinkosten fallen gemeinsam für mehrere Produkte an"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Einzelkosten (z. B. Material, Fertigungslöhne) lassen sich einem Produkt direkt zuordnen. Gemeinkosten (z. B. Miete, Verwaltung) fallen gemeinsam an und müssen verteilt werden."
     },
     {
       "id": "q2",
       "question": "Welche Aufgabe hat der Betriebsabrechnungsbogen (BAB)?",
       "options": [
-        "Er berechnet den Endverkaufspreis eines Produkts direkt",
-        "Er verteilt die Gemeinkosten eines Betriebs auf die einzelnen Kostenstellen und ermittelt daraus Zuschlagssätze",
-        "Er ersetzt die Buchführung eines Unternehmens vollständig",
-        "Er dient ausschließlich der Lagerbestandsführung"
+        "Er verteilt die Gemeinkosten eines Betriebs auf die Kostenstellen und ermittelt Zuschlagssätze",
+        "Er berechnet direkt und ohne weitere Zwischenschritte den fertigen Endverkaufspreis eines Produkts",
+        "Er ersetzt vollständig die gesetzlich vorgeschriebene Buchführung eines Unternehmens",
+        "Er dient in einem Betrieb ausschließlich der laufenden Lagerbestandsführung"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der BAB verteilt Gemeinkosten auf Kostenstellen (Material, Fertigung, Verwaltung, Vertrieb) und liefert die Zuschlagssätze für die Zuschlagskalkulation."
     },
     {
@@ -42,35 +42,35 @@
       "question": "Materialeinzelkosten von 300,00 € werden mit einem Materialgemeinkostenzuschlagssatz von 8 % kalkuliert. Wie hoch sind die Materialkosten?",
       "options": [
         "308,00 €",
-        "324,00 €",
         "330,00 €",
+        "324,00 €",
         "340,00 €"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Materialgemeinkosten = 300,00 € × 0,08 = 24,00 €. Materialkosten = 300,00 € + 24,00 € = 324,00 €."
     },
     {
       "id": "q5",
       "question": "Die Herstellkosten eines Produkts betragen 480,00 €, der Verwaltungsgemeinkostenzuschlagssatz liegt bei 10 %. Wie hoch sind die Verwaltungsgemeinkosten?",
       "options": [
+        "48,00 €",
         "4,80 €",
         "38,40 €",
-        "48,00 €",
         "52,80 €"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Verwaltungsgemeinkosten = 480,00 € × 0,10 = 48,00 €. Der Zuschlagssatz wird auf die Herstellkosten angewendet, nicht auf die Einzelkosten."
     },
     {
       "id": "q6",
       "question": "Wie ergeben sich die Herstellkosten (HK) eines Produkts in der Zuschlagskalkulation?",
       "options": [
-        "HK = Materialkosten + Fertigungskosten",
         "HK = Selbstkosten − Gewinnzuschlag",
         "HK = Materialeinzelkosten + Fertigungsgemeinkosten",
-        "HK = Barverkaufspreis − Vertriebsgemeinkosten"
+        "HK = Barverkaufspreis − Vertriebsgemeinkosten",
+        "HK = Materialkosten + Fertigungskosten"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Die Herstellkosten setzen sich aus Materialkosten (MEK + MGK) und Fertigungskosten (FEK + FGK) zusammen."
     },
     {

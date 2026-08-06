@@ -6,31 +6,31 @@
       "question": "Wie wird der Deckungsbeitrag pro Stück berechnet?",
       "options": [
         "Verkaufspreis + variable Stückkosten",
-        "Verkaufspreis − variable Stückkosten",
         "Fixkosten ÷ Verkaufspreis",
-        "Verkaufspreis − Fixkosten"
+        "Verkaufspreis − Fixkosten",
+        "Verkaufspreis − variable Stückkosten"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Deckungsbeitrag pro Stück = Verkaufspreis − variable Stückkosten. Er zeigt, wie viel jede verkaufte Einheit zur Deckung der Fixkosten und zum Gewinn beiträgt."
     },
     {
       "id": "q2",
       "question": "Ein Produkt wird für 40,00 € verkauft, die variablen Stückkosten betragen 28,00 €. Wie hoch ist der Deckungsbeitrag pro Stück?",
       "options": [
-        "8,00 €",
         "12,00 €",
+        "8,00 €",
         "28,00 €",
         "68,00 €"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Deckungsbeitrag = 40,00 € − 28,00 € = 12,00 €."
     },
     {
       "id": "q3",
       "question": "Die monatlichen Fixkosten eines Angebots betragen 9.000,00 €, der Deckungsbeitrag pro Stück liegt bei 30,00 €. Wie viele Stück müssen mindestens verkauft werden, um die Gewinnschwelle zu erreichen?",
       "options": [
-        "150 Stück",
         "270 Stück",
+        "150 Stück",
         "300 Stück",
         "9.030 Stück"
       ],
@@ -41,24 +41,24 @@
       "id": "q4",
       "question": "Mit welcher Formel wird die Rentabilität einer Investition berechnet?",
       "options": [
-        "Gewinn ÷ eingesetztes Kapital × 100",
         "Eingesetztes Kapital ÷ Gewinn × 100",
+        "Gewinn ÷ eingesetztes Kapital × 100",
         "Gewinn × eingesetztes Kapital",
         "Investitionssumme ÷ jährlicher Rückfluss"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Rentabilität [%] = Gewinn ÷ eingesetztes Kapital × 100 — sie zeigt, wie wirtschaftlich das eingesetzte Kapital genutzt wird."
     },
     {
       "id": "q5",
       "question": "Eine Investition von 12.000,00 € erwirtschaftet einen jährlichen Gewinn von 2.400,00 €. Wie hoch ist die Rentabilität?",
       "options": [
+        "20 %",
         "5 %",
         "12 %",
-        "20 %",
         "24 %"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Rentabilität = 2.400,00 € ÷ 12.000,00 € × 100 = 20 %."
     },
     {
@@ -67,22 +67,22 @@
       "options": [
         "2 Jahre",
         "3 Jahre",
-        "5 Jahre",
-        "45 Jahre"
+        "45 Jahre",
+        "5 Jahre"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Amortisationszeit = Investitionssumme ÷ jährlicher Rückfluss = 15.000,00 € ÷ 3.000,00 € = 5 Jahre."
     },
     {
       "id": "q7",
       "question": "Warum ist die Unterscheidung zwischen Fixkosten und variablen Kosten für die Break-Even-Berechnung notwendig?",
       "options": [
-        "Weil nur Fixkosten überhaupt in die Kalkulation einfließen dürfen",
+        "Weil ausschließlich die Fixkosten überhaupt in die Break-Even-Rechnung einfließen dürfen und variable Kosten für die Ermittlung der Gewinnschwelle grundsätzlich keinerlei Rolle spielen",
+        "Weil variable Kosten in der Praxis kaum vorkommen und sich fast alle Kosten eines Betriebs mengenunabhängig als Fixkosten verhalten",
         "Weil der Deckungsbeitrag pro Stück nur aus Verkaufspreis und variablen Kosten berechnet wird, während die Fixkosten unabhängig von der Menge als Gesamtbetrag gedeckt werden müssen",
-        "Weil variable Kosten in der Praxis nie vorkommen",
-        "Weil Fixkosten und variable Kosten immer gleich hoch sind"
+        "Weil Fixkosten und variable Kosten stets in gleicher Höhe anfallen und deshalb ohnehin nicht getrennt betrachtet werden müssen"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der Deckungsbeitrag je Stück ergibt sich aus Verkaufspreis minus variablen Kosten. Die Fixkosten fallen unabhängig von der Menge insgesamt an und müssen durch die Summe der Deckungsbeiträge gedeckt werden — deshalb ist die Trennung beider Kostenarten Voraussetzung für die Break-Even-Rechnung."
     }
   ]

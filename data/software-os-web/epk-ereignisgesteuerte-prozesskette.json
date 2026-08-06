@@ -5,72 +5,72 @@
       "id": "q1",
       "question": "Welches Symbol steht in einer EPK für ein Ereignis?",
       "options": [
-        "Ein Sechseck",
         "Ein abgerundetes Rechteck",
+        "Ein Sechseck",
         "Eine Raute",
         "Ein Kreis"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Ereignisse werden in der EPK als Sechsecke dargestellt und beschreiben einen eingetretenen, passiven Zustand."
     },
     {
       "id": "q2",
       "question": "Dürfen in einer EPK zwei Funktionen direkt aufeinanderfolgen?",
       "options": [
-        "Ja, beliebig oft",
+        "Ja, beliebig oft direkt hintereinander ohne dazwischenliegendes Ereignis",
+        "Nur wenn zwischen den beiden Funktionen ein UND-Konnektor steht",
         "Nein — Ereignisse und Funktionen müssen sich strikt abwechseln",
-        "Nur wenn ein UND-Konnektor dazwischensteht",
-        "Nur am Ende des Prozesses"
+        "Nur ganz am Ende des gesamten Prozesses ist das erlaubt"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die EPK verlangt eine strikt alternierende Kette: Auf eine Funktion folgt immer ein Ereignis und umgekehrt."
     },
     {
       "id": "q3",
       "question": "Was bedeutet ein XOR-Konnektor in einer EPK?",
       "options": [
-        "Alle folgenden Pfade werden gleichzeitig durchlaufen",
+        "Alle folgenden Pfade werden gleichzeitig und vollständig parallel durchlaufen",
         "Mindestens einer der folgenden Pfade wird durchlaufen, auch mehrere gleichzeitig möglich",
-        "Genau einer der folgenden Pfade wird tatsächlich durchlaufen — entweder-oder",
-        "Der Prozess wird sofort beendet"
+        "Der gesamte Prozess wird an dieser Stelle sofort und endgültig beendet",
+        "Genau einer der folgenden Pfade wird tatsächlich durchlaufen — entweder-oder"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Der XOR-Konnektor (exklusives Oder) erlaubt genau einen der möglichen Folgepfade, nicht mehrere gleichzeitig."
     },
     {
       "id": "q4",
       "question": "Worin unterscheidet sich der UND-Konnektor vom ODER-Konnektor in einer EPK?",
       "options": [
-        "Es gibt keinen Unterschied",
-        "Beim UND-Konnektor werden alle folgenden Pfade gleichzeitig durchlaufen, beim ODER-Konnektor mindestens einer (auch mehrere möglich)",
-        "Der UND-Konnektor erlaubt nur einen Pfad, der ODER-Konnektor alle",
-        "Der ODER-Konnektor wird nur am Prozessende verwendet"
+        "Beim UND laufen alle Pfade gleichzeitig, beim ODER mindestens einer (auch mehrere möglich)",
+        "Es gibt zwischen den beiden Konnektoren inhaltlich überhaupt keinen Unterschied",
+        "Der UND-Konnektor erlaubt grundsätzlich immer nur genau einen Pfad, der ODER-Konnektor dagegen stets alle möglichen Pfade",
+        "Der ODER-Konnektor wird laut Notation ausschließlich am Ende eines Prozesses verwendet"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "UND aktiviert zwingend alle Folgepfade parallel, ODER lässt offen, wie viele der möglichen Pfade tatsächlich eintreten (mindestens einer)."
     },
     {
       "id": "q5",
       "question": "Wozu dient eine Organisationseinheit in einer EPK?",
       "options": [
+        "Sie ersetzt in der Notation vollständig das eigentliche Ereignis-Symbol",
         "Sie zeigt, welche Abteilung oder Rolle eine Funktion ausführt",
-        "Sie ersetzt das Ereignis-Symbol",
-        "Sie markiert den Start des Prozesses",
-        "Sie stellt eine zusätzliche Verzweigung dar"
+        "Sie markiert ausschließlich den Startpunkt des gesamten Prozesses",
+        "Sie stellt in der Notation eine zusätzliche logische Verzweigung dar"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Die Organisationseinheit ist ein optionales Symbol, das eine Funktion mit der ausführenden Abteilung oder Rolle verknüpft."
     },
     {
       "id": "q6",
       "question": "Warum bleibt die EPK im Gegensatz zu PAP und Struktogramm auch in der AP1 (Katalogstand ab 2025) prüfungsrelevant?",
       "options": [
-        "Weil EPK inzwischen Bestandteil von SQL ist",
-        "Weil Prozessmodellierung (wie auch bei BPMN) weiterhin AP1-Stoff ist, während PAP/Struktogramm als reine Algorithmus-Notationen gestrichen wurden",
-        "Weil EPK die einzige noch erlaubte Diagrammart ist",
-        "Weil EPK kein eigenständiges Thema, sondern Teil von UML ist"
+        "Weil EPK inzwischen offiziell und vollständig Bestandteil der Abfragesprache SQL selbst geworden ist",
+        "Weil EPK laut aktuellem Katalog die einzige noch überhaupt erlaubte Diagrammart im gesamten Prüfungsstoff ist",
+        "Weil Prozessmodellierung (wie bei BPMN) weiterhin AP1-Stoff ist, PAP/Struktogramm aber als Algorithmus-Notation gestrichen wurden",
+        "Weil EPK kein eigenständiges Thema ist, sondern nach aktuellem Katalogstand lediglich ein untergeordneter Teilbereich von UML ist"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die Neuordnung 2025 stärkt die Prozessmodellierung (BPMN, EPK) in der AP1, während PAP und Struktogramm als klassische Algorithmus-Notationen aus der AP1 gestrichen wurden."
     }
   ]

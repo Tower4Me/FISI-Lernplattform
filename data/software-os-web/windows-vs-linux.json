@@ -5,22 +5,22 @@
       "id": "q1",
       "question": "Was ist ein grundlegender Unterschied zwischen Windows und den meisten Linux-Distributionen?",
       "options": [
-        "Windows ist quelloffen, Linux ist proprietär",
         "Windows ist proprietär mit Lizenzkosten, die meisten Linux-Distributionen sind Open Source und meist kostenlos",
-        "Beide Systeme sind technisch und lizenzrechtlich identisch",
-        "Linux kann grundsätzlich nur auf Servern eingesetzt werden"
+        "Windows ist quelloffen und kostenlos, während Linux stets proprietär und kostenpflichtig lizenziert wird",
+        "Beide Systeme sind in ihrer Lizenzierung und technischen Ausrichtung vollständig identisch",
+        "Linux kann aufgrund seiner Architektur grundsätzlich nur auf Servern eingesetzt werden"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Windows ist proprietäre, kostenpflichtige Software von Microsoft. Die meisten Linux-Distributionen sind Open Source und in der Regel kostenlos nutzbar, mit optionalem kommerziellem Support."
     },
     {
       "id": "q2",
       "question": "In welchem Bereich ist Linux traditionell besonders stark verbreitet?",
       "options": [
-        "Auf klassischen Büro-Desktop-Arbeitsplätzen",
+        "Auf klassischen Büro-Desktop-Arbeitsplätzen mit vorinstallierter Office-Software",
         "Auf Servern, in Cloud-Infrastruktur und eingebetteten Systemen",
-        "Ausschließlich auf Spielekonsolen",
-        "Linux wird praktisch nie professionell eingesetzt"
+        "Ausschließlich auf Spielekonsolen und mobilen Unterhaltungsgeräten",
+        "Linux wird in professionellen IT-Umgebungen praktisch nie eingesetzt"
       ],
       "answer": 1,
       "explanation": "Linux dominiert traditionell den Server-, Cloud- und Embedded-Bereich, während Windows auf dem klassischen Büro-Desktop verbreiteter ist."
@@ -29,46 +29,46 @@
       "id": "q3",
       "question": "Was unterscheidet eine Arbeitsgruppe von einer Domäne?",
       "options": [
+        "Eine Domäne existiert dabei ausschließlich in Linux-Netzwerken, eine Arbeitsgruppe nur unter Windows",
+        "Beide Konzepte sind in Aufbau und Funktion technisch identisch, nur der Name unterscheidet sich",
         "In einer Arbeitsgruppe verwaltet jeder Rechner Benutzerkonten und Rechte lokal, in einer Domäne übernimmt ein zentraler Domain Controller diese Verwaltung für alle Mitgliedsrechner",
-        "Eine Domäne existiert nur bei Linux-Netzwerken, eine Arbeitsgruppe nur bei Windows",
-        "Beide Konzepte sind technisch identisch, nur der Name unterscheidet sich",
-        "In einer Arbeitsgruppe gibt es keine Benutzerkonten"
+        "In einer Arbeitsgruppe gibt es grundsätzlich überhaupt keine lokalen Benutzerkonten"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "In einer Arbeitsgruppe verwaltet jeder Rechner seine Konten und Rechte unabhängig; in einer Domäne übernimmt ein zentraler Domain Controller (bei Windows: Active Directory) diese Verwaltung zentral für alle Mitgliedsrechner."
     },
     {
       "id": "q4",
       "question": "Was ist ein zentraler Vorteil der Domänen-Anmeldung gegenüber einer Arbeitsgruppe?",
       "options": [
-        "Jeder Rechner benötigt ein eigenes, unabhängiges Benutzerkonto ohne Bezug zu anderen Rechnern",
-        "Ein Benutzerkonto meldet sich mit denselben Zugangsdaten an jedem Domänenrechner an, Rechte und Richtlinien werden zentral verwaltet",
-        "Domänen benötigen grundsätzlich keine Passwörter",
-        "In einer Domäne kann sich niemand von einem anderen Rechner aus anmelden"
+        "Jeder Rechner benötigt dabei ein eigenes, völlig unabhängiges Benutzerkonto ohne Bezug zu anderen Rechnern",
+        "Domänen benötigen für die Anmeldung ihrer Mitgliedsrechner grundsätzlich keinerlei Passwörter",
+        "In einer Domäne kann sich grundsätzlich niemand von einem anderen Rechner aus anmelden",
+        "Ein Benutzerkonto meldet sich mit denselben Zugangsdaten an jedem Domänenrechner an, Rechte und Richtlinien werden zentral verwaltet"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "In einer Domäne meldet sich ein Benutzer mit denselben Zugangsdaten an jedem Mitgliedsrechner an, und Rechte/Richtlinien werden zentral über den Domain Controller verwaltet."
     },
     {
       "id": "q5",
       "question": "Was sind Gruppenrichtlinien (GPO) im Kontext einer Windows-Domäne?",
       "options": [
-        "Eine Liste aller installierten Programme auf einem einzelnen Rechner",
         "Zentral definierte Sicherheits- und Konfigurationsvorgaben, die automatisch für alle betroffenen Domänenrechner gelten",
-        "Ein Protokoll zur Verschlüsselung von Netzwerkverkehr",
-        "Ein Werkzeug zur Datensicherung einzelner Arbeitsplätze"
+        "Eine Liste aller auf einem einzelnen Rechner lokal installierten Programme",
+        "Ein Protokoll, das ausschließlich der Verschlüsselung von Netzwerkverkehr dient",
+        "Ein Werkzeug ausschließlich zur Datensicherung einzelner, lokaler Arbeitsplätze"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Gruppenrichtlinien (GPO) definieren zentral Sicherheits- und Konfigurationsvorgaben, die automatisch auf alle betroffenen Rechner in der Domäne angewendet werden."
     },
     {
       "id": "q6",
       "question": "Kann ein Linux-Rechner einer bestehenden Active-Directory-Domäne beitreten?",
       "options": [
-        "Nein, Active Directory funktioniert ausschließlich mit Windows-Rechnern",
+        "Nein, Active Directory funktioniert grundsätzlich ausschließlich mit reinen Windows-Rechnern",
         "Ja, z. B. über Samba/Winbind oder SSSD, wodurch gemischte Windows-/Linux-Umgebungen zentral verwaltet werden können",
-        "Nur wenn der Linux-Rechner zuvor auf Windows umgestellt wird",
-        "Nur wenn keine Benutzerkonten auf dem Linux-Rechner existieren"
+        "Nur dann, wenn der Linux-Rechner zuvor vollständig auf Windows umgestellt wird",
+        "Nur dann, wenn auf dem Linux-Rechner überhaupt keine Benutzerkonten existieren"
       ],
       "answer": 1,
       "explanation": "Über Werkzeuge wie Samba/Winbind oder SSSD können auch Linux-Rechner einer Active-Directory-Domäne beitreten, sodass gemischte Umgebungen zentral mit denselben Zugangsdaten verwaltet werden können."
@@ -77,12 +77,12 @@
       "id": "q7",
       "question": "Warum betreibt ein Unternehmen seine Linux-Server häufig „headless“ (ohne grafische Oberfläche)?",
       "options": [
-        "Weil Linux grundsätzlich keine grafische Oberfläche unterstützt",
+        "Weil Linux als Betriebssystem grundsätzlich keine grafische Oberfläche unterstützen kann",
+        "Weil headless betriebene Server grundsätzlich keine aktive Netzwerkverbindung benötigen",
         "Weil der Verzicht auf eine GUI Ressourcen spart und im Dauerbetrieb besonders stabil läuft",
-        "Weil headless-Server keine Netzwerkverbindung benötigen",
-        "Weil dies gesetzlich für Serverbetrieb vorgeschrieben ist"
+        "Weil dies für den Betrieb von Servern gesetzlich ausdrücklich vorgeschrieben ist"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ein Server ohne grafische Oberfläche benötigt weniger Ressourcen und läuft dadurch im Dauerbetrieb besonders stabil und effizient — ein typisches Muster bei Linux-Servern."
     }
   ]

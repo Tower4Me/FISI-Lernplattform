@@ -5,70 +5,70 @@
       "id": "q1",
       "question": "Was zeichnet einen Prozess im Betriebssystem-Kontext aus?",
       "options": [
-        "Er teilt sich grundsätzlich denselben Speicherbereich mit allen anderen Prozessen",
         "Er ist ein laufendes Programm mit eigenem, vom Betriebssystem isoliertem Speicherbereich",
-        "Er kann niemals mehr als einen Thread enthalten",
-        "Er ist identisch mit einem einzelnen CPU-Kern"
+        "Er teilt sich grundsätzlich denselben Speicherbereich mit allen anderen laufenden Prozessen",
+        "Er kann laut Definition niemals mehr als einen einzigen Thread enthalten",
+        "Er ist im Kern identisch mit einem einzelnen physischen CPU-Kern"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein Prozess ist ein laufendes Programm mit eigenem, isoliertem Speicherbereich — er kann grundsätzlich nicht direkt auf den Speicher eines anderen Prozesses zugreifen."
     },
     {
       "id": "q2",
       "question": "Was unterscheidet einen Thread von einem Prozess?",
       "options": [
-        "Ein Thread läuft innerhalb eines Prozesses und teilt sich dessen Speicher/Ressourcen — ein Wechsel zwischen Threads ist günstiger als zwischen Prozessen",
-        "Ein Thread ist völlig unabhängig vom zugehörigen Prozess und hat eigenen isolierten Speicher",
-        "Threads existieren nur bei Ein-Kern-Prozessoren",
-        "Ein Prozess kann höchstens einen einzigen Thread besitzen"
+        "Ein Thread ist völlig unabhängig vom zugehörigen Prozess und besitzt seinen ganz eigenen, isolierten Speicher",
+        "Ein Thread läuft innerhalb eines Prozesses und teilt sich dessen Speicher — ein Thread-Wechsel ist günstiger",
+        "Threads existieren als Konzept ausschließlich bei reinen Ein-Kern-Prozessoren",
+        "Ein einzelner Prozess kann laut Definition höchstens einen einzigen Thread besitzen"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Ein Thread ist ein Ausführungsstrang innerhalb eines Prozesses und teilt sich dessen Speicher und Ressourcen — dadurch ist ein Thread-Wechsel schneller als ein vollständiger Prozess-Wechsel."
     },
     {
       "id": "q3",
       "question": "Was bedeutet Multitasking auf einem Ein-Kern-Prozessor?",
       "options": [
-        "Mehrere Prozesse laufen tatsächlich zeitgleich auf demselben Kern",
+        "Mehrere Prozesse laufen dabei tatsächlich und physisch zeitgleich auf demselben Kern",
+        "Multitasking ist auf Ein-Kern-Prozessoren aus rein technischen Gründen grundsätzlich vollständig unmöglich",
         "Der Prozessor schaltet so schnell zwischen Prozessen um, dass der Eindruck von Gleichzeitigkeit entsteht",
-        "Multitasking ist auf Ein-Kern-Prozessoren technisch unmöglich",
-        "Jeder Prozess bekommt einen eigenen physischen Prozessor zugewiesen"
+        "Jeder einzelne Prozess bekommt dabei einen eigenen, physisch getrennten Prozessor zugewiesen"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Auf einem Ein-Kern-Prozessor entsteht Multitasking durch sehr schnelles Umschalten (Kontextwechsel) zwischen Prozessen — echte Gleichzeitigkeit ist erst mit mehreren Kernen möglich."
     },
     {
       "id": "q4",
       "question": "Was ist das zentrale Risiko des kooperativen Multitaskings?",
       "options": [
-        "Es benötigt zwingend einen Mehrkern-Prozessor",
-        "Ein fehlerhafter oder hängender Prozess gibt die CPU nie freiwillig ab und blockiert dadurch das gesamte System",
-        "Es kann grundsätzlich keine zwei Prozesse gleichzeitig verwalten",
-        "Es funktioniert nur mit Threads, nicht mit Prozessen"
+        "Es benötigt für den Betrieb zwingend einen Prozessor mit mehreren physischen Kernen",
+        "Es kann als Konzept grundsätzlich keine zwei Prozesse gleichzeitig sinnvoll und dauerhaft stabil verwalten",
+        "Es funktioniert als Konzept ausschließlich mit Threads, nicht jedoch mit ganzen Prozessen",
+        "Ein hängender Prozess gibt die CPU nie freiwillig ab und blockiert damit das ganze System"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Beim kooperativen Multitasking muss jeder Prozess die CPU von sich aus abgeben — tut er das nicht (z. B. wegen eines Fehlers), blockiert er das gesamte System."
     },
     {
       "id": "q5",
       "question": "Wie funktioniert präemptives Multitasking, der Standard in modernen Betriebssystemen?",
       "options": [
-        "Jeder Prozess entscheidet allein, wann er die CPU abgibt",
-        "Der Scheduler des Betriebssystems entzieht jedem Prozess nach einer festen Zeitscheibe zwangsweise die CPU, unabhängig vom Prozess selbst",
-        "Es gibt keinen Scheduler, Prozesse laufen komplett unabhängig voneinander",
-        "Präemptives Multitasking funktioniert nur mit genau zwei Prozessen gleichzeitig"
+        "Der Scheduler entzieht jedem Prozess nach fester Zeitscheibe zwangsweise die CPU",
+        "Jeder einzelne Prozess entscheidet dabei ganz allein und ohne Kontrolle, wann genau er die CPU wieder abgibt",
+        "Es gibt bei diesem Modell keinen Scheduler, Prozesse laufen komplett unabhängig voneinander",
+        "Präemptives Multitasking funktioniert konzeptionell ausschließlich mit genau zwei Prozessen"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Beim präemptiven Multitasking entzieht der Scheduler jedem Prozess nach einer festen Zeitscheibe zwangsweise die CPU — das garantiert Fairness und Stabilität, unabhängig vom Verhalten des einzelnen Prozesses."
     },
     {
       "id": "q6",
       "question": "Warum blockiert ein hängender Prozess bei einem modernen, präemptiven Betriebssystem in der Regel nicht das gesamte System?",
       "options": [
-        "Weil moderne Betriebssysteme kein Multitasking mehr verwenden",
-        "Weil der Scheduler dem Prozess die CPU nach einer festen Zeitscheibe zwangsweise wieder entzieht, unabhängig davon, ob der Prozess selbst reagiert",
-        "Weil hängende Prozesse automatisch gelöscht werden",
-        "Weil jeder Prozess grundsätzlich einen eigenen physischen Prozessorkern erhält"
+        "Weil moderne Betriebssysteme heutzutage inzwischen grundsätzlich überhaupt kein Multitasking mehr verwenden",
+        "Weil der Scheduler dem Prozess die CPU nach fester Zeitscheibe zwangsweise entzieht",
+        "Weil hängende Prozesse vom Betriebssystem automatisch sofort vollständig gelöscht werden",
+        "Weil jeder Prozess dabei grundsätzlich einen eigenen, physisch getrennten Prozessorkern erhält"
       ],
       "answer": 1,
       "explanation": "Da der Scheduler beim präemptiven Multitasking die CPU zwangsweise nach einer festen Zeitscheibe entzieht, kann ein hängender Prozess die anderen Prozesse nicht dauerhaft blockieren."
@@ -77,12 +77,12 @@
       "id": "q7",
       "question": "Warum nutzen moderne Webbrowser häufig einen eigenen Prozess bzw. Thread pro geöffnetem Tab?",
       "options": [
-        "Damit jeder Tab automatisch schneller lädt als bei einem gemeinsamen Prozess",
+        "Damit jeder einzelne Tab automatisch schneller lädt als bei einem gemeinsamen Prozess",
+        "Weil ein Browser sonst technisch grundsätzlich niemals zwei Webseiten gleichzeitig anzeigen könnte, auch nicht kurz",
         "Damit ein abstürzender Tab isoliert bleibt und den Rest des Browsers nicht mit in den Absturz reißt",
-        "Weil ein Browser sonst technisch keine zwei Webseiten gleichzeitig anzeigen könnte",
-        "Weil das Betriebssystem sonst keine Threads zulassen würde"
+        "Weil das zugrunde liegende Betriebssystem sonst grundsätzlich keine Threads zulassen würde"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Durch separate Prozesse/Threads pro Tab bleibt ein Absturz auf den betroffenen Tab beschränkt, während die übrigen Tabs und der restliche Browser weiterhin normal funktionieren."
     }
   ]

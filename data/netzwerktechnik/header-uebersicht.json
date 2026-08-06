@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Wie groß ist der IPv4-Header ohne optionale Zusatzfelder (Options)?",
       "options": [
-        "8 Byte",
         "14 Byte",
+        "32 Byte",
         "20 Byte",
-        "32 Byte"
+        "8 Byte"
       ],
       "answer": 2,
       "explanation": "Der IPv4-Header kommt ohne Options auf genau 20 Byte, zusammengesetzt aus Feldern wie Version, TTL, Protocol sowie Quell- und Ziel-IP-Adresse."
@@ -17,96 +17,96 @@
       "id": "q2",
       "question": "Wie groß ist der UDP-Header, und wie viele Felder enthält er?",
       "options": [
-        "20 Byte, dieselben Felder wie TCP",
-        "8 Byte: Quellport, Zielport, Länge, Prüfsumme",
-        "14 Byte: Ziel-MAC, Quell-MAC, EtherType",
-        "4 Byte: nur Quell- und Zielport"
+        "20 Byte, inklusive Sequenznummer, Bestätigungsnummer, Window und Flags wie bei TCP",
+        "14 Byte, bestehend aus Ziel-MAC-Adresse, Quell-MAC-Adresse und EtherType",
+        "8 Byte, bestehend aus Quellport, Zielport, Länge und Prüfsumme",
+        "4 Byte, bestehend nur aus Quellport und Zielport ohne weitere Felder"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "UDP hat mit nur 8 Byte den schlanksten der behandelten Header: Quellport, Zielport, Länge und Prüfsumme — ohne Sequenznummer, Bestätigungsnummer, Window oder Flags."
     },
     {
       "id": "q3",
       "question": "Welche Felder unterscheiden den TCP-Header strukturell vom UDP-Header?",
       "options": [
-        "TCP hat keinen Quell- und Zielport, UDP schon",
-        "TCP enthält zusätzlich Sequenznummer, Bestätigungsnummer, Window und Flags",
-        "UDP enthält zusätzlich eine Prüfsumme, TCP nicht",
-        "Es gibt keinen strukturellen Unterschied"
+        "TCP verzichtet bei Quell- und Zielport komplett auf jegliche Angabe",
+        "UDP besitzt im Unterschied zu TCP zusätzlich eine eigene Prüfsumme",
+        "Beide Header sind in ihrem Aufbau strukturell vollständig identisch",
+        "TCP nutzt zusätzlich Sequenznummer, ACK, Window und Flags"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "TCP benötigt für Zuverlässigkeit und Flusskontrolle zusätzliche Felder wie Sequenznummer, Bestätigungsnummer, Window und Flags (SYN/ACK/FIN/RST/PSH/URG) — deshalb ist der TCP-Header mit 20 Byte deutlich größer als UDP mit 8 Byte."
     },
     {
       "id": "q4",
       "question": "Wie groß ist ein Ethernet-II-Header (ohne FCS-Trailer)?",
       "options": [
-        "4 Byte",
         "8 Byte",
         "14 Byte",
-        "20 Byte"
+        "20 Byte",
+        "4 Byte"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Der Ethernet-II-Header setzt sich aus Ziel-MAC (6 Byte), Quell-MAC (6 Byte) und EtherType (2 Byte) zusammen — zusammen 14 Byte. Die FCS (4 Byte) liegt als Trailer am Ende des Frames, nicht im Header selbst."
     },
     {
       "id": "q5",
       "question": "Auf welcher OSI-Schicht arbeitet der IPv4-Header?",
       "options": [
-        "Schicht 2 (Sicherung)",
         "Schicht 3 (Vermittlung)",
-        "Schicht 4 (Transport)",
-        "Schicht 7 (Anwendung)"
+        "Schicht 2 (Sicherung), zuständig für MAC-Adressierung",
+        "Schicht 4 (Transport), zuständig für Ports",
+        "Schicht 7 (Anwendung), zuständig für Programme"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "IPv4 ist ein Protokoll der Vermittlungsschicht (OSI-Schicht 3) — Ethernet sitzt auf Schicht 2, TCP/UDP auf Schicht 4."
     },
     {
       "id": "q6",
       "question": "Ein Client sendet 1000 Byte Nutzdaten per TCP über Ethernet. Wie groß ist der reine Header-/Trailer-Overhead (Ethernet-Header + IP-Header + TCP-Header + FCS)?",
       "options": [
-        "20 Byte",
         "34 Byte",
-        "54 Byte",
-        "58 Byte"
+        "58 Byte",
+        "20 Byte",
+        "54 Byte"
       ],
-      "answer": 3,
+      "answer": 1,
       "explanation": "14 Byte Ethernet-Header + 20 Byte IP-Header + 20 Byte TCP-Header + 4 Byte FCS-Trailer ergeben zusammen 58 Byte Overhead — bei 1000 Byte Nutzdaten also ein Gesamtframe von 1058 Byte."
     },
     {
       "id": "q7",
       "question": "Warum begrenzt die Ethernet-MTU von 1500 Byte die maximale Paketgröße, die ohne Fragmentierung übertragen werden kann?",
       "options": [
-        "Weil 1500 Byte die maximale Payload-Größe im Ethernet-Frame ist, größere IP-Pakete müssten sonst fragmentiert werden",
-        "Weil der TCP-Header nicht größer als 1500 Byte werden darf",
-        "Weil IPv4-Adressen nur bis 1500 Byte lang sein können",
-        "Die MTU hat keinen Einfluss auf Fragmentierung"
+        "Der TCP-Header darf laut Standard nicht größer als 1500 Byte werden, das begrenzt die Paketgröße",
+        "IPv4-Adressen dürfen laut Definition nur bis zu 1500 Byte lang notiert werden",
+        "1500 Byte ist die maximale Payload je Ethernet-Frame, sonst muss IP fragmentieren",
+        "Die MTU wirkt sich ausschließlich auf WLAN-Verbindungen aus, nicht auf kabelgebundenes Ethernet"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Die MTU (Maximum Transmission Unit) von 1500 Byte legt fest, wie viel Payload ein Ethernet-Frame maximal transportieren kann. Ist das IP-Paket größer, muss es vorher auf IP-Ebene fragmentiert werden."
     },
     {
       "id": "q8",
       "question": "Ein Switch-Port zeigt in seiner Fehlerstatistik viele „Runts“ an. Was bedeutet das?",
       "options": [
-        "Es wurden absichtlich Jumbo-Frames mit bis zu 9000 Byte übertragen",
-        "Es kamen Frames kleiner als 64 Byte an — meist Kollisionsfragmente oder Hinweis auf eine defekte Netzwerkkarte",
-        "Der Port hat die MTU auf 9000 Byte umgestellt",
-        "Der Port empfängt ausschließlich fehlerfreie Frames"
+        "Es kamen Frames unter 64 Byte an — meist Kollisionsfragmente",
+        "Es wurden absichtlich Jumbo-Frames mit bis zu 9000 Byte Payload übertragen",
+        "Der Port wurde versehentlich auf eine MTU von 9000 Byte umgestellt",
+        "Der Port empfängt ausschließlich fehlerfreie Frames ohne jede Auffälligkeit"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Runts sind Frames unterhalb der Mindestgröße von 64 Byte — sie deuten meist auf Kollisionsfragmente oder eine defekte Netzwerkkarte hin und gelten als Fehler."
     },
     {
       "id": "q9",
       "question": "Was unterscheidet ein „Giant“-Frame von einem bewusst eingesetzten Jumbo-Frame?",
       "options": [
-        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe",
-        "Ein Giant ist ein unbeabsichtigt übergroßer, meist fehlerhafter Frame über 1518 Byte, ein Jumbo-Frame ist absichtlich größer und muss auf der ganzen Strecke unterstützt werden",
-        "Giants sind kleiner als 64 Byte, Jumbo-Frames größer als 64 Byte",
-        "Giants treten nur bei UDP auf, Jumbo-Frames nur bei TCP"
+        "Es gibt keinen echten Unterschied — beide Begriffe bezeichnen in der Praxis genau dasselbe Phänomen",
+        "Giants sind grundsätzlich kleiner als 64 Byte, Jumbo-Frames dagegen immer größer als 64 Byte",
+        "Giants treten ausschließlich bei UDP-Verkehr auf, Jumbo-Frames dagegen nur bei TCP-Verbindungen",
+        "Ein Giant ist ein fehlerhafter Frame über 1518 Byte, ein Jumbo-Frame ist bewusst größer"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Ein Giant ist ein unbeabsichtigt zu großer, meist fehlerhafter Frame (Konfigurationsfehler). Ein Jumbo-Frame ist dagegen eine bewusste Erweiterung für höheren Durchsatz (z. B. Storage-Netze), die nicht Teil des offiziellen Ethernet-Standards ist und von allen beteiligten Geräten (NIC, Switches) unterstützt werden muss."
     }
   ]

@@ -5,36 +5,36 @@
       "id": "q1",
       "question": "Was bezeichnet die SSID in einem WLAN?",
       "options": [
-        "Die MAC-Adresse des Access Points",
-        "Den Namen eines WLAN-Netzes, über den Geräte es erkennen und auswählen",
-        "Das Verschlüsselungsverfahren des Netzes",
-        "Die IP-Adresse des Routers"
+        "Die eindeutige MAC-Adresse des verwendeten Access Points",
+        "Das eingesetzte Verschlüsselungsverfahren des Funknetzes",
+        "Der Netzname, über den Geräte ein WLAN identifizieren",
+        "Die dem Router zugewiesene öffentliche IP-Adresse"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die SSID (Service Set Identifier) ist der Netzname, mit dem Geräte ein bestimmtes WLAN identifizieren."
     },
     {
       "id": "q2",
       "question": "Welcher WLAN-Verschlüsselungsstandard gilt heute als veraltet und unsicher?",
       "options": [
-        "WPA3",
-        "WPA2",
-        "WEP",
-        "Alle genannten gelten als sicher"
+        "WEP, das älteste WLAN-Verschlüsselungsverfahren",
+        "WPA2 mit AES-Verschlüsselung im CCMP-Modus",
+        "WPA3, der aktuelle Sicherheitsstandard für WLAN",
+        "802.1X mit RADIUS-Authentifizierung für Enterprise-Netze"
       ],
-      "answer": 2,
-      "explanation": "WEP ist der älteste WLAN-Verschlüsselungsstandard und gilt heute als unsicher, ebenso das darauffolgende WPA."
+      "answer": 0,
+      "explanation": "WEP ist der älteste WLAN-Verschlüsselungsstandard und gilt heute als unsicher; auch das direkt darauffolgende WPA gilt inzwischen als veraltet."
     },
     {
       "id": "q3",
       "question": "Was unterscheidet WPA2-Enterprise von WPA2-Personal?",
       "options": [
-        "Enterprise nutzt gar keine Verschlüsselung",
-        "Bei Enterprise meldet sich jeder Nutzer mit eigenen Zugangsdaten über einen RADIUS-Server an, bei Personal teilen sich alle ein gemeinsames Passwort",
-        "Personal ist ausschließlich für Firmennetze gedacht",
-        "Es gibt keinen funktionalen Unterschied zwischen beiden"
+        "Enterprise verzichtet bei der Anmeldung vollständig auf jede Verschlüsselung der Daten",
+        "Personal ist ausschließlich für den professionellen Einsatz in Firmennetzen vorgesehen",
+        "Beide Betriebsarten unterscheiden sich technisch in überhaupt keinem Punkt voneinander",
+        "Enterprise: RADIUS-Login pro Nutzer. Personal: ein Passwort für alle."
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "WPA2/WPA3-Enterprise authentifiziert jeden Nutzer individuell über einen RADIUS-Server, WPA2/WPA3-Personal verwendet ein gemeinsames Pre-Shared-Key-Passwort für alle."
     },
     {
@@ -53,22 +53,22 @@
       "id": "q5",
       "question": "Was ist ein typischer Nachteil beim Einsatz eines Repeaters zur Reichweitenverlängerung?",
       "options": [
-        "Er kann keine WLAN-Signale verstärken",
-        "Er reduziert meist die nutzbare Datenrate, da derselbe Funkkanal für Empfang und Weitersendung genutzt wird",
-        "Er benötigt zwingend eine eigene SSID",
-        "Er funktioniert nur mit WPA3"
+        "Er kann grundsätzlich überhaupt keine WLAN-Funksignale verstärken oder weiterleiten",
+        "Er benötigt in jedem Fall eine eigene, vom Hauptnetz abweichende SSID",
+        "Er senkt oft die Datenrate, da Empfang und Weitersendung denselben Funkkanal nutzen",
+        "Er lässt sich ausschließlich in Kombination mit WPA3 betreiben"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Da ein Repeater dasselbe Signal empfängt und über denselben Kanal weitersendet, sinkt die effektive Datenrate im Vergleich zu einem direkten Access Point."
     },
     {
       "id": "q6",
       "question": "Was ist ein charakteristischer Unterschied zwischen dem 2,4-GHz- und dem 5-GHz-Band?",
       "options": [
-        "2,4 GHz hat größere Reichweite, aber mehr Störungen und weniger Kanäle als 5 GHz",
-        "5 GHz hat immer eine größere Reichweite als 2,4 GHz",
-        "Beide Bänder sind in Reichweite und Störanfälligkeit identisch",
-        "2,4 GHz wird von WLAN-Standards nicht mehr unterstützt"
+        "2,4 GHz reicht weiter, hat aber mehr Störungen und weniger Kanäle als 5 GHz",
+        "5 GHz erreicht unter allen Bedingungen eine größere Reichweite als 2,4 GHz",
+        "Beide Frequenzbänder verhalten sich in Reichweite und Störanfälligkeit völlig identisch",
+        "2,4 GHz wird von aktuellen WLAN-Standards inzwischen nicht mehr unterstützt"
       ],
       "answer": 0,
       "explanation": "Das 2,4-GHz-Band hat größere Reichweite, aber weniger Kanäle und mehr Störquellen; 5 GHz bietet höhere Datenraten bei geringerer Reichweite."
@@ -77,12 +77,12 @@
       "id": "q7",
       "question": "Warum eignet sich WPA2/WPA3-Enterprise besonders für Firmennetze mit vielen Mitarbeitenden?",
       "options": [
-        "Weil es keine Verschlüsselung benötigt und dadurch schneller ist",
-        "Weil einzelne Nutzerzugänge gezielt gesperrt werden können, ohne dass alle anderen ein neues gemeinsames Passwort brauchen",
-        "Weil es nur für private Heimnetze zugelassen ist",
-        "Weil es keine SSID benötigt"
+        "Weil es komplett ganz ohne Verschlüsselung auskommt und dadurch spürbar schneller arbeitet",
+        "Weil es ausschließlich für den Einsatz in privaten Heimnetzen zugelassen ist",
+        "Weil für den Betrieb keinerlei SSID konfiguriert werden muss",
+        "Weil einzelne Zugänge gesperrt werden können, ohne das Passwort für alle zu ändern"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Durch individuelle Logins über RADIUS lässt sich der Zugang einzelner Personen sperren, ohne das gemeinsame Passwort für alle anderen zu ändern — ein klarer Vorteil gegenüber Personal-Modus in Firmenumgebungen."
     },
     {

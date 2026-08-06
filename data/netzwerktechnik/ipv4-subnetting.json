@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Aus wie vielen Bit besteht eine IPv4-Adresse?",
       "options": [
-        "16 Bit",
         "32 Bit",
+        "16 Bit",
         "64 Bit",
         "128 Bit"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Eine IPv4-Adresse besteht aus 32 Bit, dargestellt als vier Dezimalzahlen (0–255) getrennt durch Punkte."
     },
     {
       "id": "q2",
       "question": "Was legt die Subnetzmaske bei einer IPv4-Adresse fest?",
       "options": [
-        "Die physische Geschwindigkeit der Netzwerkverbindung",
-        "Welcher Teil der Adresse Netzanteil und welcher Hostanteil ist",
-        "Die MAC-Adresse des Geräts",
-        "Den DNS-Server, der verwendet wird"
+        "Die physische Übertragungsgeschwindigkeit der Netzwerkverbindung in MBit/s",
+        "Die eindeutige MAC-Adresse der Netzwerkkarte des Geräts",
+        "Welcher Teil der Adresse Netz- und welcher Hostanteil ist",
+        "Den DNS-Server, der für Namensauflösungen verwendet wird"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Gesetzte Bits (1) in der Subnetzmaske markieren den Netzanteil, ungesetzte Bits (0) den Hostanteil der Adresse."
     },
     {
@@ -30,21 +30,21 @@
       "question": "Wie viele nutzbare Host-Adressen bietet ein Subnetz mit der Maske 255.255.255.240 (/28)?",
       "options": [
         "16",
-        "14",
         "30",
-        "254"
+        "254",
+        "14"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "/28 hat 4 Hostbits: 2⁴ − 2 = 14 nutzbare Adressen. Netz- und Broadcast-Adresse werden abgezogen."
     },
     {
       "id": "q4",
       "question": "Was kennzeichnet die Broadcast-Adresse eines Subnetzes?",
       "options": [
-        "Alle Host-Bits sind 0",
-        "Alle Host-Bits sind 1, sie adressiert alle Geräte im Subnetz gleichzeitig",
-        "Sie ist identisch mit der Netzadresse",
-        "Sie kann an ein einzelnes Gerät vergeben werden"
+        "Alle Host-Bits sind 0, so wie bei der Netzadresse des Subnetzes",
+        "Alle Host-Bits sind 1 — sie adressiert alle Geräte im Subnetz",
+        "Sie ist in jedem Subnetz identisch mit der Netzadresse",
+        "Sie kann wie jede andere Adresse an ein einzelnes Gerät vergeben werden"
       ],
       "answer": 1,
       "explanation": "Die Broadcast-Adresse hat alle Host-Bits auf 1 gesetzt und adressiert alle Geräte im Subnetz — sie ist nicht an ein einzelnes Gerät vergebbar."
@@ -54,45 +54,45 @@
       "question": "Welcher Adressbereich gehört zu den privaten IPv4-Netzen nach RFC 1918?",
       "options": [
         "8.8.8.0/24",
-        "192.168.0.0/16",
         "1.1.1.0/24",
-        "203.0.113.0/24"
+        "203.0.113.0/24",
+        "192.168.0.0/16"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "192.168.0.0/16 gehört neben 10.0.0.0/8 und 172.16.0.0/12 zu den nach RFC 1918 reservierten privaten Adressbereichen."
     },
     {
       "id": "q6",
       "question": "Ein Subnetz soll mindestens 27 Hosts fassen. Welche CIDR-Maske ist die kleinste passende?",
       "options": [
-        "/28 (14 nutzbare Hosts)",
         "/27 (30 nutzbare Hosts)",
+        "/28 (14 nutzbare Hosts)",
         "/26 (62 nutzbare Hosts)",
         "/25 (126 nutzbare Hosts)"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "/28 reicht mit 14 Hosts nicht aus. /27 bietet mit 5 Hostbits 2⁵ − 2 = 30 nutzbare Adressen — die kleinste Maske, die 27 Hosts fasst."
     },
     {
       "id": "q7",
       "question": "Was bedeutet die CIDR-Schreibweise 192.168.10.0/24?",
       "options": [
-        "Die Adresse hat 24 Hostbits",
-        "Die ersten 24 Bit der Adresse sind Netzanteil, entspricht der Maske 255.255.255.0",
-        "Es gibt 24 Geräte in diesem Netz",
-        "Das Netz unterstützt maximal 24 Subnetze"
+        "Die Adresse hat insgesamt 24 Hostbits, die restlichen 8 Bit bilden den Netzanteil",
+        "In diesem Netz können sich maximal 24 Geräte gleichzeitig befinden",
+        "Die ersten 24 Bit sind Netzanteil, entspricht der Maske 255.255.255.0",
+        "Das Netz lässt sich in diesem Fall in maximal 24 weitere Subnetze aufteilen"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die Zahl nach dem Schrägstrich gibt die Anzahl gesetzter Netz-Bits an. /24 entspricht der Maske 255.255.255.0 mit 8 verbleibenden Hostbits."
     },
     {
       "id": "q8",
       "question": "Wie wird die Netzadresse aus IP-Adresse und Subnetzmaske berechnet?",
       "options": [
-        "Durch Addition beider Werte",
-        "Durch eine bitweise UND-Verknüpfung: nur wenn IP-Bit und Masken-Bit beide 1 sind, ergibt sich eine 1",
-        "Durch Subtraktion der Maske von der IP-Adresse",
-        "Die Netzadresse muss manuell aus einer Tabelle abgelesen werden"
+        "Durch eine einfache Addition der IP-Adresse und der Subnetzmaske Oktett für Oktett",
+        "Durch bitweises UND: nur wenn IP-Bit und Masken-Bit beide 1 sind, ergibt sich eine 1",
+        "Durch Subtraktion der Subnetzmaske von der IP-Adresse, Oktett für Oktett",
+        "Die Netzadresse muss in jedem Fall manuell aus einer vorgegebenen Tabelle abgelesen werden"
       ],
       "answer": 1,
       "explanation": "ANDing verknüpft IP-Adresse und Maske Bit für Bit: 1 UND 1 = 1, jede andere Kombination ergibt 0. Das Ergebnis ist die Netzadresse."
@@ -101,12 +101,12 @@
       "id": "q9",
       "question": "Welche Netzadresse ergibt sich für 192.168.10.42 mit der Maske 255.255.255.192 (/26)?",
       "options": [
-        "192.168.10.0",
         "192.168.10.42",
-        "192.168.10.64",
-        "192.168.10.255"
+        "192.168.10.255",
+        "192.168.10.0",
+        "192.168.10.64"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Im vierten Oktett ergibt die UND-Verknüpfung von 42 (0010 1010) mit 192 (1100 0000) den Wert 0 (0000 0000) — die ersten drei Oktette bleiben durch die Maske 255 unverändert. Netzadresse: 192.168.10.0."
     }
   ]

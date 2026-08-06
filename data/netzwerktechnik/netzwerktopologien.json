@@ -5,48 +5,48 @@
       "id": "q1",
       "question": "Welche Netzwerktopologie dominiert in modernen LANs?",
       "options": [
-        "Bus-Topologie",
-        "Ring-Topologie",
-        "Sterntopologie mit zentralem Switch",
-        "Vollvermaschtes Mesh"
+        "Bus-Topologie mit einem gemeinsamen Kabelstrang für alle Geräte",
+        "Sterntopologie mit einem zentralen Switch als Verteiler",
+        "Ring-Topologie mit Weiterleitung des Signals von Nachbar zu Nachbar",
+        "Vollvermaschtes Mesh mit direkten Verbindungen zwischen allen Geräten"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Moderne LANs verkabeln Endgeräte einzeln zu einem zentralen Switch — ein Kabelausfall betrifft dann nur ein Gerät."
     },
     {
       "id": "q2",
       "question": "Was ist der entscheidende Nachteil der Bus-Topologie?",
       "options": [
-        "Sie benötigt deutlich mehr Kabel als eine Sterntopologie",
-        "Ein Bruch im gemeinsamen Kabelstrang legt das gesamte Segment lahm",
-        "Jedes Gerät braucht einen eigenen Switch-Port",
-        "Sie erlaubt keine mehr als vier Geräte gleichzeitig"
+        "Sie benötigt insgesamt deutlich mehr Kabel als eine vergleichbare Sterntopologie",
+        "Bei ihr braucht theoretisch jedes einzelne Gerät einen eigenen Switch-Port",
+        "Sie erlaubt grundsätzlich nicht mehr als vier Geräte im selben Segment",
+        "Ein Kabelbruch im gemeinsamen Strang legt das gesamte Segment lahm"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Bei der Bus-Topologie hängen alle Geräte an einem gemeinsamen Kabelstrang — ein Kabelbruch unterbricht die Verbindung für das gesamte Segment, nicht nur für ein Gerät."
     },
     {
       "id": "q3",
       "question": "Was kennzeichnet die Ring-Topologie?",
       "options": [
-        "Alle Geräte sind direkt mit allen anderen Geräten verbunden",
         "Jedes Gerät ist mit genau zwei Nachbarn verbunden, das Signal läuft im Kreis",
-        "Alle Geräte teilen sich einen einzigen Kabelstrang",
-        "Alle Geräte laufen einzeln zu einem zentralen Switch"
+        "Alle Geräte sind direkt und redundant mit sämtlichen anderen Geräten verbunden",
+        "Alle Geräte teilen sich denselben einzigen gemeinsamen Kabelstrang",
+        "Alle Geräte laufen jeweils einzeln zu einem zentralen Switch im Zentrum"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "In der Ring-Topologie ist jedes Gerät mit genau zwei Nachbarn verbunden, sodass das Signal im Kreis weitergereicht wird."
     },
     {
       "id": "q4",
       "question": "Warum wird die Mesh-Topologie trotz sehr hoher Ausfallsicherheit selten flächendeckend eingesetzt?",
       "options": [
-        "Weil sie technisch nicht mit Ethernet kompatibel ist",
-        "Weil der Verkabelungsaufwand bei vielen direkten Verbindungen stark ansteigt",
-        "Weil sie keine gleichzeitige Kommunikation mehrerer Geräte erlaubt",
-        "Weil sie ausschließlich in WLANs vorkommt"
+        "Weil eine Mesh-Topologie technisch grundsätzlich nicht mit Ethernet kompatibel ist",
+        "Weil sie keine gleichzeitige Kommunikation mehrerer angeschlossener Geräte erlaubt",
+        "Weil der Verkabelungsaufwand mit steigender Geräteanzahl stark zunimmt",
+        "Weil eine Mesh-Topologie ausschließlich in drahtlosen WLAN-Umgebungen vorkommt"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Mesh bietet durch viele direkte Verbindungen hohe Redundanz, erfordert aber mit steigender Geräteanzahl einen stark wachsenden Verkabelungsaufwand — deshalb wird sie meist nur für kritische Kernverbindungen genutzt."
     }
   ]

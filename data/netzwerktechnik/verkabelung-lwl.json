@@ -5,70 +5,70 @@
       "id": "q1",
       "question": "Was unterscheidet Singlemode- von Multimode-Glasfaser grundsätzlich?",
       "options": [
-        "Singlemode lässt nur einen Lichtweg zu und eignet sich für sehr große Entfernungen, Multimode für kürzere Strecken",
-        "Multimode wird ausschließlich für Kupferkabel verwendet",
-        "Singlemode ist immer günstiger als Multimode",
-        "Es gibt keinen technischen Unterschied zwischen beiden"
+        "Multimode-Fasern werden ausschließlich für kurze Kupfer-Patchkabel eingesetzt und kommen bei echten Glasfaserstrecken praktisch nie zum Einsatz",
+        "Singlemode-Kabel sind in der Anschaffung grundsätzlich günstiger als Multimode-Kabel",
+        "Zwischen Singlemode und Multimode besteht physikalisch kein relevanter technischer Unterschied",
+        "Singlemode lässt nur einen Lichtweg zu und eignet sich für sehr große Entfernungen, Multimode für kürzere Strecken"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Singlemode-Fasern haben einen sehr kleinen Kerndurchmesser und lassen nur einen Lichtweg zu, wodurch verzerrungsarme Übertragung über sehr große Distanzen möglich ist. Multimode ist für kürzere Strecken (z. B. Gebäudeverkabelung) ausgelegt."
     },
     {
       "id": "q2",
       "question": "Warum ist LWL gegenüber Kupferkabel unempfindlich gegen elektromagnetische Störungen?",
       "options": [
-        "Weil LWL-Kabel dicker isoliert sind als Kupferkabel",
         "Weil LWL Daten als Lichtimpulse überträgt statt als elektrische Signale",
-        "Weil LWL-Kabel immer geschirmt verlegt werden",
-        "Weil LWL keine Metallanteile enthält und deshalb leichter ist"
+        "Weil LWL-Kabel grundsätzlich dicker isoliert sind als vergleichbare Kupferkabel",
+        "Weil LWL-Kabel in der Gebäudeverkabelung immer zusätzlich geschirmt verlegt werden",
+        "Weil LWL keine Metallanteile enthält und dadurch spürbar leichter als Kupferkabel ist"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Da bei LWL Daten als Licht statt als elektrisches Signal übertragen werden, sind elektromagnetische Störquellen (z. B. Stromleitungen) ohne Einfluss auf die Übertragung."
     },
     {
       "id": "q3",
       "question": "Welche Aussage zu den Maßen einer Glasfaser ist korrekt?",
       "options": [
-        "Singlemode hat einen Kern von ca. 9 µm, Multimode 50 oder 62,5 µm — das Mantelglas (Cladding) ist bei beiden 125 µm",
-        "Singlemode und Multimode haben immer denselben Kerndurchmesser, nur das Cladding unterscheidet sich",
-        "Multimode hat den kleineren Kerndurchmesser, Singlemode den größeren",
-        "Das Cladding ist bei Singlemode deutlich größer als bei Multimode"
+        "Singlemode und Multimode besitzen unabhängig vom jeweiligen Hersteller immer denselben Kerndurchmesser, nur das Cladding unterscheidet sich",
+        "Singlemode hat einen Kern von ca. 9 µm, Multimode 50 oder 62,5 µm — das Cladding ist bei beiden 125 µm",
+        "Multimode besitzt grundsätzlich den kleineren Kerndurchmesser, Singlemode den größeren",
+        "Das Mantelglas (Cladding) ist bei Singlemode deutlich größer als bei Multimode-Fasern"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Singlemode-Kern ca. 9 µm, Multimode-Kern 50 oder 62,5 µm — das Mantelglas (Cladding) ist bei beiden Fasertypen gleich groß (125 µm), nur der Kern unterscheidet sich."
     },
     {
       "id": "q4",
       "question": "Warum begrenzt die Modendispersion die Reichweite von Multimode-Fasern?",
       "options": [
-        "Weil das Licht in Multimode-Fasern langsamer ist als in Singlemode-Fasern",
-        "Weil die verschiedenen Lichtwege (Moden) unterschiedlich lang sind und dadurch zeitversetzt ankommen, was über weite Strecken zu Signalverzerrung führt",
-        "Weil Multimode-Fasern grundsätzlich dünner isoliert sind",
-        "Weil Multimode-Fasern nur mit Kupferverstärkern betrieben werden können"
+        "Weil sich Licht in Multimode-Fasern durch die Kernstruktur grundsätzlich langsamer ausbreitet als in Singlemode-Fasern",
+        "Weil Multimode-Fasern generell mit einer dünneren Isolierung als Singlemode gefertigt werden",
+        "Weil die Lichtwege unterschiedlich lang sind und zeitversetzt ankommen, was zu Signalverzerrung führt",
+        "Weil Multimode-Fasern ausschließlich zusammen mit elektrischen Kupferverstärkern betrieben werden können"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Da bei Multimode mehrere Lichtwege gleichzeitig unterschiedlich lange Strecken zurücklegen, kommen sie zeitversetzt an — auf kurzen Strecken vernachlässigbar, über weite Strecken aber zunehmend signalverzerrend."
     },
     {
       "id": "q5",
       "question": "Welcher Steckertyp gilt heute als Standard bei LWL-Verbindungen und ermöglicht durch seine kompakte Bauform eine hohe Portdichte?",
       "options": [
-        "SC (Subscriber Connector)",
-        "LC (Lucent Connector)",
-        "RJ45",
-        "T568B"
+        "SC (Subscriber Connector), der ältere, aber sperrigere LWL-Steckertyp",
+        "RJ45, der klassische Steckertyp für Twisted-Pair-Kupferverkabelung",
+        "T568B, ein Adernbelegungsschema und kein eigener Steckertyp",
+        "LC (Lucent Connector), kompakter als SC und daher heute Standard"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "LC-Stecker sind heute der Standard bei LWL-Verbindungen — kompakter als der ältere SC-Stecker und dadurch für eine hohe Portdichte an Patchpanels und Switches geeignet."
     },
     {
       "id": "q6",
       "question": "Warum wird für eine 300 Meter lange Verbindung zwischen zwei Gebäuden Singlemode- statt Multimode-LWL empfohlen?",
       "options": [
-        "Der winzige Kerndurchmesser von Singlemode lässt nur einen Lichtweg zu und vermeidet dadurch die über diese Distanz störende Modendispersion",
-        "Singlemode-Kabel sind grundsätzlich billiger als Multimode-Kabel",
-        "Multimode darf nicht zwischen Gebäuden verlegt werden",
-        "Singlemode benötigt keine Lichtquelle"
+        "Der geringe Kerndurchmesser von Singlemode vermeidet die über diese Distanz störende Modendispersion",
+        "Singlemode-Kabel sind über diese Distanz grundsätzlich günstiger in der Anschaffung als Multimode-Kabel",
+        "Multimode-Fasern dürfen laut Norm grundsätzlich nicht zwischen zwei Gebäuden verlegt werden",
+        "Singlemode-Fasern benötigen im Gegensatz zu Multimode keine aktive Lichtquelle am Sender"
       ],
       "answer": 0,
       "explanation": "Über größere Distanzen würde die Modendispersion von Multimode-Fasern zu spürbarer Signalverzerrung führen. Singlemode vermeidet das durch den einzigen Lichtweg und eignet sich dadurch für Strecken wie diese 300 Meter."
@@ -77,10 +77,10 @@
       "id": "q7",
       "question": "Welche Ebene der strukturierten Verkabelung nutzt wegen der großen Distanzen meist LWL?",
       "options": [
-        "Ausschließlich die Tertiärverkabelung (Etage zum Arbeitsplatz)",
-        "Die Primärverkabelung zwischen Gebäuden, häufig auch die Sekundärverkabelung vom zentralen Verteiler zu den Etagenverteilern",
-        "Keine, LWL kommt in der strukturierten Verkabelung nicht vor",
-        "Nur Verbindungen innerhalb eines einzelnen Racks"
+        "Ausschließlich die Tertiärverkabelung vom einzelnen Etagenverteiler bis zum jeweiligen Arbeitsplatz im Büro",
+        "Die Primärverkabelung zwischen Gebäuden, häufig auch die Sekundärverkabelung zu den Etagenverteilern",
+        "Keine — LWL kommt in der strukturierten Gebäudeverkabelung praktisch nicht vor",
+        "Nur einzelne Verbindungen innerhalb ein und desselben Serverracks"
       ],
       "answer": 1,
       "explanation": "Primärverkabelung (zwischen Gebäuden) und häufig auch Sekundärverkabelung (zentraler Verteiler zu Etagenverteilern) überbrücken größere Distanzen, für die sich LWL besser eignet als Twisted-Pair-Kupferkabel."

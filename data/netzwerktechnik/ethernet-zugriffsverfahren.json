@@ -5,58 +5,58 @@
       "id": "q1",
       "question": "Wofür steht die Abkürzung CSMA/CD?",
       "options": [
-        "Carrier Sense Multiple Access with Collision Detection",
         "Central System Media Access with Channel Distribution",
+        "Carrier Sense Multiple Access with Collision Detection",
         "Collision Sense Multiple Access with Carrier Detection",
         "Carrier Signal Media Authentication with Collision Diagnostics"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "CSMA/CD steht für Carrier Sense Multiple Access with Collision Detection: lauschen, senden, bei Kollision erkennen und abbrechen."
     },
     {
       "id": "q2",
       "question": "Warum setzt WLAN auf CSMA/CA statt auf CSMA/CD?",
       "options": [
-        "Weil Funk grundsätzlich schneller ist als Kabel",
-        "Weil ein sendendes Gerät im Funk nicht gleichzeitig prüfen kann, ob eine Kollision mit einer anderen Übertragung vorliegt",
-        "Weil CSMA/CA weniger Energie verbraucht",
-        "Weil WLAN-Geräte keine Adressen benötigen"
+        "Weil Funkübertragung durch ihre Bauart angeblich grundsätzlich immer schneller ist als jede Kabelverbindung",
+        "Weil CSMA/CA im Betrieb spürbar weniger Energie auf dem mobilen Client verbraucht",
+        "Weil ein sendendes Gerät im Funk nicht gleichzeitig prüfen kann, ob eine Kollision vorliegt",
+        "Weil WLAN-Geräte grundsätzlich keine eindeutigen Adressen benötigen"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ein sendendes Funkgerät übertönt mit der eigenen Übertragung den möglichen Empfang eines anderen Signals — Kollisionen lassen sich im Funk also nicht zuverlässig erkennen. Deshalb versucht CSMA/CA, Kollisionen von vornherein zu vermeiden statt sie zu erkennen."
     },
     {
       "id": "q3",
       "question": "Was passiert bei CSMA/CD, wenn zwei Geräte gleichzeitig senden und eine Kollision erkannt wird?",
       "options": [
-        "Beide Geräte senden unverändert weiter",
-        "Beide Geräte brechen ab und warten je eine zufällige Zeitspanne (Backoff), bevor sie erneut senden",
-        "Nur das Gerät mit der höheren MAC-Adresse darf weitersenden",
-        "Die Verbindung wird dauerhaft getrennt"
+        "Beide Geräte senden ihre bereits begonnenen Daten unverändert bis zum Ende weiter",
+        "Nur das jeweils sendende Gerät mit der zahlenmäßig eindeutig höheren MAC-Adresse darf danach ungehindert weitersenden",
+        "Die betroffene Verbindung wird durch den Switch dauerhaft getrennt",
+        "Beide Geräte brechen ab und warten je eine zufällige Zeitspanne (Backoff), bevor sie erneut senden"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Nach einer erkannten Kollision brechen beide beteiligten Geräte die Übertragung ab und warten jeweils eine zufällige Backoff-Zeit, bevor sie einen neuen Sendeversuch starten."
     },
     {
       "id": "q4",
       "question": "Warum spielt CSMA/CD in modernen, geswitchten Netzwerken kaum noch eine praktische Rolle?",
       "options": [
-        "Weil Switches CSMA/CD technisch nicht unterstützen",
-        "Weil moderne Switch-Ports im Vollduplex jeweils eine eigene Kollisionsdomäne bilden, wodurch kaum noch Kollisionen entstehen",
-        "Weil CSMA/CD nur für WLAN entwickelt wurde",
-        "Weil alle modernen Geräte ausschließlich Glasfaser nutzen"
+        "Weil moderne Switch-Ports im Vollduplex je eine eigene Kollisionsdomäne bilden",
+        "Weil aktuelle Switch-Hardware CSMA/CD aus Kostengründen technisch grundsätzlich nicht mehr unterstützt",
+        "Weil CSMA/CD ursprünglich ausschließlich für den WLAN-Betrieb entwickelt wurde",
+        "Weil sämtliche modernen Netzwerkgeräte inzwischen ausschließlich Glasfaser nutzen"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Im Vollduplex-Betrieb an einem Switch hat jeder Port eine eigene Kollisionsdomäne — die Grundvoraussetzung für Kollisionen (gemeinsam genutztes Medium im Halbduplex, wie bei Hubs) entfällt damit weitgehend."
     },
     {
       "id": "q5",
       "question": "Welche Funktion hat ein ACK bei CSMA/CA?",
       "options": [
-        "Es reserviert dauerhaft den gesamten Funkkanal für ein Gerät",
-        "Es bestätigt dem Sender den erfolgreichen Empfang — bleibt es aus, wird von einer Kollision oder einem Fehler ausgegangen",
-        "Es verschlüsselt die übertragenen Daten",
-        "Es ersetzt die SSID bei der Anmeldung"
+        "Es reserviert dauerhaft und vollständig exklusiv den gesamten verfügbaren Funkkanal für nur ein einzelnes Gerät",
+        "Es bestätigt dem Sender den erfolgreichen Empfang — bleibt es aus, gilt die Übertragung als gescheitert",
+        "Es übernimmt die vollständige Verschlüsselung der übertragenen Nutzdaten",
+        "Es ersetzt die SSID bei der Anmeldung eines Geräts am Funknetz"
       ],
       "answer": 1,
       "explanation": "Da Kollisionen im Funk nicht direkt erkennbar sind, bestätigt der Empfänger jede erfolgreiche Übertragung mit einem ACK. Bleibt dieses aus, geht der Sender von einem Problem aus und sendet erneut."
@@ -65,10 +65,10 @@
       "id": "q6",
       "question": "Welche Datenrate erreicht der Ethernet-Standard 1000BASE-T?",
       "options": [
-        "10 Mbit/s",
-        "100 Mbit/s",
-        "1000 Mbit/s (1 Gbit/s)",
-        "10 Gbit/s"
+        "10 Mbit/s, wie beim ursprünglichen 10BASE-T-Standard",
+        "100 Mbit/s, wie beim späteren Fast-Ethernet-Standard",
+        "1000 Mbit/s (1 Gbit/s), der Gigabit-Ethernet-Standard",
+        "10 Gbit/s, wie bei modernen 10GBASE-T-Kupferverbindungen im Rechenzentrum"
       ],
       "answer": 2,
       "explanation": "1000BASE-T ist Gigabit Ethernet mit 1000 Mbit/s (1 Gbit/s) über Twisted-Pair-Kabel."
@@ -77,12 +77,12 @@
       "id": "q7",
       "question": "Was bedeutet das Namensschema bei Ethernet-Standards wie 100BASE-TX?",
       "options": [
-        "100 = Anzahl der Ports, BASE = Basisstation, TX = Transceiver",
-        "100 = Datenrate in Mbit/s, BASE = Basisband (unmoduliertes Signal), TX = Medium/Variante (Twisted Pair)",
+        "100 = Anzahl der aktiven Ports, BASE = Bezeichnung der Basisstation, TX = Transceiver-Kürzel",
         "100 = maximale Kabellänge in Metern, BASE = Baujahr, TX = Texas-Norm",
-        "Das Namensschema hat keine feste Bedeutung"
+        "Das Namensschema ist historisch gewachsen und hat keine feste Bedeutung",
+        "100 = Datenrate in Mbit/s, BASE = Basisband (unmoduliertes Signal), TX = Medium/Variante"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die Zahl gibt die Datenrate an, „BASE“ steht für Basisband-Übertragung, und das Kürzel danach beschreibt Medium/Variante — bei 100BASE-TX also Fast Ethernet über Twisted-Pair-Kabel."
     }
   ]

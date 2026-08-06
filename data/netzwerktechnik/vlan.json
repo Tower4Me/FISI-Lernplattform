@@ -5,48 +5,48 @@
       "id": "q1",
       "question": "Was bewirkt ein VLAN in einem physischen Netzwerk?",
       "options": [
-        "Es erhöht ausschließlich die Übertragungsgeschwindigkeit des Switches",
-        "Es teilt ein physisches Netzwerk in mehrere logisch getrennte Broadcast-Domänen",
-        "Es ersetzt die Notwendigkeit eines Routers vollständig",
-        "Es liefert Strom über das Netzwerkkabel"
+        "Es erhöht ausschließlich die Übertragungsgeschwindigkeit des angeschlossenen Switches",
+        "Es liefert zusätzlich Strom über dasselbe Netzwerkkabel wie die Daten",
+        "Es trennt ein physisches Netzwerk logisch in mehrere Broadcast-Domänen",
+        "Es ersetzt die Notwendigkeit eines separaten Routers im Netzwerk vollständig"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ein VLAN trennt Broadcast-Domänen logisch, ohne dass eine separate Verkabelung nötig wäre. Kommunikation zwischen VLANs läuft über einen Router."
     },
     {
       "id": "q2",
       "question": "Was kennzeichnet einen untagged (Access-)Port im Unterschied zu einem tagged (Trunk-)Port?",
       "options": [
-        "Ein untagged Port transportiert immer mehrere VLANs gleichzeitig",
-        "Ein untagged Port gehört fest zu genau einem VLAN, das angeschlossene Endgerät sieht kein VLAN-Tag",
-        "Ein tagged Port kann nur an Endgeräte angeschlossen werden",
-        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe"
+        "Ein untagged Port gehört fest zu genau einem VLAN, das Endgerät sieht kein Tag",
+        "Ein untagged Port transportiert grundsätzlich mehrere VLANs gleichzeitig über dasselbe Kabel",
+        "Ein tagged Port darf ausschließlich an einzelne Endgeräte angeschlossen werden, nie an Switches",
+        "Es gibt keinen technischen Unterschied, beide Bezeichnungen meinen exakt dasselbe Verhalten"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Access-Ports (untagged) sind einem VLAN fest zugeordnet; Endgeräte merken davon nichts. Trunk-Ports (tagged) transportieren mehrere VLANs mit Tag nach IEEE 802.1Q, typisch zwischen Switches oder zum Router."
     },
     {
       "id": "q3",
       "question": "Wie kommunizieren zwei Geräte, die in unterschiedlichen VLANs stecken, miteinander?",
       "options": [
-        "Gar nicht, VLANs können grundsätzlich nicht miteinander kommunizieren",
-        "Direkt über den Switch, ohne zusätzliche Geräte",
-        "Nur über einen Router (Inter-VLAN-Routing), genau wie bei physisch getrennten Netzen",
-        "Nur wenn beide Geräte per WLAN statt per Kabel verbunden sind"
+        "Gar nicht — VLANs können unter keinen Umständen miteinander kommunizieren, auch nicht über Umwege",
+        "Nur über einen Router, per Inter-VLAN-Routing wie bei physisch getrennten Netzen",
+        "Direkt über den Switch, ganz ohne zusätzliches Routing-Gerät dazwischen",
+        "Nur wenn beide Geräte statt per Kabel per WLAN mit dem Netzwerk verbunden sind"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "VLANs sind eigene Broadcast-Domänen. Direkte Kommunikation zwischen zwei VLANs ist nur über einen Router möglich (Inter-VLAN-Routing) — genau wie bei physisch getrennten Netzen."
     },
     {
       "id": "q4",
       "question": "Warum erhöht die Trennung in VLANs die Sicherheit, obwohl alle Geräte am selben physischen Switch hängen?",
       "options": [
-        "Weil VLANs den Datenverkehr automatisch verschlüsseln",
-        "Weil Geräte in unterschiedlichen VLANs sich nur über einen Router erreichen können, wie in physisch getrennten Netzen",
-        "Weil VLANs die MAC-Adressen aller Geräte verbergen",
-        "Weil ein VLAN automatisch eine Firewall zwischen allen Ports aktiviert"
+        "Weil VLANs sämtlichen Datenverkehr automatisch Ende-zu-Ende verschlüsseln, auch innerhalb desselben Switches",
+        "Weil VLANs die MAC-Adressen aller angeschlossenen Geräte vollständig vor anderen Teilnehmern verbergen",
+        "Weil ein VLAN automatisch eine Firewall zwischen sämtlichen angeschlossenen Ports aktiviert",
+        "Weil Geräte in unterschiedlichen VLANs sich nur über einen Router erreichen, wie bei getrennten Netzen"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "VLANs trennen Broadcast-Domänen logisch. Direkte Kommunikation zwischen zwei VLANs ist nur über einen Router (Inter-VLAN-Routing) möglich — ein Angreifer in einem VLAN kommt nicht ohne Weiteres an Geräte in einem anderen VLAN heran."
     }
   ]

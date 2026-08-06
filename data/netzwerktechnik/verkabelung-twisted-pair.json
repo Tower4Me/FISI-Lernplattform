@@ -5,46 +5,46 @@
       "id": "q1",
       "question": "Warum werden bei Twisted-Pair-Kabeln die Adernpaare verdrillt?",
       "options": [
-        "Um das Kabel optisch ansprechender zu gestalten",
+        "Um das Kabel optisch ansprechender und hochwertiger wirken zu lassen",
+        "Um die maximal zulässige Kabellänge gegenüber unverdrillten Adern zu verdoppeln",
         "Um elektromagnetische Störeinstrahlung zwischen den Adernpaaren zu reduzieren",
-        "Um die maximale Kabellänge zu verdoppeln",
-        "Um das Kabel leichter durch Kabelkanäle ziehen zu können"
+        "Um das Kabel beim Verlegen leichter durch enge Kabelkanäle ziehen zu können"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Das Verdrillen der Adernpaare sorgt dafür, dass Störungen beide Adern eines Paares nahezu gleich stark treffen — der Empfänger vergleicht nur den Unterschied zwischen beiden Adern, wodurch sich die Störung fast aufhebt."
     },
     {
       "id": "q2",
       "question": "Welche maximale Segmentlänge gilt typischerweise für Twisted-Pair-Verkabelung (z. B. Cat 6a)?",
       "options": [
-        "10 Meter",
-        "100 Meter",
-        "1 Kilometer",
-        "10 Kilometer"
+        "10 Meter, begrenzt durch die zulässige Dämpfung auf sehr kurzer Strecke im Nahbereich",
+        "1 Kilometer, wie bei den meisten Multimode-Glasfaserstrecken",
+        "10 Kilometer, vergleichbar mit typischen Singlemode-LWL-Strecken",
+        "100 Meter, danach steigen Dämpfung und Störanfälligkeit deutlich an"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Twisted-Pair-Kabel wie Cat 6a sind für Strecken bis 100 Meter spezifiziert."
     },
     {
       "id": "q3",
       "question": "Was unterscheidet T568A von T568B tatsächlich?",
       "options": [
-        "T568A ist eine europäische Norm, T568B eine US-amerikanische",
         "Beide sind Teil derselben Norm (ANSI/TIA-568), lediglich die Paare Grün und Orange sind vertauscht",
-        "T568A gilt nur für Cat 5e, T568B nur für Cat 6a und höher",
-        "T568B nutzt 8 Adern, T568A nur 4"
+        "T568A ist offiziell eine europäische Verkabelungsnorm, T568B eine eigenständige US-amerikanische Norm",
+        "T568A gilt ausschließlich für Cat 5e, T568B ausschließlich für Cat 6a und höher",
+        "T568B nutzt alle acht Adern, T568A dagegen nur vier der acht Adern"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "T568A und T568B sind beide Bestandteil der US-Norm ANSI/TIA-568, keine konkurrierenden Standards für unterschiedliche Regionen. Der einzige Unterschied ist die vertauschte Position der Paare Grün und Orange."
     },
     {
       "id": "q4",
       "question": "Was bedeutet die Bezeichnung S/FTP bei geschirmten Twisted-Pair-Kabeln?",
       "options": [
-        "Kein Gesamtschirm, kein Schirm je Paar (komplett ungeschirmt)",
-        "Gesamtschirm aus Geflecht, zusätzlich Folienschirm je Aderpaar",
-        "Nur Folien-Gesamtschirm, kein Schirm je Paar",
-        "Schirm nur am Stecker, nicht über die Kabellänge"
+        "Weder ein Gesamtschirm noch ein Schirm je Aderpaar, also komplett ungeschirmt",
+        "Gesamtschirm aus Geflecht, zusätzlich ein Folienschirm um jedes einzelne Aderpaar",
+        "Nur ein Folien-Gesamtschirm um das ganze Kabel, kein Schirm je Aderpaar",
+        "Ein Schirm ausschließlich direkt am Stecker selbst, nicht durchgehend über die gesamte Kabellänge"
       ],
       "answer": 1,
       "explanation": "Bei der Schreibweise X/YTP steht der Buchstabe vor dem Slash für den Gesamtschirm (S = Geflecht) und der Buchstabe danach für den Schirm je Aderpaar (F = Folie)."
@@ -53,24 +53,24 @@
       "id": "q5",
       "question": "Wann ist bei modernen Switches noch ein Crossover-Kabel notwendig, um zwei gleichartige Geräte zu verbinden?",
       "options": [
-        "Immer, unabhängig vom Switch-Modell",
-        "In der Regel gar nicht mehr, da Auto-MDI-X die Verkabelung automatisch erkennt und intern anpasst",
-        "Nur bei Kabeln der Kategorie Cat 7",
-        "Nur wenn beide Enden nach T568A aufgelegt sind"
+        "Immer, völlig unabhängig davon, welches konkrete Switch-Modell an beiden Enden verwendet wird",
+        "Nur bei Kabeln der höheren Kategorie Cat 7 oder darüber",
+        "In der Regel gar nicht mehr, da Auto-MDI-X die Verkabelung automatisch erkennt und anpasst",
+        "Nur, wenn beide Kabelenden nach dem Schema T568A aufgelegt wurden"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Moderne Switch-Ports unterstützen Auto-MDI-X und erkennen automatisch, ob ein Straight-Through- oder Crossover-Kabel gesteckt wurde — ein Crossover-Kabel ist dadurch praktisch nicht mehr nötig."
     },
     {
       "id": "q6",
       "question": "Was gilt für die tatsächlich erreichbare Datenrate einer Twisted-Pair-Verbindung, wenn Kabel und aktive Komponenten unterschiedliche Kategorien haben?",
       "options": [
-        "Sie richtet sich immer nach der höchsten beteiligten Kategorie",
-        "Sie richtet sich nach dem schwächsten Glied der gesamten Übertragungsstrecke",
-        "Sie ist unabhängig von der verwendeten Kategorie immer gleich",
-        "Sie hängt ausschließlich von der Kabellänge ab, nicht von der Kategorie"
+        "Sie richtet sich immer nach der höchsten an der Strecke beteiligten Kategorie",
+        "Sie ist unabhängig von der verwendeten Kategorie über die gesamte Strecke immer gleich",
+        "Sie hängt ausschließlich von der Kabellänge ab, nicht von der Kategorie der Komponenten",
+        "Sie richtet sich nach dem schwächsten Glied der gesamten Übertragungsstrecke"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die erreichbare Datenrate wird durch das schwächste Glied der Strecke begrenzt — Kabel, Stecker und aktive Komponenten wie Switch-Ports müssen alle die gewünschte Kategorie unterstützen."
     },
     {
@@ -78,9 +78,9 @@
       "question": "Ein Techniker verkabelt eine Werkshalle mit mehreren Frequenzumrichtern in Kabelnähe. Welche Schirmungsart ist hier sinnvoller als einfaches U/UTP?",
       "options": [
         "S/FTP, da Geflecht- und Folienschirm die elektromagnetische Störeinstrahlung deutlich reduzieren",
-        "U/UTP, da Schirmung die Datenrate immer verringert",
-        "Schirmung spielt für die Störfestigkeit keine Rolle",
-        "T568A statt T568B, das ist die einzige relevante Stellschraube"
+        "U/UTP, da jede zusätzliche Kabelschirmung angeblich die erreichbare Datenrate grundsätzlich verringert",
+        "Die Schirmungsart spielt für die Störfestigkeit der Verbindung praktisch keine Rolle",
+        "T568A statt T568B einsetzen, das ist hier die einzige relevante Stellschraube"
       ],
       "answer": 0,
       "explanation": "In Umgebungen mit starken elektromagnetischen Störquellen (z. B. Frequenzumrichtern, Motoren) reduziert die zusätzliche Schirmung von S/FTP Übertragungsfehler deutlich besser als ungeschirmtes U/UTP."

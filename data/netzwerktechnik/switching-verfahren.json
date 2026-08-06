@@ -5,108 +5,108 @@
       "id": "q1",
       "question": "Wie baut ein Switch seine MAC-Adresstabelle (CAM-Tabelle) auf?",
       "options": [
-        "Durch manuelle Konfiguration jeder einzelnen MAC-Adresse",
-        "Durch Backward Learning: Er merkt sich bei jedem eingehenden Frame die Quell-MAC-Adresse und den Eingangsport",
-        "Durch regelmäßige Broadcast-Anfragen an alle Geräte im Netz",
-        "Die Tabelle wird beim Kauf des Switches fest einprogrammiert"
+        "Durch manuelle Konfiguration jeder einzelnen MAC-Adresse durch den Administrator",
+        "Durch regelmäßige Broadcast-Anfragen an alle angeschlossenen Geräte im Netz",
+        "Durch Backward Learning: Er merkt sich Quell-MAC und Eingangsport jedes Frames",
+        "Die Tabelle wird bereits werkseitig beim Kauf des Switches fest einprogrammiert"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Backward Learning bedeutet: Bei jedem eingehenden Frame merkt sich der Switch, über welchen Port welche Quell-MAC-Adresse hereinkam, und baut daraus automatisch seine MAC-Adresstabelle auf."
     },
     {
       "id": "q2",
       "question": "Was macht ein Switch, wenn die Ziel-MAC-Adresse eines Frames noch nicht in der MAC-Adresstabelle bekannt ist?",
       "options": [
-        "Er verwirft den Frame sofort",
         "Er flutet den Frame an alle Ports außer dem Eingangsport",
-        "Er sendet den Frame zurück an den Absender",
-        "Er wartet, bis die Adresse manuell eingetragen wird"
+        "Er verwirft den Frame sofort ohne jede weitere Prüfung",
+        "Er sendet den Frame direkt zurück an den ursprünglichen Absender",
+        "Er wartet, bis die Adresse manuell im System eingetragen wird"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ist die Ziel-MAC-Adresse unbekannt, flutet der Switch den Frame an alle Ports außer dem Eingangsport (ähnlich einem Hub) — sobald die passende Antwort eintrifft, kann er die neue Zuordnung lernen."
     },
     {
       "id": "q3",
       "question": "Welches Switching-Verfahren wartet auf den vollständigen Empfang eines Frames und prüft die FCS/CRC, bevor weitergeleitet wird?",
       "options": [
-        "Cut-Through",
-        "Fragment-Free",
+        "Cut-Through-Verfahren",
         "Store-and-Forward",
-        "Fast Forward"
+        "Fragment-Free-Verfahren",
+        "Fast-Forward-Verfahren"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Store-and-Forward puffert den kompletten Frame, prüft die FCS/CRC und verwirft fehlerhafte Frames — dadurch am zuverlässigsten, aber mit der höchsten Latenz."
     },
     {
       "id": "q4",
       "question": "Wie schnell beginnt Cut-Through mit der Weiterleitung eines Frames?",
       "options": [
-        "Erst nach vollständigem Empfang und CRC-Prüfung",
-        "Erst nach den ersten 64 Byte",
-        "Sobald die Ziel-MAC-Adresse gelesen wurde, ohne Fehlerprüfung",
-        "Cut-Through leitet Frames grundsätzlich nicht weiter"
+        "Erst nach vollständigem Empfang des Frames inklusive CRC-Prüfung",
+        "Erst nach den ersten 64 Byte des empfangenen Frames",
+        "Cut-Through leitet ankommende Frames grundsätzlich nicht weiter",
+        "Sobald die Ziel-MAC-Adresse gelesen wurde, ohne Fehlerprüfung"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Cut-Through leitet den Frame weiter, sobald die Ziel-MAC-Adresse (die ersten 6 Byte des Frames) gelesen wurde — ohne auf den Rest zu warten oder eine Fehlerprüfung durchzuführen. Das macht es am schnellsten, aber am unsichersten."
     },
     {
       "id": "q5",
       "question": "Warum wartet Fragment-Free genau auf die ersten 64 Byte eines Frames, bevor weitergeleitet wird?",
       "options": [
-        "Weil 64 Byte zufällig gewählt wurden und keine besondere Bedeutung haben",
-        "Weil 64 Byte die Mindestgröße eines gültigen Ethernet-Frames ist und Kollisionsfragmente (Runts) fast immer innerhalb dieser Grenze entstehen",
-        "Weil der TCP-Header genau 64 Byte groß ist",
-        "Weil die MTU auf 64 Byte begrenzt ist"
+        "Weil 64 Byte rein zufällig gewählt wurden, ohne besondere technische Bedeutung",
+        "Weil der komplette TCP-Header exakt 64 Byte groß ist und geprüft werden muss",
+        "Weil Kollisionsfragmente fast immer innerhalb der ersten 64 Byte entstehen",
+        "Weil die MTU bei Ethernet grundsätzlich auf 64 Byte begrenzt ist"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "64 Byte ist die Mindestgröße eines gültigen Ethernet-Frames. Kollisionsfragmente (Runts) entstehen fast immer innerhalb dieser ersten 64 Byte — Fragment-Free kann sie damit erkennen, ohne auf den kompletten Frame warten zu müssen."
     },
     {
       "id": "q6",
       "question": "Welches Switching-Verfahren ist in modernen Switches am gebräuchlichsten und warum?",
       "options": [
-        "Cut-Through, weil Geschwindigkeit immer wichtiger ist als Fehlerprüfung",
-        "Store-and-Forward, weil der Latenznachteil bei heutigen Bandbreiten kaum ins Gewicht fällt, die Fehlerprüfung aber unnötigen Datenverkehr verhindert",
-        "Fragment-Free, weil es das einzige Verfahren mit vollständiger CRC-Prüfung ist",
-        "Alle drei Verfahren werden heute gleich häufig eingesetzt"
+        "Store-and-Forward, da der Latenznachteil heute kaum noch ins Gewicht fällt",
+        "Cut-Through, weil Geschwindigkeit grundsätzlich wichtiger ist als jede Fehlerprüfung",
+        "Fragment-Free, da es angeblich als einziges Verfahren eine vollständige CRC-Prüfung bietet",
+        "Alle drei Verfahren werden in der Praxis heute noch gleich häufig eingesetzt"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Store-and-Forward ist heute Standard: Der Geschwindigkeitsvorteil von Cut-Through fällt bei modernen Bandbreiten kaum noch ins Gewicht, während die Fehlerprüfung verhindert, dass beschädigte Frames unnötig Bandbreite verbrauchen."
     },
     {
       "id": "q7",
       "question": "Was passiert mit einem MAC-Adresstabellen-Eintrag, wenn längere Zeit kein Datenverkehr mehr von dieser Adresse eintrifft?",
       "options": [
-        "Er bleibt für immer bestehen",
-        "Er wird nach der Aging Time (häufig ca. 300 Sekunden) automatisch gelöscht",
-        "Der Switch startet sofort neu",
-        "Der Eintrag wird auf alle anderen Switches im Netz kopiert"
+        "Er bleibt unbegrenzt und dauerhaft in der Tabelle bestehen",
+        "Der Switch startet daraufhin automatisch komplett neu",
+        "Der Eintrag wird automatisch auf alle anderen Switches kopiert",
+        "Er wird nach der Aging Time automatisch entfernt"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Einträge in der MAC-Adresstabelle verfallen nach der sogenannten Aging Time (häufig ca. 300 Sekunden) ohne weiteren Datenverkehr — das verhindert veraltete Einträge, z. B. nach dem Umstecken eines Geräts an einen anderen Port."
     },
     {
       "id": "q8",
       "question": "Was ist der Nachteil von Port-based Memory (Port-Buffered Memory) gegenüber Shared Memory?",
       "options": [
-        "Port-based Memory unterstützt keine MAC-Adresstabelle",
-        "Der feste Puffer eines einzelnen Ports kann überlaufen, obwohl an anderen Ports noch reichlich freier Speicher vorhanden wäre",
-        "Port-based Memory kann keine Frames zwischenspeichern",
-        "Port-based Memory ist grundsätzlich langsamer als Cut-Through"
+        "Port-based Memory unterstützt grundsätzlich überhaupt keine MAC-Adresstabelle",
+        "Port-based Memory kann prinzipiell keine Frames zwischenspeichern",
+        "Ein einzelner Port-Puffer kann überlaufen, obwohl andere noch frei sind",
+        "Port-based Memory ist grundsätzlich immer langsamer als Cut-Through"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Bei Port-based Memory hat jeder Port einen eigenen, festen Pufferspeicher. Läuft dieser bei hoher Last über, werden Frames verworfen — selbst wenn an anderen Ports noch viel freier Speicher zur Verfügung stünde. Shared Memory vermeidet das durch einen gemeinsamen, dynamisch zugewiesenen Speicherpool."
     },
     {
       "id": "q9",
       "question": "Worin unterscheidet sich die Frage „Shared Memory vs. Port-based Memory“ von der Frage „Store-and-Forward vs. Cut-Through vs. Fragment-Free“?",
       "options": [
-        "Es gibt keinen Unterschied, beide Begriffspaare meinen dasselbe",
-        "Speicherarchitektur beantwortet, wo ein Frame zwischengespeichert wird — die Switching-Verfahren beantworten, wann die Weiterleitung beginnt",
-        "Speicherarchitektur betrifft nur Router, nie Switches",
-        "Switching-Verfahren betreffen nur die MAC-Adresstabelle, nicht die Weiterleitung"
+        "Speicherarchitektur klärt das Wo, die Verfahren klären das Wann der Weiterleitung",
+        "Es gibt keinen Unterschied, beide Begriffspaare bezeichnen exakt dasselbe Prinzip",
+        "Speicherarchitektur betrifft ausschließlich Router, niemals klassische Switches",
+        "Switching-Verfahren betreffen ausschließlich die MAC-Adresstabelle, nie die Weiterleitung"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Shared Memory und Port-based Memory sind zwei Architekturen dafür, wo (in welchem Speicherbereich) ein Switch Frames zwischenspeichert. Store-and-Forward, Cut-Through und Fragment-Free beantworten dagegen, wann die Weiterleitung eines bereits empfangenen Frames beginnt — beide Fragen sind unabhängig voneinander."
     }
   ]

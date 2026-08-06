@@ -5,70 +5,70 @@
       "id": "q1",
       "question": "Was bedeutet die Bezeichnung ADSL?",
       "options": [
-        "Advanced DSL — die schnellste verfügbare DSL-Variante",
-        "Asymmetric DSL — Download- und Upload-Geschwindigkeit unterscheiden sich",
-        "Analog DSL — analoge Datenübertragung über Telefonleitung",
-        "Automatic DSL — automatische Wahl der Geschwindigkeit"
+        "Asymmetric DSL — Download und Upload laufen unterschiedlich schnell",
+        "Advanced DSL, die insgesamt schnellste verfügbare DSL-Variante",
+        "Analog DSL, also analoge Datenübertragung über die Telefonleitung",
+        "Automatic DSL mit vollautomatischer Wahl der jeweiligen Verbindungsgeschwindigkeit"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "ADSL steht für Asymmetric DSL: Die Downloadgeschwindigkeit ist deutlich höher als die Uploadgeschwindigkeit."
     },
     {
       "id": "q2",
       "question": "Welche DSL-Variante eignet sich am besten für ein Unternehmen mit hohem Upload-Bedarf, z. B. für einen eigenen Server?",
       "options": [
-        "ADSL",
-        "SDSL",
-        "VDSL ausschließlich im Download-Modus",
-        "Es gibt keinen Unterschied zwischen den Varianten beim Upload"
+        "ADSL, mit deutlich stärkerem Downloadanteil als Uploadanteil",
+        "VDSL, aber ausschließlich im reinen Download-Modus betrieben",
+        "SDSL, mit symmetrischer Geschwindigkeit in beide Richtungen",
+        "Zwischen den Varianten besteht beim Upload kein relevanter Unterschied"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "SDSL (Symmetric DSL) bietet gleiche Geschwindigkeiten in beide Richtungen und eignet sich deshalb für Anwendungsfälle mit hohem Upload-Bedarf."
     },
     {
       "id": "q3",
       "question": "Wovon hängt die erreichbare DSL-Geschwindigkeit maßgeblich ab?",
       "options": [
-        "Von der Tageszeit der Nutzung",
-        "Von der Entfernung des Anschlusses zur Vermittlungsstelle",
-        "Von der Anzahl der im Haushalt angemeldeten Geräte",
-        "Von der Farbe des verwendeten Telefonkabels"
+        "Von der aktuellen Tageszeit der Internetnutzung im Haushalt",
+        "Von der Anzahl der im Haushalt gleichzeitig angemeldeten Endgeräte insgesamt",
+        "Von der Farbe und dem Hersteller des verwendeten Telefonkabels",
+        "Von der Entfernung des Anschlusses zur nächsten Vermittlungsstelle"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die nutzbare Bandbreite bei DSL nimmt mit zunehmender Leitungslänge zur Vermittlungsstelle ab."
     },
     {
       "id": "q4",
       "question": "Was zeichnet VDSL gegenüber klassischem ADSL aus?",
       "options": [
-        "VDSL ist immer symmetrisch, ADSL nie",
-        "VDSL erreicht deutlich höhere Datenraten, ist aber nur auf kürzeren Leitungslängen nutzbar",
-        "VDSL funktioniert nur über Glasfaser bis ins Haus",
-        "VDSL benötigt keine Telefonleitung"
+        "VDSL arbeitet nach der Spezifikation stets vollständig symmetrisch, ADSL dagegen niemals",
+        "VDSL kommt grundsätzlich völlig ohne jede Telefonleitung aus",
+        "VDSL erreicht höhere Raten, ist aber nur auf kürzeren Leitungen nutzbar",
+        "VDSL funktioniert ausschließlich über Glasfaser bis direkt ins Haus"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "VDSL bietet gegenüber ADSL höhere Datenraten, ist dafür aber empfindlicher gegenüber der Leitungslänge und nur auf kürzeren Strecken nutzbar."
     },
     {
       "id": "q5",
       "question": "Wie viele Mbit/s entsprechen 1 MByte/s?",
       "options": [
+        "16 Mbit/s",
         "1 Mbit/s",
         "4 Mbit/s",
-        "8 Mbit/s",
-        "16 Mbit/s"
+        "8 Mbit/s"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "Ein Byte besteht aus 8 Bit, daher entspricht 1 MByte/s genau 8 Mbit/s."
     },
     {
       "id": "q6",
       "question": "Welche Zugangstechnologie nutzt das bestehende TV-Kabelnetz für den Internetzugang?",
       "options": [
-        "VDSL",
-        "Kabel-Internet (DOCSIS)",
-        "FTTH",
-        "SDSL"
+        "VDSL, eine leitungsgebundene Variante über die klassische Telefonleitung",
+        "Kabel-Internet nach dem DOCSIS-Standard über das TV-Kabelnetz",
+        "FTTH mit Glasfaser direkt bis in die Wohnung des Kunden",
+        "SDSL mit symmetrischer Geschwindigkeit über die Telefonleitung"
       ],
       "answer": 1,
       "explanation": "Kabel-Internet nach dem DOCSIS-Standard nutzt das vorhandene TV-Kabelnetz für die Datenübertragung."
@@ -77,10 +77,10 @@
       "id": "q7",
       "question": "Was kennzeichnet FTTH (Fiber to the Home) im Vergleich zu klassischem DSL?",
       "options": [
-        "FTTH nutzt ausschließlich die alte Kupfer-Telefonleitung",
-        "Bei FTTH reicht Glasfaser bis in die Wohnung, dadurch aktuell höchste erreichbare Datenraten, weitgehend entfernungsunabhängig",
-        "FTTH ist grundsätzlich langsamer als ADSL",
-        "FTTH funktioniert nur über Mobilfunk"
+        "FTTH überträgt ausschließlich über die alte Kupfer-Telefonleitung",
+        "FTTH bringt Glasfaser bis in die Wohnung — höchste Datenraten, kaum entfernungsabhängig",
+        "FTTH ist im Ergebnis grundsätzlich langsamer als klassisches ADSL",
+        "FTTH funktioniert nach dieser Aussage ausschließlich über das Mobilfunknetz, nie über Kabel"
       ],
       "answer": 1,
       "explanation": "FTTH verlegt Glasfaser direkt bis zum Endkunden und ermöglicht dadurch sehr hohe, weitgehend entfernungsunabhängige Datenraten — im Gegensatz zu DSL über Kupferleitungen."

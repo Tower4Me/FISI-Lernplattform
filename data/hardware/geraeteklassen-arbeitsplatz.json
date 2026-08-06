@@ -5,70 +5,70 @@
       "id": "q1",
       "question": "Was unterscheidet einen Fat Client grundsätzlich von einem Thin Client?",
       "options": [
-        "Ein Fat Client hat kein eigenes Betriebssystem",
-        "Ein Fat Client führt Anwendungen und Berechnungen lokal aus, ein Thin Client lagert die Rechenlast über das Netzwerk an einen zentralen Server aus",
+        "Fat Client rechnet lokal, Thin Client nutzt einen Server",
+        "Ein Fat Client besitzt in der Regel kein eigenes Betriebssystem",
         "Ein Fat Client ist immer ein Tablet, ein Thin Client immer ein Notebook",
-        "Ein Fat Client benötigt zwingend eine Dockingstation"
+        "Ein Fat Client benötigt zwingend eine eigene Dockingstation"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der Fat Client (klassischer PC) rechnet lokal mit eigener CPU/RAM. Der Thin Client hat nur minimale lokale Hardware und bezieht die eigentliche Rechenleistung von einem zentralen Terminalserver/VDI."
     },
     {
       "id": "q2",
       "question": "Was ist ein Zero Client?",
       "options": [
-        "Ein besonders leistungsstarker Desktop-PC ohne Netzwerkanbindung",
-        "Ein Gerät, das praktisch nur aus Ein-/Ausgabe-Hardware besteht, kein eigenes lokales Betriebssystem hat und direkt in die Serververbindung bootet",
-        "Ein Tablet ohne Touchscreen",
-        "Ein Notebook mit besonders großem lokalen Speicher"
+        "Ein besonders leistungsstarker Desktop-PC ganz ohne jede Netzwerkanbindung",
+        "Ein Tablet ohne integrierten Touchscreen zur Bedienung",
+        "Ein Notebook mit einem besonders großen lokalen Speicherausbau",
+        "Ein Gerät ohne Betriebssystem, bootet in die Serververbindung"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Der Zero Client ist die minimalste Ausbaustufe: kaum lokale Funktion, kein eigenes Betriebssystem, komplett abhängig vom Server."
     },
     {
       "id": "q3",
       "question": "Welcher Nachteil betrifft Thin Clients besonders, den Fat Clients nicht haben?",
       "options": [
-        "Höhere Anschaffungskosten pro Gerät",
-        "Bei Ausfall des zentralen Terminalservers sind alle angeschlossenen Thin Clients gleichzeitig arbeitsunfähig",
-        "Thin Clients benötigen zwingend eine eigene Grafikkarte",
-        "Thin Clients lassen sich nicht zentral verwalten"
+        "Höhere Anschaffungskosten pro Gerät im Vergleich zu Fat Clients",
+        "Thin Clients benötigen zwingend eine eigene, leistungsstarke Grafikkarte",
+        "Fällt der Terminalserver aus, sind alle Thin Clients arbeitsunfähig",
+        "Thin Clients lassen sich grundsätzlich nicht zentral verwalten"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Da Thin Clients von einem zentralen Server abhängen, führt dessen Ausfall dazu, dass alle angeschlossenen Arbeitsplätze gleichzeitig ausfallen — ein Risiko, das bei unabhängigen Fat Clients nicht besteht."
     },
     {
       "id": "q4",
       "question": "Welche Aussage zur Erweiterbarkeit von Geräteklassen trifft zu?",
       "options": [
-        "Tablets sind am einfachsten zu erweitern (RAM, GPU, Storage austauschbar)",
-        "Notebooks sind grundsätzlich genauso erweiterbar wie Desktop-PCs",
-        "Desktop-PCs bieten die höchste Erweiterbarkeit, Notebooks sind eingeschränkt, Tablets praktisch gar nicht erweiterbar",
-        "Erweiterbarkeit hängt ausschließlich vom Betriebssystem ab, nicht vom Formfaktor"
+        "Desktop-PCs bieten die höchste Erweiterbarkeit, Tablets kaum",
+        "Tablets sind am einfachsten zu erweitern, RAM und GPU lassen sich frei austauschen",
+        "Notebooks sind in ihrer Erweiterbarkeit grundsätzlich genauso flexibel wie Desktop-PCs",
+        "Erweiterbarkeit hängt ausschließlich vom Betriebssystem ab, nie vom Formfaktor"
       ],
-      "answer": 2,
+      "answer": 0,
       "explanation": "Desktop-PCs erlauben den Austausch von CPU, RAM, GPU und Storage. Notebooks sind eingeschränkter (oft nur RAM/SSD), Tablets sind meist komplett verlötet und praktisch nicht erweiterbar."
     },
     {
       "id": "q5",
       "question": "Welche Funktion übernimmt eine Dockingstation für ein Notebook am festen Arbeitsplatz?",
       "options": [
-        "Sie ersetzt den Akku des Notebooks dauerhaft",
-        "Sie erweitert das Notebook über meist ein Kabel um zusätzliche Anschlüsse für Monitore, Netzwerk, Peripherie und Stromversorgung",
-        "Sie macht das Notebook zu einem Thin Client",
-        "Sie verhindert, dass das Notebook mobil genutzt werden kann"
+        "Sie ersetzt dauerhaft den fest verbauten Akku des Notebooks",
+        "Sie macht aus dem angeschlossenen Notebook technisch einen Thin Client",
+        "Sie verhindert danach die weitere mobile Nutzung des Notebooks",
+        "Sie bündelt Anschlüsse für Monitor, Netzwerk und Strom"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Eine Dockingstation bündelt Video-, Netzwerk-, USB- und Stromanschlüsse in einem Kabel und macht so aus dem mobilen Notebook am Schreibtisch einen vollwertigen Arbeitsplatz."
     },
     {
       "id": "q6",
       "question": "Ein Großraumbüro mit 50 Arbeitsplätzen für einfache, standardisierte Bürotätigkeiten wird mit Thin Clients statt Fat Clients ausgestattet. Welcher Verwaltungsvorteil ergibt sich daraus?",
       "options": [
-        "Thin Clients sind grundsätzlich für jeden Anwendungsfall die schlechtere Wahl",
-        "Software-Updates und Patches müssen bei Thin Clients nur einmal zentral auf dem Server eingespielt werden statt auf 50 Einzelgeräten",
-        "Thin Clients benötigen zwingend mehr lokale Rechenleistung als Fat Clients",
-        "Thin Clients sind ausschließlich für CAD-Arbeitsplätze geeignet"
+        "Thin Clients sind grundsätzlich für jeden denkbaren Anwendungsfall die schlechtere Wahl",
+        "Updates müssen bei Thin Clients nur einmal zentral auf dem Server eingespielt werden",
+        "Thin Clients benötigen grundsätzlich mehr lokale Rechenleistung als Fat Clients",
+        "Thin Clients eignen sich ausschließlich für hochspezialisierte CAD-Arbeitsplätze"
       ],
       "answer": 1,
       "explanation": "Der zentrale Wartungsvorteil von Thin Clients liegt darin, dass Updates zentral auf dem Terminalserver gepflegt werden, statt auf jedem einzelnen Endgerät — das reduziert den Verwaltungsaufwand bei vielen gleichartigen Arbeitsplätzen deutlich."

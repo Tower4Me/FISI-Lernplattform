@@ -5,72 +5,72 @@
       "id": "q1",
       "question": "Warum eignet sich eine GPU besonders gut für Bildberechnung und KI-Anwendungen?",
       "options": [
-        "Weil sie eine höhere Taktfrequenz als jede CPU hat",
-        "Weil sie sehr viele einfache Rechenkerne besitzt, die dieselbe Operation massiv parallel ausführen können",
-        "Weil sie ausschließlich mit Fließkommazahlen rechnen kann",
-        "Weil sie den kompletten Arbeitsspeicher des Systems übernimmt"
+        "Sie besitzt viele einfache Kerne für massiv parallele Berechnung",
+        "Sie erreicht grundsätzlich eine höhere Taktfrequenz als jede vorhandene CPU",
+        "Sie kann ausschließlich mit Fließkommazahlen rechnen, nie mit Ganzzahlen",
+        "Sie übernimmt dabei den kompletten Arbeitsspeicher des gesamten Systems"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Anders als die CPU mit wenigen komplexen Kernen besitzt eine GPU hunderte bis tausende einfache Kerne — ideal für die vielen gleichartigen, parallelisierbaren Berechnungen bei Bildern und neuronalen Netzen."
     },
     {
       "id": "q2",
       "question": "Was unterscheidet eine integrierte von einer dedizierten Grafiklösung hauptsächlich?",
       "options": [
-        "Integrierte Grafik hat immer mehr VRAM als dedizierte Karten",
-        "Integrierte Grafik ist Teil des CPU-Chips und nutzt System-RAM mit, dedizierte Grafik hat einen eigenen Chip mit eigenem VRAM",
-        "Es gibt keinen technischen Unterschied, nur den Preis",
-        "Dedizierte Grafik benötigt keinen PCIe-Steckplatz"
+        "Integrierte Grafik verfügt grundsätzlich über mehr VRAM als jede dedizierte Karte",
+        "Es gibt zwischen beiden Lösungen keinen technischen Unterschied, nur den Preis",
+        "Integrierte Grafik teilt sich den RAM, dedizierte hat eigenen VRAM",
+        "Dedizierte Grafikkarten benötigen grundsätzlich keinen PCIe-Steckplatz"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die integrierte Grafik (iGPU) sitzt im selben Chip wie die CPU und teilt sich den Arbeitsspeicher, während eine dedizierte Grafikkarte (dGPU) einen eigenen Chip und eigenen VRAM besitzt."
     },
     {
       "id": "q3",
       "question": "Wozu dient VRAM auf einer dedizierten Grafikkarte?",
       "options": [
-        "Es speichert dauerhaft das Betriebssystem",
-        "Es hält Texturen und den Frame-Buffer bereit und ist besonders schnell an die GPU angebunden",
-        "Es ersetzt vollständig den System-Arbeitsspeicher des PCs",
-        "Es dient nur der Kühlung der Grafikkarte"
+        "Es speichert dauerhaft das komplette installierte Betriebssystem",
+        "Es ersetzt vollständig den System-Arbeitsspeicher des gesamten PCs",
+        "Es dient ausschließlich der besseren Kühlung der Grafikkarte",
+        "Es hält Texturen und den Frame-Buffer bereit"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "VRAM ist der dedizierte, sehr breitbandig angebundene Speicher der Grafikkarte für Texturen und den aktuell berechneten Bildinhalt (Frame-Buffer)."
     },
     {
       "id": "q4",
       "question": "Über welche Schnittstelle wird eine dedizierte Grafikkarte typischerweise mit dem Mainboard verbunden?",
       "options": [
-        "USB-C",
-        "RJ45",
+        "USB-C (Daten- und Video-Anschluss)",
         "PCIe (meist ein x16-Steckplatz)",
+        "RJ45",
         "SATA"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Dedizierte Grafikkarten stecken in einem PCIe-Steckplatz, meist mit der vollen x16-Anbindung für maximale Bandbreite."
     },
     {
       "id": "q5",
       "question": "Was ist der Unterschied zwischen der GPU und den Anschlüssen HDMI/DisplayPort?",
       "options": [
-        "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe",
-        "Die GPU berechnet das Bild, HDMI/DisplayPort übertragen das fertig berechnete Bild nur zum Monitor",
-        "HDMI und DisplayPort berechnen das Bild, die GPU gibt es nur aus",
-        "Die GPU ersetzt HDMI und DisplayPort vollständig"
+        "Die GPU berechnet das Bild, HDMI/DisplayPort übertragen es zum Monitor",
+        "Es gibt zwischen beiden Begriffen keinen Unterschied, sie meinen dasselbe",
+        "HDMI und DisplayPort berechnen das Bild selbst, die GPU gibt es nur aus",
+        "Die GPU ersetzt HDMI und DisplayPort dabei vollständig und macht sie überflüssig"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Die GPU ist die Recheneinheit, die das Bild erzeugt. HDMI und DisplayPort sind lediglich die physischen Ausgänge, über die das Ergebnis zum Monitor übertragen wird."
     },
     {
       "id": "q6",
       "question": "Für welchen Arbeitsplatz reicht eine integrierte Grafiklösung in der Regel völlig aus?",
       "options": [
-        "3D-CAD-Konstruktion",
-        "4K-Videoschnitt mit vielen Effekten",
-        "Büroarbeit mit Textverarbeitung, E-Mail und Videokonferenzen",
-        "KI-Modelltraining"
+        "3D-CAD-Konstruktion mit komplexen Bauteilmodellen",
+        "Büroarbeit mit Textverarbeitung und E-Mail",
+        "4K-Videoschnitt mit vielen Effekten und Farbkorrektur",
+        "KI-Modelltraining mit großen neuronalen Netzen"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Für klassische Büroanwendungen ist die Leistung einer integrierten Grafik ausreichend — eine dedizierte Grafikkarte lohnt sich erst bei rechenintensiver Grafik- oder KI-Last."
     }
   ]

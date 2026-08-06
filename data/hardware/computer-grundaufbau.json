@@ -5,36 +5,36 @@
       "id": "q1",
       "question": "Welche vier Grundeinheiten umfasst die Von-Neumann-Architektur?",
       "options": [
-        "Rechenwerk, Steuerwerk, Speicherwerk, Ein-/Ausgabewerk",
         "CPU, RAM, Mainboard, Netzteil",
         "ALU, FPU, Cache, Register",
-        "Adressbus, Datenbus, Steuerbus, Ringbus"
+        "Adressbus, Datenbus, Steuerbus und der zusätzliche interne Ringbus",
+        "Rechenwerk, Steuerwerk, Speicherwerk, Ein-/Ausgabewerk"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Die Von-Neumann-Architektur besteht aus Rechenwerk (ALU), Steuerwerk, einem gemeinsamen Speicherwerk für Programm und Daten sowie einem Ein-/Ausgabewerk."
     },
     {
       "id": "q2",
       "question": "Was ist das entscheidende Merkmal der Von-Neumann-Architektur gegenüber getrennten Speichern für Programm und Daten?",
       "options": [
-        "Programm und Daten liegen im gleichen Speicher und werden über denselben Bus transportiert",
-        "Programm und Daten werden grundsätzlich in getrennten Speicherbausteinen gehalten",
-        "Es gibt überhaupt keinen Speicher, alles läuft nur im Register",
-        "Das Steuerwerk befindet sich außerhalb der CPU"
+        "Programm und Daten werden strikt in zwei komplett getrennten Speicherbausteinen gehalten",
+        "Programm und Daten liegen im selben Speicher, transportiert über denselben Bus",
+        "Es existiert in dieser Architektur überhaupt kein Speicher, alles läuft nur in Registern",
+        "Das Steuerwerk befindet sich in dieser Architektur vollständig außerhalb der CPU"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Kernmerkmal der Von-Neumann-Architektur ist der gemeinsame Speicher für Befehle und Daten, verbunden über denselben Bus — im Gegensatz zur Harvard-Architektur mit getrennten Speichern."
     },
     {
       "id": "q3",
       "question": "Was versteht man unter dem „Von-Neumann-Flaschenhals“?",
       "options": [
-        "Die begrenzte Kapazität des Massenspeichers",
-        "Die Tatsache, dass Befehle und Daten sich denselben Bus teilen und deshalb nicht gleichzeitig übertragen werden können — das begrenzt die Geschwindigkeit unabhängig von der Rechenleistung der CPU",
-        "Die maximale Anzahl an USB-Anschlüssen an einem Mainboard",
-        "Ein Fehler, der nur bei sehr alten Prozessoren auftritt"
+        "Befehle und Daten teilen sich denselben Bus und blockieren sich dabei gegenseitig",
+        "Die grundsätzlich sehr begrenzte Speicherkapazität des angeschlossenen Massenspeichers",
+        "Die maximale Anzahl an USB-Anschlüssen, die ein Mainboard bereitstellen kann",
+        "Ein Fehlerbild, das ausschließlich bei sehr alten Prozessoren auftreten kann"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Weil sich Befehle und Daten denselben Bus teilen, kann der Datentransport zwischen CPU und Speicher zum limitierenden Faktor werden, selbst wenn die CPU selbst schneller rechnen könnte."
     },
     {
@@ -42,11 +42,11 @@
       "question": "Welcher Bus überträgt die Speicheradresse, auf die zugegriffen werden soll?",
       "options": [
         "Datenbus",
-        "Steuerbus",
         "Adressbus",
+        "Kontrollbus",
         "Ringbus"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "Der Adressbus überträgt die Speicheradresse. Der Datenbus transportiert die eigentlichen Daten/Befehle, der Steuerbus die Steuersignale."
     },
     {
@@ -55,34 +55,34 @@
       "options": [
         "RAM",
         "CPU-Cache",
-        "SSD/HDD",
-        "Register"
+        "Register",
+        "SSD/HDD"
       ],
-      "answer": 2,
+      "answer": 3,
       "explanation": "SSD und HDD sind persistente Massenspeicher. RAM, CPU-Cache und Register sind flüchtig und verlieren ihren Inhalt ohne Stromversorgung."
     },
     {
       "id": "q6",
       "question": "Was ist die Hauptaufgabe des Mainboards in einem Computersystem?",
       "options": [
-        "Es führt selbst Berechnungen aus",
-        "Es verbindet alle Komponenten über die Busse und bestimmt Formfaktor und Kompatibilität",
-        "Es speichert dauerhaft alle Nutzerdaten",
-        "Es wandelt Netzstrom in Gleichspannung um"
+        "Es führt selbstständig eigene Berechnungen aus, unabhängig von der CPU",
+        "Es speichert dauerhaft sämtliche Nutzerdaten des gesamten Systems",
+        "Es verbindet alle Komponenten über die Busse des Systems",
+        "Es wandelt die Netzspannung direkt in stabile Gleichspannung um"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Das Mainboard verbindet CPU, RAM, Massenspeicher und weitere Komponenten über die Busse und legt fest, welche Bauteile kompatibel sind (Formfaktor, Sockel, Anschlüsse)."
     },
     {
       "id": "q7",
       "question": "Welche Aufgabe hat das Steuerwerk (Control Unit) in der Von-Neumann-Architektur?",
       "options": [
-        "Es führt arithmetische und logische Berechnungen direkt aus",
-        "Es holt Befehle aus dem Speicher, dekodiert sie und steuert den Ablauf der Ausführung",
-        "Es speichert Programm und Daten dauerhaft",
-        "Es verbindet den Rechner ausschließlich mit externer Peripherie"
+        "Es holt Befehle, dekodiert sie und steuert die Ausführung",
+        "Es führt arithmetische und logische Berechnungen direkt selbst aus",
+        "Es speichert Programm und Daten dauerhaft ohne Stromversorgung",
+        "Es verbindet den Rechner ausschließlich mit externer Peripherie-Hardware"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Das Steuerwerk koordiniert den Ablauf: Befehle holen (Fetch), dekodieren (Decode) und die Ausführung steuern. Die eigentlichen Berechnungen übernimmt das Rechenwerk (ALU)."
     }
   ]

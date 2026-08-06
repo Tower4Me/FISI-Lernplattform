@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Netzwerktechnik: MAC vs. IP, ARP & APIPA</title>
+  <title>Netzwerktechnik: ARP (Address Resolution Protocol)</title>
   <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
@@ -14,12 +14,12 @@
       <ol>
         <li><a href="../../index.html">Lernplan</a></li>
         <li><a href="../../index.html#netzwerktechnik">Netzwerktechnik</a></li>
-        <li aria-current="page">MAC vs. IP, ARP & APIPA</li>
+        <li aria-current="page">ARP (Address Resolution Protocol)</li>
       </ol>
     </nav>
 
     <h1 class="unit-title">
-      MAC vs. IP, ARP & APIPA
+      ARP (Address Resolution Protocol)
       <span class="badges">
         <span class="badge badge--ap1">AP1</span>
         <span class="badge badge--ap2">AP2</span>
@@ -33,17 +33,14 @@
     <section id="einstieg" class="section section--einstieg">
       <h2>Einstieg</h2>
       <p>
-        Ein Paket auf dem Postweg trägt zwei völlig unterschiedliche
-        Adressangaben: die <strong>Postanschrift</strong> („Musterstraße 12,
-        10115 Berlin“) und die <strong>Werksnummer</strong> auf dem Gehäuse
-        des Pakets selbst, die der Hersteller fest eingraviert hat und die
-        niemals geändert wird. Die Postanschrift sagt, wohin das Paket
-        geliefert werden <em>soll</em> — sie kann sich ändern, wenn jemand
-        umzieht. Die Werksnummer identifiziert das Paket selbst, unabhängig
-        davon, wo es gerade liegt. Genau dieses Doppelsystem nutzen
-        Netzwerke: Die <strong>IP-Adresse</strong> ist die veränderliche
-        „Postanschrift“ eines Geräts im Netz, die <strong>MAC-Adresse</strong>
-        ist die fest eingebrannte „Werksnummer“ der Netzwerkkarte.
+        Stell dir ein Klassenzimmer vor, in dem eine Vertretungslehrkraft
+        nur den Nachnamen eines Schülers kennt, aber nicht weiß, an
+        welchem Platz er sitzt. Sie ruft laut in die Klasse: „Wer ist
+        Müller?“ — alle anderen Schüler hören die Frage, ignorieren sie
+        aber, da sie nicht gemeint sind. Nur der gesuchte Schüler meldet
+        sich und sagt: „Ich, dritte Reihe, Platz 2.“ Genau nach diesem
+        Prinzip löst <strong>ARP</strong> im Netzwerk eine bekannte
+        IP-Adresse in die passende MAC-Adresse auf.
       </p>
     </section>
 
@@ -51,37 +48,31 @@
     <section id="konzept" class="section section--konzept">
       <h2>Konzept</h2>
 
-      <h3>MAC-Adresse vs. IP-Adresse</h3>
-      <table>
-        <thead>
-          <tr><th>Merkmal</th><th>MAC-Adresse</th><th>IP-Adresse</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>OSI-Schicht</td><td>2 (Sicherung)</td><td>3 (Vermittlung)</td></tr>
-          <tr><td>Vergabe</td><td>fest vom Hersteller in die Netzwerkkarte eingebrannt (48 Bit, hexadezimal, z. B. <code>3C:52:82:1A:9F:01</code>)</td><td>logisch zugewiesen (statisch oder per DHCP), abhängig vom Netzwerk, in dem sich das Gerät befindet</td></tr>
-          <tr><td>Gültigkeitsbereich</td><td>nur im lokalen Netzsegment relevant, wird nicht über Router hinweg weitergegeben</td><td>global/netzwerkweit relevant, wird über Router hinweg geroutet</td></tr>
-          <tr><td>Veränderbarkeit</td><td>praktisch fest (nur per Software-Spoofing veränderbar)</td><td>kann sich je nach Netz/Standort ändern</td></tr>
-        </tbody>
-      </table>
-      <p>
-        Innerhalb eines lokalen Netzsegments erfolgt die tatsächliche
-        Zustellung eines Datenpakets immer über die MAC-Adresse — die
-        IP-Adresse bestimmt nur, <em>welches</em> Gerät gemeint ist, die
-        MAC-Adresse liefert die Daten <em>dorthin</em>.
-      </p>
-
-      <h3>ARP (Address Resolution Protocol)</h3>
       <p>
         Damit ein Gerät ein IP-Paket im lokalen Netz tatsächlich zustellen
-        kann, muss es die passende MAC-Adresse zur Ziel-IP-Adresse kennen.
-        Das übernimmt <strong>ARP</strong>:
+        kann, muss es die passende <strong>MAC-Adresse</strong> zur
+        Ziel-IP-Adresse kennen (siehe
+        <a href="mac-llc.html">MAC &amp; LLC</a>). Das übernimmt
+        <strong>ARP</strong> (Address Resolution Protocol) — ausschließlich
+        innerhalb eines lokalen Netzsegments, über Router hinweg wird ARP
+        nicht verwendet.
       </p>
+
+      <h3>Ablauf: Request und Reply</h3>
       <ol>
-        <li>Das sendende Gerät prüft zunächst seinen lokalen <strong>ARP-Cache</strong> (Tabelle mit bereits bekannten IP-MAC-Zuordnungen).</li>
-        <li>Ist die Zuordnung unbekannt, sendet das Gerät eine <strong>ARP-Request</strong> als Broadcast ins lokale Netz: „Wer hat die IP-Adresse X.X.X.X?“</li>
-        <li>Das Gerät mit dieser IP-Adresse antwortet mit einer <strong>ARP-Reply</strong> und teilt seine MAC-Adresse direkt (unicast) mit.</li>
-        <li>Die Zuordnung wird im ARP-Cache gespeichert, damit nicht bei jedem Paket erneut gefragt werden muss.</li>
+        <li>Das sendende Gerät prüft zunächst seinen lokalen
+          <strong>ARP-Cache</strong> (Tabelle mit bereits bekannten
+          IP-MAC-Zuordnungen).</li>
+        <li>Ist die Zuordnung unbekannt, sendet das Gerät eine
+          <strong>ARP-Request</strong> als Broadcast ins lokale Netz:
+          „Wer hat die IP-Adresse X.X.X.X?“</li>
+        <li>Das Gerät mit dieser IP-Adresse antwortet mit einer
+          <strong>ARP-Reply</strong> und teilt seine MAC-Adresse direkt
+          (Unicast) mit.</li>
+        <li>Die Zuordnung wird im ARP-Cache gespeichert, damit nicht bei
+          jedem Paket erneut gefragt werden muss.</li>
       </ol>
+
       <figure class="figure--diagram">
         <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="arp-title arp-desc">
           <title id="arp-title">ARP-Ablauf: Broadcast-Anfrage, Unicast-Antwort und Cache-Eintrag</title>
@@ -124,23 +115,14 @@
         </figcaption>
       </figure>
 
+      <h3>Sicherheitsrisiko: ARP-Spoofing</h3>
       <p>
-        ARP arbeitet ausschließlich innerhalb eines lokalen Netzsegments —
-        über Netzgrenzen (Router) hinweg wird ARP nicht verwendet, dort
-        übernimmt der Router selbst die Weiterleitung anhand der
-        IP-Adresse.
-      </p>
-
-      <h3>APIPA (Automatic Private IP Addressing)</h3>
-      <p>
-        Findet ein Gerät beim Start keinen DHCP-Server (z. B. weil dieser
-        ausgefallen ist), vergibt es sich selbst automatisch eine Adresse
-        aus dem reservierten Bereich <strong>169.254.0.0/16</strong> —
-        damit kann das Gerät zumindest mit anderen APIPA-Geräten im selben
-        Segment kommunizieren, aber nicht ins Internet oder in andere
-        Subnetze. Eine sichtbare APIPA-Adresse (<code>169.254.x.x</code>)
-        ist deshalb ein klassisches Diagnosezeichen: „Kein DHCP-Server
-        erreichbar“.
+        Da ARP-Replies ungeprüft übernommen werden, kann ein Angreifer im
+        selben Netzsegment gefälschte ARP-Antworten senden und sich so als
+        ein anderes Gerät ausgeben (<strong>ARP-Spoofing</strong>) — dazu
+        vertiefend die Einheit
+        <a href="../it-sicherheit/angriffsmethoden.html">Angriffsmethoden</a>
+        im Modul IT-Sicherheit.
       </p>
     </section>
 
@@ -148,22 +130,30 @@
     <section id="praxis" class="section section--praxis">
       <h2>Praxisbeispiel</h2>
       <p>
-        Ein Azubi im 1. Lehrjahr meldet: „Mein PC hat Internet, aber der
-        PC meiner Kollegin nicht — beide hängen am selben Switch.“
+        Ein Systemadministrator soll erklären, warum ein neu ans Netz
+        angeschlossener Drucker zunächst von keinem PC im selben Segment
+        erreichbar ist, obwohl er bereits eine gültige IP-Adresse besitzt.
       </p>
       <ul>
-        <li>Der Systemadministrator prüft per <code>ipconfig</code> die IP-Konfiguration der Kollegin und findet <code>169.254.23.87</code> — eine typische <strong>APIPA-Adresse</strong>.</li>
-        <li>Das bedeutet: Der PC hat beim Systemstart keinen <strong>DHCP-Server</strong> erreicht und sich selbst eine Adresse aus dem privaten APIPA-Bereich vergeben.</li>
-        <li>Nach Prüfung des Netzwerkkabels (loser Stecker) und Neustart der Netzwerkverbindung bezieht der PC korrekt eine Adresse vom DHCP-Server.</li>
-        <li>Zur Fehlersuche im lokalen Netz prüft der Administrator zusätzlich den <strong>ARP-Cache</strong> per <code>arp -a</code>, um zu sehen, welche MAC-Adressen den bekannten IP-Adressen im Segment zugeordnet sind.</li>
+        <li>Kein PC im Netz hat bisher mit dem Drucker kommuniziert — es
+          existiert also noch kein Eintrag für dessen IP-Adresse im
+          jeweiligen <strong>ARP-Cache</strong>.</li>
+        <li>Sobald ein PC den Drucker anspricht, sendet er automatisch
+          eine <strong>ARP-Request</strong> als Broadcast: „Wer hat die
+          IP-Adresse des Druckers?“</li>
+        <li>Der Drucker antwortet per <strong>ARP-Reply</strong>, der PC
+          trägt die Zuordnung in seinen Cache ein — ab jetzt funktioniert
+          die Kommunikation ohne erneute Auflösung.</li>
+        <li>Zur Fehlersuche lässt sich der ARP-Cache per <code>arp -a</code>
+          in der Kommandozeile einsehen.</li>
       </ul>
       <p>
-        Typische Prüfungsfrage: „Warum benötigt ein Gerät sowohl eine
-        MAC- als auch eine IP-Adresse?“ – Antwort: Die IP-Adresse
-        identifiziert das Gerät logisch im (ggf. weltweiten) Netzwerk und
-        ermöglicht Routing über Netzgrenzen hinweg, die MAC-Adresse ist für
-        die tatsächliche Zustellung innerhalb des lokalen Netzsegments
-        nötig — ARP verbindet beide Ebenen.
+        Typische Prüfungsfrage: „Warum wird eine ARP-Anfrage als Broadcast
+        statt als gezielte Nachricht versendet?“ – Antwort: Der Sender
+        kennt zu diesem Zeitpunkt nur die Ziel-IP-Adresse, nicht aber deren
+        MAC-Adresse — ohne MAC-Adresse lässt sich das Zielgerät nicht
+        gezielt (Unicast) adressieren, deshalb erreicht die Anfrage per
+        Broadcast alle Geräte im Segment.
       </p>
     </section>
 
@@ -171,18 +161,17 @@
     <section id="merksatz" class="section section--merksatz">
       <h2>Merksatz</h2>
       <p>
-        MAC-Adresse (Schicht 2) = fest, herstellerseitig, nur lokal
-        relevant. IP-Adresse (Schicht 3) = logisch, veränderlich, global
-        relevant. ARP löst eine IP-Adresse in die passende MAC-Adresse
-        im lokalen Netz auf. APIPA (169.254.0.0/16) = Selbsthilfe-Adresse
-        bei fehlendem DHCP-Server, funktioniert nur lokal.
+        ARP löst eine bekannte IP-Adresse in die zugehörige MAC-Adresse im
+        lokalen Netz auf: Request als Broadcast, Reply als Unicast,
+        Ergebnis im ARP-Cache gespeichert. ARP arbeitet nur lokal, nicht
+        über Netzgrenzen hinweg.
       </p>
     </section>
 
     <!-- 5. QUIZ -->
     <section id="quiz" class="section section--quiz">
       <h2>Quiz</h2>
-      <div data-quiz-src="../../data/netzwerktechnik/mac-ip-arp-apipa.json">
+      <div data-quiz-src="../../data/netzwerktechnik/arp.json">
         <p class="muted">Quiz wird geladen …</p>
       </div>
     </section>

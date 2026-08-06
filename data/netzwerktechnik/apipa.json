@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/apipa",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "In welchem Adressbereich liegt eine APIPA-Adresse?",
+      "options": [
+        "192.168.0.0/16",
+        "10.0.0.0/8",
+        "127.0.0.0/8",
+        "169.254.0.0/16"
+      ],
+      "answer": 3,
+      "explanation": "APIPA-Adressen stammen immer aus dem reservierten Bereich 169.254.0.0/16."
+    },
+    {
+      "id": "q2",
+      "question": "Wann vergibt sich ein Gerät automatisch selbst eine APIPA-Adresse?",
+      "options": [
+        "Wenn der Administrator die Adresse manuell und dauerhaft auf APIPA umstellt",
+        "Wenn beim Start kein DHCP-Server innerhalb der Wartezeit antwortet",
+        "Wenn zwei verschiedene Geräte im Netz dieselbe IP-Adresse verwenden",
+        "Wenn die DNS-Auflösung eines angefragten Servernamens fehlschlägt"
+      ],
+      "answer": 1,
+      "explanation": "Erreicht ein Gerät beim Start keinen DHCP-Server, vergibt es sich nach Ablauf der Wartezeit automatisch selbst eine APIPA-Adresse."
+    },
+    {
+      "id": "q3",
+      "question": "Kann ein Gerät mit APIPA-Adresse ins Internet zugreifen?",
+      "options": [
+        "Ja, uneingeschränkter Zugriff möglich, nur ohne Verschlüsselung",
+        "Nur wenn zusätzlich ein zweiter DHCP-Server im Netz existiert",
+        "Nein, kein Internetzugriff, da Gateway und DNS-Server fehlen",
+        "Ja, aber ausschließlich über eine bestehende VPN-Verbindung"
+      ],
+      "answer": 2,
+      "explanation": "Eine APIPA-Adresse bringt weder Gateway- noch DNS-Information mit — ohne Gateway ist kein Zugriff außerhalb des lokalen Segments möglich."
+    },
+    {
+      "id": "q4",
+      "question": "Mit welchen Geräten kann ein Gerät mit APIPA-Adresse kommunizieren?",
+      "options": [
+        "Mit beliebigen Geräten weltweit, sofern DNS korrekt funktioniert",
+        "Nur mit anderen APIPA-Geräten im selben lokalen Segment",
+        "Ausschließlich mit dem eigenen konfigurierten Standardgateway",
+        "Mit keinem einzigen anderen Gerät, APIPA blockiert jede Kommunikation"
+      ],
+      "answer": 1,
+      "explanation": "APIPA ermöglicht ausschließlich Kommunikation mit anderen APIPA-Geräten im selben lokalen Netzsegment, kein Routing darüber hinaus."
+    },
+    {
+      "id": "q5",
+      "question": "Was bedeutet eine sichtbare 169.254.x.x-Adresse für die Fehlersuche?",
+      "options": [
+        "Das Gerät hat absichtlich eine statische Adresse erhalten",
+        "Das Netzwerkkabel überträgt Daten mit maximaler Geschwindigkeit",
+        "Der DHCP-Server war beim Start dieses Geräts nicht erreichbar",
+        "Der Router hat das Gerät aus Sicherheitsgründen gesperrt"
+      ],
+      "answer": 2,
+      "explanation": "Eine 169.254.x.x-Adresse ist ein klassisches Diagnosezeichen: Der DHCP-Server war beim Systemstart dieses Geräts nicht erreichbar."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Protokoll versucht ein Gerät zuerst zu nutzen, bevor es auf APIPA zurückfällt?",
+      "options": [
+        "DHCP",
+        "DNS",
+        "ARP",
+        "SNMP"
+      ],
+      "answer": 0,
+      "explanation": "Ein Gerät versucht zuerst, über DHCP eine Adresse zu beziehen — erst wenn das scheitert, greift APIPA als Notlösung."
+    },
+    {
+      "id": "q7",
+      "question": "Warum gilt APIPA als reine Notlösung und nicht als dauerhafte Konfiguration?",
+      "options": [
+        "Weil ohne Gateway und DNS kein Zugriff außerhalb des Segments möglich ist",
+        "Weil sämtliche APIPA-Adressen bereits nach 24 Stunden automatisch ablaufen",
+        "Weil APIPA angeblich nur von sehr alten Betriebssystemen unterstützt wird",
+        "Weil APIPA-Adressen vom Hersteller der Netzwerkkarte gesperrt werden könnten"
+      ],
+      "answer": 0,
+      "explanation": "Ohne Gateway und DNS-Server bleibt ein Gerät mit APIPA-Adresse auf das lokale Segment beschränkt — für den Dauerbetrieb ungeeignet."
+    }
+  ]
+}

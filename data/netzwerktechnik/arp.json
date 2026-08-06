@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/arp",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was macht ein Gerät, bevor es eine ARP-Request sendet?",
+      "options": [
+        "Es fragt zunächst den zuständigen DNS-Server nach der passenden MAC-Adresse",
+        "Es wartet grundsätzlich automatisch 300 Sekunden vor jeder einzelnen Anfrage",
+        "Es prüft zuerst seinen lokalen ARP-Cache auf bekannte Zuordnungen",
+        "Es sendet die Anfrage grundsätzlich direkt an den Router, unabhängig vom Segment"
+      ],
+      "answer": 2,
+      "explanation": "Bevor ein Gerät eine ARP-Request verschickt, prüft es zuerst seinen lokalen ARP-Cache, ob die Zuordnung bereits bekannt ist."
+    },
+    {
+      "id": "q2",
+      "question": "Wie wird eine ARP-Request versendet?",
+      "options": [
+        "Als Unicast direkt an den DHCP-Server",
+        "Als Broadcast an alle Geräte im lokalen Netzsegment",
+        "Als Multicast an eine feste Gruppenadresse",
+        "Ausschließlich über den Router ins nächste Subnetz"
+      ],
+      "answer": 1,
+      "explanation": "Eine ARP-Request wird als Broadcast ins lokale Netzsegment gesendet, da der Sender die MAC-Adresse des Ziels noch nicht kennt."
+    },
+    {
+      "id": "q3",
+      "question": "Wie antwortet das gesuchte Zielgerät auf eine ARP-Request?",
+      "options": [
+        "Per Broadcast an alle anderen Geräte im gesamten Segment",
+        "Per Unicast direkt an den Sender mit der eigenen MAC-Adresse",
+        "Es leitet die Anfrage kommentarlos an den nächsten Router weiter",
+        "Es speichert die Anfrage lediglich, ohne selbst zu antworten"
+      ],
+      "answer": 1,
+      "explanation": "Das gesuchte Gerät antwortet per Unicast direkt an den Sender und teilt dabei seine eigene MAC-Adresse mit."
+    },
+    {
+      "id": "q4",
+      "question": "Warum funktioniert ARP nicht über Netzgrenzen (Router) hinweg?",
+      "options": [
+        "Weil ARP-Requests Broadcasts sind, die Router nicht weiterleiten",
+        "Weil ARP angeblich ausschließlich für IPv6-Netze entwickelt wurde",
+        "Weil Router selbst grundsätzlich über keine eigene MAC-Adresse verfügen",
+        "Weil ARP-Pakete verschlüsselt sind und Router sie nicht entschlüsseln könnten"
+      ],
+      "answer": 0,
+      "explanation": "ARP-Requests sind Broadcasts, die auf das lokale Netzsegment begrenzt sind — Router leiten Broadcasts nicht über Netzgrenzen hinweg weiter."
+    },
+    {
+      "id": "q5",
+      "question": "Was speichert ein Gerät nach einer erfolgreichen ARP-Auflösung?",
+      "options": [
+        "Die Zuordnung dauerhaft im zentralen DNS-Server der Firma",
+        "Nichts, jede einzelne Anfrage muss stets erneut gestellt werden",
+        "Die IP-MAC-Zuordnung im lokalen ARP-Cache für spätere Anfragen",
+        "Die Zuordnung ausschließlich im Arbeitsspeicher des Zielgeräts, nie beim Sender"
+      ],
+      "answer": 2,
+      "explanation": "Der Sender trägt die ermittelte IP-MAC-Zuordnung in seinen lokalen ARP-Cache ein, damit nicht bei jedem Paket erneut gefragt werden muss."
+    },
+    {
+      "id": "q6",
+      "question": "Was ist ARP-Spoofing?",
+      "options": [
+        "Ein Angreifer überflutet gezielt den DHCP-Server mit massenhaft Anfragen",
+        "Ein Angreifer fälscht DNS-Einträge gezielt, um Webseiten umzuleiten",
+        "Ein Angreifer verändert gezielt die IP-Adresse eines fremden Routers im Netz",
+        "Ein Angreifer sendet gefälschte ARP-Antworten, um sich zu tarnen"
+      ],
+      "answer": 3,
+      "explanation": "Bei ARP-Spoofing sendet ein Angreifer gefälschte ARP-Replies, um sich im lokalen Netz als ein anderes Gerät auszugeben."
+    },
+    {
+      "id": "q7",
+      "question": "Was liefert der Befehl arp -a in der Kommandozeile?",
+      "options": [
+        "Eine Liste aller derzeit offenen Ports auf dem eigenen Gerät",
+        "Eine Liste sämtlicher DNS-Einträge im gesamten lokalen Netz",
+        "Eine Liste aller aktuell laufenden Prozesse auf dem System",
+        "Eine Liste bekannter IP-MAC-Zuordnungen aus dem ARP-Cache"
+      ],
+      "answer": 3,
+      "explanation": "arp -a zeigt den Inhalt des lokalen ARP-Cache — also die bereits bekannten Zuordnungen zwischen IP- und MAC-Adressen."
+    }
+  ]
+}

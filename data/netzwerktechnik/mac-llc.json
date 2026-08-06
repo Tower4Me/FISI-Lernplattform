@@ -1,0 +1,89 @@
+{
+  "unit": "netzwerktechnik/mac-llc",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wie viele Bit hat eine MAC-Adresse?",
+      "options": [
+        "24 Bit",
+        "32 Bit",
+        "48 Bit",
+        "64 Bit"
+      ],
+      "answer": 2,
+      "explanation": "MAC-Adressen sind 48 Bit lang und werden hexadezimal als sechs Bytepaare notiert."
+    },
+    {
+      "id": "q2",
+      "question": "Wofür stehen die ersten 24 Bit (3 Byte) einer MAC-Adresse?",
+      "options": [
+        "für den aktuell verwendeten Netzwerkport des Geräts",
+        "für die aktuell zugewiesene IP-Adresse des Geräts",
+        "für die vereinbarte Lease-Dauer der DHCP-Adresse",
+        "für die OUI, die Herstellerkennung des Geräts"
+      ],
+      "answer": 3,
+      "explanation": "Die ersten 24 Bit bilden die OUI (Organizationally Unique Identifier) — die vom Hersteller bei der IEEE registrierte Herstellerkennung."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Aufgabe hat die LLC-Teilschicht innerhalb der Sicherungsschicht?",
+      "options": [
+        "Sie vergibt bei jedem einzelnen Neustart automatisch neue IP-Adressen an Geräte",
+        "Sie bietet der Vermittlungsschicht eine einheitliche Schnittstelle",
+        "Sie prüft ausschließlich die Fehlerfreiheit aller empfangenen IP-Pakete",
+        "Sie regelt vollständig die Verschlüsselung des gesamten Datenverkehrs im Netz"
+      ],
+      "answer": 1,
+      "explanation": "LLC (Logical Link Control) stellt der Vermittlungsschicht eine einheitliche Schnittstelle bereit, unabhängig vom genutzten Übertragungsmedium, und übernimmt Flusskontrolle sowie Protokoll-Multiplexing."
+    },
+    {
+      "id": "q4",
+      "question": "Welche Aufgabe übernimmt die MAC-Teilschicht?",
+      "options": [
+        "Verschlüsselung sämtlicher Nutzdaten direkt vor dem Versand",
+        "Auflösung von Domainnamen in die zugehörigen IP-Adressen",
+        "Adressierung der Netzwerkkarten und Steuerung des Medienzugriffs",
+        "Vergabe von neuen IP-Adressen per DHCP an angeschlossene Geräte"
+      ],
+      "answer": 2,
+      "explanation": "Die MAC-Teilschicht regelt die Adressierung über MAC-Adressen sowie den Medienzugriff — wer wann senden darf."
+    },
+    {
+      "id": "q5",
+      "question": "Warum kann eine MAC-Adresse nicht zum Routing über das Internet genutzt werden?",
+      "options": [
+        "Weil sie nur lokal gilt und nicht über Netzgrenzen weitergegeben wird",
+        "Weil MAC-Adressen angeblich zu kurz für weltweite Eindeutigkeit sind",
+        "Weil sich MAC-Adressen bei jedem Neustart des Geräts automatisch ändern",
+        "Weil Router grundsätzlich keinerlei MAC-Adressen verarbeiten können"
+      ],
+      "answer": 0,
+      "explanation": "Die MAC-Adresse ist eine rein lokale Schicht-2-Adresse und wird nicht über Router hinweg geroutet — dafür ist die IP-Adresse auf Schicht 3 zuständig."
+    },
+    {
+      "id": "q6",
+      "question": "Was unterscheidet die MAC-Adresse grundlegend von der IP-Adresse?",
+      "options": [
+        "Beide Adressarten werden ausschließlich durch DHCP vergeben",
+        "MAC ist rein logisch, IP dagegen physisch fest verdrahtet",
+        "Es gibt praktisch keinerlei Unterschied zwischen beiden Adressarten",
+        "MAC ist physisch und fest, IP dagegen logisch und veränderlich"
+      ],
+      "answer": 3,
+      "explanation": "Die MAC-Adresse ist eine physische, herstellerseitig fest vergebene Adresse, die IP-Adresse eine logische, veränderliche Adresse."
+    },
+    {
+      "id": "q7",
+      "question": "Wie lässt sich aus einer MAC-Adresse der Hersteller einer Netzwerkkarte ermitteln?",
+      "options": [
+        "Über die letzten drei Byte, die angeblich den Firmennamen im Klartext enthalten",
+        "Über die OUI in den ersten drei Byte, per IEEE-Datenbank nachschlagbar",
+        "Gar nicht, MAC-Adressen enthalten grundsätzlich keinerlei Herstellerinformation",
+        "Nur der jeweilige Hersteller selbst kann diese Zuordnung überhaupt vornehmen"
+      ],
+      "answer": 1,
+      "explanation": "Die OUI in den ersten drei Byte einer MAC-Adresse lässt sich über eine öffentliche IEEE-Datenbank dem jeweiligen Hersteller zuordnen."
+    }
+  ]
+}

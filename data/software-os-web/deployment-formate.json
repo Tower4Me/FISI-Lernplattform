@@ -5,34 +5,34 @@
       "id": "q1",
       "question": "Was ist eine ISO-Datei?",
       "options": [
+        "Ein reines Textdokument völlig ohne jede interne Struktur oder erkennbare Formatierung",
+        "Ein verlustfreies Komprimierungsverfahren, das speziell und ausschließlich nur für Audiodateien wie WAV oder FLAC entwickelt wurde",
         "Ein exaktes Abbild (Image) eines gesamten Datenträgers oder Dateisystems, Byte für Byte, inklusive der Datenträgerstruktur",
-        "Ein reines Textdokument ohne Struktur",
-        "Ein Komprimierungsverfahren für Audiodateien",
-        "Ein Protokoll zur Netzwerkübertragung von E-Mails"
+        "Ein Netzwerkprotokoll zur verschlüsselten Übertragung von E-Mails zwischen Servern"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Eine ISO-Datei (nach dem Standard ISO 9660) ist ein exaktes, Byte-für-Byte-Abbild eines gesamten Datenträgers oder Dateisystems inklusive Struktur."
     },
     {
       "id": "q2",
       "question": "Wofür wird eine ISO-Datei typischerweise eingesetzt?",
       "options": [
-        "Ausschließlich zur Textverarbeitung",
-        "Für Betriebssystem-Installationen, das Einbinden als virtuelles DVD-Laufwerk in VMs und beim PXE-Netzwerk-Deployment",
-        "Nur zur Komprimierung von Videodateien",
-        "Ausschließlich für Datenbank-Backups"
+        "Ausschließlich zur reinen Textverarbeitung, ganz ohne jeden weiteren erkennbaren praktischen Anwendungszweck im Alltag",
+        "Nur zur verlustbehafteten Komprimierung von Videodateien vor der langfristigen Archivierung",
+        "Ausschließlich für regelmäßige, automatisierte Datenbank-Backups im Rechenzentrum",
+        "Für Betriebssystem-Installationen, das Einbinden als virtuelles DVD-Laufwerk in VMs und beim PXE-Netzwerk-Deployment"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "ISO-Dateien werden für Betriebssysteminstallationen, als virtuelles DVD-Laufwerk in virtuellen Maschinen und beim Netzwerk-Deployment über PXE eingesetzt."
     },
     {
       "id": "q3",
       "question": "Was unterscheidet WIM grundlegend von einer ISO-Datei?",
       "options": [
-        "WIM ist ein Abbild eines Dateisystems (hardware-unabhängig, komprimiert, mehrere Editionen in einer Datei), ISO ein Abbild eines gesamten Datenträgers",
-        "WIM und ISO sind technisch identisch, nur unterschiedlich benannt",
-        "ISO kann mehrere Windows-Editionen in einer Datei enthalten, WIM nicht",
-        "WIM ist ausschließlich für Linux-Systeme gedacht"
+        "WIM bildet ein Dateisystem ab (hardware-unabhängig, komprimiert, mehrere Editionen), ISO ein ganzes Laufwerk",
+        "WIM und ISO sind in Aufbau und Funktionsweise technisch identisch, nur unterschiedlich benannt",
+        "ISO kann mehrere Windows-Editionen gebündelt in einer einzelnen Datei enthalten, WIM dagegen grundsätzlich niemals",
+        "WIM ist von seiner Konzeption her ausschließlich für Linux-Systeme und deren Paketformate gedacht"
       ],
       "answer": 0,
       "explanation": "WIM bildet ein Dateisystem ab (hardware-unabhängig, komprimiert, mehrere Editionen in einer Datei), während eine ISO ein Abbild eines gesamten Datenträgers ist."
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Was enthält die Datei boot.wim?",
       "options": [
-        "Das vollständige, fertig installierte Windows-System",
+        "Das vollständige, fertig installierte und einsatzbereite Windows-System samt aller Anwendungen",
         "Windows PE (Preinstallation Environment) — ein minimales Windows, das nur für die Installation gestartet wird",
-        "Ausschließlich Treiberdateien für Netzwerkkarten",
-        "Eine komprimierte Sicherungskopie aller Benutzerdaten"
+        "Ausschließlich zusätzliche Treiberdateien für Netzwerkkarten, ganz ohne jeden weiteren notwendigen Systembestandteil",
+        "Eine komprimierte Sicherungskopie sämtlicher Benutzerdaten des vorherigen Systems"
       ],
       "answer": 1,
       "explanation": "boot.wim enthält Windows PE, ein minimales Windows-System, das ausschließlich zum Starten des Installationsvorgangs dient."
@@ -52,30 +52,30 @@
     {
       "id": "q5",
       "question": "Mit welchem Tool werden WIM-Dateien typischerweise verwaltet (z. B. um enthaltene Editionen anzuzeigen oder ein Image anzuwenden)?",
-      "options": ["chmod", "DISM", "icacls", "grep"],
-      "answer": 1,
+      "options": ["chmod", "icacls", "DISM", "grep"],
+      "answer": 2,
       "explanation": "DISM (Deployment Image Servicing and Management) ist das Standardwerkzeug zur Verwaltung von WIM-Dateien unter Windows."
     },
     {
       "id": "q6",
       "question": "Warum kann eine einzige WIM-Datei mehrere Windows-Editionen (Home, Pro, Enterprise) enthalten, eine einzelne ISO aber nicht in derselben Weise?",
       "options": [
-        "Weil WIM ein Dateisystem-Image ist und dadurch mehrere Editionen gebündelt und komprimiert speichern kann, während eine ISO ein reines Datenträgerabbild ist",
-        "Weil ISO-Dateien grundsätzlich größer sind als WIM-Dateien",
-        "Weil WIM-Dateien keine Komprimierung unterstützen",
-        "Weil ISO-Dateien nur für Linux verwendet werden können"
+        "Weil ISO-Dateien unabhängig vom eigentlichen Inhalt grundsätzlich immer deutlich größer sind als vergleichbare WIM-Dateien",
+        "Weil WIM-Dateien im Unterschied zu ISO-Dateien grundsätzlich keinerlei Komprimierung unterstützen",
+        "Weil ISO-Dateien technisch bedingt grundsätzlich ausschließlich für Linux-Distributionen verwendet werden können und sonst nirgends",
+        "Weil WIM ein Dateisystem-Image ist und mehrere Editionen komprimiert bündeln kann, eine ISO dagegen nur ein Datenträgerabbild ist"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Da WIM ein Dateisystem-Image ist, kann es mehrere komprimierte Editionen in einer Datei bündeln — die Auswahl erfolgt erst bei der Installation."
     },
     {
       "id": "q7",
       "question": "Welchen Ablauf beschreibt ein typisches PXE-Boot-Deployment von Windows im Netzwerk?",
       "options": [
-        "Der Client lädt zunächst boot.wim (Windows PE) über das Netzwerk, danach wird install.wim über einen Deployment-Server übertragen und installiert",
-        "Der Client installiert direkt von einer lokal eingelegten DVD ohne Netzwerkverbindung",
-        "Der Client benötigt für PXE-Boot ausschließlich eine VMDK-Datei",
-        "PXE-Boot funktioniert nur mit TAR.GZ-Archiven, nicht mit WIM"
+        "Der Client lädt zuerst boot.wim (Windows PE) über das Netz, danach wird install.wim vom Deployment-Server übertragen",
+        "Der Client installiert dabei grundsätzlich direkt von einer lokal eingelegten DVD ohne jede aktive Netzwerkverbindung",
+        "Der Client benötigt für ein PXE-Boot-Deployment ausschließlich eine einzelne VMDK-Datei",
+        "PXE-Boot funktioniert ausschließlich mit TAR.GZ-Archiven, nicht jedoch mit WIM-Dateien"
       ],
       "answer": 0,
       "explanation": "Beim PXE-Boot lädt der Client zuerst boot.wim (Windows PE) über das Netzwerk und empfängt anschließend über einen Deployment-Server (z. B. WDS) das eigentliche install.wim zur Installation."

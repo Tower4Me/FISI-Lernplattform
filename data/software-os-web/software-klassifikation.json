@@ -5,41 +5,41 @@
       "id": "q1",
       "question": "Was ist die Hauptaufgabe von Systemsoftware?",
       "options": [
-        "Konkrete Aufgaben des Endnutzers erledigen, z. B. Textverarbeitung",
+        "Konkrete Aufgaben des Endnutzers erledigen, z. B. das Schreiben von Texten in einer Textverarbeitung",
+        "Ausschließlich Webseiten im Browser darstellen, ohne jede Verwaltung von Hardware",
         "Die Hardware-Ressourcen verwalten und die Grundlage bereitstellen, auf der andere Programme laufen",
-        "Ausschließlich Webseiten im Browser darstellen",
-        "Nur die Netzwerkverbindung eines PCs herstellen"
+        "Ausschließlich die Netzwerkverbindung eines PCs herstellen, ohne weitere Aufgaben"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Systemsoftware (Betriebssystem, Treiber, Firmware) verwaltet die Hardware-Ressourcen und bildet die Grundlage, auf der Anwendungssoftware überhaupt laufen kann."
     },
     {
       "id": "q2",
       "question": "Welches Beispiel gehört zur Anwendungssoftware?",
-      "options": ["Ein Gerätetreiber für den Drucker", "Das BIOS/UEFI eines Mainboards", "Eine Textverarbeitung", "Das Betriebssystem selbst"],
-      "answer": 2,
+      "options": ["Ein Gerätetreiber für den Drucker", "Das BIOS/UEFI eines Mainboards", "Das Betriebssystem selbst", "Eine Textverarbeitung"],
+      "answer": 3,
       "explanation": "Eine Textverarbeitung erledigt eine konkrete Aufgabe für den Nutzer und zählt damit zur Anwendungssoftware — im Gegensatz zu Treiber, BIOS/UEFI und Betriebssystem, die Systemsoftware sind."
     },
     {
       "id": "q3",
       "question": "Was ist ein typischer Vorteil von Standardsoftware gegenüber Individualsoftware?",
       "options": [
-        "Sie ist exakt auf die individuellen Prozesse eines einzelnen Unternehmens zugeschnitten",
         "Sie ist günstiger, da Entwicklungskosten auf viele Kunden verteilt werden, und sofort einsatzbereit",
-        "Sie muss immer eigens neu programmiert werden",
-        "Sie deckt grundsätzlich jeden Sonderfall eines Unternehmens ab"
+        "Sie ist exakt auf die individuellen Prozesse eines einzelnen Unternehmens zugeschnitten",
+        "Sie muss vor jedem einzelnen Einsatz immer eigens komplett von Grund auf neu programmiert werden",
+        "Sie deckt grundsätzlich jeden erdenklichen Sonderfall eines Unternehmens vollständig ab"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Standardsoftware wird für den Massenmarkt entwickelt — die Entwicklungskosten verteilen sich auf viele Kunden, wodurch sie günstiger und sofort verfügbar ist, aber allgemeiner gehalten bleibt."
     },
     {
       "id": "q4",
       "question": "Was ist ein typischer Nachteil von Individualsoftware?",
       "options": [
-        "Sie passt grundsätzlich nicht zu den Prozessen des Auftraggebers",
+        "Sie passt grundsätzlich nicht zu den tatsächlichen betrieblichen Prozessen des jeweiligen Auftraggebers",
         "Höhere Kosten und längere Entwicklungszeit, da sie allein für einen Auftraggeber entwickelt wird",
-        "Sie kann nicht als Werkvertrag beauftragt werden",
-        "Sie ist grundsätzlich unsicherer als Standardsoftware"
+        "Sie kann als Auftragsprojekt grundsätzlich nicht per Werkvertrag beauftragt werden",
+        "Sie ist als Softwareart grundsätzlich unsicherer als vergleichbare Standardsoftware"
       ],
       "answer": 1,
       "explanation": "Da Individualsoftware speziell für ein einzelnes Unternehmen entwickelt wird, sind Entwicklungskosten und -zeit typischerweise höher als bei Standardsoftware."
@@ -48,29 +48,29 @@
       "id": "q5",
       "question": "Was versteht man unter Customizing im Softwarekontext?",
       "options": [
-        "Die vollständige Neuentwicklung einer Software von Grund auf",
-        "Die Anpassung von Standardsoftware über Konfiguration, Plugins oder Erweiterungsmodule an unternehmensspezifische Anforderungen",
-        "Den Austausch der Systemsoftware gegen ein anderes Betriebssystem",
-        "Die Deinstallation nicht benötigter Anwendungssoftware"
+        "Die vollständige Neuentwicklung einer Software komplett von Grund auf",
+        "Den vollständigen Austausch der Systemsoftware gegen ein anderes Betriebssystem",
+        "Die Anpassung von Standardsoftware über Konfiguration oder Plugins",
+        "Die Deinstallation nicht mehr benötigter Anwendungssoftware auf einem Endgerät"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Customizing bezeichnet die Anpassung bestehender Standardsoftware (z. B. per Konfiguration oder Plugin) an spezifische Anforderungen, ohne die Software komplett neu zu entwickeln."
     },
     {
       "id": "q6",
       "question": "Ein Unternehmen benötigt eine Lagerverwaltung mit einem sehr speziellen Barcode-Workflow, den keine am Markt erhältliche Lösung abdeckt. Welche Softwareart ist hier naheliegend?",
-      "options": ["Systemsoftware", "Standardsoftware", "Individualsoftware", "Firmware"],
-      "answer": 2,
+      "options": ["Systemsoftware", "Standardsoftware", "Firmware", "Individualsoftware"],
+      "answer": 3,
       "explanation": "Da kein Standardprodukt den speziellen Workflow abdeckt, ist eine eigens entwickelte Individualsoftware die passende Wahl, auch wenn sie teurer und aufwendiger ist."
     },
     {
       "id": "q7",
       "question": "Warum nutzt ein Unternehmen für die Buchhaltung meist Standardsoftware statt Individualsoftware?",
       "options": [
-        "Weil Buchhaltungsprozesse gesetzlich weitgehend standardisiert sind und etablierte Lösungen bereits alle Anforderungen abdecken",
-        "Weil Individualsoftware für Buchhaltung gesetzlich verboten ist",
-        "Weil Standardsoftware grundsätzlich sicherer als Individualsoftware ist",
-        "Weil Buchhaltungssoftware keine Systemsoftware benötigt"
+        "Weil Buchhaltungsprozesse gesetzlich weitgehend standardisiert sind und Standardlösungen die Anforderungen abdecken",
+        "Weil der Einsatz von Individualsoftware für die Buchhaltung in ganz Deutschland gesetzlich strikt verboten ist",
+        "Weil Standardsoftware grundsätzlich und in jedem Fall sicherer als jede Individualsoftware ist",
+        "Weil Buchhaltungssoftware für ihren Betrieb grundsätzlich keinerlei Systemsoftware benötigt"
       ],
       "answer": 0,
       "explanation": "Da Buchhaltungsprozesse durch gesetzliche Vorgaben weitgehend standardisiert sind, decken etablierte Standardlösungen die Anforderungen meist vollständig und kostengünstig ab — eine Individualentwicklung wäre hier unnötiger Aufwand."

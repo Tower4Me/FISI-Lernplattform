@@ -6,9 +6,9 @@
       "question": "Was ist eine ACL (Access Control List) unter Windows?",
       "options": [
         "Eine Liste von ACEs, die für einzelne Benutzer oder Gruppen jeweils erlaubte oder verbotene Aktionen festlegt",
-        "Ein Synonym für das Linux-rwx-Rechtesystem",
-        "Eine Liste installierter Programme auf dem System",
-        "Ein Protokoll zur Netzwerkverschlüsselung"
+        "Ein reines Synonym für das unter Linux verwendete rwx-Rechtesystem",
+        "Eine Liste sämtlicher auf dem System aktuell installierter Programme",
+        "Ein Protokoll, das ausschließlich der Verschlüsselung von Netzwerkverkehr dient"
       ],
       "answer": 0,
       "explanation": "Eine ACL besteht aus beliebig vielen ACEs (Access Control Entries), die jeweils für einen bestimmten Benutzer oder eine Gruppe festlegen, welche Aktionen erlaubt oder verboten sind."
@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Was passiert, wenn für einen Benutzer sowohl ein „Allow“- als auch ein „Deny“-Eintrag in derselben ACL existiert?",
       "options": [
-        "Der Allow-Eintrag hat immer Vorrang",
+        "Der Allow-Eintrag hat in diesem Fall gegenüber dem Deny-Eintrag immer Vorrang",
         "Der explizite Deny-Eintrag überschreibt den Allow-Eintrag",
-        "Windows ignoriert beide Einträge und verweigert grundsätzlich jeden Zugriff",
-        "Beide Einträge werden addiert, sodass volle Rechte entstehen"
+        "Windows ignoriert in diesem Fall beide Einträge und verweigert grundsätzlich jeden Zugriff",
+        "Beide Einträge werden dabei addiert, sodass daraus volle Rechte entstehen"
       ],
       "answer": 1,
       "explanation": "Ein expliziter Deny-Eintrag überschreibt ein an anderer Stelle gewährtes Allow-Recht — das ist einer der zentralen Unterschiede zum einfacheren Linux-rwx-System, das kein direktes explizites Verbot kennt."
@@ -29,41 +29,41 @@
       "id": "q3",
       "question": "Was bedeutet die standardmäßige Vererbung von Windows-Berechtigungen?",
       "options": [
+        "Jede neu erstellte Datei bekommt automatisch vollen Zugriff für sämtliche Benutzer",
+        "Berechtigungen werden unter Windows grundsätzlich niemals an untergeordnete Objekte vererbt",
         "Dateien in einem Ordner übernehmen automatisch die Berechtigungen des übergeordneten Ordners",
-        "Jede neue Datei bekommt automatisch Vollzugriff für alle Benutzer",
-        "Berechtigungen werden bei Windows grundsätzlich nie vererbt",
-        "Vererbung betrifft nur die Dateigröße, nicht die Rechte"
+        "Die Vererbung betrifft ausschließlich die Dateigröße, nicht die eigentlichen Zugriffsrechte"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Windows-Berechtigungen werden standardmäßig vererbt — neue Dateien in einem Ordner übernehmen automatisch dessen Berechtigungen, was die Verwaltung vereinfacht."
     },
     {
       "id": "q4",
       "question": "Welcher Kommandozeilenbefehl ist der moderne Windows-Standard zur Verwaltung von ACLs?",
-      "options": ["cacls", "icacls", "chmod", "chown"],
-      "answer": 1,
+      "options": ["cacls", "chmod", "chown", "icacls"],
+      "answer": 3,
       "explanation": "icacls ist der moderne Windows-Befehl zur Anzeige und Verwaltung von ACLs — cacls gilt als veraltet, chmod/chown sind Linux-Befehle."
     },
     {
       "id": "q5",
       "question": "Was bewirkt der Befehl icacls datei.txt /remove Ben?",
       "options": [
-        "Er löscht die Datei datei.txt unwiderruflich",
         "Er entfernt sämtliche Berechtigungseinträge für den Benutzer „Ben“ an dieser Datei",
-        "Er ändert den Dateinamen auf „Ben“",
-        "Er gewährt „Ben“ automatisch Vollzugriff"
+        "Er löscht die Datei datei.txt dabei vollständig und unwiderruflich vom Datenträger",
+        "Er ändert den Namen der angegebenen Datei dabei auf „Ben“",
+        "Er gewährt dem Benutzer „Ben“ dabei automatisch vollständigen Vollzugriff"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "/remove entfernt alle bestehenden Berechtigungseinträge für den angegebenen Benutzer an der Datei, ohne die Datei selbst zu löschen."
     },
     {
       "id": "q6",
       "question": "Was ist ein zentraler Unterschied zwischen Linux-rwx und Windows-ACL bezüglich der Granularität?",
       "options": [
-        "Linux-rwx ist deutlich feingranularer als Windows-ACL",
+        "Linux-rwx ist in seiner Granularität deutlich feiner abgestuft als jede Windows-ACL",
         "Windows-ACL ermöglicht sehr viele einzelne, fein abgestufte Rechte pro Benutzer/Gruppe, während Linux-rwx nur 9 Bits für drei feste Gruppen kennt",
-        "Beide Systeme bieten exakt dieselbe Granularität",
-        "Granularität spielt bei Berechtigungssystemen keine Rolle"
+        "Beide Berechtigungssysteme bieten in der Praxis exakt dieselbe Granularität",
+        "Die Granularität spielt bei Berechtigungssystemen wie ACL und rwx grundsätzlich keine Rolle"
       ],
       "answer": 1,
       "explanation": "Windows-ACLs erlauben beliebig viele, sehr fein abgestufte Berechtigungseinträge pro Benutzer oder Gruppe, während das Linux-rwx-System auf 9 Bits für die drei festen Gruppen Owner/Group/Others begrenzt ist."
@@ -71,15 +71,15 @@
     {
       "id": "q7",
       "question": "Welcher Windows-Konsolenbefehl entspricht funktional dem Linux-Befehl ls (Verzeichnisinhalt auflisten)?",
-      "options": ["dir", "ipconfig", "getmac", "icacls"],
-      "answer": 0,
+      "options": ["ipconfig", "getmac", "dir", "icacls"],
+      "answer": 2,
       "explanation": "dir listet unter Windows den Inhalt eines Verzeichnisses auf — das funktionale Pendant zu ls unter Linux."
     },
     {
       "id": "q8",
       "question": "Ein Techniker möchte die MAC-Adresse eines Windows-Rechners ermitteln, um eine feste DHCP-Reservierung einzurichten. Welchen Befehl nutzt er dafür?",
-      "options": ["dir", "chmod", "getmac", "icacls"],
-      "answer": 2,
+      "options": ["dir", "chmod", "icacls", "getmac"],
+      "answer": 3,
       "explanation": "getmac zeigt die MAC-Adresse(n) der Netzwerkadapter eines Windows-Rechners an — genau die Information, die für eine DHCP-Reservierung benötigt wird."
     }
   ]

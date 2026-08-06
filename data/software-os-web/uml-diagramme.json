@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Was ist der Zweck von UML (Unified Modeling Language)?",
       "options": [
-        "Eine konkrete Programmiersprache zur direkten Ausführung von Code",
-        "Eine genormte, programmiersprachenunabhängige grafische Notation zur Modellierung von Software-Systemen",
-        "Ein Datenbankverwaltungssystem",
-        "Ein Verschlüsselungsstandard für Quellcode"
+        "Eine konkrete Programmiersprache zur direkten Ausführung von kompiliertem Code",
+        "Ein vollständiges Datenbankverwaltungssystem zur Speicherung von Softwaremodellen",
+        "Ein spezieller Verschlüsselungsstandard, der ausschließlich für Quellcode entwickelt wurde",
+        "Eine genormte, programmiersprachenunabhängige grafische Notation zur Modellierung von Software-Systemen"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "UML ist eine genormte grafische Notation, die unabhängig von einer konkreten Programmiersprache zur Modellierung von Software-Systemen dient."
     },
     {
       "id": "q2",
       "question": "Was zeigt ein Use-Case-Diagramm?",
       "options": [
-        "Die statische Klassenstruktur eines Systems",
         "Welche Akteure mit dem System interagieren und welche Anwendungsfälle dabei genutzt werden",
-        "Den zeitlichen Ablauf eines Algorithmus",
-        "Die physische Verkabelung eines Netzwerks"
+        "Die statische Klassenstruktur eines Systems mit sämtlichen Attributen und Methoden",
+        "Den zeitlichen Ablauf eines Algorithmus in Form einzelner Programmschritte",
+        "Die physische Verkabelung und Verteilung eines Netzwerks im Rechenzentrum"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein Use-Case-Diagramm zeigt die Akteure (Nutzer, externe Systeme) und die Anwendungsfälle (Use Cases), mit denen sie das System nutzen."
     },
     {
@@ -36,10 +36,10 @@
       "id": "q3b",
       "question": "Was unterscheidet die Use-Case-Beziehung <<extend>> von <<include>>?",
       "options": [
-        "Es gibt keinen Unterschied, beide sind gleichbedeutend",
-        "<<extend>> bindet einen Use Case immer zwingend ein, <<include>> nur optional",
+        "Es gibt zwischen den beiden Beziehungstypen inhaltlich keinerlei Unterschied, beide sind gleichbedeutend",
+        "<<extend>> bindet einen Use Case dabei immer zwingend ein, <<include>> dagegen nur optional",
         "<<extend>> erweitert einen Use Case nur optional unter einer Bedingung, <<include>> bindet zwingend ein",
-        "<<extend>> gibt es nur bei Akteuren, nicht bei Use Cases"
+        "<<extend>> existiert laut Notation ausschließlich bei Akteuren, nicht bei einzelnen Use Cases"
       ],
       "answer": 2,
       "explanation": "<<include>> bindet einen anderen Use Case immer zwingend ein. <<extend>> erweitert einen Use Case nur optional, wenn eine bestimmte Bedingung zutrifft — der Pfeil zeigt dabei zum Basis-Use-Case, bei include zum eingebundenen Use Case."
@@ -48,72 +48,72 @@
       "id": "q4",
       "question": "Was zeigt ein Klassendiagramm?",
       "options": [
-        "Die zeitliche Abfolge einzelner Programmschritte",
-        "Klassen mit ihren Attributen und Methoden sowie die Beziehungen zwischen den Klassen",
-        "Ausschließlich die Akteure eines Systems",
-        "Die Netzwerktopologie eines Rechenzentrums"
+        "Die zeitliche Abfolge einzelner Programmschritte innerhalb eines konkreten Ablaufs",
+        "Ausschließlich die Akteure eines Systems, ohne jede weitere Strukturinformation",
+        "Die Netzwerktopologie eines Rechenzentrums samt physischer Verkabelung",
+        "Klassen mit ihren Attributen und Methoden sowie die Beziehungen zwischen den Klassen"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Ein Klassendiagramm zeigt die statische Struktur eines Systems: Klassen mit Attributen/Methoden und ihre Beziehungen zueinander."
     },
     {
       "id": "q5",
       "question": "Welcher Beziehungstyp im Klassendiagramm beschreibt Vererbung zwischen Klassen?",
-      "options": ["Assoziation", "Generalisierung", "Aggregation", "Komposition"],
-      "answer": 1,
+      "options": ["Generalisierung", "Assoziation", "Aggregation", "Komposition"],
+      "answer": 0,
       "explanation": "Die Generalisierung stellt die Vererbungsbeziehung dar, bei der eine Klasse Eigenschaften einer allgemeineren Klasse übernimmt."
     },
     {
       "id": "q6",
       "question": "Was unterscheidet Aggregation von Komposition im Klassendiagramm?",
       "options": [
+        "Beide Beziehungstypen sind in Bedeutung und Notation technisch vollständig identisch",
         "Bei Aggregation können die Teile auch unabhängig vom Ganzen existieren, bei Komposition existieren die Teile nicht ohne das Ganze",
-        "Beide Beziehungstypen sind technisch identisch",
-        "Aggregation beschreibt Vererbung, Komposition beschreibt reine Assoziation",
-        "Komposition ist immer schwächer als eine einfache Assoziation"
+        "Aggregation beschreibt dabei Vererbung, Komposition beschreibt lediglich eine reine Assoziation",
+        "Komposition ist als Beziehungstyp immer schwächer ausgeprägt als eine einfache Assoziation"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Aggregation ist eine „hat-ein“-Beziehung, bei der Teile auch unabhängig existieren können. Komposition ist die stärkere Form, bei der die Teile ohne das Ganze nicht existieren."
     },
     {
       "id": "q7",
       "question": "Welches Element eines Aktivitätsdiagramms entspricht einer Verzweigung (if/else) aus dem Programmcode?",
-      "options": ["Der Startknoten", "Ein Entscheidungsknoten (Raute)", "Eine Aktivität (abgerundetes Rechteck)", "Der Endknoten"],
-      "answer": 1,
+      "options": ["Der Startknoten", "Eine Aktivität (abgerundetes Rechteck)", "Ein Entscheidungsknoten (Raute)", "Der Endknoten"],
+      "answer": 2,
       "explanation": "Der Entscheidungsknoten (als Raute dargestellt) im Aktivitätsdiagramm entspricht einer Verzweigung (if/else) im tatsächlichen Programmcode."
     },
     {
       "id": "q8",
       "question": "Was zeigt ein Sequenzdiagramm im Unterschied zum Klassendiagramm?",
       "options": [
-        "Die statische Struktur der Klassen mit ihren Attributen",
-        "Die zeitliche Reihenfolge von Nachrichten zwischen konkreten Objekten oder Akteuren",
-        "Ausschließlich die Akteure eines Systems",
-        "Die Netzwerktopologie eines Rechenzentrums"
+        "Die statische Struktur der Klassen mit sämtlichen Attributen und Methoden",
+        "Ausschließlich die Akteure eines Systems, ohne jede zeitliche Information",
+        "Die Netzwerktopologie eines Rechenzentrums samt physischer Geräteverkabelung",
+        "Die zeitliche Reihenfolge von Nachrichten zwischen konkreten Objekten oder Akteuren"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Ein Sequenzdiagramm stellt dar, in welcher zeitlichen Reihenfolge Objekte über Nachrichten miteinander kommunizieren — das Klassendiagramm zeigt dagegen die statische Struktur."
     },
     {
       "id": "q9",
       "question": "Wie unterscheidet man im Sequenzdiagramm eine Nachricht (Aufruf) von einer Rückgabe (Antwort)?",
       "options": [
-        "Beide werden identisch als durchgezogener Pfeil dargestellt",
         "Ein durchgezogener Pfeil ist der Aufruf, ein gestrichelter Pfeil die Rückgabe",
-        "Rückgaben werden nie dargestellt, nur Aufrufe",
-        "Nur die Pfeilfarbe unterscheidet beide"
+        "Beide werden in der Notation identisch als durchgezogener Pfeil dargestellt",
+        "Rückgaben werden im Sequenzdiagramm grundsätzlich nie dargestellt, nur Aufrufe",
+        "Ausschließlich die Farbe des Pfeils unterscheidet Aufruf und Rückgabe voneinander"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Nachrichten/Aufrufe werden als durchgezogener Pfeil dargestellt, Rückgaben (Antworten) als gestrichelter Pfeil."
     },
     {
       "id": "q10",
       "question": "Wofür steht der schmale rechteckige Balken auf einer Lebenslinie im Sequenzdiagramm?",
       "options": [
-        "Er markiert das Ende der Lebenslinie",
+        "Er markiert lediglich das Ende der jeweiligen Lebenslinie im Diagramm",
         "Er zeigt den Aktivierungszeitraum, in dem das Objekt eine Nachricht aktiv verarbeitet",
-        "Er stellt eine Vererbungsbeziehung dar",
-        "Er kennzeichnet einen Entscheidungsknoten"
+        "Er stellt an dieser Stelle eine zusätzliche Vererbungsbeziehung zwischen Objekten dar",
+        "Er kennzeichnet an dieser Stelle einen zusätzlichen Entscheidungsknoten im Ablauf"
       ],
       "answer": 1,
       "explanation": "Der Aktivierungsbalken zeigt, wie lange ein Objekt aktiv mit der Verarbeitung einer Nachricht beschäftigt ist."

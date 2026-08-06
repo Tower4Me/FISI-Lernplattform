@@ -5,67 +5,67 @@
       "id": "q1",
       "question": "Welche kritische Einschränkung hat FAT32 bei der Dateigröße?",
       "options": [
-        "Keine einzelne Datei darf größer als 4 GB sein",
         "Keine Datei darf größer als 700 Byte sein",
-        "FAT32 unterstützt gar keine Dateien über 1 MB",
-        "FAT32 hat keinerlei Größenbeschränkung"
+        "FAT32 unterstützt grundsätzlich keine einzelnen Dateien über 1 MB",
+        "FAT32 hat keinerlei Größenbeschränkung",
+        "Keine einzelne Datei darf größer als 4 GB sein"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "FAT32 hat ein hartes Limit von 4 GB (genau: 4 GB minus 1 Byte) pro Datei — ein 8-GB-Video passt deshalb nicht auf einen FAT32-formatierten Datenträger."
     },
     {
       "id": "q2",
       "question": "Ein USB-Stick soll sowohl unter Windows als auch macOS beschreibbar sein und Dateien über 4 GB speichern können. Welches Dateisystem ist geeignet?",
-      "options": ["FAT32", "NTFS", "exFAT", "ext4"],
-      "answer": 2,
+      "options": ["exFAT", "FAT32", "NTFS", "ext4"],
+      "answer": 0,
       "explanation": "exFAT hat keine 4-GB-Grenze und ist sowohl unter Windows als auch macOS problemlos beschreibbar — NTFS kann macOS nur lesen, FAT32 hat die 4-GB-Grenze, ext4 wird von Windows nativ nicht unterstützt."
     },
     {
       "id": "q3",
       "question": "Was ist das Standard-Dateisystem von Linux seit 2008, das auf fast allen Linux-Systemen zum Einsatz kommt?",
-      "options": ["NTFS", "FAT32", "ext4", "APFS"],
-      "answer": 2,
+      "options": ["NTFS", "ext4", "FAT32", "APFS"],
+      "answer": 1,
       "explanation": "ext4 (Fourth Extended Filesystem) ist seit 2008 das Standard-Dateisystem von Linux mit Journaling und rwx-Berechtigungen."
     },
     {
       "id": "q4",
       "question": "Wofür ist APFS (Apple File System) optimiert und seit wann ist es Standard auf Apple-Geräten?",
       "options": [
-        "Für magnetische Bandlaufwerke, seit den 1990ern",
+        "Für magnetische Bandlaufwerke optimiert, bereits seit den 1990er-Jahren im Einsatz",
+        "Ausschließlich für Netzwerkfreigaben entwickelt, seit 2020 auf Apple-Servern Standard",
         "Für SSD/Flash-Speicher, seit 2017 Standard auf macOS/iOS",
-        "Ausschließlich für Netzwerkfreigaben, seit 2020",
-        "APFS wird nicht von Apple, sondern von Microsoft entwickelt"
+        "APFS wird trotz des Namens nicht von Apple, sondern von Microsoft entwickelt und gepflegt"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "APFS ist seit 2017 das Standard-Dateisystem auf macOS und iOS und wurde speziell für SSD/Flash-Speicher optimiert, u. a. mit Unterstützung für Snapshots."
     },
     {
       "id": "q5",
       "question": "Wie löst Journaling das Problem eines Stromausfalls während einer Schreiboperation?",
       "options": [
-        "Journaling verhindert grundsätzlich jeden Stromausfall",
-        "Die geplante Änderung wird zuerst in ein Journal geschrieben, sodass das System nach einem Absturz genau weiß, welche Operationen abgeschlossen waren",
-        "Journaling erstellt automatisch eine zweite physische Kopie der gesamten Festplatte",
-        "Journaling komprimiert alle Dateien, um Schreibzeit zu sparen"
+        "Journaling verhindert durch spezielle Hardware-Pufferung grundsätzlich jeden erdenklichen Stromausfall direkt am System",
+        "Journaling erstellt bei jeder einzelnen Schreiboperation automatisch eine vollständige zweite physische Kopie der gesamten Festplatte",
+        "Journaling komprimiert bei jeder Schreiboperation grundsätzlich alle betroffenen Dateien, um zusätzliche Schreibzeit zu sparen",
+        "Die geplante Änderung wird zuerst ins Journal geschrieben, damit das System nach einem Absturz weiß, welche Operationen fertig waren"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Journaling schreibt geplante Änderungen zuerst in ein separates Journal. Nach einem Absturz kann das System anhand des Journals erkennen, welche Operationen abgeschlossen waren, und unvollständige rückgängig machen oder nachholen."
     },
     {
       "id": "q6",
       "question": "Welche Dateisysteme kommen typischerweise ohne Journaling aus?",
-      "options": ["NTFS und ext4", "FAT32 und exFAT", "APFS und ext4", "NTFS und APFS"],
-      "answer": 1,
+      "options": ["FAT32 und exFAT", "NTFS und ext4", "APFS und ext4", "NTFS und APFS"],
+      "answer": 0,
       "explanation": "FAT32 und exFAT verfügen über kein Journaling — nach einem Absturz muss der gesamte Datenträger geprüft werden (chkdsk/fsck), was bei großen Laufwerken lange dauert."
     },
     {
       "id": "q7",
       "question": "Warum spielt Fragmentierung bei SSDs praktisch keine Rolle, im Gegensatz zu HDDs?",
       "options": [
-        "Weil SSDs keine Dateien speichern können",
+        "Weil SSDs im Gegensatz zu HDDs grundsätzlich überhaupt keine Dateien dauerhaft speichern können",
         "Weil SSDs keine beweglichen Schreib-/Leseköpfe haben und die physische Position der Datenblöcke deshalb keinen Zugriffszeitverlust verursacht",
-        "Weil SSDs grundsätzlich nie mehr als eine Datei gleichzeitig speichern",
-        "Weil SSDs automatisch täglich defragmentiert werden"
+        "Weil SSDs technisch bedingt grundsätzlich niemals mehr als genau eine einzige Datei gleichzeitig auf dem gesamten Datenträger speichern können",
+        "Weil SSDs durch eine fest eingebaute Firmware-Routine automatisch jede einzelne Nacht vollständig defragmentiert werden"
       ],
       "answer": 1,
       "explanation": "HDDs müssen für fragmentierte Dateien den Schreib-/Lesekopf mechanisch zwischen verschiedenen Positionen bewegen, was Zeit kostet. SSDs haben keine beweglichen Teile, wodurch die physische Position der Blöcke keine Rolle spielt."
@@ -74,12 +74,12 @@
       "id": "q8",
       "question": "Warum sollte eine SSD nicht manuell defragmentiert werden?",
       "options": [
-        "Weil Defragmentierung bei SSDs technisch gar nicht möglich ist",
+        "Weil eine Defragmentierung bei SSDs aus technischen Gründen grundsätzlich gar nicht möglich ist",
+        "Weil dadurch beim Defragmentieren automatisch alle auf der SSD gespeicherten Daten gelöscht werden",
         "Weil es keinen Geschwindigkeitsvorteil bringt, aber unnötig die begrenzte Schreiblebensdauer der SSD verbraucht",
-        "Weil dadurch automatisch alle Daten gelöscht werden",
-        "Weil SSDs grundsätzlich kein Dateisystem verwenden"
+        "Weil SSDs im technischen Unterschied zu klassischen HDDs grundsätzlich überhaupt gar kein eigenes Dateisystem verwenden können"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Da bei SSDs die physische Position der Daten keine Zugriffszeit-Rolle spielt, bringt Defragmentierung keinen Geschwindigkeitsvorteil, verbraucht aber unnötig Schreibzyklen und verkürzt so die Lebensdauer der SSD."
     }
   ]

@@ -5,65 +5,65 @@
       "id": "q1",
       "question": "Was ist das Grundprinzip der prozeduralen Programmierung?",
       "options": [
-        "Daten und Funktionen werden in Objekten gebündelt",
-        "Das Programm ist eine Folge von Anweisungen und Prozeduren (Funktionen), die nacheinander ausgeführt werden und auf gemeinsame Daten zugreifen",
-        "Das Programm besteht ausschließlich aus zustandslosen mathematischen Funktionen",
-        "Es gibt keine Reihenfolge der Ausführung, alles läuft gleichzeitig ab"
+        "Das Programm ist eine Folge von Anweisungen und Prozeduren, die nacheinander laufen und auf gemeinsame Daten zugreifen",
+        "Daten und Funktionen werden dabei ausschließlich gebündelt in Objekten gespeichert",
+        "Das Programm besteht ausschließlich aus zustandslosen, rein mathematischen Funktionen",
+        "Es gibt bei diesem Paradigma laut Definition keinerlei Ausführungsreihenfolge, alles läuft komplett gleichzeitig ab"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Prozedurale Programmierung strukturiert ein Programm als Abfolge von Prozeduren/Funktionen, die auf gemeinsamen Daten arbeiten und nacheinander ausgeführt werden."
     },
     {
       "id": "q2",
       "question": "Welche zentralen Konzepte gehören zur objektorientierten Programmierung (OOP)?",
       "options": [
+        "Ausschließlich die wiederholte Verwendung von Schleifenkonstrukten im Quellcode",
         "Kapselung, Vererbung und Polymorphie",
-        "Ausschließlich die Verwendung von Schleifen",
-        "Die vollständige Abwesenheit von Funktionen",
-        "Nur die Verwendung von globalen Variablen"
+        "Die vollständige, bewusste Abwesenheit jeglicher Funktionen im Quellcode",
+        "Ausschließlich die Verwendung globaler, für alle Funktionen sichtbarer Variablen"
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Kapselung (Bündelung von Daten und Funktionen in Objekten/Klassen), Vererbung und Polymorphie sind die zentralen Konzepte der objektorientierten Programmierung."
     },
     {
       "id": "q3",
       "question": "Was bedeutet Vererbung in der objektorientierten Programmierung?",
       "options": [
+        "Variablenwerte werden beim Vererben automatisch und dauerhaft verschlüsselt gespeichert",
+        "Ein einmal erzeugtes Objekt kann anschließend niemals mehr verändert werden",
         "Eine Klasse übernimmt Eigenschaften und Verhalten einer anderen (Basis-)Klasse",
-        "Variablenwerte werden automatisch verschlüsselt",
-        "Ein Objekt kann niemals verändert werden",
-        "Zwei Klassen tauschen zur Laufzeit automatisch ihre Namen"
+        "Zwei Klassen tauschen zur Laufzeit automatisch und ohne Zutun ihre Namen"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Vererbung erlaubt es einer Klasse, Eigenschaften und Methoden einer Basisklasse zu übernehmen, statt Code zu duplizieren."
     },
     {
       "id": "q4",
       "question": "Was ist das Grundprinzip der funktionalen Programmierung?",
       "options": [
-        "Das Programm besteht aus der Verkettung von möglichst zustandslosen Funktionen, ohne einen gemeinsamen veränderlichen Zustand zu verändern",
-        "Alle Daten müssen in globalen Variablen gespeichert werden",
-        "Objekte erben zwingend von mehreren Basisklassen gleichzeitig",
-        "Anweisungen werden ausschließlich in zufälliger Reihenfolge ausgeführt"
+        "Alle Daten müssen bei diesem Paradigma zwingend in globalen Variablen gespeichert werden",
+        "Objekte erben bei diesem Paradigma zwingend gleichzeitig von mehreren Basisklassen",
+        "Anweisungen werden bei diesem Paradigma stets ausschließlich in zufälliger Reihenfolge ausgeführt",
+        "Das Programm besteht aus der Verkettung möglichst zustandsloser Funktionen, ohne gemeinsamen veränderlichen Zustand"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Funktionale Programmierung verkettet möglichst zustandslose (reine) Funktionen, ohne dabei einen gemeinsamen veränderlichen Zustand zu manipulieren."
     },
     {
       "id": "q5",
       "question": "Welche Sprachebene liegt zwischen Maschinensprache und Hochsprache?",
-      "options": ["Bytecode", "Assemblersprache", "Pseudocode", "Markup-Sprache"],
-      "answer": 1,
+      "options": ["Assemblersprache", "Bytecode", "Pseudocode", "Markup-Sprache"],
+      "answer": 0,
       "explanation": "Assemblersprache nutzt mnemonische Abkürzungen für Maschinenbefehle — hardwarenäher als eine Hochsprache, aber für Menschen lesbarer als reine Binärbefehle."
     },
     {
       "id": "q6",
       "question": "Was zeichnet eine Hochsprache im Vergleich zur Maschinensprache aus?",
       "options": [
-        "Sie ist direkt vom Prozessor ausführbar, ohne Übersetzung",
+        "Sie ist direkt und ohne jede vorherige Übersetzung vom Prozessor ausführbar",
         "Sie abstrahiert von der konkreten Hardware und ist deutlich menschenlesbarer und portabler",
-        "Sie besteht ausschließlich aus binären Befehlen",
-        "Sie ist immer prozessorspezifisch und nicht übertragbar"
+        "Sie besteht in ihrer geschriebenen Form ausschließlich aus rein binären Maschinenbefehlen",
+        "Sie ist grundsätzlich immer fest prozessorspezifisch und daher niemals auf andere Systeme übertragbar"
       ],
       "answer": 1,
       "explanation": "Hochsprachen abstrahieren von der konkreten Hardware, sind menschenlesbarer und lassen sich auf unterschiedliche Prozessoren übertragen — ein Compiler oder Interpreter übernimmt die Übersetzung in Maschinensprache."
@@ -71,8 +71,8 @@
     {
       "id": "q7",
       "question": "Ein Unternehmen möchte für eine Kundenverwaltungssoftware die realen Objekte Kunde, Bestellung und Rechnung mit eigenen Daten und Methoden abbilden, inklusive gemeinsamer Basisklasse für Privat- und Geschäftskunden. Welches Paradigma passt hier am besten?",
-      "options": ["Rein prozedural", "Objektorientiert", "Rein funktional", "Keines der Paradigmen eignet sich für diesen Fall"],
-      "answer": 1,
+      "options": ["Rein prozedural", "Rein funktional", "Objektorientiert", "Keines der Paradigmen eignet sich für diesen Fall"],
+      "answer": 2,
       "explanation": "Die Abbildung realer Objekte mit eigenen Daten/Methoden sowie die Wiederverwendung über eine gemeinsame Basisklasse (Vererbung) sind klassische Stärken der objektorientierten Programmierung."
     }
   ]

@@ -16,14 +16,14 @@
     {
       "id": "q2",
       "question": "Welcher Datentyp würde für den Wert 3.14 verwendet?",
-      "options": ["Float/Double (Gleitkommazahl)", "Integer (Ganzzahl)", "String (Zeichenkette)", "Boolean (Wahrheitswert)"],
+      "options": ["Float (Gleitkommazahl)", "Integer (Ganzzahl)", "String (Zeichenkette)", "Boolean (Wahrheitswert)"],
       "answer": 0,
       "explanation": "3.14 hat Nachkommastellen und wird deshalb als Gleitkommazahl (Float/Double) gespeichert, nicht als Ganzzahl."
     },
     {
       "id": "q3",
       "question": "Welche Kontrollstruktur führt abhängig von einer Bedingung einen von mehreren möglichen Pfaden aus?",
-      "options": ["Sequenz", "Verzweigung (if/else)", "Schleife", "Deklaration"],
+      "options": ["Sequenz", "Verzweigung", "Schleife", "Deklaration"],
       "answer": 1,
       "explanation": "Eine Verzweigung (if/else) wählt abhängig von einer Bedingung zwischen mehreren möglichen Ausführungspfaden."
     },

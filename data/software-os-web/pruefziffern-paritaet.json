@@ -40,7 +40,7 @@
     {
       "id": "q4",
       "question": "Nach welchem Verfahren werden die zwei Prüfziffern einer IBAN berechnet?",
-      "options": ["Modulo-10-Verfahren", "AES-256-Verschlüsselung", "Modulo-97-Verfahren (ISO 7064)", "Huffman-Codierung"],
+      "options": ["Modulo-10-Verfahren", "AES-256-Verschlüsselung", "Modulo-97-Verfahren", "Huffman-Codierung"],
       "answer": 2,
       "explanation": "Die IBAN-Prüfziffern werden nach dem international genormten Modulo-97-Verfahren (ISO 7064) berechnet."
     },
@@ -60,10 +60,10 @@
       "id": "q6",
       "question": "Was macht ein einfaches Paritätsbit bei der Datenübertragung?",
       "options": [
-        "Es wird so gesetzt, dass die Zahl der 1-Bits gerade/ungerade ist, wodurch ein Fehler erkennbar wird",
-        "Es verschlüsselt dabei die insgesamt übertragenen Nutzdaten vor dem eigentlichen Versand",
-        "Es komprimiert die zu übertragenden Daten bereits vor dem eigentlichen Sendevorgang",
-        "Es korrigiert dabei automatisch und ohne weiteres Zutun jeden Übertragungsfehler"
+        "Es wird so gesetzt, dass die Zahl der 1-Bits gerade oder ungerade ist, ein Fehler wird dadurch erkennbar",
+        "Es verschlüsselt dabei die insgesamt übertragenen Nutzdaten noch vor dem eigentlichen Versand",
+        "Es komprimiert die zu übertragenden Daten bereits vor dem eigentlichen Sendevorgang zusätzlich",
+        "Es korrigiert dabei ganz automatisch und ohne jedes weitere Zutun restlos jeden einzelnen Übertragungsfehler"
       ],
       "answer": 0,
       "explanation": "Ein Paritätsbit stellt sicher, dass die Anzahl der 1-Bits gerade (even parity) oder ungerade (odd parity) ist — der Empfänger erkennt daran einen gekippten Einzelbit-Fehler."
@@ -72,10 +72,10 @@
       "id": "q7",
       "question": "Warum erkennt ein einfaches Paritätsbit nicht zuverlässig jeden Übertragungsfehler?",
       "options": [
-        "Weil Paritätsbits als generelles Fehlererkennungsverfahren grundsätzlich niemals zuverlässig funktionieren können",
-        "Weil beim gleichzeitigen Kippen zweier Bits die Parität zufällig gleich bleiben und der Fehler unentdeckt bleiben kann",
-        "Weil Paritätsbits ausschließlich bei reinen Textdateien funktionieren, nicht jedoch bei Binärdaten",
-        "Weil Paritätsbits in der Praxis ausschließlich bei der Berechnung von EAN-Codes eingesetzt werden"
+        "Weil Paritätsbits als generelles Fehlererkennungsverfahren grundsätzlich in der Praxis niemals wirklich zuverlässig funktionieren",
+        "Weil beim gleichzeitigen Kippen zweier Bits die Parität zufällig gleich bleiben kann und der Fehler dann unentdeckt bleibt",
+        "Weil Paritätsbits ausschließlich bei reinen Textdateien funktionieren, jedoch nicht bei binären Daten",
+        "Weil Paritätsbits in der Praxis ausschließlich bei der Berechnung von EAN-Codes eingesetzt werden können"
       ],
       "answer": 1,
       "explanation": "Kippen gleichzeitig zwei Bits, kann sich die Gesamtzahl der 1-Bits so verändern, dass die Parität zufällig gleich bleibt — der Fehler wird dann nicht erkannt. Für zuverlässigere Erkennung/Korrektur sind aufwendigere Verfahren wie ECC nötig."

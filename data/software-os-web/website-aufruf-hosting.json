@@ -17,8 +17,8 @@
       "id": "q2",
       "question": "Was passiert zusätzlich beim Verbindungsaufbau, wenn eine Website über HTTPS statt HTTP aufgerufen wird?",
       "options": [
-        "Es findet im Vergleich zu HTTP keinerlei zusätzlicher technischer Schritt statt",
-        "Die vorherige DNS-Auflösung wird bei HTTPS-Aufrufen komplett übersprungen",
+        "Es findet dabei im Vergleich zu HTTP überhaupt keinerlei zusätzlicher technischer Schritt statt",
+        "Die vorherige DNS-Auflösung wird bei HTTPS-Aufrufen dabei jedes Mal komplett und vollständig übersprungen",
         "Zusätzlich zum TCP-Verbindungsaufbau erfolgt ein TLS-Handshake für die verschlüsselte Verbindung",
         "Der Server sendet seine Antwort trotz HTTPS weiterhin vollständig unverschlüsselt zurück"
       ],
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Was ermöglicht namensbasiertes virtuelles Hosting?",
       "options": [
-        "Dass mehrere Websites auf demselben Server und derselben IP-Adresse betrieben werden können, unterschieden anhand des Host-Headers",
-        "Dass eine einzelne Website automatisch auf mehrere physisch getrennte Server verteilt wird",
-        "Dass eine Website vollständig ohne jeden vorhandenen DNS-Eintrag erreichbar bleibt",
-        "Dass HTTPS auch ganz ohne ein gültiges TLS-Zertifikat einwandfrei funktioniert"
+        "Dass mehrere Websites dieselbe IP-Adresse teilen, unterschieden anhand des Host-Headers",
+        "Dass eine einzelne Website automatisch auf mehrere physisch komplett getrennte Server verteilt wird",
+        "Dass eine Website vollständig und dauerhaft ohne jeden vorhandenen DNS-Eintrag erreichbar bleibt",
+        "Dass HTTPS auch ganz ohne ein einziges gültiges TLS-Zertifikat vollkommen einwandfrei funktioniert"
       ],
       "answer": 0,
       "explanation": "Namensbasiertes virtuelles Hosting erlaubt es, mehrere Websites auf einem Server mit derselben IP-Adresse zu betreiben — der Webserver unterscheidet sie anhand des Host-Headers im HTTP-Request."
@@ -65,10 +65,10 @@
       "id": "q6",
       "question": "Ein Kunde meldet, eine Website sei nicht erreichbar. Welche Reihenfolge der Fehlerdiagnose ist sinnvoll?",
       "options": [
-        "Direkt und ohne jede vorherige Prüfung den gesamten Server sofort neu starten",
-        "Ausschließlich prüfen, ob der Domainname überhaupt korrekt registriert wurde",
-        "Prüfen, ob DNS korrekt auflöst, dann ob eine Verbindung zum Server möglich ist, dann welchen HTTP-Statuscode der Server liefert",
-        "Zuerst vollständig das Rendering im Browser des Kunden deaktivieren"
+        "Direkt und ganz ohne jede vorherige Prüfung sofort den kompletten Server neu starten",
+        "Ausschließlich prüfen, ob der angegebene Domainname überhaupt korrekt registriert wurde",
+        "Erst DNS prüfen, dann die Serververbindung, dann den HTTP-Statuscode der Antwort",
+        "Zuerst vollständig und dauerhaft das Rendering im Browser des Kunden deaktivieren"
       ],
       "answer": 2,
       "explanation": "Eine strukturierte Fehlerdiagnose folgt dem Ablauf des Website-Aufrufs: erst DNS-Auflösung prüfen, dann die Erreichbarkeit des Servers (Verbindung), dann die HTTP-Antwort des Servers."
@@ -77,10 +77,10 @@
       "id": "q7",
       "question": "Was geschieht im letzten Schritt (Rendering) nach dem Empfang der HTTP-Response?",
       "options": [
-        "Der Browser sendet die empfangene Seite unverändert direkt an den Server zurück",
-        "Die vollständige DNS-Auflösung wird an dieser Stelle ein zweites Mal durchgeführt",
-        "Der zuvor durchgeführte TLS-Handshake wird nach dem Rendering erneut komplett gestartet",
-        "Der Browser stellt die empfangene Seite dar und lädt bei Bedarf weitere Ressourcen wie Bilder oder Skripte per zusätzlicher Anfrage nach"
+        "Der Browser sendet die empfangene Seite unverändert und vollständig direkt an den Server zurück",
+        "Die vollständige DNS-Auflösung wird an dieser Stelle exakt ein zweites Mal komplett durchgeführt",
+        "Der zuvor bereits durchgeführte TLS-Handshake wird nach dem Rendering erneut komplett gestartet",
+        "Der Browser stellt die Seite dar und lädt bei Bedarf weitere Ressourcen wie Bilder nach"
       ],
       "answer": 3,
       "explanation": "Beim Rendering baut der Browser die empfangene Seite auf und fordert bei Bedarf zusätzliche Ressourcen (Bilder, Skripte, Stylesheets) über weitere HTTP-Requests an."

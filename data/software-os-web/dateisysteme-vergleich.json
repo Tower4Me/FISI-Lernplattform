@@ -54,7 +54,12 @@
     {
       "id": "q6",
       "question": "Welche Dateisysteme kommen typischerweise ohne Journaling aus?",
-      "options": ["FAT32 und exFAT", "NTFS und ext4", "APFS und ext4", "NTFS und APFS"],
+      "options": [
+        "FAT32 und exFAT verzichten beide auf Journaling, weshalb nach einem Absturz der komplette Datenträger geprüft werden muss",
+        "NTFS und ext4 protokollieren jede einzelne geplante Änderung zuerst vollständig in einem separaten Journal, bevor sie geschrieben wird",
+        "APFS und ext4 sichern jede Schreiboperation zusätzlich durch ein eigenes Journaling gegen einen Stromausfall ab",
+        "NTFS und APFS nutzen jeweils ein Journaling, damit sich das System nach einem Absturz besonders schnell erholt"
+      ],
       "answer": 0,
       "explanation": "FAT32 und exFAT verfügen über kein Journaling — nach einem Absturz muss der gesamte Datenträger geprüft werden (chkdsk/fsck), was bei großen Laufwerken lange dauert."
     },

@@ -72,6 +72,12 @@
           "quiz": "data/projektmanagement/bpmn.json"
         },
         {
+          "slug": "epk-ereignisgesteuerte-prozesskette",
+          "name": "EPK (Ereignisgesteuerte Prozesskette)",
+          "exams": ["ap1"],
+          "quiz": "data/projektmanagement/epk-ereignisgesteuerte-prozesskette.json"
+        },
+        {
           "slug": "change-management",
           "name": "Change Management",
           "exams": ["ap1", "ap2"],
@@ -810,12 +816,6 @@
           "name": "Struktogramm (Nassi-Shneiderman)",
           "exams": ["ap2"],
           "quiz": "data/software-os-web/struktogramm-nassi-shneiderman.json"
-        },
-        {
-          "slug": "epk-ereignisgesteuerte-prozesskette",
-          "name": "EPK (Ereignisgesteuerte Prozesskette)",
-          "exams": ["ap1"],
-          "quiz": "data/software-os-web/epk-ereignisgesteuerte-prozesskette.json"
         },
         {
           "slug": "mime-base64",

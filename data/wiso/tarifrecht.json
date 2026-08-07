@@ -6,45 +6,45 @@
       "question": "Wer verhandelt auf Arbeitnehmerseite typischerweise Tarifverträge?",
       "options": [
         "Der Betriebsrat",
-        "Die Gewerkschaft",
         "Das Arbeitsgericht",
+        "Die Gewerkschaft",
         "Der Arbeitgeberverband"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Tarifverträge werden auf Arbeitnehmerseite von Gewerkschaften ausgehandelt, nicht vom Betriebsrat."
     },
     {
       "id": "q2",
       "question": "Welches Grundrecht bildet die Basis der Tarifautonomie?",
       "options": [
-        "Art. 5 GG (Meinungsfreiheit)",
-        "Art. 9 Abs. 3 GG (Koalitionsfreiheit)",
+        "Art. 5 Abs. 1 GG (Meinungsfreiheit)",
         "Art. 12 GG (Berufsfreiheit) allein",
-        "Art. 3 GG (Gleichheitsgrundsatz)"
+        "Art. 3 Abs. 1 GG (Gleichheitsgrundsatz)",
+        "Art. 9 Abs. 3 GG (Koalitionsfreiheit)"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die Koalitionsfreiheit nach Art. 9 Abs. 3 GG erlaubt es Gewerkschaften und Arbeitgeberverbänden, Tarifverträge frei und ohne staatliche Einmischung auszuhandeln."
     },
     {
       "id": "q3",
       "question": "Was regelt ein Manteltarifvertrag im Unterschied zum Lohntarifvertrag?",
       "options": [
-        "Ausschließlich die konkrete Entgelthöhe",
         "Allgemeine Rahmenbedingungen wie Arbeitszeit, Urlaub und Kündigungsfristen",
-        "Nur die Regeln für Streiks",
-        "Ausschließlich die Probezeit"
+        "Ausschließlich die konkrete monatliche Entgelthöhe der Beschäftigten",
+        "Ausschließlich die rechtlichen Regeln für zulässige Streiks der Gewerkschaftsmitglieder",
+        "Ausschließlich die Dauer der vereinbarten betrieblichen Probezeit"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der Manteltarifvertrag regelt allgemeine Rahmenbedingungen, während der Lohn-/Gehaltstarifvertrag die konkrete Vergütungshöhe festlegt."
     },
     {
       "id": "q4",
       "question": "Was besagt das Günstigkeitsprinzip im Verhältnis von Arbeitsvertrag und Tarifvertrag?",
       "options": [
-        "Der Arbeitsvertrag darf beliebig vom Tarifvertrag abweichen",
+        "Der individuelle Arbeitsvertrag darf in jeder Hinsicht beliebig vom Tarifvertrag abweichen",
         "Abweichungen vom Tarifvertrag sind nur zugunsten der Arbeitnehmer zulässig",
-        "Der Tarifvertrag hat immer Vorrang, egal was günstiger ist",
-        "Es gibt kein Verhältnis zwischen beiden Vertragsarten"
+        "Der geltende Tarifvertrag hat stets uneingeschränkten Vorrang, unabhängig davon was günstiger ist",
+        "Es besteht rechtlich überhaupt kein Verhältnis zwischen beiden unterschiedlichen Vertragsarten"
       ],
       "answer": 1,
       "explanation": "Das Günstigkeitsprinzip erlaubt Abweichungen vom Tarifvertrag im Arbeitsvertrag nur, wenn sie den Arbeitnehmer besserstellen."
@@ -53,46 +53,46 @@
       "id": "q5",
       "question": "Wodurch kann ein Tarifvertrag auch auf nicht organisierte Arbeitgeber und Arbeitnehmer einer Branche ausgeweitet werden?",
       "options": [
-        "Durch eine Betriebsvereinbarung",
+        "Durch eine formelle betriebliche Betriebsvereinbarung mit dem Betriebsrat",
+        "Durch eine einseitige arbeitgeberseitige Änderungskündigung des Vertrags",
         "Durch eine Allgemeinverbindlicherklärung",
-        "Durch eine Änderungskündigung",
-        "Durch das Nachweisgesetz"
+        "Durch die Vorschriften des allgemeinen deutschen Nachweisgesetzes"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Eine Allgemeinverbindlicherklärung durch das Bundesministerium für Arbeit und Soziales dehnt die Geltung eines Tarifvertrags auf die gesamte Branche aus."
     },
     {
       "id": "q6",
       "question": "Was bedeutet die Friedenspflicht während der Laufzeit eines Tarifvertrags?",
       "options": [
-        "Es darf grundsätzlich nie gestreikt werden",
-        "Über bereits tariflich geregelte Punkte darf nicht gestreikt werden",
-        "Nur der Arbeitgeber darf keine Aussperrung durchführen",
-        "Sie gilt nur für Gewerkschaftsmitglieder"
+        "Es darf während der gesamten Laufzeit grundsätzlich überhaupt nie gestreikt werden",
+        "Nur der Arbeitgeber darf während dieser Zeit keine Aussperrung von Beschäftigten durchführen",
+        "Sie gilt ausschließlich für eingetragene Mitglieder der jeweiligen Gewerkschaft",
+        "Über bereits tariflich geregelte Punkte darf nicht gestreikt werden"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die Friedenspflicht untersagt Streiks über Punkte, die im laufenden Tarifvertrag bereits geregelt sind."
     },
     {
       "id": "q7",
       "question": "Welches Mittel des Arbeitskampfs steht der Arbeitgeberseite zur Verfügung?",
       "options": [
-        "Streik",
         "Aussperrung",
+        "Streik",
         "Kündigungsschutzklage",
         "Allgemeinverbindlicherklärung"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Die Aussperrung ist das Gegenstück zum Streik und wird von der Arbeitgeberseite eingesetzt."
     },
     {
       "id": "q8",
       "question": "Wann gilt ein Tarifvertrag unmittelbar und zwingend für ein Arbeitsverhältnis?",
       "options": [
-        "Immer, unabhängig von Mitgliedschaften",
+        "Immer und ausnahmslos, völlig unabhängig von jeglichen individuellen Mitgliedschaften der beteiligten Vertragsparteien",
         "Wenn beide Seiten tarifgebunden sind (Gewerkschaftsmitgliedschaft und Arbeitgeberverband/Haustarifvertrag)",
-        "Nur wenn der Betriebsrat zustimmt",
-        "Nur bei Firmen mit mehr als 500 Beschäftigten"
+        "Nur dann, wenn der zuständige Betriebsrat der Anwendung ausdrücklich zustimmt",
+        "Nur bei Firmen mit deutlich mehr als 500 fest angestellten Beschäftigten insgesamt"
       ],
       "answer": 1,
       "explanation": "Unmittelbare Tarifbindung entsteht, wenn Arbeitnehmer und Arbeitgeber beide tarifgebunden sind."

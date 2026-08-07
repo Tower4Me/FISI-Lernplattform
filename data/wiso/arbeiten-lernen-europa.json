@@ -5,13 +5,13 @@
       "id": "q1",
       "question": "Welche Grundfreiheit des EU-Binnenmarkts erlaubt es EU-Bürger:innen, ohne gesonderte Arbeitserlaubnis in einem anderen Mitgliedstaat zu arbeiten?",
       "options": [
-        "Freier Kapitalverkehr",
-        "Arbeitnehmerfreizügigkeit (Art. 45 AEUV)",
+        "Arbeitnehmerfreizügigkeit",
+        "Freier Kapitalverkehr innerhalb der EU",
         "Freier Warenverkehr",
         "Dienstleistungsfreiheit"
       ],
-      "answer": 1,
-      "explanation": "Die Arbeitnehmerfreizügigkeit nach Art. 45 AEUV erlaubt EU-Bürger:innen, in jedem Mitgliedstaat ohne gesonderte Arbeitserlaubnis zu arbeiten."
+      "answer": 0,
+      "explanation": "Die Arbeitnehmerfreizügigkeit (Art. 45 AEUV) erlaubt EU-Bürger:innen, in jedem Mitgliedstaat ohne gesonderte Arbeitserlaubnis zu arbeiten."
     },
     {
       "id": "q2",
@@ -29,24 +29,24 @@
       "id": "q3",
       "question": "Wofür wird die Europäische Krankenversicherungskarte (EHIC) benötigt?",
       "options": [
-        "Zur Anerkennung von Berufsabschlüssen",
-        "Zur medizinisch notwendigen Behandlung im EU-Ausland zu den Bedingungen des Aufenthaltslandes",
-        "Als Nachweis der Arbeitnehmerfreizügigkeit",
-        "Als Ersatz für den Reisepass"
+        "Zur Anerkennung ausländischer Berufsabschlüsse und Qualifikationen im Zielland",
+        "Zum Nachweis der bereits erworbenen Arbeitnehmerfreizügigkeit gegenüber ausländischen Behörden",
+        "Für medizinisch notwendige Behandlung im EU-Ausland zu den Bedingungen des Aufenthaltslandes",
+        "Als vollwertiger Ersatz für den Reisepass bei Grenzkontrollen innerhalb der EU"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Die EHIC sichert im EU-Ausland den Zugang zu medizinisch notwendiger Behandlung zu den dortigen Bedingungen."
     },
     {
       "id": "q4",
       "question": "Wozu dient der Europäische Qualifikationsrahmen (EQR)?",
       "options": [
-        "Er regelt die Kündigungsfristen im EU-Ausland",
-        "Er ordnet nationale Bildungsabschlüsse acht vergleichbaren Niveaustufen zu",
-        "Er ersetzt nationale Ausbildungsordnungen",
-        "Er ist ausschließlich für akademische Abschlüsse zuständig"
+        "Er regelt die Kündigungsfristen für Arbeitsverhältnisse im EU-Ausland",
+        "Er ersetzt vollständig die nationalen Ausbildungsordnungen der Mitgliedstaaten",
+        "Er ist ausschließlich für akademische Hochschulabschlüsse zuständig, nicht für Berufsausbildung",
+        "Er ordnet nationale Bildungsabschlüsse acht vergleichbaren Niveaustufen zu"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Der EQR ordnet nationale Abschlüsse acht Niveaustufen zu, um sie EU-weit vergleichbar zu machen."
     },
     {
@@ -65,10 +65,10 @@
       "id": "q6",
       "question": "Was ist eine typische Grenze beruflicher Mobilität innerhalb der EU?",
       "options": [
-        "Es gibt keinerlei Unterschiede zwischen den Mitgliedstaaten",
-        "Unterschiedliche nationale Arbeits- und Sozialrechtssysteme sowie teils langwierige Anerkennungsverfahren",
-        "EU-Bürger:innen benötigen grundsätzlich ein Visum",
-        "Auszubildende dürfen keine Auslandspraktika absolvieren"
+        "Es gibt zwischen den einzelnen Mitgliedstaaten praktisch keinerlei rechtliche oder kulturelle Unterschiede",
+        "Unterschiedliche nationale Arbeits- und Sozialrechtssysteme sowie langwierige Anerkennungsverfahren",
+        "EU-Bürger:innen benötigen für die Arbeitsaufnahme grundsätzlich weiterhin ein nationales Visum",
+        "Auszubildende dürfen im Rahmen ihrer Ausbildung grundsätzlich keine Auslandspraktika absolvieren"
       ],
       "answer": 1,
       "explanation": "Trotz Freizügigkeit bestehen weiterhin Unterschiede in nationalen Rechtssystemen und teils langwierige Anerkennungsverfahren für reglementierte Berufe."
@@ -77,24 +77,24 @@
       "id": "q7",
       "question": "Für welche Berufsgruppe gelten in der EU besondere, formalisierte Anerkennungsverfahren?",
       "options": [
-        "Für alle Berufe gleichermaßen",
-        "Für reglementierte Berufe, z. B. bestimmte Gesundheitsberufe",
-        "Ausschließlich für IT-Berufe",
-        "Nur für Ausbildungsberufe ohne Abschlussprüfung"
+        "Für alle Berufe in der EU gleichermaßen, ohne jede Ausnahme",
+        "Ausschließlich für IT-Berufe und verwandte technische Tätigkeitsfelder",
+        "Für reglementierte Berufe, zum Beispiel bestimmte Gesundheitsberufe",
+        "Nur für Ausbildungsberufe, die ohne staatliche Abschlussprüfung enden"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Reglementierte Berufe unterliegen EU-weiten Anerkennungsverfahren; die meisten IT-Berufe zählen nicht dazu."
     },
     {
       "id": "q8",
       "question": "Wie wird ein Auslandspraktikum während der Ausbildung offiziell dokumentiert?",
       "options": [
-        "Durch den Europass-Mobilitätsnachweis",
-        "Durch das Aufstiegsfortbildungsförderungsgesetz",
-        "Durch die EHIC",
-        "Es gibt keine standardisierte Dokumentation"
+        "Durch die EHIC, die im EU-Ausland Zugang zu medizinischer Behandlung sichert",
+        "Durch das Aufstiegsfortbildungsförderungsgesetz (AFBG), das Weiterbildungen finanziell fördert",
+        "Es gibt dafür keine EU-weit einheitliche, standardisierte Dokumentationsform",
+        "Durch den Europass-Mobilitätsnachweis, der im Ausland erworbene Kompetenzen festhält"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Der Europass-Mobilitätsnachweis dokumentiert im Ausland erworbene Kompetenzen und Aufenthalte."
     }
   ]

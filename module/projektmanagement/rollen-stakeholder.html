@@ -90,14 +90,120 @@
       <p>
         <strong>Stakeholder</strong> sind alle Personen oder Gruppen, die
         ein Interesse am Projekt haben oder von seinem Ergebnis betroffen
-        sind — intern (Mitarbeiter, Management) wie extern (Kunden,
-        Lieferanten, Behörden, Öffentlichkeit). Eine
-        <strong>Stakeholder-Analyse</strong> ordnet die Beteiligten oft
-        nach <strong>Einfluss</strong> und <strong>Interesse</strong>
-        (Macht-Interesse-Matrix) ein, um für jede Gruppe die passende
-        Kommunikationsstrategie festzulegen — manche Stakeholder müssen
-        eng eingebunden werden, andere lediglich informiert.
+        sind. Man unterscheidet <strong>interne Stakeholder</strong>
+        (Mitarbeiter, Management, Betriebsrat) von
+        <strong>externen Stakeholdern</strong> (Kunden, Lieferanten,
+        Behörden, Öffentlichkeit) — beide Gruppen können ein Projekt
+        fördern oder behindern, ohne selbst Teil des Projektteams zu sein.
       </p>
+
+      <p>Eine <strong>Stakeholder-Analyse</strong> läuft in vier Schritten ab:</p>
+      <ol>
+        <li><strong>Identifikation</strong> — wer hat mit dem Projekt zu
+          tun, direkt oder indirekt?</li>
+        <li><strong>Analyse/Bewertung</strong> — welches Interesse und
+          welchen Einfluss (welche Macht) hat diese Person oder Gruppe?</li>
+        <li><strong>Priorisierung</strong> — welche Stakeholder sind für
+          den Projekterfolg am wichtigsten?</li>
+        <li><strong>Maßnahmen/Kommunikationsstrategie</strong> — wie und
+          wie oft wird mit wem kommuniziert?</li>
+      </ol>
+
+      <p>
+        Die Ergebnisse werden häufig in einem
+        <strong>Stakeholder-Register</strong> festgehalten:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Stakeholder</th><th>Interesse</th><th>Einfluss</th><th>Erwartung</th><th>Maßnahme</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Geschäftsführung (Auftraggeber)</td>
+            <td>hoch</td>
+            <td>hoch</td>
+            <td>termingerechte Umsetzung im Budget</td>
+            <td>eng steuern, wöchentliches Statusmeeting</td>
+          </tr>
+          <tr>
+            <td>IT-Abteilung des Kunden</td>
+            <td>hoch</td>
+            <td>mittel</td>
+            <td>stabiler Betrieb nach der Umstellung</td>
+            <td>zufriedenstellen, frühzeitig einbinden</td>
+          </tr>
+          <tr>
+            <td>Betroffene Endanwender</td>
+            <td>mittel</td>
+            <td>niedrig</td>
+            <td>wenig Störung im Tagesgeschäft</td>
+            <td>informieren, Schulung anbieten</td>
+          </tr>
+          <tr>
+            <td>Externer Prüfverband</td>
+            <td>niedrig</td>
+            <td>niedrig</td>
+            <td>Einhaltung von Normen</td>
+            <td>beobachten, bei Bedarf informieren</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Zur Priorisierung wird häufig die <strong>Power-Interest-Matrix</strong>
+        genutzt: Sie ordnet Stakeholder nach Einfluss (Macht) und Interesse
+        in vier Felder mit je eigener Strategie ein.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pim-title pim-desc">
+          <title id="pim-title">Power-Interest-Matrix: Stakeholder nach Einfluss und Interesse einordnen</title>
+          <desc id="pim-desc">Ein Koordinatensystem mit Einfluss auf der y-Achse (unten niedrig, oben hoch) und Interesse auf der x-Achse (links niedrig, rechts hoch), unterteilt in vier Felder. Oben links (hoher Einfluss, niedriges Interesse): zufriedenstellen. Oben rechts (hoher Einfluss, hohes Interesse): eng steuern. Unten links (niedriger Einfluss, niedriges Interesse): beobachten. Unten rechts (niedriger Einfluss, hohes Interesse): informieren.</desc>
+
+          <defs>
+            <marker id="pim-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="80" y="20" width="170" height="130" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="165" y="75" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">zufriedenstellen</text>
+          <text x="165" y="92" text-anchor="middle" fill="var(--text-muted)" font-size="9">hoher Einfluss,</text>
+          <text x="165" y="104" text-anchor="middle" fill="var(--text-muted)" font-size="9">niedriges Interesse</text>
+
+          <rect x="250" y="20" width="170" height="130" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <text x="335" y="75" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">eng steuern</text>
+          <text x="335" y="92" text-anchor="middle" fill="var(--text-muted)" font-size="9">hoher Einfluss,</text>
+          <text x="335" y="104" text-anchor="middle" fill="var(--text-muted)" font-size="9">hohes Interesse</text>
+
+          <rect x="80" y="150" width="170" height="130" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="165" y="205" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">beobachten</text>
+          <text x="165" y="222" text-anchor="middle" fill="var(--text-muted)" font-size="9">niedriger Einfluss,</text>
+          <text x="165" y="234" text-anchor="middle" fill="var(--text-muted)" font-size="9">niedriges Interesse</text>
+
+          <rect x="250" y="150" width="170" height="130" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="335" y="205" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">informieren</text>
+          <text x="335" y="222" text-anchor="middle" fill="var(--text-muted)" font-size="9">niedriger Einfluss,</text>
+          <text x="335" y="234" text-anchor="middle" fill="var(--text-muted)" font-size="9">hohes Interesse</text>
+
+          <line x1="70" y1="280" x2="440" y2="280" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#pim-arrow)"/>
+          <text x="420" y="300" text-anchor="middle" fill="var(--text-muted)" font-size="10">Interesse</text>
+          <text x="90" y="300" text-anchor="middle" fill="var(--text-muted)" font-size="9">niedrig</text>
+          <text x="400" y="300" text-anchor="middle" fill="var(--text-muted)" font-size="9">hoch</text>
+
+          <line x1="70" y1="280" x2="70" y2="10" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#pim-arrow)"/>
+          <text x="30" y="150" text-anchor="middle" fill="var(--text-muted)" font-size="10" transform="rotate(-90 30 150)">Einfluss</text>
+          <text x="55" y="277" text-anchor="end" fill="var(--text-muted)" font-size="9">niedrig</text>
+          <text x="55" y="35" text-anchor="end" fill="var(--text-muted)" font-size="9">hoch</text>
+        </svg>
+        <figcaption>
+          Vier Strategien je nach Einfluss und Interesse: hoher Einfluss
+          und hohes Interesse werden eng gesteuert, hoher Einfluss bei
+          niedrigem Interesse zufriedengestellt, hohes Interesse bei
+          niedrigem Einfluss informiert, beides niedrig wird nur
+          beobachtet.
+        </figcaption>
+      </figure>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -124,6 +230,14 @@
           Interesse wegen möglicher Compliance-Anforderungen, obwohl er
           nicht Teil der täglichen Projektarbeit ist.</li>
       </ul>
+      <p>
+        In der Power-Interest-Matrix landen die Mitarbeiter im Feld
+        „informieren" (niedriger Einfluss, hohes Interesse durch die
+        direkte Betroffenheit), der Datenschutzbeauftragte im Feld
+        „zufriedenstellen" bis „eng steuern" (sein Einfluss über mögliche
+        Compliance-Einwände ist höher, als seine geringe Einbindung ins
+        Tagesgeschäft vermuten lässt).
+      </p>
     </section>
 
     <!-- 4. MERKSATZ -->
@@ -133,9 +247,11 @@
         Auftraggeber gibt Ziele und Budget vor und nimmt ab.
         Projektleiter steuert das Tagesgeschäft operativ. Steuerkreis
         trifft übergeordnete Entscheidungen in Abständen, ohne im
-        Tagesgeschäft involviert zu sein. Stakeholder sind alle Beteiligten
-        und Betroffenen — Einfluss und Interesse bestimmen, wie eng sie
-        eingebunden werden.
+        Tagesgeschäft involviert zu sein. Die Stakeholder-Analyse läuft in
+        vier Schritten (Identifikation → Bewertung → Priorisierung →
+        Maßnahmen); die Power-Interest-Matrix ordnet Stakeholder nach
+        Einfluss und Interesse in eng steuern / zufriedenstellen /
+        informieren / beobachten ein.
       </p>
     </section>
 

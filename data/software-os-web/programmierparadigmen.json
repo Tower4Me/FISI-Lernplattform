@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Was ist das Grundprinzip der prozeduralen Programmierung?",
       "options": [
-        "Das Programm ist eine Folge von Anweisungen und Prozeduren, die nacheinander laufen und auf gemeinsame Daten zugreifen",
-        "Daten und Funktionen werden dabei ausschließlich gebündelt in Objekten gespeichert",
-        "Das Programm besteht ausschließlich aus zustandslosen, rein mathematischen Funktionen",
-        "Es gibt bei diesem Paradigma laut Definition keinerlei Ausführungsreihenfolge, alles läuft komplett gleichzeitig ab"
+        "Ein Programm gliedert sich in Prozeduren, die nacheinander ausgeführt werden und auf gemeinsamen Daten arbeiten",
+        "Daten und Funktionen werden dabei ausschließlich zusammen in einzelnen Objekten gekapselt und gespeichert",
+        "Das Programm besteht dabei ausschließlich aus zustandslosen, rein mathematischen Funktionen ohne Seiteneffekte",
+        "Bei diesem Paradigma existiert laut Definition keinerlei feste Reihenfolge, alles läuft angeblich gleichzeitig ab"
       ],
       "answer": 0,
       "explanation": "Prozedurale Programmierung strukturiert ein Programm als Abfolge von Prozeduren/Funktionen, die auf gemeinsamen Daten arbeiten und nacheinander ausgeführt werden."
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Was ist das Grundprinzip der funktionalen Programmierung?",
       "options": [
-        "Alle Daten müssen bei diesem Paradigma zwingend in globalen Variablen gespeichert werden",
-        "Objekte erben bei diesem Paradigma zwingend gleichzeitig von mehreren Basisklassen",
-        "Anweisungen werden bei diesem Paradigma stets ausschließlich in zufälliger Reihenfolge ausgeführt",
-        "Das Programm besteht aus der Verkettung möglichst zustandsloser Funktionen, ohne gemeinsamen veränderlichen Zustand"
+        "Alle Daten müssen bei diesem Paradigma zwingend ausschließlich in globalen Variablen gespeichert werden",
+        "Objekte erben bei diesem Paradigma angeblich zwingend gleichzeitig von mehreren verschiedenen Basisklassen",
+        "Anweisungen laufen bei diesem Paradigma angeblich stets nur in zufälliger, nicht vorhersehbarer Reihenfolge ab",
+        "Das Programm verkettet möglichst zustandslose Funktionen, ohne einen gemeinsamen veränderlichen Zustand"
       ],
       "answer": 3,
       "explanation": "Funktionale Programmierung verkettet möglichst zustandslose (reine) Funktionen, ohne dabei einen gemeinsamen veränderlichen Zustand zu manipulieren."
@@ -52,9 +52,9 @@
     {
       "id": "q5",
       "question": "Welche Sprachebene liegt zwischen Maschinensprache und Hochsprache?",
-      "options": ["Assemblersprache", "Bytecode", "Pseudocode", "Markup-Sprache"],
+      "options": ["Assembler", "Bytecode", "Pseudocode", "Markup-Sprache"],
       "answer": 0,
-      "explanation": "Assemblersprache nutzt mnemonische Abkürzungen für Maschinenbefehle — hardwarenäher als eine Hochsprache, aber für Menschen lesbarer als reine Binärbefehle."
+      "explanation": "Assembler nutzt mnemonische Abkürzungen für Maschinenbefehle — hardwarenäher als eine Hochsprache, aber für Menschen lesbarer als reine Binärbefehle."
     },
     {
       "id": "q6",

@@ -17,9 +17,9 @@
       "id": "q2",
       "question": "Was gibt eine URL im Unterschied zu einer URN zusätzlich an?",
       "options": [
-        "Nichts Zusätzliches, beide sind in ihrer Funktion technisch identisch",
-        "Ausschließlich den Dateityp der referenzierten Ressource, nicht ihren Speicherort",
-        "Ausschließlich die Dateigröße der referenzierten Ressource in Byte",
+        "Nichts Zusätzliches — beide Begriffe sind in ihrer Funktion technisch vollständig identisch",
+        "Ausschließlich den Dateityp der referenzierten Ressource, nicht jedoch ihren Speicherort",
+        "Ausschließlich die genaue Dateigröße der referenzierten Ressource, angegeben in Byte",
         "Wo eine Ressource zu finden ist und wie darauf zugegriffen wird (Protokoll, Adresse, Pfad)"
       ],
       "answer": 3,
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Was zeichnet eine URN wie z. B. urn:isbn:0451450523 aus?",
       "options": [
-        "Sie identifiziert eine Ressource eindeutig über einen Namen, unabhängig davon, wo sie aktuell zu finden ist",
-        "Sie enthält als fester Bestandteil immer ein Netzwerkprotokoll wie http oder https",
-        "Sie ändert sich automatisch, sobald das referenzierte Buch den Verkaufsort wechselt",
-        "Sie ist ausschließlich für Webseiten gültig, nicht jedoch für physische Bücher"
+        "Sie identifiziert eine Ressource eindeutig über einen Namen, unabhängig vom Ort",
+        "Sie enthält als fester Bestandteil immer zwingend ein Netzwerkprotokoll wie http oder https",
+        "Sie ändert sich automatisch und sofort, sobald das referenzierte Buch den Verkaufsort wechselt",
+        "Sie ist ausschließlich für einzelne Webseiten gültig, nicht jedoch für physische, gedruckte Bücher"
       ],
       "answer": 0,
       "explanation": "Eine URN identifiziert eine Ressource dauerhaft über einen eindeutigen Namen — unabhängig davon, an welchem Ort oder bei welchem Anbieter sie gerade verfügbar ist."
@@ -40,9 +40,9 @@
     {
       "id": "q4",
       "question": "Welcher Bestandteil einer URL wird niemals an den Server übertragen?",
-      "options": ["Der Pfad", "Das Fragment (nach dem #)", "Der Query-String", "Die Domain"],
+      "options": ["Der Pfad", "Das Fragment", "Der Query-String", "Die Domain"],
       "answer": 1,
-      "explanation": "Das Fragment (z. B. #seite2) dient nur der Navigation innerhalb der bereits geladenen Seite im Browser und wird nicht an den Server gesendet."
+      "explanation": "Das Fragment (nach dem #, z. B. #seite2) dient nur der Navigation innerhalb der bereits geladenen Seite im Browser und wird nicht an den Server gesendet."
     },
     {
       "id": "q5",
@@ -55,9 +55,9 @@
       "id": "q6",
       "question": "Was steht im Query-String einer URL, z. B. bei ?kategorie=notebooks&sortierung=preis?",
       "options": [
-        "Den verschlüsselten Teil der URL, der beim Transport zusätzlich abgesichert wird",
-        "Den Namen des Servers, auf dem die referenzierte Ressource tatsächlich liegt",
-        "Eine reine Sprungmarke innerhalb der bereits im Browser geladenen Seite",
+        "Den verschlüsselten Teil der URL, der beim Transport zusätzlich extra abgesichert wird",
+        "Den Namen des Servers, auf dem die referenzierte Ressource tatsächlich physisch liegt",
+        "Eine reine Sprungmarke innerhalb der bereits vollständig im Browser geladenen Seite",
         "Zusätzliche Parameter als Schlüssel-Wert-Paare, die an den Server übermittelt werden"
       ],
       "answer": 3,

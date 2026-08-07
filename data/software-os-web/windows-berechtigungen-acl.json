@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Was ist eine ACL (Access Control List) unter Windows?",
       "options": [
-        "Eine Liste von ACEs, die für einzelne Benutzer oder Gruppen jeweils erlaubte oder verbotene Aktionen festlegt",
-        "Ein reines Synonym für das unter Linux verwendete rwx-Rechtesystem",
-        "Eine Liste sämtlicher auf dem System aktuell installierter Programme",
-        "Ein Protokoll, das ausschließlich der Verschlüsselung von Netzwerkverkehr dient"
+        "Eine Liste von ACEs, die für Benutzer/Gruppen erlaubte oder verbotene Aktionen festlegt",
+        "Ein reines Synonym für das unter Linux traditionell verwendete einfache rwx-Rechtesystem",
+        "Eine Liste sämtlicher auf dem System aktuell installierter und tatsächlich lauffähiger Programme",
+        "Ein Protokoll, das ausschließlich der Verschlüsselung des gesamten internen Netzwerkverkehrs dient"
       ],
       "answer": 0,
       "explanation": "Eine ACL besteht aus beliebig vielen ACEs (Access Control Entries), die jeweils für einen bestimmten Benutzer oder eine Gruppe festlegen, welche Aktionen erlaubt oder verboten sind."
@@ -30,7 +30,7 @@
       "question": "Was bedeutet die standardmäßige Vererbung von Windows-Berechtigungen?",
       "options": [
         "Jede neu erstellte Datei bekommt automatisch vollen Zugriff für sämtliche Benutzer",
-        "Berechtigungen werden unter Windows grundsätzlich niemals an untergeordnete Objekte vererbt",
+        "Berechtigungen werden unter Windows grundsätzlich niemals an untergeordnete Objekte automatisch vererbt",
         "Dateien in einem Ordner übernehmen automatisch die Berechtigungen des übergeordneten Ordners",
         "Die Vererbung betrifft ausschließlich die Dateigröße, nicht die eigentlichen Zugriffsrechte"
       ],
@@ -40,9 +40,9 @@
     {
       "id": "q4",
       "question": "Welcher Kommandozeilenbefehl ist der moderne Windows-Standard zur Verwaltung von ACLs?",
-      "options": ["cacls", "chmod", "chown", "icacls"],
+      "options": ["cacls", "chmod", "takeown", "icacls"],
       "answer": 3,
-      "explanation": "icacls ist der moderne Windows-Befehl zur Anzeige und Verwaltung von ACLs — cacls gilt als veraltet, chmod/chown sind Linux-Befehle."
+      "explanation": "icacls ist der moderne Windows-Befehl zur Anzeige und Verwaltung von ACLs — cacls gilt als veraltet, chmod ist ein Linux-Befehl, und takeown übernimmt unter Windows nur den Besitz einer Datei, nicht die volle ACL."
     },
     {
       "id": "q5",
@@ -60,10 +60,10 @@
       "id": "q6",
       "question": "Was ist ein zentraler Unterschied zwischen Linux-rwx und Windows-ACL bezüglich der Granularität?",
       "options": [
-        "Linux-rwx ist in seiner Granularität deutlich feiner abgestuft als jede Windows-ACL",
-        "Windows-ACL ermöglicht sehr viele einzelne, fein abgestufte Rechte pro Benutzer/Gruppe, während Linux-rwx nur 9 Bits für drei feste Gruppen kennt",
-        "Beide Berechtigungssysteme bieten in der Praxis exakt dieselbe Granularität",
-        "Die Granularität spielt bei Berechtigungssystemen wie ACL und rwx grundsätzlich keine Rolle"
+        "Linux-rwx ist dabei in seiner Granularität deutlich feiner abgestuft als jede vergleichbare Windows-ACL",
+        "Windows-ACL erlaubt viele fein abgestufte Rechte pro Benutzer, Linux-rwx kennt nur 9 Bits für drei feste Gruppen",
+        "Beide Berechtigungssysteme bieten dabei in der täglichen Praxis exakt dieselbe, identische Granularität",
+        "Die Granularität spielt bei Berechtigungssystemen wie Windows-ACL und Linux-rwx dabei grundsätzlich überhaupt gar keine Rolle"
       ],
       "answer": 1,
       "explanation": "Windows-ACLs erlauben beliebig viele, sehr fein abgestufte Berechtigungseinträge pro Benutzer oder Gruppe, während das Linux-rwx-System auf 9 Bits für die drei festen Gruppen Owner/Group/Others begrenzt ist."

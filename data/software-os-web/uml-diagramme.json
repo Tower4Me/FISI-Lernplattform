@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Was ist der Zweck von UML (Unified Modeling Language)?",
       "options": [
-        "Eine konkrete Programmiersprache zur direkten Ausführung von kompiliertem Code",
-        "Ein vollständiges Datenbankverwaltungssystem zur Speicherung von Softwaremodellen",
-        "Ein spezieller Verschlüsselungsstandard, der ausschließlich für Quellcode entwickelt wurde",
-        "Eine genormte, programmiersprachenunabhängige grafische Notation zur Modellierung von Software-Systemen"
+        "Eine konkrete Programmiersprache zur direkten Ausführung von bereits kompiliertem Maschinencode",
+        "Ein vollständiges Datenbankverwaltungssystem ausschließlich zur Speicherung fertiger Softwaremodelle",
+        "Ein spezieller Verschlüsselungsstandard, der ausschließlich für rohen Quellcode entwickelt wurde",
+        "Eine genormte, sprachunabhängige grafische Notation zur Modellierung von Software-Systemen"
       ],
       "answer": 3,
       "explanation": "UML ist eine genormte grafische Notation, die unabhängig von einer konkreten Programmiersprache zur Modellierung von Software-Systemen dient."
@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Was zeigt ein Use-Case-Diagramm?",
       "options": [
-        "Welche Akteure mit dem System interagieren und welche Anwendungsfälle dabei genutzt werden",
-        "Die statische Klassenstruktur eines Systems mit sämtlichen Attributen und Methoden",
-        "Den zeitlichen Ablauf eines Algorithmus in Form einzelner Programmschritte",
-        "Die physische Verkabelung und Verteilung eines Netzwerks im Rechenzentrum"
+        "Welche Akteure mit dem System interagieren und welche Anwendungsfälle sie dabei nutzen",
+        "Die statische Klassenstruktur eines Systems mit all ihren Attributen und Methoden im Detail",
+        "Den zeitlichen Ablauf eines konkreten Algorithmus in Form einzelner nacheinander folgender Schritte",
+        "Die physische Verkabelung und räumliche Verteilung eines Netzwerks im gesamten Rechenzentrum"
       ],
       "answer": 0,
       "explanation": "Ein Use-Case-Diagramm zeigt die Akteure (Nutzer, externe Systeme) und die Anwendungsfälle (Use Cases), mit denen sie das System nutzen."
@@ -50,7 +50,7 @@
       "options": [
         "Die zeitliche Abfolge einzelner Programmschritte innerhalb eines konkreten Ablaufs",
         "Ausschließlich die Akteure eines Systems, ohne jede weitere Strukturinformation",
-        "Die Netzwerktopologie eines Rechenzentrums samt physischer Verkabelung",
+        "Die Netzwerktopologie eines gesamten Rechenzentrums samt physischer Verkabelung der Geräte",
         "Klassen mit ihren Attributen und Methoden sowie die Beziehungen zwischen den Klassen"
       ],
       "answer": 3,
@@ -59,7 +59,12 @@
     {
       "id": "q5",
       "question": "Welcher Beziehungstyp im Klassendiagramm beschreibt Vererbung zwischen Klassen?",
-      "options": ["Generalisierung", "Assoziation", "Aggregation", "Komposition"],
+      "options": [
+        "Die Generalisierung, bei der eine Klasse von einer allgemeineren Klasse erbt",
+        "Die Assoziation, bei der zwei Klassen lediglich lose miteinander verbunden sind",
+        "Die Aggregation, bei der ein Objekt aus unabhängig existierenden Teilen besteht",
+        "Die Komposition, bei der die Teile ohne das Ganze nicht existieren können"
+      ],
       "answer": 0,
       "explanation": "Die Generalisierung stellt die Vererbungsbeziehung dar, bei der eine Klasse Eigenschaften einer allgemeineren Klasse übernimmt."
     },
@@ -67,10 +72,10 @@
       "id": "q6",
       "question": "Was unterscheidet Aggregation von Komposition im Klassendiagramm?",
       "options": [
-        "Beide Beziehungstypen sind in Bedeutung und Notation technisch vollständig identisch",
-        "Bei Aggregation können die Teile auch unabhängig vom Ganzen existieren, bei Komposition existieren die Teile nicht ohne das Ganze",
-        "Aggregation beschreibt dabei Vererbung, Komposition beschreibt lediglich eine reine Assoziation",
-        "Komposition ist als Beziehungstyp immer schwächer ausgeprägt als eine einfache Assoziation"
+        "Beide Beziehungstypen sind hinsichtlich Bedeutung und grafischer Notation vollständig identisch und austauschbar",
+        "Bei Aggregation existieren die Teile auch unabhängig vom Ganzen, bei Komposition nicht",
+        "Aggregation beschreibt dabei eine reine Vererbungsbeziehung, Komposition dagegen nur eine lose Assoziation",
+        "Komposition gilt als Beziehungstyp grundsätzlich immer schwächer als eine einfache, lose Assoziation"
       ],
       "answer": 1,
       "explanation": "Aggregation ist eine „hat-ein“-Beziehung, bei der Teile auch unabhängig existieren können. Komposition ist die stärkere Form, bei der die Teile ohne das Ganze nicht existieren."
@@ -86,9 +91,9 @@
       "id": "q8",
       "question": "Was zeigt ein Sequenzdiagramm im Unterschied zum Klassendiagramm?",
       "options": [
-        "Die statische Struktur der Klassen mit sämtlichen Attributen und Methoden",
-        "Ausschließlich die Akteure eines Systems, ohne jede zeitliche Information",
-        "Die Netzwerktopologie eines Rechenzentrums samt physischer Geräteverkabelung",
+        "Die statische Struktur der Klassen mit all ihren Attributen und Methoden im Detail",
+        "Ausschließlich die Akteure eines Systems, komplett ohne jede zeitliche Information",
+        "Die Netzwerktopologie eines gesamten Rechenzentrums samt physischer Geräteverkabelung",
         "Die zeitliche Reihenfolge von Nachrichten zwischen konkreten Objekten oder Akteuren"
       ],
       "answer": 3,

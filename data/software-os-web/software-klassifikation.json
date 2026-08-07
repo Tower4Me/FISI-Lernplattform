@@ -26,7 +26,7 @@
       "options": [
         "Sie ist günstiger, da Entwicklungskosten auf viele Kunden verteilt werden, und sofort einsatzbereit",
         "Sie ist exakt auf die individuellen Prozesse eines einzelnen Unternehmens zugeschnitten",
-        "Sie muss vor jedem einzelnen Einsatz immer eigens komplett von Grund auf neu programmiert werden",
+        "Sie muss vor jedem einzelnen praktischen Einsatz immer eigens komplett von Grund auf neu programmiert werden",
         "Sie deckt grundsätzlich jeden erdenklichen Sonderfall eines Unternehmens vollständig ab"
       ],
       "answer": 0,
@@ -59,7 +59,12 @@
     {
       "id": "q6",
       "question": "Ein Unternehmen benötigt eine Lagerverwaltung mit einem sehr speziellen Barcode-Workflow, den keine am Markt erhältliche Lösung abdeckt. Welche Softwareart ist hier naheliegend?",
-      "options": ["Systemsoftware", "Standardsoftware", "Firmware", "Individualsoftware"],
+      "options": [
+        "Systemsoftware, weil sie die Hardware verwaltet und Programme erst lauffähig macht",
+        "Standardsoftware, weil sie in aller Regel günstiger und sofort einsatzbereit ist als eine Neuentwicklung",
+        "Firmware, weil sie fest in der jeweiligen Hardware des Lagerscanners verankert ist",
+        "Individualsoftware, weil sie eigens für diesen speziellen Barcode-Workflow entwickelt wird"
+      ],
       "answer": 3,
       "explanation": "Da kein Standardprodukt den speziellen Workflow abdeckt, ist eine eigens entwickelte Individualsoftware die passende Wahl, auch wenn sie teurer und aufwendiger ist."
     },
@@ -67,10 +72,10 @@
       "id": "q7",
       "question": "Warum nutzt ein Unternehmen für die Buchhaltung meist Standardsoftware statt Individualsoftware?",
       "options": [
-        "Weil Buchhaltungsprozesse gesetzlich weitgehend standardisiert sind und Standardlösungen die Anforderungen abdecken",
+        "Weil Buchhaltungsprozesse gesetzlich weitgehend standardisiert sind und Standardlösungen die Anforderungen meist abdecken",
         "Weil der Einsatz von Individualsoftware für die Buchhaltung in ganz Deutschland gesetzlich strikt verboten ist",
-        "Weil Standardsoftware grundsätzlich und in jedem Fall sicherer als jede Individualsoftware ist",
-        "Weil Buchhaltungssoftware für ihren Betrieb grundsätzlich keinerlei Systemsoftware benötigt"
+        "Weil Standardsoftware grundsätzlich und vollkommen ausnahmslos in wirklich jedem denkbaren Fall sicherer als jede Individualsoftware ist",
+        "Weil Buchhaltungssoftware für ihren laufenden Betrieb grundsätzlich überhaupt keine Systemsoftware benötigen würde"
       ],
       "answer": 0,
       "explanation": "Da Buchhaltungsprozesse durch gesetzliche Vorgaben weitgehend standardisiert sind, decken etablierte Standardlösungen die Anforderungen meist vollständig und kostengünstig ab — eine Individualentwicklung wäre hier unnötiger Aufwand."

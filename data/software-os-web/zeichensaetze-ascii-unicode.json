@@ -11,18 +11,18 @@
     {
       "id": "q2",
       "question": "Welchen ASCII-Wert hat das Zeichen „0“ (die Ziffer als Text), im Unterschied zur Zahl 0?",
-      "options": ["48 (0x30)", "0", "10", "128"],
+      "options": ["48", "0", "10", "128"],
       "answer": 0,
-      "explanation": "Das Zeichen „0“ hat den ASCII-Wert 48 (0x30) — die Zahl 0 hat dagegen den Wert 0. Beide werden häufig verwechselt."
+      "explanation": "Das Zeichen „0“ hat den ASCII-Wert 48 (hexadezimal 0x30) — die Zahl 0 hat dagegen den Wert 0. Beide werden häufig verwechselt."
     },
     {
       "id": "q3",
       "question": "Warum reichte ASCII langfristig nicht aus und führte zu Kompatibilitätsproblemen?",
       "options": [
-        "ASCII wurde als Zeichensatz nie offiziell durch ein Normungsgremium standardisiert",
-        "ASCII deckt nur 128 englische Zeichen ab, weshalb Länder eigene, untereinander inkompatible 256-Zeichen-Erweiterungen entwickelten",
-        "ASCII konnte in seiner ursprünglichen Fassung nur Zahlen, aber keine Buchstaben darstellen",
-        "ASCII wurde bereits im Jahr 1970 vollständig und ersatzlos durch Unicode abgelöst"
+        "ASCII wurde als Zeichensatz dabei nie offiziell durch irgendein internationales Normungsgremium standardisiert",
+        "ASCII deckt nur 128 englische Zeichen ab, weshalb Länder eigene, inkompatible Erweiterungen entwickelten",
+        "ASCII konnte in seiner ursprünglichen Fassung ausschließlich Zahlen, aber keinerlei Buchstaben darstellen",
+        "ASCII wurde bereits im Jahr 1970 angeblich vollständig und ersatzlos durch Unicode abgelöst"
       ],
       "answer": 1,
       "explanation": "Da ASCII nur englische Zeichen (128 Werte) abdeckt, entwickelte jedes Land eigene Erweiterungen (z. B. ISO-8859-1, Windows-1252), die untereinander nicht kompatibel waren."
@@ -31,10 +31,10 @@
       "id": "q4",
       "question": "Was ist ein Unicode-Codepoint?",
       "options": [
-        "Eine feste Byte-Kodierung, die für jedes einzelne Zeichen exakt 2 Bytes benötigt",
-        "Ein reines Synonym für den klassischen ASCII-Wert eines Zeichens",
-        "Eine eindeutige Kennung für ein Zeichen, geschrieben als U+XXXX, unabhängig von der konkreten Byte-Kodierung",
-        "Ein Verfahren, das ausschließlich zur verlustbehafteten Kompression von Bildern dient"
+        "Eine feste Byte-Kodierung, die für jedes einzelne dargestellte Zeichen exakt 2 Bytes benötigt",
+        "Ein reines Synonym für den klassischen, historischen ASCII-Wert eines einzelnen Zeichens",
+        "Eine eindeutige Kennung für ein Zeichen, geschrieben als U+XXXX, unabhängig von der Byte-Kodierung",
+        "Ein Verfahren, das ausschließlich zur stark verlustbehafteten Kompression von digitalen Bildern dient"
       ],
       "answer": 2,
       "explanation": "Ein Codepoint (U+XXXX) identifiziert ein Zeichen eindeutig innerhalb von Unicode — wie dieses Zeichen als Bytes gespeichert wird, legt erst die Kodierung (z. B. UTF-8) fest."
@@ -43,10 +43,10 @@
       "id": "q5",
       "question": "Warum ist jede reine ASCII-Textdatei automatisch auch gültiges UTF-8?",
       "options": [
-        "Weil ASCII und UTF-8 in ihrem gesamten Wertebereich technisch vollständig identisch sind",
-        "Weil UTF-8 als Kodierung ausschließlich für rein englischsprachige Texte entwickelt wurde",
-        "Weil reine ASCII-Dateien entgegen der Annahme technisch überhaupt keine Bytes enthalten",
-        "Weil UTF-8 alle ASCII-Zeichen (0–127) mit genau einem Byte und identischem Bitmuster kodiert — bewusstes Design, kein Zufall"
+        "Weil ASCII und UTF-8 in ihrem gesamten Wertebereich angeblich technisch vollständig identisch sind",
+        "Weil UTF-8 als Kodierung angeblich ausschließlich für rein englischsprachige Texte entwickelt wurde",
+        "Weil reine ASCII-Dateien entgegen der landläufigen Annahme technisch überhaupt gar keine Bytes enthalten",
+        "Weil UTF-8 alle ASCII-Zeichen mit genau einem Byte und identischem Bitmuster kodiert — bewusstes Design"
       ],
       "answer": 3,
       "explanation": "UTF-8 wurde bewusst so entworfen, dass alle ASCII-Zeichen mit einem einzigen, identischen Byte kodiert werden — dadurch ist jede ASCII-Datei automatisch gültiges UTF-8."
@@ -74,10 +74,10 @@
       "id": "q8",
       "question": "Ein unter Windows bearbeitetes Shell-Skript zeigt unter Linux beim Ausführen Probleme, und cat -A zeigt am Zeilenende „^M$“ statt nur „$“. Was ist die Ursache?",
       "options": [
-        "Das Skript wurde beim Speichern versehentlich als reine Binärdatei abgelegt",
-        "Das Skript enthält an mehreren Stellen ungültige, nicht dekodierbare UTF-8-Zeichen",
-        "Das Skript enthält Windows-Zeilenenden (CRLF), das übrig gebliebene CR (0x0D) wird vom Linux-Interpreter fälschlich als Teil des Befehls interpretiert",
-        "Linux unterstützt grundsätzlich keine Shell-Skripte, die von Windows-Nutzern erstellt wurden"
+        "Das Skript wurde beim Speichern versehentlich als komplett reine Binärdatei ohne Textformat abgelegt",
+        "Das Skript enthält an mehreren verschiedenen Stellen ungültige, nicht dekodierbare UTF-8-Zeichen",
+        "Das Skript enthält Windows-Zeilenenden (CRLF); das übrige CR wird vom Linux-Interpreter als Teil des Befehls gelesen",
+        "Linux unterstützt grundsätzlich und generell keine Shell-Skripte, die ursprünglich von Windows-Nutzern erstellt wurden"
       ],
       "answer": 2,
       "explanation": "Windows-CRLF-Zeilenenden hinterlassen unter Linux ein sichtbares ^M (das CR-Zeichen), das der Interpreter als Teil des Befehls missversteht — die Lösung ist die Konvertierung zu reinem LF (z. B. mit dos2unix)."

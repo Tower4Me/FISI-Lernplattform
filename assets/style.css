@@ -493,7 +493,13 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 }
 
 .site-search { position: relative; }
-.site-search--prominent { flex: 1 1 20rem; }
+/* min-width zusaetzlich zu flex-basis noetig: .site-header__actions ist
+   selbst ein Flex-Item ohne eigenen Grow-Wert, dessen intrinsische
+   Breitenberechnung die flex-basis der Suche nicht zuverlaessig
+   uebernimmt (verifiziert) -- min-width erzwingt die Breite als harte
+   Untergrenze unabhaengig davon. Bei <=600px setzt der bestehende
+   @media-Block min-width wieder auf 0, Umbruch bleibt unveraendert. */
+.site-search--prominent { flex: 1 1 20rem; min-width: 22rem; }
 .site-search--compact { flex: 0 1 14rem; }
 .site-search__input {
   width: 100%;

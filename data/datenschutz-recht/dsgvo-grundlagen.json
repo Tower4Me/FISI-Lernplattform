@@ -5,43 +5,43 @@
       "id": "q1",
       "question": "Was regelt die DSGVO im Unterschied zur IT-Sicherheit?",
       "options": [
-        "Die DSGVO ersetzt vollständig alle technischen Sicherheitsmaßnahmen",
-        "Die DSGVO regelt rechtlich, welche personenbezogenen Daten überhaupt verarbeitet werden dürfen, während IT-Sicherheit Daten technisch schützt",
-        "Die DSGVO gilt nur für Behörden, nicht für Unternehmen",
-        "Die DSGVO und IT-Sicherheit behandeln exakt dasselbe Themenfeld"
+        "Die DSGVO regelt rechtlich, welche Daten verarbeitet werden dürfen, IT-Sicherheit schützt technisch",
+        "Die DSGVO ersetzt vollständig und dauerhaft alle technischen IT-Sicherheitsmaßnahmen im gesamten Unternehmen",
+        "Die DSGVO gilt ausschließlich für Behörden und öffentliche Stellen, nicht für private Unternehmen",
+        "Die DSGVO und die IT-Sicherheit behandeln inhaltlich exakt dasselbe rechtliche Themenfeld"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "IT-Sicherheit schützt Daten technisch (Verschlüsselung, Firewalls etc.), die DSGVO regelt rechtlich, ob und wie personenbezogene Daten verarbeitet werden dürfen — beide Bereiche ergänzen sich."
     },
     {
       "id": "q2",
       "question": "Welche der folgenden Angaben zählt zu den besonderen Kategorien personenbezogener Daten mit besonders strengem Schutz?",
-      "options": ["Die Postleitzahl eines Kunden", "Gesundheitsdaten", "Die Bestellnummer eines Kunden", "Der Name eines Unternehmens"],
-      "answer": 1,
+      "options": ["Die Postleitzahl eines Kunden", "Die Bestellnummer eines Kunden", "Gesundheitsdaten", "Der Name eines Unternehmens"],
+      "answer": 2,
       "explanation": "Gesundheitsdaten gehören zu den besonderen Kategorien personenbezogener Daten (neben z. B. Religionszugehörigkeit, biometrischen Daten, politischer Meinung) und unterliegen einem noch strengeren Schutz als gewöhnliche personenbezogene Daten."
     },
     {
       "id": "q3",
       "question": "Was verlangt der Grundsatz der Zweckbindung nach Art. 5 DSGVO?",
       "options": [
-        "Daten dürfen nur für den Zweck genutzt werden, für den sie ursprünglich erhoben wurden",
-        "Daten müssen grundsätzlich unbegrenzt gespeichert werden",
-        "Alle Daten müssen verschlüsselt übertragen werden",
-        "Personenbezogene Daten dürfen niemals gelöscht werden"
+        "Daten müssen grundsätzlich unbegrenzt und ohne zeitliche Beschränkung gespeichert werden",
+        "Alle personenbezogenen Daten müssen ausnahmslos verschlüsselt übertragen werden",
+        "Personenbezogene Daten dürfen unter keinen Umständen jemals gelöscht werden",
+        "Daten dürfen nur für den Zweck genutzt werden, für den sie ursprünglich erhoben wurden"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Zweckbindung bedeutet, dass erhobene Daten nicht beliebig für andere Zwecke weiterverwendet werden dürfen — ein neuer Verwendungszweck braucht eine eigene Rechtsgrundlage."
     },
     {
       "id": "q4",
       "question": "Was verlangt der Grundsatz der Datenminimierung?",
       "options": [
-        "Erhobene Daten müssen komprimiert gespeichert werden",
-        "Es dürfen nur so viele Daten erhoben werden, wie für den jeweiligen Zweck tatsächlich erforderlich sind",
-        "Alle Daten müssen pseudonymisiert werden",
-        "Nur Unternehmen unter 50 Mitarbeitern müssen Daten minimieren"
+        "Erhobene Daten müssen grundsätzlich immer vollständig komprimiert und archiviert gespeichert werden",
+        "Ausschließlich Unternehmen mit unter 50 Mitarbeitenden müssen ihre erhobenen Daten minimieren",
+        "Es dürfen nur so viele Daten erhoben werden, wie für den Zweck erforderlich sind",
+        "Sämtliche erhobenen Daten müssen unabhängig vom Zweck immer vollständig pseudonymisiert werden"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Datenminimierung bezieht sich auf Menge und Erforderlichkeit der erhobenen Daten, nicht auf technische Speicherformate."
     },
     {
@@ -60,12 +60,12 @@
       "id": "q6",
       "question": "Worauf muss sich jede Verarbeitung personenbezogener Daten nach Art. 6 DSGVO stützen?",
       "options": [
-        "Ausschließlich auf eine ausdrückliche Einwilligung der betroffenen Person",
-        "Auf eine Rechtsgrundlage, z. B. Einwilligung, Vertragserfüllung, rechtliche Pflicht oder berechtigtes Interesse",
-        "Auf eine technische Verschlüsselung der betroffenen Daten",
-        "Auf die Zustimmung der zuständigen Aufsichtsbehörde im Einzelfall"
+        "Auf eine Rechtsgrundlage, z. B. Einwilligung, Vertragserfüllung oder berechtigtes Interesse",
+        "Ausschließlich auf eine ausdrückliche und schriftlich dokumentierte Einwilligung der betroffenen Person",
+        "Auf eine ausreichend starke technische Verschlüsselung der jeweils betroffenen Daten",
+        "Auf die vorherige Zustimmung der zuständigen Aufsichtsbehörde im jeweiligen Einzelfall"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Jede Verarbeitung braucht eine Rechtsgrundlage nach Art. 6 DSGVO. Einwilligung ist nur eine von mehreren möglichen Rechtsgrundlagen, nicht die einzige."
     },
     {

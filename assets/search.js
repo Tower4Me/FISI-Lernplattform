@@ -4,6 +4,9 @@
    binden nur dieses Skript ein, kein such-spezifisches HTML noetig.
 
    Datenquelle: data/manifest.json (Unit-Name + Modul-Name je Einheit).
+   Optionales Feld pro Unit: "aliases" (Array alternativer Suchbegriffe,
+   z. B. "Teilkostenrechnung" fuer die Einheit "Zuschlagskalkulation & BAB")
+   -- durchsucht, aber nie angezeigt: Treffer zeigen immer den echten Titel.
    Ruhezustand: Eingabefeld unauffaellig, KEINE Treffer im Leerzustand.
    Erst bei Eingabe wird gefiltert; Ergebnisse nach Relevanz sortiert
    (exakt > Anfangstreffer > Teiltreffer), umlaut- und case-tolerant.
@@ -56,6 +59,7 @@
           list.push({
             name: u.name,
             normName: normalize(u.name),
+            normAliases: (u.aliases || []).map(normalize),
             moduleName: mod.name,
             href: prefix + "module/" + mod.slug + "/" + u.slug + ".html",
             order: order++
@@ -71,14 +75,27 @@
     });
 
   /* --------------------------------------------------------- Relevanz --- */
+  /* Titel-Treffer koennen exakt sein (score 0). Alias-Treffer (z. B.
+     "Teilkostenrechnung" -> "Zuschlagskalkulation & BAB") sind nie exakt,
+     da der Alias nicht der sichtbare Titel ist -- angezeigt wird immer
+     entry.name, der Alias dient nur der Auffindbarkeit. */
+  function matchScore(e, q) {
+    var idx = e.normName.indexOf(q);
+    if (idx !== -1) return e.normName === q ? 0 : (idx === 0 ? 1 : 2);
+    for (var i = 0; i < e.normAliases.length; i++) {
+      var aliasIdx = e.normAliases[i].indexOf(q);
+      if (aliasIdx !== -1) return aliasIdx === 0 ? 1 : 2;
+    }
+    return -1;
+  }
+
   function search(query) {
     var q = normalize(query);
     if (!q || !entries) return [];
     var matches = [];
     entries.forEach(function (e) {
-      var idx = e.normName.indexOf(q);
-      if (idx === -1) return;
-      var score = e.normName === q ? 0 : (idx === 0 ? 1 : 2);
+      var score = matchScore(e, q);
+      if (score === -1) return;
       matches.push({ entry: e, score: score });
     });
     matches.sort(function (a, b) {

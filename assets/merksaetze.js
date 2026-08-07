@@ -45,8 +45,23 @@
     link.href = "merksaetze.html";
     link.textContent = "Alle Merksätze drucken";
 
-    var actions = document.querySelector(".site-header__actions");
-    (actions || document.body).appendChild(link);
+    // Unter dem Filter-Button stapeln (nicht daneben in dieselbe Reihe):
+    // .site-header__actions hat bewusst flex-wrap: nowrap (Suche/Theme/
+    // Filter sollen als Gruppe nicht untereinander rutschen, siehe
+    // CONVENTIONS §15a) -- der neue Button bricht daher gezielt nur
+    // innerhalb einer eigenen Spalte zusammen mit dem Filter-Button aus,
+    // statt dieses Verhalten fuer die ganze Leiste aufzuweichen.
+    var filterSwitcher = document.querySelector(".site-header__actions .filter-switcher");
+    if (filterSwitcher) {
+      var stack = document.createElement("div");
+      stack.className = "site-header__actions-stack";
+      filterSwitcher.parentNode.insertBefore(stack, filterSwitcher);
+      stack.appendChild(filterSwitcher);
+      stack.appendChild(link);
+    } else {
+      var actions = document.querySelector(".site-header__actions");
+      (actions || document.body).appendChild(link);
+    }
   }
 
   /* ------------------------------------------------- Inline-Sanitizing --- */

@@ -703,6 +703,12 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   display: inline-block;
   text-decoration: none;
 }
+.site-header__actions-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
 .merksaetze-controls {
   display: flex;
   align-items: center;

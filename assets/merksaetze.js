@@ -45,19 +45,18 @@
     link.href = "merksaetze.html";
     link.textContent = "Alle Merksätze drucken";
 
-    // Unter dem Filter-Button stapeln (nicht daneben in dieselbe Reihe):
-    // .site-header__actions hat bewusst flex-wrap: nowrap (Suche/Theme/
-    // Filter sollen als Gruppe nicht untereinander rutschen, siehe
-    // CONVENTIONS §15a) -- der neue Button bricht daher gezielt nur
-    // innerhalb einer eigenen Spalte zusammen mit dem Filter-Button aus,
-    // statt dieses Verhalten fuer die ganze Leiste aufzuweichen.
-    var filterSwitcher = document.querySelector(".site-header__actions .filter-switcher");
-    if (filterSwitcher) {
-      var stack = document.createElement("div");
-      stack.className = "site-header__actions-stack";
-      filterSwitcher.parentNode.insertBefore(stack, filterSwitcher);
-      stack.appendChild(filterSwitcher);
-      stack.appendChild(link);
+    // Eigene, volle Zeile UNTER Breadcrumb + Suche/Farbe/Filter, statt Teil
+    // der Actions-Leiste selbst zu sein: .site-header__top ist bereits
+    // flex-wrap: wrap (CONVENTIONS §15a), eine dritte Zeile mit
+    // flex: 1 0 100% bricht daher zuverlaessig um, OHNE die Ausrichtung
+    // von Breadcrumb zu Suche/Farbe/Filter zu veraendern (die bleiben
+    // unangetastet auf ihrer bisherigen Zeile).
+    var topRow = document.querySelector(".site-header__top");
+    if (topRow) {
+      var row = document.createElement("div");
+      row.className = "merksaetze-druck-row";
+      row.appendChild(link);
+      topRow.appendChild(row);
     } else {
       var actions = document.querySelector(".site-header__actions");
       (actions || document.body).appendChild(link);

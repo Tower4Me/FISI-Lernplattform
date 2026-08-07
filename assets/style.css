@@ -658,6 +658,43 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 .filter-switcher__item.is-active { color: var(--link); font-weight: 600; }
 .filter-switcher__item.is-active::before { content: "✓ "; }
 
+/* ------------------------------------------------------- Welcome-Popup */
+/* Einmaliges Hinweis-Overlay auf index.html, von welcome.js selbst
+   injiziert (Abschnitt 15c). Nur beim ersten Besuch, solange
+   localStorage-Key "fisi:welcome-seen" nicht gesetzt ist. */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.55);
+}
+.welcome-dialog {
+  max-width: 32rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.welcome-dialog h2 { margin-top: 0; }
+.welcome-dialog ul { padding-left: 1.2rem; }
+.welcome-dialog li { margin-bottom: 0.4rem; }
+.welcome-dialog__disclaimer {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 1rem;
+}
+.welcome-dialog__close { margin-top: 1.25rem; }
+
 /* ------------------------------------------------------------- Druck --- */
 /* Druck erzwingt IMMER die white-Werte (Gruppe 1), unabhaengig vom aktiven
    Theme. Muss nach den Theme-Bloecken stehen, damit die Spezifitaet greift. */
@@ -679,7 +716,8 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .site-header__top,
   .breadcrumbs,
   .jump-nav,
-  .site-footer { display: none; }
+  .site-footer,
+  .welcome-overlay { display: none; }
   .module-card__head::after { display: none; }
 
   /* Umbrueche: sinnvoll statt erzwungen-kompakt (CONVENTIONS §12).

@@ -153,13 +153,15 @@
           "slug": "handelskalkulation",
           "name": "Handelskalkulation",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/kalkulation/handelskalkulation.json"
+          "quiz": "data/kalkulation/handelskalkulation.json",
+          "aliases": ["Vollkostenrechnung"]
         },
         {
           "slug": "zuschlagskalkulation-bab",
           "name": "Zuschlagskalkulation & BAB",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/kalkulation/zuschlagskalkulation-bab.json"
+          "quiz": "data/kalkulation/zuschlagskalkulation-bab.json",
+          "aliases": ["Teilkostenrechnung"]
         },
         {
           "slug": "nutzwertanalyse",

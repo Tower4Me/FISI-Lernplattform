@@ -6,11 +6,11 @@
       "question": "Was bedeutet Nichtigkeit eines Rechtsgeschäfts?",
       "options": [
         "Das Geschäft ist zunächst wirksam und kann später angefochten werden",
-        "Das Geschäft ist von Anfang an unwirksam",
         "Das Geschäft wird erst nach 1 Jahr unwirksam",
+        "Das Geschäft ist von Anfang an unwirksam",
         "Das Geschäft benötigt nur eine nachträgliche Genehmigung"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Ein nichtiges Rechtsgeschäft ist von Anfang an unwirksam, ohne dass es einer besonderen Erklärung bedarf."
     },
     {
@@ -18,23 +18,23 @@
       "question": "Welcher Paragraf des BGB regelt die Anfechtung wegen arglistiger Täuschung oder Drohung?",
       "options": [
         "§ 110 BGB",
-        "§ 123 BGB",
         "§ 433 BGB",
-        "§ 535 BGB"
+        "§ 535 BGB",
+        "§ 123 BGB"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "§ 123 BGB regelt die Anfechtbarkeit von Rechtsgeschäften wegen arglistiger Täuschung oder widerrechtlicher Drohung."
     },
     {
       "id": "q3",
       "question": "Was geschieht rechtlich, wenn eine Anfechtung wirksam erklärt wird?",
       "options": [
-        "Das Rechtsgeschäft bleibt vollständig wirksam",
         "Das Rechtsgeschäft gilt rückwirkend als von Anfang an nichtig (§ 142 BGB)",
-        "Nur der Käufer wird von seinen Pflichten befreit",
-        "Es entsteht automatisch ein neuer Vertrag"
+        "Das ursprüngliche Rechtsgeschäft bleibt trotz der Anfechtung vollständig wirksam",
+        "Nur der Käufer wird einseitig von sämtlichen vertraglichen Pflichten befreit",
+        "Es entsteht automatisch und ohne weiteres Zutun ein völlig neuer Vertrag"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Nach § 142 BGB gilt ein wirksam angefochtenes Rechtsgeschäft rückwirkend als von Anfang an nichtig."
     },
     {
@@ -53,36 +53,36 @@
       "id": "q5",
       "question": "Wer gilt nach § 13 BGB als Verbraucher?",
       "options": [
-        "Jede juristische Person",
-        "Eine natürliche Person, die zu überwiegend privaten Zwecken handelt",
+        "Jede juristische Person, unabhängig von ihrer Rechtsform und Größe",
         "Ausschließlich Unternehmen mit weniger als 10 Mitarbeitenden",
-        "Nur volljährige Personen ohne Ausnahme"
+        "Eine natürliche Person, die zu überwiegend privaten Zwecken handelt",
+        "Nur volljährige Personen ohne jede Ausnahme, auch nicht bei Kleinbeträgen"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Verbraucher im Sinne des § 13 BGB ist eine natürliche Person, die ein Rechtsgeschäft zu überwiegend privaten Zwecken abschließt."
     },
     {
       "id": "q6",
       "question": "Was prüft die AGB-Kontrolle nach §§ 305 ff. BGB?",
       "options": [
-        "Ob ein Vertrag mündlich oder schriftlich geschlossen wurde",
-        "Ob Allgemeine Geschäftsbedingungen Verbraucher unangemessen benachteiligen",
-        "Ob eine Person geschäftsfähig ist",
-        "Ob ein Widerrufsrecht besteht"
+        "Ob ein Vertrag ausschließlich mündlich oder in Schriftform wirksam geschlossen wurde",
+        "Ob eine Person im rechtlichen Sinne überhaupt geschäftsfähig ist",
+        "Ob dem Verbraucher grundsätzlich ein gesetzliches Widerrufsrecht besteht",
+        "Ob Allgemeine Geschäftsbedingungen Verbraucher unangemessen benachteiligen"
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Die AGB-Kontrolle schützt Verbraucher vor unangemessen benachteiligenden Klauseln in Allgemeinen Geschäftsbedingungen."
     },
     {
       "id": "q7",
       "question": "Ein Verkäufer verschweigt beim Verkauf bewusst einen bekannten Defekt. Welches Anfechtungsrecht kann der Käufer geltend machen?",
       "options": [
-        "Anfechtung wegen Irrtums (§ 119 BGB)",
         "Anfechtung wegen arglistiger Täuschung (§ 123 BGB)",
-        "Kündigung nach § 626 BGB",
-        "Widerruf nach dem Taschengeldparagrafen"
+        "Eine Anfechtung wegen eines bloßen Irrtums nach § 119 BGB",
+        "Eine außerordentliche fristlose Kündigung nach § 626 BGB",
+        "Ein Widerruf unter Berufung auf den sogenannten Taschengeldparagrafen"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Das bewusste Verschweigen eines bekannten Mangels begründet eine Anfechtung wegen arglistiger Täuschung nach § 123 BGB."
     },
     {

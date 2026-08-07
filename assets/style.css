@@ -695,6 +695,45 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 }
 .welcome-dialog__close { margin-top: 1.25rem; }
 
+/* ---------------------------------------------- "Alle Merksaetze drucken" */
+/* Button auf index.html: reine <a>, nutzt bewusst .filter-switcher__btn
+   (Optik 1:1 an Theme-/Filter-Button angeglichen), kein eigenes CSS dafuer
+   noetig. .merksaetze-druck-link ergaenzt nur den <a>-spezifischen Reset. */
+.merksaetze-druck-link {
+  display: inline-block;
+  text-decoration: none;
+}
+.merksaetze-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.merksaetze-progress { color: var(--text-muted); font-size: 0.9rem; }
+.merksaetze-module {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.merksaetze-module:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.merksaetze-entry { margin-bottom: 1.25rem; }
+.merksaetze-entry h3 { margin-bottom: 0.35rem; font-size: 1rem; }
+.merksaetze-entry p { margin: 0; }
+.merksaetze-errors {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
 /* ------------------------------------------------------------- Druck --- */
 /* Druck erzwingt IMMER die white-Werte (Gruppe 1), unabhaengig vom aktiven
    Theme. Muss nach den Theme-Bloecken stehen, damit die Spezifitaet greift. */
@@ -717,7 +756,8 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .breadcrumbs,
   .jump-nav,
   .site-footer,
-  .welcome-overlay { display: none; }
+  .welcome-overlay,
+  .merksaetze-controls { display: none; }
   .module-card__head::after { display: none; }
 
   /* Umbrueche: sinnvoll statt erzwungen-kompakt (CONVENTIONS §12).
@@ -732,7 +772,8 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .section--einstieg,
   .section--praxis,
   .section--merksatz,
-  .quiz__q { break-inside: avoid; }
+  .quiz__q,
+  .merksaetze-entry { break-inside: avoid; }
 
   /* Quiz: leeres Ankreuz-Formular statt interaktivem Radio, kompakter */
   .quiz__q { font-size: 0.85rem; }

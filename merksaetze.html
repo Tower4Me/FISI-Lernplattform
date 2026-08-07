@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alle Merksätze – FISI-Lernplattform</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="index.html">Lernplan</a></li>
+        <li aria-current="page">Alle Merksätze</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">Alle Merksätze</h1>
+  </header>
+
+  <main class="site-main">
+    <div class="merksaetze-controls">
+      <button type="button" id="merksaetze-print" class="btn btn--primary">Drucken</button>
+      <p class="merksaetze-progress" id="merksaetze-progress">Lade Merksätze …</p>
+    </div>
+
+    <div id="merksaetze-list"></div>
+
+    <div id="merksaetze-errors" class="merksaetze-errors" hidden></div>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html">← Zurück zum Lernplan</a>
+    <p>Hast du Feedback? <a href="https://github.com/Tower4Me/FISI-Lernplattform" target="_blank" rel="noopener">Auf GitHub melden</a>.</p>
+    <p class="footer-disclaimer">Mit KI-Unterstützung erstellt und sorgfältig gepflegt. Ergänzung zur Prüfungsvorbereitung, ohne Anspruch auf Vollständigkeit; verbindlich sind die offiziellen Unterlagen der zuständigen Kammer.</p>
+  </footer>
+
+  <script src="assets/theme.js"></script>
+  <script src="assets/merksaetze.js"></script>
+</body>
+</html>

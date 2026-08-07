@@ -5,73 +5,73 @@
       "id": "q1",
       "question": "Was kennzeichnet einen Black-Box-Test?",
       "options": [
-        "Er testet mit voller Kenntnis des Quellcodes",
         "Er testet nur Ein- und Ausgabe, ohne Kenntnis der internen Struktur",
+        "Er testet ausschließlich mit voller Kenntnis des kompletten Quellcodes",
         "Er wird ausschließlich von den Entwickler:innen selbst durchgeführt",
-        "Er prüft ausschließlich einzelne Codezeilen"
+        "Er prüft ausschließlich einzelne isolierte Codezeilen ohne Zusammenhang"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein Black-Box-Test prüft nur das äußere Verhalten (Ein-/Ausgabe), ohne die interne Struktur zu kennen."
     },
     {
       "id": "q2",
       "question": "Was ist charakteristisch für einen White-Box-Test?",
       "options": [
-        "Er erfolgt ohne jede Kenntnis des Systems",
-        "Er testet mit Kenntnis der internen Struktur bzw. des Quellcodes, z. B. ob alle Codepfade durchlaufen werden",
-        "Er wird ausschließlich vom Endkunden durchgeführt",
-        "Er ist identisch mit einem Lasttest"
+        "Er erfolgt ausschließlich ganz ohne jede Kenntnis des zu testenden Systems",
+        "Er testet mit Kenntnis der internen Struktur bzw. des Quellcodes",
+        "Er wird ausschließlich vom Endkunden nach der Fertigstellung durchgeführt",
+        "Er ist im Grunde identisch mit einem klassischen Lasttest des Systems"
       ],
       "answer": 1,
-      "explanation": "White-Box-Tests nutzen Kenntnisse der internen Struktur, um z. B. Codepfade gezielt zu prüfen."
+      "explanation": "White-Box-Tests nutzen Kenntnisse der internen Struktur (z. B. des Quellcodes), um etwa zu prüfen, ob alle Codepfade durchlaufen werden."
     },
     {
       "id": "q3",
       "question": "Welche Teststufe testet die kleinste, isolierte Programmeinheit, z. B. eine einzelne Funktion?",
       "options": [
         "Systemtest",
-        "Unittest (Komponententest)",
         "Abnahmetest",
-        "Lasttest"
+        "Lasttest",
+        "Unittest"
       ],
-      "answer": 1,
-      "explanation": "Der Unittest (Komponententest) prüft die kleinste, isolierte Programmeinheit."
+      "answer": 3,
+      "explanation": "Der Unittest (auch Komponententest genannt) prüft die kleinste, isolierte Programmeinheit, z. B. eine einzelne Funktion."
     },
     {
       "id": "q4",
       "question": "Was wird im Integrationstest geprüft?",
       "options": [
-        "Ausschließlich eine einzelne Funktion isoliert",
-        "Das Zusammenspiel mehrerer bereits getesteter Komponenten, insbesondere ihre Schnittstellen",
-        "Die Abnahme durch den Auftraggeber",
-        "Die Belastungsgrenze unter hoher Nutzerzahl"
+        "Das Zusammenspiel mehrerer getesteter Komponenten und ihre Schnittstellen",
+        "Ausschließlich eine einzelne isolierte Funktion für sich genommen",
+        "Die vollständige, formale Abnahme des Gesamtsystems durch den Auftraggeber",
+        "Die maximale Belastungsgrenze des Systems unter sehr hoher Nutzerzahl"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der Integrationstest prüft das Zusammenspiel und die Schnittstellen mehrerer bereits getesteter Komponenten."
     },
     {
       "id": "q5",
       "question": "Wer führt den Abnahmetest typischerweise durch?",
       "options": [
-        "Ausschließlich die Entwickler:innen selbst",
+        "Ausschließlich die Entwickler:innen, die den gesamten Code wirklich selbst geschrieben haben",
+        "Ein externes, unabhängiges Prüfsiegel-Institut außerhalb des Projekts",
         "Der Auftraggeber, um zu prüfen, ob das System die vereinbarten Anforderungen erfüllt",
-        "Ein externes Prüfsiegel-Institut",
-        "Der Betriebsrat des Unternehmens"
+        "Der Betriebsrat des Unternehmens im Rahmen der gesetzlichen Mitbestimmung"
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der Abnahmetest wird vom Auftraggeber durchgeführt, um die Erfüllung der vereinbarten Anforderungen zu prüfen."
     },
     {
       "id": "q6",
       "question": "Was ist das Ziel eines Lasttests?",
       "options": [
-        "Die Prüfung einzelner Codezeilen auf Syntaxfehler",
-        "Zu ermitteln, wie ein System unter hoher Belastung reagiert und wo Belastungsgrenzen liegen",
-        "Die formale Abnahme durch den Kunden",
-        "Die Prüfung der Benutzeroberfläche auf Design-Richtlinien"
+        "Die sehr genaue Prüfung einzelner Codezeilen auf reine Syntaxfehler im Quellcode",
+        "Zu ermitteln, wie ein System unter hoher Belastung reagiert und wo die Grenzen liegen",
+        "Die formale Abnahme des vollständig fertigen Systems durch den Kunden",
+        "Die ausführliche Prüfung der grafischen Benutzeroberfläche auf geltende Design-Richtlinien"
       ],
       "answer": 1,
-      "explanation": "Ein Lasttest ermittelt, wie ein System unter hoher Belastung (z. B. viele gleichzeitige Nutzer) reagiert."
+      "explanation": "Ein Lasttest ermittelt, wie ein System unter hoher Belastung (z. B. viele gleichzeitige Nutzer) reagiert und wo die Belastungsgrenzen liegen."
     },
     {
       "id": "q7",
@@ -80,7 +80,7 @@
         "Unittest",
         "Integrationstest",
         "Systemtest",
-        "Keine der genannten Stufen"
+        "Abnahmetest"
       ],
       "answer": 2,
       "explanation": "Der Systemtest prüft das Gesamtsystem als Ganzes gegen die festgelegten Anforderungen."
@@ -89,12 +89,12 @@
       "id": "q8",
       "question": "Im Praxisbeispiel: Was zeigt der Lasttest vor dem Livegang der Web-Anwendung?",
       "options": [
-        "Einen Flaschenhals in der Datenbank bei 1.000 gleichzeitigen Nutzer:innen",
-        "Einen Fehler in der Berechnung eines Rabatts",
-        "Ein Problem bei der Abnahme durch den Kunden",
-        "Einen Fehler im Zahlungsmodul bei der Integration"
+        "Einen unerwarteten Fehler in der Berechnung eines Rabatts im Warenkorb",
+        "Ein ernsthaftes Problem, das bei der finalen Abnahme durch den Kunden festgestellt wurde",
+        "Einen kritischen Fehler im Zahlungsmodul während der Integrationstests",
+        "Einen Flaschenhals in der Datenbank bei 1.000 gleichzeitigen Nutzer:innen"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Der Lasttest deckt einen Flaschenhals in der Datenbank auf, der vor dem Livegang behoben werden kann."
     }
   ]

@@ -5,24 +5,24 @@
       "id": "q1",
       "question": "Wozu dient ein Testprotokoll bei der Einrichtung eines Arbeitsplatzes?",
       "options": [
-        "Ausschließlich zur internen Ablage ohne weiteren Nutzen",
-        "Zur systematischen Dokumentation von Soll-Zustand, Ist-Zustand und Ergebnis je Prüfpunkt",
-        "Zur Berechnung des Kaufpreises der Hardware",
-        "Zur Ersetzung des Arbeitsvertrags des neuen Mitarbeiters"
+        "Zur Dokumentation von Soll-Zustand, Ist-Zustand und Ergebnis je Prüfpunkt",
+        "Zur ausschließlich internen Ablage ohne jeden weiteren praktischen Nutzen",
+        "Zur genauen Berechnung des Kaufpreises der bestellten Hardware-Komponenten",
+        "Zur vollständigen Ersetzung des Arbeitsvertrags des neu eingestellten Mitarbeiters"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Ein Testprotokoll dokumentiert systematisch Soll-Zustand, Ist-Zustand und Ergebnis für jeden Prüfpunkt."
     },
     {
       "id": "q2",
       "question": "Welche Abkürzungen werden typischerweise verwendet, um das Ergebnis eines Prüfpunkts im Testprotokoll festzuhalten?",
       "options": [
-        "ok/fail",
-        "i. O. / n. i. O.",
-        "pass/error",
-        "grün/rot"
+        "bestanden / nicht bestanden",
+        "erfolgreich / fehlgeschlagen",
+        "grün / rot markiert",
+        "i. O. / n. i. O."
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Im deutschen Sprachraum werden Prüfergebnisse meist mit i. O. (in Ordnung) und n. i. O. (nicht in Ordnung) gekennzeichnet."
     },
     {
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Welcher Prüfpunkt gehört zum Bereich Ergonomie?",
       "options": [
-        "Aktuelle Updates einspielen",
-        "IP-Konfiguration prüfen",
-        "Einstellung von Bildschirm, Tastatur und Sitzposition",
-        "Installation der Fachanwendung"
+        "Windows- und Treiber-Updates einspielen",
+        "Statische IP-Konfiguration am Rechner prüfen",
+        "Bildschirm, Tastatur und Sitzposition richtig einstellen",
+        "Die benötigte Fachanwendung für den Arbeitsplatz vollständig installieren"
       ],
       "answer": 2,
       "explanation": "Die korrekte Einstellung von Bildschirm, Tastatur und Sitzposition gehört zum Prüfbereich Ergonomie."
@@ -53,48 +53,48 @@
       "id": "q5",
       "question": "Welche Funktion erfüllt das unterschriebene Testprotokoll gegenüber dem Auftraggeber?",
       "options": [
-        "Es hat keine rechtliche oder dokumentarische Bedeutung",
-        "Es dient als Nachweis, dass vereinbarte Abnahmekriterien erfüllt sind",
-        "Es ersetzt die Rechnung für die erbrachte Leistung",
-        "Es ist nur für interne Zwecke gedacht und wird nie übergeben"
+        "Es dient als Nachweis, dass die vereinbarten Abnahmekriterien erfüllt sind.",
+        "Es hat rein rechtlich und dokumentarisch überhaupt keinerlei Bedeutung für den Auftraggeber.",
+        "Es ersetzt vollständig die offizielle Rechnung für die insgesamt erbrachte Leistung.",
+        "Es ist ausschließlich für interne Zwecke gedacht und wird dem Auftraggeber nie übergeben."
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Das unterschriebene Testprotokoll dient als Nachweis gegenüber dem Auftraggeber, dass die Abnahmekriterien erfüllt sind."
     },
     {
       "id": "q6",
       "question": "Welchen zusätzlichen Nutzen hat ein Testprotokoll über die reine Abnahme hinaus?",
       "options": [
-        "Es dient als Referenzzustand für eine spätere Fehlersuche",
-        "Es hat keinen weiteren Nutzen nach der Übergabe",
-        "Es ersetzt zukünftige Wartungsverträge",
-        "Es dient ausschließlich der Preiskalkulation"
+        "Es hat nach der offiziellen Übergabe überhaupt keinen weiteren praktischen Nutzen.",
+        "Es dient als Referenzzustand, falls später am Arbeitsplatz Probleme auftreten.",
+        "Es ersetzt vollständig alle zukünftig notwendigen Wartungsverträge des Kunden.",
+        "Es dient ausschließlich zur nachträglichen Preiskalkulation der erbrachten Leistung."
       ],
-      "answer": 0,
+      "answer": 1,
       "explanation": "Ein Testprotokoll dient auch als Referenzzustand, falls später am Arbeitsplatz Probleme auftreten."
     },
     {
       "id": "q7",
       "question": "Im Praxisbeispiel: Was war das Ergebnis des Prüfpunkts „Drucker druckt Testseite“ und wie wurde es behoben?",
       "options": [
-        "Sofort i. O., keine Maßnahme nötig",
-        "Zunächst n. i. O. wegen fehlendem Treiber, nach Nachinstallation i. O.",
-        "Dauerhaft n. i. O., der Drucker musste ausgetauscht werden",
-        "Der Prüfpunkt wurde übersprungen"
+        "Sofort i. O., es war überhaupt keine weitere Maßnahme nötig.",
+        "Dauerhaft n. i. O., der Drucker musste komplett ausgetauscht werden.",
+        "Zunächst n. i. O. wegen fehlendem Treiber, nach Installation i. O.",
+        "Der Prüfpunkt wurde im Testprotokoll versehentlich komplett übersprungen."
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Der Druckertest war zunächst n. i. O. wegen eines fehlenden Treibers, nach dessen Installation war das Ergebnis i. O."
     },
     {
       "id": "q8",
       "question": "Welcher Prüfpunkt gehört zum Bereich Hardware bei der Arbeitsplatzeinrichtung?",
       "options": [
-        "Rechner startet ohne Fehlermeldung (POST erfolgreich)",
-        "Zugriff auf das Internet über WLAN",
-        "Virenscanner ist aktuell",
-        "Benutzerkonto mit korrekten Berechtigungen"
+        "Zugriff auf das Firmennetzwerk über WLAN besteht",
+        "Virenscanner ist installiert und aktuell auf dem neuesten Stand",
+        "Benutzerkonto ist mit den korrekten Berechtigungen eingerichtet",
+        "Rechner startet fehlerfrei, POST erfolgreich"
       ],
-      "answer": 0,
+      "answer": 3,
       "explanation": "Ein fehlerfreier Systemstart (POST) ist ein klassischer Hardware-Prüfpunkt."
     }
   ]

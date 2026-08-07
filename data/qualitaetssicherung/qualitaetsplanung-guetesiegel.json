@@ -3,26 +3,26 @@
   "questions": [
     {
       "id": "q1",
-      "question": "Was umfasst die Qualitätsplanung?",
+      "question": "Welcher der vier QM-Begriffe nach DIN EN ISO 9000 bezeichnet die Festlegung von Qualitätszielen sowie der notwendigen Prozesse und Ressourcen im Voraus?",
       "options": [
-        "Die laufende Überwachung während der Produktion",
-        "Die Festlegung von Qualitätszielen sowie der notwendigen Prozesse und Ressourcen im Voraus",
-        "Ausschließlich die Endkontrolle eines fertigen Produkts",
-        "Die Vergabe eines Gütesiegels"
+        "Qualitätsplanung",
+        "Qualitätslenkung",
+        "Qualitätssicherung i. e. S.",
+        "Qualitätsverbesserung"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Qualitätsplanung legt im Voraus Ziele sowie notwendige Prozesse und Ressourcen fest."
     },
     {
       "id": "q2",
-      "question": "Was ist die Aufgabe der Qualitätslenkung?",
+      "question": "Welcher der vier QM-Begriffe bezeichnet die laufende Überwachung und Steuerung während der Durchführung, um Qualitätsanforderungen einzuhalten?",
       "options": [
-        "Die einmalige Festlegung von Zielen vor Projektbeginn",
-        "Die laufende Überwachung und Steuerung während der Durchführung, um Qualitätsanforderungen einzuhalten",
-        "Die Vergabe von Zertifikaten durch akkreditierte Stellen",
-        "Die Entwicklung neuer Produkte"
+        "Qualitätsplanung",
+        "Qualitätsverbesserung",
+        "Qualitätslenkung",
+        "Qualitätssicherung i. e. S."
       ],
-      "answer": 1,
+      "answer": 2,
       "explanation": "Qualitätslenkung überwacht und steuert während der laufenden Durchführung, ob Qualitätsanforderungen eingehalten werden."
     },
     {
@@ -41,60 +41,60 @@
       "id": "q4",
       "question": "Was unterscheidet das CE-Kennzeichen grundlegend von einem freiwilligen Gütesiegel wie dem Blauen Engel?",
       "options": [
-        "Es gibt keinen Unterschied, beide sind freiwillig",
-        "Das CE-Kennzeichen ist eine verpflichtende Kennzeichnung zur Konformität mit EU-Richtlinien, kein freiwilliges Gütesiegel",
-        "Das CE-Kennzeichen gilt nur außerhalb der EU",
-        "Der Blaue Engel ist verpflichtend, das CE-Kennzeichen freiwillig"
+        "Es gibt zwischen beiden im Grunde ohnehin keinen echten Unterschied, denn beide Kennzeichnungen werden völlig freiwillig vergeben.",
+        "Das CE-Kennzeichen gilt ausschließlich außerhalb der Europäischen Union und ist innerhalb der EU völlig bedeutungslos.",
+        "Der Blaue Engel ist gesetzlich zwingend vorgeschrieben, während das CE-Kennzeichen komplett freiwillig vergeben wird.",
+        "Das CE-Kennzeichen ist eine verpflichtende Kennzeichnung zur Konformität mit EU-Richtlinien, kein freiwilliges Gütesiegel."
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Das CE-Kennzeichen ist eine verpflichtende Konformitätskennzeichnung, während Gütesiegel wie der Blaue Engel freiwillig vergeben werden."
     },
     {
       "id": "q5",
-      "question": "Welche Kriterien spielen beim „Blauen Engel für Computer“ eine Rolle?",
+      "question": "Welches Kriterium zählt zu den Vergabekriterien des „Blauen Engel für Computer“?",
       "options": [
-        "Ausschließlich der Verkaufspreis des Geräts",
-        "Energieeffizienz, Reparierbarkeit und Schadstoffarmut",
-        "Die Marktanteile des Herstellers",
-        "Die Anzahl der verkauften Einheiten"
+        "Energieeffizienz und Reparierbarkeit",
+        "Der reine Verkaufspreis des Geräts",
+        "Der Marktanteil des Herstellers weltweit",
+        "Die Anzahl verkaufter Einheiten pro Jahr"
       ],
-      "answer": 1,
+      "answer": 0,
       "explanation": "Der Blaue Engel für Computer berücksichtigt u. a. Energieeffizienz, Reparierbarkeit und Schadstoffarmut."
     },
     {
       "id": "q6",
       "question": "Welche zwei weiteren Begriffe ergänzen Qualitätsplanung und Qualitätslenkung nach DIN EN ISO 9000 zum vollständigen Qualitätsmanagement?",
       "options": [
+        "Kundenzufriedenheit im weiteren Sinn und Mitarbeiterzufriedenheit",
+        "Personalplanung im engeren Sinn und Rekrutierung neuer Mitarbeitender",
         "Qualitätssicherung im engeren Sinn und Qualitätsverbesserung",
-        "Projektplanung und Ressourcenmanagement",
-        "Marketing und Vertrieb",
-        "Personalplanung und Rekrutierung"
+        "Projektplanung im engeren Sinn und Ressourcenmanagement im weiteren Sinn"
       ],
-      "answer": 0,
+      "answer": 2,
       "explanation": "Qualitätssicherung im engeren Sinn und Qualitätsverbesserung ergänzen Planung und Lenkung zum vollständigen Qualitätsmanagement."
     },
     {
       "id": "q7",
       "question": "Im Praxisbeispiel: Was legt TowerTech GmbH im Rahmen der Qualitätsplanung für das Leasing-Angebot fest?",
       "options": [
+        "Der genaue Verkaufspreis der gesamten geleasten Hardware-Komponenten",
         "Eine maximale Reaktionszeit von 24 Stunden bei Hardwaredefekten",
-        "Den Verkaufspreis der Hardware",
-        "Die Anzahl der Mitarbeitenden im Support",
-        "Das Layout der Vertragsdokumente"
+        "Die Anzahl der eingeplanten Mitarbeitenden im Support-Team",
+        "Das optische Layout der zugehörigen Vertragsdokumente"
       ],
-      "answer": 0,
-      "explanation": "Im Rahmen der Qualitätsplanung legt TowerTech eine maximale Reaktionszeit von 24 Stunden als Ziel fest."
+      "answer": 1,
+      "explanation": "Im Rahmen der Qualitätsplanung legt TowerTech eine maximale Reaktionszeit von 24 Stunden bei Hardwaredefekten als Ziel fest."
     },
     {
       "id": "q8",
       "question": "Warum dürfen Geräte ohne CE-Kennzeichen in der EU nicht verkauft werden?",
       "options": [
-        "Weil das CE-Kennzeichen ein rein freiwilliges Marketinginstrument ist",
-        "Weil es eine verpflichtende Bestätigung der Konformität mit geltenden EU-Richtlinien ist",
-        "Weil es ausschließlich für Lebensmittel gilt",
-        "Weil es durch den Blauen Engel ersetzt wurde"
+        "Weil das CE-Kennzeichen in Wirklichkeit nur ein freiwilliges Marketinginstrument der Hersteller ist.",
+        "Weil die Kennzeichnungspflicht ausschließlich für Lebensmittel und keine technischen Geräte gilt.",
+        "Weil das CE-Kennzeichen inzwischen vollständig durch den Blauen Engel ersetzt worden ist.",
+        "Weil es eine verpflichtende Bestätigung der Konformität mit den geltenden EU-Richtlinien ist."
       ],
-      "answer": 1,
+      "answer": 3,
       "explanation": "Das CE-Kennzeichen ist verpflichtend und bestätigt die Konformität mit den geltenden EU-Richtlinien, ohne die ein Verkauf in der EU nicht zulässig ist."
     }
   ]

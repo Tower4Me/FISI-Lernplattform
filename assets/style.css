@@ -50,6 +50,7 @@
   --maxw: 820px;
   --radius: 10px;
   --gap: 1rem;
+  --control-h: 2.25rem; /* gemeinsame Hoehe: Suchfeld + alle Header-Buttons */
 }
 
 /* --------------------------------------------------------- Theme: dark --- */
@@ -465,12 +466,22 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 
 .site-header__actions {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 0.75rem;
   flex-wrap: nowrap;
 }
 .site-search--prominent { min-width: 0; }
 .site-search--compact { min-width: 0; }
+/* Zwei-Spalten-Grid fuer Farbe+Filter (Reihe 1) und den Druck-Button
+   (Reihe 2, ueber beide Spalten) -- von merksaetze.js erzeugt, siehe
+   CONVENTIONS §15d. Nur auf index.html vorhanden (dort existiert der
+   Filter-Button, der die Bedingung fuer den Umbau ist). */
+.site-header__buttons {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.5rem;
+  align-content: start;
+}
 /* Theme-Button verliert seine fixierte Ecken-Position, sobald er hier
    (neben der Suche) eingehaengt ist — er bleibt aber weiterhin die
    Positionierungs-Referenz fuer sein eigenes Dropdown-Menue. */
@@ -482,17 +493,19 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 }
 
 .site-search { position: relative; }
-.site-search--prominent { flex: 0 1 20rem; }
+.site-search--prominent { flex: 1 1 20rem; }
 .site-search--compact { flex: 0 1 14rem; }
 .site-search__input {
   width: 100%;
+  height: var(--control-h);
+  box-sizing: border-box;
   font: inherit;
   font-size: 0.8rem;
   background: var(--surface-2);
   color: var(--text-muted);
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 0.4rem 0.9rem;
+  padding: 0 0.9rem;
 }
 .site-search__input:focus,
 .site-search__input:not(:placeholder-shown) {
@@ -545,6 +558,11 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   z-index: 100;
 }
 .theme-switcher__btn {
+  height: var(--control-h);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font: inherit;
   font-size: 0.8rem;
   font-weight: 600;
@@ -552,7 +570,7 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 0.4rem 0.9rem;
+  padding: 0 0.9rem;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -608,6 +626,11 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   z-index: 100;
 }
 .filter-switcher__btn {
+  height: var(--control-h);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font: inherit;
   font-size: 0.8rem;
   font-weight: 600;
@@ -615,7 +638,7 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 0.4rem 0.9rem;
+  padding: 0 0.9rem;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -697,20 +720,14 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 
 /* ---------------------------------------------- "Alle Merksaetze drucken" */
 /* Button auf index.html: reine <a>, nutzt bewusst .filter-switcher__btn
-   (Optik 1:1 an Theme-/Filter-Button angeglichen), kein eigenes CSS dafuer
-   noetig. .merksaetze-druck-link ergaenzt nur den <a>-spezifischen Reset. */
+   (Optik + Hoehe 1:1 an Theme-/Filter-Button angeglichen, siehe dort).
+   .merksaetze-druck-link ergaenzt nur den <a>-spezifischen Reset plus die
+   Grid-Platzierung als Reihe 2 ueber beide Spalten von
+   .site-header__buttons (siehe CONVENTIONS §15d) -- die Breite ergibt
+   sich dadurch automatisch aus Farbe+Filter+Gap, kein fester width-Wert. */
 .merksaetze-druck-link {
-  display: inline-block;
+  grid-column: 1 / -1;
   text-decoration: none;
-}
-/* Eigene, volle Zeile unterhalb von Breadcrumb+Suche/Farbe/Filter statt
-   Teil der Actions-Leiste selbst -- so bleiben Breadcrumb und
-   Suche/Farbe/Filter exakt in ihrer ursprünglichen Ausrichtung
-   zueinander, unabhaengig davon, ob dieser Button existiert. */
-.merksaetze-druck-row {
-  flex: 1 0 100%;
-  display: flex;
-  justify-content: flex-end;
 }
 .merksaetze-controls {
   display: flex;
@@ -823,6 +840,13 @@ table { display: block; max-width: 100%; overflow-x: auto; }
    `top` ist bewusst grosszuegig gewaehlt (deckt auch den Fall ab, in dem
    .site-header__top bei langen Breadcrumbs auf zwei Zeilen umbricht). */
 @media (max-width: 600px) {
+  /* Suche eigene volle Zeile oben, Button-Grid (Farbe/Filter/Druck)
+     darunter -- .site-header__actions wird hier bewusst umbruchfaehig
+     (anders als die alte 3-Item-Reihe, siehe CONVENTIONS §15a-Historie),
+     weil sie inzwischen nur noch 2 Kinder hat (Suche, .site-header__buttons)
+     und ein sauberer 2-Zeilen-Umbruch genau das gewuenschte Verhalten ist. */
+  .site-header__actions { flex-wrap: wrap; }
+
   .site-search--compact,
   .site-search--prominent { flex: 1 1 auto; min-width: 0; }
 
@@ -849,4 +873,11 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .site-search__option-path {
     font-size: 0.8rem;
   }
+}
+
+/* Defensiver Fallback fuer sehr schmale Geraete: Farbe/Filter/Druck
+   untereinander statt 2-spaltig, falls selbst zwei Pillen nebeneinander
+   zu breit werden. Greift bei ueblichen Pill-Breiten praktisch nie. */
+@media (max-width: 360px) {
+  .site-header__buttons { grid-template-columns: 1fr; }
 }

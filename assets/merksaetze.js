@@ -1,10 +1,12 @@
 /* merksaetze.js — "Alle Merksaetze drucken".
    Zwei Rollen in einer Datei, je nach Seite (Selbst-Erkennung ueber
    vorhandene IDs, analog filter.js):
-   - index.html: Link-Button in .site-header__actions, direkt nach dem
-     Filter-Button (haengt sich per Skript-Ladereihenfolge dort ein,
-     identisches Muster wie theme.js/filter.js), verlinkt zu
-     merksaetze.html. Echter Link, kein JS-Toggle.
+   - index.html: baut aus dem bereits vorhandenen Farbe-/Filter-Button ein
+     2-Spalten-Grid (.site-header__buttons, Reihe 1: Farbe|Filter, Reihe 2:
+     dieser Link ueber beide Spalten) und haengt sich dank Skript-
+     Ladereihenfolge (theme.js -> search.js -> filter.js -> merksaetze.js)
+     garantiert nach beiden ein. Verlinkt zu merksaetze.html. Echter Link,
+     kein JS-Toggle. Details siehe CONVENTIONS §15d.
    - merksaetze.html: laedt alle Unit-Pfade aus data/manifest.json,
      extrahiert die #merksatz-Section jeder Einheit per DOMParser
      (fetch+parse ist inert, kein Skript aus der Fremd-HTML wird je
@@ -45,21 +47,31 @@
     link.href = "merksaetze.html";
     link.textContent = "Alle Merksätze drucken";
 
-    // Eigene, volle Zeile UNTER Breadcrumb + Suche/Farbe/Filter, statt Teil
-    // der Actions-Leiste selbst zu sein: .site-header__top ist bereits
-    // flex-wrap: wrap (CONVENTIONS §15a), eine dritte Zeile mit
-    // flex: 1 0 100% bricht daher zuverlaessig um, OHNE die Ausrichtung
-    // von Breadcrumb zu Suche/Farbe/Filter zu veraendern (die bleiben
-    // unangetastet auf ihrer bisherigen Zeile).
-    var topRow = document.querySelector(".site-header__top");
-    if (topRow) {
-      var row = document.createElement("div");
-      row.className = "merksaetze-druck-row";
-      row.appendChild(link);
-      topRow.appendChild(row);
+    // .site-header__actions hat zu diesem Zeitpunkt (merksaetze.js laedt
+    // als letztes der drei Header-Skripte: theme.js -> search.js ->
+    // filter.js -> merksaetze.js) bereits genau zwei flache Kinder:
+    // .site-search und die schon vorhandenen .theme-switcher/.filter-switcher.
+    // Wir bauen daraus ein 2-Spalten-Grid (.site-header__buttons: Farbe|
+    // Filter in Reihe 1, dieser Druck-Button ueber beide Spalten in Reihe 2)
+    // und verschieben Theme-/Filter-Switcher unveraendert dort hinein --
+    // keine Aenderung an theme.js/filter.js noetig, beide funktionieren
+    // unabhaengig davon, wo ihr Wrapper-Element im DOM haengt (ihre
+    // Dropdown-Menues positionieren sich relativ zu sich selbst).
+    var actions = document.querySelector(".site-header__actions");
+    var themeSwitcher = actions && actions.querySelector(".theme-switcher");
+    var filterSwitcher = actions && actions.querySelector(".filter-switcher");
+
+    if (actions && themeSwitcher && filterSwitcher) {
+      var grid = document.createElement("div");
+      grid.className = "site-header__buttons";
+      actions.insertBefore(grid, themeSwitcher);
+      grid.appendChild(themeSwitcher);
+      grid.appendChild(filterSwitcher);
+      grid.appendChild(link);
+    } else if (actions) {
+      actions.appendChild(link); // Fallback, falls Theme/Filter fehlen
     } else {
-      var actions = document.querySelector(".site-header__actions");
-      (actions || document.body).appendChild(link);
+      document.body.appendChild(link);
     }
   }
 

@@ -1,0 +1,63 @@
+{
+  "notenschluessel": [
+    { "ab": 92, "note": 1 },
+    { "ab": 81, "note": 2 },
+    { "ab": 67, "note": 3 },
+    { "ab": 50, "note": 4 },
+    { "ab": 30, "note": 5 },
+    { "ab": 0, "note": 6 }
+  ],
+  "bestehen_ab": 50,
+  "teile": [
+    {
+      "id": "ap1",
+      "name": "AP1 — Einrichten eines IT-gestützten Arbeitsplatzes",
+      "zeit_minuten": 90,
+      "gesamtpunkte": 100,
+      "bloecke": [
+        { "id": "hardware-arbeitsplatz", "name": "Hardware & Arbeitsplatz", "fragen": 15, "punkte": 25, "module": ["hardware"] },
+        { "id": "betriebssystem-software", "name": "Betriebssystem & Software", "fragen": 15, "punkte": 25, "module": ["software-os-web"] },
+        { "id": "netzwerk-grundlagen", "name": "Netzwerk-Grundlagen", "fragen": 15, "punkte": 25, "module": ["netzwerktechnik"] },
+        { "id": "sicherheit-recht-kosten", "name": "Sicherheit, Recht & Kosten", "fragen": 15, "punkte": 25, "module": ["it-sicherheit", "datenschutz-recht", "kalkulation"] }
+      ],
+      "pool_dateien": []
+    },
+    {
+      "id": "ap2-systeme",
+      "name": "AP2 — Konzeption und Administration von IT-Systemen",
+      "zeit_minuten": 90,
+      "gesamtpunkte": 100,
+      "bloecke": [
+        { "id": "systeme-virtualisierung", "name": "Systeme & Virtualisierung", "fragen": 15, "punkte": 25, "module": ["hardware", "netzwerktechnik"] },
+        { "id": "betrieb-administration", "name": "Betrieb & Administration", "fragen": 15, "punkte": 25, "module": ["software-os-web"] },
+        { "id": "datenbanken", "name": "Datenbanken", "fragen": 15, "punkte": 25, "module": ["datenbanken-sql"] },
+        { "id": "sicherheit-verfuegbarkeit", "name": "Sicherheit & Verfügbarkeit", "fragen": 15, "punkte": 25, "module": ["it-sicherheit"] }
+      ],
+      "pool_dateien": []
+    },
+    {
+      "id": "ap2-netzwerke",
+      "name": "AP2 — Analyse und Entwicklung von Netzwerken",
+      "zeit_minuten": 90,
+      "gesamtpunkte": 100,
+      "bloecke": [
+        { "id": "adressierung", "name": "Adressierung (IPv4/IPv6/Subnetting)", "fragen": 15, "punkte": 25, "module": ["netzwerktechnik"] },
+        { "id": "protokolle-dienste", "name": "Protokolle & Dienste", "fragen": 15, "punkte": 25, "module": ["netzwerktechnik"] },
+        { "id": "komponenten-infrastruktur", "name": "Komponenten & Infrastruktur", "fragen": 15, "punkte": 25, "module": ["netzwerktechnik"] },
+        { "id": "netzsicherheit-diagnose", "name": "Netzsicherheit & Diagnose", "fragen": 15, "punkte": 25, "module": ["it-sicherheit", "netzwerktechnik"] }
+      ],
+      "pool_dateien": ["ap2-netzwerke.json"]
+    },
+    {
+      "id": "ap2-wiso",
+      "name": "AP2 — Wirtschafts- und Sozialkunde",
+      "zeit_minuten": 60,
+      "gesamtpunkte": 100,
+      "bloecke": [
+        { "id": "wiso-recht-arbeit", "name": "Recht & Arbeitswelt", "fragen": 15, "punkte": 50, "module": ["wiso"] },
+        { "id": "wiso-wirtschaft", "name": "Wirtschaft", "fragen": 15, "punkte": 50, "module": ["wiso", "kaufmaennisches"] }
+      ],
+      "pool_dateien": []
+    }
+  ]
+}

@@ -1204,6 +1204,42 @@
           "quiz": "data/wiso/chancen-risiken-europa-globalisierung.json"
         }
       ]
+    },
+    {
+      "slug": "pruefung",
+      "name": "Prüfung",
+      "units": [
+        {
+          "slug": "ap-ablauf",
+          "name": "Ablauf der Abschlussprüfung",
+          "exams": ["ap1", "ap2"],
+          "zaehlt_nicht": true
+        },
+        {
+          "slug": "simulation-ap1",
+          "name": "AP1 — Prüfungssimulation",
+          "exams": ["ap1"],
+          "zaehlt_nicht": true
+        },
+        {
+          "slug": "simulation-ap2-systeme",
+          "name": "AP2 Konzeption und Administration — Simulation",
+          "exams": ["ap2"],
+          "zaehlt_nicht": true
+        },
+        {
+          "slug": "simulation-ap2-netzwerke",
+          "name": "AP2 Analyse und Entwicklung von Netzwerken — Simulation",
+          "exams": ["ap2"],
+          "zaehlt_nicht": true
+        },
+        {
+          "slug": "simulation-ap2-wiso",
+          "name": "AP2 Wirtschafts- und Sozialkunde — Simulation",
+          "exams": ["ap2"],
+          "zaehlt_nicht": true
+        }
+      ]
     }
   ]
 }

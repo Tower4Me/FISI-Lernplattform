@@ -1220,6 +1220,335 @@
       "teile": ["ap2-netzwerke"],
       "block": "netzsicherheit-diagnose",
       "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-021",
+      "typ": "mc",
+      "frage": "Ein IT-Systemhaus möchte zwei Standorte dauerhaft und automatisch über eine verschlüsselte Verbindung koppeln, ohne dass sich einzelne Nutzer manuell einwählen müssen. Welche VPN-Art ist dafür geeignet?",
+      "optionen": ["Site-to-Site-VPN", "Client-to-Site-VPN", "Portweiterleitung", "DMZ"],
+      "antwort": 0,
+      "erklaerung": "Ein Site-to-Site-VPN koppelt zwei komplette Standorte dauerhaft über einen verschlüsselten Tunnel, ohne dass einzelne Nutzer sich einwählen müssen. Beim Client-to-Site-VPN verbindet sich dagegen ein einzelner Nutzer.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-022",
+      "typ": "mc",
+      "frage": "Welche Aussage zu einem Client-to-Site-VPN trifft zu?",
+      "optionen": ["Es verbindet dauerhaft zwei komplette Standorte, ohne dass Nutzer eingreifen müssen.", "Ein einzelner Nutzer verbindet sich von unterwegs verschlüsselt mit dem Firmennetz.", "Es funktioniert ausschließlich innerhalb des lokalen Netzes, nie über das Internet.", "Es ersetzt die Notwendigkeit einer Firewall im Firmennetz vollständig."],
+      "antwort": 1,
+      "erklaerung": "Ein Client-to-Site-VPN verbindet einen einzelnen entfernten Nutzer (z. B. im Homeoffice) verschlüsselt mit dem Firmennetz — im Gegensatz zum Site-to-Site-VPN zwischen zwei Standorten.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-023",
+      "typ": "mc",
+      "frage": "Welche Aufgabe hat eine Firewall in einem Netzwerk grundsätzlich?",
+      "optionen": ["Ausgefallene Netzwerkkomponenten automatisch durch Ersatzgeräte austauschen.", "IP-Adressen automatisch an neu angeschlossene Endgeräte vergeben.", "Datenverkehr anhand definierter Regeln erlauben oder blockieren.", "Sämtlichen Datenverkehr verschlüsseln, bevor er das Netzwerk verlässt."],
+      "antwort": 2,
+      "erklaerung": "Eine Firewall filtert Datenverkehr anhand festgelegter Regeln — sie ersetzt keine Hardware, vergibt keine IP-Adressen und verschlüsselt nicht automatisch.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-024",
+      "typ": "mc",
+      "frage": "In welcher Reihenfolge werden die Regeln einer Firewall-Regelliste bei den meisten Systemen typischerweise abgearbeitet?",
+      "optionen": ["In zufälliger Reihenfolge bei jedem einzelnen Verbindungsversuch neu.", "Von unten nach oben, wobei die letzte passende Regel entscheidet.", "Alle Regeln werden gleichzeitig ausgewertet, es gewinnt die strengste Regel.", "Von oben nach unten, die erste passende Regel entscheidet."],
+      "antwort": 3,
+      "erklaerung": "Die meisten Firewalls werten ihre Regelliste von oben nach unten aus — die erste zutreffende Regel entscheidet, nachfolgende Regeln werden für diesen Verkehr nicht mehr geprüft.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-025",
+      "typ": "mc",
+      "frage": "Welche Funktion erfüllt ein IDS (Intrusion Detection System) in einem Netzwerk?",
+      "optionen": ["Es erkennt verdächtigen Datenverkehr und meldet ihn, greift aber selbst nicht aktiv ein.", "Es blockiert jeden erkannten schädlichen Datenverkehr vollautomatisch und eigenständig selbst.", "Es vergibt eigenständig IP-Adressen an alle neu angeschlossenen Geräte im Netzwerk.", "Es verschlüsselt automatisch den gesamten ein- und ausgehenden Datenverkehr im Netzwerk."],
+      "antwort": 0,
+      "erklaerung": "Ein IDS erkennt und meldet verdächtigen Datenverkehr, greift aber nicht selbst ein — das aktive Blockieren übernimmt erst ein IPS (Intrusion Prevention System).",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-026",
+      "typ": "mc",
+      "frage": "Worin unterscheidet sich ein IPS (Intrusion Prevention System) von einem IDS?",
+      "optionen": ["Ein IPS arbeitet ausschließlich mit verschlüsseltem Datenverkehr, ein IDS nur mit unverschlüsseltem.", "Ein IPS kann erkannten schädlichen Datenverkehr aktiv blockieren, ein IDS meldet ihn nur.", "Ein IPS ersetzt vollständig die Notwendigkeit eines Virenscanners auf den Endgeräten.", "Ein IDS wird ausschließlich in der DMZ eingesetzt, ein IPS niemals."],
+      "antwort": 1,
+      "erklaerung": "Ein IPS kann erkannten schädlichen Datenverkehr aktiv blockieren, während ein IDS ihn nur erkennt und meldet, ohne selbst einzugreifen.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-027",
+      "typ": "mc",
+      "frage": "Mit welchem Kommandozeilen-Werkzeug prüft ein Techniker zuerst, ob ein Zielserver überhaupt erreichbar ist?",
+      "optionen": ["nslookup", "ipconfig", "ping", "netstat"],
+      "antwort": 2,
+      "erklaerung": "ping prüft die grundsätzliche Erreichbarkeit eines Zielservers. nslookup fragt DNS-Einträge ab, ipconfig zeigt die lokale Konfiguration, netstat aktive Verbindungen.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-028",
+      "typ": "mc",
+      "frage": "Welches Werkzeug zeigt einem Techniker die einzelnen Netzwerk-Hops (Router) auf dem Weg zu einem Zielserver an?",
+      "optionen": ["Prüft nur, ob der Zielserver grundsätzlich erreichbar ist (ping)", "Fragt einen DNS-Server nach der IP-Adresse eines Domainnamens (nslookup)", "Zeigt lokale MAC-zu-IP-Zuordnungen im eigenen Netzsegment (arp)", "Zeigt jeden einzelnen Router-Hop auf dem Weg zum Ziel (traceroute bzw. tracert)"],
+      "antwort": 3,
+      "erklaerung": "traceroute/tracert zeigt jeden einzelnen Router (Hop) auf dem Weg zum Ziel mit seiner jeweiligen Laufzeit. ping prüft nur die Erreichbarkeit, ohne den Weg aufzuzeigen.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-029",
+      "typ": "mc",
+      "frage": "Mit welchem Kommandozeilen-Werkzeug prüft ein Techniker, welche IP-Adresse der zuständige DNS-Server für eine Domain liefert?",
+      "optionen": ["nslookup", "ping", "tracert", "netstat"],
+      "antwort": 0,
+      "erklaerung": "nslookup fragt gezielt DNS-Server ab und zeigt, welche IP-Adresse für einen Domainnamen hinterlegt ist.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-030",
+      "typ": "mc",
+      "frage": "Ein Angreifer sendet gefälschte ARP-Antworten in ein lokales Netz, um Datenverkehr zwischen zwei Geräten über den eigenen Rechner umzuleiten. Wie wird dieser Angriff genannt?",
+      "optionen": ["DNS-Spoofing", "ARP-Spoofing", "Port-Scanning", "Denial-of-Service"],
+      "antwort": 1,
+      "erklaerung": "ARP-Spoofing täuscht falsche MAC-zu-IP-Zuordnungen vor, um Datenverkehr im lokalen Netz über den Angreifer umzuleiten (Man-in-the-Middle).",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-031",
+      "typ": "mc",
+      "frage": "Ein Angreifer überflutet einen Server gezielt mit Anfragen, bis dieser für reguläre Nutzer nicht mehr erreichbar ist. Wie wird dieser Angriffstyp bezeichnet?",
+      "optionen": ["ARP-Spoofing", "Portweiterleitung", "Denial-of-Service (DoS)", "Man-in-the-Middle"],
+      "antwort": 2,
+      "erklaerung": "Ein Denial-of-Service-Angriff überlastet gezielt einen Dienst mit Anfragen, bis er für reguläre Nutzer nicht mehr erreichbar ist.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-032",
+      "typ": "mc",
+      "frage": "Welche Aussage zu NAT (Network Address Translation) trifft zu?",
+      "optionen": ["NAT verschlüsselt grundsätzlich den gesamten ausgehenden Datenverkehr eines gesamten Netzes.", "NAT ersetzt vollständig die Notwendigkeit, überhaupt eine eigene Firewall zu betreiben.", "NAT vergibt eigenständig und automatisch DNS-Namen an alle internen Geräte im Netz.", "NAT übersetzt private interne IP-Adressen beim Verlassen des Netzes in eine öffentliche Adresse."],
+      "antwort": 3,
+      "erklaerung": "NAT übersetzt private, nicht öffentlich routbare Adressen beim Verlassen des Netzes in eine oder mehrere öffentliche Adressen — es verschlüsselt nichts und ersetzt keine Firewall.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-033",
+      "typ": "mc",
+      "frage": "Ein interner Server soll über das Internet erreichbar sein, ohne selbst eine öffentliche IP-Adresse zu besitzen. Welche Technik ermöglicht das über den Internet-Router?",
+      "optionen": ["Portweiterleitung (Port Forwarding)", "Eine DMZ ohne weitere Konfiguration", "Ein VPN-Tunnel direkt zum Server", "Spanning Tree Protocol"],
+      "antwort": 0,
+      "erklaerung": "Portweiterleitung leitet Anfragen auf einem bestimmten Port der öffentlichen Router-Adresse gezielt an einen internen Server weiter, der selbst keine öffentliche Adresse braucht.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-034",
+      "typ": "mc",
+      "frage": "Welche Aussage zur Netzsegmentierung (z. B. per VLAN oder eigener Firewall-Zone) trifft zu?",
+      "optionen": ["Sie macht zusätzliche Firewalls im übrigen Netz vollständig überflüssig.", "Sie begrenzt die Ausbreitung eines Angriffs auf den betroffenen Netzbereich.", "Sie erhöht automatisch die verfügbare Bandbreite in jedem Segment.", "Sie ist ausschließlich für WLAN-Netze vorgesehen, nie für Kabelnetze."],
+      "antwort": 1,
+      "erklaerung": "Netzsegmentierung trennt Netzbereiche voneinander ab — gelingt ein Angriff in einem Segment, bleibt die Ausbreitung auf die übrigen Segmente dadurch begrenzt.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-035",
+      "typ": "order",
+      "frage": "Bringe die Schritte des Aufbaus einer IPsec-VPN-Verbindung (vereinfacht) in die richtige Reihenfolge.",
+      "optionen": [
+        "Die beiden VPN-Endpunkte handeln gemeinsame Verschlüsselungsparameter aus",
+        "Die Endpunkte authentifizieren sich gegenseitig",
+        "Ein verschlüsselter Tunnel zwischen den Endpunkten wird aufgebaut",
+        "Nutzdaten werden verschlüsselt durch den Tunnel übertragen"
+      ],
+      "erklaerung": "Ein IPsec-VPN handelt zunächst Verschlüsselungsparameter aus, authentifiziert die Endpunkte gegenseitig, baut danach den Tunnel auf und überträgt erst dann die eigentlichen Nutzdaten.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "schwer"
+    },
+    {
+      "id": "netz-sicherheit-036",
+      "typ": "order",
+      "frage": "Bringe die Schritte eines Port-Scans, mit dem ein Administrator offene Dienste auf einem eigenen Server prüft, in die richtige Reihenfolge.",
+      "optionen": [
+        "Das Scan-Werkzeug sendet Anfragen an eine Reihe von Ports des Zielservers",
+        "Der Zielserver antwortet auf offene Ports, geschlossene Ports bleiben stumm oder lehnen ab",
+        "Das Werkzeug wertet die Antworten aus und listet die offenen Ports auf",
+        "Der Administrator vergleicht die Liste mit den tatsächlich benötigten Diensten"
+      ],
+      "erklaerung": "Ein Port-Scan sendet Anfragen an mehrere Ports, wertet die Antworten aus und listet offene Ports auf — der Administrator prüft danach, ob diese wirklich benötigt werden.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-037",
+      "typ": "order",
+      "frage": "Bringe die Schritte der Reaktion auf einen erkannten Sicherheitsvorfall (vereinfachtes Vorgehen) in die richtige Reihenfolge.",
+      "optionen": [
+        "Der Vorfall wird erkannt und gemeldet",
+        "Das betroffene System wird isoliert, um weiteren Schaden zu verhindern",
+        "Die Ursache des Vorfalls wird analysiert",
+        "Das System wird bereinigt und wieder in Betrieb genommen"
+      ],
+      "erklaerung": "Nach Erkennung und Meldung eines Vorfalls wird das betroffene System zuerst isoliert, dann die Ursache analysiert und erst danach bereinigt wieder in Betrieb genommen.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-038",
+      "typ": "order",
+      "frage": "Bringe die Stationen des Datenverkehrs bei Nutzung eines Client-to-Site-VPN von einem Notebook im Homeoffice zu einem internen Server in die richtige Reihenfolge.",
+      "optionen": [
+        "Das Notebook baut über das Internet einen verschlüsselten Tunnel zum VPN-Gateway der Firma auf",
+        "Das VPN-Gateway entschlüsselt die Daten und leitet sie ins interne Netz weiter",
+        "Der interne Server empfängt die Anfrage wie von einem lokalen Client",
+        "Die Antwort des Servers wird auf demselben Weg verschlüsselt zurück zum Notebook geschickt"
+      ],
+      "erklaerung": "Der Datenverkehr läuft verschlüsselt vom Notebook zum VPN-Gateway, wird dort entschlüsselt und ins interne Netz weitergeleitet — der Server sieht den Client wie einen lokalen Teilnehmer.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-039",
+      "typ": "order",
+      "frage": "Bringe die typischen Schritte einer systematischen Fehlersuche bei einer gemeldeten Netzwerkstörung in die richtige Reihenfolge.",
+      "optionen": [
+        "Das gemeldete Problem und seine Symptome werden genau erfasst",
+        "Eine wahrscheinliche Ursache wird anhand der Symptome vermutet",
+        "Eine mögliche Lösung wird gezielt getestet",
+        "Das Ergebnis wird dokumentiert und der Fall bei Erfolg abgeschlossen"
+      ],
+      "erklaerung": "Systematische Fehlersuche erfasst zunächst die Symptome, vermutet daraus eine Ursache, testet gezielt eine Lösung und dokumentiert das Ergebnis — statt wahllos auszuprobieren.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-040",
+      "typ": "order",
+      "frage": "Bringe die Schritte auf, wie eine Stateful-Firewall eine neue ausgehende Verbindung und die zugehörige Antwort behandelt, in die richtige Reihenfolge.",
+      "optionen": [
+        "Ein internes Gerät baut eine ausgehende Verbindung auf",
+        "Die Firewall trägt die Verbindung in ihre Zustandstabelle ein",
+        "Die passende Antwort von außen wird anhand der Zustandstabelle erkannt",
+        "Die Firewall lässt nur diese erkannte Antwort automatisch passieren"
+      ],
+      "erklaerung": "Eine Stateful-Firewall merkt sich selbst aufgebaute Verbindungen in einer Zustandstabelle und lässt dazugehörige Antworten automatisch passieren, ohne dass dafür eine eigene Eingangsregel nötig wäre.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "schwer"
+    },
+    {
+      "id": "netz-sicherheit-041",
+      "typ": "num",
+      "frage": "Eine Firewall-Regelliste enthält 20 Regeln für ausgehenden Verkehr. Eine Prüfung ergibt, dass 7 davon nie einen Treffer erzielen und entfernt werden können. Wie viele Regeln bleiben danach übrig?",
+      "einheit": "Regeln",
+      "loesung": 13,
+      "toleranz": 0,
+      "erklaerung": "20 Regeln abzüglich 7 wirkungsloser Regeln ergeben 13 verbleibende Regeln.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-042",
+      "typ": "num",
+      "frage": "Ein Portscan eines Servers findet 6 offene Ports, von denen nur 2 für den Betrieb tatsächlich benötigt werden. Wie viele der offenen Ports sollten geschlossen werden?",
+      "einheit": "Ports",
+      "loesung": 4,
+      "toleranz": 0,
+      "erklaerung": "Von 6 offenen Ports werden nur 2 tatsächlich benötigt, die übrigen 4 sollten geschlossen werden, um die Angriffsfläche zu verringern.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-043",
+      "typ": "num",
+      "frage": "Ein VPN-Gateway kann maximal 50 gleichzeitige Verbindungen verwalten. Aktuell sind 34 Verbindungen aktiv. Wie viele weitere Verbindungen können noch aufgebaut werden?",
+      "einheit": "Verbindungen",
+      "loesung": 16,
+      "toleranz": 0,
+      "erklaerung": "50 maximal mögliche Verbindungen abzüglich 34 aktiver Verbindungen ergeben 16 noch mögliche weitere Verbindungen.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-044",
+      "typ": "num",
+      "frage": "Ein IDS meldet an einem Tag 45 Alarme, von denen sich 33 nach Prüfung als Fehlalarm herausstellen. Wie viele Alarme waren tatsächlich relevant?",
+      "einheit": "Alarme",
+      "loesung": 12,
+      "toleranz": 0,
+      "erklaerung": "45 gemeldete Alarme abzüglich 33 Fehlalarme ergeben 12 tatsächlich relevante Alarme.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-045",
+      "typ": "num",
+      "frage": "Ein Unternehmen segmentiert sein Netzwerk in 3 gleich große VLANs und verteilt dabei 180 Endgeräte gleichmäßig. Wie viele Geräte entfallen auf jedes VLAN?",
+      "einheit": "Geräte",
+      "loesung": 60,
+      "toleranz": 0,
+      "erklaerung": "180 Endgeräte gleichmäßig auf 3 VLANs verteilt ergeben 60 Geräte je VLAN.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
     }
   ]
 }

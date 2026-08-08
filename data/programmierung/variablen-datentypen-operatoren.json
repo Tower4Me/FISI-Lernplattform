@@ -1,0 +1,45 @@
+{
+  "unit": "programmierung/variablen-datentypen-operatoren",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welcher Datentyp würde für den Wert 3.14 verwendet?",
+      "options": ["Float (Gleitkommazahl)", "Integer (Ganzzahl)", "String (Zeichenkette)", "Boolean (Wahrheitswert)"],
+      "answer": 0,
+      "explanation": "3.14 hat Nachkommastellen und wird deshalb als Gleitkommazahl (Float/Double) gespeichert, nicht als Ganzzahl."
+    },
+    {
+      "id": "q2",
+      "question": "Was liefert der Ausdruck 7 MOD 2?",
+      "options": ["3.5", "1", "3", "0"],
+      "answer": 1,
+      "explanation": "MOD liefert den Rest der Ganzzahldivision. 7 geteilt durch 2 ergibt 3 Rest 1, also liefert 7 MOD 2 den Wert 1."
+    },
+    {
+      "id": "q3",
+      "question": "Welchen Datentyp liefert ein Vergleichsoperator wie == oder >= als Ergebnis?",
+      "options": ["Immer einen Integer", "Immer einen String", "Immer einen Boolean", "Den Datentyp der verglichenen Werte"],
+      "answer": 2,
+      "explanation": "Ein Vergleich liefert immer einen Wahrheitswert (true/false), unabhängig davon, welche Datentypen verglichen werden."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Kunde bekommt einen Rabatt nur, wenn er mindestens 100 Stück und Premium-Status hat. Welcher logische Operator verknüpft die beiden Bedingungen korrekt?",
+      "options": ["NICHT", "ODER", "MOD", "UND"],
+      "answer": 3,
+      "explanation": "UND liefert nur dann wahr, wenn beide Teilbedingungen zutreffen — genau die geforderte \"sowohl als auch\"-Regel."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Lagerbestand darf entweder unter 10 Stück ODER als \"kritisch\" markiert sein, um eine Nachbestellung auszulösen. Welche Aussage trifft zu?",
+      "options": [
+        "Die Nachbestellung löst nur aus, wenn beide Bedingungen gleichzeitig zutreffen",
+        "Die Nachbestellung löst aus, sobald mindestens eine der beiden Bedingungen zutrifft",
+        "ODER verhält sich hier identisch zu UND, es macht keinen Unterschied",
+        "Die Bedingung kann mit einem einzelnen Vergleichsoperator ohne ODER formuliert werden"
+      ],
+      "answer": 1,
+      "explanation": "ODER liefert bereits wahr, wenn mindestens eine der beiden Teilbedingungen zutrifft — anders als UND, das beide verlangt."
+    }
+  ]
+}

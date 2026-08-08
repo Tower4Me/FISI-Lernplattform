@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programmierung: Schleifen (SOLANGE, FÜR)</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#programmierung">Programmierung</a></li>
+        <li aria-current="page">Schleifen (SOLANGE, FÜR)</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Schleifen (SOLANGE, FÜR)
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Schleife ist wie eine Waschmaschine: „Schleudere, solange
+        noch Wasser im Bottich ist“ (Bedingung wird vor jedem Durchlauf
+        geprüft) oder „schleudere mindestens einmal, prüfe danach, ob
+        noch Wasser da ist“ (Bedingung wird nach dem Durchlauf geprüft).
+        Ohne Schleife müsste jeder einzelne Waschgang von Hand
+        einprogrammiert werden.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Eine <strong>Schleife</strong> wiederholt einen Anweisungsblock,
+        solange bzw. bis eine Bedingung erfüllt ist — ohne dass der
+        Code dafür mehrfach geschrieben werden muss.
+      </p>
+
+      <h3>Zählschleife</h3>
+      <p>
+        Wird eingesetzt, wenn die Anzahl der Durchläufe im Voraus
+        bekannt ist — entweder als feste Zahl oder als Anzahl der
+        Elemente einer Liste:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR i VON 1 BIS 5 TUE
+  AUSGABE i
+ENDE FÜR
+
+FÜR JEDE Position IN Bestellliste TUE
+  AUSGABE Position
+ENDE FÜR
+      </div>
+
+      <h3>Kopfgesteuerte Schleife (SOLANGE)</h3>
+      <p>
+        Prüft die Bedingung <em>vor</em> jedem Durchlauf. Trifft sie von
+        Anfang an nicht zu, läuft die Schleife kein einziges Mal:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+SOLANGE Lagerbestand &gt; 0 TUE
+  Lagerbestand = Lagerbestand - 1
+ENDE SOLANGE
+      </div>
+
+      <h3>Fußgesteuerte Schleife (WIEDERHOLE … BIS)</h3>
+      <p>
+        Prüft die Bedingung <em>nach</em> dem Durchlauf und läuft
+        deshalb immer mindestens einmal, selbst wenn die Bedingung von
+        Anfang an zutrifft:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+WIEDERHOLE
+  Eingabe = LiesPasswortEingabe()
+BIS Eingabe korrekt ist
+      </div>
+
+      <h3>Endlosschleifen vermeiden</h3>
+      <p>
+        Bei jeder Schleife muss sich innerhalb des Schleifenkörpers etwas
+        ändern, das irgendwann die Abbruchbedingung erfüllt (z. B. eine
+        Zählvariable erhöhen oder den Lagerbestand verringern). Fehlt
+        diese Änderung, läuft die Schleife unkontrolliert endlos weiter.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Auszubildender der TechNord GmbH soll für jede Position
+        einer Bestellliste prüfen, ob Mengenrabatt gilt:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR JEDE Position IN Bestellliste TUE
+  WENN Position.Menge &gt;= 100 DANN
+    Position.Rabatt = 10%
+  SONST
+    Position.Rabatt = 0%
+  ENDE WENN
+ENDE FÜR
+      </div>
+      <p>
+        Die <code>FÜR JEDE</code>-Schleife durchläuft jede Position der
+        Bestellliste einmal; da die Anzahl der Positionen von der
+        Bestellliste selbst vorgegeben wird, ist eine Zählschleife hier
+        die passende Wahl — nicht SOLANGE oder WIEDERHOLE, die eher für
+        Bedingungen ohne von vornherein feste Durchlaufzahl geeignet
+        sind.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Zählschleife (FÜR): Anzahl der Durchläufe steht vorher fest.
+        Kopfgesteuerte Schleife (SOLANGE): Bedingung wird vorher geprüft,
+        kann null Mal laufen. Fußgesteuerte Schleife (WIEDERHOLE … BIS):
+        Bedingung wird nachher geprüft, läuft mindestens einmal. Jede
+        Schleife braucht eine Änderung im Schleifenkörper, die die
+        Abbruchbedingung irgendwann erfüllt — sonst Endlosschleife.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/programmierung/schleifen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+    <p>Hast du Feedback? <a href="https://github.com/Tower4Me/FISI-Lernplattform" target="_blank" rel="noopener">Auf GitHub melden</a>.</p>
+    <p class="footer-disclaimer">Mit KI-Unterstützung erstellt und sorgfältig gepflegt. Ergänzung zur Prüfungsvorbereitung, ohne Anspruch auf Vollständigkeit; verbindlich sind die offiziellen Unterlagen der zuständigen Kammer.</p>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+
+  <script src="../../assets/next-unit.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "unit": "programmierung/schleifen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche Schleifenart eignet sich, wenn die Anzahl der Durchläufe von vornherein feststeht (z. B. genau 5 Positionen einer Liste)?",
+      "options": ["Zählschleife", "Kopfgesteuerte Schleife", "Fußgesteuerte Schleife", "Keine der drei Arten eignet sich dafür"],
+      "answer": 0,
+      "explanation": "Eine Zählschleife (FÜR) ist genau für den Fall gedacht, dass die Anzahl der Durchläufe im Voraus bekannt ist."
+    },
+    {
+      "id": "q2",
+      "question": "Eine SOLANGE-Schleife prüft ihre Bedingung, bevor der Schleifenkörper das erste Mal läuft. Die Bedingung ist von Anfang an falsch. Was passiert?",
+      "options": ["Die Schleife läuft trotzdem genau einmal", "Die Schleife läuft kein einziges Mal", "Ein Laufzeitfehler wird ausgelöst", "Die Schleife läuft unendlich oft"],
+      "answer": 1,
+      "explanation": "Kopfgesteuerte Schleifen (SOLANGE) prüfen die Bedingung vor jedem Durchlauf — ist sie von Anfang an falsch, läuft der Schleifenkörper gar nicht."
+    },
+    {
+      "id": "q3",
+      "question": "Eine WIEDERHOLE-BIS-Schleife soll eine Passworteingabe wiederholen, bis sie korrekt ist. Wie oft läuft der Schleifenkörper mindestens?",
+      "options": ["Null Mal, falls die erste Eingabe bereits korrekt ist", "Genau einmal, unabhängig vom Ergebnis der ersten Eingabe", "Mindestens einmal, danach abhängig von der Bedingung", "Immer genau zweimal"],
+      "answer": 2,
+      "explanation": "Fußgesteuerte Schleifen (WIEDERHOLE … BIS) prüfen die Bedingung erst nach dem Durchlauf — der Körper läuft deshalb immer mindestens einmal."
+    },
+    {
+      "id": "q4",
+      "question": "Eine SOLANGE-Schleife soll den Lagerbestand auf 0 herunterzählen, aber im Schleifenkörper wird der Lagerbestand nie verändert. Was ist die Folge?",
+      "options": [
+        "Die Schleife läuft automatisch genau einmal und endet dann normal",
+        "Die Schleife wird vom Compiler automatisch korrigiert",
+        "Es entsteht kein Problem, da SOLANGE-Schleifen sich selbst begrenzen",
+        "Die Bedingung wird nie falsch, die Schleife läuft endlos weiter"
+      ],
+      "answer": 3,
+      "explanation": "Ändert sich die geprüfte Bedingung im Schleifenkörper nie, wird sie nie falsch — die Schleife läuft unkontrolliert endlos weiter (Endlosschleife)."
+    },
+    {
+      "id": "q5",
+      "question": "Warum ist FÜR JEDE die passende Wahl, um jede Position einer Bestellliste auf Mengenrabatt zu prüfen?",
+      "options": [
+        "Weil FÜR JEDE als einzige Schleifenart Verzweigungen im Körper erlaubt",
+        "Weil die Anzahl der Durchläufe direkt durch die Anzahl der Positionen in der Liste vorgegeben ist",
+        "Weil FÜR JEDE im Gegensatz zu SOLANGE nie eine Endlosschleife erzeugen kann",
+        "Weil FÜR JEDE grundsätzlich schneller ausgeführt wird als SOLANGE"
+      ],
+      "answer": 1,
+      "explanation": "Eine Zählschleife wie FÜR JEDE passt, weil die Anzahl der Durchläufe bereits durch die Anzahl der Listenelemente feststeht — keine separate Abbruchbedingung nötig."
+    }
+  ]
+}

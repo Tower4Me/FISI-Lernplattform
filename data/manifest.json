@@ -812,10 +812,28 @@
           "quiz": "data/programmierung/programmierparadigmen.json"
         },
         {
-          "slug": "datentypen-pseudocode",
-          "name": "Datentypen, Kontrollstrukturen & Pseudocode",
+          "slug": "variablen-datentypen-operatoren",
+          "name": "Variablen, Datentypen & Operatoren",
           "exams": ["ap1"],
-          "quiz": "data/programmierung/datentypen-pseudocode.json"
+          "quiz": "data/programmierung/variablen-datentypen-operatoren.json"
+        },
+        {
+          "slug": "verzweigungen-if-else",
+          "name": "Verzweigungen (WENN/SONST)",
+          "exams": ["ap1"],
+          "quiz": "data/programmierung/verzweigungen-if-else.json"
+        },
+        {
+          "slug": "schleifen",
+          "name": "Schleifen (SOLANGE, FÜR)",
+          "exams": ["ap1"],
+          "quiz": "data/programmierung/schleifen.json"
+        },
+        {
+          "slug": "verschachtelung-kaskadierung",
+          "name": "Verschachtelung & Kaskadierung von Kontrollstrukturen",
+          "exams": ["ap1"],
+          "quiz": "data/programmierung/verschachtelung-kaskadierung.json"
         },
         {
           "slug": "pap-programmablaufplan",

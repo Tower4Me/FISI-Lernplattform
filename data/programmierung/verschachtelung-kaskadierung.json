@@ -1,0 +1,55 @@
+{
+  "unit": "programmierung/verschachtelung-kaskadierung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was kennzeichnet eine Verschachtelung von Kontrollstrukturen?",
+      "options": [
+        "Mehrere Bedingungen stehen als Kette hintereinander auf gleicher Ebene",
+        "Zwei Schleifen laufen gleichzeitig nebeneinander ab",
+        "Eine Bedingung wird zweimal hintereinander geprüft",
+        "Eine komplette Kontrollstruktur steckt vollständig im Körper einer anderen"
+      ],
+      "answer": 3,
+      "explanation": "Verschachtelung bedeutet, dass eine Kontrollstruktur (Schleife oder Verzweigung) vollständig im Körper einer anderen liegt — die Einrückungstiefe nimmt zu."
+    },
+    {
+      "id": "q2",
+      "question": "Woran erkennt man im Pseudocode eine Kaskadierung statt einer Verschachtelung?",
+      "options": [
+        "Die Einrückungstiefe bleibt bei den Bedingungen gleich, sie stehen als SONST-WENN-Kette",
+        "Die Einrückungstiefe nimmt mit jeder Bedingung zu",
+        "Es kommen ausschließlich Schleifen vor, keine Verzweigungen",
+        "Kaskadierung lässt sich im Pseudocode grundsätzlich nicht erkennen"
+      ],
+      "answer": 0,
+      "explanation": "Bei einer Kaskadierung stehen die Bedingungen als SONST-WENN-Kette auf derselben Ebene — die Einrückungstiefe bleibt konstant, anders als bei Verschachtelung."
+    },
+    {
+      "id": "q3",
+      "question": "Eine äußere FÜR-JEDE-Schleife über Bestellungen enthält eine innere FÜR-JEDE-Schleife über Positionen. Wie nennt man diese Beziehung?",
+      "options": ["Kaskadierung", "Rekursion", "Verschachtelung", "Sequenzierung"],
+      "answer": 2,
+      "explanation": "Eine Schleife im Körper einer anderen Schleife ist eine Verschachtelung — die innere Struktur steckt vollständig in der äußeren."
+    },
+    {
+      "id": "q4",
+      "question": "Innerhalb der inneren Schleife eines verschachtelten Beispiels steht eine Kette aus WENN Menge >= 500, SONST WENN Menge >= 100, SONST. Was liegt hier zusätzlich vor?",
+      "options": ["Eine weitere Verschachtelung, da drei Bedingungen vorkommen", "Eine Kaskadierung, da die Bedingungen auf gleicher Ebene hintereinander stehen", "Ein Endlosschleifen-Risiko", "Ein Datentyp-Fehler, da MOD fehlt"],
+      "answer": 1,
+      "explanation": "Die SONST-WENN-Kette liegt auf einer gemeinsamen Ebene ohne steigende Einrückung — das ist eine Kaskadierung, unabhängig davon, dass sie sich innerhalb einer verschachtelten Schleife befindet."
+    },
+    {
+      "id": "q5",
+      "question": "Können Verschachtelung und Kaskadierung gleichzeitig in derselben Struktur vorkommen?",
+      "options": [
+        "Nein, ein Algorithmus darf immer nur eines von beiden enthalten",
+        "Ja, z. B. eine SONST-WENN-Kette (Kaskadierung) innerhalb einer Schleife (Verschachtelung)",
+        "Nein, Kaskadierung schließt Schleifen grundsätzlich aus",
+        "Ja, aber nur wenn keine Vergleichsoperatoren verwendet werden"
+      ],
+      "answer": 1,
+      "explanation": "Beide Konzepte betreffen unterschiedliche Ebenen des Aufbaus und schließen sich nicht aus — eine kaskadierte WENN-Kette kann problemlos im Körper einer (verschachtelten) Schleife stehen."
+    }
+  ]
+}

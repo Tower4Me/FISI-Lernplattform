@@ -194,6 +194,26 @@
     window.location.href = entry.href;
   }
 
+  /* Nur auf schmalen Screens ist .site-search__results per CSS auf
+     position:fixed umgestellt (Panel loest sich aus der schmalen
+     Header-Spalte, siehe style.css). Dort setzen wir top/max-height hier
+     aus der tatsaechlichen Position des Eingabefelds statt aus einem
+     Fixwert -- der waere bei zweizeiligem Breadcrumb-Umbruch oder
+     abweichender Kopfzeilenhoehe daneben. Auf breiten Screens bleibt das
+     Panel absolut positioniert (CSS regelt top ueber calc(100% + ...)),
+     dort wird nichts inline gesetzt. */
+  function positionResults() {
+    if (listbox.hidden) return;
+    if (getComputedStyle(listbox).position !== "fixed") {
+      listbox.style.top = "";
+      listbox.style.maxHeight = "";
+      return;
+    }
+    var top = Math.round(input.getBoundingClientRect().bottom + 8);
+    listbox.style.top = top + "px";
+    listbox.style.maxHeight = "calc(100vh - " + top + "px - 0.5rem)";
+  }
+
   function renderResults(query) {
     listbox.innerHTML = "";
     currentResults = search(query);
@@ -228,6 +248,7 @@
     }
 
     listbox.hidden = false;
+    positionResults();
     input.setAttribute("aria-expanded", "true");
     activeIndex = -1;
     input.setAttribute("aria-activedescendant", "");
@@ -289,4 +310,6 @@
   document.addEventListener("click", function (e) {
     if (!wrap.contains(e.target)) closeList();
   });
+
+  window.addEventListener("resize", positionResults);
 })();

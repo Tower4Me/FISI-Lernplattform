@@ -970,12 +970,17 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .site-search--compact,
   .site-search--prominent { flex: 1 1 auto; min-width: 0; }
 
+  /* top und max-height werden von search.js dynamisch inline gesetzt,
+     aus der tatsaechlichen Position des Eingabefelds
+     (input.getBoundingClientRect().bottom) -- kein Fixwert mehr, der bei
+     Breadcrumb-Umbruch auf zwei Zeilen oder abweichender Kopfzeilenhoehe
+     daneben liegen kann. Das Panel selbst ist ohnehin nur mit JS
+     vorhanden (search.js erzeugt es zur Laufzeit), ein CSS-Fallback fuer
+     deaktiviertes JS waere wirkungslos. */
   .site-search__results {
     position: fixed;
     left: 0.5rem;
     right: 0.5rem;
-    top: 8.5rem;
-    max-height: calc(100vh - 9.5rem);
     overflow-y: auto;
   }
 

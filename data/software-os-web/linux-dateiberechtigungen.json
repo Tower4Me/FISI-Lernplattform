@@ -1,0 +1,72 @@
+{
+  "unit": "software-os-web/linux-dateiberechtigungen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was bedeutet die Berechtigung rwxr-xr-- für eine Datei?",
+      "options": [
+        "Owner darf alles, Gruppe darf lesen und ausführen, alle anderen dürfen nur lesen",
+        "Alle drei Benutzergruppen (Owner, Gruppe, Andere) besitzen exakt identische Rechte",
+        "Der Owner darf ausschließlich lesen, während alle anderen Benutzer uneingeschränkt alles dürfen",
+        "Ausschließlich die Gruppe hat überhaupt Zugriff auf die betreffende Datei"
+      ],
+      "answer": 0,
+      "explanation": "rwx (Owner: alles), r-x (Gruppe: lesen+ausführen), r-- (Andere: nur lesen) — die drei Dreiergruppen stehen für Owner, Group und Others in dieser Reihenfolge."
+    },
+    {
+      "id": "q2",
+      "question": "Welchen Oktalwert hat die Berechtigung rwx?",
+      "options": ["4", "7", "5", "6"],
+      "answer": 1,
+      "explanation": "r=4, w=2, x=1 — zusammen ergibt rwx den Wert 4+2+1 = 7."
+    },
+    {
+      "id": "q3",
+      "question": "Was bewirkt der Befehl chmod 644 datei.txt?",
+      "options": [
+        "rwxrwxrwx — Owner, Gruppe und alle anderen dürfen uneingeschränkt alles",
+        "rwx------ — ausschließlich der Owner hat überhaupt Zugriff auf die Datei",
+        "rw-r--r-- — Owner darf lesen und schreiben, alle anderen nur lesen",
+        "r--r--r-- — niemand, auch nicht der Owner, darf die Datei nachträglich verändern"
+      ],
+      "answer": 2,
+      "explanation": "644 = rw- (6) für Owner, r-- (4) für Gruppe, r-- (4) für Andere — Owner darf lesen und schreiben, alle anderen nur lesen."
+    },
+    {
+      "id": "q4",
+      "question": "Warum gilt chmod 777 fast immer als Sicherheitsrisiko?",
+      "options": [
+        "Weil der Befehl chmod in modernen Linux-Distributionen technisch nicht mehr existiert",
+        "Weil chmod 777 die betroffene Datei dabei automatisch vollständig verschlüsselt",
+        "Weil chmod 777 die Datei anschließend selbst für den Eigentümer unzugänglich macht",
+        "Weil damit jeder Benutzer auf dem System die Datei lesen, schreiben und ausführen darf"
+      ],
+      "answer": 3,
+      "explanation": "chmod 777 vergibt an Owner, Gruppe und alle anderen sämtliche Rechte (rwx) — jeder Benutzer des Systems kann die Datei dann lesen, verändern und ausführen, was ein erhebliches Sicherheitsrisiko darstellt."
+    },
+    {
+      "id": "q5",
+      "question": "Was bewirkt der Befehl chown ben:users datei.txt?",
+      "options": [
+        "Er setzt den Eigentümer der Datei auf „ben“ und die Gruppe auf „users“",
+        "Er komprimiert die angegebene Datei, ohne dabei Eigentümer oder Rechte zu ändern",
+        "Er löscht die angegebene Datei vollständig und unwiderruflich vom Datenträger",
+        "Er ändert ausschließlich die Zugriffsrechte (rwx) der angegebenen Datei"
+      ],
+      "answer": 0,
+      "explanation": "chown (change owner) ändert Eigentümer und/oder Gruppe einer Datei — hier wird der Eigentümer auf „ben“ und die Gruppe auf „users“ gesetzt."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Techniker möchte allen Unterdateien eines Ordners auf einmal dieselben Rechte geben. Welche Option von chmod ist dafür nötig?",
+      "options": [
+        "-x",
+        "-R (rekursiv, wendet die Änderung auf den ganzen Ordner samt Inhalt an)",
+        "chmod kann grundsätzlich nur auf einzelne Dateien angewendet werden",
+        "-v"
+      ],
+      "answer": 1,
+      "explanation": "Die Option -R wendet chmod rekursiv auf einen Ordner und alle darin enthaltenen Dateien und Unterordner an."
+    }
+  ]
+}

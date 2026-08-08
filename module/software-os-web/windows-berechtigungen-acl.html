@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Software/OS/Web: Windows-Konsole & ACL</title>
+  <title>Software/OS/Web: Windows-Berechtigungen (ACL)</title>
   <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
@@ -14,12 +14,12 @@
       <ol>
         <li><a href="../../index.html">Lernplan</a></li>
         <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
-        <li aria-current="page">Windows-Konsole & ACL</li>
+        <li aria-current="page">Windows-Berechtigungen (ACL)</li>
       </ol>
     </nav>
 
     <h1 class="unit-title">
-      Windows-Konsole & ACL
+      Windows-Berechtigungen (ACL)
       <span class="badges">
         <span class="badge badge--ap1">AP1</span>
         <span class="badge badge--ap2">AP2</span>
@@ -112,18 +112,11 @@
           <tr><td>GUI</td><td>Dateimanager</td><td>Eigenschaften → Sicherheit</td></tr>
         </tbody>
       </table>
-
-      <h3>Weitere wichtige Windows-Konsolenbefehle</h3>
-      <table>
-        <thead>
-          <tr><th>Befehl</th><th>Zweck</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>dir</code></td><td>listet den Verzeichnisinhalt auf (Windows-Pendant zu Linux <code>ls</code>)</td></tr>
-          <tr><td><code>ipconfig</code> / <code>ipconfig /all</code></td><td>zeigt die Netzwerkkonfiguration (IP-Adresse, Subnetzmaske, Gateway) an — siehe auch Modul Netzwerktechnik, Netzwerk-Diagnose</td></tr>
-          <tr><td><code>getmac</code></td><td>zeigt die MAC-Adresse(n) der Netzwerkadapter an, z. B. für eine DHCP-Reservierung</td></tr>
-        </tbody>
-      </table>
+      <p>
+        Die grundlegende Bedienung der Windows-Konsole (Navigation,
+        Datei-Befehle, Netzwerkdiagnose) ist eigenständiges Thema der
+        Einheit „Windows-Konsole“.
+      </p>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -144,9 +137,6 @@
           Unterordner mit besonders sensiblen Finanzdaten haben — ein
           <strong>Deny</strong>-Eintrag setzt sich gegenüber der
           allgemeinen Erlaubnis durch.</li>
-        <li><strong>Netzwerkdiagnose:</strong> <code>ipconfig /all</code>
-          zeigt die aktuelle IP-Konfiguration des Servers, <code>getmac</code>
-          liefert die MAC-Adresse für eine feste DHCP-Reservierung.</li>
       </ul>
     </section>
 
@@ -157,9 +147,6 @@
         ACL = Liste von ACEs, viel feiner als Linux-rwx, mit Vererbung und
         explizitem Deny (überschreibt Allow). Moderner Befehl:
         <code>icacls</code> (nicht <code>cacls</code>, veraltet).
-        <code>dir</code> entspricht Linux <code>ls</code>,
-        <code>ipconfig</code> zeigt die Netzwerkkonfiguration,
-        <code>getmac</code> die MAC-Adresse des Netzwerkadapters.
       </p>
     </section>
 

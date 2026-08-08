@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Software/OS/Web: Linux-Konsole & Dateiberechtigungen</title>
+  <title>Software/OS/Web: Linux-Konsole</title>
   <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <link rel="stylesheet" href="../../assets/style.css">
 </head>
@@ -14,12 +14,12 @@
       <ol>
         <li><a href="../../index.html">Lernplan</a></li>
         <li><a href="../../index.html#software-os-web">Software, Betriebssysteme & Web</a></li>
-        <li aria-current="page">Linux-Konsole & Dateiberechtigungen</li>
+        <li aria-current="page">Linux-Konsole</li>
       </ol>
     </nav>
 
     <h1 class="unit-title">
-      Linux-Konsole & Dateiberechtigungen
+      Linux-Konsole
       <span class="badges">
         <span class="badge badge--ap1">AP1</span>
         <span class="badge badge--ap2">AP2</span>
@@ -33,21 +33,69 @@
     <section id="einstieg" class="section section--einstieg">
       <h2>Einstieg</h2>
       <p>
-        Windows organisiert Laufwerke wie separate Aktenschränke (C:, D:,
-        E:) nebeneinander. Linux kennt nur einen einzigen, riesigen
+        Die Kommandozeile ist wie ein Gespräch mit dem Betriebssystem in
+        einer sehr kompakten Sprache: statt durch Menüs zu klicken, tippt
+        man kurze Befehlswörter — wer den Wortschatz kennt, kommt oft
+        schneller ans Ziel als mit der Maus, vor allem bei
+        wiederkehrenden Aufgaben auf einem Server. Windows organisiert
+        Laufwerke dabei wie separate Aktenschränke (C:, D:, E:)
+        nebeneinander; Linux kennt nur einen einzigen, riesigen
         Aktenschrank mit einer festen Schublade an der Wurzel — jeder
         weitere Datenträger wird als zusätzliche Schublade an einer
         bestimmten Stelle in diesen einen Schrank eingeschoben
-        (Mounting). Und wer welche Schublade öffnen, hineinschauen oder
-        etwas hineinlegen darf, regelt ein Dreier-Schlüsselsystem: ein
-        Schlüssel für den Eigentümer, ein gemeinsamer Team-Schlüssel für
-        die Gruppe, und ein allgemeiner Schlüssel für alle anderen.
+        (Mounting).
       </p>
     </section>
 
     <!-- 2. KONZEPT -->
     <section id="konzept" class="section section--konzept">
       <h2>Konzept</h2>
+
+      <h3>Navigation</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>pwd</code></td><td>zeigt das aktuelle Arbeitsverzeichnis an (print working directory)</td></tr>
+          <tr><td><code>cd Ordner</code></td><td>wechselt in ein Verzeichnis; <code>cd ..</code> wechselt eine Ebene nach oben</td></tr>
+          <tr><td><code>ls</code> / <code>ls -l</code></td><td>listet den Verzeichnisinhalt bzw. mit Details/Rechten auf</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Dateioperationen</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>cp quelle ziel</code></td><td>kopiert eine Datei</td></tr>
+          <tr><td><code>mv quelle ziel</code></td><td>verschiebt oder benennt eine Datei um</td></tr>
+          <tr><td><code>rm datei</code></td><td>löscht eine Datei (unwiderruflich, kein Papierkorb)</td></tr>
+          <tr><td><code>mkdir ordner</code></td><td>legt ein neues Verzeichnis an</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Dateiinhalt ansehen und durchsuchen</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>cat datei</code></td><td>gibt den kompletten Dateiinhalt aus</td></tr>
+          <tr><td><code>less datei</code></td><td>zeigt den Inhalt seitenweise an, durchsuchbar, ohne alles auf einmal auszugeben</td></tr>
+          <tr><td><code>grep "muster" datei</code></td><td>durchsucht eine Datei zeilenweise nach einem Textmuster — z. B. Fehlermeldungen in Logdateien finden</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Befehle lassen sich über die <strong>Pipe</strong> (<code>|</code>)
+        verketten: Die Ausgabe des einen Befehls wird zur Eingabe des
+        nächsten. Beispiel: <code>cat zugriff.log | grep "error"</code>
+        gibt nur die Zeilen von <code>zugriff.log</code> aus, die
+        „error“ enthalten. Mit <code>&gt;</code> wird eine Ausgabe
+        stattdessen in eine Datei umgeleitet (überschreibt sie), mit
+        <code>&gt;&gt;</code> an eine bestehende Datei angehängt.
+      </p>
 
       <h3>Verzeichnisbaum und Mounting</h3>
       <p>
@@ -83,82 +131,15 @@
         fstab-Einträge zu mounten, ohne neu zu starten).
       </p>
 
-      <h3>Das rwx-Rechtesystem</h3>
+      <h3>Hilfe zu Befehlen</h3>
       <p>
-        Jede Datei und jedes Verzeichnis hat drei Rechte für drei
-        Gruppen — kurz „ugo“ genannt:
+        <code>man befehl</code> (Manual) zeigt die vollständige
+        Dokumentation eines Befehls mit allen Optionen an —
+        der erste Anlaufpunkt bei einem unbekannten oder vergessenen
+        Parameter. Die Rechte für Dateien und Verzeichnisse (rwx,
+        chmod, chown) sind ein eigenständiges Thema und werden in der
+        Einheit „Linux-Dateiberechtigungen“ behandelt.
       </p>
-      <table>
-        <thead>
-          <tr><th>Recht</th><th>bei Dateien</th><th>bei Verzeichnissen</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>r</strong> (read)</td><td>Inhalt lesen</td><td>Inhalt auflisten (<code>ls</code>)</td></tr>
-          <tr><td><strong>w</strong> (write)</td><td>Inhalt ändern</td><td>Dateien erstellen/löschen</td></tr>
-          <tr><td><strong>x</strong> (execute)</td><td>als Programm ausführen</td><td>Verzeichnis betreten (<code>cd</code>)</td></tr>
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <tr><th>Gruppe (u/g/o)</th><th>Bedeutung</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>u</strong> — User/Owner</td><td>der Eigentümer der Datei (Ersteller wird automatisch Eigentümer)</td></tr>
-          <tr><td><strong>g</strong> — Group</td><td>eine Benutzergruppe, alle Mitglieder teilen sich diese Rechte</td></tr>
-          <tr><td><strong>o</strong> — Others</td><td>alle übrigen Benutzer des Systems</td></tr>
-        </tbody>
-      </table>
-      <p>
-        Mit <code>ls -l</code> werden die Rechte angezeigt, z. B.
-        <code>-rwxr-xr--</code>: Owner darf alles (rwx), Gruppe darf lesen
-        und ausführen (r-x), alle anderen dürfen nur lesen (r--).
-      </p>
-
-      <h3>Oktalnotation und chmod</h3>
-      <table>
-        <thead>
-          <tr><th>Recht</th><th>Wert</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>r (read)</td><td>4</td></tr>
-          <tr><td>w (write)</td><td>2</td></tr>
-          <tr><td>x (execute)</td><td>1</td></tr>
-        </tbody>
-      </table>
-      <p>
-        Die Werte einer Gruppe werden addiert: <code>rwx</code> = 7 (4+2+1),
-        <code>rw-</code> = 6 (4+2), <code>r-x</code> = 5 (4+1). Drei
-        Ziffern hintereinander (Owner-Group-Others) ergeben die
-        Oktalnotation für <code>chmod</code>:
-      </p>
-      <table>
-        <thead>
-          <tr><th>Befehl</th><th>Bedeutung</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>chmod 755 skript.sh</code></td><td>rwxr-xr-x — Owner alles, Gruppe/Andere lesen+ausführen</td></tr>
-          <tr><td><code>chmod 644 datei.txt</code></td><td>rw-r--r-- — Owner lesen+schreiben, Rest nur lesen</td></tr>
-          <tr><td><code>chmod 600 privat.key</code></td><td>rw------- — nur Owner darf lesen/schreiben</td></tr>
-          <tr><td><code>chmod 777 datei.txt</code></td><td>rwxrwxrwx — <strong>alle dürfen alles</strong> (fast immer ein Sicherheitsrisiko!)</td></tr>
-        </tbody>
-      </table>
-      <p>
-        Mit <code>chown ben:users datei.txt</code> wird der Eigentümer auf
-        „ben“ und die Gruppe auf „users“ gesetzt. Die Option
-        <code>-R</code> (z. B. <code>chmod -R 755 /var/www/</code>) wendet
-        eine Änderung rekursiv auf einen ganzen Ordner samt Inhalt an.
-      </p>
-
-      <h3>Weitere wichtige Befehle</h3>
-      <table>
-        <thead>
-          <tr><th>Befehl</th><th>Zweck</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>ls</code> / <code>ls -l</code></td><td>Verzeichnisinhalt bzw. mit Rechten/Details anzeigen</td></tr>
-          <tr><td><code>grep "muster" datei</code></td><td>durchsucht eine Datei zeilenweise nach einem Textmuster — z. B. Fehlermeldungen in Logdateien finden</td></tr>
-        </tbody>
-      </table>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -169,21 +150,22 @@
         Webserver ein:
       </p>
       <ul>
+        <li><strong>Verzeichnis wechseln und Inhalt prüfen:</strong>
+          <code>cd /var/www</code>, danach <code>ls -l</code>, um zu
+          sehen, was dort bereits liegt.</li>
+        <li><strong>Konfigurationsdatei sichern:</strong>
+          <code>cp nginx.conf nginx.conf.bak</code>, bevor Änderungen
+          vorgenommen werden.</li>
         <li><strong>Externe Backup-Platte einhängen:</strong>
           <code>mount /dev/sdb1 /mnt/backup</code>, danach mit
-          <code>ls -l /mnt/backup</code> den Inhalt und die Rechte
-          prüfen.</li>
-        <li><strong>Deploy-Skript ausführbar machen:</strong>
-          <code>chmod 755 deploy.sh</code> — Owner darf alles, alle
-          anderen nur lesen und ausführen.</li>
-        <li><strong>Web-Verzeichnis dem Webserver-Prozess übergeben:</strong>
-          <code>chown www-data:www-data /var/www/technord</code>, damit
-          der Webserver-Dienst korrekt darauf zugreifen kann.</li>
+          <code>ls -l /mnt/backup</code> den Inhalt prüfen.</li>
         <li><strong>Dauerhaftes Einhängen:</strong> Eintrag der
           Backup-Platte in <code>/etc/fstab</code>, damit sie bei jedem
           Neustart automatisch verfügbar ist.</li>
-        <li><strong>Fehlersuche:</strong> <code>grep "error" /var/log/nginx/error.log</code>
-          filtert gezielt Fehlermeldungen aus einer langen Logdatei.</li>
+        <li><strong>Fehlersuche:</strong>
+          <code>cat /var/log/nginx/error.log | grep "error"</code>
+          filtert gezielt Fehlermeldungen aus einer langen Logdatei,
+          statt sie komplett mit <code>cat</code> allein auszugeben.</li>
       </ul>
     </section>
 
@@ -191,13 +173,15 @@
     <section id="merksatz" class="section section--merksatz">
       <h2>Merksatz</h2>
       <p>
-        Linux hat einen Verzeichnisbaum statt Laufwerksbuchstaben,
-        Datenträger werden gemountet, <code>/etc/fstab</code> steuert das
-        automatische Einhängen. Rechte gelten für Owner/Group/Others
-        (ugo) je r/w/x — Oktalwerte r=4, w=2, x=1 addiert ergeben Werte
-        wie 755, 644, 600. <code>chmod 777</code> ist fast immer ein
-        Sicherheitsrisiko. <code>chown</code> ändert den Eigentümer,
-        <code>grep</code> durchsucht Dateien nach Textmustern.
+        Navigation: <code>pwd</code>, <code>cd</code>, <code>ls</code>.
+        Dateioperationen: <code>cp</code>, <code>mv</code>,
+        <code>rm</code>, <code>mkdir</code>. Inhalt ansehen/durchsuchen:
+        <code>cat</code>, <code>less</code>, <code>grep</code>, per Pipe
+        (<code>|</code>) verkettet. Linux hat einen Verzeichnisbaum statt
+        Laufwerksbuchstaben, Datenträger werden gemountet,
+        <code>/etc/fstab</code> steuert das automatische Einhängen beim
+        Boot. <code>man befehl</code> zeigt die Dokumentation eines
+        Befehls.
       </p>
     </section>
 

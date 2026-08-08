@@ -67,20 +67,6 @@
       ],
       "answer": 1,
       "explanation": "Windows-ACLs erlauben beliebig viele, sehr fein abgestufte Berechtigungseinträge pro Benutzer oder Gruppe, während das Linux-rwx-System auf 9 Bits für die drei festen Gruppen Owner/Group/Others begrenzt ist."
-    },
-    {
-      "id": "q7",
-      "question": "Welcher Windows-Konsolenbefehl entspricht funktional dem Linux-Befehl ls (Verzeichnisinhalt auflisten)?",
-      "options": ["ipconfig", "getmac", "dir", "icacls"],
-      "answer": 2,
-      "explanation": "dir listet unter Windows den Inhalt eines Verzeichnisses auf — das funktionale Pendant zu ls unter Linux."
-    },
-    {
-      "id": "q8",
-      "question": "Ein Techniker möchte die MAC-Adresse eines Windows-Rechners ermitteln, um eine feste DHCP-Reservierung einzurichten. Welchen Befehl nutzt er dafür?",
-      "options": ["dir", "chmod", "icacls", "getmac"],
-      "answer": 3,
-      "explanation": "getmac zeigt die MAC-Adresse(n) der Netzwerkadapter eines Windows-Rechners an — genau die Information, die für eine DHCP-Reservierung benötigt wird."
     }
   ]
 }

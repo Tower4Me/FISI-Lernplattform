@@ -1,0 +1,40 @@
+{
+  "unit": "software-os-web/windows-konsole",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welcher Windows-Konsolenbefehl entspricht funktional dem Linux-Befehl ls (Verzeichnisinhalt auflisten)?",
+      "options": ["ipconfig", "getmac", "dir", "type"],
+      "answer": 2,
+      "explanation": "dir listet unter Windows den Inhalt eines Verzeichnisses auf — das funktionale Pendant zu ls unter Linux."
+    },
+    {
+      "id": "q2",
+      "question": "Mit welchem Befehl wird eine Datei unter Windows von der Konsole aus kopiert?",
+      "options": ["move quelle ziel", "copy quelle ziel", "del quelle", "type quelle"],
+      "answer": 1,
+      "explanation": "copy kopiert eine Datei; move würde sie stattdessen verschieben bzw. umbenennen, del löscht sie."
+    },
+    {
+      "id": "q3",
+      "question": "Welcher Befehl zeigt den Inhalt einer Textdatei in der Windows-Konsole an?",
+      "options": ["type datei", "mkdir datei", "dir datei", "del datei"],
+      "answer": 0,
+      "explanation": "type gibt den Inhalt einer Datei aus — das Windows-Pendant zu Linux cat."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Techniker möchte die IP-Adresse, Subnetzmaske und das Gateway eines Windows-Rechners prüfen. Welchen Befehl nutzt er?",
+      "options": ["getmac", "dir", "ipconfig /all", "copy"],
+      "answer": 2,
+      "explanation": "ipconfig /all zeigt die vollständige Netzwerkkonfiguration an, inklusive IP-Adresse, Subnetzmaske und Gateway."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Techniker möchte die MAC-Adresse eines Windows-Rechners ermitteln, um eine feste DHCP-Reservierung einzurichten. Welchen Befehl nutzt er dafür?",
+      "options": ["dir", "type", "ipconfig", "getmac"],
+      "answer": 3,
+      "explanation": "getmac zeigt die MAC-Adresse(n) der Netzwerkadapter eines Windows-Rechners an — genau die Information, die für eine DHCP-Reservierung benötigt wird."
+    }
+  ]
+}

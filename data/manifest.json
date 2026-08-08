@@ -711,13 +711,25 @@
         },
         {
           "slug": "linux-konsole",
-          "name": "Linux-Konsole & Dateiberechtigungen",
+          "name": "Linux-Konsole",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/linux-konsole.json"
         },
         {
+          "slug": "linux-dateiberechtigungen",
+          "name": "Linux-Dateiberechtigungen (rwx, chmod, chown)",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/software-os-web/linux-dateiberechtigungen.json"
+        },
+        {
+          "slug": "windows-konsole",
+          "name": "Windows-Konsole",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/software-os-web/windows-konsole.json"
+        },
+        {
           "slug": "windows-berechtigungen-acl",
-          "name": "Windows-Konsole & ACL",
+          "name": "Windows-Berechtigungen (ACL)",
           "exams": ["ap1", "ap2"],
           "quiz": "data/software-os-web/windows-berechtigungen-acl.json"
         },

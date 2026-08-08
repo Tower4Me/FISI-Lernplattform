@@ -782,40 +782,10 @@
           "quiz": "data/software-os-web/bildschirmausgabemasken.json"
         },
         {
-          "slug": "programmierparadigmen",
-          "name": "Programmierparadigmen & Sprachhöhe",
-          "exams": ["ap1"],
-          "quiz": "data/software-os-web/programmierparadigmen.json"
-        },
-        {
-          "slug": "datentypen-pseudocode",
-          "name": "Datentypen, Kontrollstrukturen & Pseudocode",
-          "exams": ["ap1"],
-          "quiz": "data/software-os-web/datentypen-pseudocode.json"
-        },
-        {
-          "slug": "compiler-interpreter-debugging",
-          "name": "Compiler, Interpreter & Debugging",
-          "exams": ["ap1"],
-          "quiz": "data/software-os-web/compiler-interpreter-debugging.json"
-        },
-        {
           "slug": "uml-diagramme",
           "name": "UML-Diagramme",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/uml-diagramme.json"
-        },
-        {
-          "slug": "pap-programmablaufplan",
-          "name": "PAP (Programmablaufplan)",
-          "exams": ["ap2"],
-          "quiz": "data/software-os-web/pap-programmablaufplan.json"
-        },
-        {
-          "slug": "struktogramm-nassi-shneiderman",
-          "name": "Struktogramm (Nassi-Shneiderman)",
-          "exams": ["ap2"],
-          "quiz": "data/software-os-web/struktogramm-nassi-shneiderman.json"
         },
         {
           "slug": "mime-base64",
@@ -828,6 +798,42 @@
           "name": "Deployment-Formate (ISO, WIM)",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/deployment-formate.json"
+        }
+      ]
+    },
+    {
+      "slug": "programmierung",
+      "name": "Programmierung",
+      "units": [
+        {
+          "slug": "programmierparadigmen",
+          "name": "Programmierparadigmen & Sprachhöhe",
+          "exams": ["ap1"],
+          "quiz": "data/programmierung/programmierparadigmen.json"
+        },
+        {
+          "slug": "datentypen-pseudocode",
+          "name": "Datentypen, Kontrollstrukturen & Pseudocode",
+          "exams": ["ap1"],
+          "quiz": "data/programmierung/datentypen-pseudocode.json"
+        },
+        {
+          "slug": "pap-programmablaufplan",
+          "name": "PAP (Programmablaufplan)",
+          "exams": ["ap2"],
+          "quiz": "data/programmierung/pap-programmablaufplan.json"
+        },
+        {
+          "slug": "struktogramm-nassi-shneiderman",
+          "name": "Struktogramm (Nassi-Shneiderman)",
+          "exams": ["ap2"],
+          "quiz": "data/programmierung/struktogramm-nassi-shneiderman.json"
+        },
+        {
+          "slug": "compiler-interpreter-debugging",
+          "name": "Compiler, Interpreter & Debugging",
+          "exams": ["ap1"],
+          "quiz": "data/programmierung/compiler-interpreter-debugging.json"
         }
       ]
     },

@@ -188,6 +188,7 @@ pre { max-width: 100%; overflow-x: auto; }
   list-style: none;
   position: relative;
   padding-right: 1.5rem;
+  padding-block: 0.4rem;
 }
 .module-card__head::-webkit-details-marker { display: none; }
 .module-card__head::after {
@@ -379,6 +380,9 @@ pre { max-width: 100%; overflow-x: auto; }
 .exam-navgrid__item.is-answered { color: var(--text); border-color: var(--ok); }
 .exam-navgrid__item.is-flagged { border-color: var(--fail); }
 .exam-navgrid__item.is-current { outline: 2px solid var(--link); outline-offset: 1px; }
+@media (max-width: 600px) {
+  .exam-navgrid__item { min-width: 2.75rem; height: 2.75rem; }
+}
 
 .exam-result-summary { margin-block: 1rem; }
 .exam-result-punkte { font-size: 1.3rem; font-weight: 700; }

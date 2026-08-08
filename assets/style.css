@@ -117,6 +117,8 @@ code, kbd, pre {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.9em;
 }
+code { overflow-wrap: anywhere; }
+pre { max-width: 100%; overflow-x: auto; }
 
 /* --------------------------------------------------------------- Layout */
 .site-header, .site-main, .site-footer {

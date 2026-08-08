@@ -660,6 +660,12 @@
           "name": "Normen, Compliance & Ethik",
           "exams": ["ap1"],
           "quiz": "data/datenschutz-recht/normen-compliance.json"
+        },
+        {
+          "slug": "impressumspflicht",
+          "name": "Impressumspflicht",
+          "exams": ["ap1"],
+          "quiz": "data/datenschutz-recht/impressumspflicht.json"
         }
       ]
     },
@@ -771,7 +777,7 @@
         },
         {
           "slug": "html-css-grundlagen",
-          "name": "HTML/CSS-Grundlagen & Impressumspflicht",
+          "name": "HTML/CSS-Grundlagen",
           "exams": ["ap1"],
           "quiz": "data/software-os-web/html-css-grundlagen.json"
         },

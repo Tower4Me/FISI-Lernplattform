@@ -1,0 +1,65 @@
+{
+  "unit": "datenschutz-recht/impressumspflicht",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wer ist grundsätzlich zur Angabe eines Impressums verpflichtet?",
+      "options": [
+        "Jeder Betreiber einer geschäftsmäßigen Website",
+        "Ausschließlich Websites mit eigenem Online-Shop",
+        "Nur Websites mit mehr als 100.000 Besuchern im Monat",
+        "Ausschließlich Behörden und deren offizielle Webauftritte"
+      ],
+      "answer": 0,
+      "explanation": "Verpflichtet ist grundsätzlich jeder, der eine Website geschäftsmäßig betreibt — unabhängig von Besucherzahl oder Shop-Funktion."
+    },
+    {
+      "id": "q2",
+      "question": "Welches Gesetz regelt die Impressumspflicht für Websites seit Mai 2024?",
+      "options": [
+        "Die DSGVO",
+        "Das Urheberrechtsgesetz (UrhG)",
+        "Das Bürgerliche Gesetzbuch (BGB)",
+        "Das Digitale-Dienste-Gesetz (DDG), das den bisherigen § 5 TMG insoweit abgelöst hat"
+      ],
+      "answer": 3,
+      "explanation": "Seit Mai 2024 regelt § 5 DDG die Anbieterkennzeichnung; das DDG hat den bisherigen § 5 TMG in diesem Punkt abgelöst."
+    },
+    {
+      "id": "q3",
+      "question": "Welche Angaben gehören typischerweise zu den Pflichtangaben eines Impressums?",
+      "options": [
+        "Ausschließlich die im Hintergrund verwendete Programmiersprache der Website",
+        "Name und Anschrift des Betreibers sowie eine direkte Kontaktmöglichkeit, ggf. Handelsregisternummer und USt-IdNr.",
+        "Ausschließlich die technische IP-Adresse des verwendeten Servers",
+        "Ausschließlich die Anzahl der bisherigen Website-Besucher"
+      ],
+      "answer": 1,
+      "explanation": "Ein vollständiges Impressum enthält u. a. Name und Anschrift des Betreibers, eine direkte Kontaktmöglichkeit sowie ggf. Handelsregistereintrag und Umsatzsteuer-Identifikationsnummer."
+    },
+    {
+      "id": "q4",
+      "question": "Worin unterscheidet sich das Impressum von der Datenschutzerklärung?",
+      "options": [
+        "Eine Datenschutzerklärung ersetzt automatisch die Pflicht zu einem Impressum",
+        "Das Impressum regelt den Umgang mit personenbezogenen Daten, die Datenschutzerklärung die Anbieterkennzeichnung",
+        "Beide Dokumente sind inhaltlich identisch und rechtlich gegeneinander austauschbar",
+        "Das Impressum zeigt, wer die Website betreibt; die Datenschutzerklärung regelt den Umgang mit personenbezogenen Daten"
+      ],
+      "answer": 3,
+      "explanation": "Das Impressum ist die Anbieterkennzeichnung (wer betreibt die Seite), die Datenschutzerklärung regelt nach DSGVO den Umgang mit personenbezogenen Daten — zwei getrennte Pflichten mit unterschiedlichem Zweck."
+    },
+    {
+      "id": "q5",
+      "question": "Was kann die Folge eines fehlenden oder unvollständigen Impressums sein?",
+      "options": [
+        "Eine automatische, sofortige Sperrung der Domain direkt durch den Provider",
+        "In der Regel überhaupt keinerlei rechtliche Konsequenzen für den Betreiber",
+        "Eine kostenpflichtige wettbewerbsrechtliche Abmahnung durch einen Mitbewerber oder Verband",
+        "Eine automatische Löschung der gesamten Website durch Suchmaschinen"
+      ],
+      "answer": 2,
+      "explanation": "Die Impressumspflicht gilt als Marktverhaltensregel — ein Verstoß kann von Mitbewerbern oder Wettbewerbsverbänden wettbewerbsrechtlich abgemahnt werden."
+    }
+  ]
+}

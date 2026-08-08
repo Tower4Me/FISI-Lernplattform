@@ -71,36 +71,46 @@
       wrapper.appendChild(card);
 
       var units = mod.units || [];
-      var doneCount = units.filter(function (u) {
+      // Einheiten mit "zaehlt_nicht" (z. B. das Modul "Pruefung") koennen nie
+      // ueber ein bestandenes Quiz "erledigt" werden und wuerden die Anzeige
+      // sonst dauerhaft verfaelschen -- sie bleiben in der Liste sichtbar,
+      // zaehlen aber weder im Zaehler noch im Nenner mit.
+      var countable = units.filter(function (u) { return !u.zaehlt_nicht; });
+      var doneCount = countable.filter(function (u) {
         var p = Progress.get(mod.slug + "/" + u.slug);
         return p && p.done;
       }).length;
 
-      // Vollstaendig abgeschlossene Module (alle Einheiten erledigt) starten
-      // eingeklappt; alles andere (inkl. leerer Module ohne Einheiten) offen.
-      // Rein aus dem beim Laden berechneten Fortschritt abgeleitet — der
-      // Nutzer kann jederzeit manuell wieder aufklappen (natives <details>).
-      card.open = !(units.length > 0 && doneCount === units.length);
+      // Vollstaendig abgeschlossene Module (alle zaehlbaren Einheiten erledigt)
+      // starten eingeklappt; alles andere (inkl. leerer/rein nicht-zaehlender
+      // Module) offen. Rein aus dem beim Laden berechneten Fortschritt
+      // abgeleitet -- der Nutzer kann jederzeit manuell wieder aufklappen
+      // (natives <details>).
+      card.open = !(countable.length > 0 && doneCount === countable.length);
 
       var head = el("summary", "module-card__head");
       head.appendChild(el("h2", "module-card__title", mod.name));
-      head.appendChild(el("span", "module-card__count",
-        units.length ? (doneCount + " / " + units.length + " erledigt") : "keine Einheiten"));
+      var countText = !units.length ? "keine Einheiten"
+        : !countable.length ? "keine Fortschrittszählung"
+        : (doneCount + " / " + countable.length + " erledigt");
+      head.appendChild(el("span", "module-card__count", countText));
       card.appendChild(head);
 
       if (units.length) {
-        var pct = Math.round((doneCount / units.length) * 100);
-        var bar = el("div", "progress");
-        var inner = el("div", "progress__bar");
-        inner.style.width = pct + "%";
-        bar.appendChild(inner);
-        card.appendChild(bar);
+        if (countable.length) {
+          var pct = Math.round((doneCount / countable.length) * 100);
+          var bar = el("div", "progress");
+          var inner = el("div", "progress__bar");
+          inner.style.width = pct + "%";
+          bar.appendChild(inner);
+          card.appendChild(bar);
+        }
 
         var ul = el("ul", "module-card__units");
         units.forEach(function (u) {
           var li = el("li", "module-card__unit");
           var p = Progress.get(mod.slug + "/" + u.slug);
-          var done = p && p.done;
+          var done = !u.zaehlt_nicht && p && p.done;
 
           li.appendChild(el("span", done ? "unit-done" : "unit-open", done ? "✓" : "○"));
           var link = el("a", null, u.name);
@@ -127,6 +137,7 @@
       var total = 0, done = 0;
       modules.forEach(function (m) {
         (m.units || []).forEach(function (u) {
+          if (u.zaehlt_nicht) return;
           total++;
           var p = Progress.get(m.slug + "/" + u.slug);
           if (p && p.done) done++;

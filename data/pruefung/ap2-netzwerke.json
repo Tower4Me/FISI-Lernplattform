@@ -1,0 +1,264 @@
+{
+  "fragen": [
+    {
+      "id": "netz-adressierung-001",
+      "typ": "mc",
+      "frage": "Ein Techniker der Elbmark Systemhaus GmbH plant ein neues Testnetz und möchte private IPv4-Adressen nutzen, die nicht ins Internet geroutet werden. Welcher der folgenden Adressbereiche gehört zu den privaten Adressräumen nach RFC 1918?",
+      "optionen": ["10.0.0.0/8", "172.15.0.0/16", "191.168.0.0/16", "169.254.0.0/16"],
+      "antwort": 0,
+      "erklaerung": "10.0.0.0/8, 172.16.0.0/12 und 192.168.0.0/16 sind die privaten Bereiche nach RFC 1918. 169.254.0.0/16 ist der APIPA-Bereich (Link-Local), kein zur Vergabe gedachter privater Adressraum.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "adressierung",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-adressierung-002",
+      "typ": "num",
+      "frage": "Das Netz 192.168.20.0/26 wird für eine Abteilung reserviert. Wie viele Hosts können in diesem Subnetz maximal adressiert werden (Netz- und Broadcastadresse ausgenommen)?",
+      "einheit": "Hosts",
+      "loesung": 62,
+      "toleranz": 0,
+      "erklaerung": "/26 bedeutet 6 Hostbits (32-26=6), also 2^6=64 Adressen gesamt. Abzüglich Netz- und Broadcastadresse bleiben 62 nutzbare Hostadressen.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "adressierung",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-adressierung-003",
+      "typ": "mc",
+      "frage": "In der Elbmark Systemhaus GmbH soll ein Subnetz für exakt 100 Endgeräte ausgelegt werden, mit möglichst wenig verschwendetem Adressraum. Welche Subnetzmaske ist dafür am besten geeignet?",
+      "optionen": ["/26 (62 nutzbare Hosts)", "/25 (126 nutzbare Hosts)", "/24 (254 nutzbare Hosts)", "/27 (30 nutzbare Hosts)"],
+      "antwort": 1,
+      "erklaerung": "/25 mit 126 nutzbaren Adressen reicht für 100 Geräte knapp aus und verschwendet am wenigsten Adressraum. /26 mit 62 Adressen ist zu klein, /24 mit 254 verschwendet deutlich mehr.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "adressierung",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-adressierung-004",
+      "typ": "num",
+      "frage": "Der Adressraum 172.16.0.0/22 soll in gleich große Subnetze mit der Maske /24 aufgeteilt werden. Wie viele solcher Subnetze entstehen dabei?",
+      "einheit": "Subnetze",
+      "loesung": 4,
+      "toleranz": 0,
+      "erklaerung": "/22 auf /24 aufgeteilt ergibt 2 zusätzliche Netzbits (24-22=2), also 2^2=4 Subnetze.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "adressierung",
+      "schwierigkeit": "schwer"
+    },
+    {
+      "id": "netz-adressierung-005",
+      "typ": "mc",
+      "frage": "Ein Notebook in der Elbmark Systemhaus GmbH erhält beim Systemstart automatisch die Adresse 169.254.55.12, obwohl im Netz ein DHCP-Server vorhanden sein sollte. Was deutet dieser Adressbereich am ehesten an?",
+      "optionen": ["Das Notebook hat vom unternehmensweiten DHCP-Server erfolgreich eine feste IP-Adresse zugewiesen bekommen.", "Das Notebook wurde direkt mit einer öffentlichen, im Internet weltweit gültigen IP-Adresse versorgt.", "Das Notebook nutzt eine manuell konfigurierte Multicast-Adresse für Gruppenkommunikation im Netzwerk.", "Das Notebook konnte keinen DHCP-Server erreichen und hat sich selbst eine APIPA-Adresse vergeben."],
+      "antwort": 3,
+      "erklaerung": "169.254.0.0/16 ist der APIPA-Bereich (Automatic Private IP Addressing). Windows-Geräte vergeben ihn sich selbst, wenn kein DHCP-Server antwortet.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "adressierung",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-protokolle-006",
+      "typ": "order",
+      "frage": "Bringe die vier Schritte des DHCP-Ablaufs (DORA), mit dem ein Client automatisch eine IP-Adresse erhält, in die richtige Reihenfolge.",
+      "optionen": [
+        "DHCP Discover: Client sucht per Broadcast einen DHCP-Server",
+        "DHCP Offer: Server bietet eine freie IP-Adresse an",
+        "DHCP Request: Client fordert die angebotene Adresse verbindlich an",
+        "DHCP Acknowledge: Server bestätigt die Zuweisung"
+      ],
+      "erklaerung": "DORA steht für Discover – Offer – Request – Acknowledge, der Standardablauf einer automatischen IP-Vergabe per DHCP.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "protokolle-dienste",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-protokolle-007",
+      "typ": "order",
+      "frage": "Bringe die drei Phasen des TCP-Handshakes, mit dem eine zuverlässige Verbindung aufgebaut wird, in die richtige Reihenfolge.",
+      "optionen": [
+        "SYN: Client sendet Verbindungswunsch mit Sequenznummer",
+        "SYN-ACK: Server bestätigt und sendet eigene Sequenznummer",
+        "ACK: Client bestätigt den Empfang, Verbindung ist aufgebaut"
+      ],
+      "erklaerung": "Der Drei-Wege-Handshake (SYN, SYN-ACK, ACK) baut eine verbindungsorientierte TCP-Verbindung auf, bevor Nutzdaten übertragen werden.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "protokolle-dienste",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-protokolle-008",
+      "typ": "mc",
+      "frage": "Ein Mitarbeiter der Elbmark Systemhaus GmbH ruft eine interne Webanwendung über https://intranet.elbmark.de auf. Welcher Dienst löst diesen Namen zuerst in die zugehörige IP-Adresse auf?",
+      "optionen": ["DNS", "DHCP", "ARP", "NTP"],
+      "antwort": 0,
+      "erklaerung": "DNS (Domain Name System) übersetzt Hostnamen wie intranet.elbmark.de in IP-Adressen. DHCP vergibt Adressen, ARP löst IP zu MAC im lokalen Netz auf, NTP synchronisiert die Uhrzeit.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "protokolle-dienste",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-protokolle-009",
+      "typ": "num",
+      "frage": "Eine Datei mit 45 MByte Größe wird über eine Standleitung mit einer Bandbreite von 10 Mbit/s übertragen. Wie lange dauert die Übertragung überschlägig in Sekunden (1 Byte = 8 Bit, ohne Overhead)?",
+      "einheit": "Sekunden",
+      "loesung": 36,
+      "toleranz": 1,
+      "erklaerung": "45 MByte × 8 = 360 Mbit; 360 Mbit ÷ 10 Mbit/s = 36 Sekunden.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "protokolle-dienste",
+      "schwierigkeit": "schwer"
+    },
+    {
+      "id": "netz-protokolle-010",
+      "typ": "mc",
+      "frage": "Welcher Port wird standardmäßig für unverschlüsselten Webseitenabruf per HTTP verwendet, wenn ein Client eine Verbindung zu einem Webserver aufbaut?",
+      "optionen": ["21", "25", "443", "80"],
+      "antwort": 3,
+      "erklaerung": "Port 80 ist der Standardport für HTTP. 21 ist FTP, 25 ist SMTP, 443 ist HTTPS.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "protokolle-dienste",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-komponenten-011",
+      "typ": "mc",
+      "frage": "In einem Büro der Elbmark Systemhaus GmbH sollen Buchhaltung und Vertrieb im selben Switch, aber logisch voneinander getrennt kommunizieren, ohne für jede Abteilung ein eigenes Kabelnetz zu verlegen. Welche Technik ist dafür geeignet?",
+      "optionen": ["Link Aggregation", "Spanning Tree", "VLAN", "Port-Mirroring"],
+      "antwort": 2,
+      "erklaerung": "VLANs (Virtual LANs) trennen logisch mehrere Broadcast-Domänen auf derselben physischen Switch-Infrastruktur.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "komponenten-infrastruktur",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-komponenten-012",
+      "typ": "num",
+      "frage": "Eine Twisted-Pair-Verkabelung nach Cat.6a hat laut Norm eine maximale Segmentlänge von 100 Metern. Ein Techniker verlegt eine reine Strecke von 70 Metern und rechnet beidseitig je 15 Meter Patchreserve hinzu. Wie viele Meter Gesamtlänge ergibt das?",
+      "einheit": "Meter",
+      "loesung": 100,
+      "toleranz": 0,
+      "erklaerung": "70 m Strecke + 15 m + 15 m Patchreserve = 100 m — genau die maximale Segmentlänge nach Norm, mehr Reserve wäre hier nicht mehr zulässig.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "komponenten-infrastruktur",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-komponenten-013",
+      "typ": "mc",
+      "frage": "Zwei Switches in unterschiedlichen Gebäuden der Elbmark Systemhaus GmbH sollen über eine Strecke von 300 Metern verbunden werden. Welches Medium ist dafür geeignet, da Kupfer-Twisted-Pair bei dieser Distanz nicht mehr zuverlässig funktioniert?",
+      "optionen": ["Lichtwellenleiter (Glasfaser)", "Twisted-Pair-Kabel (Cat.6a)", "Koaxialkabel mit BNC-Stecker", "USB-Verlängerungskabel per Hub"],
+      "antwort": 0,
+      "erklaerung": "Glasfaser überbrückt deutlich größere Distanzen als Kupfer-Twisted-Pair (max. 100 m) nahezu verlustfrei.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "komponenten-infrastruktur",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-komponenten-014",
+      "typ": "order",
+      "frage": "Bringe die vier Zustände, die ein Switch-Port beim Spanning Tree Protocol (STP) beim Hochfahren normalerweise durchläuft, in die richtige Reihenfolge.",
+      "optionen": [
+        "Blocking: Port empfängt nur BPDUs, leitet keine Daten weiter",
+        "Listening: Port beginnt, an der Topologie-Berechnung teilzunehmen",
+        "Learning: Port lernt MAC-Adressen, leitet aber noch nicht weiter",
+        "Forwarding: Port leitet Daten normal weiter"
+      ],
+      "erklaerung": "STP durchläuft beim Aufbau der Topologie die Zustände Blocking → Listening → Learning → Forwarding, um Schleifen im Netz zu vermeiden.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "komponenten-infrastruktur",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-komponenten-015",
+      "typ": "mc",
+      "frage": "In einem WLAN der Elbmark Systemhaus GmbH melden mehrere Notebooks Verbindungsabbrüche, sobald sich viele Geräte gleichzeitig im selben Funkkanal befinden. Welche Maßnahme verringert das Problem am wirksamsten?",
+      "optionen": ["Alle Access Points auf denselben Kanal einstellen", "Die Sendeleistung aller Access Points maximal erhöhen", "Das WLAN-Passwort regelmäßig ändern", "Access Points auf überlappungsarme, unterschiedliche Kanäle verteilen"],
+      "antwort": 3,
+      "erklaerung": "Unterschiedliche, möglichst nicht überlappende Kanäle (z. B. 1/6/11 im 2,4-GHz-Band) reduzieren gegenseitige Störungen benachbarter Access Points.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "komponenten-infrastruktur",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-016",
+      "typ": "mc",
+      "frage": "Ein Administrator der Elbmark Systemhaus GmbH möchte, dass Außendienstmitarbeiter über das öffentliche Internet sicher auf interne Server zugreifen können, als wären sie direkt im Firmennetz. Welche Technik ist dafür vorgesehen?",
+      "optionen": ["NAT", "VPN", "DMZ", "Portweiterleitung"],
+      "antwort": 1,
+      "erklaerung": "Ein VPN (Virtual Private Network) baut einen verschlüsselten Tunnel durch das Internet auf und bindet entfernte Clients so ins interne Netz ein.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-017",
+      "typ": "order",
+      "frage": "Ein Nutzer meldet, eine interne Webanwendung sei nicht erreichbar. Bringe die folgenden Prüfschritte einer systematischen Fehlersuche von der untersten zur höchsten Netzwerkschicht in die richtige Reihenfolge.",
+      "optionen": [
+        "Physisch prüfen, ob Kabel gesteckt und Link-LED aktiv ist",
+        "Prüfen, ob eine gültige IP-Adresse und Verbindung ins lokale Netz besteht",
+        "Prüfen, ob der Zielserver per Ping erreichbar ist",
+        "Prüfen, ob die Anwendung selbst auf dem Server einen Fehler meldet"
+      ],
+      "erklaerung": "Systematische Fehlersuche arbeitet sich von der Bitübertragungsschicht (Kabel/Link) über Vermittlung/Erreichbarkeit bis zur Anwendungsschicht vor, statt wahllos zu testen.",
+      "modul": "netzwerktechnik",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-018",
+      "typ": "num",
+      "frage": "Eine Firewall-Regelliste der Elbmark Systemhaus GmbH enthält 12 Regeln für eingehenden Verkehr. Bei einer Prüfung stellt sich heraus, dass 5 dieser Regeln denselben Port doppelt und wirkungslos regeln und entfernt werden können. Wie viele Regeln bleiben danach für eingehenden Verkehr übrig?",
+      "einheit": "Regeln",
+      "loesung": 7,
+      "toleranz": 0,
+      "erklaerung": "12 vorhandene Regeln abzüglich 5 wirkungsloser Doppelregeln ergeben 7 verbleibende Regeln.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "netz-sicherheit-019",
+      "typ": "mc",
+      "frage": "Ein öffentlich erreichbarer Webserver der Elbmark Systemhaus GmbH soll vom internen Firmennetz strikt getrennt werden, damit ein erfolgreicher Angriff auf den Webserver nicht automatisch das interne Netz gefährdet. Welches Konzept ist dafür vorgesehen?",
+      "optionen": ["Port-Mirroring am zentralen Switch", "Link Aggregation mehrerer Uplinks", "DMZ (demilitarisierte Zone)", "Jumbo Frames im Rechenzentrum"],
+      "antwort": 2,
+      "erklaerung": "Eine DMZ isoliert öffentlich erreichbare Server in einem eigenen Netzsegment zwischen zwei Firewalls, getrennt vom internen Netz.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "netz-sicherheit-020",
+      "typ": "mc",
+      "frage": "Welche Aussage zu einer Firewall trifft NICHT zu?",
+      "optionen": ["Sie kann Datenverkehr anhand von Regeln erlauben oder blockieren.", "Sie ersetzt vollständig die Notwendigkeit, Software aktuell zu halten.", "Sie kann als reine Softwarelösung auf einem Server laufen.", "Sie kann zwischen internem Netz und Internet als Filter positioniert werden."],
+      "antwort": 1,
+      "erklaerung": "Eine Firewall filtert Verkehr, ersetzt aber nicht regelmäßige Updates/Patches — ungepatchte Software bleibt trotz Firewall angreifbar.",
+      "modul": "it-sicherheit",
+      "teile": ["ap2-netzwerke"],
+      "block": "netzsicherheit-diagnose",
+      "schwierigkeit": "mittel"
+    }
+  ]
+}

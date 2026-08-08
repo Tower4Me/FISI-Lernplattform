@@ -309,6 +309,93 @@ code, kbd, pre {
 
 .quiz__result { margin-top: 1rem; font-weight: 600; }
 
+/* -------------------------------------------------- Pruefungssimulator */
+.exam-screen {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-block: 1rem;
+}
+.exam-meta { color: var(--text-muted); font-size: 0.92rem; }
+.exam-hinweis { font-size: 0.9rem; }
+
+.exam-block-choice { border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; margin-block: 1rem; }
+.exam-block-choice legend { padding: 0 0.4rem; font-weight: 600; }
+.exam-block-choice__item { display: flex; align-items: center; gap: 0.5rem; margin-block: 0.4rem; cursor: pointer; }
+
+.exam-run-head {
+  display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.6rem; margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.exam-block-label { font-weight: 600; }
+.exam-progress-label { color: var(--text-muted); }
+.exam-timer { font-variant-numeric: tabular-nums; font-weight: 700; }
+
+.exam-cycle-hint { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+
+.exam-question__text { font-weight: 600; margin-bottom: 0.75rem; }
+
+.exam-options { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.exam-option {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.exam-option:hover { border-color: var(--link); }
+.exam-option__label { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.5rem 0.75rem; cursor: pointer; }
+.exam-option__label input { margin-top: 0.25rem; }
+
+.exam-num { display: flex; align-items: center; gap: 0.5rem; }
+.exam-num__input {
+  font: inherit; padding: 0.5rem 0.75rem; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+  width: 10rem;
+}
+.exam-num__unit { color: var(--text-muted); }
+
+.exam-order-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.exam-order-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+.exam-order-item__btns { display: flex; gap: 0.3rem; flex: none; }
+.exam-order-item__btn { padding: 0.15rem 0.6rem; }
+
+.exam-nav-row { display: flex; gap: 0.5rem; margin-block: 1rem; }
+
+.exam-navgrid { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-block: 1rem; }
+.exam-navgrid__item {
+  min-width: 2.2rem; height: 2.2rem;
+  border: 1px solid var(--border); border-radius: 6px;
+  background: var(--surface-2); color: var(--text-muted);
+  font: inherit; cursor: pointer;
+}
+.exam-navgrid__item.is-answered { color: var(--text); border-color: var(--ok); }
+.exam-navgrid__item.is-flagged { border-color: var(--fail); }
+.exam-navgrid__item.is-current { outline: 2px solid var(--link); outline-offset: 1px; }
+
+.exam-result-summary { margin-block: 1rem; }
+.exam-result-punkte { font-size: 1.3rem; font-weight: 700; }
+.exam-result-note { font-weight: 600; }
+.exam-result-note--pass { color: var(--ok); }
+.exam-result-note--fail { color: var(--fail); }
+
+.exam-result-weakest td { color: var(--fail); font-weight: 600; }
+
+.exam-review {
+  border: 1px solid var(--border); border-left: 4px solid var(--border);
+  border-radius: var(--radius); padding: 0.75rem 1rem; margin-block: 0.75rem;
+}
+.exam-review--ok { border-left-color: var(--ok); }
+.exam-review--fail { border-left-color: var(--fail); }
+.exam-review__question { font-weight: 600; }
+.exam-review__correct { color: var(--ok); }
+.exam-review__erklaerung { color: var(--text-muted); font-size: 0.9rem; }
+
 /* ------------------------------------------------------------ Abbildungen */
 .figure--diagram { margin: 1rem 0; max-width: 100%; text-align: center; }
 .figure--diagram svg { max-width: 100%; height: auto; }
@@ -805,7 +892,14 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   .section--praxis,
   .section--merksatz,
   .quiz__q,
-  .merksaetze-entry { break-inside: avoid; }
+  .merksaetze-entry,
+  .exam-review { break-inside: avoid; }
+
+  /* Pruefungssimulator: nur die Auswertung ergibt gedruckt Sinn. Start-
+     und Laufscreen (Timer, Blockwahl, Fragennavigation) sind reine
+     Bildschirm-Interaktion. */
+  .exam-screen--start,
+  .exam-screen--running { display: none !important; }
 
   /* Quiz: leeres Ankreuz-Formular statt interaktivem Radio, kompakter */
   .quiz__q { font-size: 0.85rem; }

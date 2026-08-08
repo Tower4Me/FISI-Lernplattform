@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programmierung: Verschachtelung & Kaskadierung von Kontrollstrukturen</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#programmierung">Programmierung</a></li>
+        <li aria-current="page">Verschachtelung & Kaskadierung von Kontrollstrukturen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Verschachtelung & Kaskadierung von Kontrollstrukturen
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Verschachtelung ist wie eine Matrjoschka-Puppe: eine komplette
+        Kontrollstruktur steckt vollständig <em>innerhalb</em> einer
+        anderen. Kaskadierung dagegen ist wie eine Reihe von
+        Kontrollstationen am Flughafen, die <em>hintereinander</em> auf
+        derselben Ebene durchlaufen werden — jede Station wird nur
+        erreicht, wenn die vorherige nicht schon zum Ausschluss geführt
+        hat.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Verschachtelung (Nesting)</h3>
+      <p>
+        Bei einer <strong>Verschachtelung</strong> steckt eine komplette
+        Kontrollstruktur (Verzweigung oder Schleife) im Körper einer
+        anderen. Die Einrückungstiefe nimmt dabei mit jeder Ebene zu.
+        Typische Fälle: eine Schleife in einer Schleife (z. B. für
+        Tabellen/Matrizen — äußere Schleife läuft über Zeilen, innere
+        über Spalten) oder eine Verzweigung im Körper einer Schleife:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR JEDE Zeile IN Tabelle TUE
+  FÜR JEDE Spalte IN Zeile TUE
+    AUSGABE Spalte
+  ENDE FÜR
+ENDE FÜR
+      </div>
+
+      <h3>Kaskadierung</h3>
+      <p>
+        Bei einer <strong>Kaskadierung</strong> stehen mehrere
+        Bedingungen <em>nacheinander auf derselben Ebene</em>, meist als
+        Kette aus <code>SONST WENN</code>. Die Einrückungstiefe bleibt
+        gleich, es entsteht keine „Struktur in der Struktur“, sondern
+        eine Kette von Alternativen:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+WENN Menge &gt;= 500 DANN
+  Rabatt = 20%
+SONST WENN Menge &gt;= 100 DANN
+  Rabatt = 10%
+SONST
+  Rabatt = 0%
+ENDE WENN
+      </div>
+
+      <h3>Die Abgrenzung auf einen Blick</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>Verschachtelung</th><th>Kaskadierung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Beziehung</strong></td>
+            <td>eine Struktur steckt vollständig in einer anderen</td>
+            <td>mehrere Bedingungen stehen hintereinander auf gleicher Ebene</td>
+          </tr>
+          <tr>
+            <td><strong>Einrückung</strong></td>
+            <td>nimmt mit jeder Ebene zu</td>
+            <td>bleibt gleich</td>
+          </tr>
+          <tr>
+            <td><strong>Typisches Beispiel</strong></td>
+            <td>Schleife in Schleife, Verzweigung in Schleife</td>
+            <td>Kette aus SONST WENN</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH berechnet für jede Bestellung einer Kundenliste
+        den Rabatt jeder einzelnen Position:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR JEDE Bestellung IN Kundenliste TUE
+  FÜR JEDE Position IN Bestellung.Positionen TUE
+    WENN Position.Menge &gt;= 500 DANN
+      Position.Rabatt = 20%
+    SONST WENN Position.Menge &gt;= 100 DANN
+      Position.Rabatt = 10%
+    SONST
+      Position.Rabatt = 0%
+    ENDE WENN
+  ENDE FÜR
+ENDE FÜR
+      </div>
+      <p>
+        Die beiden <code>FÜR JEDE</code>-Schleifen sind
+        <strong>verschachtelt</strong>: die innere Schleife (Positionen)
+        steckt vollständig im Körper der äußeren Schleife (Bestellungen).
+        Die <code>WENN</code>-Kette innerhalb der inneren Schleife ist
+        dagegen <strong>kaskadiert</strong>: Menge &gt;= 500, dann Menge
+        &gt;= 100, dann der SONST-Fall — drei Alternativen auf
+        derselben Ebene, keine steckt in der anderen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Verschachtelung: eine Kontrollstruktur steckt vollständig im
+        Körper einer anderen, die Einrückungstiefe steigt (z. B. Schleife
+        in Schleife). Kaskadierung: mehrere Bedingungen stehen als
+        SONST-WENN-Kette hintereinander auf derselben Ebene, die
+        Einrückungstiefe bleibt gleich. Beides kann in derselben
+        Struktur gleichzeitig vorkommen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/programmierung/verschachtelung-kaskadierung.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+    <p>Hast du Feedback? <a href="https://github.com/Tower4Me/FISI-Lernplattform" target="_blank" rel="noopener">Auf GitHub melden</a>.</p>
+    <p class="footer-disclaimer">Mit KI-Unterstützung erstellt und sorgfältig gepflegt. Ergänzung zur Prüfungsvorbereitung, ohne Anspruch auf Vollständigkeit; verbindlich sind die offiziellen Unterlagen der zuständigen Kammer.</p>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+
+  <script src="../../assets/next-unit.js"></script>
+</body>
+</html>

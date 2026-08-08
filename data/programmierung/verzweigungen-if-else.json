@@ -1,0 +1,55 @@
+{
+  "unit": "programmierung/verzweigungen-if-else",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wodurch unterscheidet sich eine Verzweigung von einer Sequenz?",
+      "options": [
+        "Eine Verzweigung wählt abhängig von einer Bedingung zwischen mehreren Pfaden, eine Sequenz läuft immer gleich ab",
+        "Eine Sequenz kann nie mehr als eine Anweisung enthalten",
+        "Eine Verzweigung wiederholt Anweisungen, eine Sequenz nicht",
+        "Beide Begriffe bezeichnen denselben Ablauf, nur mit anderem Namen"
+      ],
+      "answer": 0,
+      "explanation": "Eine Sequenz führt Anweisungen einfach nacheinander aus; eine Verzweigung wählt abhängig von einer Bedingung zwischen mehreren möglichen Pfaden."
+    },
+    {
+      "id": "q2",
+      "question": "Bei einer einseitigen Verzweigung (WENN … DANN, ohne SONST) trifft die Bedingung nicht zu. Was passiert?",
+      "options": ["Ein Laufzeitfehler wird ausgelöst", "Nichts, das Programm läuft ohne den DANN-Zweig weiter", "Der DANN-Zweig wird trotzdem ausgeführt", "Die Bedingung wird automatisch umgekehrt"],
+      "answer": 1,
+      "explanation": "Ohne SONST-Zweig passiert bei nicht zutreffender Bedingung schlicht nichts — der DANN-Zweig wird übersprungen."
+    },
+    {
+      "id": "q3",
+      "question": "Bei einer Kette aus mehreren SONST WENN wird die dritte Bedingung geprüft. Was muss dafür gelten?",
+      "options": [
+        "Die dritte Bedingung wird immer geprüft, unabhängig von den vorherigen",
+        "Alle vorherigen Bedingungen müssen zusätzlich ebenfalls zutreffen",
+        "Keine der vorherigen Bedingungen in der Kette hat zugetroffen",
+        "Die Kette darf grundsätzlich nur genau zwei Bedingungen enthalten"
+      ],
+      "answer": 2,
+      "explanation": "Jedes SONST WENN wird nur geprüft, wenn keine der vorangegangenen Bedingungen in der Kette zugetroffen hat."
+    },
+    {
+      "id": "q4",
+      "question": "Ein Shop vergibt Rabattstufen: ab 500 Stück 20 %, ab 100 Stück 10 %, sonst 0 %. Wie wird das in Pseudocode korrekt abgebildet?",
+      "options": [
+        "Drei unabhängige WENN-Blöcke ohne jede SONST-Verkettung nacheinander",
+        "WENN Menge >= 100 DANN 10% SONST WENN Menge >= 500 DANN 20% SONST 0% ENDE WENN",
+        "Eine einzelne Bedingung ohne jede Verzweigung reicht für alle drei Stufen aus",
+        "WENN Menge >= 500 DANN 20% SONST WENN Menge >= 100 DANN 10% SONST 0% ENDE WENN"
+      ],
+      "answer": 3,
+      "explanation": "Die Reihenfolge muss von der höchsten zur niedrigsten Schwelle gehen: erst 500 prüfen, dann 100 — sonst würde z. B. 600 Stück fälschlich nur 10 % statt 20 % erhalten."
+    },
+    {
+      "id": "q5",
+      "question": "Wie heißt eine Kette mehrerer SONST WENN auf derselben Ebene fachlich?",
+      "options": ["Verschachtelte Verzweigung", "Kaskadierte Verzweigung", "Kopfgesteuerte Verzweigung", "Rekursive Verzweigung"],
+      "answer": 1,
+      "explanation": "Mehrere SONST WENN hintereinander auf gleicher Ebene bezeichnet man als kaskadierte Verzweigung — im Unterschied zur Verschachtelung, bei der eine Struktur vollständig in einer anderen steckt."
+    }
+  ]
+}

@@ -56,12 +56,14 @@
       var order = 0;
       (data.modules || []).forEach(function (mod) {
         (mod.units || []).forEach(function (u) {
+          var relHref = "module/" + mod.slug + "/" + u.slug + ".html";
           list.push({
             name: u.name,
             normName: normalize(u.name),
             normAliases: (u.aliases || []).map(normalize),
             moduleName: mod.name,
-            href: prefix + "module/" + mod.slug + "/" + u.slug + ".html",
+            relHref: relHref,
+            href: prefix + relHref,
             order: order++
           });
         });
@@ -74,17 +76,58 @@
       return entries;
     });
 
+  /* --------------------------------------------- Inhaltsindex (lazy) --- */
+  /* data/search-index.json (von tools/build_search_index.py erzeugt) haelt
+     je Einheit die <h3>-Ueberschriften plus den Merksatz-Text -- fuer
+     Treffer, die im Titel/Alias nicht auftauchen, aber im Inhalt stehen
+     (z. B. "DPI" fuer die Einheit "Drucker"). Bewusst erst beim ersten
+     Eingabe-Event geladen (nicht beim Skriptstart wie das Manifest), da
+     das die meisten Seitenaufrufe ohne jede Sucheingabe betrifft -- das
+     Promise wird danach gecacht, laedt also nur einmal pro Seitenaufruf. */
+  var contentIndex = null; // relHref -> normalisierter Volltext
+  var contentIndexPromise = null;
+  function loadContentIndex() {
+    if (!contentIndexPromise) {
+      contentIndexPromise = fetch(prefix + "data/search-index.json")
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          var map = {};
+          Object.keys(data).forEach(function (relHref) {
+            var e = data[relHref];
+            var text = (e.headings || []).join(" ") + " " + (e.merksatz || "");
+            map[relHref] = normalize(text);
+          });
+          contentIndex = map;
+          return map;
+        })
+        .catch(function () {
+          contentIndex = {};
+          return contentIndex;
+        });
+    }
+    return contentIndexPromise;
+  }
+
   /* --------------------------------------------------------- Relevanz --- */
   /* Titel-Treffer koennen exakt sein (score 0). Alias-Treffer (z. B.
      "Teilkostenrechnung" -> "Zuschlagskalkulation & BAB") sind nie exakt,
      da der Alias nicht der sichtbare Titel ist -- angezeigt wird immer
-     entry.name, der Alias dient nur der Auffindbarkeit. */
+     entry.name, der Alias dient nur der Auffindbarkeit. Inhaltstreffer
+     (score 3, aus dem Inhaltsindex) sind die unterste Stufe: nur relevant,
+     wenn weder Titel noch Alias passen. */
   function matchScore(e, q) {
     var idx = e.normName.indexOf(q);
     if (idx !== -1) return e.normName === q ? 0 : (idx === 0 ? 1 : 2);
     for (var i = 0; i < e.normAliases.length; i++) {
       var aliasIdx = e.normAliases[i].indexOf(q);
       if (aliasIdx !== -1) return aliasIdx === 0 ? 1 : 2;
+    }
+    if (contentIndex) {
+      var body = contentIndex[e.relHref];
+      if (body && body.indexOf(q) !== -1) return 3;
     }
     return -1;
   }
@@ -254,6 +297,17 @@
     input.setAttribute("aria-activedescendant", "");
   }
 
+  // Wartet auf Manifest UND Inhaltsindex, dann erst rendern -- so hat
+  // schon das allererste Ergebnis nach einer Eingabe Zugriff auf
+  // Inhaltstreffer. loadContentIndex() startet den Fetch beim ersten
+  // Aufruf hier (nicht beim Skriptstart), das Promise ist danach gecacht.
+  function triggerSearch(q, onDone) {
+    Promise.all([loadPromise, loadContentIndex()]).then(function () {
+      renderResults(q);
+      if (onDone) onDone();
+    });
+  }
+
   input.addEventListener("input", function () {
     var q = input.value.trim();
     if (!q) {
@@ -261,12 +315,12 @@
       closeList();
       return;
     }
-    loadPromise.then(function () { renderResults(q); });
+    triggerSearch(q);
   });
 
   input.addEventListener("focus", function () {
     var q = input.value.trim();
-    if (q && entries) renderResults(q);
+    if (q) triggerSearch(q);
   });
 
   input.addEventListener("keydown", function (e) {
@@ -275,7 +329,11 @@
       if (listbox.hidden) {
         var q = input.value.trim();
         if (!q) return;
-        renderResults(q);
+        e.preventDefault();
+        triggerSearch(q, function () {
+          if (currentResults.length) setActive(0);
+        });
+        return;
       }
       if (!currentResults.length) return;
       e.preventDefault();

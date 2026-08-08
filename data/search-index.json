@@ -1,0 +1,1439 @@
+{
+ "module/datenbanken-sql/datentypen-constraints.html": {
+  "merksatz": "Datentypen legen Format und Wertebereich einer Spalte fest, Constraints (NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK, DEFAULT) erzwingen zusätzliche Regeln. Redundanz in einer unsauberen Tabellenstruktur erzeugt Änderungs-, Einfüge- und Löschanomalien – die eigentliche Lösung dafür ist Normalisierung, nicht Constraints allein."
+ },
+ "module/datenbanken-sql/db-grundlagen.html": {
+  "merksatz": "Ein DBMS verwaltet Daten zentral über ein Schema und sichert Konsistenz sowie Mehrbenutzerbetrieb über Transaktionen nach dem ACID-Prinzip (Atomarität, Konsistenz, Isolation, Dauerhaftigkeit). Relationale Datenbanken bieten festes Schema, SQL und starke Konsistenz; NoSQL-Datenbanken (Dokument, Key-Value, Spalten, Graph) bieten mehr Flexibilität und Skalierbarkeit bei lockereren Konsistenzgarantien."
+ },
+ "module/datenbanken-sql/er-modell-kardinalitaeten.html": {
+  "headings": [
+   "Krähenfuß-Notation",
+   "Chen-Notation",
+   "Chen erlaubt m:n direkt",
+   "Chen im Vergleich zu Krähenfuß",
+   "Referenzielle Integrität"
+  ],
+  "merksatz": "Das ER-Modell ist der Bauplan vor der Umsetzung: Entitäten werden zu Tabellen, Attribute zu Spalten, Beziehungen zu Fremdschlüsseln. 1:n wird über einen Fremdschlüssel auf der „n\"-Seite abgebildet, m:n über eine Zwischentabelle mit zwei Fremdschlüsseln. Referenzielle Integrität stellt sicher, dass Fremdschlüssel immer auf existierende Datensätze verweisen (oder NULL sind)."
+ },
+ "module/datenbanken-sql/normalisierung.html": {
+  "headings": [
+   "1NF – atomare Werte",
+   "2NF – keine Teilabhängigkeit",
+   "3NF – keine transitiven Abhängigkeiten"
+  ],
+  "merksatz": "1NF: atomare Werte, keine Listen in einer Zelle. 2NF: keine Teilabhängigkeit – jede Nicht-Schlüsselspalte hängt vom gesamten zusammengesetzten Primärschlüssel ab. 3NF: keine transitive Abhängigkeit – kein Nicht-Schlüsselfeld hängt von einem anderen Nicht-Schlüsselfeld ab. Jede Normalform baut auf der vorherigen auf."
+ },
+ "module/datenbanken-sql/sql-dcl.html": {
+  "headings": [
+   "GRANT – Rechte vergeben",
+   "REVOKE – Rechte entziehen",
+   "Verfügbare Rechte",
+   "Rollen (Roles)"
+  ],
+  "merksatz": "DCL steuert Zugriffsrechte: GRANT vergibt, REVOKE entzieht Rechte (SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALL PRIVILEGES). Rollen bündeln Rechte für mehrere Benutzer. Principle of Least Privilege: nur so viele Rechte wie nötig. SQLite hat kein echtes Rechtesystem – GRANT/REVOKE gehören dort nicht zum Sprachumfang."
+ },
+ "module/datenbanken-sql/sql-ddl.html": {
+  "headings": [
+   "SQL-Systeme im Vergleich",
+   "CREATE TABLE",
+   "ALTER TABLE",
+   "DROP TABLE & TRUNCATE TABLE",
+   "Index"
+  ],
+  "merksatz": "SQL gliedert sich in DDL (Struktur), DML (Daten) und DCL (Rechte). DDL-Befehle ( CREATE , ALTER , DROP , TRUNCATE ) legen die Tabellenstruktur fest und verändern sie – referenzierte Tabellen müssen vor verweisenden Tabellen angelegt werden. SQL ist standardisiert, aber jedes DBMS spricht einen eigenen Dialekt mit kleinen Abweichungen."
+ },
+ "module/datenbanken-sql/sql-dml.html": {
+  "headings": [
+   "SELECT & WHERE",
+   "ORDER BY & LIMIT",
+   "INSERT – Daten einfügen",
+   "UPDATE – Daten ändern",
+   "DELETE – Daten löschen",
+   "Aggregatfunktionen",
+   "GROUP BY & HAVING"
+  ],
+  "merksatz": "DML liest und verändert Daten: SELECT (mit WHERE/ORDER BY/LIMIT) zum gezielten Lesen, INSERT zum Einfügen, UPDATE zum Ändern, DELETE zum Löschen – UPDATE/DELETE immer erst mit SELECT prüfen. Aggregatfunktionen (COUNT, SUM, AVG, MAX, MIN) fassen mehrere Zeilen zu einem Wert zusammen; GROUP BY bildet Gruppen, HAVING filtert diese Gruppen nach einer Aggregat-Bedingung."
+ },
+ "module/datenbanken-sql/sql-join.html": {
+  "headings": [
+   "Die vier JOIN-Typen"
+  ],
+  "merksatz": "INNER JOIN = nur Übereinstimmungen. LEFT JOIN = alles von links, rechts ggf. NULL. RIGHT JOIN = alles von rechts, links ggf. NULL. FULL OUTER JOIN = alles von beiden Seiten. Ein LEFT JOIN mit anschließendem WHERE spalte IS NULL findet gezielt Zeilen ohne Gegenstück in der anderen Tabelle."
+ },
+ "module/datenbanken-sql/sql-subqueries.html": {
+  "headings": [
+   "Subquery in WHERE mit Vergleichsoperator",
+   "Subquery mit IN",
+   "Subquery im FROM (abgeleitete Tabelle)",
+   "EXISTS"
+  ],
+  "merksatz": "Eine Subquery ist eine SELECT-Abfrage innerhalb einer anderen Abfrage. In WHERE mit Vergleichsoperator für einen Einzelwert (z. B. AVG()), mit IN für eine Werteliste, im FROM als abgeleitete Tabelle mit Alias, und mit EXISTS um nur zu prüfen, ob überhaupt eine passende Zeile existiert."
+ },
+ "module/datenbanken-sql/sql-transaktionen.html": {
+  "headings": [
+   "SAVEPOINT",
+   "Autocommit"
+  ],
+  "merksatz": "BEGIN startet, COMMIT speichert dauerhaft, ROLLBACK macht alles seit BEGIN rückgängig. SAVEPOINT erlaubt gezieltes Zurückrollen auf einen Zwischenpunkt, ohne die ganze Transaktion zu verwerfen. Ohne BEGIN läuft in den meisten DBMS jeder Befehl einzeln im Autocommit-Modus. Transaktionen sind die praktische Umsetzung der Atomarität aus ACID."
+ },
+ "module/datenschutz-recht/barrierefreiheit-software.html": {
+  "headings": [
+   "Einfache/Leichte Sprache",
+   "Software-Kompatibilität mit Screenreadern",
+   "Sprachein- und -ausgabe",
+   "WCAG — Web Content Accessibility Guidelines"
+  ],
+  "merksatz": "Leichte Sprache: kurze Sätze, keine unerklärten Fachbegriffe. Screenreader brauchen semantisches HTML und Alt-Texte, um Inhalte vorzulesen. Sprachein-/ausgabe ermöglicht Bedienung ohne Tastatur/Maus bzw. Vorlesen von Inhalten. WCAG (POUR: Wahrnehmbar, Bedienbar, Verständlich, Robust) mit Stufen A/AA/AAA ist der internationale Standard für barrierefreie Software."
+ },
+ "module/datenschutz-recht/betroffenenrechte.html": {
+  "headings": [
+   "Rechte der betroffenen Person",
+   "Wer ist wer? Die Rollen der DSGVO",
+   "Pseudonymisierung vs. Anonymisierung"
+  ],
+  "merksatz": "Betroffenenrechte: Auskunft, Berichtigung, Löschung, Datenübertragbarkeit, Widerspruch. Der Verantwortliche bleibt auch bei Beauftragung eines Auftragsverarbeiters (AVV) in der Verantwortung. Pseudonymisierte Daten bleiben personenbezogen (Bezug über Zusatzschlüssel wiederherstellbar), anonymisierte Daten fallen endgültig aus dem Anwendungsbereich der DSGVO heraus."
+ },
+ "module/datenschutz-recht/dsgvo-grundlagen.html": {
+  "headings": [
+   "Was sind personenbezogene Daten?",
+   "Die Grundprinzipien nach Art. 5 DSGVO",
+   "Rechtsgrundlage nach Art. 6"
+  ],
+  "merksatz": "DSGVO regelt EU-weit, BDSG ergänzt national. Personenbezogene Daten beziehen sich auf eine identifizierbare Person, besondere Kategorien sind noch strenger geschützt. Die Grundsätze nach Art. 5 (u. a. Zweckbindung, Datenminimierung, Speicherbegrenzung, Integrität/Vertraulichkeit) gelten für jede Verarbeitung — und jede Verarbeitung braucht zusätzlich eine Rechtsgrundlage nach Art. 6."
+ },
+ "module/datenschutz-recht/gewaehrleistung-garantie.html": {
+  "headings": [
+   "Gewährleistung vs. Garantie",
+   "Mängelarten",
+   "Mängelrüge"
+  ],
+  "merksatz": "Gewährleistung = gesetzliche Pflicht des Verkäufers, 2 Jahre, nicht ausschließbar. Garantie = freiwilliges Zusatzversprechen von Verkäufer oder Hersteller mit eigenen Bedingungen. Sachmangel = Beschaffenheit weicht ab, Rechtsmangel = Rechte Dritter stehen entgegen. Im B2B-Handel gilt die unverzügliche Untersuchungs- und Rügepflicht nach § 377 HGB — sonst gilt die Ware als genehmigt."
+ },
+ "module/datenschutz-recht/impressumspflicht.html": {
+  "headings": [
+   "Rechtsgrundlage",
+   "Wer ist verpflichtet?",
+   "Pflichtangaben (Anbieterkennzeichnung)",
+   "Abgrenzung zur Datenschutzerklärung",
+   "Folgen bei Verstoß"
+  ],
+  "merksatz": "Die Impressumspflicht (§ 5 DDG, vorher § 5 TMG) betrifft jede geschäftsmäßige Website: Name/Anschrift, Kontakt, ggf. Handelsregister und USt-ID müssen angegeben werden. Das Impressum zeigt, wer die Website betreibt — die Datenschutzerklärung (DSGVO) regelt, wie mit personenbezogenen Daten umgegangen wird; beide ersetzen sich nicht gegenseitig. Ein fehlendes Impressum kann wettbewerbsrechtlich abgemahnt werden."
+ },
+ "module/datenschutz-recht/normen-compliance.html": {
+  "headings": [
+   "Kennzeichnungen im Vergleich",
+   "Normen (DIN, ISO, IEC)",
+   "Compliance",
+   "Ethik und Hinweisgeberschutz"
+  ],
+  "merksatz": "CE-Kennzeichnung ist Pflicht für den EU-Markt, aber nur eine Selbsterklärung des Herstellers — kein Gütesiegel. GS-Zeichen ist freiwillig, dafür unabhängig geprüft. Normen (DIN/ISO/IEC) sind in der Regel freiwillig, bis ein Kunde oder Gesetz sie verlangt. Compliance = Einhaltung von Recht und internen Regeln, Ethik geht darüber hinaus. Das Hinweisgeberschutzgesetz schützt Whistleblower vor Repressalien."
+ },
+ "module/datenschutz-recht/persoenlichkeitsrechte.html": {
+  "headings": [
+   "Allgemeines Persönlichkeitsrecht",
+   "Recht am eigenen Bild (KUG)",
+   "Abgrenzung zur DSGVO"
+  ],
+  "merksatz": "Das allgemeine Persönlichkeitsrecht (Art. 2 i. V. m. Art. 1 GG) schützt u. a. Ehre, Bild, Stimme und informationelle Selbstbestimmung. Das Recht am eigenen Bild (KUG §22/23) verlangt grundsätzlich Einwilligung zur Veröffentlichung von Fotos — Ausnahmen gelten für Zeitgeschichte, Beiwerk und Versammlungen, aber nie gegen ein berechtigtes Interesse der abgebildeten Person. Ein Foto ist zugleich ein personenbezogenes Datum — KUG und DSGVO gelten parallel."
+ },
+ "module/datenschutz-recht/sla-support-level.html": {
+  "headings": [
+   "Service Level Agreement (SLA)",
+   "First-, Second- und Third-Level-Support",
+   "Verzug (§ 286 BGB)"
+  ],
+  "merksatz": "SLA legt messbare Leistungskennzahlen (Reaktionszeit, Lösungszeit, Verfügbarkeit) vertraglich fest. First Level = Erstannahme/ Standardfälle, Second Level = tiefere Fachkenntnis, Third Level = Spezialisten/Entwickler — Eskalation wandert stufenweise nach oben. Verzug (§ 286 BGB) setzt Fälligkeit und in der Regel Mahnung voraus; Ausnahme: kalendermäßig bestimmter Termin."
+ },
+ "module/datenschutz-recht/urheberrecht-lizenzen.html": {
+  "headings": [
+   "Urheberrecht bei Software",
+   "Lizenzmodelle im Vergleich"
+  ],
+  "merksatz": "Das Urheberrecht selbst bleibt beim Schöpfer (Ausnahme: Arbeitnehmer, § 69b UrhG), sonst wird nur das Nutzungsrecht (Lizenz) übertragen. EULA regelt proprietäre Endnutzer-Software, OEM bindet die Lizenz an ein Gerät. GPL (Copyleft) verlangt Offenlegung abgeleiteter Werke, MIT ist deutlich permissiver. Freemium = Basis kostenlos, Extras kostenpflichtig. Pay-per-Use = Abrechnung nach tatsächlicher Nutzung statt fixer Gebühr."
+ },
+ "module/datenschutz-recht/vertragsarten.html": {
+  "headings": [
+   "Die wichtigsten Vertragsarten",
+   "Werkvertrag vs. Dienstvertrag: die wichtigste Abgrenzung",
+   "Typische Bestandteile eines Vertrags"
+  ],
+  "merksatz": "Kaufvertrag = Eigentum gegen Geld. Werkvertrag = ein Erfolg wird geschuldet (Gewährleistung bei Mangel). Dienstvertrag = nur die Tätigkeit wird geschuldet, kein garantiertes Ergebnis. Mietvertrag = zeitweise Nutzung mit Rückgabe. Leasing = langfristige Nutzungsüberlassung, meist mit Kaufoption. Werk- vs. Dienstvertrag ist die klassische Abgrenzungsfrage in der Prüfung."
+ },
+ "module/hardware/arbeitsspeicher-ram.html": {
+  "headings": [
+   "RAM im Vergleich zu SSD und HDD",
+   "DDR-Generationen",
+   "Speicherkanäle: Single, Dual, Quad Channel",
+   "DRAM vs. SRAM",
+   "RAM-Timings"
+  ],
+  "merksatz": "DRAM (günstig, groß, als Hauptspeicher) braucht Refresh, SRAM (schnell, teuer, als Cache) nicht. Dual Channel verdoppelt die Bandbreite gegenüber Single Channel — dafür müssen zwei identische Module in Slots derselben Kanalfarbe stecken. Latenz [ns] = (CL ÷ Takt) × 2000: Ein höherer Takt bedeutet nicht automatisch eine niedrigere tatsächliche Latenz."
+ },
+ "module/hardware/auto-id.html": {
+  "headings": [
+   "Auto-ID-Technologien im Vergleich",
+   "RFID genauer: passiv vs. aktiv",
+   "Asset Tag und Service Tag"
+  ],
+  "merksatz": "Barcode und QR-Code brauchen Sichtkontakt, RFID und NFC funktionieren per Funk ohne Sichtkontakt. NFC ist RFID mit bewusst sehr kurzer Reichweite (Sicherheitsmerkmal). Passive RFID-Tags brauchen keine eigene Stromquelle, aktive Tags haben eine Batterie und größere Reichweite. Asset Tag verknüpft ein Gerät mit der Inventardatenbank, Service Tag ist die herstellerseitige Seriennummer."
+ },
+ "module/hardware/bios-uefi-boot.html": {
+  "headings": [
+   "BIOS vs. UEFI",
+   "POST (Power-On Self-Test)",
+   "Ablauf des Bootvorgangs",
+   "S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology)"
+  ],
+  "merksatz": "UEFI löst BIOS als Firmware-Standard ab: GPT statt MBR, grafische Oberfläche, Secure Boot, schnellerer Start. Bootreihenfolge: Power On → POST (Hardware-Selbsttest) → Firmware sucht Boot-Gerät → Bootloader → Betriebssystem-Kernel. S.M.A.R.T. überwacht laufend den Gesundheitszustand von SSD/HDD und warnt frühzeitig vor drohendem Laufwerksausfall."
+ },
+ "module/hardware/computer-grundaufbau.html": {
+  "headings": [
+   "Von-Neumann-Architektur",
+   "Bussystem",
+   "Die Grundkomponenten eines PCs"
+  ],
+  "merksatz": "Von-Neumann-Architektur: Rechenwerk, Steuerwerk, gemeinsamer Speicher für Programm und Daten, Ein-/Ausgabewerk — verbunden über Adress-, Daten- und Steuerbus. Da Befehle und Daten sich denselben Bus teilen, entsteht der Von-Neumann-Flaschenhals als systembedingtes Geschwindigkeitslimit."
+ },
+ "module/hardware/cpu-aufbau.html": {
+  "headings": [
+   "Interne Recheneinheiten",
+   "Cache-Hierarchie",
+   "CISC vs. RISC",
+   "Instruction Pipeline",
+   "Wichtige CPU-Kennzahlen",
+   "CPU-Bautypen"
+  ],
+  "merksatz": "ALU (Berechnungen), Steuerwerk (Ablaufsteuerung) und Register (Schnellstspeicher) bilden zusammen mit einer mehrstufigen Cache-Hierarchie (L1 → L2 → L3 → RAM, jede Stufe langsamer, aber größer) das Innenleben einer CPU. CISC (x86) nutzt komplexe, RISC (ARM) einfache Befehle. Die Pipeline führt Befehle überlappend aus. Bei der CPU-Wahl zählen Takt, IPC, Kerne/Threads und TDP zusammen mit dem passenden Bautyp (Desktop/Mobile/Server/ Embedded) für den Einsatzzweck."
+ },
+ "module/hardware/drucker.html": {
+  "headings": [
+   "Drucktechnologien im Vergleich",
+   "DPI — Dots per Inch",
+   "Druckkosten berechnen"
+  ],
+  "merksatz": "Laser = günstig pro Seite bei hohem Volumen, Tintenstrahl = günstige Anschaffung und gute Fotoqualität, Nadeldrucker = einzige Technik für Durchschläge, 3D-Drucker = additive Fertigung physischer Objekte. DPI misst die Auflösung. Bei der Anschaffung zählen die Kosten pro Seite, nicht nur der Kaufpreis."
+ },
+ "module/hardware/ergonomie-barrierefreiheit.html": {
+  "headings": [
+   "Ergonomie am Bildschirmarbeitsplatz",
+   "Arbeitsstättenverordnung (ArbStättV)",
+   "Barrierefreiheit: Hardware-Hilfsmittel"
+  ],
+  "merksatz": "Bildschirmabstand 50–70 cm, Oberkante auf Augenhöhe, verstellbare Möbel, blendfreie Beleuchtung. Die ArbStättV mit den ASR-Regeln ist die gesetzliche Grundlage, Arbeitgeber müssen eine Gefährdungsbeurteilung durchführen. Barrierefreie Hardware (Braillezeile, alternative Eingabegeräte, Vergrößerung, Spracheingabe) ermöglicht die Nutzung trotz körperlicher Einschränkungen."
+ },
+ "module/hardware/gehaeuse-formfaktoren.html": {
+  "headings": [
+   "Gehäusetypen",
+   "Formfaktor-Entscheidungsmatrix",
+   "Lüfterkonzepte und Airflow"
+  ],
+  "merksatz": "Full/Mid Tower = viel Platz und Erweiterbarkeit, Mini-Tower/SFF = kompakt mit eingeschränkter Erweiterung, Rack 1U/2U/4U = standardisiert fürs Rechenzentrum. Immer erst Anforderungsanalyse, dann Formfaktor wählen. Positiver Luftdruck (mehr Intake als Exhaust) reduziert Staubeintrag — negativer Luftdruck zieht Staub durch jede Öffnung."
+ },
+ "module/hardware/geraeteklassen-arbeitsplatz.html": {
+  "headings": [
+   "Geräteklassen im Vergleich",
+   "Thin Client vs. Fat Client vs. Zero Client",
+   "Dockingstation"
+  ],
+  "merksatz": "Desktop = maximal erweiterbar, keine Mobilität. Notebook = mobil, eingeschränkt erweiterbar. Tablet = maximale Mobilität, kaum erweiterbar. Fat Client rechnet lokal, Thin Client lagert die Rechenlast auf den Server aus, Zero Client hat gar keine lokale Funktion mehr. Eine Dockingstation macht aus einem mobilen Notebook per einem Kabel einen vollwertigen Arbeitsplatz."
+ },
+ "module/hardware/grafikkarte-gpu.html": {
+  "headings": [
+   "Integrierte vs. dedizierte Grafik",
+   "VRAM (Video-RAM)",
+   "Anschluss ans System: PCIe"
+  ],
+  "merksatz": "Die GPU berechnet Bilder über sehr viele einfache, parallele Rechenkerne. Integrierte Grafik teilt sich CPU-Chip und System-RAM, dedizierte Grafik hat eigenen Chip, eigenen VRAM und steckt über PCIe im Mainboard. Die GPU berechnet das Bild — HDMI/ DisplayPort geben es nur aus."
+ },
+ "module/hardware/green-it.html": {
+  "headings": [
+   "Green IT: der gesamte Lebenszyklus zählt",
+   "Energielabels: Energy Star und Blauer Engel",
+   "Nutzungsdauer verlängern",
+   "Recycling und Entsorgung (WEEE)",
+   "Effizienz im Betrieb"
+  ],
+  "merksatz": "Green IT betrachtet den gesamten Lebenszyklus (Herstellung, Betrieb, Entsorgung), nicht nur den Stromverbrauch. Energy Star bescheinigt niedrigen Verbrauch, der Blaue Engel geht mit Schadstoffarmut und Recyclingfähigkeit weiter. Längere Nutzungsdauer durch Aufrüstung/Reparatur spart oft mehr Ressourcen als ein sparsameres Neugerät. WEEE regelt die Rücknahme- und Recyclingpflicht für Elektrogeräte in der EU."
+ },
+ "module/hardware/mainboard-busse.html": {
+  "headings": [
+   "Formfaktoren",
+   "PCIe (Peripheral Component Interconnect Express)",
+   "SATA und SAS",
+   "iSCSI: Speicher übers Netzwerk wie eine lokale Platte",
+   "Chipsatz (PCH): CPU-direkt vs. verwaltet"
+  ],
+  "merksatz": "Formfaktor (ATX/mATX/Mini-ITX) bestimmt Größe und Slot-Anzahl. PCIe-Lanes (x1–x16) bestimmen die Bandbreite einer Erweiterungskarte. SATA ist Consumer-Standard, SAS die redundantere Server-Variante. iSCSI macht entfernten Speicher fürs Betriebssystem wie eine lokale Platte nutzbar. Bei jeder Kompatibilitätsprüfung gilt: CPU-Sockel, RAM-Typ und PCIe-Version müssen zueinander passen."
+ },
+ "module/hardware/monitore-display.html": {
+  "headings": [
+   "TFT/LCD: das Grundprinzip",
+   "Panel-Technologien (TFT-Varianten)",
+   "OLED: selbstleuchtende Pixel",
+   "Auflösungen: HD bis 8K",
+   "Weitere Kenngrößen"
+  ],
+  "merksatz": "TFT beschreibt die Ansteuerung (ein Transistor je Pixel), LCD braucht dafür immer ein Backlight. TN = schnell, aber schlechter Blickwinkel. IPS = farbtreu, großer Blickwinkel — Büro-Standard. VA = bester Kontrast/Schwarzwert. OLED = selbstleuchtend, perfektes Schwarz, aber Burn-in-Risiko. 4K hat 4× so viele Pixel wie Full HD, 8K wiederum 4× so viele wie 4K."
+ },
+ "module/hardware/nas-san-storage.html": {
+  "headings": [
+   "Zwei Ebenen, Speicher im Netz bereitzustellen",
+   "NAS vs. SAN",
+   "iSCSI im Detail",
+   "Fibre Channel und HBA",
+   "JBOD"
+  ],
+  "merksatz": "NAS liefert File-Storage (SMB/NFS, Dateisystem beim NAS), SAN liefert Block-Storage (iSCSI/Fibre Channel, Dateisystem beim Client). iSCSI überträgt SCSI-Befehle über TCP/IP, Fibre Channel nutzt ein eigenes dediziertes Netz und benötigt einen HBA im Server. JBOD bündelt mehrere Platten ohne RAID-Redundanz in einem Gehäuse."
+ },
+ "module/hardware/raid-level.html": {
+  "headings": [
+   "Hot Swap und Hot Spare"
+  ],
+  "merksatz": "RAID 0 = Geschwindigkeit ohne Sicherheit, RAID 1 = Spiegelung, RAID 5 = Striping + 1 Parität, RAID 6 = Striping + 2 Paritäten, RAID 10 = Spiegel + Striping kombiniert. Hot Swap = Austausch im laufenden Betrieb, Hot Spare = automatische Reserveplatte. RAID schützt nur vor Plattenausfall — RAID ist kein Backup."
+ },
+ "module/hardware/scanner-sensoren.html": {
+  "headings": [
+   "Scanner-Typen",
+   "Sensortechnik im Scanner: CCD vs. CIS",
+   "Weitere Sensoren am IT-Arbeitsplatz"
+  ],
+  "merksatz": "Flachbettscanner für Einzelblätter, ADF-Dokumentenscanner (Duplex) für Stapel, Barcode-/QR-Imager fürs Wareneingang, 3D-Scanner für Objektgeometrie. CCD = bessere Bildqualität und Schärfentiefe, CIS = kompakt, günstig, nur für flache Vorlagen. Biometrische Sensoren liefern den Authentifizierungsfaktor „Sein“."
+ },
+ "module/hardware/schnittstellen-video.html": {
+  "headings": [
+   "USB: Steckertypen und Generationen",
+   "HDMI und DisplayPort: reine Bild-/Tonübertragung",
+   "Thunderbolt: ein Kabel für alles",
+   "RJ45: der Netzwerkstecker",
+   "Überblick: welcher Anschluss wofür"
+  ],
+  "merksatz": "Steckerform (A/B/C) und Datenrate (USB 2.0–USB4) sind zwei verschiedene Eigenschaften von USB. HDMI kommt aus dem Consumer-, DisplayPort aus dem Profi-Bereich — beide übertragen nur Bild/Ton. Thunderbolt nutzt den USB-C-Stecker, tunnelt aber zusätzlich PCIe und DisplayPort in einem Kabel. RJ45 ist der Stecker fürs kabelgebundene Netzwerk, nicht für Video oder Strom."
+ },
+ "module/hardware/ssd-hdd-nvme.html": {
+  "headings": [
+   "Technologievergleich",
+   "NAND-Flash-Typen (SSDs)",
+   "Speichermedien im Überblick"
+  ],
+  "merksatz": "HDD (mechanisch, günstig, hohe Kapazität)"
+ },
+ "module/hardware/usv-klassen.html": {
+  "headings": [
+   "Die drei USV-Klassen",
+   "Scheinleistung (VA) vs. Wirkleistung (W)"
+  ],
+  "merksatz": "VFD (Offline) schaltet erst bei Störung um, VI (Line-Interactive) gleicht kleine Schwankungen per AVR ohne Umschaltung aus, VFI (Online) liefert durch Doppelwandlung 0 ms Umschaltzeit — je höher die Klasse, desto höher Schutz, Preis und Energieverlust. Wirkleistung (W) = Scheinleistung (VA) × cos φ — eine USV muss beide Werte für die angeschlossene Last erfüllen."
+ },
+ "module/it-sicherheit/angriffsmethoden.html": {
+  "headings": [
+   "SQL-Injection im Detail"
+  ],
+  "merksatz": "Angriffe zielen auf Technik (SQL-Injection, XSS), auf Menschen (Phishing-Varianten) oder auf Verfügbarkeit (DoS/DDoS). Zu jedem Angriff gehört eine bekannte Gegenmaßnahme: Prepared Statements gegen SQL-Injection, Verifikation über zweiten Kanal gegen Phishing/CEO-Fraud."
+ },
+ "module/it-sicherheit/authentifizierung-mfa-aaa.html": {
+  "headings": [
+   "Passwort-Komplexität berechnen",
+   "Captcha, PIN und TAN",
+   "AAA: Authentication, Authorization, Accounting",
+   "Single Sign-On (SSO)"
+  ],
+  "merksatz": "Drei Faktorarten: Wissen, Besitz, Sein. Echte MFA kombiniert unterschiedliche Faktorarten, nicht zweimal denselben. Passwort- Stärke = Zeichenraum Länge , Länge wirkt stärker als Komplexität. Captcha erkennt Bots, PIN ist ein kurzer Wissensfaktor, TAN ein Einmalkennwort pro Transaktion. AAA = wer bist du, was darfst du, was hast du getan. SSO spart Logins, braucht aber zwingend MFA als Ausgleich für das erhöhte Risiko."
+ },
+ "module/it-sicherheit/backup-arten.html": {
+  "headings": [
+   "Die 3-2-1-Regel"
+  ],
+  "merksatz": "Voll = alles, schnell zurück. Differenziell = seit letztem Vollbackup, Restore braucht 2 Teile. Inkrementell = seit letztem Backup, Restore braucht die lückenlose Kette. 3-2-1(-1-0)-Regel: 3 Kopien, 2 Medien, 1 offsite (optional 1 offline/unveränderlich). RAID ersetzt kein Backup."
+ },
+ "module/it-sicherheit/berechtigungskonzepte.html": {
+  "headings": [
+   "Die zwei Grundprinzipien",
+   "Rechtemodelle"
+  ],
+  "merksatz": "Least Privilege: so wenig Rechte wie nötig. Need-to-know: nur Zugriff auf wirklich benötigte Daten. RBAC bindet Rechte an Rollen statt an Personen und ist deshalb der Firmenstandard – DAC und MAC sind die Gegenpole (Eigentümer entscheidet vs. System erzwingt)."
+ },
+ "module/it-sicherheit/betriebssystem-haertung.html": {
+  "headings": [
+   "Typische Härtungsmaßnahmen"
+  ],
+  "merksatz": "Härtung = minimale Angriffsfläche: alles Unnötige deaktivieren, entfernen oder schließen (Dienste, Konten, Ports, Software). Baseline-Vorlagen wie CIS Benchmarks liefern geprüfte Ausgangskonfigurationen. Server werden meist strenger gehärtet als Client-Rechner."
+ },
+ "module/it-sicherheit/datensicherung-datenschutz.html": {
+  "headings": [
+   "Datenträgerentsorgung"
+  ],
+  "merksatz": "Datensicherung = Schutz vor Datenverlust (Backup). Datensicherheit = technisch-organisatorischer Oberbegriff (Datensicherung ist nur ein Teil davon). Datenschutz = rechtlicher Schutz personenbezogener Daten, unabhängig von der Technik. Datenträgerentsorgung gehört zur Datensicherheit und muss bei personenbezogenen Daten DSGVO-konform erfolgen (überschreiben, degaussen oder zerstören)."
+ },
+ "module/it-sicherheit/endpoint-security.html": {
+  "headings": [
+   "Virenscanner: signaturbasiert vs. verhaltensbasiert",
+   "Datenträgerverschlüsselung"
+  ],
+  "merksatz": "Endpoint-Security schützt das einzelne Gerät, nicht nur den Netzwerkrand. Virenscanner: signaturbasiert (bekannte Schädlinge) vs. verhaltensbasiert/EDR (verdächtiges Verhalten). Datenträger- verschlüsselung (BitLocker/FileVault/LUKS) schützt Daten bei physischem Geräteverlust – das kann kein Virenscanner leisten."
+ },
+ "module/it-sicherheit/firewall-dmz.html": {
+  "headings": [
+   "Die DMZ"
+  ],
+  "merksatz": "Firewall-Ausbaustufen: Paketfilter (L3/L4) → Stateful Inspection (+ Verbindungszustand) → NGFW/WAF (bis L7). Die DMZ ist ein Puffernetz zwischen zwei Firewalls für von außen erreichbare Server – ein kompromittierter DMZ-Server öffnet nicht automatisch das interne LAN."
+ },
+ "module/it-sicherheit/hash-signatur.html": {
+  "headings": [
+   "Digitale Signatur"
+  ],
+  "merksatz": "Hash = digitaler Fingerabdruck: Einweg, Lawineneffekt, kollisionssicher – schützt Integrität. Digitale Signatur = Hash + privater Schlüssel des Senders – schützt zusätzlich Authentizität und Verbindlichkeit."
+ },
+ "module/it-sicherheit/kryptographie-sym-asym.html": {
+  "headings": [
+   "Schlüsselanzahl: das n-Problem",
+   "Hybride Verschlüsselung"
+  ],
+  "merksatz": "Symmetrisch: ein Schlüssel, schnell, Austauschproblem. Asymmetrisch: Schlüsselpaar (öffentlich/privat), langsam, kein Austauschproblem. Hybrid (z. B. TLS) nutzt asymmetrisch für den Schlüsseltausch und symmetrisch für die schnelle Datenübertragung."
+ },
+ "module/it-sicherheit/physische-sicherheit.html": {
+  "headings": [
+   "Brandschutz",
+   "Klimatisierung",
+   "Redundanz"
+  ],
+  "merksatz": "Physische Sicherheit ergänzt IT-Sicherheit: Vereinzelungsanlage gegen Tailgating, Gaslöschanlage statt Wasser, Klima im 18–27 °C-/40–60 %-Bereich mit Kaltgang-/Warmgang-Prinzip. Redundanzstufen: N (kein Puffer), N+1 (eine Reserve), 2N (vollständige Verdopplung)."
+ },
+ "module/it-sicherheit/rto-rpo-verfuegbarkeit.html": {
+  "headings": [
+   "RTO und RPO",
+   "USV (Unterbrechungsfreie Stromversorgung)",
+   "Hochverfügbarkeit"
+  ],
+  "merksatz": "BCM-Ablauf: Vorbereitung → Erkennung → Eindämmung → Behebung → Nachbereitung. RTO = maximale Ausfallzeit (Blick nach vorn). RPO = maximal tolerierbarer Datenverlust (Blick zurück, Backup-Frequenz). USV überbrückt kurze Stromausfälle. Verfügbarkeit in „Neunen“: mehr Neunen = weniger erlaubte Ausfallzeit pro Jahr."
+ },
+ "module/it-sicherheit/schadsoftware-typen.html": {
+  "merksatz": "Virus braucht Wirt + Nutzeraktion. Wurm verbreitet sich selbstständig übers Netz. Trojaner tarnt sich als nützliches Programm. Ransomware verschlüsselt und erpresst. Spyware spioniert heimlich. Rootkit versteckt sich tief im System."
+ },
+ "module/it-sicherheit/schutzbedarfsanalyse.html": {
+  "merksatz": "Schutzbedarf (normal/hoch/sehr hoch) richtet sich nach der Schadenshöhe bei Verlust von Vertraulichkeit, Integrität oder Verfügbarkeit. Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe. Auf ein Risiko reagiert man mit: vermeiden, vermindern, übertragen oder akzeptieren."
+ },
+ "module/it-sicherheit/schutzziele-cia.html": {
+  "merksatz": "CIA = Vertraulichkeit, Integrität, Verfügbarkeit – jede Angriffsart verletzt mindestens eines davon. Authentizität, Verbindlichkeit und Zurechenbarkeit ergänzen die Triade um Herkunfts- und Nachweisfragen. Integrität ≠ Authentizität: verändert vs. gefälscht."
+ },
+ "module/it-sicherheit/sicherheitsstandards-isms.html": {
+  "merksatz": "Ein ISMS ist ein fortlaufender PDCA-Prozess, kein einmaliges Projekt. BSI IT-Grundschutz liefert konkrete Bausteine (v. a. DE/ Behörden), ISO/IEC 27001 ist der international zertifizierbare Rahmen – beide lassen sich kombinieren."
+ },
+ "module/it-sicherheit/toms.html": {
+  "merksatz": "TOMs = technisch (in der Technik) + organisatorisch (in den Regeln), gefordert von Art. 32 DSGVO und angemessen zum Risiko. Zutritt (Raum), Zugang (System), Zugriff (Daten) sauber auseinanderhalten. Eine Datenpanne muss i. d. R. binnen 72 Stunden gemeldet werden (Art. 33)."
+ },
+ "module/it-sicherheit/zertifikate-tls-pki.html": {
+  "headings": [
+   "TLS und HTTPS"
+  ],
+  "merksatz": "Ein Zertifikat bestätigt (signiert von einer CA), dass ein öffentlicher Schlüssel zu einer bestimmten Domain gehört. Die gesamte Vertrauenskette heißt PKI. TLS nutzt Zertifikate zur Serverprüfung und danach hybride Verschlüsselung für die Datenübertragung (HTTPS = HTTP über TLS)."
+ },
+ "module/kalkulation/bits-und-bytes.html": {
+  "headings": [
+   "Binärpräfixe für Datenmengen",
+   "Speicherbedarf berechnen: Auflösung × Farbtiefe"
+  ],
+  "merksatz": "1 Byte = 8 Bit = 256 mögliche Werte. Binärpräfixe (KiB, MiB, GiB) rechnen mit Faktor 1024, nicht 1000 — in der Prüfung zwingend verwenden. Bild-Speicherbedarf = Breite × Höhe × Farbtiefe (Bit), anschließend durch 8 (Byte) und ggf. 1024 (KiB/MiB) teilen."
+ },
+ "module/kalkulation/break-even-deckungsbeitrag.html": {
+  "headings": [
+   "Fixkosten vs. variable Kosten",
+   "Deckungsbeitrag",
+   "Break-Even-Point (Gewinnschwelle)",
+   "Rentabilität",
+   "Amortisation"
+  ],
+  "merksatz": "Deckungsbeitrag = Verkaufspreis − variable Stückkosten. Break-Even-Menge = Fixkosten ÷ Deckungsbeitrag pro Stück. Rentabilität = Gewinn ÷ eingesetztes Kapital × 100. Amortisationszeit = Investitionssumme ÷ jährlicher Rückfluss."
+ },
+ "module/kalkulation/datenmengen-uebertragung.html": {
+  "headings": [
+   "Begriffe",
+   "Formel",
+   "Zwei verschiedene Zählweisen — eine typische Stolperfalle",
+   "Warum Durchsatz oft unter der Bandbreite liegt"
+  ],
+  "merksatz": "Übertragungsdauer = Datenmenge [Bit] ÷ Datenrate [Bit/s]. Datenraten werden dezimal angegeben (1 Mbit/s = 1.000.000 Bit/s), Datenmengen binär (1 GiB = 1.024 MiB) — vor dem Rechnen immer auf Bit als gemeinsame Einheit umrechnen (1 Byte = 8 Bit). Der real nutzbare Durchsatz liegt wegen Protokoll-Overhead meist unter der beworbenen Bandbreite."
+ },
+ "module/kalkulation/elektrotechnik-grundformeln.html": {
+  "headings": [
+   "Leistung: P = U × I",
+   "Ohmsches Gesetz: R = U / I",
+   "Wirkungsgrad: η = P_ab / P_zu",
+   "Energie & Stromkosten: E = P × t / 1000",
+   "Netzteil-Dimensionierung"
+  ],
+  "merksatz": "P = U × I (Leistung), R = U / I (Ohmsches Gesetz), η = P_ab / P_zu (Wirkungsgrad) und E = P × t / 1000 (Energie in kWh) sind die vier Grundformeln, aus denen sich Netzteil-Dimensionierung (CPU-TDP + GPU-TDP + 100 W Reserve) und Stromkosten berechnen lassen. Ein höherer Wirkungsgrad bedeutet weniger Verlustleistung als Wärme bei gleicher Nutzleistung."
+ },
+ "module/kalkulation/handelskalkulation.html": {
+  "headings": [
+   "Einkaufskalkulation: vom Listenpreis zum Einstandspreis",
+   "Verkaufskalkulation: vom Einstandspreis zum Angebotspreis",
+   "Die Stolperfalle: Rabatt/Skonto beim Verkauf „zurückrechnen“"
+  ],
+  "merksatz": "Einkauf: Listeneinkaufspreis − Rabatt − Skonto + Bezugskosten = Bezugspreis. Verkauf: Bezugspreis + Gemeinkosten + Gewinn = Barverkaufspreis. Beim Zurückrechnen auf Zielverkaufspreis und Listenverkaufspreis wird durch (1 − Prozentsatz) geteilt, nicht einfach der Prozentsatz addiert."
+ },
+ "module/kalkulation/kauf-miete-leasing-tco.html": {
+  "headings": [
+   "Kauf, Miete und Leasing im Vergleich",
+   "Total Cost of Ownership (TCO)"
+  ],
+  "merksatz": "Kauf bindet Kapital und schafft Eigentum, Miete ist flexibel ohne Kapitalbindung, Leasing liegt dazwischen. TCO = Anschaffungskosten + Betriebskosten + Folgekosten − Restwert — der Anschaffungspreis allein sagt nichts über die tatsächlichen Gesamtkosten einer Anschaffung aus."
+ },
+ "module/kalkulation/nutzwertanalyse.html": {
+  "headings": [
+   "Ablauf in 5 Schritten",
+   "Unterschied zum einfachen Angebotsvergleich"
+  ],
+  "merksatz": "Nutzwertanalyse: Kriterien festlegen, gewichten (Summe = 100 %), Angebote je Kriterium bewerten, Punkte × Gewicht multiplizieren und pro Angebot aufsummieren. Gewinner ist das Angebot mit dem höchsten Nutzwert — nicht zwingend das mit dem niedrigsten Preis."
+ },
+ "module/kalkulation/zahlensysteme.html": {
+  "headings": [
+   "Binärzahlen lesen",
+   "Hexadezimalzahlen lesen",
+   "Zweierkomplement: negative Zahlen binär darstellen"
+  ],
+  "merksatz": "Dezimal (Basis 10), Binär (Basis 2), Hexadezimal (Basis 16) beschreiben denselben Wert mit unterschiedlichen Symbolen. Ein Byte = genau 2 Hex-Stellen. Das Zweierkomplement stellt negative Zahlen dar: Bits invertieren, dann 1 addieren — mit 8 Bit sind so Werte von −128 bis +127 darstellbar."
+ },
+ "module/kalkulation/zuschlagskalkulation-bab.html": {
+  "headings": [
+   "Einzelkosten vs. Gemeinkosten",
+   "Betriebsabrechnungsbogen (BAB)",
+   "Zuschlagskalkulation (Fertigungsbetrieb)"
+  ],
+  "merksatz": "Einzelkosten sind direkt zurechenbar, Gemeinkosten werden über den BAB auf Kostenstellen verteilt: Zuschlagssatz = Gemeinkosten ÷ Bezugsgröße × 100. In der Zuschlagskalkulation ergeben Materialkosten + Fertigungskosten die Herstellkosten, zuzüglich Verwaltungs- und Vertriebsgemeinkosten die Selbstkosten."
+ },
+ "module/kaufmaennisches/abc-analyse-aida-produktlebenszyklus.html": {
+  "headings": [
+   "ABC-Analyse",
+   "AIDA-Modell",
+   "Produktlebenszyklus"
+  ],
+  "merksatz": "Die ABC-Analyse lenkt Aufmerksamkeit auf wenige, wertvolle A-Güter. AIDA (Attention-Interest-Desire-Action) strukturiert Werbewirkung. Der Produktlebenszyklus (Einführung, Wachstum, Reife, Rückgang) bestimmt, welche Marketingstrategie gerade passend ist."
+ },
+ "module/kaufmaennisches/abnahme-abnahmeprotokoll.html": {
+  "headings": [
+   "Abnahme (§ 640 BGB)",
+   "Soll-Ist-Vergleich",
+   "Abnahmeprotokoll",
+   "Dokumentation"
+  ],
+  "merksatz": "Die Abnahme markiert den Vertragsabschluss: Sie löst Gewährleistungsfrist, Vergütungsfälligkeit und Beweislastumkehr aus. Grundlage ist der Soll-Ist-Vergleich, dokumentiert im Abnahmeprotokoll – ergänzt durch eine vollständige Dokumentation des gesamten Auftragsverlaufs."
+ },
+ "module/kaufmaennisches/aufbauorganisation-organigramm.html": {
+  "headings": [
+   "Organisationsformen"
+  ],
+  "merksatz": "Das Organigramm bildet die Aufbauorganisation ab. Einlinien- (eine:r Vorgesetzte:r), Mehrlinien- (mehrere fachliche Vorgesetzte), Stablinien- (Linie plus beratende Stabsstellen) und Matrixorganisation (zwei gleichzeitige Leitungslinien) sind die klassischen Organisationsformen."
+ },
+ "module/kaufmaennisches/ausschreibung-leistungsverzeichnis.html": {
+  "headings": [
+   "Ausschreibung",
+   "Leistungsverzeichnis",
+   "Preis-Leistungs-Verhältnis"
+  ],
+  "merksatz": "Ausschreibungen (öffentlich, beschränkt oder freihändig) sorgen für fairen Wettbewerb um Aufträge. Das Leistungsverzeichnis macht Angebote vergleichbar. Nicht der niedrigste Preis entscheidet, sondern das Preis-Leistungs-Verhältnis – bei öffentlichen Ausschreibungen das wirtschaftlichste Angebot."
+ },
+ "module/kaufmaennisches/informationsrecherche-quellenbewertung.html": {
+  "headings": [
+   "Ablauf der Informationsrecherche",
+   "Kriterien der Quellenbewertung",
+   "Umgang mit englischen Fachtexten"
+  ],
+  "merksatz": "Quellen werden nach Aktualität, Autorität, Nachvollziehbarkeit und Interessenlage bewertet – wichtige Informationen immer gegen eine zweite, unabhängige Quelle gegenprüfen. Bei englischen Fachtexten hilft sinnentnehmendes Lesen, und Fachbegriffe bleiben im Zweifel im Original."
+ },
+ "module/kaufmaennisches/lessons-learned-nachfolgeauftraege.html": {
+  "headings": [
+   "Lessons Learned",
+   "Nachfolgeaufträge"
+  ],
+  "merksatz": "Lessons Learned werten ein abgeschlossenes Projekt strukturiert aus (Ziel, Abweichungen, Ursachen, Handlungsempfehlungen) und verhindern wiederkehrende Fehler. Ein sauberer Projektabschluss ist die beste Basis für Nachfolgeaufträge, Cross-Selling und langfristige Kundenbindung."
+ },
+ "module/kaufmaennisches/make-or-buy-angebotsvergleich.html": {
+  "headings": [
+   "Make-or-Buy-Entscheidung",
+   "Angebotsvergleich bei einer Buy-Entscheidung"
+  ],
+  "merksatz": "Make-or-Buy wägt Kernkompetenz, Kosten, Kapazität, Know-how und Abhängigkeitsrisiko ab. Bei einer Buy-Entscheidung werden Angebote quantitativ (Preis, Lieferzeit) und qualitativ (Reputation, Referenzen) verglichen – die Nutzwertanalyse führt beide Arten zu einer Gesamtbewertung zusammen."
+ },
+ "module/kaufmaennisches/marktformen.html": {
+  "headings": [
+   "Marktformen nach Anzahl der Anbieter",
+   "Marktgleichgewicht"
+  ],
+  "merksatz": "Polypol (viele Anbieter, kein Preiseinfluss), Oligopol (wenige Anbieter, spürbarer Einfluss), Monopol (ein Anbieter, weitgehend freie Preissetzung). Das Marktgleichgewicht liegt am Schnittpunkt von Angebot und Nachfrage – Überschuss senkt, Nachfrageüberhang erhöht tendenziell den Preis."
+ },
+ "module/kaufmaennisches/outsourcing-offshoring-geschaeftsmodelle.html": {
+  "headings": [
+   "Outsourcing vs. Offshoring",
+   "Internet-Geschäftsmodelle"
+  ],
+  "merksatz": "Outsourcing verlagert Aufgaben an externe Dienstleister (unabhängig vom Standort), Offshoring verlagert Funktionen ins Ausland (unabhängig von intern/extern). Offshore-Outsourcing kombiniert beides. Internet-Geschäftsmodelle wie Freemium und Abo-Modelle prägen zunehmend auch IT-Angebote."
+ },
+ "module/kaufmaennisches/praesentationstechniken-medienkompetenz.html": {
+  "headings": [
+   "Aufbau einer Präsentation",
+   "Argumentationstechnik: der Dreischritt",
+   "Medienkompetenz"
+  ],
+  "merksatz": "Eine Präsentation gliedert sich in Einleitung, Hauptteil und Schluss. Der Dreischritt Behauptung-Begründung-Beispiel strukturiert Argumente. Medienkompetenz heißt: schlanke Folien, zielgruppengerechtes Medium und Einwände sachlich entkräften statt ignorieren."
+ },
+ "module/kaufmaennisches/unternehmens-gesellschaftsformen.html": {
+  "headings": [
+   "Personengesellschaften",
+   "Kapitalgesellschaften",
+   "Kriterien der Rechtsformwahl"
+  ],
+  "merksatz": "Personengesellschaften (GbR, OHG, KG) haften i. d. R. persönlich, Kapitalgesellschaften (UG, GmbH, AG) beschränken die Haftung auf das Gesellschaftsvermögen. Bei der KG haftet nur der Komplementär unbeschränkt, der Kommanditist nur mit seiner Einlage. Die AG kann über Aktien Kapital am öffentlichen Markt beschaffen."
+ },
+ "module/kaufmaennisches/vertriebsformen-b2b-b2c-marktforschung.html": {
+  "headings": [
+   "Vertriebsformen",
+   "Kundenbeziehungen nach Marktteilnehmer",
+   "Marktforschung: Primär- vs. Sekundärforschung"
+  ],
+  "merksatz": "Direktvertrieb verkauft ohne, indirekter Vertrieb mit Zwischenhändlern. B2B, B2C und B2G unterscheiden die Art der Kundschaft. Sekundärforschung nutzt vorhandene Daten, Primärforschung erhebt gezielt neue Daten für die konkrete Fragestellung."
+ },
+ "module/kaufmaennisches/vollmachten-prokura.html": {
+  "headings": [
+   "Prokura (§§ 48 ff. HGB)",
+   "Handlungsvollmacht (§ 54 HGB)",
+   "„i. A.“ – im Auftrag"
+  ],
+  "merksatz": "Prokura (ppa.) berechtigt zu nahezu allen Geschäften des Handelsgewerbes und ist im Handelsregister eingetragen. Handlungsvollmacht (i. V.) ist auf den gewöhnlichen Betrieb beschränkt. „i. A.“ kennzeichnet reine Botenstellung ohne eigene Entscheidungsbefugnis."
+ },
+ "module/kaufmaennisches/wirtschaftssektoren-grundfunktionen.html": {
+  "headings": [
+   "Die drei Wirtschaftssektoren",
+   "Betriebliche Grundfunktionen"
+  ],
+  "merksatz": "Primärer Sektor (Rohstoffe), sekundärer Sektor (Verarbeitung), tertiärer Sektor (Dienstleistungen) – IT-Berufe zählen zum tertiären Sektor. Jeder Betrieb durchläuft dieselben Grundfunktionen: Beschaffung, Produktion, Absatz, Finanzierung, Personalwesen, Verwaltung."
+ },
+ "module/kaufmaennisches/zielgruppen-kundentypologien.html": {
+  "headings": [
+   "Zielgruppe und Marktsegmentierung",
+   "Kundentypologien"
+  ],
+  "merksatz": "Zielgruppen werden nach geografischen, demografischen, psychografischen und verhaltensbezogenen Kriterien abgegrenzt. Kundentypologien (preis-, qualitäts-, sicherheits- oder innovationsorientiert) helfen, Marketing und Vertrieb gezielt statt pauschal auszurichten."
+ },
+ "module/netzwerktechnik/anwendungsprotokolle.html": {
+  "merksatz": "Jedes Anwendungsprotokoll hat einen festen Standard-Port: HTTP 80 / HTTPS 443, FTP 20/21, SMTP 25/587, IMAP 143/993, POP3 110/995, SSH 22, RDP 3389, SNMP 161/162, NTP 123, LDAP 389/636. IMAP synchronisiert E-Mails auf dem Server, POP3 lädt sie klassisch herunter und löscht sie dort."
+ },
+ "module/netzwerktechnik/apipa.html": {
+  "headings": [
+   "Adressbereich und Eigenschaften"
+  ],
+  "merksatz": "APIPA (169.254.0.0/16) = Selbsthilfe-Adresse eines Geräts bei fehlendem DHCP-Server. Funktioniert nur zur Kommunikation im lokalen Segment, nie ins Internet — und ist damit ein zuverlässiges Diagnosezeichen „DHCP nicht erreichbar“."
+ },
+ "module/netzwerktechnik/arp.html": {
+  "headings": [
+   "Ablauf: Request und Reply",
+   "Sicherheitsrisiko: ARP-Spoofing"
+  ],
+  "merksatz": "ARP löst eine bekannte IP-Adresse in die zugehörige MAC-Adresse im lokalen Netz auf: Request als Broadcast, Reply als Unicast, Ergebnis im ARP-Cache gespeichert. ARP arbeitet nur lokal, nicht über Netzgrenzen hinweg."
+ },
+ "module/netzwerktechnik/cloud-grundlagen.html": {
+  "headings": [
+   "Servicemodelle",
+   "Bereitstellungsmodelle"
+  ],
+  "merksatz": "IaaS = Infrastruktur, PaaS = zusätzlich Plattform/Laufzeitumgebung, SaaS = fertige Anwendung, FaaS = einzelne Funktionen serverlos. Von IaaS zu SaaS übernimmt der Anbieter immer mehr Verantwortung. Public Cloud = geteilt, Private Cloud = exklusiv, Hybrid Cloud = Kombination, On-Premises = komplett im eigenen Haus."
+ },
+ "module/netzwerktechnik/container-docker.html": {
+  "headings": [
+   "Wann VM, wann Container?"
+  ],
+  "merksatz": "VM virtualisiert komplette Hardware inkl. eigenem Betriebssystem — groß, langsam startend, stark isoliert. Container teilen sich den Host-Kernel, enthalten nur Anwendung plus Abhängigkeiten — klein, schnell startend, ressourcenschonend. Docker ist die bekannteste Container-Plattform."
+ },
+ "module/netzwerktechnik/dhcp-dora.html": {
+  "headings": [
+   "Lease-Dauer und Verlängerung",
+   "Typische DHCP-Parameter"
+  ],
+  "merksatz": "DHCP vergibt IP-Konfiguration automatisch nach dem DORA -Prinzip: D iscover (Client sucht Server), O ffer (Server bietet Adresse an), R equest (Client fordert Angebot an), A cknowledge (Server bestätigt). Adressen sind zeitlich befristet (Lease) und werden vor Ablauf verlängert."
+ },
+ "module/netzwerktechnik/dns-grundlagen.html": {
+  "headings": [
+   "Auflösungsablauf (vereinfacht)",
+   "Wichtige Record-Typen",
+   "Lokale hosts-Datei"
+  ],
+  "merksatz": "DNS übersetzt Domainnamen in IP-Adressen (und zurück). Wichtigste Records: A/AAAA (Name → IPv4/IPv6), MX (Mailserver), CNAME (Alias), PTR (IP → Name), SOA (Zonen-Verwaltungsdaten). Die lokale hosts-Datei wird vor jeder DNS-Anfrage geprüft und hat Vorrang."
+ },
+ "module/netzwerktechnik/ethernet-zugriffsverfahren.html": {
+  "headings": [
+   "CSMA/CD (Ethernet, kabelgebunden)",
+   "CSMA/CA (WLAN, Funk)",
+   "LAN-/Ethernet-Standards (IEEE 802.3)",
+   "Einordnung: 802.3 vs. 802.11"
+  ],
+  "merksatz": "CD = Collision Detection = Kabel/Ethernet = Kollision erkennen , nachdem sie passiert ist. CA = Collision Avoidance = Funk/WLAN = Kollision vermeiden , weil sie im Funk nicht zuverlässig erkennbar ist."
+ },
+ "module/netzwerktechnik/header-uebersicht.html": {
+  "headings": [
+   "IPv4-Header (20 Byte ohne Options)",
+   "TCP-Header (20 Byte ohne Options)",
+   "UDP-Header (8 Byte)",
+   "Ethernet-II-Frame",
+   "Welcher Header sitzt auf welcher OSI-Schicht?"
+  ],
+  "merksatz": "Kern-Größen zum Merken: IPv4-Header 20 Byte, TCP-Header 20 Byte, UDP-Header nur 8 Byte, Ethernet-Header 14 Byte plus 4 Byte FCS am Ende. Von außen nach innen: Ethernet ⊃ IP ⊃ TCP/UDP ⊃ Nutzdaten."
+ },
+ "module/netzwerktechnik/internetzugang-dsl.html": {
+  "merksatz": "ADSL = asymmetrisch (Download schneller als Upload, für Privatnutzer). SDSL = symmetrisch (gleiche Geschwindigkeit beider Richtungen, für Firmen mit Upload-Bedarf). VDSL = höhere Datenraten auf kürzeren Leitungslängen. Datenraten in Mbit/s: 1 MByte/s = 8 Mbit/s."
+ },
+ "module/netzwerktechnik/ipv4-subnetting.html": {
+  "headings": [
+   "CIDR-Schreibweise",
+   "Netzadresse berechnen: bitweises UND (ANDing)",
+   "Netz-, Broadcast- und Host-Adressen",
+   "Private IPv4-Adressbereiche"
+  ],
+  "merksatz": "IPv4 = 32 Bit, aufgeteilt in Netz- und Hostanteil per Subnetzmaske bzw. CIDR (/x). Nutzbare Hosts pro Subnetz = 2 Hostbits − 2 (Netz- und Broadcast-Adresse sind reserviert und nicht vergebbar)."
+ },
+ "module/netzwerktechnik/ipv6-grundlagen.html": {
+  "headings": [
+   "Adresstypen",
+   "Automatische Adressvergabe: SLAAC",
+   "EUI-64: Interface-Identifier aus der MAC-Adresse"
+  ],
+  "merksatz": "IPv6 = 128 Bit, hexadezimal in 8 Blöcken, :: kürzt Nullfolgen einmal pro Adresse. Global Unicast = öffentlich, Unique Local = privat, Link-Local (fe80::/10) = automatisch pro Interface, nur lokal. SLAAC lässt Geräte sich ohne DHCP selbst adressieren, EUI-64 leitet den Interface-Identifier aus der MAC-Adresse ab."
+ },
+ "module/netzwerktechnik/iso-osi-tcp-ip.html": {
+  "merksatz": "OSI hat 7 Schichten (theoretisches Referenzmodell), TCP/IP hat 4 (praktisches Internetmodell). TCP/IP-Netzzugang = OSI 1+2, Internetschicht = OSI 3, Transport = OSI 4, Anwendung = OSI 5-7. Von unten nach oben: Bitübertragung, Sicherung, Vermittlung, Transport, Sitzung, Darstellung, Anwendung."
+ },
+ "module/netzwerktechnik/mac-llc.html": {
+  "headings": [
+   "Die MAC-Adresse (48 Bit)",
+   "MAC-Teilschicht vs. LLC-Teilschicht",
+   "MAC-Adresse vs. IP-Adresse: physisch vs. logisch"
+  ],
+  "merksatz": "MAC-Adresse = 48 Bit, OUI (Hersteller) + geräteindividueller Teil, physisch und nur lokal relevant. Schicht 2 gliedert sich in LLC (einheitliche Schnittstelle nach oben) und MAC (Adressierung + Medienzugriff). MAC = physisch/lokal, IP = logisch/routbar."
+ },
+ "module/netzwerktechnik/netzwerk-diagnose.html": {
+  "headings": [
+   "Loopback-Adresse",
+   "Systematische Fehlersuche (Schichtenmodell in der Praxis)"
+  ],
+  "merksatz": "ping prüft Erreichbarkeit, tracert zeigt den Weg über einzelne Hops, ipconfig zeigt die eigene Netzwerkkonfiguration, nslookup prüft DNS-Auflösung. Loopback (127.0.0.1) testet den eigenen TCP/IP-Stack ohne Netzwerk. Systematische Fehlersuche geht von innen (eigenes Gerät) nach außen (Internet)."
+ },
+ "module/netzwerktechnik/netzwerkkomponenten.html": {
+  "merksatz": "Hub (Schicht 1) = dumm, sendet an alle. Switch (Schicht 2) = lernt MAC-Adressen, sendet gezielt, trennt Kollisionsdomänen. Router (Schicht 3) = verbindet Netze über IP-Adressen, trennt zusätzlich Broadcast-Domänen. Je höher die Schicht, desto intelligenter und gezielter die Weiterleitung."
+ },
+ "module/netzwerktechnik/netzwerktopologien.html": {
+  "merksatz": "Bus = ein Strang, ein Bruch legt alles lahm. Stern = Standard in modernen LANs, ein Kabelausfall betrifft nur ein Gerät. Ring = jedes Gerät hat zwei Nachbarn. Mesh = sehr ausfallsicher, aber verkabelungsaufwendig."
+ },
+ "module/netzwerktechnik/poe.html": {
+  "merksatz": "PoE liefert Strom und Daten über ein RJ45-Kabel. Merkhilfe 15 / 30 / 60 / 100 W für Type 1–4 (IEEE 802.3af/at/bt). Ab Type 3 werden alle 4 statt 2 Adernpaare genutzt — daher der Leistungssprung. Alle Typen sind abwärtskompatibel. UPoE/UPoE+ sind proprietäre Cisco-Herstellerbegriffe, keine IEEE-Standards."
+ },
+ "module/netzwerktechnik/ports.html": {
+  "merksatz": "Ports (0–65535) identifizieren die zuständige Anwendung auf einem Gerät. 0–1023 = Well-Known Ports (feste Standarddienste), 1024–49151 = Registered Ports, 49152–65535 = dynamische Ports für ausgehende Client-Verbindungen."
+ },
+ "module/netzwerktechnik/qos.html": {
+  "merksatz": "QoS priorisiert zeitkritischen Verkehr (z. B. VoIP) bei Bandbreitenengpässen. Ohne QoS gilt Best Effort — alle Pakete werden gleich behandelt. QoS-Regeln klassifizieren Pakete nach Protokoll, Port oder VLAN und weisen ihnen Prioritätsstufen zu."
+ },
+ "module/netzwerktechnik/switching-verfahren.html": {
+  "headings": [
+   "MAC-Adresstabelle (CAM-Tabelle)",
+   "Pufferspeicher-Architektur: Shared Memory vs. Port-based Memory",
+   "Die drei Switching-Verfahren"
+  ],
+  "merksatz": "MAC-Adresstabelle (CAM) wird durch Backward Learning aufgebaut, unbekannte Ziele werden geflutet. Store-and-Forward = ganzer Frame + CRC-Prüfung = sicher, aber langsam. Cut-Through = nur Ziel-MAC gelesen = schnell, aber ungeprüft. Fragment-Free = erste 64 Byte = Kompromiss, erkennt Kollisionsfragmente (Runts)."
+ },
+ "module/netzwerktechnik/tcp-handshake.html": {
+  "headings": [
+   "4-Way-Handshake (TCP-Verbindungsabbau)"
+  ],
+  "merksatz": "TCP-Verbindungsaufbau = 3-Way-Handshake: SYN, SYN-ACK, ACK. Erst danach fließen Nutzdaten. Der Abbau braucht vier Schritte (FIN, ACK, FIN, ACK), weil beide Übertragungsrichtungen einzeln beendet werden müssen."
+ },
+ "module/netzwerktechnik/tcp-udp.html": {
+  "merksatz": "TCP = zuverlässig, verbindungsorientiert — für Daten, bei denen Vollständigkeit zählt. UDP = schnell, verbindungslos, ohne Garantie — für Echtzeitverkehr, bei dem Geschwindigkeit wichtiger ist als Vollständigkeit."
+ },
+ "module/netzwerktechnik/verkabelung-lwl.html": {
+  "headings": [
+   "Aufbau einer Glasfaser",
+   "Singlemode vs. Multimode",
+   "Steckertypen"
+  ],
+  "merksatz": "Singlemode: Kern ca. 9 µm, Laser, ein Lichtweg, sehr große Reichweite. Multimode: Kern 50/62,5 µm, LED oder Laser, mehrere Lichtwege (Modendispersion begrenzt die Reichweite), kürzere Strecken. Cladding ist bei beiden 125 µm groß. LC-Stecker = heutiger Standard, SC-Stecker = älter, in Bestandsanlagen."
+ },
+ "module/netzwerktechnik/verkabelung-twisted-pair.html": {
+  "headings": [
+   "Verdrahtungsstandards T568A und T568B",
+   "Schirmungsarten (X/Y-TP)",
+   "Kategorien (Cat 5e / 6 / 6a / 7)"
+  ],
+  "merksatz": "T568A und T568B sind beide Teil derselben Norm ANSI/TIA-568 — vertauscht sind nur die Paare Grün und Orange. Schirmungscode X/YTP: erster Buchstabe = Gesamtschirm, Buchstabe nach dem Slash = Schirm je Aderpaar (mehr Schirmung = mehr EMV-Schutz). Cat 5e–7, RJ45-Stecker, max. 100 Meter Segmentlänge — die tatsächliche Datenrate richtet sich nach dem schwächsten Glied der Strecke."
+ },
+ "module/netzwerktechnik/virtualisierung-hypervisor.html": {
+  "headings": [
+   "Virtualisierungsarten",
+   "Hypervisor-Typen",
+   "Vorteile der Virtualisierung"
+  ],
+  "merksatz": "Virtualisierung teilt physische Ressourcen in mehrere logisch getrennte virtuelle Instanzen (Server, Desktop oder Anwendung). Typ-1-Hypervisor läuft direkt auf der Hardware (Bare-Metal, produktiv), Typ-2-Hypervisor läuft innerhalb eines Host-Betriebssystems (einfacher, für Tests). Vorteile: bessere Auslastung, Isolation, Flexibilität, Snapshots."
+ },
+ "module/netzwerktechnik/vlan.html": {
+  "merksatz": "VLAN trennt Broadcast-Domänen logisch über einen physischen Switch — untagged (Access) für Endgeräte, tagged (Trunk) mit VLAN-Tag nach IEEE 802.1Q für Verbindungen zwischen Switches/Router. Kommunikation zwischen unterschiedlichen VLANs läuft ausschließlich über einen Router (Inter-VLAN-Routing)."
+ },
+ "module/netzwerktechnik/vpn-grundlagen.html": {
+  "headings": [
+   "VPN-Szenarien",
+   "VPN-Protokolle",
+   "Einsatzzweck: Fernwartung & Telearbeit"
+  ],
+  "merksatz": "VPN baut über ein unsicheres öffentliches Netz einen verschlüsselten Tunnel auf. Site-to-Site verbindet zwei Netzwerke dauerhaft, End-to-Site verbindet ein einzelnes Gerät mit einem Netzwerk. IPsec verschlüsselt auf Netzwerkebene, L2TP wird meist mit IPsec kombiniert. Grundlage für sichere Fernwartung und Telearbeit."
+ },
+ "module/netzwerktechnik/wlan-grundlagen.html": {
+  "headings": [
+   "WLAN-Standards (IEEE 802.11)",
+   "SSID",
+   "Verschlüsselungsstandards",
+   "Personal vs. Enterprise",
+   "Access Point & Repeater"
+  ],
+  "merksatz": "WLAN nach IEEE 802.11 (Wi-Fi 4/5/6), SSID = Netzname. WPA3 ist der aktuelle Verschlüsselungsstandard, WEP/WPA gelten als unsicher. Personal = gemeinsames Passwort, Enterprise = individuelle Logins über RADIUS. Access Points verbinden Funk mit LAN, Repeater verlängern die Reichweite auf Kosten der Datenrate."
+ },
+ "module/programmierung/compiler-interpreter-debugging.html": {
+  "headings": [
+   "Compiler",
+   "Interpreter",
+   "Linker",
+   "Debugging und Schreibtischtest",
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Compiler übersetzt vorab komplett (schnelle Ausführung, erneute Kompilierung bei Änderungen nötig). Interpreter übersetzt Zeile für Zeile zur Laufzeit (sofort testbar, langsamer). Linker fügt Objektdateien und Bibliotheken zu einer ausführbaren Datei zusammen. Debugging nutzt Breakpoints/Variableninspektion, der Schreibtischtest prüft den Ablauf rein gedanklich vor der Ausführung."
+ },
+ "module/programmierung/pap-programmablaufplan.html": {
+  "headings": [
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Ein PAP stellt einen Algorithmus über genormte Symbole dar: Terminator (Start/Ende), Prozess (Rechteck), Verzweigung (Raute), Ein-/Ausgabe (Parallelogramm) und Konnektor (Kreis), verbunden durch Flusspfeile. Seit 2025 nicht mehr AP1-, aber weiterhin AP2-relevant."
+ },
+ "module/programmierung/programmierparadigmen.html": {
+  "headings": [
+   "Die drei wichtigsten Paradigmen",
+   "Sprachhöhe: Maschinensprache bis Hochsprache",
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Prozedural = Abfolge von Prozeduren auf gemeinsamen Daten. Objektorientiert = Daten und Funktionen in Objekten/Klassen gebündelt (Kapselung, Vererbung, Polymorphie). Funktional = Verkettung zustandsloser Funktionen. Sprachhöhe: Maschinensprache (prozessorspezifisch) → Assembler (mnemonisch) → Hochsprache (abstrakt, portabel, menschenlesbar)."
+ },
+ "module/programmierung/schleifen.html": {
+  "headings": [
+   "Zählschleife",
+   "Kopfgesteuerte Schleife (SOLANGE)",
+   "Fußgesteuerte Schleife (WIEDERHOLE … BIS)",
+   "Endlosschleifen vermeiden",
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Zählschleife (FÜR): Anzahl der Durchläufe steht vorher fest. Kopfgesteuerte Schleife (SOLANGE): Bedingung wird vorher geprüft, kann null Mal laufen. Fußgesteuerte Schleife (WIEDERHOLE … BIS): Bedingung wird nachher geprüft, läuft mindestens einmal. Jede Schleife braucht eine Änderung im Schleifenkörper, die die Abbruchbedingung irgendwann erfüllt — sonst Endlosschleife."
+ },
+ "module/programmierung/struktogramm-nassi-shneiderman.html": {
+  "headings": [
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Ein Struktogramm stellt Sequenz, Verzweigung, Fallunterscheidung und Schleifen (kopf-/fußgesteuert) als verschachtelte Kästen ohne Pfeile dar — das erzwingt strukturierte Programmierung ohne Sprünge. Seit 2025 nicht mehr AP1-, aber weiterhin AP2-relevant."
+ },
+ "module/programmierung/variablen-datentypen-operatoren.html": {
+  "headings": [
+   "Variablen und Datentypen",
+   "Arithmetische Operatoren",
+   "Vergleichsoperatoren",
+   "Logische Operatoren",
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Variable = benannter, veränderlicher Speicherplatz; Datentyp legt die erlaubte Art des Werts fest (Integer, Float, String, Boolean). Arithmetische Operatoren (+, -, *, /, MOD) rechnen mit Werten. Vergleichsoperatoren (==, !=, <, >, <=, >=) liefern immer einen Boolean. Logische Operatoren (UND, ODER, NICHT) verknüpfen mehrere Bedingungen zu einer neuen."
+ },
+ "module/programmierung/verschachtelung-kaskadierung.html": {
+  "headings": [
+   "Verschachtelung (Nesting)",
+   "Kaskadierung",
+   "Die Abgrenzung auf einen Blick",
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Verschachtelung: eine Kontrollstruktur steckt vollständig im Körper einer anderen, die Einrückungstiefe steigt (z. B. Schleife in Schleife). Kaskadierung: mehrere Bedingungen stehen als SONST-WENN-Kette hintereinander auf derselben Ebene, die Einrückungstiefe bleibt gleich. Beides kann in derselben Struktur gleichzeitig vorkommen."
+ },
+ "module/programmierung/verzweigungen-if-else.html": {
+  "headings": [
+   "Einseitige Verzweigung",
+   "Zweiseitige Verzweigung",
+   "Mehrfache Verzweigung",
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Verzweigung = abhängig von einer Bedingung wird einer von mehreren möglichen Pfaden ausgeführt. Einseitig (WENN … DANN, ohne Alternative), zweiseitig (WENN … DANN … SONST, genau ein Pfad) oder mehrfach als Kette aus SONST-WENN (kaskadiert, jede Bedingung nur geprüft, wenn die vorherige nicht zutraf)."
+ },
+ "module/projektmanagement/bpmn.html": {
+  "headings": [
+   "Grundelemente",
+   "Abgrenzung zum UML-Aktivitätsdiagramm"
+  ],
+  "merksatz": "BPMN ist der Standard zur einheitlichen Darstellung von Geschäftsprozessen. Ereignisse (Kreise) lösen aus/beenden, Aktivitäten (abgerundete Rechtecke) sind Arbeitsschritte, Gateways (Rauten) steuern Verzweigungen, Swimlanes zeigen Zuständigkeiten. Im Unterschied zum UML-Aktivitätsdiagramm richtet sich BPMN gezielt an Fachabteilungen, nicht nur an die Softwareentwicklung."
+ },
+ "module/projektmanagement/change-management.html": {
+  "headings": [
+   "3-Phasen-Modell nach Kurt Lewin",
+   "Kaizen – kontinuierliche Verbesserung"
+  ],
+  "merksatz": "Lewins 3-Phasen-Modell steuert episodischen Wandel: Unfreeze (Widerstände abbauen), Change (umsetzen), Refreeze (neuen Zustand verankern). Kaizen ergänzt dies um kontinuierliche, meist bottom-up initiierte kleine Verbesserungsschritte ohne festes Ende."
+ },
+ "module/projektmanagement/epk-ereignisgesteuerte-prozesskette.html": {
+  "merksatz": "Eine EPK besteht aus streng abwechselnden Ereignissen (Sechseck, passiver Zustand) und Funktionen (abgerundetes Rechteck, aktive Tätigkeit), verbunden über Kontrollfluss-Pfeile und die Konnektoren XOR/UND/ODER. EPK bleibt AP1-relevant."
+ },
+ "module/projektmanagement/feedback-retrospektive.html": {
+  "headings": [
+   "Regeln für konstruktives Feedback",
+   "Retrospektive"
+  ],
+  "merksatz": "Konstruktives Feedback ist konkret, verhaltensbezogen, zeitnah und nutzt Ich-Botschaften statt Du-Botschaften. Die Retrospektive überträgt dieses Prinzip auf die Teamzusammenarbeit – z. B. im Format Start-Stop-Continue – und reflektiert den gemeinsamen Prozess statt einzelner Personen."
+ },
+ "module/projektmanagement/first-second-third-level-support.html": {
+  "merksatz": "First-Level löst Standardprobleme über bekannte Lösungen, Second-Level übernimmt komplexere Fälle mit tieferem Fachwissen, Third-Level (oft der Hersteller) behebt grundlegende Produktfehler. Ziel ist, möglichst viel bereits auf First-Level zu lösen."
+ },
+ "module/projektmanagement/gantt-diagramm.html": {
+  "headings": [
+   "Typische Bestandteile",
+   "Gantt-Diagramm vs. Netzplan"
+  ],
+  "merksatz": "Das Gantt-Diagramm stellt Vorgänge als Balken auf einer Zeitachse dar — anschaulich und leicht verständlich, auch für Laien. Der Netzplan zeigt dagegen die logischen Abhängigkeiten und den kritischen Pfad. Beide Werkzeuge ergänzen sich: Netzplan für die Logik, Gantt-Diagramm für die übersichtliche Kommunikation des Zeitplans."
+ },
+ "module/projektmanagement/kanban-scrum-board.html": {
+  "headings": [
+   "Kanban-Board",
+   "WIP-Limit (Work in Progress)",
+   "Scrum-Board"
+  ],
+  "merksatz": "Kanban-Boards zeigen den Arbeitsfluss in Spalten (To Do/In Progress/Done), das WIP-Limit begrenzt gleichzeitig laufende Aufgaben pro Spalte und verhindert Stapelbildung. Kanban läuft kontinuierlich ohne feste Zeitboxen, das Scrum-Board ist dagegen an feste Sprints gebunden und wird pro Sprint neu befüllt."
+ },
+ "module/projektmanagement/kommunikationsmodelle.html": {
+  "headings": [
+   "Sender-Empfänger-Modell",
+   "4-Ohren-Modell nach Schulz von Thun",
+   "Kommunikationsarten",
+   "Eisbergmodell",
+   "Deeskalation in Konfliktgesprächen"
+  ],
+  "merksatz": "Jede Nachricht hat vier Seiten – Sachinhalt, Selbstoffenbarung, Beziehung und Appell (Schulz von Thun) – und wird auf denselben vier „Ohren“ empfangen. Missverständnisse entstehen oft, wenn Sender und Empfänger unterschiedliche Seiten betonen. Kommunikation läuft immer verbal, paraverbal und nonverbal gleichzeitig ab; das Eisbergmodell erinnert daran, dass hinter einer Sachfrage oft eine größere, unsichtbare Beziehungsebene steckt. In Konfliktgesprächen hilft Deeskalation: ruhig bleiben, zuhören, Lösungen statt Schuldzuweisungen anbieten."
+ },
+ "module/projektmanagement/konfliktloesung-harvard-batna.html": {
+  "headings": [
+   "Das Harvard-Konzept (sachbezogenes Verhandeln)",
+   "BATNA – Best Alternative To a Negotiated Agreement",
+   "Win-win statt Win-lose"
+  ],
+  "merksatz": "Das Harvard-Konzept trennt Mensch und Problem, fragt nach Interessen statt Positionen, entwickelt mehrere Optionen und nutzt objektive Kriterien. Die BATNA (beste Alternative ohne Einigung) stärkt die eigene Verhandlungsposition. Ziel ist eine Win-win-Lösung statt Win-lose oder Lose-lose."
+ },
+ "module/projektmanagement/lastenheft-pflichtenheft.html": {
+  "merksatz": "Lastenheft = vom Auftraggeber, beschreibt was/wofür gebraucht wird (Anforderungen, ohne Lösungsdetails). Pflichtenheft = vom Auftragnehmer, beschreibt wie/womit die Anforderungen konkret umgesetzt werden. Das Pflichtenheft antwortet auf das Lastenheft und wird häufig Vertragsbestandteil."
+ },
+ "module/projektmanagement/netzplan.html": {
+  "headings": [
+   "Vorgänge und Anordnungsbeziehungen",
+   "Puffer (Pufferzeit)",
+   "Kritischer Pfad"
+  ],
+  "merksatz": "Ein Netzplan zeigt Vorgänge und ihre Abhängigkeiten. Puffer = zeitlicher Spielraum eines Vorgangs, ohne den Endtermin zu gefährden. Der kritische Pfad ist die längste Vorgangskette mit Puffer null — er bestimmt die minimale Projektdauer, und jede Verzögerung dort verzögert das gesamte Projekt."
+ },
+ "module/projektmanagement/problemanalyse-5whys-ishikawa.html": {
+  "headings": [
+   "Die 5-Why-Methode",
+   "Ishikawa-Diagramm (Fischgrätendiagramm)"
+  ],
+  "merksatz": "Die 5-Why-Methode gräbt durch wiederholtes Nachfragen von der Symptomebene zur eigentlichen Root Cause vor. Das Ishikawa-Diagramm sammelt mögliche Ursachen strukturiert nach Kategorien (die „6 M“: Mensch, Maschine, Methode, Material, Umgebung, Management) und macht sie im Team sichtbar."
+ },
+ "module/projektmanagement/projektbegriff-magisches-dreieck.html": {
+  "headings": [
+   "Der Projektbegriff",
+   "Merkmale eines Projekts",
+   "Das magische Dreieck (Zeit — Kosten — Qualität)"
+  ],
+  "merksatz": "Ein Projekt ist einmalig, zeitlich befristet, zielgerichtet, mit begrenzten Ressourcen und eigener Organisation — im Unterschied zur wiederkehrenden Routineaufgabe. Das magische Dreieck (Zeit, Kosten, Qualität) zeigt: Wird eine Ecke verändert, wirkt sich das zwangsläufig auf mindestens eine der beiden anderen aus — alle drei gleichzeitig zu optimieren ist nicht möglich."
+ },
+ "module/projektmanagement/projektphasen-meilensteine.html": {
+  "headings": [
+   "Das 4-Phasen-Modell",
+   "Kick-off-Meeting",
+   "Meilensteine"
+  ],
+  "merksatz": "4-Phasen-Modell: Definition → Planung → Durchführung → Abschluss. Das Kick-off-Meeting ist der offizielle, gemeinsame Startschuss eines Projekts. Ein Meilenstein ist ein fester Zeitpunkt (kein Zeitraum) mit klar überprüfbarem Teilergebnis zur Fortschrittskontrolle."
+ },
+ "module/projektmanagement/projektstrukturplan.html": {
+  "headings": [
+   "Drei Vorgehensweisen"
+  ],
+  "merksatz": "Der Projektstrukturplan gliedert ein Projekt hierarchisch in Teilprojekte und Arbeitspakete. Top-down zerlegt vom Ganzen herab, Bottom-up sammelt Einzelaufgaben und gruppiert sie aufwärts, das Yo-Yo-Prinzip kombiniert beide Richtungen iterativ."
+ },
+ "module/projektmanagement/rollen-stakeholder.html": {
+  "headings": [
+   "Zentrale Projektrollen",
+   "Stakeholder"
+  ],
+  "merksatz": "Auftraggeber gibt Ziele und Budget vor und nimmt ab. Projektleiter steuert das Tagesgeschäft operativ. Steuerkreis trifft übergeordnete Entscheidungen in Abständen, ohne im Tagesgeschäft involviert zu sein. Die Stakeholder-Analyse läuft in vier Schritten (Identifikation → Bewertung → Priorisierung → Maßnahmen); die Power-Interest-Matrix ordnet Stakeholder nach Einfluss und Interesse in eng steuern / zufriedenstellen / informieren / beobachten ein."
+ },
+ "module/projektmanagement/smart-ziele.html": {
+  "merksatz": "SMART = Spezifisch, Messbar, Akzeptiert/Attraktiv, Realistisch, Terminiert. Ein SMART formuliertes Ziel lässt am Ende objektiv überprüfen, ob es erreicht wurde — vage Zielformulierungen ohne Kennzahl und Termin sind dagegen nicht steuerbar."
+ },
+ "module/projektmanagement/teamphasen-tuckman.html": {
+  "headings": [
+   "Bedeutung für Führung und Projektleitung"
+  ],
+  "merksatz": "Tuckmans 5 Teamphasen: Forming (Kennenlernen), Storming (Konflikte), Norming (Regeln finden), Performing (Hochleistung), Adjourning (Auflösung). Jede Phase braucht einen anderen Führungsstil, und Teams können bei Veränderungen in frühere Phasen zurückfallen."
+ },
+ "module/projektmanagement/ticketsystem-stoerungsmanagement-eskalation.html": {
+  "headings": [
+   "Ticketsystem",
+   "Störungsmanagement (Incident Management)",
+   "Eskalation"
+  ],
+  "merksatz": "Ein Ticketsystem erfasst, priorisiert und verfolgt Störungen zentral. Störungsmanagement zielt auf schnelle Wiederherstellung des Betriebs (Incident), während die Behebung des zugrunde liegenden Problems eigenständig erfolgt. Fachliche Eskalation leitet an höhere Kompetenz weiter, hierarchische Eskalation bindet Vorgesetzte ein."
+ },
+ "module/projektmanagement/wasserfall-vs-agil.html": {
+  "headings": [
+   "Wasserfallmodell",
+   "Agiles Vorgehen",
+   "Scrum: Rollen, Artefakte, Events"
+  ],
+  "merksatz": "Wasserfall = lineare Phasenfolge, gut bei stabilen Anforderungen, Ergebnis erst am Ende sichtbar. Agil/Scrum = iterativ mit Sprints, laufendes Feedback. Scrum-Rollen: Product Owner, Scrum Master, Entwicklungsteam. Artefakte: Product Backlog, Sprint Backlog, Increment. Events: Sprint, Sprint Planning, Daily Scrum, Sprint Review, Retrospektive."
+ },
+ "module/pruefung/ap-ablauf.html": {
+  "headings": [
+   "Teil 1 und Teil 2",
+   "Die vier schriftlichen Prüfungsteile",
+   "Notenschlüssel und Bestehensgrenze"
+  ],
+  "merksatz": "Die gestreckte Abschlussprüfung besteht aus Teil 1 (AP1, 90 Minuten, 4 Handlungsaufgaben, 100 Punkte) und Teil 2 (drei weitere schriftliche Prüfungen plus betrieblicher Auftrag mit Dokumentation und Fachgespräch). Jeder schriftliche Teil wird einzeln nach demselben Schlüssel benotet, bestanden ab 50 von 100 Punkten. Hilfsmittel, mitzubringende Unterlagen und Fristen regelt die eigene IHK — dort verbindlich nachfragen, nicht raten."
+ },
+ "module/pruefung/simulation-ap1.html": {
+  "merksatz": "AP1 prüft in 90 Minuten vier etwa gleich gewichtete Bereiche: Hardware & Arbeitsplatz, Betriebssystem & Software, Netzwerk-Grundlagen sowie Sicherheit, Recht & Kosten. Übe zuerst blockweise, bevor du den vollen Durchlauf startest — die Auswertung zeigt dir nach jedem Versuch, welcher Bereich noch am meisten Punkte kostet."
+ },
+ "module/pruefung/simulation-ap2-netzwerke.html": {
+  "merksatz": "AP2 „Analyse und Entwicklung von Netzwerken“ prüft in 90 Minuten vier Bereiche: Adressierung (IPv4/IPv6/Subnetting), Protokolle & Dienste, Komponenten & Infrastruktur sowie Netzsicherheit & Diagnose. Übe zuerst blockweise, bevor du den vollen Durchlauf startest — die Auswertung zeigt dir nach jedem Versuch, welcher Bereich noch am meisten Punkte kostet."
+ },
+ "module/pruefung/simulation-ap2-systeme.html": {
+  "merksatz": "AP2 „Konzeption und Administration von IT-Systemen“ prüft in 90 Minuten vier Bereiche: Systeme & Virtualisierung, Betrieb & Administration, Datenbanken sowie Sicherheit & Verfügbarkeit. Übe zuerst blockweise, bevor du den vollen Durchlauf startest — die Auswertung zeigt dir nach jedem Versuch, welcher Bereich noch am meisten Punkte kostet."
+ },
+ "module/pruefung/simulation-ap2-wiso.html": {
+  "merksatz": "AP2 „Wirtschafts- und Sozialkunde“ prüft in 60 Minuten 30 Aufgaben in zwei Bereichen: Recht & Arbeitswelt sowie Wirtschaft. Übe zuerst blockweise, bevor du den vollen Durchlauf startest — die Auswertung zeigt dir nach jedem Versuch, welcher Bereich noch am meisten Punkte kostet."
+ },
+ "module/qualitaetssicherung/pdca-prozessorientiertes-qm.html": {
+  "headings": [
+   "Der PDCA-Zyklus (Deming-Kreis)",
+   "Prozessorientiertes Qualitätsmanagement",
+   "Zertifizierung"
+  ],
+  "merksatz": "PDCA (Plan-Do-Check-Act) ist der wiederholbare Regelkreis kontinuierlicher Verbesserung. Prozessorientiertes QM überwacht die Prozesse selbst statt nur das Endprodukt. ISO 9001 zertifiziert ein funktionierendes QM-System und erfordert regelmäßige Audits."
+ },
+ "module/qualitaetssicherung/qualitaetsplanung-guetesiegel.html": {
+  "headings": [
+   "Teilbereiche des Qualitätsmanagements (nach DIN EN ISO 9000)",
+   "Gütesiegel als sichtbares Ergebnis"
+  ],
+  "merksatz": "Qualitätsplanung legt Ziele und Prozesse im Voraus fest, Qualitätslenkung überwacht und steuert während der Durchführung. Der Blaue Engel ist ein freiwilliges deutsches Umweltgütesiegel, das CE-Kennzeichen dagegen eine verpflichtende Konformitätskennzeichnung für den EU-Markt."
+ },
+ "module/qualitaetssicherung/testprotokoll-arbeitsplatzeinrichtung.html": {
+  "headings": [
+   "Typische Prüfpunkte bei der Arbeitsplatzeinrichtung",
+   "Bedeutung als Dokumentation"
+  ],
+  "merksatz": "Ein Testprotokoll dokumentiert für jeden Prüfpunkt Soll-Zustand, Ist-Zustand und Ergebnis (i. O./n. i. O.) bei der Einrichtung eines Arbeitsplatzes – Hardware, Netzwerk, Software, Sicherheit und Ergonomie. Es dient als Abnahmenachweis und Referenzzustand für spätere Fehlersuche."
+ },
+ "module/qualitaetssicherung/testverfahren-black-white-box.html": {
+  "headings": [
+   "Testarten nach Sichtweise",
+   "Teststufen entlang des Entwicklungsprozesses",
+   "Lasttest"
+  ],
+  "merksatz": "Black-Box testet von außen (Verhalten), White-Box mit Kenntnis des Codes (Struktur). Die Teststufen laufen von Unit- über Integrations- und Systemtest bis zum Abnahmetest durch den Auftraggeber. Der Lasttest prüft zusätzlich das Verhalten unter hoher Belastung."
+ },
+ "module/software-os-web/bild-videoformate.html": {
+  "headings": [
+   "Raster vs. Vektor",
+   "Bildformate",
+   "Audioformate",
+   "Videoformate: Container vs. Codec",
+   "OCR — Optical Character Recognition"
+  ],
+  "merksatz": "Rastergrafik (JPEG/PNG/GIF) = Pixelraster, wird beim Vergrößern unscharf. Vektorgrafik (SVG) = mathematische Kurven, beliebig skalierbar. Bei Video sind Container (Dateiformat, z. B. MP4) und Codec (Kompressionsverfahren, z. B. H.264) getrennte Konzepte. OCR wandelt gescannten Bildtext in durchsuchbaren, echten Text um."
+ },
+ "module/software-os-web/bildschirmausgabemasken.html": {
+  "headings": [
+   "Softwareergonomie: Feldanordnung, Pflichtfelder, Validierung",
+   "Corporate Identity (CI)",
+   "Barrierefreiheit in der Maskengestaltung"
+  ],
+  "merksatz": "Eine gute Bildschirmausgabemaske ordnet Felder logisch, kennzeichnet Pflichtfelder eindeutig, validiert Eingaben mit konkreten, feldnahen Fehlermeldungen, folgt einem einheitlichen Corporate Design und ist barrierefrei bedienbar (Kontrast, Labels, Tab-Reihenfolge)."
+ },
+ "module/software-os-web/branchensoftware.html": {
+  "headings": [
+   "Branchensoftware-Typen",
+   "OEM-Software",
+   "Open Source vs. proprietär"
+  ],
+  "merksatz": "ERP verbindet zentrale Geschäftsprozesse, CRM verwaltet Kundenbeziehungen, CMS pflegt Website-Inhalte ohne Code, DMS archiviert Dokumente durchsuchbar. OEM-Software ist an ein Gerät gebunden. Open Source bietet Kontrolle und Anpassbarkeit bei eigenem Wartungsaufwand, proprietär bietet Hersteller-Support bei stärkerer Abhängigkeit (Vendor Lock-in)."
+ },
+ "module/software-os-web/dateisysteme-grundlagen.html": {
+  "headings": [
+   "Was ist eine Datei?",
+   "Metadaten",
+   "Inode (Linux)",
+   "MFT — Master File Table (Windows/NTFS)",
+   "Was macht ein Dateisystem allgemein?"
+  ],
+  "merksatz": "Eine Datei ist eine Byte-Folge, deren Inhalt nur das öffnende Programm versteht — die Dateiendung ist nur ein Hinweis fürs OS. Metadaten (Name, Größe, Zeitstempel, Berechtigungen, Speicherort) werden getrennt vom Inhalt gespeichert. Linux nutzt dafür den Inode (Name ist nur ein Verweis darauf), Windows/NTFS die MFT. Löschen markiert meist nur den Metadaten-Eintrag als frei — die Daten bleiben zunächst erhalten."
+ },
+ "module/software-os-web/dateisysteme-vergleich.html": {
+  "headings": [
+   "Die wichtigsten Dateisysteme",
+   "Journaling",
+   "Fragmentierung",
+   "Slack Space"
+  ],
+  "merksatz": "NTFS (Windows, ACL, Journaling) · FAT32 (universell, aber 4-GB- Grenze) · exFAT (FAT32-Nachfolger ohne diese Grenze) · ext4 (Linux, rwx, Journaling) · APFS (macOS, für SSD optimiert). Journaling schützt vor Inkonsistenz nach Absturz. Fragmentierung betrifft nur HDDs spürbar — SSDs niemals defragmentieren. Slack Space ist verschwendeter Platz durch feste Blockgrößen."
+ },
+ "module/software-os-web/deployment-formate.html": {
+  "headings": [
+   "ISO — das Abbild eines Datenträgers",
+   "WIM — Windows Imaging Format",
+   "Weitere Deployment-Formate"
+  ],
+  "merksatz": "ISO = exaktes Abbild eines gesamten Datenträgers (ISO 9660). WIM = Abbild eines Dateisystems, hardware-unabhängig, komprimiert, mehrere Editionen in einer Datei — verwaltet über DISM. install.wim = eigentliches System, boot.wim = Windows-PE-Boot-Image. PXE-Boot kombiniert beide für die Netzwerkinstallation."
+ },
+ "module/software-os-web/dynamische-statische-webseiten.html": {
+  "headings": [
+   "Statisch vs. dynamisch",
+   "Client- vs. Serverseite",
+   "Vor- und Nachteile im Vergleich",
+   "Bezug zu den Hosting-Anforderungen"
+  ],
+  "merksatz": "Statische Seiten liefern fertige Dateien unverändert aus (schnell, cachebar, wartungsarm bei seltenen Änderungen). Dynamische Seiten erzeugen den Inhalt bei jeder Anfrage neu — serverseitig (SSR, vor dem Senden) oder clientseitig (im Browser via JavaScript) — und brauchen dafür eine Laufzeitumgebung statt eines einfachen Datei-Servers."
+ },
+ "module/software-os-web/html-css-grundlagen.html": {
+  "headings": [
+   "HTML — Struktur der Webseite",
+   "CSS — Aussehen der Webseite",
+   "Responsive Design"
+  ],
+  "merksatz": "HTML beschreibt Struktur/Inhalt, CSS beschreibt das Aussehen — beide sind bewusst getrennt. Responsive Design passt das Layout über Media Queries, flexible Layouts und relative Einheiten an die Bildschirmgröße an."
+ },
+ "module/software-os-web/it-servicemanagement.html": {
+  "headings": [
+   "ITIL (IT Infrastructure Library)",
+   "ISO/IEC 20000"
+  ],
+  "merksatz": "ITIL ist ein Best-Practice-Rahmenwerk (kein Zertifizierungsnorm), ISO/IEC 20000 ist die offizielle, zertifizierbare Norm für IT-Servicemanagement. Incident Management behebt akute Störungen schnell, Problem Management sucht die dauerhafte Ursache, Change Management steuert Änderungen kontrolliert, Service Level Management überwacht SLAs."
+ },
+ "module/software-os-web/ki-grundlagen.html": {
+  "headings": [
+   "Begriffshierarchie",
+   "Generative KI und Sprachmodelle (LLM)",
+   "Anwendungsfelder im IT-Berufsalltag",
+   "Grenzen und Risiken"
+  ],
+  "merksatz": "KI ist der Oberbegriff, Machine Learning ein Teilbereich (Lernen aus Daten statt fester Regeln), Deep Learning wiederum ein Teilbereich von ML (neuronale Netze). Generative KI/LLMs erzeugen neue Inhalte, können aber halluzinieren (falsche, aber überzeugend klingende Aussagen). Keine personenbezogenen/vertraulichen Daten in öffentliche KI-Dienste eingeben — Datenschutzrisiko."
+ },
+ "module/software-os-web/kompression.html": {
+  "headings": [
+   "Verlustfreie Kompression (Lossless)",
+   "Verlustbehaftete Kompression (Lossy)",
+   "Vergleich auf einen Blick",
+   "Archivformate"
+  ],
+  "merksatz": "Verlustfrei (PNG, FLAC, ZIP, 7z): exakt wiederherstellbar, 20–80 % kleiner, kein Qualitätsverlust bei mehrfacher Kompression. Verlustbehaftet (JPEG, MP3, H.264): dauerhaft gelöschte Details, 90–99 % kleiner, Generation Loss bei wiederholtem Speichern — deshalb im Originalformat arbeiten und erst am Ende exportieren. TAR bündelt, Gzip/7-Zip/RAR komprimieren."
+ },
+ "module/software-os-web/linux-dateiberechtigungen.html": {
+  "headings": [
+   "Das rwx-Rechtesystem",
+   "Oktalnotation und chmod"
+  ],
+  "merksatz": "Rechte gelten für Owner/Group/Others (ugo) je r/w/x — Oktalwerte r=4, w=2, x=1 addiert ergeben Werte wie 755, 644, 600. chmod ändert die Rechte, chmod 777 ist fast immer ein Sicherheitsrisiko. chown ändert Eigentümer und Gruppe, -R wendet eine Änderung rekursiv auf einen ganzen Ordner an."
+ },
+ "module/software-os-web/linux-konsole.html": {
+  "headings": [
+   "Navigation",
+   "Dateioperationen",
+   "Dateiinhalt ansehen und durchsuchen",
+   "Verzeichnisbaum und Mounting",
+   "Hilfe zu Befehlen"
+  ],
+  "merksatz": "Navigation: pwd , cd , ls . Dateioperationen: cp , mv , rm , mkdir . Inhalt ansehen/durchsuchen: cat , less , grep , per Pipe ( | ) verkettet. Linux hat einen Verzeichnisbaum statt Laufwerksbuchstaben, Datenträger werden gemountet, /etc/fstab steuert das automatische Einhängen beim Boot. man befehl zeigt die Dokumentation eines Befehls."
+ },
+ "module/software-os-web/mime-base64.html": {
+  "headings": [
+   "MIME-Types",
+   "Base64"
+  ],
+  "merksatz": "MIME-Type (typ/subtyp) sagt dem Browser, wie er empfangene Daten behandeln soll — Server sollten ihn nicht blind vom Client übernehmen, sondern den echten Inhalt prüfen. Base64 wandelt Binärdaten in druckbare ASCII-Zeichen um (3 Bytes → 4 Zeichen, ca. 33 % größer) — reine Umformung, keine Verschlüsselung und keine Komprimierung."
+ },
+ "module/software-os-web/multitasking-prozesse.html": {
+  "headings": [
+   "Prozess, Task und Thread",
+   "Multitasking",
+   "Kooperatives vs. präemptives Multitasking"
+  ],
+  "merksatz": "Ein Prozess hat eigenen isolierten Speicher, ein Thread läuft innerhalb eines Prozesses und teilt sich dessen Ressourcen — Thread-Wechsel sind günstiger als Prozess-Wechsel. Kooperatives Multitasking verlässt sich darauf, dass Prozesse die CPU freiwillig abgeben (Risiko: Systemblockade). Präemptives Multitasking entzieht zwangsweise per Scheduler nach fester Zeitscheibe — der moderne, stabilere Standard."
+ },
+ "module/software-os-web/partitionierung-formatierung.html": {
+  "headings": [
+   "Partitionierung",
+   "Partitionstabellen: MBR vs. GPT",
+   "Formatierung",
+   "Werkzeuge unter Windows"
+  ],
+  "merksatz": "Partitionierung teilt einen Datenträger logisch auf, Formatierung legt darauf ein Dateisystem an. MBR: max. 4 primäre Partitionen, bis 2 TiB, BIOS-Boot. GPT: praktisch unbegrenzt viele Partitionen, über 2 TiB, benötigt meist UEFI. Schnellformatierung löscht nur den Index, vollständige Formatierung prüft zusätzlich auf defekte Sektoren."
+ },
+ "module/software-os-web/pruefziffern-paritaet.html": {
+  "headings": [
+   "EAN (European Article Number / GTIN)",
+   "IBAN (International Bank Account Number)",
+   "Parität (Paritätsbit)"
+  ],
+  "merksatz": "Prüfziffern erkennen Fehler, korrigieren sie aber nicht. EAN nutzt ein Modulo-10-Verfahren mit den Faktoren 1 und 3, IBAN ein Modulo-97-Verfahren (ISO 7064). Ein einfaches Paritätsbit erkennt zuverlässig nur den Kipp eines einzelnen Bits — für echte Fehlerkorrektur braucht es aufwendigere Verfahren wie ECC."
+ },
+ "module/software-os-web/software-klassifikation.html": {
+  "headings": [
+   "Systemsoftware vs. Anwendungssoftware",
+   "Standardsoftware vs. Individualsoftware"
+  ],
+  "merksatz": "Systemsoftware verwaltet die Hardware und ist Grundlage für alles andere (Betriebssystem, Treiber, Firmware). Anwendungssoftware erledigt konkrete Aufgaben für den Nutzer. Standardsoftware ist günstig und sofort verfügbar, aber allgemein gehalten. Individualsoftware ist teurer und dauert länger, passt dafür exakt zum eigenen Prozess. Customizing ist der Mittelweg."
+ },
+ "module/software-os-web/uml-diagramme.html": {
+  "headings": [
+   "Use-Case-Diagramm",
+   "Klassendiagramm",
+   "Aktivitätsdiagramm",
+   "Sequenzdiagramm"
+  ],
+  "merksatz": "UML ist eine genormte, sprachunabhängige Modellierungsnotation. Use-Case-Diagramm = wer (Akteur) nutzt was (Use Case); <<include>> bindet zwingend ein, <<extend>> erweitert nur optional. Klassendiagramm = statische Struktur mit Klassen, Attributen, Methoden und Beziehungen (Assoziation, Generalisierung, Aggregation, Komposition). Aktivitätsdiagramm = Ablauf mit Start/Ende, Aktivitäten, Entscheidungsknoten und parallelen Abläufen. Sequenzdiagramm = zeitliche Reihenfolge von Nachrichten zwischen Objekten über Lebenslinien (durchgezogener Pfeil = Aufruf, gestrichelter Pfeil = Rückgabe)."
+ },
+ "module/software-os-web/url-uri-urn.html": {
+  "headings": [
+   "URI, URL und URN im Verhältnis",
+   "Aufbau einer URL"
+  ],
+  "merksatz": "URI ist der Oberbegriff, URL sagt „wo und wie“ (Protokoll, Domain, Pfad), URN sagt nur „was“ (eindeutiger Name, ortsunabhängig). Eine URL besteht aus Schema, optionaler Subdomain, Domain, optionalem Port, Pfad, Query-String und Fragment — das Fragment wird nie an den Server übertragen."
+ },
+ "module/software-os-web/website-aufruf-hosting.html": {
+  "headings": [
+   "Ablauf eines Website-Aufrufs",
+   "Virtuelle Hosts (Virtual Hosts)"
+  ],
+  "merksatz": "Ablauf eines Website-Aufrufs: DNS-Auflösung → Verbindungsaufbau (TCP, ggf. TLS) → HTTP-Request (mit Host-Header) → HTTP-Response → Rendering. Virtuelle Hosts erlauben mehrere Websites auf derselben IP-Adresse — der Webserver unterscheidet sie anhand des Host-Headers im HTTP-Request."
+ },
+ "module/software-os-web/windows-berechtigungen-acl.html": {
+  "headings": [
+   "Was ist eine ACL?",
+   "ACL über die Kommandozeile: icacls",
+   "Linux (rwx) vs. Windows (ACL) im Vergleich"
+  ],
+  "merksatz": "ACL = Liste von ACEs, viel feiner als Linux-rwx, mit Vererbung und explizitem Deny (überschreibt Allow). Moderner Befehl: icacls (nicht cacls , veraltet)."
+ },
+ "module/software-os-web/windows-konsole.html": {
+  "headings": [
+   "Navigation",
+   "Dateioperationen",
+   "Dateiinhalt ansehen und Hilfe",
+   "Netzwerkdiagnose",
+   "PowerShell als modernes Pendant"
+  ],
+  "merksatz": "Navigation: cd , dir (Pendant zu Linux ls ). Dateioperationen: copy , move , del , mkdir . type zeigt Dateiinhalt an (Pendant zu Linux cat ), befehl /? zeigt Hilfe. ipconfig zeigt die Netzwerkkonfiguration, getmac die MAC-Adresse. PowerShell ist die modernere, mächtigere Alternative zur klassischen Eingabeaufforderung."
+ },
+ "module/software-os-web/windows-vs-linux.html": {
+  "headings": [
+   "Windows vs. Linux/Unix",
+   "Arbeitsgruppe vs. Domäne"
+  ],
+  "merksatz": "Windows: proprietär, GUI-zentriert, Desktop-dominant. Linux/Unix: meist Open Source, kommandozeilenorientiert, Server-dominant. Arbeitsgruppe = dezentrale, lokale Verwaltung pro Rechner. Domäne = zentraler Domain Controller (Active Directory) für Anmeldung, Gruppenrichtlinien und Rechteverwaltung — auch Linux-Rechner können einer AD-Domäne beitreten."
+ },
+ "module/software-os-web/zeichensaetze-ascii-unicode.html": {
+  "headings": [
+   "Das Grundproblem",
+   "ASCII (1963)",
+   "Unicode (1991)",
+   "UTF-8 — die effiziente Kodierung",
+   "CR, LF und CRLF: die Sache mit dem Zeilenumbruch"
+  ],
+  "merksatz": "ASCII: 128 Zeichen, nur Englisch, 7 Bit. Unicode: Codepoints (U+XXXX) für praktisch alle Schriftsysteme. UTF-8: variable 1–4-Byte-Kodierung von Unicode, rückwärtskompatibel mit ASCII, Web-Standard. Linux/macOS nutzen LF, Windows CRLF, altes macOS CR — falsche Zeilenenden erzeugen das ^M-Problem in Shell-Skripten und unnötige Git-Diffs."
+ },
+ "module/wiso/arbeiten-lernen-europa.html": {
+  "headings": [
+   "Arbeitnehmerfreizügigkeit",
+   "Anerkennung von Abschlüssen",
+   "Programme für Auszubildende",
+   "Soziale Absicherung im EU-Ausland",
+   "Chancen und Grenzen beruflicher Mobilität"
+  ],
+  "merksatz": "Die Arbeitnehmerfreizügigkeit (Art. 45 AEUV) erlaubt EU-Bürger:innen, ohne Arbeitserlaubnis in jedem Mitgliedstaat zu arbeiten. Europass und EQR machen Qualifikationen vergleichbar, Erasmus+ fördert auch Auslandspraktika von Auszubildenden, und die EHIC sichert die medizinische Versorgung im EU-Ausland."
+ },
+ "module/wiso/arbeitsschutzgesetze.html": {
+  "headings": [
+   "Jugendarbeitsschutzgesetz (JArbSchG) im Detail",
+   "Arbeitszeitgesetz (ArbZG) für Erwachsene",
+   "Bundesurlaubsgesetz (BUrlG)",
+   "Entgeltfortzahlungsgesetz (EFZG)",
+   "Kündigungsschutzgesetz (KSchG)"
+  ],
+  "merksatz": "ArbSchG gilt für alle, JArbSchG verschärft die Regeln zusätzlich für unter 18-Jährige (max. 8h/Tag, 6–20 Uhr, gestaffelter Mindesturlaub). ArbZG regelt Arbeitszeit/Ruhezeiten Erwachsener, BUrlG den Mindesturlaub (24 Werktage = 20 Arbeitstage), EFZG die Lohnfortzahlung bei Krankheit (bis 6 Wochen), KSchG den Kündigungsschutz ab 10 Beschäftigten und 6 Monaten Betriebszugehörigkeit."
+ },
+ "module/wiso/arbeitsvertrag-kuendigung.html": {
+  "headings": [
+   "Pflichtangaben im Arbeitsvertrag (Nachweisgesetz)",
+   "Kündigungsarten",
+   "Gesetzliche Kündigungsfristen (§ 622 BGB)",
+   "Form und Fristen rund um die Kündigung"
+  ],
+  "merksatz": "Kündigung braucht Schriftform (§ 623 BGB). In der Probezeit gelten 2 Wochen, danach für Arbeitnehmer 4 Wochen zum 15./Monatsende – für Arbeitgeber gestaffelt nach Betriebszugehörigkeit bis zu 7 Monaten (§ 622 BGB). Wer klagen will, hat dafür nur 3 Wochen Zeit (§ 4 KSchG)."
+ },
+ "module/wiso/beduerfnis-bedarf-kaufkraft.html": {
+  "headings": [
+   "Von Bedürfnis zu Nachfrage",
+   "Arten von Bedürfnissen",
+   "Konsumentscheidungen"
+  ],
+  "merksatz": "Bedürfnis = Wunsch ohne Bezug zum Geld. Bedarf = Bedürfnis plus Kaufkraft. Nachfrage = Bedarf, der sich tatsächlich in einer Kaufhandlung am Markt äußert. Konsumentscheidungen durchlaufen Bedarfserkennung, Informationssuche, Bewertung, Kauf und Nachkaufverhalten."
+ },
+ "module/wiso/betriebliche-mitbestimmung.html": {
+  "headings": [
+   "Rechtsgrundlage: Betriebsverfassungsgesetz (BetrVG)",
+   "Organe der betrieblichen Mitbestimmung",
+   "Abstufung der Beteiligungsrechte",
+   "Abgrenzung zur Gewerkschaft"
+  ],
+  "merksatz": "Das BetrVG regelt die Mitbestimmung im Betrieb (ab 5 wahlberechtigten Arbeitnehmern). Beteiligungsrechte staffeln sich von Information über Anhörung und Beratung bis zum echten Mitbestimmungsrecht (Vetorecht) – Einführung leistungs-/verhaltensüberwachender Technik (§ 87 Abs. 1 Nr. 6 BetrVG) braucht immer die Zustimmung des Betriebsrats. Anders als die Gewerkschaft darf der Betriebsrat nicht streiken."
+ },
+ "module/wiso/chancen-risiken-europa-globalisierung.html": {
+  "headings": [
+   "Chancen der Globalisierung",
+   "Risiken der Globalisierung",
+   "Der EU-Binnenmarkt als besonderer Fall"
+  ],
+  "merksatz": "Globalisierung eröffnet größere Märkte, mehr Auswahl und Innovationsimpulse, macht Wirtschaften aber auch abhängiger von globalen Lieferketten und verschärft den Wettbewerb um Löhne und Standorte. Der EU-Binnenmarkt verstärkt diese Effekte im Kleinen – Zollfreiheit und Euro erleichtern Handel, kosten Mitgliedstaaten aber eigenständige Geldpolitik."
+ },
+ "module/wiso/duales-system-ausbildungsvertrag.html": {
+  "headings": [
+   "Das duale System",
+   "Beteiligte",
+   "Ausbildungsordnung, Ausbildungsrahmenplan & Rahmenlehrplan",
+   "Der Berufsausbildungsvertrag",
+   "Pflichten aus dem Ausbildungsvertrag",
+   "Probezeit"
+  ],
+  "merksatz": "Das duale System verbindet Betrieb (Ausbildungsordnung) und Berufsschule (Rahmenlehrplan). Der Berufsausbildungsvertrag ist nach § 11 BBiG schriftlich zu schließen und muss Mindestangaben wie Dauer, Probezeit, Vergütung und Kündigungsvoraussetzungen enthalten. Die Probezeit dauert 1–4 Monate; in dieser Zeit kann beiderseits jederzeit fristlos und ohne Angabe von Gründen gekündigt werden."
+ },
+ "module/wiso/entgeltabrechnung.html": {
+  "headings": [
+   "Vom Brutto zum Netto",
+   "Weitere typische Positionen auf der Lohnabrechnung"
+  ],
+  "merksatz": "Netto = Brutto minus Lohnsteuer/Soli/Kirchensteuer minus Sozialversicherungsbeiträge (Arbeitnehmeranteil aus KV, PV, RV, AV). Die Unfallversicherung erscheint nie als Abzug, da sie allein der Arbeitgeber zahlt."
+ },
+ "module/wiso/existenzgruendung.html": {
+  "headings": [
+   "Motive für eine Gründung",
+   "Rechtsformwahl",
+   "Schritte zur Gründung",
+   "Förderung",
+   "Chancen und Grenzen"
+  ],
+  "merksatz": "Existenzgründung bringt unternehmerische Freiheit, aber auch volles Risiko. Die Rechtsform bestimmt das Haftungsmaß (Einzelunternehmen: volle Haftung, UG/GmbH: beschränkt auf das Gesellschaftsvermögen). Businessplan, Anmeldung und Förderungen wie Gründungszuschuss oder KfW-Kredite gehören zum Gründungsprozess dazu."
+ },
+ "module/wiso/fort-weiterbildung-umschulung.html": {
+  "headings": [
+   "Berufsbildung nach BBiG (§ 1 BBiG)",
+   "Berufliche Fortbildung",
+   "Berufliche Umschulung",
+   "IT-Weiterbildungssystem (nach BIBB)",
+   "Förderung von Aufstiegsfortbildungen"
+  ],
+  "merksatz": "Fortbildung baut auf der Ausbildung auf (Anpassung an Neues oder Aufstieg in mehr Verantwortung), Umschulung ist der Wechsel in ein anderes Berufsfeld. Das IT-Weiterbildungssystem führt vom IT-Spezialisten über den Operativen bis zum Strategischen Professional – gefördert durch das Aufstiegsfortbildungsförderungsgesetz."
+ },
+ "module/wiso/grenzen-sozialer-sicherung-vorsorge.html": {
+  "headings": [
+   "Grenzen der gesetzlichen sozialen Sicherung",
+   "Private Vorsorge: das 3-Schichten-Modell der Altersvorsorge",
+   "Weitere private Zusatzabsicherung"
+  ],
+  "merksatz": "Sinkendes Rentenniveau und demografischer Wandel setzen die gesetzliche Sozialversicherung unter Druck – die Basisversorgung reicht allein oft nicht aus. Das 3-Schichten-Modell ergänzt sie um betriebliche Altersvorsorge und private Vorsorge (z. B. Berufsunfähigkeitsversicherung), um Versorgungslücken zu schließen."
+ },
+ "module/wiso/karriere-familienplanung-rollenreflexion.html": {
+  "headings": [
+   "Rollenreflexion",
+   "Gesetzliche Instrumente zur Vereinbarkeit von Beruf und Familie",
+   "Karriereplanung als bewusste Entscheidung"
+  ],
+  "merksatz": "Rollenkonflikte entstehen, wenn sich Erwartungen verschiedener Lebensrollen widersprechen. Elternzeit, Elterngeld (inkl. ElterngeldPlus/Partnerschaftsbonus), Brückenteilzeit und Pflegezeit sind gesetzliche Instrumente, um Beruf und Familie besser zu vereinbaren. Karriereplanung bedeutet, berufliche Ziele bewusst gegen private Prioritäten abzuwägen."
+ },
+ "module/wiso/rechtsgeschaefte-geschaeftsfaehigkeit-vertraege.html": {
+  "headings": [
+   "Rechtsgeschäft und Willenserklärung",
+   "Geschäftsfähigkeit (§§ 104 ff. BGB)",
+   "Ausnahme: der „Taschengeldparagraf” (§ 110 BGB)",
+   "Klassische Vertragstypen im BGB"
+  ],
+  "merksatz": "Geschäftsfähigkeit ist gestaffelt: geschäftsunfähig (unter 7), beschränkt geschäftsfähig (7–17, Zustimmung der Eltern nötig), voll geschäftsfähig (ab 18). Der Taschengeldparagraf (§ 110 BGB) erlaubt Minderjährigen wirksame Geschäfte nur bei sofortiger, vollständiger Erfüllung mit eigenen Mitteln – nicht bei laufenden Zahlungspflichten."
+ },
+ "module/wiso/soziale-marktwirtschaft.html": {
+  "headings": [
+   "Grundidee",
+   "Die vier Säulen der Ordnungspolitik",
+   "Abgrenzung"
+  ],
+  "merksatz": "Soziale Marktwirtschaft = freier Wettbewerb (Angebot/Nachfrage, Privateigentum) plus staatlich organisierter sozialer Ausgleich. Vier Säulen: Wettbewerbsordnung, Sozialpolitik, Konjunkturpolitik, Stabilitätspolitik (magisches Viereck nach StabG 1967)."
+ },
+ "module/wiso/soziale-sicherung.html": {
+  "headings": [
+   "Versicherungsprinzip",
+   "Die 5 Säulen der Sozialversicherung",
+   "Solidaritäts- und Äquivalenzprinzip",
+   "Sozialgerichtsbarkeit"
+  ],
+  "merksatz": "Die 5 Säulen der Sozialversicherung sind Krankenversicherung, Pflegeversicherung, Rentenversicherung, Arbeitslosenversicherung und Unfallversicherung. Alle außer der Unfallversicherung werden paritätisch finanziert – die Unfallversicherung zahlt allein der Arbeitgeber. Streit gibt es vor den Sozialgerichten (SG → LSG → BSG, geregelt im SGG)."
+ },
+ "module/wiso/standortwettbewerb-lohnniveau.html": {
+  "headings": [
+   "Standortfaktoren",
+   "Standortwettbewerb und Globalisierung",
+   "Lohnniveau als zentraler harter Standortfaktor",
+   "Nachhaltigkeitsstandards als Gegengewicht"
+  ],
+  "merksatz": "Harte Standortfaktoren (Lohnniveau, Steuern, Infrastruktur) und weiche Standortfaktoren (Lebensqualität, Rechtssicherheit) bestimmen den internationalen Standortwettbewerb. Nachhaltigkeitsstandards wirken einem reinen Lohnkostenwettbewerb („Race to the bottom“) entgegen und werden selbst zunehmend zum Standortfaktor."
+ },
+ "module/wiso/tarifrecht.html": {
+  "headings": [
+   "Tarifvertragsparteien",
+   "Tarifautonomie",
+   "Arten von Tarifverträgen",
+   "Tarifbindung und Geltung",
+   "Arbeitskampf"
+  ],
+  "merksatz": "Tarifautonomie (Art. 9 Abs. 3 GG) heißt: Gewerkschaften und Arbeitgeberverbände verhandeln Löhne und Arbeitsbedingungen eigenständig, ohne Staatseinmischung. Das Günstigkeitsprinzip erlaubt nur Abweichungen zugunsten der Beschäftigten. Während der Tarifvertragslaufzeit herrscht Friedenspflicht – kein Streik über bereits geregelte Punkte."
+ },
+ "module/wiso/wandel-arbeitswelt-digitalisierung.html": {
+  "headings": [
+   "Merkmale des Wandels der Arbeitswelt",
+   "Chancen und Risiken",
+   "Lebenslanges Lernen als Antwort"
+  ],
+  "merksatz": "Digitalisierung verändert Arbeitsinhalte (Automatisierung von Routinen, neue Berufsbilder), bringt Flexibilisierung und Vernetzung, aber auch Entgrenzung und steigende Qualifikationsanforderungen. Lebenslanges Lernen – formal, non-formal und informell – sichert die eigene Beschäftigungsfähigkeit in diesem Wandel."
+ },
+ "module/wiso/wandel-maerkte-nachhaltige-entwicklung.html": {
+  "headings": [
+   "Treiber des Marktwandels",
+   "Nachhaltige Entwicklung",
+   "Nachhaltiges Wirtschaften in Unternehmen"
+  ],
+  "merksatz": "Globalisierung, Digitalisierung und Strukturwandel verändern Märkte fortlaufend. Nachhaltige Entwicklung (Brundtland-Bericht) verbindet ökologische, ökonomische und soziale Verantwortung – heutige Bedürfnisse decken, ohne künftige Generationen zu gefährden. Das LkSG macht Lieferkettenverantwortung für größere Unternehmen zur Pflicht."
+ },
+ "module/wiso/wirksamkeit-rechtsgeschaefte-verbraucherschutz.html": {
+  "headings": [
+   "Voraussetzungen der Wirksamkeit",
+   "Nichtigkeit vs. Anfechtbarkeit",
+   "Verbraucherschutz"
+  ],
+  "merksatz": "Nichtige Rechtsgeschäfte sind von Anfang an unwirksam (Form-/Gesetzes-/Sittenverstoß), anfechtbare zunächst wirksam, aber durch Anfechtung rückwirkend vernichtbar (Irrtum, Täuschung, Drohung). Verbraucher genießen besonderen Schutz: 14 Tage Widerrufsrecht bei Fernabsatzverträgen sowie Schutz vor unangemessenen AGB-Klauseln."
+ },
+ "module/wiso/wirtschaftskreislauf-wertschoepfungskette.html": {
+  "headings": [
+   "Einfacher Wirtschaftskreislauf",
+   "Erweiterter Wirtschaftskreislauf",
+   "Wertschöpfungskette"
+  ],
+  "merksatz": "Im Wirtschaftskreislauf fließen Güter/Leistungen und Geld in entgegengesetzte Richtungen zwischen Haushalten und Unternehmen; Staat, Banken und Ausland erweitern das Modell. Die Wertschöpfungskette zeigt, wie jede Produktionsstufe durch Verarbeitung von Vorleistungen zusätzlichen Wert schafft."
+ }
+}

@@ -210,6 +210,32 @@
         (Verzweigung) — sie hat mindestens zwei ausgehende Flusspfeile, je
         einen pro möglichem Ausgang.
       </p>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Bevor ein PAP gezeichnet wird, hält man den Algorithmus oft
+        zunächst in Pseudocode fest. Schreibe in Pseudocode einen
+        Algorithmus, der prüft, ob eine Zahl positiv, negativ oder null
+        ist.
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>WENN Zahl &gt; 0 DANN
+  Ergebnis = "positiv"
+SONST WENN Zahl &lt; 0 DANN
+  Ergebnis = "negativ"
+SONST
+  Ergebnis = "null"
+ENDE WENN</code></pre>
+        <p>
+          Im PAP würde daraus eine Verzweigung (Raute) mit drei
+          Ausgängen: Terminator „Start“, Ein-/Ausgabe „Zahl einlesen“,
+          Verzweigung „Zahl &gt; 0?“ — bei „Nein“ eine zweite Verzweigung
+          „Zahl &lt; 0?“ —, je ein Prozess-Kästchen für „positiv“,
+          „negativ“ und „null“, zusammengeführt über einen Konnektor,
+          Terminator „Ende“.
+        </p>
+      </details>
     </section>
 
     <!-- 4. MERKSATZ -->

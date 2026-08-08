@@ -135,6 +135,27 @@ ENDE FÜR
         &gt;= 100, dann der SONST-Fall — drei Alternativen auf
         derselben Ebene, keine steckt in der anderen.
       </p>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Schreibe eine verschachtelte Zählschleife in Pseudocode, die eine
+        kleine Einmaleins-Tabelle ausgibt (1 bis 3 mal 1 bis 3).
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>FÜR i VON 1 BIS 3 TUE
+  FÜR j VON 1 BIS 3 TUE
+    AUSGABE i * j
+  ENDE FÜR
+ENDE FÜR</code></pre>
+        <p>
+          Die äußere Schleife läuft über <code>i</code>, die innere über
+          <code>j</code>. Die innere Schleife steckt vollständig im
+          Körper der äußeren — das ist die Verschachtelung: für jeden
+          Wert von <code>i</code> läuft die innere Schleife komplett von
+          1 bis 3 durch.
+        </p>
+      </details>
     </section>
 
     <!-- 4. MERKSATZ -->

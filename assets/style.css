@@ -835,6 +835,20 @@ table { display: block; max-width: 100%; overflow-x: auto; }
      Mischsatz dafuer aufgeteilt wurde). */
   .tool,
   .tool-intro { display: none; }
+
+  /* Musterloesungen (<details class="loesung">, P1.6): auf Papier immer
+     sichtbar, unabhaengig vom Aufklapp-Zustand am Bildschirm. Reine
+     CSS-Ueberschreibung der nativen <details>-Klapplogik (kein JS noetig):
+     die UA-Regel "details:not([open]) > *:not(summary) { display:none }"
+     wird per hoeherer Spezifitaet + !important aufgehoben. Der
+     Aufklapp-Pfeil wird entfernt, da er auf Papier keine Funktion hat. */
+  details.loesung > *:not(summary) { display: block !important; }
+  details.loesung > summary {
+    list-style: none;
+    cursor: default;
+  }
+  details.loesung > summary::-webkit-details-marker { display: none; }
+  details.loesung > summary::marker { content: ""; }
 }
 
 /* ---------------------------------------- Mobile: Suche lesbar (C2) --- */

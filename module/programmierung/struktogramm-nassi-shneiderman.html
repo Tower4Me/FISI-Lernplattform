@@ -197,6 +197,31 @@
         Programmierung, da sich unstrukturierte Sprünge (GOTO) im
         Diagramm nicht darstellen lassen.
       </p>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Schreibe zunächst in Pseudocode, bevor du es (gedanklich) als
+        Struktogramm zeichnest: Für eine eingegebene Note (1–6) soll ein
+        Notentext ausgegeben werden — 1–2: „gut“, 3–4: „befriedigend“,
+        5–6: „mangelhaft“.
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>WENN Note &lt;= 2 DANN
+  Notentext = "gut"
+SONST WENN Note &lt;= 4 DANN
+  Notentext = "befriedigend"
+SONST
+  Notentext = "mangelhaft"
+ENDE WENN</code></pre>
+        <p>
+          Im Struktogramm wird daraus ein Verzweigungs-Kasten mit
+          Bedingung „Note &lt;= 2?“; im „Nein“-Feld steckt ein weiterer,
+          kleinerer Verzweigungs-Kasten mit „Note &lt;= 4?“ —
+          die Kaskadierung aus dem Pseudocode wird im Struktogramm zur
+          Verschachtelung von Kästen.
+        </p>
+      </details>
     </section>
 
     <!-- 4. MERKSATZ -->

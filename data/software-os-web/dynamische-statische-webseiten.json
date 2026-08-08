@@ -1,0 +1,65 @@
+{
+  "unit": "software-os-web/dynamische-statische-webseiten",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was kennzeichnet eine statische Webseite?",
+      "options": [
+        "Fertige Dateien werden bei jeder Anfrage unverändert ausgeliefert, ohne serverseitige Berechnung",
+        "Der Inhalt wird bei jeder Anfrage neu aus einer Datenbank erzeugt",
+        "Der Inhalt unterscheidet sich grundsätzlich je nach anfragendem Nutzer",
+        "Der Server führt bei jeder Anfrage eigenen Programmcode aus"
+      ],
+      "answer": 0,
+      "explanation": "Eine statische Webseite besteht aus fertigen HTML-/CSS-/JS-Dateien, die unverändert ausgeliefert werden — keine serverseitige Berechnung des Inhalts nötig."
+    },
+    {
+      "id": "q2",
+      "question": "Was passiert bei serverseitigem Rendering (SSR)?",
+      "options": [
+        "Der Browser lädt nur ein leeres Grundgerüst und macht sonst nichts",
+        "Der Server berechnet das fertige HTML, bevor es an den Browser gesendet wird",
+        "Die Seite wird ausschließlich im Browser per JavaScript zusammengebaut",
+        "Es findet grundsätzlich keinerlei Kommunikation mit dem Server statt"
+      ],
+      "answer": 1,
+      "explanation": "Bei serverseitigem Rendering erzeugt der Server das fertige HTML, bevor es an den Browser übertragen wird — im Unterschied zur clientseitigen Erzeugung im Browser."
+    },
+    {
+      "id": "q3",
+      "question": "Warum lassen sich statische Webseiten in der Regel besser cachen als dynamische?",
+      "options": [
+        "Weil dynamische Webseiten grundsätzlich keine HTML-Dateien erzeugen",
+        "Weil statische Webseiten keinerlei CSS oder JavaScript verwenden dürfen",
+        "Weil bei jeder Anfrage dieselbe unveränderte Datei ausgeliefert wird",
+        "Caching hat keinen Zusammenhang mit statischen oder dynamischen Seiten"
+      ],
+      "answer": 2,
+      "explanation": "Da bei statischen Seiten immer dieselbe, unveränderte Datei ausgeliefert wird, lässt sie sich vollständig zwischenspeichern (z. B. über ein CDN) — bei dynamischen Inhalten ist das nur eingeschränkt möglich."
+    },
+    {
+      "id": "q4",
+      "question": "Welchen zusätzlichen Sicherheitsaspekt bringt eine dynamische, serverseitig generierte Webseite typischerweise mit sich?",
+      "options": [
+        "Dynamische Webseiten sind grundsätzlich sicherer als statische Webseiten",
+        "Es entstehen dadurch überhaupt keine zusätzlichen Sicherheitsrisiken",
+        "Angriffsflächen entstehen ausschließlich bei rein statischen Webseiten",
+        "Eine grundsätzlich größere Angriffsfläche, z. B. durch SQL-Injection bei der Datenbankanbindung"
+      ],
+      "answer": 3,
+      "explanation": "Da der Server aktiv Code ausführt und oft mit einer Datenbank interagiert, entsteht eine größere Angriffsfläche — z. B. durch SQL-Injection — im Vergleich zu rein statisch ausgelieferten Dateien."
+    },
+    {
+      "id": "q5",
+      "question": "Die TechNord GmbH baut ein Kundenportal mit individueller Bestellhistorie pro Kunde aus der Datenbank. Welcher Ansatz passt dafür?",
+      "options": [
+        "Eine rein statische Seite ohne jede Datenbankanbindung reicht dafür vollständig aus",
+        "Eine dynamische, serverseitig generierte Anwendung mit Datenbankanbindung",
+        "Ein einfacher Static-Hosting-Dienst ohne jede Laufzeitumgebung",
+        "Ein vorgedruckter Flyer, der für alle Kunden identisch bleibt"
+      ],
+      "answer": 1,
+      "explanation": "Individuelle, aktuelle Daten pro Kunde erfordern eine dynamische Erzeugung des Inhalts mit Datenbankanbindung — eine statische Seite könnte das nicht abbilden."
+    }
+  ]
+}

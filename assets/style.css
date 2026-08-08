@@ -828,6 +828,11 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   grid-column: 1 / -1;
   text-decoration: none;
 }
+.progress-io__status {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.8rem;
+}
 .merksaetze-controls {
   display: flex;
   align-items: center;

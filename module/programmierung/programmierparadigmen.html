@@ -138,6 +138,33 @@
           „Geschäftskunde“ gemeinsame Eigenschaften von einer
           Basisklasse „Kunde“, statt Code doppelt zu schreiben.</li>
       </ul>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Schreibe in Pseudocode einen rein <strong>prozeduralen</strong>
+        Algorithmus, der prüft, ob eine gegebene Jahreszahl ein Schaltjahr
+        ist. Regel: durch 4 teilbar, aber nicht durch 100 — außer sie ist
+        zusätzlich auch durch 400 teilbar.
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>ALGORITHMUS IstSchaltjahr(Jahr)
+  WENN (Jahr MOD 4 == 0) UND (Jahr MOD 100 != 0) DANN
+    ERGEBNIS = true
+  SONST WENN Jahr MOD 400 == 0 DANN
+    ERGEBNIS = true
+  SONST
+    ERGEBNIS = false
+  ENDE WENN
+  RÜCKGABE ERGEBNIS</code></pre>
+        <p>
+          Der Algorithmus ist rein prozedural: eine einfache Abfolge von
+          Prüfungen auf gemeinsamen Daten (<code>Jahr</code>), ohne
+          Objekte oder Klassen. Die kaskadierte Verzweigung deckt beide
+          Schaltjahr-Fälle ab: „durch 4, aber nicht durch 100“ oder
+          „zusätzlich durch 400 teilbar“.
+        </p>
+      </details>
     </section>
 
     <!-- 4. MERKSATZ -->

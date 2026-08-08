@@ -134,6 +134,43 @@
           bereits einen Logikfehler in einer Bedingung, noch bevor das
           Programm überhaupt kompiliert wurde.</li>
       </ul>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Führe für den folgenden Algorithmus einen Schreibtischtest mit
+        den Werten a = 7, b = 12, c = 9 durch: Notiere, welche Bedingung
+        zutrifft und welchen Wert <code>ERGEBNIS</code> am Ende hat.
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+ALGORITHMUS GrößteZahl(a, b, c)
+  WENN a &gt;= b UND a &gt;= c DANN
+    ERGEBNIS = a
+  SONST WENN b &gt;= c DANN
+    ERGEBNIS = b
+  SONST
+    ERGEBNIS = c
+  ENDE WENN
+  RÜCKGABE ERGEBNIS
+      </div>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>a = 7, b = 12, c = 9
+
+Schritt 1: a &gt;= b UND a &gt;= c ?
+           7 &gt;= 12 ist falsch -&gt; gesamte Bedingung falsch, weiter zu SONST WENN
+
+Schritt 2: b &gt;= c ?
+           12 &gt;= 9 ist wahr -&gt; ERGEBNIS = b = 12
+
+Schritt 3: RÜCKGABE ERGEBNIS -&gt; 12</code></pre>
+        <p>
+          Beim Schreibtischtest wird jede Bedingung mit den konkreten
+          Testwerten von Hand ausgewertet, statt das Programm laufen zu
+          lassen. Da <code>a &gt;= b</code> hier falsch ist, wird die
+          erste Bedingung übersprungen und die kaskadierte
+          <code>SONST WENN</code>-Bedingung geprüft.
+        </p>
+      </details>
     </section>
 
     <!-- 4. MERKSATZ -->

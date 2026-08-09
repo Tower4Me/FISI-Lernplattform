@@ -28,6 +28,7 @@ Unabhaengig vom Seitentyp immer geprueft:
     das wuerde jede der vier bei Fehlen ohnehin sofort sichtbar brechen).
   - <footer class="site-footer">...</footer> muss inhaltlich exakt dem
     Referenz-Footer aus templates/unit-template.html entsprechen.
+  - Ein <link rel="icon" ...> (Favicon) muss vorhanden sein.
 
 Exit-Code 0, wenn alles sauber ist, sonst 1.
 """
@@ -74,6 +75,9 @@ def main():
             errors.append(rel + ': kein <footer class="site-footer">-Block')
         elif m.group(1).strip() != reference_footer:
             errors.append(rel + ": Footer weicht vom Referenz-Footer ab")
+
+        if 'rel="icon"' not in html:
+            errors.append(rel + ": kein Favicon-<link>")
 
         scripts = set(SCRIPT_SRC_RE.findall(html))
         missing_core = CORE_SCRIPTS - scripts

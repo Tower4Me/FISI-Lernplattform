@@ -15,6 +15,7 @@ jobs:
       - run: python tools/validate_manifest.py
       - run: python tools/check_links.py
       - run: python tools/validate_pool.py
+      - run: python tools/check_boilerplate.py
       - run: python tools/build_search_index.py
       - name: Pruefen, ob data/search-index.json aktuell ist
         run: git diff --exit-code -- data/search-index.json

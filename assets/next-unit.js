@@ -39,10 +39,8 @@
   nav.appendChild(backLink);
 
   /* -------------------------------------------------------- Pfad-Basis --- */
-  var scriptEl = document.currentScript;
-  var prefix = scriptEl
-    ? scriptEl.getAttribute("src").replace(/assets\/next-unit\.js.*$/, "")
-    : "";
+  /* Kommt von manifest-loader.js (muss vor diesem Skript eingebunden sein). */
+  var prefix = window.FISIManifest.prefix;
 
   /* ------------------------------------------------- Aktuelle Einheit --- */
   var match = window.location.pathname.match(/module\/([^\/]+)\/([^\/]+)\.html/);
@@ -50,11 +48,7 @@
   var currentModuleSlug = match[1];
   var currentUnitSlug = match[2];
 
-  fetch(prefix + "data/manifest.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
+  window.FISIManifest.load()
     .then(function (data) {
       var mod = (data.modules || []).filter(function (m) {
         return m.slug === currentModuleSlug;

@@ -159,11 +159,7 @@
     var printBtn = document.getElementById("merksaetze-print");
     if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
 
-    fetch("data/manifest.json")
-      .then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
+    window.FISIManifest.load()
       .then(function (data) {
         var units = [];
         (data.modules || []).forEach(function (mod) {

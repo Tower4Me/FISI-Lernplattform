@@ -35,6 +35,8 @@
 
   <script src="assets/quiz-engine.js"></script>
 
+  <script src="assets/manifest-loader.js"></script>
+
   <script src="assets/theme.js"></script>
   <script src="assets/search.js"></script>
   <script src="assets/filter.js"></script>
@@ -151,11 +153,7 @@
                : "Noch keine Einheiten angelegt.";
     }
 
-    fetch("data/manifest.json")
-      .then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
+    window.FISIManifest.load()
       .then(function (data) {
         var modules = data.modules || [];
         var list = document.getElementById("module-list");

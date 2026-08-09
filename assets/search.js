@@ -24,13 +24,10 @@
   var MAX_RESULTS = 20;
 
   /* -------------------------------------------------------- Pfad-Basis --- */
-  /* Script-Tag selbst traegt den relativen Pfad zum Repo-Root (analog dazu,
-     wie style.css/theme.js je nach Seitentiefe eingebunden werden):
-     "assets/search.js" (Index) bzw. "../../assets/search.js" (Einheiten). */
-  var scriptEl = document.currentScript;
-  var prefix = scriptEl
-    ? scriptEl.getAttribute("src").replace(/assets\/search\.js.*$/, "")
-    : "";
+  /* Kommt von manifest-loader.js (muss als erstes Skript vor diesem hier
+     eingebunden sein) -- einmal pro Seite berechnet statt in jedem
+     manifest-ladenden Skript einzeln. */
+  var prefix = window.FISIManifest.prefix;
 
   var isIndex = !!document.getElementById("module-list");
 
@@ -46,11 +43,7 @@
 
   /* ------------------------------------------------------- Daten laden --- */
   var entries = null; // erst nach Laden von manifest.json gefuellt
-  var loadPromise = fetch(prefix + "data/manifest.json")
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
+  var loadPromise = window.FISIManifest.load()
     .then(function (data) {
       var list = [];
       var order = 0;

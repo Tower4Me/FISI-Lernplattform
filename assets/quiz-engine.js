@@ -159,7 +159,7 @@ li.addEventListener("click", function (e) {
           fb.textContent = "Richtig. " + (q.explanation || "");
         } else {
           fb.className = "quiz__feedback quiz__feedback--fail";
-          var chosenTxt = state[qi].chosen == null ? "Keine Antwort gewaehlt." : "Falsch.";
+          var chosenTxt = state[qi].chosen == null ? "Keine Antwort gewählt." : "Falsch.";
           fb.textContent = chosenTxt + " " + (q.explanation || "");
         }
       });

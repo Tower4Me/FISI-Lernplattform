@@ -32,7 +32,7 @@
   --acc-einstieg: #2f7fd1; /* Vorschlag — war #4aa3ff, gedeckter fuer Hell-Kontrast (Option B) */
   --acc-konzept: #6b7280;  /* Vorschlag — war #e6edf3 (auf Hell unsichtbar), neutrales Grau */
   --acc-praxis: #2f8f46;   /* Vorschlag — war #3fb950, gedeckter fuer Hell-Kontrast (Option B) */
-  --acc-merksatz: #e3b341; /* unveraendert, siehe CONVENTIONS Theming-Hinweis zu Restkollision */
+  --acc-merksatz: #a87718; /* Vorschlag — war #e3b341 (Restkollision auf Hell, ~1.9:1 gegen white/creme), jetzt gemessen >=3.0:1 gegen alle 10 Hintergruende (5 Themes x --surface/--surface-2), Minimum 3.28:1 bei sunset/surface-2 */
   --acc-quiz: #a371f7;     /* unveraendert */
 
   /* Quiz-Feedback (Gruppe 2) */
@@ -207,7 +207,7 @@ pre { max-width: 100%; overflow-x: auto; }
 .module-card[open] > .module-card__head::after { transform: rotate(45deg); }
 .module-card__title { margin: 0; font-size: 1.1rem; }
 .module-card__count { color: var(--text-muted); font-size: 0.85rem; white-space: nowrap; }
-.module-card__units { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.3rem; }
+.module-card__units { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
 .module-card__unit { display: flex; align-items: center; gap: 0.5rem; }
 .module-card__empty { color: var(--text-muted); font-style: italic; font-size: 0.9rem; }
 /* Author-CSS ueberschreibt sonst das UA-Standardverhalten von [hidden]

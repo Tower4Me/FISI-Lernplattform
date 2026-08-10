@@ -69,7 +69,26 @@
       return m ? el("span", "badge " + m[0], m[1]) : null;
     }
 
-    function renderModule(mod) {
+    // Ermittelt das Modul der ersten noch unerledigten, zaehlbaren Einheit
+    // in Manifest-Reihenfolge -- nur dieses Modul startet aufgeklappt.
+    // "zaehlt_nicht"-Einheiten (Modul "Pruefung") werden dabei uebersprungen,
+    // genau wie beim Fortschrittszaehler. Liefert null, wenn keine
+    // unerledigte zaehlbare Einheit mehr existiert (alles erledigt) --
+    // dann startet kein Modul aufgeklappt.
+    function firstOpenModuleSlug(modules) {
+      for (var i = 0; i < modules.length; i++) {
+        var mod = modules[i];
+        var countable = (mod.units || []).filter(function (u) { return !u.zaehlt_nicht; });
+        for (var j = 0; j < countable.length; j++) {
+          var u = countable[j];
+          var p = Progress.get(mod.slug + "/" + u.slug);
+          if (!(p && p.done)) return mod.slug;
+        }
+      }
+      return null;
+    }
+
+    function renderModule(mod, openSlug) {
       var wrapper = el("li");
       var card = el("details", "module-card");
       card.id = mod.slug;
@@ -86,12 +105,12 @@
         return p && p.done;
       }).length;
 
-      // Vollstaendig abgeschlossene Module (alle zaehlbaren Einheiten erledigt)
-      // starten eingeklappt; alles andere (inkl. leerer/rein nicht-zaehlender
-      // Module) offen. Rein aus dem beim Laden berechneten Fortschritt
-      // abgeleitet -- der Nutzer kann jederzeit manuell wieder aufklappen
+      // Nur das Modul mit der ersten unerledigten zaehlbaren Einheit
+      // (Manifest-Reihenfolge) startet aufgeklappt, alle anderen zu --
+      // inkl. "Pruefung" (hat keine zaehlbaren Einheiten, kann also nie
+      // dieses Modul sein). Der Nutzer kann jederzeit manuell aufklappen
       // (natives <details>).
-      card.open = !(countable.length > 0 && doneCount === countable.length);
+      card.open = (mod.slug === openSlug);
 
       var head = el("summary", "module-card__head");
       head.appendChild(el("h2", "module-card__title", mod.name));
@@ -160,7 +179,8 @@
         var modules = data.modules || [];
         var list = document.getElementById("module-list");
         list.innerHTML = "";
-        modules.forEach(function (m) { list.appendChild(renderModule(m)); });
+        var openSlug = firstOpenModuleSlug(modules);
+        modules.forEach(function (m) { list.appendChild(renderModule(m, openSlug)); });
         renderGlobalProgress(modules);
       })
       .catch(function (err) {

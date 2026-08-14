@@ -20,46 +20,46 @@
         "Weil NFC-Chips aus rein technischen Gründen keine größere Reichweite erreichen können",
         "Weil NFC ausschließlich zum Lesen klassischer 1D-Barcodes entwickelt wurde",
         "Weil kurze Reichweite verhindert, dass beim Bezahlen ein falsches Gerät reagiert",
-        "Weil eine größere Funkreichweite bei NFC-Chips gesetzlich verboten wäre"
+        "Weil NFC wie ein Barcode zwingend Sichtkontakt zum Lesegerät benötigt"
       ],
       "answer": 2,
-      "explanation": "Die bewusst sehr kurze Reichweite von NFC ist ein Sicherheitsmerkmal: Nur das Gerät, das man wirklich direkt ans Terminal hält, soll reagieren — nicht ein Gerät in der Tasche."
+      "explanation": "Die bewusst sehr kurze Reichweite von NFC ist ein Sicherheitsmerkmal: Nur das Gerät, das man wirklich direkt ans Terminal hält, soll reagieren — nicht ein Gerät in der Tasche. Sichtkontakt braucht NFC dabei gerade nicht, sonst würde es wie ein Barcode funktionieren, nicht per Funk."
     },
     {
       "id": "q3",
       "question": "Was unterscheidet einen passiven von einem aktiven RFID-Tag?",
       "options": [
         "Ein passiver Tag besitzt eine eigene Batterie, ein aktiver Tag benötigt keine eigene Stromquelle",
-        "Aktive RFID-Tags funktionieren ausschließlich in Kombination mit klassischen Barcode-Scannern",
+        "Aktive RFID-Tags haben bewusst eine besonders kurze Reichweite, ähnlich wie NFC",
         "Passive und aktive Tags unterscheiden sich lediglich in der Farbe des aufgedruckten Etiketts",
         "Ein passiver Tag wird vom Lesegerät gespeist, ein aktiver hat eine eigene Batterie"
       ],
       "answer": 3,
-      "explanation": "Passive RFID-Tags haben keine eigene Stromquelle und werden vom Lesegerät gespeist (kurze Reichweite, günstig). Aktive Tags besitzen eine eigene Batterie und erreichen deutlich größere Reichweiten."
+      "explanation": "Passive RFID-Tags haben keine eigene Stromquelle und werden vom Lesegerät gespeist (kurze Reichweite, günstig). Aktive Tags besitzen eine eigene Batterie und erreichen deutlich größere Reichweiten — die bewusst kurze Reichweite ist stattdessen ein Merkmal von NFC, nicht aktiver RFID-Tags."
     },
     {
       "id": "q4",
       "question": "Wofür wird ein Asset Tag an einem Firmen-Notebook verwendet?",
       "options": [
         "Um das Gerät mit seinem Inventar-Datenbank-Eintrag zu verknüpfen",
-        "Um das Notebook automatisch mit dem firmeneigenen WLAN zu verbinden",
-        "Um die Akkulaufzeit des Notebooks im Dauerbetrieb spürbar zu verlängern",
-        "Um das Notebook bei Diebstahl technisch dauerhaft unbrauchbar zu machen"
+        "Um beim Hersteller direkt Garantiestatus und passende Treiber abzurufen",
+        "Um das Gerät auch ohne Sichtkontakt per Funk aus mehreren Metern zu erfassen",
+        "Um beim kontaktlosen Bezahlen sicherzustellen, dass nur das gehaltene Gerät reagiert"
       ],
       "answer": 0,
-      "explanation": "Der Asset Tag (meist Barcode/QR-Code plus Nummer) verknüpft das physische Gerät mit seinem Datensatz in der Inventarverwaltung — wichtig für Inventur und Lebenszyklus-Management."
+      "explanation": "Der Asset Tag (meist Barcode/QR-Code plus Nummer) verknüpft das physische Gerät mit seinem Datensatz in der Inventarverwaltung — wichtig für Inventur und Lebenszyklus-Management. Garantie/Treiber-Abruf ist Aufgabe des Service Tags, Funkerfassung aus Distanz die von RFID, kurze Reichweite beim Bezahlen die von NFC."
     },
     {
       "id": "q5",
       "question": "Ein Lager erfasst ganze Paletten automatisch, während sie durch ein Lesegerät-Tor am Warenausgang fahren, ohne dass jemand einzelne Pakete scannen muss. Welche Technologie ermöglicht das am besten?",
       "options": [
         "1D-Barcode",
-        "Ein herkömmlicher Flachbettscanner",
+        "NFC",
         "QR-Code",
         "RFID"
       ],
       "answer": 3,
-      "explanation": "RFID benötigt keinen Sichtkontakt und kann mehrere Tags gleichzeitig aus der Ferne erfassen — ideal, um ganze Paletten beim Durchfahren eines Tors automatisch zu erkennen."
+      "explanation": "RFID benötigt keinen Sichtkontakt und kann mehrere Tags gleichzeitig aus der Ferne erfassen — ideal, um ganze Paletten beim Durchfahren eines Tors automatisch zu erkennen. NFC funkt zwar auch kontaktlos, seine Reichweite ist aber bewusst auf wenige Zentimeter begrenzt und für ein Tor-Szenario ungeeignet."
     },
     {
       "id": "q6",

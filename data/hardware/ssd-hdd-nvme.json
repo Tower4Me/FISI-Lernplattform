@@ -8,10 +8,10 @@
         "Ein breiterer SATA-Bus als bei älteren SSD-Generationen",
         "Grundsätzlich langsameres, dafür aber günstigeres NAND-Flash",
         "Direkte PCIe-Anbindung statt des langsameren SATA-Busses",
-        "Ein größerer DRAM-Cache-Baustein auf dem SSD-Controller"
+        "Der M.2-Formfaktor, den SATA-SSDs nicht nutzen können"
       ],
       "answer": 2,
-      "explanation": "NVMe läuft als Protokoll direkt über PCIe statt über SATA und umgeht damit den SATA-Flaschenhals (~550 MB/s). Dadurch sind deutlich höhere Geschwindigkeiten möglich."
+      "explanation": "NVMe läuft als Protokoll direkt über PCIe statt über SATA und umgeht damit den SATA-Flaschenhals (~550 MB/s). M.2 ist dagegen nur ein Formfaktor, den je nach Mainboard sowohl SATA- als auch NVMe-SSDs nutzen können."
     },
     {
       "id": "q2",
@@ -41,7 +41,7 @@
       "id": "q4",
       "question": "Warum hat eine QLC-SSD typischerweise eine geringere Haltbarkeit als eine MLC-SSD?",
       "options": [
-        "Weil QLC-SSDs grundsätzlich vollständig ohne eigenen Controller arbeiten",
+        "Weil QLC-Zellen weniger Bits pro Zelle speichern als MLC",
         "Weil QLC-Zellen mehr Bits speichern und weniger P/E-Zyklen vertragen",
         "Weil QLC-Speicherchips ausschließlich in klassischen HDDs verbaut werden",
         "Weil die Haltbarkeit grundsätzlich nicht vom verbauten NAND-Typ abhängt"

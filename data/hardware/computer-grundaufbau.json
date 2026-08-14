@@ -54,12 +54,12 @@
       "question": "Welche Komponente eines PCs speichert Daten dauerhaft, auch ohne Stromversorgung?",
       "options": [
         "RAM",
-        "CPU-Cache",
-        "Register",
-        "SSD/HDD"
+        "SSD/HDD",
+        "Mainboard",
+        "Steuerwerk"
       ],
-      "answer": 3,
-      "explanation": "SSD und HDD sind persistente Massenspeicher. RAM, CPU-Cache und Register sind flüchtig und verlieren ihren Inhalt ohne Stromversorgung."
+      "answer": 1,
+      "explanation": "SSD und HDD sind persistente Massenspeicher. RAM ist flüchtig, das Mainboard verbindet nur die Komponenten über die Busse, und das Steuerwerk holt und dekodiert Befehle — keines von beiden übernimmt eine Speicherfunktion."
     },
     {
       "id": "q6",

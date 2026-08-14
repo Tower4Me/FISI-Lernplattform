@@ -18,12 +18,12 @@
       "question": "Warum ist ein 2D-Imager einem reinen Laserscanner im Wareneingang oft überlegen?",
       "options": [
         "Ein 2D-Imager kann ausschließlich saubere, unbeschädigte Barcodes lesen",
-        "Ein 2D-Imager benötigt zwingend eine Kabelverbindung, ein Laserscanner nicht",
+        "Ein 2D-Imager nutzt wie ein CCD-Flachbettscanner Spiegel für mehr Schärfentiefe",
         "Ein 2D-Imager ist ausschließlich für dreidimensionale Objekte geeignet",
         "Ein 2D-Imager liest auch gedrehte oder beschädigte Codes sowie QR"
       ],
       "answer": 3,
-      "explanation": "Kamera-basierte 2D-Imager erkennen Codes unabhängig von der Ausrichtung und lesen sowohl 1D- als auch 2D-Codes, während reine Laserscanner nur klassische 1D-Barcodes erfassen."
+      "explanation": "Kamera-basierte 2D-Imager erkennen Codes unabhängig von der Ausrichtung und lesen sowohl 1D- als auch 2D-Codes, während reine Laserscanner nur klassische 1D-Barcodes erfassen. Spiegel für mehr Schärfentiefe sind ein Merkmal des CCD-Sensors in Flachbettscannern, nicht der Barcode-Erkennung."
     },
     {
       "id": "q3",

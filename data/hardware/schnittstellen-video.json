@@ -67,11 +67,11 @@
       "options": [
         "Weil USB-C-Kabel grundsätzlich alle Signale unterstützen, unabhängig vom Standard",
         "Weil RJ45-Signale automatisch in jedes beliebige USB-Kabel eingebettet werden",
-        "Weil das Notebook dafür überhaupt keinen Betriebssystem-Treiber benötigt",
+        "Weil jedes USB4-Kabel automatisch auch PCIe und DisplayPort tunnelt wie Thunderbolt",
         "Weil Thunderbolt USB, DisplayPort und Strom durch eine Leitung tunnelt"
       ],
       "answer": 3,
-      "explanation": "Thunderbolt bündelt mehrere Signalarten (USB, DisplayPort, Power Delivery) in einem Kabel — die Dock verteilt sie dann auf Monitor, RJ45-Netzwerkport und Ladeausgang."
+      "explanation": "Thunderbolt bündelt mehrere Signalarten (USB, DisplayPort, Power Delivery) in einem Kabel — die Dock verteilt sie dann auf Monitor, RJ45-Netzwerkport und Ladeausgang. Nicht jeder USB-C- oder USB4-Anschluss ist Thunderbolt-fähig; das PCIe-Tunneling ist eine Zusatzleistung von Thunderbolt."
     },
     {
       "id": "q7",

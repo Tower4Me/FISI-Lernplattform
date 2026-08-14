@@ -6,12 +6,12 @@
       "question": "Warum eignet sich eine GPU besonders gut für Bildberechnung und KI-Anwendungen?",
       "options": [
         "Sie besitzt viele einfache Kerne für massiv parallele Berechnung",
-        "Sie erreicht grundsätzlich eine höhere Taktfrequenz als jede vorhandene CPU",
-        "Sie kann ausschließlich mit Fließkommazahlen rechnen, nie mit Ganzzahlen",
+        "Sie besitzt wie eine CPU nur wenige, aber sehr komplexe Rechenkerne",
+        "Sie ist ausschließlich für die Bildausgabe über HDMI/DisplayPort zuständig, nicht fürs Rechnen",
         "Sie übernimmt dabei den kompletten Arbeitsspeicher des gesamten Systems"
       ],
       "answer": 0,
-      "explanation": "Anders als die CPU mit wenigen komplexen Kernen besitzt eine GPU hunderte bis tausende einfache Kerne — ideal für die vielen gleichartigen, parallelisierbaren Berechnungen bei Bildern und neuronalen Netzen."
+      "explanation": "Anders als die CPU mit wenigen komplexen Kernen besitzt eine GPU hunderte bis tausende einfache Kerne — ideal für die vielen gleichartigen, parallelisierbaren Berechnungen bei Bildern und neuronalen Netzen. Die Bildausgabe übernehmen dagegen nur die Anschlüsse HDMI/DisplayPort, nicht die Berechnung selbst."
     },
     {
       "id": "q2",

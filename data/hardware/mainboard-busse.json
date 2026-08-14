@@ -17,13 +17,13 @@
       "id": "q2",
       "question": "Was beschreibt die Angabe „x16“ bei einem PCIe-Steckplatz?",
       "options": [
-        "Die maximale Spannung des Slots in Volt",
+        "Die Gesamtzahl der PCIe-Steckplätze auf dem gesamten Mainboard",
         "Die Anzahl der Lanes (parallelen Datenleitungen) des Slots",
-        "Die Anzahl der Jahre, für die der Slot Garantie hat",
-        "Die Anzahl der Karten, die gleichzeitig in denselben Slot passen"
+        "Der Formfaktor des Mainboards, auf dem der Slot sitzt",
+        "Die PCIe-Generation, mit der die Grafikkarte betrieben wird"
       ],
       "answer": 1,
-      "explanation": "x1, x4, x8, x16 geben die Anzahl der PCIe-Lanes an — mehr Lanes bedeuten mehr Bandbreite. Physisch größere Slots können auch kleinere Karten aufnehmen."
+      "explanation": "x1, x4, x8, x16 geben die Anzahl der PCIe-Lanes eines einzelnen Slots an — mehr Lanes bedeuten mehr Bandbreite. Die Gesamtzahl der Slots hängt dagegen vom Formfaktor ab (ATX bis 7, Micro-ATX bis 4, Mini-ITX 1), und die PCIe-Generation ist eine eigene, unabhängige Angabe."
     },
     {
       "id": "q3",
@@ -41,7 +41,7 @@
       "id": "q4",
       "question": "Was ist iSCSI?",
       "options": [
-        "Ein Block-Storage-Protokoll, das SCSI-Befehle in TCP/IP verpackt",
+        "Ein Protokoll, das SCSI-Befehle in TCP/IP-Pakete verpackt und über Ethernet an ein entferntes Speichersystem schickt",
         "Ein Dateisystem, das speziell für externe Festplatten entwickelt wurde",
         "Ein USB-Standard, der speziell für externe SSDs entwickelt wurde",
         "Eine Verschlüsselungsmethode, die ausschließlich für Massenspeicher gedacht ist"
@@ -56,10 +56,10 @@
         "M.2 ist selbst ein eigenständiges Übertragungsprotokoll, unabhängig von SATA",
         "M.2-Steckplätze unterstützen ausschließlich klassische HDDs, keine SSDs",
         "M.2 ist nur eine Steckform, SATA oder NVMe je nach Mainboard",
-        "M.2 ersetzt vollständig alle PCIe-Slots eines modernen Mainboards"
+        "M.2 ist ein eigener Bustyp, unabhängig von PCIe und SATA"
       ],
       "answer": 2,
-      "explanation": "M.2 beschreibt nur die physische Steckform. Ob ein M.2-Slot SATA- oder NVMe-Protokoll (über PCIe) nutzt, hängt vom jeweiligen Mainboard ab."
+      "explanation": "M.2 beschreibt nur die physische Steckform. Ob ein M.2-Slot SATA- oder NVMe-Protokoll (über PCIe) nutzt, hängt vom jeweiligen Mainboard ab — M.2 ist also gerade nicht unabhängig von beiden, sondern nutzt immer eines davon."
     },
     {
       "id": "q6",
@@ -68,10 +68,10 @@
         "Der direkt an der CPU angebundene x16-PCIe-Slot für die Grafikkarte",
         "USB, SATA, Audio sowie zusätzliche PCIe-Slots",
         "Der direkt an der CPU angebundene primäre NVMe-x4-Slot",
-        "Ausschließlich der eingebaute Arbeitsspeicher des Systems"
+        "Die USB-Anschlüsse, die direkt und ausschließlich von der Grafikkarte verwaltet werden"
       ],
       "answer": 1,
-      "explanation": "GPU (x16) und die primäre NVMe-SSD (x4) hängen meist direkt an der CPU. USB, SATA, Audio und zusätzliche PCIe-Slots werden dagegen vom Chipsatz (PCH) verwaltet."
+      "explanation": "GPU (x16) und die primäre NVMe-SSD (x4) hängen meist direkt an der CPU. USB, SATA, Audio und zusätzliche PCIe-Slots werden dagegen vom Chipsatz (PCH) verwaltet — nicht von der Grafikkarte."
     },
     {
       "id": "q7",

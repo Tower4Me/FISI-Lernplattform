@@ -41,13 +41,13 @@
       "id": "q4",
       "question": "Warum ersetzt selbst ein RAID 6 kein Backup?",
       "options": [
-        "RAID 6 arbeitet im laufenden Betrieb schlicht deutlich zu langsam",
+        "RAID 6 bietet wie RAID 0 keinerlei Ausfalltoleranz gegen Plattenausfall",
         "RAID 6 verwendet in seinem Aufbau überhaupt keine Parität",
         "RAID 6 speichert die Daten dabei nur ein einziges Mal ab",
         "Löschen, Ransomware oder Feuer treffen den ganzen Verbund"
       ],
       "answer": 3,
-      "explanation": "RAID schützt nur vor physischem Plattenausfall. Logische Fehler (Löschen, Ransomware) oder Katastrophen (Feuer) betreffen den gesamten Verbund gleichzeitig — dagegen hilft nur ein echtes, separates Backup."
+      "explanation": "RAID schützt nur vor physischem Plattenausfall. Logische Fehler (Löschen, Ransomware) oder Katastrophen (Feuer) betreffen den gesamten Verbund gleichzeitig — dagegen hilft nur ein echtes, separates Backup. RAID 6 verträgt dabei sogar 2 gleichzeitige Plattenausfälle, schützt aber trotzdem nicht vor diesen logischen Fehlern."
     },
     {
       "id": "q5",
@@ -55,23 +55,23 @@
       "options": [
         "RAID 10",
         "RAID 0 (kein Schutz)",
-        "JBOD",
+        "RAID 5",
         "RAID 1"
       ],
       "answer": 0,
-      "explanation": "RAID 10 kombiniert Spiegelung (Sicherheit) mit Striping (Geschwindigkeit) — ideal für Datenbankserver, allerdings mit dem Preis von nur 50 % Nutzkapazität."
+      "explanation": "RAID 10 kombiniert Spiegelung (Sicherheit) mit Striping (Geschwindigkeit) — ideal für Datenbankserver, allerdings mit dem Preis von nur 50 % Nutzkapazität. RAID 5 bietet zwar auch Ausfallschutz, aber nicht dieselbe Kombination aus hoher Schreib-/Leseleistung, weshalb hier RAID 10 die richtige Wahl ist."
     },
     {
       "id": "q6",
       "question": "Was ist der Unterschied zwischen Hot Swap und Hot Spare?",
       "options": [
         "Beide Begriffe meinen im RAID-Kontext exakt dasselbe",
-        "Hot Swap ist ausschließlich bei RAID 0 möglich, Hot Spare nur bei RAID 1",
+        "Hot Swap ist eine automatisch einspringende Reserveplatte, Hot Spare der Austausch im laufenden Betrieb",
         "Hot Swap ist Austausch im Betrieb, Hot Spare eine eingebaute Reserve",
         "Hot Spare erfordert grundsätzlich das Herunterfahren des gesamten Systems"
       ],
       "answer": 2,
-      "explanation": "Hot Swap beschreibt den Austausch im laufenden Betrieb ohne Systemabschaltung. Hot Spare ist eine zusätzliche, schon eingebaute Reserveplatte, die automatisch einspringt und den Rebuild sofort startet."
+      "explanation": "Hot Swap beschreibt den Austausch im laufenden Betrieb ohne Systemabschaltung. Hot Spare ist eine zusätzliche, schon eingebaute Reserveplatte, die automatisch einspringt und den Rebuild sofort startet — die Definitionen sind also genau vertauscht, nicht identisch."
     },
     {
       "id": "q7",

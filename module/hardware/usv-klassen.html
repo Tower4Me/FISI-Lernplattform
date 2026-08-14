@@ -51,11 +51,16 @@
     <section id="konzept" class="section section--konzept">
       <h2>Konzept</h2>
       <p>
-        Die Grundfunktion einer USV (Stromausfall per Akku überbrücken)
-        ist bereits aus der Einheit <em>RTO/RPO & Verfügbarkeit</em>
-        bekannt. Die Norm <strong>IEC 62040-3</strong> unterscheidet
-        zusätzlich drei Betriebsklassen danach, wie stark eine USV das
-        angeschlossene System von Netzstörungen entkoppelt.
+        Eine USV (unterbrechungsfreie Stromversorgung) sitzt zwischen
+        Steckdose und angeschlossenem Gerät und überbrückt kurze
+        Netzausfälle oder Spannungsschwankungen mit einem eingebauten
+        Akku, sodass Server oder Arbeitsplatzrechner weiterlaufen oder
+        kontrolliert heruntergefahren werden können, statt abrupt
+        auszufallen. Details zu Einsatzszenarien und Redundanzstrategien
+        stehen in der Einheit <em>RTO/RPO & Verfügbarkeit</em>. Die Norm
+        <strong>IEC 62040-3</strong> unterscheidet zusätzlich drei
+        Betriebsklassen danach, wie stark eine USV das angeschlossene
+        System von Netzstörungen entkoppelt.
       </p>
 
       <h3>Die drei USV-Klassen</h3>
@@ -198,6 +203,15 @@
           einfache <strong>VFD-USV</strong> reicht, um kurze
           Stromausfälle zu überbrücken.</li>
       </ul>
+      <p>
+        Zusätzlich betreibt der Serverraum ein Diesel-Notstromaggregat für
+        längere Ausfälle. Die USV überbrückt bei vollem Akku 20 Minuten,
+        das Aggregat braucht 3 Minuten zum Hochfahren. Bei linearer
+        Entladung muss das Aggregat spätestens starten, wenn der
+        USV-Akku noch (3 ÷ 20) × 100 % ≈ <strong>15 % Restladung</strong>
+        hat, damit die Last rechtzeitig übernommen wird, bevor der Akku
+        leer ist.
+      </p>
     </section>
 
     <!-- 4. MERKSATZ -->

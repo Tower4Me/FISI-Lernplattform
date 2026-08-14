@@ -65,13 +65,13 @@
       "id": "q6",
       "question": "Warum reicht die alleinige VA-Angabe einer USV nicht aus, um zu prüfen, ob sie für ein bestimmtes Gerät geeignet ist?",
       "options": [
-        "Weil VA-Angaben von Herstellern grundsätzlich systematisch falsch ausgezeichnet werden",
+        "Weil VA- und Watt-Angaben bei jeder USV immer exakt gleich groß sind",
         "Weil VA ausschließlich für die Akkukapazität steht, nicht für Leistung",
         "Weil erst über cos φ die nutzbare Wirkleistung berechnet wird",
         "Weil Geräte grundsätzlich überhaupt keine Wirkleistung benötigen"
       ],
       "answer": 2,
-      "explanation": "Geräte werden in Watt (Wirkleistung) angegeben. Die USV liefert Scheinleistung (VA). Erst die Umrechnung über cos φ zeigt, ob die tatsächlich nutzbare Wirkleistung ausreicht."
+      "explanation": "Geräte werden in Watt (Wirkleistung) angegeben. Die USV liefert Scheinleistung (VA). Erst die Umrechnung über cos φ zeigt, ob die tatsächlich nutzbare Wirkleistung ausreicht — bei cos φ = 0,6 liefert eine 1000-VA-USV real nur 600 W, VA und Watt sind also gerade nicht identisch."
     },
     {
       "id": "q7",
@@ -79,11 +79,11 @@
       "options": [
         "VFI (Online)",
         "keine USV-Klasse eignet sich für Router",
-        "nur eine Zero-Client-USV",
+        "VI (Line-Interactive)",
         "VFD (Offline)"
       ],
       "answer": 3,
-      "explanation": "Für unkritische Geräte wie einen Heim-Router genügt die einfachste und günstigste Klasse VFD (Offline), da die kurze Umschaltzeit hier keine relevanten Folgen hat."
+      "explanation": "Für unkritische Geräte wie einen Heim-Router genügt die einfachste und günstigste Klasse VFD (Offline), da die kurze Umschaltzeit hier keine relevanten Folgen hat. VI ist im Praxisbeispiel dagegen den Büro-Arbeitsplätzen zugeordnet, VFI den Serverräumen."
     }
   ]
 }

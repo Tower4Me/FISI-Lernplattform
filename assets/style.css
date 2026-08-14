@@ -572,22 +572,23 @@ body:has(#module-list) .site-header__top { justify-content: flex-end; }
 }
 .site-search--prominent { min-width: 0; }
 .site-search--compact { min-width: 0; }
-/* index.html: Suche bekommt eine eigene volle Zeile, die Button-Toolbar
-   rutscht rechtsbuendig darunter (dasselbe Muster wie der bestehende
-   ≤600px-Umbruch aus Abschnitt 15a, hier bewusst dauerhaft statt nur auf
-   schmalen Screens) -- die Buttons (Farbe/Zahnrad/Filter als runde
-   Icon-Buttons, dazu die Textpille "Drucken") passen bei --maxw:820px
-   nicht sinnvoll in eine Zeile neben ein breites Suchfeld, ohne staendig
-   unschoen umzubrechen. */
+/* index.html: Suche und Button-Toolbar teilen sich EINE Zeile (wie auf
+   den Einheiten-Seiten), nicht mehr Suche oben + Toolbar in eigener
+   Zeile darunter -- seit dem Umbau auf Icon-Buttons (Farbe/Zahnrad/Filter
+   als runde Kreise statt Textpillen, siehe unten) ist die Toolbar schmal
+   genug, um neben der Suche in eine Zeile zu passen, ohne umzubrechen.
+   Suche bekommt dafuer eine kleinere Basisbreite als auf Einheiten-Seiten
+   (dort .site-search--prominent mit 20rem/22rem) -- waechst per
+   flex-grow trotzdem in den jeweils verbleibenden Platz. */
 body:has(#module-list) .site-header__actions {
-  width: 100%;
-  flex-wrap: wrap;
+  width: 100%; /* .site-header__top hat auf index.html nur dieses eine
+    Kind (kein Breadcrumb) -- ohne width:100% waere .site-header__actions
+    nur so breit wie sein Inhalt (Flex-Item ohne eigenen Grow-Wert), die
+    Suche haette dadurch keinen Platz zum Wachsen. */
 }
 body:has(#module-list) .site-search--prominent {
-  flex: 1 1 100%;
-}
-body:has(#module-list) .site-header__buttons {
-  margin-left: auto;
+  flex: 1 1 12rem;
+  min-width: 11rem;
 }
 /* Flex-Toolbar fuer Farbe/Zahnrad/Filter/Drucken -- von merksaetze.js
    angelegt, progress-io.js haengt seinen Zahnrad-Button direkt neben
@@ -599,6 +600,7 @@ body:has(#module-list) .site-header__buttons {
 .site-header__buttons {
   display: flex;
   flex-wrap: wrap;
+  flex-shrink: 0; /* nicht auf Kosten der eigenen Zeilenlaenge schrumpfen -- schrumpfen soll die Suche, siehe .site-search--prominent oben; die bestehende ≤600px-Regel stapelt bei echtem Platzmangel ohnehin komplett um */
   align-items: center;
   justify-content: flex-end;
   gap: 0.5rem;

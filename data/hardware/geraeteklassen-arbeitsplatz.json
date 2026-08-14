@@ -8,10 +8,10 @@
         "Fat Client rechnet lokal, Thin Client nutzt einen Server",
         "Ein Fat Client besitzt in der Regel kein eigenes Betriebssystem",
         "Ein Fat Client ist immer ein Tablet, ein Thin Client immer ein Notebook",
-        "Ein Fat Client benötigt zwingend eine eigene Dockingstation"
+        "Ein Fat Client bootet wie ein Zero Client direkt in die Serververbindung"
       ],
       "answer": 0,
-      "explanation": "Der Fat Client (klassischer PC) rechnet lokal mit eigener CPU/RAM. Der Thin Client hat nur minimale lokale Hardware und bezieht die eigentliche Rechenleistung von einem zentralen Terminalserver/VDI."
+      "explanation": "Der Fat Client (klassischer PC) rechnet lokal mit eigener CPU/RAM. Der Thin Client hat nur minimale lokale Hardware und bezieht die eigentliche Rechenleistung von einem zentralen Terminalserver/VDI. Ohne eigenes Betriebssystem direkt in die Serververbindung zu booten ist dagegen laut Tabelle exklusiv die Definition des Zero Clients."
     },
     {
       "id": "q2",
@@ -53,13 +53,13 @@
       "id": "q5",
       "question": "Welche Funktion übernimmt eine Dockingstation für ein Notebook am festen Arbeitsplatz?",
       "options": [
-        "Sie ersetzt dauerhaft den fest verbauten Akku des Notebooks",
+        "Sie macht aus dem Notebook technisch einen Desktop-PC mit voller Hardware-Erweiterbarkeit",
         "Sie macht aus dem angeschlossenen Notebook technisch einen Thin Client",
         "Sie verhindert danach die weitere mobile Nutzung des Notebooks",
         "Sie bündelt Anschlüsse für Monitor, Netzwerk und Strom"
       ],
       "answer": 3,
-      "explanation": "Eine Dockingstation bündelt Video-, Netzwerk-, USB- und Stromanschlüsse in einem Kabel und macht so aus dem mobilen Notebook am Schreibtisch einen vollwertigen Arbeitsplatz."
+      "explanation": "Eine Dockingstation bündelt Video-, Netzwerk-, USB- und Stromanschlüsse in einem Kabel und macht so aus dem mobilen Notebook am Schreibtisch einen vollwertigen Arbeitsplatz. Die interne Hardware-Erweiterbarkeit des Notebooks selbst bleibt dabei unverändert eingeschränkt, wie beim Desktop-PC wird sie dadurch nicht."
     },
     {
       "id": "q6",

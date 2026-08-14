@@ -5,10 +5,14 @@
    um zwischen zwei Browsern/Geraeten zu wechseln oder ein Backup zu haben.
 
    Existiert nur auf index.html (Selbst-Erkennung ueber #module-list,
-   analog filter.js/merksaetze.js). Haengt sich in das von merksaetze.js
-   gebaute 2-Spalten-Grid ".site-header__buttons" ein (Reihe 3), mit
-   Fallback auf ".site-header__actions" bzw. document.body, falls dieses
-   Grid aus irgendeinem Grund fehlt.
+   analog filter.js/merksaetze.js). UI: eigener Zahnrad-Icon-Button
+   (".progress-switcher", Optik/Aufbau 1:1 an theme.js/filter.js
+   angeglichen -- Button + selbst injiziertes Dropdown-Menue, hier mit
+   zwei Aktions-Eintraegen statt Radios) statt zwei einzelner Pillen.
+   Sitzt direkt neben dem Farbe-Button in der von merksaetze.js gebauten
+   Flex-Toolbar ".site-header__buttons" (siehe CONVENTIONS §15d), mit
+   Fallback auf ".site-header__actions" bzw. document.body, falls diese
+   Toolbar aus irgendeinem Grund fehlt.
 
    Zum "zaehlt_nicht"-Feld aus data/manifest.json (kennzeichnet Einheiten
    des Moduls "Pruefung", die nie als "erledigt" zaehlen, siehe
@@ -28,21 +32,73 @@
 
   var LS_KEY = "fisi:progress";
 
+  // Zahnrad-Icon, currentColor, kein Hex-Wert -- selbst verfasstes
+  // Markup, kein Fremd-Fetch (vgl. Kommentar in theme.js).
+  var ICON_SVG = '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">' +
+    '<circle cx="10" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
+    '<g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">' +
+    '<line x1="10" y1="2.5" x2="10" y2="4.3"/><line x1="10" y1="15.7" x2="10" y2="17.5"/>' +
+    '<line x1="2.5" y1="10" x2="4.3" y2="10"/><line x1="15.7" y1="10" x2="17.5" y2="10"/>' +
+    '<line x1="4.6" y1="4.6" x2="5.9" y2="5.9"/><line x1="14.1" y1="14.1" x2="15.4" y2="15.4"/>' +
+    '<line x1="15.4" y1="4.6" x2="14.1" y2="5.9"/><line x1="5.9" y1="14.1" x2="4.6" y2="15.4"/>' +
+    '</g></svg>';
+  function icon(svg) {
+    var span = document.createElement("span");
+    span.className = "icon-btn__icon";
+    span.innerHTML = svg;
+    return span;
+  }
+
+  var btn, menu, items = [];
+
+  function openMenu() {
+    menu.hidden = false;
+    btn.setAttribute("aria-expanded", "true");
+  }
+  function closeMenu() {
+    menu.hidden = true;
+    btn.setAttribute("aria-expanded", "false");
+  }
+
   function buildUI() {
     if (!document.getElementById("module-list")) return; // nur index.html
-    if (document.getElementById("progress-io-export")) return; // Idempotenz-Schutz
+    if (document.getElementById("progress-menu-btn")) return; // Idempotenz-Schutz
 
-    var exportBtn = document.createElement("button");
-    exportBtn.type = "button";
-    exportBtn.id = "progress-io-export";
-    exportBtn.className = "filter-switcher__btn";
-    exportBtn.textContent = "Fortschritt exportieren";
+    var wrap = document.createElement("div");
+    wrap.className = "progress-switcher";
 
-    var importBtn = document.createElement("button");
-    importBtn.type = "button";
-    importBtn.id = "progress-io-import";
-    importBtn.className = "filter-switcher__btn";
-    importBtn.textContent = "Fortschritt importieren";
+    btn = document.createElement("button");
+    btn.type = "button";
+    btn.id = "progress-menu-btn";
+    btn.className = "filter-switcher__btn icon-btn";
+    btn.setAttribute("aria-haspopup", "menu");
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", "Fortschritt: exportieren oder importieren (Menü öffnen)");
+    btn.title = "Fortschritt exportieren/importieren";
+    btn.appendChild(icon(ICON_SVG));
+
+    menu = document.createElement("ul");
+    menu.className = "filter-switcher__menu";
+    menu.setAttribute("role", "menu");
+    menu.setAttribute("aria-labelledby", "progress-menu-btn");
+    menu.hidden = true;
+
+    var exportItem = addItem("Fortschritt exportieren");
+    var importItem = addItem("Fortschritt importieren");
+
+    function addItem(text) {
+      var li = document.createElement("li");
+      li.setAttribute("role", "none");
+      var item = document.createElement("button");
+      item.type = "button";
+      item.setAttribute("role", "menuitem");
+      item.className = "filter-switcher__item";
+      item.textContent = text;
+      li.appendChild(item);
+      menu.appendChild(li);
+      items.push(item);
+      return item;
+    }
 
     var fileInput = document.createElement("input");
     fileInput.type = "file";
@@ -62,7 +118,10 @@
 
     function pad(n) { return n < 10 ? "0" + n : String(n); }
 
-    exportBtn.addEventListener("click", function () {
+    exportItem.addEventListener("click", function () {
+      closeMenu();
+      btn.focus();
+
       var raw = localStorage.getItem(LS_KEY) || "{}";
       var pretty;
       try {
@@ -87,7 +146,10 @@
       showStatus("Fortschritt als „" + filename + "“ heruntergeladen.");
     });
 
-    importBtn.addEventListener("click", function () { fileInput.click(); });
+    importItem.addEventListener("click", function () {
+      closeMenu();
+      fileInput.click();
+    });
 
     fileInput.addEventListener("change", function () {
       var file = fileInput.files && fileInput.files[0];
@@ -137,12 +199,64 @@
       reader.readAsText(file);
     });
 
-    var grid = document.querySelector(".site-header__buttons");
+    wrap.appendChild(btn);
+    wrap.appendChild(menu);
+    wrap.appendChild(fileInput);
+
+    function toggleMenu() {
+      if (menu.hidden) { openMenu(); } else { closeMenu(); }
+    }
+
+    btn.addEventListener("click", toggleMenu);
+    btn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleMenu();
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        openMenu();
+        items[0].focus();
+      } else if (e.key === "Escape") {
+        closeMenu();
+      }
+    });
+    menu.addEventListener("keydown", function (e) {
+      var idx = items.indexOf(document.activeElement);
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeMenu();
+        btn.focus();
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        items[(idx + 1) % items.length].focus();
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        items[(idx - 1 + items.length) % items.length].focus();
+      } else if (e.key === "Tab") {
+        closeMenu();
+      }
+    });
+    document.addEventListener("click", function (e) {
+      if (!wrap.contains(e.target)) closeMenu();
+    });
+
+    // Direkt neben dem Farbe-Button einhaengen (nicht ans Ende der
+    // Toolbar), analog zur Platzierung im Screenshot-Wunsch: Farbe |
+    // Zahnrad | Filter | Drucken. .site-header__buttons kommt von
+    // merksaetze.js, das vor diesem Skript laedt (Ladereihenfolge
+    // theme.js -> search.js -> filter.js -> merksaetze.js ->
+    // progress-io.js), .theme-switcher existiert an dieser Stelle also
+    // garantiert bereits.
+    var toolbar = document.querySelector(".site-header__buttons");
+    var themeSwitcher = toolbar && toolbar.querySelector(".theme-switcher");
     var actions = document.querySelector(".site-header__actions");
-    var target = grid || actions || document.body;
-    target.appendChild(exportBtn);
-    target.appendChild(importBtn);
-    target.appendChild(fileInput);
+    var target = toolbar || actions || document.body;
+
+    if (toolbar && themeSwitcher) {
+      toolbar.insertBefore(wrap, themeSwitcher.nextSibling);
+    } else {
+      target.appendChild(wrap);
+    }
     target.appendChild(status);
   }
 

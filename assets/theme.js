@@ -22,6 +22,24 @@
   ];
   var SPECIAL_START_INDEX = 2; // ab hier: "Spezialdesigns" (Creme/Terminal/Sunset), Trenner davor
 
+  // Icon statt Textlabel auf dem Button (Design-Fix: runder Icon-Button
+  // statt Textpille "Farbe: Dark"). Halbkreis-Symbol, laeuft ueber
+  // currentColor automatisch in allen 5 Themes, kein Hex-Wert. Selbst
+  // verfasstes, vertrauenswuerdiges Markup (kein Fremd-Fetch) -- die
+  // "nie innerHTML von Fremd-Content"-Regel aus CONVENTIONS §15d
+  // (Merksaetze-Sammelansicht) betrifft nur fremden Fetch-Inhalt, nicht
+  // eigenen, statischen Icon-Code.
+  var ICON_SVG = '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">' +
+    '<circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
+    '<path d="M10 2.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/>' +
+    '</svg>';
+  function icon(svg) {
+    var span = document.createElement("span");
+    span.className = "icon-btn__icon";
+    span.innerHTML = svg;
+    return span;
+  }
+
   var root = document.documentElement;
   var mql = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
 
@@ -50,7 +68,12 @@
 
   function updateUI(value) {
     if (!btn) return;
-    btn.textContent = "Farbe: " + labelFor(value);
+    // Icon bleibt statisch (in buildUI() einmal eingehaengt) -- hier nur
+    // noch Barrierefreiheits-/Hover-Text aktualisieren, kein textContent
+    // mehr (Button ist jetzt reiner Icon-Button, siehe CONVENTIONS §15d).
+    var label = "Farbe: " + labelFor(value);
+    btn.setAttribute("aria-label", label + " (Menü öffnen)");
+    btn.title = label;
     items.forEach(function (item) {
       var active = item.dataset.theme === value;
       item.setAttribute("aria-checked", active ? "true" : "false");
@@ -74,9 +97,10 @@
     btn = document.createElement("button");
     btn.type = "button";
     btn.id = "theme-switcher-btn";
-    btn.className = "theme-switcher__btn";
+    btn.className = "theme-switcher__btn icon-btn";
     btn.setAttribute("aria-haspopup", "menu");
     btn.setAttribute("aria-expanded", "false");
+    btn.appendChild(icon(ICON_SVG));
 
     menu = document.createElement("ul");
     menu.className = "theme-switcher__menu";

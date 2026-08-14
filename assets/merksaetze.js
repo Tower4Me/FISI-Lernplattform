@@ -1,12 +1,12 @@
 /* merksaetze.js — "Alle Merksaetze drucken".
    Zwei Rollen in einer Datei, je nach Seite (Selbst-Erkennung ueber
    vorhandene IDs, analog filter.js):
-   - index.html: baut aus dem bereits vorhandenen Farbe-/Filter-Button ein
-     2-Spalten-Grid (.site-header__buttons, Reihe 1: Farbe|Filter, Reihe 2:
-     dieser Link ueber beide Spalten) und haengt sich dank Skript-
-     Ladereihenfolge (theme.js -> search.js -> filter.js -> merksaetze.js)
-     garantiert nach beiden ein. Verlinkt zu merksaetze.html. Echter Link,
-     kein JS-Toggle. Details siehe CONVENTIONS §15d.
+   - index.html: baut aus dem bereits vorhandenen Farbe-/Filter-Button eine
+     gemeinsame Flex-Toolbar (.site-header__buttons, eine Zeile, umbricht
+     pro Pille bei Platzmangel) und haengt sich dank Skript-Ladereihenfolge
+     (theme.js -> search.js -> filter.js -> merksaetze.js) garantiert nach
+     beiden ein. Verlinkt zu merksaetze.html. Echter Link, kein JS-Toggle.
+     Details siehe CONVENTIONS §15d.
    - merksaetze.html: laedt alle Unit-Pfade aus data/manifest.json,
      extrahiert die #merksatz-Section jeder Einheit per DOMParser
      (fetch+parse ist inert, kein Skript aus der Fremd-HTML wird je
@@ -51,12 +51,13 @@
     // als letztes der drei Header-Skripte: theme.js -> search.js ->
     // filter.js -> merksaetze.js) bereits genau zwei flache Kinder:
     // .site-search und die schon vorhandenen .theme-switcher/.filter-switcher.
-    // Wir bauen daraus ein 2-Spalten-Grid (.site-header__buttons: Farbe|
-    // Filter in Reihe 1, dieser Druck-Button ueber beide Spalten in Reihe 2)
-    // und verschieben Theme-/Filter-Switcher unveraendert dort hinein --
-    // keine Aenderung an theme.js/filter.js noetig, beide funktionieren
-    // unabhaengig davon, wo ihr Wrapper-Element im DOM haengt (ihre
-    // Dropdown-Menues positionieren sich relativ zu sich selbst).
+    // Wir bauen daraus eine Flex-Toolbar (.site-header__buttons: Farbe,
+    // Filter und dieser Druck-Button als gleichwertige Pillen in einer
+    // Zeile) und verschieben Theme-/Filter-Switcher unveraendert dort
+    // hinein -- keine Aenderung an theme.js/filter.js noetig, beide
+    // funktionieren unabhaengig davon, wo ihr Wrapper-Element im DOM
+    // haengt (ihre Dropdown-Menues positionieren sich relativ zu sich
+    // selbst).
     var actions = document.querySelector(".site-header__actions");
     var themeSwitcher = actions && actions.querySelector(".theme-switcher");
     var filterSwitcher = actions && actions.querySelector(".filter-switcher");

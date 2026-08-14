@@ -41,6 +41,20 @@
   var active = getStored();
   var btn, menu, items = [];
 
+  // Icon statt Textlabel auf dem Button (Design-Fix: runder Icon-Button
+  // statt Textpille "Filter: Alle"), analog theme.js. Trichter-Symbol,
+  // currentColor, kein Hex-Wert. Selbst verfasstes Markup, kein
+  // Fremd-Fetch (vgl. Kommentar in theme.js).
+  var ICON_SVG = '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">' +
+    '<path d="M3 4h14l-5.5 6.5v4.5l-3 1.5v-6z" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+  function icon(svg) {
+    var span = document.createElement("span");
+    span.className = "icon-btn__icon";
+    span.innerHTML = svg;
+    return span;
+  }
+
   function labelFor(value) {
     return value === "alle" ? "Alle" : value.toUpperCase();
   }
@@ -66,7 +80,12 @@
 
   function updateUI() {
     if (!btn) return;
-    btn.textContent = "Filter: " + labelFor(active);
+    // Icon bleibt statisch (in buildUI() eingehaengt) -- hier nur noch
+    // Barrierefreiheits-/Hover-Text (Button ist reiner Icon-Button, siehe
+    // CONVENTIONS §15d).
+    var label = "Filter: " + labelFor(active);
+    btn.setAttribute("aria-label", label + " (Menü öffnen)");
+    btn.title = label;
     items.forEach(function (item) {
       var on = item.dataset.value === active;
       item.setAttribute("aria-checked", on ? "true" : "false");
@@ -101,9 +120,10 @@
     btn = document.createElement("button");
     btn.type = "button";
     btn.id = "filter-switcher-btn";
-    btn.className = "filter-switcher__btn";
+    btn.className = "filter-switcher__btn icon-btn";
     btn.setAttribute("aria-haspopup", "menu");
     btn.setAttribute("aria-expanded", "false");
+    btn.appendChild(icon(ICON_SVG));
 
     menu = document.createElement("ul");
     menu.className = "filter-switcher__menu";

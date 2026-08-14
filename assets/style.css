@@ -556,6 +556,13 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   margin-bottom: 1rem;
 }
 .site-header__top .breadcrumbs { margin-bottom: 0; }
+/* index.html hat keinen Breadcrumb (siehe Kommentar in index.html) --
+   .site-header__top haette dort nur noch ein Kind (.site-header__actions),
+   das per justify-content:space-between (fuer den 2-Kind-Fall auf
+   Einheiten-Seiten gedacht) an den linken Rand rutschen wuerde. Erkennung
+   analog zum bestehenden JS-Muster ueber #module-list (existiert nur auf
+   index.html, vgl. z. B. "isIndex" in search.js). */
+body:has(#module-list) .site-header__top { justify-content: flex-end; }
 
 .site-header__actions {
   display: flex;
@@ -565,21 +572,46 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 }
 .site-search--prominent { min-width: 0; }
 .site-search--compact { min-width: 0; }
-/* Zwei-Spalten-Grid fuer Farbe+Filter (Reihe 1) und den Druck-Button
-   (Reihe 2, ueber beide Spalten) -- von merksaetze.js erzeugt, siehe
-   CONVENTIONS §15d. Nur auf index.html vorhanden (dort existiert der
-   Filter-Button, der die Bedingung fuer den Umbau ist). */
+/* index.html: Suche bekommt eine eigene volle Zeile, die Button-Toolbar
+   rutscht rechtsbuendig darunter (dasselbe Muster wie der bestehende
+   ≤600px-Umbruch aus Abschnitt 15a, hier bewusst dauerhaft statt nur auf
+   schmalen Screens) -- die Buttons (Farbe/Zahnrad/Filter als runde
+   Icon-Buttons, dazu die Textpille "Drucken") passen bei --maxw:820px
+   nicht sinnvoll in eine Zeile neben ein breites Suchfeld, ohne staendig
+   unschoen umzubrechen. */
+body:has(#module-list) .site-header__actions {
+  width: 100%;
+  flex-wrap: wrap;
+}
+body:has(#module-list) .site-search--prominent {
+  flex: 1 1 100%;
+}
+body:has(#module-list) .site-header__buttons {
+  margin-left: auto;
+}
+/* Flex-Toolbar fuer Farbe/Zahnrad/Filter/Drucken -- von merksaetze.js
+   angelegt, progress-io.js haengt seinen Zahnrad-Button direkt neben
+   Farbe mit ein (siehe CONVENTIONS §15d). Nur auf index.html vorhanden
+   (dort existiert der Filter-Button, der die Bedingung fuer den Umbau
+   ist). Ein Flex-Row statt eines starren Grids: alle Elemente sind
+   gleichwertige Pillen/Kreise in einer Zeile, die bei Platzmangel einzeln
+   umbrechen. */
 .site-header__buttons {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
   gap: 0.5rem;
-  align-content: start;
 }
 /* Theme-Button verliert seine fixierte Ecken-Position, sobald er hier
    (neben der Suche) eingehaengt ist — er bleibt aber weiterhin die
-   Positionierungs-Referenz fuer sein eigenes Dropdown-Menue. */
+   Positionierungs-Referenz fuer sein eigenes Dropdown-Menue. Gilt genauso
+   fuer den Filter- und den Fortschritt-Zahnrad-Button (progress-io.js) --
+   beide haengen als Nachfahren von .site-header__actions in
+   .site-header__buttons, der Selektor greift also unveraendert. */
 .site-header__actions .theme-switcher,
-.site-header__actions .filter-switcher {
+.site-header__actions .filter-switcher,
+.site-header__actions .progress-switcher {
   position: relative;
   top: auto;
   right: auto;
@@ -675,6 +707,27 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 }
 .theme-switcher__btn:hover,
 .theme-switcher__btn:focus-visible { border-color: var(--link); }
+
+/* ------------------------------------------------------ Icon-Buttons --- */
+/* Runde Icon-Buttons statt Textpillen fuer Farbe/Filter/Fortschritt-Menue
+   (Design-Fix, siehe CONVENTIONS §15d) -- ueber IDs adressiert statt der
+   gemeinsamen .theme-switcher__btn/.filter-switcher__btn-Klassen, weil
+   Letztere weiterhin als Textpillen auf dem Druck-Link
+   (.merksaetze-druck-link) wiederverwendet werden. Sichtbarer Text
+   entfaellt komplett -- Zustand (aktives Theme/aktiver Filter) steckt
+   stattdessen in aria-label/title (siehe theme.js/filter.js) sowie im
+   Haekchen des jeweils aktiven Menue-Eintrags. */
+#theme-switcher-btn,
+#filter-switcher-btn,
+#progress-menu-btn {
+  width: var(--control-h);
+  padding: 0;
+  border-radius: 50%;
+}
+.icon-btn__icon {
+  display: inline-flex;
+  line-height: 0; /* verhindert zusaetzlichen Zeilenhoehen-Versatz des inline-svg */
+}
 .theme-switcher__menu {
   position: absolute;
   top: calc(100% + 0.4rem);
@@ -780,6 +833,23 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 .filter-switcher__item.is-active { color: var(--link); font-weight: 600; }
 .filter-switcher__item.is-active::before { content: "✓ "; }
 
+/* --------------------------------------------------- Progress-Switcher */
+/* Zahnrad-Icon-Button fuer Fortschritt exportieren/importieren
+   (assets/progress-io.js) -- Optik/Aufbau 1:1 an .filter-switcher
+   angeglichen (reine Wiederverwendung von .filter-switcher__btn/__menu/
+   __item), nur mit zwei Aktions-Eintraegen (role="menuitem") statt
+   Radios. Sitzt direkt neben dem Farbe-Button (siehe CONVENTIONS §15d). */
+.progress-switcher {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 100;
+}
+/* Menue-Eintraege ("Fortschritt exportieren"/"Fortschritt importieren")
+   sind laenger als Farbe-/Filter-Optionen -- eigene Mindestbreite, sonst
+   bricht der Text unschoen um. */
+.progress-switcher .filter-switcher__menu { min-width: 13rem; }
+
 /* ------------------------------------------------------- Welcome-Popup */
 /* Einmaliges Hinweis-Overlay auf index.html, von welcome.js selbst
    injiziert (Abschnitt 15c). Nur beim ersten Besuch, solange
@@ -820,18 +890,23 @@ table { display: block; max-width: 100%; overflow-x: auto; }
 /* ---------------------------------------------- "Alle Merksaetze drucken" */
 /* Button auf index.html: reine <a>, nutzt bewusst .filter-switcher__btn
    (Optik + Hoehe 1:1 an Theme-/Filter-Button angeglichen, siehe dort).
-   .merksaetze-druck-link ergaenzt nur den <a>-spezifischen Reset plus die
-   Grid-Platzierung als Reihe 2 ueber beide Spalten von
-   .site-header__buttons (siehe CONVENTIONS §15d) -- die Breite ergibt
-   sich dadurch automatisch aus Farbe+Filter+Gap, kein fester width-Wert. */
+   .merksaetze-druck-link ergaenzt nur den <a>-spezifischen Reset plus einen
+   dezenten linken Trenner -- optische Gruppierung "Ansicht/Einstellungen"
+   (Farbe/Zahnrad/Filter, alle drei Icon-Buttons) vs. der verbleibenden
+   Text-Aktion "Drucken" innerhalb der einen Flex-Toolbar-Zeile (siehe
+   CONVENTIONS §15d), ohne dafuer ein eigenes Wrapper-Element einzufuehren.
+   Kein fester width-Wert, Breite ergibt sich aus dem Text. */
 .merksaetze-druck-link {
-  grid-column: 1 / -1;
   text-decoration: none;
+  margin-left: 0.25rem;
+  padding-left: 1.15rem;
+  border-left: 1px solid var(--border);
 }
 .progress-io__status {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
   margin: 0;
   font-size: 0.8rem;
+  text-align: right;
 }
 .merksaetze-controls {
   display: flex;
@@ -965,8 +1040,8 @@ table { display: block; max-width: 100%; overflow-x: auto; }
    `top` ist bewusst grosszuegig gewaehlt (deckt auch den Fall ab, in dem
    .site-header__top bei langen Breadcrumbs auf zwei Zeilen umbricht). */
 @media (max-width: 600px) {
-  /* Suche eigene volle Zeile oben, Button-Grid (Farbe/Filter/Druck)
-     darunter -- .site-header__actions wird hier bewusst umbruchfaehig
+  /* Suche eigene volle Zeile oben, Button-Toolbar (Farbe/Filter/Druck/
+     Export/Import) darunter -- .site-header__actions wird hier bewusst umbruchfaehig
      (anders als die alte 3-Item-Reihe, siehe CONVENTIONS §15a-Historie),
      weil sie inzwischen nur noch 2 Kinder hat (Suche, .site-header__buttons)
      und ein sauberer 2-Zeilen-Umbruch genau das gewuenschte Verhalten ist. */
@@ -1005,9 +1080,7 @@ table { display: block; max-width: 100%; overflow-x: auto; }
   }
 }
 
-/* Defensiver Fallback fuer sehr schmale Geraete: Farbe/Filter/Druck
-   untereinander statt 2-spaltig, falls selbst zwei Pillen nebeneinander
-   zu breit werden. Greift bei ueblichen Pill-Breiten praktisch nie. */
-@media (max-width: 360px) {
-  .site-header__buttons { grid-template-columns: 1fr; }
-}
+/* Kein Grid-Fallback fuer sehr schmale Geraete mehr noetig: seit dem
+   Umbau von .site-header__buttons auf Flex (siehe oben, CONVENTIONS §15d)
+   wickelt flex-wrap jede Pille einzeln um, sobald sie nicht mehr passt --
+   feiner granular als das fruehere "alles auf 1 Spalte" der Grid-Variante. */

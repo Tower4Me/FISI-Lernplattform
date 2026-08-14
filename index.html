@@ -12,11 +12,11 @@
 <body>
 
   <header class="site-header">
-    <nav class="breadcrumbs" aria-label="Brotkrumen">
-      <ol>
-        <li aria-current="page">Lernplan</li>
-      </ol>
-    </nav>
+    <!-- Bewusst kein .breadcrumbs-Nav hier (anders als auf den
+         Einheiten-Seiten, CONVENTIONS §2): "Lernplan" als einziger,
+         nicht-verlinkter Eintrag wäre direkt über der H1 "Lernplan FISI …"
+         redundant. search.js baut .site-header__top auch ohne vorhandenes
+         .breadcrumbs-Element (Fallback-Pfad), siehe CONVENTIONS §15a. -->
     <h1>Lernplan FISI – AP1 &amp; AP2</h1>
     <p class="progress-label" id="global-progress-label">Fortschritt wird geladen …</p>
     <div class="progress" id="global-progress"><div class="progress__bar"></div></div>

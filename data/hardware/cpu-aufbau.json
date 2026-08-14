@@ -5,13 +5,13 @@
       "id": "q1",
       "question": "Welche Aufgabe übernimmt die ALU (Arithmetic Logic Unit) in einer CPU?",
       "options": [
+        "Sie führt ganzzahlige Berechnungen und logische Operationen aus",
         "Sie holt Befehle aus dem Speicher und übernimmt deren Dekodierung",
-        "Sie speichert Programm und Daten dauerhaft, auch ohne Stromversorgung",
-        "Sie berechnet innerhalb der CPU ausschließlich Fließkommazahlen",
-        "Sie führt ganzzahlige Berechnungen und logische Operationen aus"
+        "Sie ist der schnellste Speicher direkt in der CPU, aber nur wenige Kilobyte groß",
+        "Sie berechnet innerhalb der CPU ausschließlich Fließkommazahlen"
       ],
-      "answer": 3,
-      "explanation": "Die ALU führt ganzzahlige Berechnungen (Addition, Subtraktion, Multiplikation) sowie logische Operationen (AND, OR, NOT, XOR) aus. Fließkommazahlen übernimmt die FPU, das Holen/Dekodieren das Steuerwerk."
+      "answer": 0,
+      "explanation": "Die ALU führt ganzzahlige Berechnungen (Addition, Subtraktion, Multiplikation) sowie logische Operationen (AND, OR, NOT, XOR) aus. Das Holen/Dekodieren übernimmt das Steuerwerk, den Schnellstspeicher stellen die Register, Fließkommazahlen die FPU."
     },
     {
       "id": "q2",
@@ -43,18 +43,18 @@
       "options": [
         "RISC nutzt einfache, gleichlange Befehle, braucht aber mehr Einzelbefehle",
         "RISC nutzt komplexe Befehle, die viele Operationen in einem einzigen Schritt erledigen",
-        "RISC-Prozessoren verzichten grundsätzlich vollständig auf jede Form von Cache",
-        "RISC-Architekturen kommen ausschließlich in Servern zum Einsatz, nie mobil"
+        "RISC hat einen höheren Dekodieraufwand als CISC",
+        "RISC benötigt für dieselbe Aufgabe weniger Einzelbefehle als CISC"
       ],
       "answer": 0,
-      "explanation": "RISC-Architekturen setzen auf einfache, gleichlange Befehle, die effizienter zu dekodieren sind, benötigen dafür aber mehr Einzelbefehle für dieselbe Aufgabe als CISC."
+      "explanation": "RISC-Architekturen setzen auf einfache, gleichlange Befehle, die effizienter zu dekodieren sind (geringerer, nicht höherer Dekodieraufwand als CISC), benötigen dafür aber mehr — nicht weniger — Einzelbefehle für dieselbe Aufgabe."
     },
     {
       "id": "q5",
       "question": "Warum können moderne CPUs mit einer Instruction Pipeline einen höheren Durchsatz erreichen?",
       "options": [
         "Weil dabei jeder einzelne Befehl grundsätzlich doppelt ausgeführt wird",
-        "Weil die Pipeline den Cache der CPU dabei vollständig ersetzt",
+        "Weil dadurch jeder einzelne Befehl weniger Taktzyklen bis zu seinem Abschluss braucht",
         "Weil Befehle gleichzeitig verschiedene Pipeline-Stufen durchlaufen",
         "Weil dadurch automatisch die Taktfrequenz der gesamten CPU verdoppelt wird"
       ],
@@ -79,11 +79,11 @@
       "options": [
         "Desktop-CPU, wegen der hohen Einzelkern-Taktfrequenz im Betrieb",
         "Mobile-CPU, wegen des besonders niedrigen Stromverbrauchs im mobilen Akkubetrieb",
-        "Embedded-SoC, weil er unter den vier Optionen am günstigsten ist",
+        "Embedded-SoC, da er laut Tabelle für 24/7-Betrieb mit ECC-RAM-Pflicht ausgelegt ist",
         "Server-CPU, da sie für 24/7-Betrieb ausgelegt ist und ECC-RAM unterstützt"
       ],
       "answer": 3,
-      "explanation": "Server-CPUs (z. B. Xeon, EPYC) sind für Dauerbetrieb ausgelegt, unterstützen ECC-RAM zur Fehlerkorrektur und bieten viele Kerne für parallele Zugriffe — genau das, was ein Fileserver benötigt."
+      "explanation": "Server-CPUs (z. B. Xeon, EPYC) sind für Dauerbetrieb ausgelegt, unterstützen ECC-RAM zur Fehlerkorrektur und bieten viele Kerne für parallele Zugriffe — genau das, was ein Fileserver benötigt. 24/7-Betrieb und ECC-RAM-Pflicht sind laut CPU-Bautypen-Tabelle exklusiv der Server-Zeile zugeordnet, nicht dem Embedded-SoC."
     }
   ]
 }

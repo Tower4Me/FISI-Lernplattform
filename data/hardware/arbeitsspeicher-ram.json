@@ -31,23 +31,23 @@
       "options": [
         "Beide Module nebeneinander in A1 und A2",
         "Je ein Modul in A2 und B2 (die zweite Kanalfarbe)",
-        "Beide Module in denselben Slot gesteckt",
+        "Ein größeres Modul in A2, ein kleineres Modul in B2",
         "Ein Modul in A1, das andere bleibt ungenutzt im Karton"
       ],
       "answer": 1,
-      "explanation": "Für Dual Channel müssen die Module in Slots derselben Kanalfarbe stecken, typischerweise A2 und B2. Werden beide Module nebeneinander in A1 und A2 gesteckt, landen sie auf demselben Kanal und das System läuft nur im langsameren Single Channel."
+      "explanation": "Für Dual Channel müssen zwei identische Module in Slots derselben Kanalfarbe stecken, typischerweise A2 und B2. Werden beide Module nebeneinander in A1 und A2 gesteckt, landen sie auf demselben Kanal und das System läuft nur im langsameren Single Channel; unterschiedlich große Module widersprechen zudem der Vorgabe, zwei identische Module zu verwenden."
     },
     {
       "id": "q4",
       "question": "Was bewirkt Dual Channel gegenüber Single Channel?",
       "options": [
         "Die gesamte RAM-Kapazität des Systems verdoppelt sich dadurch automatisch",
-        "Die Latenz einzelner Speicherzugriffe wird dadurch spürbar halbiert",
+        "Dual Channel erhöht automatisch die maximale Taktfrequenz der RAM-Module",
         "Die effektive Busbreite verdoppelt sich auf 128 Bit",
         "Es hat in der Praxis keinen messbaren Effekt auf die Systemleistung"
       ],
       "answer": 2,
-      "explanation": "Dual Channel nutzt zwei parallele 64-Bit-Kanäle gleichzeitig (128 Bit effektive Busbreite) und verdoppelt dadurch die Bandbreite gegenüber Single Channel."
+      "explanation": "Dual Channel nutzt zwei parallele 64-Bit-Kanäle gleichzeitig (128 Bit effektive Busbreite) und verdoppelt dadurch die Bandbreite gegenüber Single Channel — die Taktfrequenz der Module selbst bleibt davon unberührt."
     },
     {
       "id": "q5",
@@ -77,13 +77,13 @@
       "id": "q7",
       "question": "Warum ist ECC-RAM in Servern und Workstations häufig Pflicht?",
       "options": [
-        "Weil ECC-RAM grundsätzlich günstiger in der Anschaffung ist als vergleichbares non-ECC-RAM",
+        "Weil ECC-RAM speziell für mobile Geräte mit besonders niedrigem Stromverbrauch entwickelt wurde",
         "Weil ECC-RAM automatisch die nutzbare Speicherkapazität des Systems verdoppelt",
         "Weil ECC-RAM keinen zum RAM passenden Prozessor oder Mainboard benötigt",
         "Weil ECC-RAM Einzelbit-Fehler erkennt und automatisch korrigiert"
       ],
       "answer": 3,
-      "explanation": "ECC (Error-Correcting Code) erkennt und korrigiert Einzelbit-Fehler automatisch. Das erhöht die Zuverlässigkeit deutlich, ist etwas langsamer als non-ECC-RAM und benötigt einen passenden Prozessor sowie ein ECC-fähiges Mainboard."
+      "explanation": "ECC (Error-Correcting Code) erkennt und korrigiert Einzelbit-Fehler automatisch und benötigt einen passenden Prozessor sowie ein ECC-fähiges Mainboard. Stromsparend für mobile Geräte ist laut Tabelle LPDDR, nicht ECC-RAM."
     }
   ]
 }

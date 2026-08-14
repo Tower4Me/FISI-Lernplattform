@@ -5,13 +5,13 @@
       "id": "q1",
       "question": "Worin unterscheidet sich File-Storage grundsätzlich von Block-Storage?",
       "options": [
-        "File-Storage ist grundsätzlich immer schneller im Zugriff als Block-Storage",
+        "Block-Storage erlaubt problemlos gleichzeitigen Schreibzugriff mehrerer Systeme auf dieselbe Einheit",
         "Block-Storage liefert immer fertige Dateien, File-Storage dagegen rohe Blöcke",
         "File-Storage liefert serverseitig verwaltete, fertige Dateien",
         "Beide Begriffe bezeichnen exakt dasselbe Konzept mit unterschiedlichem Namen"
       ],
       "answer": 2,
-      "explanation": "Bei File-Storage (z. B. NAS mit SMB/NFS) verwaltet der Server das Dateisystem und liefert fertige Dateien. Bei Block-Storage (z. B. SAN mit iSCSI) bekommt der Client rohe, nummerierte Blöcke und legt das Dateisystem selbst an."
+      "explanation": "Bei File-Storage (z. B. NAS mit SMB/NFS) verwaltet der Server das Dateisystem und liefert fertige Dateien. Bei Block-Storage (z. B. SAN mit iSCSI) bekommt der Client rohe, nummerierte Blöcke und legt das Dateisystem selbst an — gleichzeitiges Schreiben mehrerer Systeme auf dieselbe Block-Einheit zerstört dabei das Dateisystem, statt problemlos zu funktionieren."
     },
     {
       "id": "q2",
@@ -43,11 +43,11 @@
       "options": [
         "Beide Systeme können sich das Dateisystem der LUN gegenseitig zerstören",
         "Das ist der normale Anwendungsfall und funktioniert dabei völlig problemlos",
-        "Die LUN dupliziert sich in diesem Fall automatisch für beide Systeme",
+        "Das Problem tritt bei NAS-Freigaben mit SMB grundsätzlich genauso auf wie bei iSCSI",
         "iSCSI verhindert dieses Szenario automatisch durch eingebaute Sperrmechanismen"
       ],
       "answer": 0,
-      "explanation": "iSCSI gibt einem einzelnen System exklusiven Zugriff auf eine LUN. Schreiben mehrere Systeme gleichzeitig auf dieselbe LUN, zerstören sie sich gegenseitig das Dateisystem — für gemeinsamen Zugriff ist File-Storage (NAS) das richtige Werkzeug."
+      "explanation": "iSCSI gibt einem einzelnen System exklusiven Zugriff auf eine LUN. Schreiben mehrere Systeme gleichzeitig auf dieselbe LUN, zerstören sie sich gegenseitig das Dateisystem — für gemeinsamen Zugriff ist gerade deshalb File-Storage (NAS/SMB) das richtige Werkzeug, nicht Block-Storage."
     },
     {
       "id": "q5",

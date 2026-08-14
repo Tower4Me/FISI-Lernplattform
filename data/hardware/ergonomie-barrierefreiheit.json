@@ -29,13 +29,13 @@
       "id": "q3",
       "question": "Was verpflichtet die Arbeitsstättenverordnung (ArbStättV) Arbeitgeber in Bezug auf Bildschirmarbeitsplätze?",
       "options": [
-        "Ausschließlich zur Bereitstellung eines Druckers pro Abteilung im Unternehmen",
-        "Zur Zahlung eines gesetzlich fest vorgeschriebenen Bildschirmzuschlags",
-        "Zum verpflichtenden Einsatz ausschließlich von Thin-Client-Arbeitsplätzen",
+        "Ausschließlich zur Einhaltung eines Bildschirmabstands von exakt 50–70 cm",
+        "Ausschließlich zur Bereitstellung einer Braillezeile für jeden Arbeitsplatz",
+        "Ausschließlich zur Vergabe von Vergrößerungssoftware an alle Mitarbeitenden",
         "Zu einer Gefährdungsbeurteilung und angemessener Ausstattung"
       ],
       "answer": 3,
-      "explanation": "Die ArbStättV verpflichtet Arbeitgeber zu einer Gefährdungsbeurteilung und zur Bereitstellung angemessener ergonomischer Ausstattung am Bildschirmarbeitsplatz."
+      "explanation": "Die ArbStättV verpflichtet Arbeitgeber zu einer Gefährdungsbeurteilung und zur Bereitstellung angemessener ergonomischer Ausstattung am Bildschirmarbeitsplatz — das ist die allgemeine gesetzliche Pflicht, nicht eine einzelne Detailmaßnahme wie ein bestimmter Abstandswert oder ein Hilfsmittel für eine bestimmte Nutzergruppe."
     },
     {
       "id": "q4",
@@ -44,10 +44,10 @@
         "Sie konkretisieren die ArbStättV mit praktischen Detailregeln",
         "Sie ersetzen die Arbeitsstättenverordnung dabei vollständig und eigenständig",
         "Sie regeln ausschließlich Fragen der IT-Sicherheit an Arbeitsplätzen",
-        "Sie gelten ausschließlich für Homeoffice-Arbeitsplätze, nie im Büro"
+        "Sie sind ausschließlich für blinde Beschäftigte relevant, nicht für die allgemeine Arbeitsplatzgestaltung"
       ],
       "answer": 0,
-      "explanation": "Die ASR konkretisieren die allgemeinen Vorgaben der ArbStättV mit praktischen Detailregelungen, etwa zu Raumabmessungen oder Beleuchtung."
+      "explanation": "Die ASR konkretisieren die allgemeinen Vorgaben der ArbStättV mit praktischen Detailregelungen, etwa zu Raumabmessungen (ASR A1.2) oder Beleuchtung (ASR A3.4) — für alle Bildschirmarbeitsplätze, nicht nur für blinde Beschäftigte. Hilfsmittel wie die Braillezeile stehen in einem eigenen Abschnitt zur barrierefreien Hardware."
     },
     {
       "id": "q5",
@@ -56,34 +56,34 @@
         "Zur optischen Vergrößerung von Bildschirminhalten für sehbeeinträchtigte Nutzer",
         "Zur Steuerung des Computers ausschließlich per Augenbewegung",
         "Zur Ausgabe von Bildschirminhalten in Blindenschrift für blinde Nutzer",
-        "Zur automatischen Übersetzung von Text in verschiedene Sprachen"
+        "Zur Steuerung des Computers per Sprachbefehl ohne Tastatur oder Maus"
       ],
       "answer": 2,
-      "explanation": "Eine Braillezeile gibt Bildschirminhalte über bewegliche Stifte in Blindenschrift (Braille) aus und ermöglicht so blinden Nutzern den Zugang zu digitalen Inhalten."
+      "explanation": "Eine Braillezeile gibt Bildschirminhalte über bewegliche Stifte in Blindenschrift (Braille) aus und ermöglicht so blinden Nutzern den Zugang zu digitalen Inhalten. Steuerung per Sprachbefehl ist dagegen Aufgabe von Spracheingabe/-ausgabe, einem eigenen Hilfsmittel."
     },
     {
       "id": "q6",
       "question": "Welches Hardware-Hilfsmittel ist am besten für Menschen mit motorischen Einschränkungen geeignet, die eine klassische Tastatur/Maus nicht bedienen können?",
       "options": [
-        "Ein zusätzlicher zweiter Monitor am selben Arbeitsplatz",
-        "Ein Flachbettscanner mit höherer optischer Auflösung",
-        "Ein zusätzlicher RAM-Ausbau des vorhandenen Computers",
+        "Braillezeile",
+        "Vergrößerungssoftware oder erhöhter Bildschirmkontrast",
+        "Einhaltung des empfohlenen Bildschirmabstands von 50–70 cm",
         "Trackball, Sondertastatur oder Augensteuerung"
       ],
       "answer": 3,
-      "explanation": "Alternative Eingabegeräte wie Trackball, Sondertastaturen oder Augensteuerung ermöglichen die Bedienung eines Computers auch bei motorischen Einschränkungen."
+      "explanation": "Alternative Eingabegeräte wie Trackball, Sondertastaturen oder Augensteuerung ermöglichen die Bedienung eines Computers auch bei motorischen Einschränkungen. Braillezeile und Vergrößerungssoftware sind dagegen für blinde bzw. sehbeeinträchtigte Nutzer gedacht, der Bildschirmabstand ist eine allgemeine Ergonomie-Empfehlung für alle."
     },
     {
       "id": "q7",
       "question": "Warum sollte ein Fenster nicht direkt hinter oder vor dem Monitor platziert werden?",
       "options": [
-        "Weil das direkt die WLAN-Verbindung am Arbeitsplatz stören würde",
+        "Weil dadurch die Oberkante des Monitors nicht mehr auf Augenhöhe eingestellt werden kann",
         "Weil dadurch Blendung durch Reflexion oder Gegenlicht entsteht",
-        "Weil das grundsätzlich gegen die europäische WEEE-Richtlinie verstößt",
-        "Weil Fenster die tatsächliche Bildschirmauflösung direkt beeinflussen"
+        "Weil sich dadurch der empfohlene Bildschirmabstand automatisch auf über 70 cm vergrößert",
+        "Weil dadurch keine höhenverstellbaren Möbel mehr am Arbeitsplatz genutzt werden können"
       ],
       "answer": 1,
-      "explanation": "Ein Fenster direkt hinter oder vor dem Monitor führt zu Blendung durch Gegenlicht oder Reflexionen auf dem Bildschirm — beides belastet die Augen und sollte vermieden werden."
+      "explanation": "Ein Fenster direkt hinter oder vor dem Monitor führt zu Blendung durch Gegenlicht oder Reflexionen auf dem Bildschirm — beides belastet die Augen und sollte vermieden werden. Bildschirmhöhe, Abstand und Möbelhöhe sind laut Tabelle eigenständige, unabhängige Ergonomie-Kriterien, die von der Fensterposition nicht betroffen sind."
     }
   ]
 }

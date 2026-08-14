@@ -76,6 +76,13 @@
         (Parität), RAID 1 und RAID 10 mit der Hälfte der Gesamtkapazität
         (Spiegelung).
       </p>
+      <p>
+        Die Formel (n−1) × c gilt nur bei gleich großen Platten. Bei
+        unterschiedlichen Plattengrößen zählt für RAID 5 stattdessen die
+        kleinste Einzelkapazität: Nutzkapazität = (n−1) × kleinste
+        Kapazität — größere Platten werden nur bis zur Größe der
+        kleinsten genutzt, der Rest bleibt ungenutzt.
+      </p>
 
       <p class="tool-intro">Berechne die Nutzkapazität für ein beliebiges Szenario:</p>
       <div class="tool" data-tool="raid-rechner">
@@ -136,6 +143,13 @@
         einem Plattenausfall der Rebuild automatisch startet — ersetzt
         aber trotzdem nicht das nächtliche Backup auf ein separates
         System.
+      </p>
+      <p>
+        Wenig später soll ein zweites System mit exakt 20 TiB
+        Nettokapazität in RAID 10 aus vorhandenen 4-TiB-Platten aufgebaut
+        werden — hier ist die Rechenrichtung umgekehrt, gesucht ist die
+        Plattenanzahl: n = (Zielkapazität ÷ c) × 2 = (20 ÷ 4) × 2 =
+        <strong>10 Platten</strong>.
       </p>
     </section>
 

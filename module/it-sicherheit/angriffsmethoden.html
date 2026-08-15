@@ -74,8 +74,7 @@
         (gezielt auf eine Person zugeschnitten), <strong>Whaling</strong>
         (Ziel ist die Führungsebene), <strong>Pretexting</strong> (erfundener
         Vorwand, z. B. angeblicher IT-Support) und <strong>Baiting</strong>
-        (präparierter USB-Stick, der „zufällig“ herumliegt). Alle nutzen den
-        Menschen als Schwachstelle, nicht die Technik.
+        (präparierter USB-Stick, der „zufällig“ herumliegt).
       </p>
 
       <h3>SQL-Injection im Detail</h3>
@@ -102,12 +101,10 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE name = ?");
 $stmt->execute([$_POST['name']]);
 // ' OR '1'='1 wird nur als Suchtext behandelt, nicht als SQL-Befehl</code></pre>
       <p>
-        Weitere Best Practices gegen SQL-Injection und ähnliche Angriffe:
-        minimale Rechte pro Datenbanknutzer (Least Privilege), regelmäßige
-        Backups nach der 3-2-1-Regel, keine Datenbankfehlermeldungen nach
-        außen zeigen (Angreifer lernen sonst die Tabellenstruktur) und
-        Eingaben zusätzlich validieren (eine E-Mail-Adresse muss wie eine
-        aussehen, eine ID muss eine Zahl sein).
+        Weitere Gegenmaßnahmen: minimale Rechte pro Datenbanknutzer (Least
+        Privilege), keine Datenbankfehlermeldungen nach außen zeigen
+        (Angreifer lernen sonst die Tabellenstruktur) und Eingaben
+        zusätzlich validieren.
       </p>
     </section>
 

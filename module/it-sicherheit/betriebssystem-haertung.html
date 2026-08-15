@@ -58,17 +58,42 @@
       </p>
 
       <h3>Typische Härtungsmaßnahmen</h3>
+      <p>
+        In der Prüfung werden Härtungsmaßnahmen meist vier Bereichen
+        zugeordnet – von der Installation bis zum laufenden Betrieb:
+      </p>
+
+      <h4>1. Grundinstallation</h4>
       <table>
-        <thead>
-          <tr><th>Maßnahme</th><th>Warum</th></tr>
-        </thead>
+        <thead><tr><th>Maßnahme</th><th>Warum</th></tr></thead>
+        <tbody>
+          <tr><td>Nicht benötigte Software deinstallieren</td><td>Jede installierte Software kann eigene Schwachstellen mitbringen</td></tr>
+        </tbody>
+      </table>
+
+      <h4>2. Dienste/Features</h4>
+      <table>
+        <thead><tr><th>Maßnahme</th><th>Warum</th></tr></thead>
         <tbody>
           <tr><td>Unnötige Dienste/Prozesse deaktivieren</td><td>Jeder laufende Dienst ist ein möglicher Angriffspunkt, auch wenn er nie genutzt wird</td></tr>
+          <tr><td>Nicht benötigte Netzwerk-Ports schließen</td><td>Jeder offene Port ist ein möglicher Angriffsvektor</td></tr>
+        </tbody>
+      </table>
+
+      <h4>3. Anmelden am Server</h4>
+      <table>
+        <thead><tr><th>Maßnahme</th><th>Warum</th></tr></thead>
+        <tbody>
           <tr><td>Standardkonten umbenennen/deaktivieren</td><td>Konten wie „Administrator“ oder „root“ sind Angreifern als Ziel bekannt und werden zuerst angegriffen</td></tr>
           <tr><td>Standardpasswörter sofort ändern</td><td>Werkseinstellungen sind öffentlich dokumentiert (Handbücher, Foren)</td></tr>
-          <tr><td>Nicht benötigte Software deinstallieren</td><td>Jede installierte Software kann eigene Schwachstellen mitbringen</td></tr>
+        </tbody>
+      </table>
+
+      <h4>4. Administrieren des Servers</h4>
+      <table>
+        <thead><tr><th>Maßnahme</th><th>Warum</th></tr></thead>
+        <tbody>
           <tr><td>Patch-Management: Updates zeitnah einspielen</td><td>Bekannte Sicherheitslücken werden sonst zum offenen Einfallstor</td></tr>
-          <tr><td>Nicht benötigte Netzwerk-Ports schließen</td><td>Jeder offene Port ist ein möglicher Angriffsvektor</td></tr>
           <tr><td>Autostart-Programme prüfen</td><td>Schadsoftware nistet sich gern im Autostart ein, um Neustarts zu überleben</td></tr>
         </tbody>
       </table>
@@ -117,8 +142,9 @@
       <h2>Merksatz</h2>
       <p>
         Härtung = minimale Angriffsfläche: alles Unnötige deaktivieren,
-        entfernen oder schließen (Dienste, Konten, Ports, Software).
-        Baseline-Vorlagen wie CIS Benchmarks liefern geprüfte
+        entfernen oder schließen (Dienste, Konten, Ports, Software) – geordnet
+        in vier Bereichen: Grundinstallation, Dienste/Features, Anmelden,
+        Administrieren. Baseline-Vorlagen wie CIS Benchmarks liefern geprüfte
         Ausgangskonfigurationen. Server werden meist strenger gehärtet als
         Client-Rechner.
       </p>

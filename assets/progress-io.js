@@ -33,15 +33,16 @@
   var LS_KEY = "fisi:progress";
 
   // Zahnrad-Icon, currentColor, kein Hex-Wert -- selbst verfasstes
-  // Markup, kein Fremd-Fetch (vgl. Kommentar in theme.js).
-  var ICON_SVG = '<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">' +
-    '<circle cx="10" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>' +
-    '<g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">' +
-    '<line x1="10" y1="2.5" x2="10" y2="4.3"/><line x1="10" y1="15.7" x2="10" y2="17.5"/>' +
-    '<line x1="2.5" y1="10" x2="4.3" y2="10"/><line x1="15.7" y1="10" x2="17.5" y2="10"/>' +
-    '<line x1="4.6" y1="4.6" x2="5.9" y2="5.9"/><line x1="14.1" y1="14.1" x2="15.4" y2="15.4"/>' +
-    '<line x1="15.4" y1="4.6" x2="14.1" y2="5.9"/><line x1="5.9" y1="14.1" x2="4.6" y2="15.4"/>' +
-    '</g></svg>';
+  // Markup, kein Fremd-Fetch (vgl. Kommentar in theme.js). V1 (Ring +
+  // Speichen-Strahlen) sah bei 16px Buttongroesse wie eine Sonne statt
+  // einem Zahnrad aus -- ersetzt durch eine klassische Zahnrad-Kontur
+  // (Kreis-Nabe + gezackter Aussenring als ein zusammenhaengender Pfad),
+  // bei realer Buttongroesse gegen zwei Alternativ-Icons visuell geprueft.
+  var ICON_SVG = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" ' +
+    'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>' +
+    '<path d="M19.4 13.5c.1-.5.1-1 0-1.5l1.7-1.3-1.5-2.6-2 .6a6.6 6.6 0 0 0-1.3-.8l-.3-2.1H12.9l-.3 2.1c-.5.2-.9.4-1.3.8l-2-.6-1.5 2.6 1.7 1.3c-.1.5-.1 1 0 1.5l-1.7 1.3 1.5 2.6 2-.6c.4.3.8.6 1.3.8l.3 2.1h2.9l.3-2.1c.5-.2.9-.4 1.3-.8l2 .6 1.5-2.6z"/>' +
+    '</svg>';
   function icon(svg) {
     var span = document.createElement("span");
     span.className = "icon-btn__icon";
@@ -51,9 +52,35 @@
 
   var btn, menu, items = [];
 
+  // Nur auf schmalen Screens ist .filter-switcher__menu per CSS auf
+  // position:fixed umgestellt (siehe CONVENTIONS §15d, analog
+  // positionResults() in search.js und positionMenu() in theme.js/filter.js).
+  function positionMenu() {
+    if (menu.hidden) return;
+    if (getComputedStyle(menu).position !== "fixed") {
+      menu.style.top = "";
+      menu.style.right = "";
+      menu.style.left = "";
+      menu.style.maxHeight = "";
+      return;
+    }
+    var r = btn.getBoundingClientRect();
+    var top = Math.round(r.bottom + 8);
+    var right = Math.max(8, Math.round(window.innerWidth - r.right));
+    menu.style.top = top + "px";
+    menu.style.right = right + "px";
+    menu.style.left = "auto";
+    menu.style.maxHeight = "calc(100vh - " + top + "px - 0.5rem)";
+    if (menu.getBoundingClientRect().left < 8) {
+      menu.style.right = "auto";
+      menu.style.left = "8px";
+    }
+  }
+
   function openMenu() {
     menu.hidden = false;
     btn.setAttribute("aria-expanded", "true");
+    positionMenu();
   }
   function closeMenu() {
     menu.hidden = true;
@@ -239,6 +266,7 @@
     document.addEventListener("click", function (e) {
       if (!wrap.contains(e.target)) closeMenu();
     });
+    window.addEventListener("resize", positionMenu);
 
     // Direkt neben dem Farbe-Button einhaengen (nicht ans Ende der
     // Toolbar), analog zur Platzierung im Screenshot-Wunsch: Farbe |

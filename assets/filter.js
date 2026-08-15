@@ -93,9 +93,35 @@
     });
   }
 
+  // Nur auf schmalen Screens ist .filter-switcher__menu per CSS auf
+  // position:fixed umgestellt (siehe CONVENTIONS §15d, analog
+  // positionResults() in search.js und positionMenu() in theme.js).
+  function positionMenu() {
+    if (menu.hidden) return;
+    if (getComputedStyle(menu).position !== "fixed") {
+      menu.style.top = "";
+      menu.style.right = "";
+      menu.style.left = "";
+      menu.style.maxHeight = "";
+      return;
+    }
+    var r = btn.getBoundingClientRect();
+    var top = Math.round(r.bottom + 8);
+    var right = Math.max(8, Math.round(window.innerWidth - r.right));
+    menu.style.top = top + "px";
+    menu.style.right = right + "px";
+    menu.style.left = "auto";
+    menu.style.maxHeight = "calc(100vh - " + top + "px - 0.5rem)";
+    if (menu.getBoundingClientRect().left < 8) {
+      menu.style.right = "auto";
+      menu.style.left = "8px";
+    }
+  }
+
   function openMenu() {
     menu.hidden = false;
     btn.setAttribute("aria-expanded", "true");
+    positionMenu();
   }
   function closeMenu() {
     menu.hidden = true;
@@ -209,6 +235,7 @@
     document.addEventListener("click", function (e) {
       if (!wrap.contains(e.target)) closeMenu();
     });
+    window.addEventListener("resize", positionMenu);
 
     updateUI();
 

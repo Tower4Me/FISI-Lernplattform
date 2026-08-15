@@ -81,9 +81,40 @@
     });
   }
 
+  // Nur auf schmalen Screens ist .theme-switcher__menu per CSS auf
+  // position:fixed umgestellt (Menue loest sich aus der rechtsbuendigen
+  // Kreis-Position, sonst auf sehr schmalen Geraeten teils kaum/gar nicht
+  // im sichtbaren Bereich, siehe CONVENTIONS §15d). Analog zu
+  // positionResults() in search.js: top/right kommen dann aus der
+  // tatsaechlichen Button-Position statt aus dem festen CSS-Offset. Faellt
+  // die Menuebreite trotzdem ueber den linken Rand hinaus (sehr schmales
+  // Geraet oder Button nicht ganz aussen), wird zusaetzlich links begrenzt.
+  function positionMenu() {
+    if (menu.hidden) return;
+    if (getComputedStyle(menu).position !== "fixed") {
+      menu.style.top = "";
+      menu.style.right = "";
+      menu.style.left = "";
+      menu.style.maxHeight = "";
+      return;
+    }
+    var r = btn.getBoundingClientRect();
+    var top = Math.round(r.bottom + 8);
+    var right = Math.max(8, Math.round(window.innerWidth - r.right));
+    menu.style.top = top + "px";
+    menu.style.right = right + "px";
+    menu.style.left = "auto";
+    menu.style.maxHeight = "calc(100vh - " + top + "px - 0.5rem)";
+    if (menu.getBoundingClientRect().left < 8) {
+      menu.style.right = "auto";
+      menu.style.left = "8px";
+    }
+  }
+
   function openMenu() {
     menu.hidden = false;
     btn.setAttribute("aria-expanded", "true");
+    positionMenu();
   }
   function closeMenu() {
     menu.hidden = true;
@@ -186,6 +217,7 @@
     document.addEventListener("click", function (e) {
       if (!wrap.contains(e.target)) closeMenu();
     });
+    window.addEventListener("resize", positionMenu);
 
     // Aktuellen Stand (vom Inline-Snippet gesetzt) in der UI spiegeln.
     updateUI(root.getAttribute("data-theme") || getStored() || systemTheme());

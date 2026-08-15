@@ -8,7 +8,7 @@
         "Ein einziger Schlüssel zum Ver- und Entschlüsseln",
         "Ein Schlüsselpaar aus öffentlich und privat",
         "Es wird gar kein Schlüssel benötigt",
-        "Der Schlüssel ändert sich bei jeder Nachricht automatisch"
+        "Für n Teilnehmer werden nur 2 × n Schlüssel benötigt"
       ],
       "answer": 0,
       "explanation": "Bei symmetrischer Verschlüsselung wird derselbe Schlüssel zum Ver- und Entschlüsseln verwendet."
@@ -66,7 +66,7 @@
       "question": "Welches Verfahren ist typischerweise deutlich langsamer bei großen Datenmengen?",
       "options": [
         "Symmetrische Verschlüsselung (z. B. AES)",
-        "Hashfunktionen wie SHA-256",
+        "Hybride Verschlüsselung, weil sie zwei Verfahren kombiniert",
         "Asymmetrische Verschlüsselung (z. B. RSA)",
         "Beide Verfahren sind bei großen Datenmengen ungefähr gleich schnell"
       ],

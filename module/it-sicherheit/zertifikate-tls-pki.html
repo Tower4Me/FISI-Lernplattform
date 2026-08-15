@@ -78,6 +78,17 @@
       </p>
 
       <p>
+        Für den Sitzungsschlüssel selbst nutzt TLS meist ein
+        <strong>Diffie-Hellman-Verfahren</strong>: Beide Seiten berechnen
+        daraus unabhängig voneinander denselben symmetrischen Schlüssel,
+        ohne ihn jemals unverschlüsselt zu übertragen. Das aktuelle
+        <strong>TLS 1.3</strong> erzwingt dieses Verfahren und einen
+        kürzeren Handshake; das ältere <strong>TLS 1.2</strong> ließ noch
+        schwächere, mittlerweile als unsicher geltende Verschlüsselungs-
+        verfahren zu.
+      </p>
+
+      <p>
         Das <strong>Schloss-Symbol</strong> im Browser bedeutet: Die
         Verbindung ist verschlüsselt und das Zertifikat ist gültig. Es
         bedeutet <strong>nicht</strong> automatisch, dass die Website

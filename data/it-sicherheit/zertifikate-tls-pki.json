@@ -68,7 +68,7 @@
         "Der Client prüft das Zertifikat, beide handeln einen Sitzungsschlüssel aus",
         "Der Server sendet sein Passwort unverschlüsselt im Klartext an den Client",
         "Es wird ausschließlich und dauerhaft asymmetrisch für die komplette Datenübertragung verschlüsselt",
-        "Der Browser lädt beim Handshake automatisch alle Cookies der Seite"
+        "Der Browser prüft nur die Root-CA, Zwischenzertifikate werden dabei übersprungen"
       ],
       "answer": 0,
       "explanation": "Beim Handshake wird die Serveridentität per Zertifikat geprüft und anschließend ein symmetrischer Sitzungsschlüssel für die schnelle weitere Übertragung ausgehandelt."

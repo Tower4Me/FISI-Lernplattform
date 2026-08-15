@@ -120,7 +120,7 @@
         <tbody>
           <tr><td><strong>Captcha</strong></td><td>Unterscheidet Mensch von Bot bei Formularen/Logins, um automatisierte Angriffe (Brute-Force, Massen-Registrierung) zu erschweren. Kein eigener Authentifizierungsfaktor.</td></tr>
           <tr><td><strong>PIN</strong> (Persönliche Identifikationsnummer)</td><td>Kurzer Wissensfaktor, fast immer in Kombination mit einem Besitzfaktor genutzt (z. B. Bankkarte + PIN = Besitz + Wissen).</td></tr>
-          <tr><td><strong>TAN</strong> (Transaktionsnummer)</td><td>Einmalkennwort für genau eine Aktion (z. B. eine Überweisung). Nach einmaliger Nutzung wertlos, moderne Verfahren (mTAN/pushTAN) sind zusätzlich zeit- und transaktionsgebunden.</td></tr>
+          <tr><td><strong>TAN</strong> (Transaktionsnummer)</td><td>Einmalkennwort für genau eine Aktion, danach wertlos; moderne Verfahren (mTAN/pushTAN) sind zusätzlich zeit- und transaktionsgebunden.</td></tr>
         </tbody>
       </table>
 
@@ -141,20 +141,18 @@
       </table>
       <p>
         <strong>RADIUS</strong> und <strong>TACACS+</strong> sind bekannte
-        AAA-Protokolle. RADIUS verschlüsselt nur das Passwort und wird oft
-        für Netzwerkzugang (802.1X, WLAN) genutzt. TACACS+ verschlüsselt das
-        gesamte Paket und trennt die drei A sauber – beliebt für die
-        Geräte-Administration (z. B. Cisco-Umgebungen).
+        AAA-Protokolle: RADIUS verschlüsselt nur das Passwort (oft für
+        WLAN/802.1X), TACACS+ verschlüsselt das gesamte Paket und trennt
+        die drei A sauber (beliebt in Cisco-Administration).
       </p>
 
       <h3>Single Sign-On (SSO)</h3>
       <p>
         Bei <strong>SSO</strong> meldet sich der Nutzer einmal an und erhält
-        Zugang zu mehreren Diensten, ohne sich erneut anzumelden. Vorteil:
-        weniger Passwörter, zentrale Verwaltung. Risiko: Fällt das eine
-        Konto, fallen potenziell alle angebundenen Dienste – deshalb gehört
-        zu SSO praktisch immer MFA. Bekannte Standards sind SAML,
-        OAuth 2.0 und OpenID Connect.
+        Zugang zu mehreren Diensten. Vorteil: weniger Passwörter, zentrale
+        Verwaltung. Risiko: Fällt das eine Konto, fallen potenziell alle
+        angebundenen Dienste – deshalb gehört zu SSO praktisch immer MFA
+        (Standards: SAML, OAuth 2.0, OpenID Connect).
       </p>
     </section>
 
@@ -169,9 +167,9 @@
         <li>Mitarbeiter melden sich künftig mit Passwort <strong>und</strong> einer Push-Benachrichtigung auf dem Diensthandy an → echte MFA, weil Wissen (Passwort) und Besitz (Smartphone) kombiniert werden.</li>
         <li>Ein Kollege schlägt vor, stattdessen Passwort plus eine zusätzliche Sicherheitsfrage zu verlangen → wird abgelehnt, da beides derselbe Faktor „Wissen“ ist und keine echte MFA darstellt.</li>
         <li>Über einen zentralen Login-Dienst (SSO) erhalten Mitarbeiter nach einer Anmeldung automatisch Zugriff auf E-Mail, Zeiterfassung und internes Wiki. Weil ein einziges kompromittiertes Konto damit mehrere Systeme öffnen würde, wird SSO verpflichtend mit MFA kombiniert.</li>
-        <li>Für den Zugang der Netzwerk-Switches zur zentralen Administration wird TACACS+ eingesetzt, weil es Authentifizierung, Autorisierung und Accounting sauber trennt und jede Konfigurationsänderung protokolliert (Accounting).</li>
+        <li>Für den Zugang zu den Netzwerk-Switches wird TACACS+ eingesetzt, weil es die drei A sauber trennt und jede Konfigurationsänderung protokolliert.</li>
         <li>Beim Online-Banking-Portal des Kunden wird jede Überweisung zusätzlich mit einer <strong>pushTAN</strong> bestätigt → selbst ein abgefangenes Passwort reicht Angreifern nicht, da die TAN nur für diese eine Transaktion gilt.</li>
-        <li>Das Kontaktformular der Firmenwebsite bekommt ein <strong>Captcha</strong>, nachdem automatisierte Bots massenhaft Spam-Anfragen abgeschickt hatten → kein Authentifizierungsfaktor, aber wirksam gegen automatisierte Angriffe.</li>
+        <li>Das Kontaktformular bekommt nach einer Bot-Spam-Welle ein <strong>Captcha</strong> → kein Authentifizierungsfaktor, aber wirksam gegen automatisierte Angriffe.</li>
       </ul>
 
       <p class="tool-intro">Berechne Kombinationsanzahl und Brute-Force-Dauer für ein eigenes Passwort-Szenario:</p>

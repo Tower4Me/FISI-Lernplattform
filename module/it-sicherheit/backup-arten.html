@@ -74,6 +74,16 @@
         ist die Kette unterbrochen und die Wiederherstellung unvollständig.
       </p>
 
+      <p>
+        Technisch steuert das <strong>Archivbit</strong> (ein Flag pro
+        Datei) diese Logik: Jede Datei setzt es automatisch beim Erstellen
+        oder Ändern. Voll- und inkrementelle Backups <strong>löschen</strong>
+        das Archivbit nach der Sicherung – die Datei gilt dann als
+        gesichert, bis sie erneut geändert wird. Differenzielle Backups
+        lassen das Archivbit dagegen unangetastet, weshalb sie bei jedem
+        Lauf erneut alle Änderungen seit dem Vollbackup mitsichern.
+      </p>
+
       <h3>Die 3-2-1-Regel</h3>
       <p>
         Eine bewährte Faustregel für Backup-Strategien: <strong>3</strong>
@@ -162,6 +172,7 @@
         <li>Fehlt das inkrementelle Backup von Montag (z. B. wegen eines technischen Fehlers), lässt sich der Stand von Dienstag nicht mehr korrekt rekonstruieren – die Kette ist unterbrochen.</li>
         <li>Bei einer differenziellen Strategie hätte man dagegen am Mittwoch nur das Vollbackup vom Sonntag plus das differenzielle Backup vom Dienstag gebraucht, da dieses bereits alle Änderungen seit Sonntag enthält.</li>
         <li>Zusätzlich wird die 3-2-1-1-0-Regel umgesetzt: Originaldaten auf dem Server, eine Kopie auf einem lokalen NAS, eine weitere Kopie extern in einem Cloud-Speicher mit unveränderlichen (immutable) Snapshots gegen Ransomware. Die Wiederherstellung wird einmal im Quartal getestet.</li>
+        <li>Ein anderer Kunde sichert stattdessen auf Bänder (Tapes) im Rotationsverfahren. Läuft am Montag versehentlich ein inkrementelles statt des geplanten differenziellen Backups, löscht das die Archivbits der geänderten Dateien. Fällt der Server am Mittwoch aus, reichen Vollbackup-Band (Sonntag) und Dienstags-Band <strong>nicht</strong> mehr aus – zusätzlich wird das Montags-Band gebraucht, weil die Dienstags-Sicherung durch das gelöschte Archivbit nur noch Änderungen seit Montag statt seit Sonntag enthält.</li>
       </ul>
     </section>
 
@@ -171,7 +182,9 @@
       <p>
         Voll = alles, schnell zurück. Differenziell = seit letztem
         Vollbackup, Restore braucht 2 Teile. Inkrementell = seit letztem
-        Backup, Restore braucht die lückenlose Kette. 3-2-1(-1-0)-Regel:
+        Backup, Restore braucht die lückenlose Kette. Das Archivbit
+        steuert das: Voll/Inkrementell löschen es, Differenziell nicht.
+        3-2-1(-1-0)-Regel:
         3 Kopien, 2 Medien, 1 offsite (optional 1 offline/unveränderlich).
         RAID ersetzt kein Backup.
       </p>

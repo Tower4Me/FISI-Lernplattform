@@ -150,6 +150,24 @@
         <li>Auch mit dieser Rolle sieht er Kundendaten nur, wenn ein Ticket dazu vorliegt, nicht die komplette Kundendatenbank auf Vorrat → <strong>Need-to-know</strong>.</li>
         <li>Verlässt der Praktikant später die Abteilung, entfernt man nur seine Rollenzugehörigkeit – alle damit verbundenen Einzelrechte entfallen automatisch.</li>
       </ul>
+
+      <p>Für den Freigabeordner <code>\\server\support</code> sieht die konkrete NTFS-Rechtevergabe je Gruppe so aus:</p>
+      <table>
+        <thead>
+          <tr><th>Gruppe</th><th>Lesen</th><th>Schreiben</th><th>Vollzugriff</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Support-Mitarbeiter</td><td>✓</td><td>✓</td><td>–</td></tr>
+          <tr><td>IT-Leitung</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Praktikanten</td><td>✓</td><td>–</td><td>–</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Auf einem Linux-Server entspricht das derselben Idee über
+        <code>chmod 640 datei</code>: Der Eigentümer darf lesen und
+        schreiben, die Gruppe nur lesen, alle anderen gar nichts.
+      </p>
+
       <p>
         Typische Prüfungsfrage: „Ein Auszubildender hat versehentlich
         Administratorrechte erhalten. Welches Prinzip wurde verletzt und

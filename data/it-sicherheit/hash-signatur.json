@@ -29,8 +29,8 @@
       "id": "q3",
       "question": "Warum werden Passwörter nicht im Klartext, sondern als Hash gespeichert?",
       "options": [
-        "Weil Hashes grundsätzlich deutlich weniger Speicherplatz benötigen",
-        "Damit beim Login ausschließlich ein direkter Textvergleich schneller vonstattengeht",
+        "Weil der Lawineneffekt den Hashwert automatisch kürzer als das Original macht",
+        "Weil die Kollisionssicherheit dafür sorgt, dass zwei Passwörter nie denselben Hash ergeben",
         "Weil sich Hashwerte angeblich leicht in das Original zurückrechnen lassen",
         "Damit die echten Passwörter bei einem Datenbank-Diebstahl nicht lesbar sind"
       ],

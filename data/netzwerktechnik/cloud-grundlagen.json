@@ -77,13 +77,37 @@
       "id": "q7",
       "question": "Warum entscheidet sich ein Unternehmen mit sensiblen Kundendaten häufig für eine Hybrid Cloud?",
       "options": [
-        "Weil eine Hybrid Cloud nach gängiger, aber unzutreffender Annahme grundsätzlich günstiger ist als reine Public- oder Private-Cloud-Lösungen",
+        "Weil bei Hybrid Cloud ausschließlich Pay-as-you-grow-Abrechnung möglich ist, nie Pay-per-Use",
         "Weil sensible Daten aus Compliance-Gründen On-Premises bleiben, während unkritische Lasten in der Public Cloud laufen",
-        "Weil eine Hybrid Cloud grundsätzlich keine Internetverbindung benötigt",
-        "Weil eine Hybrid Cloud automatisch sämtliche gespeicherten Daten verschlüsselt"
+        "Weil bei Hybrid Cloud ausschließlich vertikale Skalierung möglich ist, horizontale dagegen nicht",
+        "Weil in der Private Cloud grundsätzlich keine Skalierung möglich ist"
       ],
       "answer": 1,
       "explanation": "Eine Hybrid Cloud kombiniert Private- und Public-Cloud-Anteile, sodass sensible Daten kontrolliert gehalten werden können, während unkritische Lastspitzen flexibel in der Public Cloud abgefangen werden."
+    },
+    {
+      "id": "q8",
+      "question": "Was unterscheidet Pay-per-Use von Pay-as-you-grow?",
+      "options": [
+        "Pay-per-Use zahlt exakt nach tatsächlichem Verbrauch, Pay-as-you-grow bucht feste, wachsende Kontingente",
+        "Beide Begriffe bezeichnen exakt dasselbe Abrechnungsmodell ohne jeden Unterschied",
+        "Pay-per-Use ist ausschließlich bei On-Premises-Hardware möglich",
+        "Pay-as-you-grow verlangt immer eine hohe einmalige Vorabinvestition wie bei eigener Hardware"
+      ],
+      "answer": 0,
+      "explanation": "Pay-per-Use rechnet nach tatsächlich verbrauchter Rechenzeit, Speicher- oder Datenmenge ab, Pay-as-you-grow bucht feste Kontingente, die mit wachsendem Bedarf erhöht werden — beide vermeiden die hohe Anfangsinvestition von On-Premises-Hardware."
+    },
+    {
+      "id": "q9",
+      "question": "Was ist horizontale Skalierung (Scale-out)?",
+      "options": [
+        "Eine einzelne Instanz wird mit mehr CPU und RAM ausgestattet",
+        "Weitere gleichartige Instanzen werden hinzugefügt, auf die sich die Last verteilt",
+        "Die Cloud-Ressource wird komplett auf On-Premises-Hardware verlagert",
+        "Die Anzahl der Nutzerkonten wird automatisch reduziert"
+      ],
+      "answer": 1,
+      "explanation": "Horizontale Skalierung (Scale-out) fügt weitere gleichartige Instanzen hinzu, auf die sich die Last verteilt — im Gegensatz zur vertikalen Skalierung (Scale-up), die eine einzelne Instanz vergrößert."
     }
   ]
 }

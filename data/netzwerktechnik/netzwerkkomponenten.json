@@ -44,7 +44,7 @@
         "Ein Switch flutet den Broadcast an alle Ports, ein Router stoppt ihn an der Netzgrenze",
         "Beide Geräte leiten Broadcasts grundsätzlich niemals weiter",
         "Ein Router leitet Broadcasts grundsätzlich unverändert an alle angeschlossenen Netzsegmente weiter",
-        "Broadcasts existieren technisch nur auf der Anwendungsschicht"
+        "Ein Router leitet Broadcasts anhand seiner Routingtabelle gezielt an ein einzelnes Netzsegment weiter"
       ],
       "answer": 0,
       "explanation": "Ein Switch bleibt innerhalb einer Broadcast-Domäne und flutet Broadcasts an alle Ports, ein Router trennt Broadcast-Domänen und leitet sie nicht weiter."
@@ -53,9 +53,9 @@
       "id": "q5",
       "question": "Warum werden Hubs in modernen Netzwerken praktisch nicht mehr eingesetzt?",
       "options": [
-        "Weil sie in der Anschaffung deutlich teurer sind als moderne Switches",
+        "Weil sie im Gegensatz zum Switch jeden Port als eigene Kollisionsdomäne trennen",
         "Weil sie eine gemeinsame Kollisionsdomäne teilen und jedes Signal an alle Geräte senden",
-        "Weil sie ausschließlich in Kombination mit Glasfaserkabeln funktionieren",
+        "Weil sie im Gegensatz zum Router Broadcast-Domänen zuverlässig voneinander trennen",
         "Weil sie ursprünglich speziell für die Verarbeitung moderner IP-Adressen entwickelt wurden, das inzwischen aber nicht mehr leisten"
       ],
       "answer": 1,
@@ -84,6 +84,18 @@
       ],
       "answer": 3,
       "explanation": "Im Gegensatz zum Hub bildet bei einem Switch jeder einzelne Port eine eigene Kollisionsdomäne."
+    },
+    {
+      "id": "q8",
+      "question": "Was macht ein Router, wenn zu einem Ziel mehrere passende Einträge in der Routingtabelle existieren?",
+      "options": [
+        "Er wählt den Weg mit der niedrigsten Metrik",
+        "Er sendet das Paket testweise über alle passenden Wege gleichzeitig",
+        "Er verwirft das Paket grundsätzlich, da die Tabelle mehrdeutig ist",
+        "Er wählt immer den zuerst in der Tabelle eingetragenen Weg, unabhängig von dessen Kosten"
+      ],
+      "answer": 0,
+      "explanation": "Die Metrik ist ein Kostenwert (z. B. Anzahl Zwischenstationen oder Leitungsgeschwindigkeit) — bei mehreren passenden Einträgen bevorzugt der Router den Weg mit der niedrigsten Metrik."
     }
   ]
 }

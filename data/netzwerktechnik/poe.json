@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Wofür steht PoE und welchen Vorteil bietet es?",
       "options": [
-        "Priority over Ethernet — priorisiert bestimmten Datenverkehr im gesamten Netzwerk",
-        "Port over Ethernet — vergrößert automatisch die Anzahl verfügbarer Switch-Ports",
+        "Power over Ethernet — schaltet bei einem Stromausfall automatisch den gesamten Switch ab",
+        "Power over Ethernet — überträgt ausschließlich Daten über Glasfaser, keinen Strom über Kupfer",
         "Power over Ethernet — liefert Strom und Daten über ein Kabel",
-        "Protocol over Ethernet — kapselt beliebige andere Protokolle in Ethernet-Frames"
+        "Power over Ethernet — funktioniert ausschließlich ab Type 3 (PoE++), nicht bei Type 1 und 2"
       ],
       "answer": 2,
       "explanation": "PoE (Power over Ethernet) versorgt Endgeräte wie IP-Telefone oder Access-Points über dasselbe Kabel mit Strom, über das auch die Daten laufen — ein separates Netzteil entfällt."
@@ -31,7 +31,7 @@
       "options": [
         "Weil Type 3 alle 4 statt 2 Adernpaare zur Stromübertragung nutzt",
         "Weil bei Type 3 zusätzlich ein separates internes Netzteil verbaut wird",
-        "Weil Type 3 gegenüber Type 1 und 2 eine deutlich höhere Datenrate nutzt",
+        "Weil Type 3 im Gegensatz zu Type 1 und 2 nicht mehr abwärtskompatibel ist",
         "Weil Type 3 ausschließlich über Glasfaserkabel statt Kupferkabel läuft"
       ],
       "answer": 0,

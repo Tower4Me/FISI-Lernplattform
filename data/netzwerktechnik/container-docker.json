@@ -17,9 +17,9 @@
       "id": "q2",
       "question": "Warum starten Container in der Regel deutlich schneller als virtuelle Maschinen?",
       "options": [
-        "Weil Container grundsätzlich nur sehr kleine Anwendungen enthalten dürfen",
-        "Weil VMs prinzipiell immer auf langsamerer physischer Hardware laufen",
-        "Weil Container aus Sicherheitsgründen angeblich grundsätzlich keine eigene Netzwerkverbindung benötigen dürfen",
+        "Weil Container im Gegensatz zu VMs kein eigenes Docker-Image benötigen",
+        "Weil VMs im Gegensatz zu Containern grundsätzlich keinen eigenen Kernel besitzen",
+        "Weil Container im Gegensatz zu VMs ausschließlich für Microservices eingesetzt werden dürfen",
         "Weil Container keinen eigenen vollständigen Betriebssystem-Boot benötigen, da sie den Host-Kernel nutzen"
       ],
       "answer": 3,
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Welches Problem löst Containerisierung typischerweise, das mit dem Satz „Bei mir läuft es doch!“ beschrieben wird?",
       "options": [
-        "Eine fehlende Internetverbindung auf dem eigentlichen Zielserver",
+        "Eine zu geringe Isolationsstärke des eingesetzten Containers gegenüber einer VM",
         "Unterschiede in der Laufzeitumgebung zwischen Entwicklungs- und Produktivsystem, da die Umgebung im Image steckt",
-        "Eine zu geringe Bildschirmauflösung auf dem Entwicklerrechner",
-        "Fehlende Lizenzschlüssel für das auf dem jeweiligen Zielsystem verwendete Betriebssystem und dessen Zusatzsoftware"
+        "Ein zu hoher Ressourcenbedarf des Containers auf dem Zielserver",
+        "Eine zu lange Startzeit des Containers im Vergleich zur virtuellen Maschine"
       ],
       "answer": 1,
       "explanation": "Da die komplette Laufzeitumgebung im Docker-Image enthalten ist, läuft die Anwendung auf jedem System mit Docker-Unterstützung identisch — unabhängig von lokal installierter Software."

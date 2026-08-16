@@ -122,13 +122,11 @@
 
       <p>
         <strong>Docker</strong> ist die bekannteste Plattform zur
-        Erstellung und Verwaltung von Containern. Eine Anwendung wird dabei
-        mit allen benötigten Bibliotheken und Abhängigkeiten in einem
-        <strong>Image</strong> gebündelt — dieses Image läuft dann auf
-        jedem System mit Docker-Unterstützung identisch, unabhängig von
-        der zugrunde liegenden Systemumgebung. Das löst das klassische
-        Problem „Bei mir läuft es doch!“, da die Laufzeitumgebung fest im
-        Image enthalten ist.
+        Erstellung und Verwaltung von Containern. Eine Anwendung wird mit
+        allen benötigten Bibliotheken in einem <strong>Image</strong>
+        gebündelt — es läuft auf jedem System mit Docker-Unterstützung
+        identisch. Das löst das klassische Problem „Bei mir läuft es
+        doch!“, da die Laufzeitumgebung fest im Image enthalten ist.
       </p>
 
       <h3>Wann VM, wann Container?</h3>
@@ -153,9 +151,9 @@
         Bestellsystem, Zahlungsanbindung).
       </p>
       <ul>
-        <li>Jeder Microservice wird als eigenes <strong>Docker-Image</strong> gebaut, das genau die benötigten Bibliotheken enthält — unabhängig davon, welche Softwareversionen auf dem Zielserver sonst installiert sind.</li>
-        <li>Bei stark steigender Nutzerzahl lassen sich zusätzliche Container-Instanzen des Bestellsystems <strong>innerhalb von Sekunden</strong> starten, um die Last abzufangen — mit einer klassischen VM würde das Hochfahren deutlich länger dauern.</li>
-        <li>Für einen Kunden mit besonders strengen Sicherheitsanforderungen (getrennte Mandanten) wird zusätzlich eine dedizierte <strong>virtuelle Maschine</strong> eingesetzt, in der die Container dieses Kunden vollständig von anderen Kunden isoliert laufen.</li>
+        <li>Jeder Microservice wird als eigenes <strong>Docker-Image</strong> gebaut, unabhängig davon, welche Softwareversionen auf dem Zielserver sonst installiert sind.</li>
+        <li>Bei steigender Nutzerzahl lassen sich zusätzliche Container-Instanzen <strong>innerhalb von Sekunden</strong> starten — mit einer VM würde das deutlich länger dauern.</li>
+        <li>Für einen Kunden mit strengen Sicherheitsanforderungen läuft eine dedizierte <strong>virtuelle Maschine</strong>, in der dessen Container vollständig von anderen Kunden isoliert sind.</li>
       </ul>
       <p>
         Typische Prüfungsfrage: „Warum starten Container deutlich schneller

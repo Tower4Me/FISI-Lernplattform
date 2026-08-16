@@ -57,6 +57,19 @@
         weisen ihnen Prioritätsstufen zu, sodass wichtiger Verkehr bei
         Engpässen bevorzugt weitergeleitet wird.
       </p>
+
+      <p>
+        Ein zentraler Grund, warum QoS gerade für VoIP und Videokonferenzen
+        wichtig ist, liegt in der <strong>Latenz</strong> — der Zeit, die
+        ein Paket vom Sender bis zum Empfänger braucht. Latenz entsteht
+        durch die Leitungslänge (Signallaufzeit), durch jede aktive
+        Komponente auf dem Weg (Switch, Router — jede Verarbeitung kostet
+        Zeit) und durch Überlastung, wenn Pakete in einer Warteschlange
+        auf ihre Weiterleitung warten müssen. Bei Sprache und Video macht
+        sich hohe Latenz sofort als spürbare Verzögerung oder Ruckeln
+        bemerkbar — QoS senkt die Latenz für priorisierten Verkehr, indem
+        es dessen Wartezeit in der Warteschlange verkürzt.
+      </p>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -93,6 +106,9 @@
         Bandbreitenengpässen. Ohne QoS gilt Best Effort — alle Pakete
         werden gleich behandelt. QoS-Regeln klassifizieren Pakete nach
         Protokoll, Port oder VLAN und weisen ihnen Prioritätsstufen zu.
+        Latenz — Leitungslänge, aktive Komponenten, Warteschlangen — ist
+        der Grund, warum sich fehlende Priorisierung bei Sprache und Video
+        sofort bemerkbar macht.
       </p>
     </section>
 

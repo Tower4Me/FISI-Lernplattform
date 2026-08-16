@@ -6,9 +6,9 @@
       "question": "Was ist die grundlegende Aufgabe eines Hypervisors?",
       "options": [
         "Er teilt Hardware-Ressourcen auf mehrere virtuelle Maschinen auf und verwaltet sie",
-        "Er verschlüsselt ausschließlich den gesamten Datenverkehr zwischen virtuellen Maschinen",
+        "Er läuft ausschließlich als Anwendung innerhalb eines gewöhnlichen Host-Betriebssystems",
         "Er ersetzt vollständig die Notwendigkeit eines eigenen Betriebssystems",
-        "Er dient ausschließlich der zentralen Überwachung des Netzwerkverkehrs"
+        "Er senkt automatisch und direkt den Stromverbrauch der zugrunde liegenden Hardware"
       ],
       "answer": 0,
       "explanation": "Der Hypervisor ist die Steuerungssoftware, die physische Hardware-Ressourcen auf mehrere virtuelle Maschinen aufteilt und verwaltet."
@@ -29,7 +29,7 @@
       "id": "q3",
       "question": "Warum wird für den produktiven Servereinsatz meist ein Typ-1-Hypervisor bevorzugt?",
       "options": [
-        "Weil Typ-1-Hypervisoren stets kostenlos sind, während Typ-2-Varianten immer kostenpflichtig sind",
+        "Weil er ausschließlich für Desktopvirtualisierung (VDI) eingesetzt werden kann",
         "Weil er sich einfacher auf einem gewöhnlichen Arbeitsplatzrechner installieren lässt",
         "Weil er grundsätzlich keinerlei Snapshots virtueller Maschinen unterstützt",
         "Weil ohne zusätzliche Betriebssystemschicht eine bessere Performance erreicht wird"
@@ -56,7 +56,7 @@
         "Ein einzelner physischer Server wird in mehrere virtuelle Server aufgeteilt",
         "Ein kompletter Desktop läuft zentral im Rechenzentrum und wird aufs Endgerät gestreamt",
         "Eine einzelne Anwendung läuft vollständig isoliert, ganz ohne jede lokale Installation auf dem Gerät",
-        "Mehrere physische Server werden zu einem gemeinsamen Cluster zusammengeschlossen"
+        "Eine einzelne physische Maschine wird direkt auf der Hardware ohne Host-Betriebssystem betrieben"
       ],
       "answer": 1,
       "explanation": "Bei Desktopvirtualisierung (VDI) läuft der komplette Desktop zentral im Rechenzentrum, das Endgerät (oft ein Thin Client) zeigt nur das gestreamte Bild an."
@@ -66,9 +66,9 @@
       "question": "Welchen praktischen Vorteil bietet ein Snapshot einer virtuellen Maschine?",
       "options": [
         "Er sichert den Zustand der VM vor riskanten Änderungen und erlaubt ein Zurücksetzen",
-        "Er erhöht dauerhaft und spürbar die verfügbare Rechenleistung der virtuellen Maschine",
-        "Er verschlüsselt automatisch sämtliche gespeicherten Daten der virtuellen Maschine",
-        "Er macht ein separates Backup der virtuellen Maschine vollständig überflüssig"
+        "Er verbessert automatisch die Auslastung mehrerer schwach ausgelasteter physischer Server",
+        "Er ist ausschließlich bei der Desktopvirtualisierung (VDI) nutzbar, nicht bei Servervirtualisierung",
+        "Er wird ausschließlich zur ursprünglichen Installation einer neuen virtuellen Maschine verwendet"
       ],
       "answer": 0,
       "explanation": "Ein Snapshot sichert den aktuellen Zustand einer VM, sodass bei fehlgeschlagenen Änderungen schnell zum vorherigen Stand zurückgekehrt werden kann."
@@ -77,9 +77,9 @@
       "id": "q7",
       "question": "Welchen Hauptvorteil bietet die Konsolidierung mehrerer schwach ausgelasteter physischer Server auf einer virtualisierten Hardware?",
       "options": [
-        "Die Anzahl der benötigten IP-Adressen sinkt dadurch automatisch auf genau eins",
-        "Jede virtuelle Maschine benötigt dadurch automatisch weniger Arbeitsspeicher als vorher",
-        "Durch die Konsolidierung entfällt die Notwendigkeit von Backups vollständig",
+        "Sie macht einen Hypervisor auf der konsolidierten Hardware vollständig überflüssig",
+        "Sie funktioniert ausschließlich mit Typ-2-Hypervisoren, nicht mit Typ-1-Hypervisoren",
+        "Sie erlaubt es, vollständig auf Snapshots der einzelnen virtuellen Maschinen zu verzichten",
         "Bessere Hardwareauslastung sowie geringerer Strom-, Kühl- und Wartungsaufwand"
       ],
       "answer": 3,

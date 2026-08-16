@@ -89,6 +89,19 @@
         DNS-Eintrag umgestellt wird, oder um bestimmte Domains lokal zu
         blockieren.
       </p>
+
+      <h3>DNS-Sicherheit & Betrieb</h3>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>DNS-Forwarding</strong></td><td>Ein interner DNS-Server leitet Anfragen, die er nicht selbst beantworten kann, an einen übergeordneten (z. B. öffentlichen) DNS-Server weiter, statt selbst die komplette Auflösungskette durchzugehen.</td></tr>
+          <tr><td><strong>SPF</strong> (Sender Policy Framework)</td><td>Ein spezieller DNS-Eintrag, der festlegt, welche Mailserver im Namen einer Domain E-Mails versenden dürfen — fehlt oder ist er falsch konfiguriert, können E-Mails der Domain leichter gefälscht oder als Spam eingestuft werden.</td></tr>
+          <tr><td><strong>DNS-Spoofing</strong></td><td>Ein Angreifer schleust gefälschte DNS-Antworten ein, sodass ein Domainname auf eine falsche (vom Angreifer kontrollierte) IP-Adresse zeigt — Nutzer landen unbemerkt auf einer gefälschten Seite.</td></tr>
+          <tr><td><strong>DNSSEC</strong> (DNS Security Extensions)</td><td>Signiert DNS-Antworten digital, sodass ein Client prüfen kann, ob eine Antwort tatsächlich vom zuständigen Nameserver stammt und unterwegs nicht verfälscht wurde — die zentrale Abwehrmaßnahme gegen DNS-Spoofing.</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -120,6 +133,8 @@
         Records: A/AAAA (Name → IPv4/IPv6), MX (Mailserver), CNAME (Alias),
         PTR (IP → Name), SOA (Zonen-Verwaltungsdaten). Die lokale
         hosts-Datei wird vor jeder DNS-Anfrage geprüft und hat Vorrang.
+        SPF schützt vor gefälschten Absendern, DNSSEC signiert Antworten
+        gegen DNS-Spoofing, Forwarding leitet unbekannte Anfragen weiter.
       </p>
     </section>
 

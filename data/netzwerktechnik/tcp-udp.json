@@ -7,7 +7,7 @@
       "options": [
         "TCP ist verbindungsorientiert und zuverlässig, UDP verbindungslos ohne Garantie",
         "TCP arbeitet auf der Vermittlungsschicht 3, UDP dagegen auf Schicht 4 des OSI-Modells",
-        "UDP gilt grundsätzlich als sicherer gegen Manipulation als TCP-Verbindungen",
+        "TCP und UDP unterscheiden sich lediglich darin, welche Portnummern sie jeweils verwenden dürfen",
         "Zwischen beiden Protokollen besteht in der Praxis kein relevanter Unterschied"
       ],
       "answer": 0,
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Warum hat TCP im Vergleich zu UDP einen höheren Overhead?",
       "options": [
-        "Weil TCP grundsätzlich über eine andere IP-Version als UDP läuft",
-        "Weil TCP prinzipiell ausschließlich in drahtlosen Funknetzwerken eingesetzt wird",
+        "Weil TCP im Gegensatz zu UDP keine Portnummern zur Zieladressierung nutzt",
+        "Weil TCP ausschließlich für Dateidownloads verwendet wird, für alles andere UDP",
         "Weil TCP Handshake, größere Header und laufende Bestätigungen benötigt",
-        "Weil TCP sämtliche übertragenen Daten grundsätzlich verschlüsselt"
+        "Weil TCP anders als UDP keine Sequenznummern zur Reihenfolge der Pakete nutzt"
       ],
       "answer": 2,
       "explanation": "Der Handshake vor der Datenübertragung, größere Paket-Header und laufende Bestätigungen (ACKs) erzeugen bei TCP zusätzlichen Verwaltungsaufwand gegenüber dem schlanken UDP."
@@ -66,8 +66,8 @@
       "question": "Wieso nutzen viele DNS-Anfragen UDP statt TCP?",
       "options": [
         "Eine kurze Anfrage-Antwort lohnt keinen vollen TCP-Verbindungsaufbau",
-        "DNS-Anfragen benötigen grundsätzlich überhaupt keine Portnummern",
-        "UDP überträgt grundsätzlich verschlüsselt, TCP dagegen nicht",
+        "DNS nutzt UDP, weil ein DNS-Server damit automatisch mehr Anfragen gleichzeitig verarbeiten kann als mit TCP",
+        "DNS nutzt UDP, weil eine DNS-Anfrage im Gegensatz zu einem Download mehrfach bestätigt werden muss",
         "DNS-Server können ausschließlich UDP-Pakete verarbeiten, niemals TCP"
       ],
       "answer": 0,

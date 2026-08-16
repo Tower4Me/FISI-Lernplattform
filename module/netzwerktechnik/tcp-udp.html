@@ -77,7 +77,12 @@
         kurz ruckelndes, fehlendes Bild weniger als eine spürbare
         Verzögerung durch Warten auf erneut gesendete Pakete — deshalb
         nutzt VoIP meist UDP. Bei einer heruntergeladenen Datei dagegen darf
-        kein einziges Byte fehlen — deshalb nutzt ein Download TCP.
+        kein einziges Byte fehlen — deshalb nutzt ein Download TCP. Auch
+        eine <strong>DNS-Anfrage</strong> läuft meist über UDP: Frage und
+        Antwort passen jeweils in ein einziges kleines Paket, sodass sich
+        der Aufwand eines vollständigen TCP-Verbindungsaufbaus für diese
+        kurze Anfrage-Antwort-Kommunikation nicht lohnt — geht die Antwort
+        ausnahmsweise verloren, fragt der Client einfach erneut.
       </p>
 
       <figure class="figure--diagram">

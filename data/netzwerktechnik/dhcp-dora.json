@@ -20,7 +20,7 @@
         "Der Server trägt die neu vergebene Adresse als belegt in seine interne Datenbank ein",
         "Der Client sendet einen Broadcast, da er noch keine eigene IP-Adresse besitzt",
         "Der Client vergleicht die eingegangenen Angebote und wählt eines davon aus",
-        "Der Server prüft vorab per ARP, ob die angebotene Adresse im Netz noch frei ist"
+        "Der Server sendet dem Client sofort ein Acknowledge für eine feste IP-Adresse"
       ],
       "answer": 1,
       "explanation": "Im Discover-Schritt sendet der Client einen Broadcast, da er zu diesem Zeitpunkt noch keine eigene IP-Adresse besitzt und deshalb keinen Server gezielt ansprechen kann."
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Warum laufen Discover und Request als Broadcast ab, nicht als gezielte Nachricht an einen bestimmten Server?",
       "options": [
-        "Weil Broadcast-Nachrichten grundsätzlich schneller übertragen werden als gezielte Unicast-Nachrichten",
-        "Weil DHCP-Server aus historischen Gründen technisch ausschließlich Broadcast-Nachrichten verarbeiten können",
+        "Weil ein Broadcast dem Client automatisch mehrere IP-Adressen gleichzeitig zuweist",
+        "Weil dadurch sichergestellt ist, dass ausschließlich ein einziger, fest zugeordneter DHCP-Server antworten darf",
         "Weil der Client noch keine IP besitzt und den Server nicht gezielt ansprechen kann",
-        "Weil Broadcast-Nachrichten grundsätzlich verschlüsselt und dadurch besonders abhörsicher sind"
+        "Weil ein Broadcast den vierstufigen DORA-Ablauf auf zwei Schritte verkürzt"
       ],
       "answer": 2,
       "explanation": "Ohne eigene IP-Adresse kann der Client den DHCP-Server nicht direkt per Unicast ansprechen — ein Broadcast erreicht alle Geräte im Segment, einschließlich eines vorhandenen DHCP-Servers."
@@ -54,8 +54,8 @@
       "question": "Welche Bedeutung hat die Lease-Dauer bei DHCP?",
       "options": [
         "Sie legt fest, wie lange eine IP-Adresse gültig ist, bevor sie neu vergeben wird",
-        "Sie gibt an, mit welcher maximalen Geschwindigkeit die Netzwerkverbindung arbeitet",
-        "Sie bestimmt, wie viele DNS-Server dem Client insgesamt zugewiesen werden können",
+        "Sie gibt an, wie oft sich ein Client während einer Sitzung neu am Netz anmelden muss",
+        "Sie bestimmt, welcher der mehreren anbietenden DHCP-Server als Hauptserver gilt",
         "Sie ist technisch identisch mit der beim Client hinterlegten Subnetzmaske"
       ],
       "answer": 0,
@@ -68,7 +68,7 @@
         "Ausschließlich die feste MAC-Hardware-Adresse des anfragenden Client-Geräts",
         "Subnetzmaske, Standardgateway und die Adresse des DNS-Servers",
         "Ausschließlich die Dauer der aktuellen Lease-Vergabe",
-        "Den Hostnamen und die Seriennummer des DHCP-Servers"
+        "Ausschließlich die öffentliche IP-Adresse des Internetanschlusses"
       ],
       "answer": 1,
       "explanation": "DHCP liefert neben der IP-Adresse üblicherweise auch Subnetzmaske, Standardgateway und DNS-Server, damit das Gerät vollständig netzwerkfähig ist."

@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Was legt die Subnetzmaske bei einer IPv4-Adresse fest?",
       "options": [
-        "Die physische Übertragungsgeschwindigkeit der Netzwerkverbindung in MBit/s",
-        "Die eindeutige MAC-Adresse der Netzwerkkarte des Geräts",
+        "Die Anzahl der gesetzten Bits entspricht direkt der Zahl nutzbarer Host-Adressen",
+        "Sie bestimmt, ob eine IP-Adresse zum privaten oder öffentlichen Adressbereich gehört",
         "Welcher Teil der Adresse Netz- und welcher Hostanteil ist",
-        "Den DNS-Server, der für Namensauflösungen verwendet wird"
+        "Sie legt ausschließlich die Broadcast-Adresse fest, nicht die Netzadresse"
       ],
       "answer": 2,
       "explanation": "Gesetzte Bits (1) in der Subnetzmaske markieren den Netzanteil, ungesetzte Bits (0) den Hostanteil der Adresse."

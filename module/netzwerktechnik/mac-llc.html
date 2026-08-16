@@ -91,27 +91,21 @@
         </tbody>
       </table>
       <p>
-        Die konkreten Zugriffsverfahren, mit denen die MAC-Teilschicht den
-        Medienzugriff koordiniert (CSMA/CD im Kabel, CSMA/CA im Funk),
-        behandelt die Einheit
+        Die konkreten Zugriffsverfahren (CSMA/CD im Kabel, CSMA/CA im
+        Funk) behandelt die Einheit
         <a href="ethernet-zugriffsverfahren.html">Ethernet &amp;
-        Zugriffsverfahren</a> vertiefend — hier geht es nur darum,
-        <em>wo</em> diese Funktion innerhalb der Sicherungsschicht sitzt.
+        Zugriffsverfahren</a> vertiefend.
       </p>
 
       <h3>MAC-Adresse vs. IP-Adresse: physisch vs. logisch</h3>
       <p>
-        Neben der Aufteilung in MAC/LLC lohnt sich die Abgrenzung zur
-        Adressierung eine Schicht höher: Die <strong>MAC-Adresse</strong>
-        ist eine <strong>physische</strong>, nur im lokalen Netzsegment
-        relevante Adresse, fest an die Netzwerkkarte gebunden. Die
-        <strong>IP-Adresse</strong> (Schicht 3) ist dagegen eine
-        <strong>logische</strong>, veränderliche Adresse, die auch über
-        Netzgrenzen hinweg (Routing) funktioniert. Innerhalb eines
-        Netzsegments erfolgt die tatsächliche Zustellung eines Frames immer
-        über die MAC-Adresse — wie eine IP-Adresse zur passenden MAC-Adresse
-        aufgelöst wird, behandelt die Einheit
-        <a href="arp.html">ARP</a>.
+        Die <strong>MAC-Adresse</strong> ist <strong>physisch</strong> und
+        nur lokal relevant, fest an die Netzwerkkarte gebunden. Die
+        <strong>IP-Adresse</strong> (Schicht 3) ist <strong>logisch</strong>,
+        veränderlich und funktioniert auch über Netzgrenzen hinweg
+        (Routing). Innerhalb eines Segments läuft die Zustellung immer
+        über die MAC-Adresse — wie IP zu MAC aufgelöst wird, behandelt die
+        Einheit <a href="arp.html">ARP</a>.
       </p>
     </section>
 
@@ -124,14 +118,13 @@
         Verpackung zur Hand zu haben.
       </p>
       <ul>
-        <li>Per <code>ipconfig /all</code> liest er die MAC-Adresse der
-          Karte aus: <code>A4:C3:F0:12:34:56</code>.</li>
+        <li>Per <code>ipconfig /all</code> liest er die MAC-Adresse aus:
+          <code>A4:C3:F0:12:34:56</code>.</li>
         <li>Die ersten drei Byte (<code>A4:C3:F0</code>) sind die
-          <strong>OUI</strong> — anhand einer öffentlichen IEEE-Datenbank
-          lässt sich daraus der Hersteller ermitteln, ohne die Karte
-          überhaupt zu sehen.</li>
+          <strong>OUI</strong> — per IEEE-Datenbank ermittelt er daraus
+          den Hersteller, ohne die Karte zu sehen.</li>
         <li>Die letzten drei Byte (<code>12:34:56</code>) sind
-          herstellerintern vergeben und machen diese eine Karte weltweit
+          herstellerintern vergeben und machen die Karte weltweit
           eindeutig.</li>
       </ul>
       <p>

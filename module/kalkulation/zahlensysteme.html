@@ -35,14 +35,13 @@
       <h2>Einstieg</h2>
       <p>
         Eine Uhrzeit lässt sich auf ganz unterschiedliche Arten darstellen:
-        als Ziffern auf einem digitalen Display (12:45), als Zeigerstellung
-        auf einem analogen Ziffernblatt, oder als Bitfolge auf einer
-        LED-Digitaluhr, die nur leuchtende und dunkle Segmente kennt. In
-        allen drei Fällen ist exakt dieselbe Uhrzeit gemeint — nur die
-        Darstellung unterscheidet sich. Genauso verhält es sich mit
-        Zahlensystemen: Dieselbe Zahl lässt sich dezimal, binär oder
-        hexadezimal aufschreiben — der Wert bleibt identisch, nur die
-        Symbole und die Basis des Zählsystems ändern sich.
+        als Ziffern auf einem digitalen Display (12:45) oder als
+        Zeigerstellung auf einem analogen Ziffernblatt — in beiden Fällen
+        ist exakt dieselbe Uhrzeit gemeint, nur die Darstellung
+        unterscheidet sich. Genauso verhält es sich mit Zahlensystemen:
+        Dieselbe Zahl lässt sich dezimal, binär oder hexadezimal
+        aufschreiben — der Wert bleibt identisch, nur die Symbole und die
+        Basis des Zählsystems ändern sich.
       </p>
     </section>
 
@@ -134,7 +133,9 @@
         sogenannten <strong>Magic Bytes</strong> (Dateisignatur) — sie
         verraten den echten Dateityp unabhängig von der Endung. Ein
         PDF beginnt beispielsweise immer mit den Hex-Bytes
-        <code>25 50 44 46</code> (ASCII „%PDF“). Mit einem Hex-Editor oder
+        <code>25 50 44 46</code> — in ASCII (der Standard-Zeichenkodierung
+        für Text) entspricht das der Zeichenfolge „%PDF“. Mit einem
+        Hex-Editor oder
         dem Kommandozeilenbefehl <code>file</code> lassen sich die ersten
         Bytes einer Datei prüfen — stimmen sie nicht mit den erwarteten
         Magic Bytes überein, war die Umbenennung tatsächlich nur
@@ -145,15 +146,6 @@
       <div class="tool" data-tool="hex-viewer">
         <p class="muted">Tool wird geladen …</p>
       </div>
-
-      <p>
-        Typische Prüfungsfrage: „Warum reicht das Umbenennen der
-        Dateiendung nicht aus, um den tatsächlichen Dateityp zu ändern?“ –
-        Antwort: Die Dateiendung ist nur ein Hinweis für das
-        Betriebssystem, welches Programm die Datei öffnen soll. Der echte
-        Dateityp steckt in den ersten Bytes der Datei selbst (Magic Bytes)
-        und bleibt beim Umbenennen unverändert.
-      </p>
     </section>
 
     <!-- 4. MERKSATZ -->

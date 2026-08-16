@@ -29,7 +29,7 @@
       "id": "q3",
       "question": "Was ist der zentrale Unterschied zwischen IMAP und POP3?",
       "options": [
-        "POP3 verschlüsselt die Verbindung standardmäßig, IMAP überträgt E-Mails dagegen im Klartext",
+        "IMAP lädt E-Mails herunter und entfernt sie vom Server, POP3 synchronisiert sie stattdessen serverseitig",
         "IMAP ist ausschließlich zum Versand neuer Nachrichten gedacht, POP3 ausschließlich zum Abruf bestehender E-Mails",
         "Beide Protokolle unterscheiden sich nur im verwendeten Port, ansonsten arbeiten sie identisch",
         "IMAP synchronisiert E-Mails serverseitig für mehrere Geräte, POP3 lädt sie herunter und entfernt sie vom Server"

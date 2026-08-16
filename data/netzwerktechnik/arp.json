@@ -5,8 +5,8 @@
       "id": "q1",
       "question": "Was macht ein Gerät, bevor es eine ARP-Request sendet?",
       "options": [
-        "Es fragt zunächst den zuständigen DNS-Server nach der passenden MAC-Adresse",
-        "Es wartet grundsätzlich automatisch 300 Sekunden vor jeder einzelnen Anfrage",
+        "Es sendet zuerst eine ARP-Reply, um die eigene MAC-Adresse bekanntzugeben",
+        "Es fragt zunächst den zuständigen Router, ob das Zielgerät im selben Segment liegt",
         "Es prüft zuerst seinen lokalen ARP-Cache auf bekannte Zuordnungen",
         "Es sendet die Anfrage grundsätzlich direkt an den Router, unabhängig vom Segment"
       ],
@@ -42,9 +42,9 @@
       "question": "Warum funktioniert ARP nicht über Netzgrenzen (Router) hinweg?",
       "options": [
         "Weil ARP-Requests Broadcasts sind, die Router nicht weiterleiten",
-        "Weil ARP angeblich ausschließlich für IPv6-Netze entwickelt wurde",
-        "Weil Router selbst grundsätzlich über keine eigene MAC-Adresse verfügen",
-        "Weil ARP-Pakete verschlüsselt sind und Router sie nicht entschlüsseln könnten"
+        "Weil eine ARP-Reply, anders als im Text beschrieben, ebenfalls als Broadcast läuft",
+        "Weil das sendende Gerät seinen ARP-Cache vor jeder Anfrage komplett neu aufbaut",
+        "Weil Router ARP-Requests zwar empfangen, aber grundsätzlich mit einer Fehlermeldung beantworten"
       ],
       "answer": 0,
       "explanation": "ARP-Requests sind Broadcasts, die auf das lokale Netzsegment begrenzt sind — Router leiten Broadcasts nicht über Netzgrenzen hinweg weiter."

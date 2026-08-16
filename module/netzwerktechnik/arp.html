@@ -56,7 +56,11 @@
         <a href="mac-llc.html">MAC &amp; LLC</a>). Das übernimmt
         <strong>ARP</strong> (Address Resolution Protocol) — ausschließlich
         innerhalb eines lokalen Netzsegments, über Router hinweg wird ARP
-        nicht verwendet.
+        nicht verwendet. Der Grund liegt im Ablauf selbst: Eine
+        ARP-Request ist ein Broadcast, und Router leiten Broadcasts
+        grundsätzlich nicht in ein anderes Netzsegment weiter — die
+        Anfrage kommt also nie im Netz auf der anderen Seite eines Routers
+        an.
       </p>
 
       <h3>Ablauf: Request und Reply</h3>

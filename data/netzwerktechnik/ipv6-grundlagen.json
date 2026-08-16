@@ -20,7 +20,7 @@
         "Eine private Adresse wie nach RFC 1918, nicht im öffentlichen Internet routbar",
         "Eine öffentliche, im gesamten Internet direkt routbare Adresse",
         "Eine automatisch vergebene APIPA-Adresse ohne DHCP-Server",
-        "Eine Multicast-Adresse zur gleichzeitigen Gruppenkommunikation mit mehreren Empfängern"
+        "Eine öffentliche Adresse, die genau wie eine Global-Unicast-Adresse weltweit routbar ist"
       ],
       "answer": 0,
       "explanation": "Unique-Local-Adressen sind wie private IPv4-Adressen (10.x, 172.16-31.x, 192.168.x) nur innerhalb der eigenen Organisation gültig und werden nicht ins öffentliche Internet geroutet."
@@ -42,7 +42,7 @@
       "question": "Was liefert der Router beim SLAAC-Verfahren an die Geräte im Netz?",
       "options": [
         "Eine bereits vollständige, individuell pro Gerät fest zugewiesene IPv6-Adresse",
-        "Ausschließlich die Adresse des zuständigen DNS-Servers im Netz",
+        "Eine bereits fertige Link-Local-Adresse, die das Gerät ohnehin schon selbst gebildet hat",
         "Die MAC-Adressen sämtlicher Geräte im lokalen Netzwerksegment",
         "Ein Router Advertisement mit dem Präfix, das Geräte als Netzanteil übernehmen"
       ],
@@ -79,11 +79,23 @@
       "options": [
         "DHCP, das Protokoll zur zentralen und dynamischen IP-Adressvergabe im Netz",
         "APIPA (169.254.0.0/16), automatische lokale Adressvergabe ohne Server",
-        "NAT, das Verfahren zur Adressumsetzung zwischen Netzen",
-        "DNS, das System zur Auflösung von Namen in Adressen"
+        "Unique Local (ULA), die private IPv6-Adresse für den organisationsinternen Gebrauch",
+        "Global Unicast, die weltweit eindeutige und im Internet routbare IPv6-Adresse"
       ],
       "answer": 1,
       "explanation": "Sowohl APIPA als auch Link-Local-Adressen vergeben automatisch eine nur lokal gültige Adresse, ohne dass ein DHCP-Server benötigt wird."
+    },
+    {
+      "id": "q8",
+      "question": "Wie viele eigene /64-Subnetze lassen sich aus einem vom Provider vergebenen /56-Präfix bilden?",
+      "options": [
+        "2",
+        "8",
+        "64",
+        "256"
+      ],
+      "answer": 3,
+      "explanation": "Zwischen /56 und /64 liegen 8 frei wählbare Bit — 2⁸ = 256 mögliche /64-Subnetze."
     }
   ]
 }

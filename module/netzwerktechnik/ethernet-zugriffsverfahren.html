@@ -82,22 +82,17 @@
         <strong>Vollduplex</strong>-Netzen (siehe
         <a href="netzwerkkomponenten.html">Netzwerkkomponenten</a>) treten
         praktisch <strong>keine Kollisionen</strong> mehr auf, da jeder
-        Switch-Port eine eigene Kollisionsdomäne bildet und gleichzeitig
-        gesendet und empfangen werden kann. CSMA/CD ist damit heute
-        größtenteils <strong>historisch</strong> — relevant war es vor
-        allem in älteren Netzen mit <strong>Hubs</strong> und
-        <strong>Halbduplex</strong>-Betrieb, wo sich alle Geräte
-        tatsächlich ein gemeinsames Medium teilten.
+        Switch-Port eine eigene Kollisionsdomäne bildet. CSMA/CD ist damit
+        heute größtenteils <strong>historisch</strong> — relevant vor
+        allem bei <strong>Hubs</strong> im <strong>Halbduplex</strong>.
       </p>
 
       <h3>CSMA/CA (WLAN, Funk)</h3>
       <p>
         <strong>CSMA/CA</strong> steht für <em>Carrier Sense Multiple
         Access with Collision Avoidance</em>. Im Funk lassen sich
-        Kollisionen nicht zuverlässig erkennen: Ein sendendes Gerät kann
-        währenddessen nicht gleichzeitig prüfen, ob ein anderes Gerät auf
-        derselben Frequenz ebenfalls sendet — die eigene Übertragung
-        übertönt den Empfang. Deshalb setzt WLAN auf
+        Kollisionen nicht zuverlässig erkennen, da die eigene Übertragung
+        den Empfang übertönt. Deshalb setzt WLAN auf
         <strong>Vermeidung</strong> statt Erkennung:
       </p>
       <ul>
@@ -151,11 +146,9 @@
 
       <h3>Einordnung: 802.3 vs. 802.11</h3>
       <p>
-        Beide Standardfamilien stammen vom IEEE, regeln aber
-        unterschiedliche Medien: <strong>IEEE 802.3</strong> definiert
-        Ethernet für kabelgebundene LANs (mit CSMA/CD),
-        <strong>IEEE 802.11</strong> definiert WLAN für Funknetze (mit
-        CSMA/CA) — vertiefend dazu die Einheit
+        <strong>IEEE 802.3</strong> definiert Ethernet für kabelgebundene
+        LANs (CSMA/CD), <strong>IEEE 802.11</strong> definiert WLAN für
+        Funknetze (CSMA/CA) — vertiefend dazu die Einheit
         <a href="wlan-grundlagen.html">WLAN-Grundlagen</a>.
       </p>
     </section>
@@ -265,23 +258,14 @@
       </figure>
 
       <ul>
-        <li>Im alten Netz hingen alle PCs an einem <strong>Hub</strong> im
-          Halbduplex-Betrieb — sendeten zwei PCs gleichzeitig, kam es zu
-          echten Kollisionen auf der gemeinsamen Leitung, beide mussten
-          abbrechen und nach zufälliger Backoff-Zeit erneut senden
-          (CSMA/CD in Aktion).</li>
-        <li>Der Techniker ersetzt den Hub durch einen <strong>Switch</strong>
-          im Vollduplex-Betrieb: Jeder Port bildet nun eine eigene
-          Kollisionsdomäne, gleichzeitiges Senden und Empfangen ist
-          möglich — Kollisionen im klassischen Sinn treten praktisch
-          nicht mehr auf.</li>
-        <li>Im neuen <strong>WLAN</strong> können die Access Points
-          Kollisionen dagegen grundsätzlich nicht zuverlässig erkennen,
-          da ein sendendes Gerät sich selbst nicht „überhören“ kann.
-          Jedes Gerät lauscht deshalb vor dem Senden, wartet eine
-          zufällige Zeit und wertet das Ausbleiben eines
-          <strong>ACK</strong> als Hinweis auf einen Übertragungsfehler
-          oder eine Kollision (CSMA/CA).</li>
+        <li>Im alten Netz hing noch alles an einem <strong>Hub</strong> im
+          Halbduplex — echte Kollisionen mit Backoff (CSMA/CD).</li>
+        <li>Der neue <strong>Switch</strong> läuft im Vollduplex: Jeder
+          Port eine eigene Kollisionsdomäne, Kollisionen entfallen
+          praktisch.</li>
+        <li>Im neuen <strong>WLAN</strong> lauscht jedes Gerät vor dem
+          Senden, wartet zufällig und wertet ein ausbleibendes
+          <strong>ACK</strong> als Kollisions-/Fehlerhinweis (CSMA/CA).</li>
       </ul>
       <p>
         Typische Prüfungsfrage: „Warum wird in modernen, geswitchten

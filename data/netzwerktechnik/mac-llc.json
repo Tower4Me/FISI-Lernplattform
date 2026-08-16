@@ -17,9 +17,9 @@
       "id": "q2",
       "question": "Wofür stehen die ersten 24 Bit (3 Byte) einer MAC-Adresse?",
       "options": [
-        "für den aktuell verwendeten Netzwerkport des Geräts",
+        "für den geräteindividuellen Teil, den der Hersteller selbst fortlaufend vergibt",
         "für die aktuell zugewiesene IP-Adresse des Geräts",
-        "für die vereinbarte Lease-Dauer der DHCP-Adresse",
+        "für die LLC-Teilschicht, die eine einheitliche Schnittstelle zur Vermittlungsschicht bereitstellt",
         "für die OUI, die Herstellerkennung des Geräts"
       ],
       "answer": 3,
@@ -41,8 +41,8 @@
       "id": "q4",
       "question": "Welche Aufgabe übernimmt die MAC-Teilschicht?",
       "options": [
-        "Verschlüsselung sämtlicher Nutzdaten direkt vor dem Versand",
-        "Auflösung von Domainnamen in die zugehörigen IP-Adressen",
+        "Bereitstellung einer einheitlichen Schnittstelle zur Vermittlungsschicht, unabhängig vom Medium",
+        "Zuweisung von VLAN-Tags zu einzelnen Frames beim Trunking",
         "Adressierung der Netzwerkkarten und Steuerung des Medienzugriffs",
         "Vergabe von neuen IP-Adressen per DHCP an angeschlossene Geräte"
       ],

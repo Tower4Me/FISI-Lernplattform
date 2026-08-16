@@ -108,6 +108,35 @@
         verwalten oder Kollisionen verhindern muss.
       </p>
 
+      <h3>Subnetting-Beispiel: ein /56-Präfix aufteilen</h3>
+      <p>
+        Ein Internetanbieter vergibt an einen Kunden häufig ein
+        <strong>/56-Präfix</strong> — daraus lassen sich eigene
+        <strong>/64-Subnetze</strong> bilden, da jedes einzelne Subnetz in
+        IPv6 standardmäßig 64 Bit Netzanteil hat. Zwischen /56 und /64
+        liegen 8 frei wählbare Bit, also 2⁸ = 256 mögliche Subnetze. Bei
+        einem Präfix <code>2001:db8:abcd:1200::/56</code> ergeben sich die
+        ersten vier /64-Subnetze durch Hochzählen dieser 8 Bit im siebten
+        Block:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Subnetz</th><th>Präfix</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1.</td><td><code>2001:db8:abcd:1200::/64</code></td></tr>
+          <tr><td>2.</td><td><code>2001:db8:abcd:1201::/64</code></td></tr>
+          <tr><td>3.</td><td><code>2001:db8:abcd:1202::/64</code></td></tr>
+          <tr><td>4.</td><td><code>2001:db8:abcd:1203::/64</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Jedes dieser vier /64-Subnetze kann z. B. eine eigene Abteilung
+        (Verwaltung, Lager, Produktion, Gäste-WLAN) bekommen — mit noch
+        immer 64 Bit für den Hostanteil bleibt in jedem einzelnen Subnetz
+        praktisch unbegrenzt Platz für Geräte.
+      </p>
+
       <figure class="figure--diagram">
         <svg viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eui64-title eui64-desc">
           <title id="eui64-title">EUI-64-Verfahren Schritt für Schritt am Beispiel MAC 00:1A:2B:3C:4D:5E</title>

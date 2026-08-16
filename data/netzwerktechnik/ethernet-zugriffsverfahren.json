@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Warum setzt WLAN auf CSMA/CA statt auf CSMA/CD?",
       "options": [
-        "Weil Funkübertragung durch ihre Bauart angeblich grundsätzlich immer schneller ist als jede Kabelverbindung",
-        "Weil CSMA/CA im Betrieb spürbar weniger Energie auf dem mobilen Client verbraucht",
+        "Weil im Funkbetrieb grundsätzlich mehr Geräte gleichzeitig senden dürfen als im Kabelnetz",
+        "Weil CSMA/CA komplett ohne jede Wartezeit vor dem Senden auskommt",
         "Weil ein sendendes Gerät im Funk nicht gleichzeitig prüfen kann, ob eine Kollision vorliegt",
-        "Weil WLAN-Geräte grundsätzlich keine eindeutigen Adressen benötigen"
+        "Weil bei CSMA/CA im Gegensatz zu CSMA/CD keine Bestätigung des Empfängers nötig ist"
       ],
       "answer": 2,
       "explanation": "Ein sendendes Funkgerät übertönt mit der eigenen Übertragung den möglichen Empfang eines anderen Signals — Kollisionen lassen sich im Funk also nicht zuverlässig erkennen. Deshalb versucht CSMA/CA, Kollisionen von vornherein zu vermeiden statt sie zu erkennen."
@@ -42,9 +42,9 @@
       "question": "Warum spielt CSMA/CD in modernen, geswitchten Netzwerken kaum noch eine praktische Rolle?",
       "options": [
         "Weil moderne Switch-Ports im Vollduplex je eine eigene Kollisionsdomäne bilden",
-        "Weil aktuelle Switch-Hardware CSMA/CD aus Kostengründen technisch grundsätzlich nicht mehr unterstützt",
+        "Weil CSMA/CD durch den IEEE-Standard 802.11 offiziell ersetzt wurde",
         "Weil CSMA/CD ursprünglich ausschließlich für den WLAN-Betrieb entwickelt wurde",
-        "Weil sämtliche modernen Netzwerkgeräte inzwischen ausschließlich Glasfaser nutzen"
+        "Weil Backoff-Zeiten bei modernen Switches technisch nicht mehr möglich sind"
       ],
       "answer": 0,
       "explanation": "Im Vollduplex-Betrieb an einem Switch hat jeder Port eine eigene Kollisionsdomäne — die Grundvoraussetzung für Kollisionen (gemeinsam genutztes Medium im Halbduplex, wie bei Hubs) entfällt damit weitgehend."
@@ -55,8 +55,8 @@
       "options": [
         "Es reserviert dauerhaft und vollständig exklusiv den gesamten verfügbaren Funkkanal für nur ein einzelnes Gerät",
         "Es bestätigt dem Sender den erfolgreichen Empfang — bleibt es aus, gilt die Übertragung als gescheitert",
-        "Es übernimmt die vollständige Verschlüsselung der übertragenen Nutzdaten",
-        "Es ersetzt die SSID bei der Anmeldung eines Geräts am Funknetz"
+        "Es erlaubt, ein Datenpaket ausnahmsweise ohne vorheriges Lauschen zu senden",
+        "Es wird ausschließlich beim erstmaligen Verbindungsaufbau genutzt, danach nie wieder"
       ],
       "answer": 1,
       "explanation": "Da Kollisionen im Funk nicht direkt erkennbar sind, bestätigt der Empfänger jede erfolgreiche Übertragung mit einem ACK. Bleibt dieses aus, geht der Sender von einem Problem aus und sendet erneut."

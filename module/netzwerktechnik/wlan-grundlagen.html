@@ -172,7 +172,12 @@
         jeder Nutzer mit eigenen Zugangsdaten gegen einen zentralen
         Authentifizierungsserver an (<strong>RADIUS</strong>) — typisch in
         Firmennetzen, da einzelne Zugänge gezielt gesperrt werden können,
-        ohne dass alle anderen Nutzer ihr Passwort ändern müssen.
+        ohne dass alle anderen Nutzer ihr Passwort ändern müssen. RADIUS
+        übernimmt dabei die klassischen <strong>AAA</strong>-Aufgaben:
+        <strong>A</strong>uthentication (wer ist der Nutzer?),
+        <strong>A</strong>uthorization (was darf er?) und
+        <strong>A</strong>ccounting (was hat er getan, protokolliert für
+        spätere Auswertung).
       </p>
 
       <h3>Access Point & Repeater</h3>
@@ -180,6 +185,39 @@
         <li><strong>Access Point (AP):</strong> Verbindet Funkgeräte mit dem kabelgebundenen Netzwerk (LAN). Mehrere APs können dieselbe SSID ausstrahlen, damit Geräte nahtlos zwischen Funkzellen wechseln (Roaming).</li>
         <li><strong>Repeater:</strong> Empfängt ein bestehendes WLAN-Signal und sendet es verstärkt weiter, um die Reichweite zu vergrößern — reduziert dabei aber meist die nutzbare Datenrate, da derselbe Funkkanal für Empfang und Weitersendung verwendet wird.</li>
       </ul>
+
+      <h3>Planung: Site-Survey, WLAN-Scan & Gästezugang</h3>
+      <p>
+        Vor der Installation mehrerer Access Points führt ein Techniker
+        einen <strong>Site-Survey</strong> durch: Mit einem Messgerät oder
+        Laptop wird die Signalstärke an verschiedenen Punkten im Gebäude
+        gemessen, um Funklöcher und AP-Standorte vorab zu planen, statt
+        nachträglich nachzurüsten. Ein <strong>WLAN-Scan</strong> zeigt
+        dabei alle in Reichweite sichtbaren Netze mit ihren Kenndaten:
+      </p>
+      <table>
+        <thead>
+          <tr><th>SSID</th><th>BSSID</th><th>Kanal</th><th>Signal</th><th>Sicherheit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Firma-Mitarbeiter</td><td>A4:C3:F0:12:34:56</td><td>36</td><td>−52 dBm</td><td>WPA3-Enterprise</td></tr>
+          <tr><td>Firma-Gast</td><td>A4:C3:F0:12:34:57</td><td>6</td><td>−54 dBm</td><td>WPA2-Personal</td></tr>
+          <tr><td>Nachbar-WLAN</td><td>8C:AA:B5:90:11:22</td><td>36</td><td>−78 dBm</td><td>WPA2-Personal</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die <strong>BSSID</strong> ist die MAC-Adresse des jeweiligen
+        Access Points — nützlich, um bei mehreren APs mit derselben SSID
+        (Roaming) einen bestimmten Access Point eindeutig zu identifizieren.
+        Der Kanal entscheidet über Störungen: Liegen zwei Netze auf
+        demselben Kanal (hier Firma-Mitarbeiter und Nachbar-WLAN auf
+        Kanal 36), können sie sich gegenseitig stören. Für Gäste richtet
+        man häufig zusätzlich ein <strong>Captive Portal</strong> ein:
+        Beim ersten Verbindungsversuch öffnet sich automatisch eine
+        Anmeldeseite im Browser (z. B. Nutzungsbedingungen bestätigen oder
+        einen Zugangscode eingeben), bevor der eigentliche Internetzugang
+        freigeschaltet wird.
+      </p>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -211,8 +249,11 @@
         WLAN nach IEEE 802.11 (Wi-Fi 4/5/6), SSID = Netzname. WPA3 ist der
         aktuelle Verschlüsselungsstandard, WEP/WPA gelten als unsicher.
         Personal = gemeinsames Passwort, Enterprise = individuelle Logins
-        über RADIUS. Access Points verbinden Funk mit LAN, Repeater
-        verlängern die Reichweite auf Kosten der Datenrate.
+        über RADIUS (AAA: Authentication/Authorization/Accounting). Access
+        Points verbinden Funk mit LAN, Repeater verlängern die Reichweite
+        auf Kosten der Datenrate. Site-Survey plant AP-Standorte vorab,
+        BSSID identifiziert den einzelnen AP, Captive Portal regelt den
+        Gästezugang.
       </p>
     </section>
 

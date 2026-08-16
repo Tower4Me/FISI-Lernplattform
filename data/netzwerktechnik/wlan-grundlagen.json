@@ -6,9 +6,9 @@
       "question": "Was bezeichnet die SSID in einem WLAN?",
       "options": [
         "Die eindeutige MAC-Adresse des verwendeten Access Points",
-        "Das eingesetzte Verschlüsselungsverfahren des Funknetzes",
+        "Der Kanal, auf dem das Funknetz sendet",
         "Der Netzname, über den Geräte ein WLAN identifizieren",
-        "Die dem Router zugewiesene öffentliche IP-Adresse"
+        "Die Signalstärke, mit der ein Netz empfangen wird"
       ],
       "answer": 2,
       "explanation": "Die SSID (Service Set Identifier) ist der Netzname, mit dem Geräte ein bestimmtes WLAN identifizieren."
@@ -20,7 +20,7 @@
         "WEP, das älteste WLAN-Verschlüsselungsverfahren",
         "WPA2 mit AES-Verschlüsselung im CCMP-Modus",
         "WPA3, der aktuelle Sicherheitsstandard für WLAN",
-        "802.1X mit RADIUS-Authentifizierung für Enterprise-Netze"
+        "AAA mit Accounting-Protokollierung für Enterprise-Netze"
       ],
       "answer": 0,
       "explanation": "WEP ist der älteste WLAN-Verschlüsselungsstandard und gilt heute als unsicher; auch das direkt darauffolgende WPA gilt inzwischen als veraltet."
@@ -43,8 +43,8 @@
       "options": [
         "Er verstärkt ausschließlich ein bestehendes WLAN-Signal ohne eigene Netzwerkanbindung",
         "Er verbindet Funkgeräte mit dem kabelgebundenen Netzwerk (LAN)",
-        "Er vergibt automatisch IP-Adressen wie ein DHCP-Server",
-        "Er verschlüsselt ausschließlich den Datenverkehr zwischen zwei Routern"
+        "Er führt automatisch einen jährlichen Site-Survey für das Gebäude durch",
+        "Er zeigt jedem Gast automatisch ein Captive Portal beim ersten Verbindungsversuch"
       ],
       "answer": 1,
       "explanation": "Ein Access Point stellt die Funkverbindung für Endgeräte her und verbindet sie mit dem kabelgebundenen LAN."
@@ -54,9 +54,9 @@
       "question": "Was ist ein typischer Nachteil beim Einsatz eines Repeaters zur Reichweitenverlängerung?",
       "options": [
         "Er kann grundsätzlich überhaupt keine WLAN-Funksignale verstärken oder weiterleiten",
-        "Er benötigt in jedem Fall eine eigene, vom Hauptnetz abweichende SSID",
+        "Er wird stattdessen zur Durchführung eines Site-Survey vor der AP-Installation eingesetzt",
         "Er senkt oft die Datenrate, da Empfang und Weitersendung denselben Funkkanal nutzen",
-        "Er lässt sich ausschließlich in Kombination mit WPA3 betreiben"
+        "Er benötigt zwingend ein Captive Portal, bevor er ein Signal weiterleiten darf"
       ],
       "answer": 2,
       "explanation": "Da ein Repeater dasselbe Signal empfängt und über denselben Kanal weitersendet, sinkt die effektive Datenrate im Vergleich zu einem direkten Access Point."
@@ -79,7 +79,7 @@
       "options": [
         "Weil es komplett ganz ohne Verschlüsselung auskommt und dadurch spürbar schneller arbeitet",
         "Weil es ausschließlich für den Einsatz in privaten Heimnetzen zugelassen ist",
-        "Weil für den Betrieb keinerlei SSID konfiguriert werden muss",
+        "Weil dort im Gegensatz zu Personal kein Site-Survey vor der Installation nötig ist",
         "Weil einzelne Zugänge gesperrt werden können, ohne das Passwort für alle zu ändern"
       ],
       "answer": 3,
@@ -103,11 +103,47 @@
       "options": [
         "CSMA/CD",
         "CSMA/CA",
-        "Token Ring",
-        "Round Robin"
+        "AAA",
+        "Captive Portal"
       ],
       "answer": 1,
       "explanation": "WLAN nutzt CSMA/CA (Collision Avoidance), da Kollisionen im Funk anders als im Kabel nicht zuverlässig erkannt werden können — siehe die Einheit Ethernet, LAN-Standards & Zugriffsverfahren."
+    },
+    {
+      "id": "q10",
+      "question": "Wofür stehen die drei Buchstaben in AAA im Zusammenhang mit RADIUS?",
+      "options": [
+        "Authentication, Authorization, Accounting",
+        "Access, Authorization, Availability",
+        "Authentication, Access, Auditing",
+        "Authorization, Accounting, Availability"
+      ],
+      "answer": 0,
+      "explanation": "AAA steht für Authentication (wer ist der Nutzer?), Authorization (was darf er?) und Accounting (was hat er getan?) — die klassischen Aufgaben eines RADIUS-Servers."
+    },
+    {
+      "id": "q11",
+      "question": "Was ist die BSSID in einer WLAN-Scan-Tabelle?",
+      "options": [
+        "Der Netzname, den mehrere Access Points gemeinsam ausstrahlen",
+        "Die MAC-Adresse des jeweiligen Access Points",
+        "Der Funkkanal, auf dem ein Netz sendet",
+        "Das verwendete Verschlüsselungsverfahren"
+      ],
+      "answer": 1,
+      "explanation": "Die BSSID ist die MAC-Adresse des einzelnen Access Points — anders als die SSID, die bei mehreren APs mit Roaming identisch sein kann, identifiziert die BSSID einen bestimmten AP eindeutig."
+    },
+    {
+      "id": "q12",
+      "question": "Wozu dient ein Site-Survey vor der Installation mehrerer Access Points?",
+      "options": [
+        "Um Signalstärke und Funklöcher im Gebäude vorab zu messen und AP-Standorte zu planen",
+        "Um nachträglich die Passwörter aller bereits installierten Access Points zu ändern",
+        "Um automatisch ein Captive Portal für alle Gäste einzurichten",
+        "Um die Zugangsdaten aller Mitarbeitenden beim RADIUS-Server zu registrieren"
+      ],
+      "answer": 0,
+      "explanation": "Ein Site-Survey misst vorab die Signalstärke an verschiedenen Punkten im Gebäude, um Funklöcher zu erkennen und AP-Standorte gezielt zu planen, statt nachträglich nachzurüsten."
     }
   ]
 }

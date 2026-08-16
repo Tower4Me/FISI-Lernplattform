@@ -18,9 +18,9 @@
       "question": "Warum ist LWL gegenüber Kupferkabel unempfindlich gegen elektromagnetische Störungen?",
       "options": [
         "Weil LWL Daten als Lichtimpulse überträgt statt als elektrische Signale",
-        "Weil LWL-Kabel grundsätzlich dicker isoliert sind als vergleichbare Kupferkabel",
-        "Weil LWL-Kabel in der Gebäudeverkabelung immer zusätzlich geschirmt verlegt werden",
-        "Weil LWL keine Metallanteile enthält und dadurch spürbar leichter als Kupferkabel ist"
+        "Weil das Mantelglas (Cladding) elektrische Signale aktiv herausfiltert, bevor sie den Kern erreichen",
+        "Weil die Beschichtung (Coating) das Licht durch Totalreflexion im Kern hält",
+        "Weil Multimode-Fasern grundsätzlich unempfindlicher gegen Störungen sind als Singlemode-Fasern"
       ],
       "answer": 0,
       "explanation": "Da bei LWL Daten als Licht statt als elektrisches Signal übertragen werden, sind elektromagnetische Störquellen (z. B. Stromleitungen) ohne Einfluss auf die Übertragung."
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Warum begrenzt die Modendispersion die Reichweite von Multimode-Fasern?",
       "options": [
-        "Weil sich Licht in Multimode-Fasern durch die Kernstruktur grundsätzlich langsamer ausbreitet als in Singlemode-Fasern",
-        "Weil Multimode-Fasern generell mit einer dünneren Isolierung als Singlemode gefertigt werden",
+        "Weil Multimode-Fasern ausschließlich mit LED betrieben werden können, niemals mit Laser",
+        "Weil bei Multimode das Mantelglas (Cladding) dünner ist als bei Singlemode",
         "Weil die Lichtwege unterschiedlich lang sind und zeitversetzt ankommen, was zu Signalverzerrung führt",
-        "Weil Multimode-Fasern ausschließlich zusammen mit elektrischen Kupferverstärkern betrieben werden können"
+        "Weil bei Multimode der Kerndurchmesser kleiner ist als bei Singlemode"
       ],
       "answer": 2,
       "explanation": "Da bei Multimode mehrere Lichtwege gleichzeitig unterschiedlich lange Strecken zurücklegen, kommen sie zeitversetzt an — auf kurzen Strecken vernachlässigbar, über weite Strecken aber zunehmend signalverzerrend."
@@ -54,8 +54,8 @@
       "question": "Welcher Steckertyp gilt heute als Standard bei LWL-Verbindungen und ermöglicht durch seine kompakte Bauform eine hohe Portdichte?",
       "options": [
         "SC (Subscriber Connector), der ältere, aber sperrigere LWL-Steckertyp",
-        "RJ45, der klassische Steckertyp für Twisted-Pair-Kupferverkabelung",
-        "T568B, ein Adernbelegungsschema und kein eigener Steckertyp",
+        "Cladding, die Bezeichnung für das Mantelglas einer Glasfaser, kein Steckertyp",
+        "Core, die Bezeichnung für den lichtleitenden Kern einer Glasfaser, kein Steckertyp",
         "LC (Lucent Connector), kompakter als SC und daher heute Standard"
       ],
       "answer": 3,
@@ -80,7 +80,7 @@
         "Ausschließlich die Tertiärverkabelung vom einzelnen Etagenverteiler bis zum jeweiligen Arbeitsplatz im Büro",
         "Die Primärverkabelung zwischen Gebäuden, häufig auch die Sekundärverkabelung zu den Etagenverteilern",
         "Keine — LWL kommt in der strukturierten Gebäudeverkabelung praktisch nicht vor",
-        "Nur einzelne Verbindungen innerhalb ein und desselben Serverracks"
+        "Nur die Verkabelung innerhalb eines einzelnen Access Points"
       ],
       "answer": 1,
       "explanation": "Primärverkabelung (zwischen Gebäuden) und häufig auch Sekundärverkabelung (zentraler Verteiler zu Etagenverteilern) überbrücken größere Distanzen, für die sich LWL besser eignet als Twisted-Pair-Kupferkabel."

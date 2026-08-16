@@ -5,8 +5,8 @@
       "id": "q1",
       "question": "Was bewirkt ein VLAN in einem physischen Netzwerk?",
       "options": [
-        "Es erhöht ausschließlich die Übertragungsgeschwindigkeit des angeschlossenen Switches",
-        "Es liefert zusätzlich Strom über dasselbe Netzwerkkabel wie die Daten",
+        "Es legt fest, welches VLAN auf einem Trunk-Port ungetaggt als natives VLAN läuft",
+        "Es verhindert automatisch jede Form von VLAN-Hopping durch einen Angreifer",
         "Es trennt ein physisches Netzwerk logisch in mehrere Broadcast-Domänen",
         "Es ersetzt die Notwendigkeit eines separaten Routers im Netzwerk vollständig"
       ],
@@ -32,7 +32,7 @@
         "Gar nicht — VLANs können unter keinen Umständen miteinander kommunizieren, auch nicht über Umwege",
         "Nur über einen Router, per Inter-VLAN-Routing wie bei physisch getrennten Netzen",
         "Direkt über den Switch, ganz ohne zusätzliches Routing-Gerät dazwischen",
-        "Nur wenn beide Geräte statt per Kabel per WLAN mit dem Netzwerk verbunden sind"
+        "Nur wenn beide Geräte über denselben Trunk-Port am nativen VLAN hängen"
       ],
       "answer": 1,
       "explanation": "VLANs sind eigene Broadcast-Domänen. Direkte Kommunikation zwischen zwei VLANs ist nur über einen Router möglich (Inter-VLAN-Routing) — genau wie bei physisch getrennten Netzen."
@@ -41,13 +41,37 @@
       "id": "q4",
       "question": "Warum erhöht die Trennung in VLANs die Sicherheit, obwohl alle Geräte am selben physischen Switch hängen?",
       "options": [
-        "Weil VLANs sämtlichen Datenverkehr automatisch Ende-zu-Ende verschlüsseln, auch innerhalb desselben Switches",
-        "Weil VLANs die MAC-Adressen aller angeschlossenen Geräte vollständig vor anderen Teilnehmern verbergen",
-        "Weil ein VLAN automatisch eine Firewall zwischen sämtlichen angeschlossenen Ports aktiviert",
+        "Weil ein Angreifer per VLAN-Hopping ohnehin nie ein fremdes VLAN erreichen kann",
+        "Weil jeder Trunk-Port automatisch nur ein einziges VLAN gleichzeitig transportieren kann",
+        "Weil das native VLAN eines Trunk-Ports grundsätzlich getaggt überträgt wie alle anderen VLANs",
         "Weil Geräte in unterschiedlichen VLANs sich nur über einen Router erreichen, wie bei getrennten Netzen"
       ],
       "answer": 3,
       "explanation": "VLANs trennen Broadcast-Domänen logisch. Direkte Kommunikation zwischen zwei VLANs ist nur über einen Router (Inter-VLAN-Routing) möglich — ein Angreifer in einem VLAN kommt nicht ohne Weiteres an Geräte in einem anderen VLAN heran."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Trunk-Port soll VLAN 10 und VLAN 20 gleichzeitig transportieren. Wie müssen die beiden Access-Ports der jeweiligen Endgeräte konfiguriert sein?",
+      "options": [
+        "Ebenfalls als Trunk-Port, mit denselben zwei VLANs wie der Trunk-Port",
+        "Untagged, jeweils fest einem einzigen VLAN zugeordnet",
+        "Beide Access-Ports müssen zwingend demselben VLAN zugeordnet sein",
+        "Access-Ports benötigen keine VLAN-Zuordnung, nur Trunk-Ports"
+      ],
+      "answer": 1,
+      "explanation": "Access-Ports sind untagged fest einem einzigen VLAN zugeordnet — die Endgeräte merken vom VLAN nichts. Erst der Trunk-Port zum Router transportiert beide VLANs gleichzeitig, mit Tag."
+    },
+    {
+      "id": "q6",
+      "question": "Wie funktioniert ein VLAN-Hopping-Angriff über das native VLAN eines Trunk-Ports?",
+      "options": [
+        "Der Angreifer hängt ein gefälschtes VLAN-Tag an, um über das ungetaggte native VLAN in ein fremdes VLAN zu gelangen",
+        "Der Angreifer schaltet den Trunk-Port per Fernzugriff komplett ab",
+        "Der Angreifer ändert die IP-Adresse des Routers auf eine Adresse im Gäste-VLAN",
+        "Der Angreifer benötigt dafür physischen Zugriff auf den Router, ein Trunk-Port allein reicht nicht"
+      ],
+      "answer": 0,
+      "explanation": "Beim VLAN-Hopping nutzt ein Angreifer aus, dass Frames im nativen VLAN ungetaggt über den Trunk laufen, und hängt ein gefälschtes Tag an, um so ein eigentlich fremdes VLAN zu erreichen. Gegenmaßnahme: natives VLAN auf eine ungenutzte VLAN-ID legen."
     }
   ]
 }

@@ -70,6 +70,20 @@
         Einheit <a href="netzwerktopologien.html">Netzwerktopologien</a>),
         auf der VLANs die logische Trennung darüberlegen.
       </p>
+
+      <h3>Natives VLAN und VLAN-Hopping</h3>
+      <p>
+        Auf einem Trunk-Port lässt sich ein VLAN als <strong>natives
+        VLAN</strong> festlegen: Frames dieses einen VLANs laufen dort
+        ausnahmsweise ohne Tag über den Trunk, alle anderen VLANs weiterhin
+        getaggt. Das ist praktisch für ältere Geräte, die selbst keine Tags
+        verstehen — birgt aber ein Sicherheitsrisiko: Beim
+        <strong>VLAN-Hopping</strong> hängt ein Angreifer gezielt ein
+        gefälschtes VLAN-Tag an einen Frame, um über das native VLAN
+        Zugriff auf ein eigentlich fremdes VLAN zu erschleichen. Übliche
+        Gegenmaßnahme: das native VLAN auf eine ungenutzte VLAN-ID legen,
+        die kein Endgerät regulär verwendet.
+      </p>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -88,6 +102,17 @@
           <strong>tagged Trunk-Port</strong>, der beide VLANs gleichzeitig
           transportiert.</li>
       </ul>
+
+      <table>
+        <thead>
+          <tr><th>Switch-Port</th><th>Modus</th><th>VLAN(s)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Port 1–8 (Buchhaltung)</td><td>Access (untagged)</td><td>VLAN 10</td></tr>
+          <tr><td>Port 9–16 (Empfang/Gast)</td><td>Access (untagged)</td><td>VLAN 20</td></tr>
+          <tr><td>Port 24 (zum Router)</td><td>Trunk (tagged)</td><td>VLAN 10 + VLAN 20, natives VLAN auf ungenutzte ID 999 gelegt</td></tr>
+        </tbody>
+      </table>
       <p>
         Typische Prüfungsfrage: „Warum lässt sich mit VLANs Sicherheit
         erhöhen, obwohl alle Geräte am selben physischen Switch hängen?“ –
@@ -106,7 +131,9 @@
         untagged (Access) für Endgeräte, tagged (Trunk) mit VLAN-Tag nach
         IEEE 802.1Q für Verbindungen zwischen Switches/Router.
         Kommunikation zwischen unterschiedlichen VLANs läuft ausschließlich
-        über einen Router (Inter-VLAN-Routing).
+        über einen Router (Inter-VLAN-Routing). Natives VLAN läuft
+        ungetaggt über den Trunk — auf eine ungenutzte VLAN-ID legen, sonst
+        droht VLAN-Hopping.
       </p>
     </section>
 

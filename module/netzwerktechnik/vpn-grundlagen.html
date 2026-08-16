@@ -111,6 +111,17 @@
         <li>Zwischen Hauptsitz und Filiale wird ein <strong>Site-to-Site-VPN</strong> mit <strong>IPsec</strong> eingerichtet — beide Standorte sind dadurch dauerhaft verschlüsselt verbunden, für die Mitarbeitenden beider Standorte unsichtbar im Hintergrund.</li>
         <li>Homeoffice-Mitarbeitende erhalten Zugriff über ein <strong>End-to-Site-VPN</strong> per SSL/TLS-VPN-Client auf ihrem Notebook — nach Verbindungsaufbau erreichen sie interne Dateiserver genauso wie im Büro.</li>
         <li>Der externe IT-Dienstleister greift bei Wartungsarbeiten ausschließlich über ein zeitlich begrenztes VPN-Konto zu — eine typische <strong>Fernwartung</strong> ohne physische Anwesenheit vor Ort.</li>
+        <li>Ein Homeoffice-Mitarbeiter meldet, dass kleine Seiten im
+          Firmennetz normal laden, große Dateianhänge im internen
+          Mailsystem aber hängen bleiben oder abbrechen. Ursache: Der
+          VPN-Tunnel legt zusätzliche Header (IPsec, ggf. L2TP) um jedes
+          Paket, wodurch die tatsächlich nutzbare Paketgröße kleiner wird
+          als die reguläre MTU von 1500 Byte. Große Pakete müssen dadurch
+          zusätzlich fragmentiert werden — ist diese
+          <strong>MTU-Fragmentierung</strong> unterwegs blockiert (z. B.
+          durch eine restriktive Firewall), bricht die Übertragung ab.
+          Abhilfe schafft eine niedrigere MTU auf dem VPN-Interface, die
+          den zusätzlichen Tunnel-Overhead von vornherein einrechnet.</li>
       </ul>
       <p>
         Typische Prüfungsfrage: „Welche Art von VPN wird für die dauerhafte

@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Was ist die grundlegende Funktion eines VPN?",
       "options": [
-        "Es erhöht dauerhaft und spürbar die Bandbreite einer bereits bestehenden Internetverbindung",
-        "Es vergibt automatisch neue IP-Adressen an alle angeschlossenen Geräte",
+        "Es verbindet ausschließlich zwei komplette Netzwerke, niemals ein einzelnes Endgerät",
+        "Es funktioniert ausschließlich über eine SSL/TLS-Verbindung im Webbrowser",
         "Es baut über ein unsicheres öffentliches Netz einen verschlüsselten Tunnel auf",
-        "Es ersetzt vollständig die Notwendigkeit eines eigenen DNS-Servers"
+        "Es macht eine Verschlüsselung der Daten überflüssig, da der Tunnel selbst bereits unsichtbar ist"
       ],
       "answer": 2,
       "explanation": "Ein VPN schafft über ein öffentliches Netz (meist das Internet) eine verschlüsselte, private Verbindung zwischen zwei Punkten."
@@ -43,7 +43,7 @@
       "options": [
         "Es verschlüsselt und authentifiziert IP-Pakete auf der Netzwerkebene",
         "Es funktioniert ausschließlich innerhalb eines gewöhnlichen Webbrowsers",
-        "Es wird ausschließlich für einfache DNS-Anfragen im Netz verwendet",
+        "Es wird ausschließlich in Kombination mit L2TP eingesetzt, nie eigenständig",
         "Es macht die Notwendigkeit eines VPN insgesamt vollständig überflüssig"
       ],
       "answer": 0,
@@ -56,7 +56,7 @@
         "Weil IPsec ohne ein zugrunde liegendes L2TP technisch nicht funktioniert",
         "Weil L2TP selbst keine eigene Verschlüsselung bietet, die IPsec ergänzt",
         "Weil beide Protokolle technisch identisch sind, die Kombination reine Formsache",
-        "Weil L2TP ausschließlich für reine Site-to-Site-VPNs zugelassen ist"
+        "Weil eine Kombination beider Protokolle laut Standard grundsätzlich verboten ist"
       ],
       "answer": 1,
       "explanation": "L2TP übernimmt den Tunnelaufbau, bietet aber keine eigene Verschlüsselung — IPsec liefert die notwendige Verschlüsselung und Authentifizierung."
@@ -65,10 +65,10 @@
       "id": "q6",
       "question": "Wofür wird ein VPN im Kontext von Fernwartung typischerweise genutzt?",
       "options": [
-        "Um bei einem entfernten Kundensystem automatisch die Bildschirmauflösung zu erhöhen",
-        "Um auf dem Kundensystem automatisch lokale Backups zu erstellen",
+        "Um dem IT-Dienstleister eine dauerhafte Site-to-Site-Anbindung an alle Kundenstandorte zu ermöglichen",
+        "Um dem Kunden ein zusätzliches WLAN-Gastnetz für Besucher bereitzustellen",
         "Damit IT-Dienstleister gesichert auf Kundensysteme zugreifen, ohne vor Ort zu sein",
-        "Um für Kundennetzwerke neue WLAN-Passwörter automatisch zu generieren"
+        "Um dem Kunden Vor-Ort-Besuche zu ersparen, allerdings ganz ohne Verschlüsselung"
       ],
       "answer": 2,
       "explanation": "Fernwartung nutzt ein VPN, um Wartungsarbeiten an entfernten Systemen sicher und verschlüsselt durchzuführen."
@@ -84,6 +84,18 @@
       ],
       "answer": 0,
       "explanation": "SSL/TLS-VPNs nutzen die gleiche Verschlüsselungstechnologie wie HTTPS und eignen sich gut für einfache End-to-Site-Zugänge, z. B. im Homeoffice."
+    },
+    {
+      "id": "q8",
+      "question": "Warum können über ein VPN übertragene große Dateianhänge hängen bleiben, obwohl kleine Seiten normal laden?",
+      "options": [
+        "Weil der zusätzliche Tunnel-Header die nutzbare Paketgröße verkleinert und Fragmentierung nötig wird",
+        "Weil ein VPN grundsätzlich nur für Textnachrichten, nie für Dateianhänge ausgelegt ist",
+        "Weil VPN-Tunnel technisch nur eine einzige gleichzeitige Verbindung erlauben",
+        "Weil L2TP große Dateien grundsätzlich vollständig blockiert, unabhängig von IPsec"
+      ],
+      "answer": 0,
+      "explanation": "IPsec- (und ggf. L2TP-)Header vergrößern jedes Paket, wodurch die tatsächlich nutzbare MTU sinkt. Große Pakete müssen dann fragmentiert werden — wird diese Fragmentierung unterwegs blockiert, bricht die Übertragung ab."
     }
   ]
 }

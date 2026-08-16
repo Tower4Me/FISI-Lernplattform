@@ -221,14 +221,12 @@
         </figcaption>
       </figure>
       <p>
-        <strong>Straight-Through-Kabel</strong> (beide Enden nach demselben
-        Standard belegt) verbinden unterschiedliche Gerätetypen, z. B. PC
-        und Switch. <strong>Crossover-Kabel</strong> (ein Ende T568A, ein
-        Ende T568B) wurden früher für gleichartige Geräte (z. B. Switch zu
-        Switch) benötigt — moderne Switch-Ports erkennen die Verkabelung
-        automatisch (<strong>Auto-MDI-X</strong>) und passen sich intern
-        an, sodass ein Crossover-Kabel heute in der Praxis kaum noch nötig
-        ist.
+        <strong>Straight-Through-Kabel</strong> (beide Enden gleicher
+        Standard) verbinden unterschiedliche Gerätetypen (PC–Switch).
+        <strong>Crossover-Kabel</strong> (ein Ende T568A, ein Ende T568B)
+        waren früher für gleichartige Geräte nötig — moderne Ports mit
+        <strong>Auto-MDI-X</strong> erkennen die Verkabelung automatisch,
+        ein Crossover-Kabel ist heute kaum noch nötig.
       </p>
 
       <h3>Schirmungsarten (X/Y-TP)</h3>
@@ -269,13 +267,19 @@
         </tbody>
       </table>
       <p>
-        Höhere Kategorien sind zueinander abwärtskompatibel, die
-        tatsächliche Datenrate richtet sich aber immer nach dem
-        schwächsten Glied der Übertragungsstrecke (Kabel, Stecker, aktive
-        Komponenten wie Switch-Ports). Die Etagenverteiler-zu-Arbeitsplatz-
-        Verbindung (Tertiärverkabelung) ist typischerweise dort, wo
-        Twisted-Pair-Kabel zum Einsatz kommen — für größere Distanzen
-        (Primär-/Sekundärverkabelung) siehe die Einheit
+        Die 100-Meter-Grenze ist kein willkürlicher Rundwert: Mit
+        zunehmender Kabellänge steigen <strong>Dämpfung</strong> (das
+        Signal wird schwächer) und <strong>Störanfälligkeit</strong>
+        (Übertragungsfehler häufen sich) spürbar an — jenseits von 100 m
+        lässt sich ein zuverlässiger Betrieb ohne aktive Zwischenkomponente
+        (Switch/Repeater) nicht mehr garantieren. Höhere Kategorien sind
+        zueinander abwärtskompatibel, die tatsächliche Datenrate richtet
+        sich aber immer nach dem schwächsten Glied der Übertragungsstrecke
+        (Kabel, Stecker, aktive Komponenten wie Switch-Ports). Die
+        Etagenverteiler-zu-Arbeitsplatz-Verbindung (Tertiärverkabelung)
+        ist typischerweise dort, wo Twisted-Pair-Kabel zum Einsatz kommen
+        — für größere Distanzen (Primär-/Sekundärverkabelung) siehe die
+        Einheit
         <a href="verkabelung-lwl.html">Verkabelung Lichtwellenleiter (LWL)</a>.
       </p>
     </section>
@@ -290,14 +294,11 @@
       <ul>
         <li>Wegen der starken elektromagnetischen Störquellen wählt der
           Techniker <strong>S/FTP-Kabel der Kategorie Cat 6a</strong>
-          statt einfachem U/UTP — Geflecht- und Folienschirm reduzieren
-          Störeinstrahlung deutlich.</li>
+          statt einfachem U/UTP.</li>
         <li>Alle Anschlussdosen und Patchfelder werden durchgängig nach
-          <strong>T568B</strong> aufgelegt — beide Enden jeder Verbindung
-          nach demselben Standard, also als Straight-Through-Kabel.</li>
-        <li>Ein Crossover-Kabel ist nicht nötig: Die eingesetzten
-          Switches unterstützen <strong>Auto-MDI-X</strong> und erkennen
-          die Verkabelung automatisch.</li>
+          <strong>T568B</strong> aufgelegt (Straight-Through). Ein
+          Crossover-Kabel ist wegen <strong>Auto-MDI-X</strong> nicht
+          nötig.</li>
         <li>Jede Strecke vom Etagenverteiler zur Maschinensteuerung bleibt
           unter 100 Meter, wie es Cat 6a spezifiziert.</li>
       </ul>

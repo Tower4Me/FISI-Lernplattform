@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Warum werden bei Twisted-Pair-Kabeln die Adernpaare verdrillt?",
       "options": [
-        "Um das Kabel optisch ansprechender und hochwertiger wirken zu lassen",
-        "Um die maximal zulässige Kabellänge gegenüber unverdrillten Adern zu verdoppeln",
+        "Um die Übertragungsgeschwindigkeit gegenüber unverdrillten Adern grundsätzlich zu verdoppeln",
+        "Um bei geschirmten Kabeln den zusätzlichen Folien- oder Geflechtschirm überflüssig zu machen",
         "Um elektromagnetische Störeinstrahlung zwischen den Adernpaaren zu reduzieren",
-        "Um das Kabel beim Verlegen leichter durch enge Kabelkanäle ziehen zu können"
+        "Um die zulässige Segmentlänge von 100 Metern auf einen höheren Wert zu erhöhen"
       ],
       "answer": 2,
       "explanation": "Das Verdrillen der Adernpaare sorgt dafür, dass Störungen beide Adern eines Paares nahezu gleich stark treffen — der Empfänger vergleicht nur den Unterschied zwischen beiden Adern, wodurch sich die Störung fast aufhebt."
@@ -31,7 +31,7 @@
       "options": [
         "Beide sind Teil derselben Norm (ANSI/TIA-568), lediglich die Paare Grün und Orange sind vertauscht",
         "T568A ist offiziell eine europäische Verkabelungsnorm, T568B eine eigenständige US-amerikanische Norm",
-        "T568A gilt ausschließlich für Cat 5e, T568B ausschließlich für Cat 6a und höher",
+        "T568A verwendet ausschließlich geschirmte S/FTP-Kabel, T568B ausschließlich ungeschirmte U/UTP-Kabel",
         "T568B nutzt alle acht Adern, T568A dagegen nur vier der acht Adern"
       ],
       "answer": 0,
@@ -44,7 +44,7 @@
         "Weder ein Gesamtschirm noch ein Schirm je Aderpaar, also komplett ungeschirmt",
         "Gesamtschirm aus Geflecht, zusätzlich ein Folienschirm um jedes einzelne Aderpaar",
         "Nur ein Folien-Gesamtschirm um das ganze Kabel, kein Schirm je Aderpaar",
-        "Ein Schirm ausschließlich direkt am Stecker selbst, nicht durchgehend über die gesamte Kabellänge"
+        "Ein Schirm ausschließlich um ein gesamtes Kabelbündel mehrerer Leitungen, nicht um ein einzelnes Kabel"
       ],
       "answer": 1,
       "explanation": "Bei der Schreibweise X/YTP steht der Buchstabe vor dem Slash für den Gesamtschirm (S = Geflecht) und der Buchstabe danach für den Schirm je Aderpaar (F = Folie)."

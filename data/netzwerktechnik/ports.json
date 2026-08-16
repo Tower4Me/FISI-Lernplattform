@@ -6,8 +6,8 @@
       "question": "Was identifiziert ein Port innerhalb eines Netzwerkgeräts?",
       "options": [
         "Die physische Netzwerkschnittstelle, über die das Gerät angeschlossen ist",
-        "Die geografische Position, an der sich das Gerät gerade befindet",
-        "Die verwendete Verschlüsselungsmethode für die gesamte Verbindung",
+        "Den Portbereich (Well-Known, Registered oder Dynamic), in dem eine Nummer liegt",
+        "Die IP-Adresse des Geräts, auf dem der Dienst läuft",
         "Die konkrete Anwendung bzw. den Dienst für ein- und ausgehende Daten"
       ],
       "answer": 3,
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Welcher Port ist typischerweise für SSH-Zugänge reserviert?",
       "options": [
-        "Port 21",
-        "Port 80",
+        "Port 443",
+        "Port 25",
         "Port 22",
-        "Port 3389"
+        "Port 80"
       ],
       "answer": 2,
       "explanation": "Port 22 ist der Well-Known Port für SSH (Secure Shell), über den verschlüsselte Fernzugriffe auf Server erfolgen."
@@ -53,10 +53,10 @@
       "id": "q5",
       "question": "Wozu nutzt ein Client beim Aufbau einer ausgehenden Verbindung typischerweise einen dynamischen Port?",
       "options": [
-        "Um die Verbindung zum Zielserver zusätzlich zu verschlüsseln und abzusichern",
+        "Um bei jeder neuen Verbindung automatisch eine neue eigene IP-Adresse zugewiesen zu bekommen",
         "Weil Well-Known Ports grundsätzlich für gewöhnliche Clients gesperrt sind",
         "Als eigenen Absende-Port für mehrere gleichzeitige Verbindungen",
-        "Um die tatsächliche IP-Adresse des angesprochenen Servers zu verbergen"
+        "Um denselben Port dauerhaft für alle künftigen Verbindungen zum selben Ziel wiederzuverwenden"
       ],
       "answer": 2,
       "explanation": "Das Betriebssystem vergibt für jede ausgehende Verbindung automatisch einen freien dynamischen Port als Absende-Port — dadurch lassen sich mehrere gleichzeitige Verbindungen zum selben Ziel eindeutig zuordnen."

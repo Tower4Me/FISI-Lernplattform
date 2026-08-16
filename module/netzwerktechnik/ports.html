@@ -50,11 +50,10 @@
 
       <p>
         Ein <strong>Port</strong> ist eine 16-Bit-Nummer (0–65535), die
-        innerhalb eines Geräts festlegt, <em>welche Anwendung</em> für
-        eingehende Daten zuständig ist — die IP-Adresse identifiziert das
-        Gerät, der Port identifiziert den Dienst darauf. Sowohl TCP als
-        auch UDP nutzen Ports, um mehrere gleichzeitige Verbindungen bzw.
-        Dienste auf demselben Gerät sauber voneinander zu trennen.
+        festlegt, <em>welche Anwendung</em> für eingehende Daten zuständig
+        ist — die IP-Adresse identifiziert das Gerät, der Port den Dienst
+        darauf. TCP und UDP nutzen Ports, um mehrere Dienste auf demselben
+        Gerät sauber zu trennen.
       </p>
       <table>
         <thead>
@@ -129,14 +128,13 @@
       </figure>
 
       <p>
-        Auf der <strong>Server-Seite</strong> lauschen Dienste meist auf
-        einem festen, bekannten Port (Well-Known Port) — ein Webserver
-        z. B. auf Port 80/443, ein SSH-Dienst auf Port 22. Auf der
-        <strong>Client-Seite</strong> wählt das Betriebssystem für jede
-        ausgehende Verbindung automatisch einen freien
-        <strong>dynamischen Port</strong> aus dem oberen Bereich — dadurch
-        kann ein Gerät gleichzeitig mehrere Verbindungen zum selben
-        Zielserver offen halten, ohne dass sich die Antworten vermischen.
+        <strong>Server-seitig</strong> lauschen Dienste meist auf einem
+        festen Well-Known Port (Webserver 80/443, SSH 22).
+        <strong>Client-seitig</strong> wählt das Betriebssystem je
+        ausgehender Verbindung automatisch einen freien
+        <strong>dynamischen Port</strong> — so kann ein Gerät mehrere
+        Verbindungen zum selben Server offen halten, ohne dass sich die
+        Antworten vermischen.
       </p>
     </section>
 
@@ -149,9 +147,7 @@
         einen SSH-Zugang für die Administration.
       </p>
       <ul>
-        <li>Anfragen an <strong>Port 443</strong> werden vom Betriebssystem an den <strong>Webserver-Prozess</strong> weitergeleitet.</li>
-        <li>Anfragen an <strong>Port 25</strong> werden an den <strong>Mailserver-Prozess</strong> weitergeleitet.</li>
-        <li>Eine Verbindung auf <strong>Port 22</strong> geht an den <strong>SSH-Dienst</strong>, über den Administratoren sich aus der Ferne einloggen.</li>
+        <li>Anfragen an <strong>Port 443</strong> gehen an den <strong>Webserver-Prozess</strong>, an <strong>Port 25</strong> an den <strong>Mailserver-Prozess</strong>, an <strong>Port 22</strong> an den <strong>SSH-Dienst</strong>.</li>
         <li>Alle drei Dienste laufen unter derselben IP-Adresse — allein der Zielport entscheidet, welcher Dienst die eingehenden Pakete erhält.</li>
       </ul>
       <p>

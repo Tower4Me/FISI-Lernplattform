@@ -56,9 +56,9 @@
         sogenannten <strong>3-Way-Handshake</strong>:
       </p>
       <ol>
-        <li><strong>SYN</strong> — Der Client sendet ein Segment mit gesetztem SYN-Flag („Synchronize“) und schlägt eine Startsequenznummer vor: „Ich möchte eine Verbindung aufbauen.“</li>
-        <li><strong>SYN-ACK</strong> — Der Server antwortet mit gesetztem SYN- und ACK-Flag: „Verstanden, ich bin bereit, hier ist meine eigene Startsequenznummer.“</li>
-        <li><strong>ACK</strong> — Der Client bestätigt mit gesetztem ACK-Flag: „Verstanden, Verbindung steht.“ Erst jetzt beginnt der eigentliche Datenaustausch.</li>
+        <li><strong>SYN</strong> — Der Client sendet ein Segment mit gesetztem SYN-Flag („Synchronize“) und schlägt eine Startsequenznummer vor.</li>
+        <li><strong>SYN-ACK</strong> — Der Server antwortet mit gesetztem SYN- und ACK-Flag und schlägt seine eigene Startsequenznummer vor.</li>
+        <li><strong>ACK</strong> — Der Client bestätigt mit gesetztem ACK-Flag. Erst jetzt beginnt der eigentliche Datenaustausch.</li>
       </ol>
       <figure class="figure--diagram">
         <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="handshake-title">
@@ -103,10 +103,10 @@
         <strong>jede Richtung einzeln beendet</strong> werden muss:
       </p>
       <ol>
-        <li><strong>FIN</strong> — Der Client sendet ein Segment mit gesetztem FIN-Flag („Finish“): „Ich bin fertig mit Senden.“</li>
-        <li><strong>ACK</strong> — Der Server bestätigt den Empfang: „Verstanden.“ Der Server kann in diesem Moment noch weiter Daten an den Client senden.</li>
-        <li><strong>FIN</strong> — Sobald auch der Server fertig ist, sendet er selbst ein Segment mit FIN-Flag: „Jetzt bin auch ich fertig.“</li>
-        <li><strong>ACK</strong> — Der Client bestätigt den Empfang: „Verstanden, Verbindung wird geschlossen.“ Erst jetzt ist die Verbindung vollständig beendet.</li>
+        <li><strong>FIN</strong> — Der Client sendet ein Segment mit gesetztem FIN-Flag („Finish“): Er ist fertig mit Senden.</li>
+        <li><strong>ACK</strong> — Der Server bestätigt den Empfang; er kann in diesem Moment noch weiter Daten an den Client senden.</li>
+        <li><strong>FIN</strong> — Sobald auch der Server fertig ist, sendet er selbst ein Segment mit FIN-Flag.</li>
+        <li><strong>ACK</strong> — Der Client bestätigt den Empfang. Erst jetzt ist die Verbindung vollständig beendet.</li>
       </ol>
 
       <figure class="figure--diagram">
@@ -164,9 +164,9 @@
         aber <code>ping</code> auf den Server funktioniert.“
       </p>
       <ul>
-        <li><code>ping</code> nutzt <strong>ICMP</strong>, nicht TCP — ein erfolgreicher Ping zeigt nur, dass der Server grundsätzlich erreichbar ist, sagt aber nichts über einen bestimmten Dienst aus.</li>
-        <li>Ein Mitschnitt des Datenverkehrs zeigt: Der Browser sendet ein <strong>SYN</strong>-Paket an Port 443, aber es kommt kein <strong>SYN-ACK</strong> zurück — der Handshake bleibt im ersten Schritt stecken.</li>
-        <li>Fazit: Der Server selbst ist erreichbar (Ping funktioniert), aber der Webserver-Dienst auf Port 443 antwortet nicht — z. B. weil eine Firewall den Port blockiert oder der Webserver-Dienst nicht läuft.</li>
+        <li><code>ping</code> nutzt <strong>ICMP</strong>, nicht TCP — erreichbar heißt nicht, dass ein bestimmter Dienst läuft.</li>
+        <li>Ein Mitschnitt zeigt: Der Browser sendet ein <strong>SYN</strong>-Paket an Port 443, es kommt aber kein <strong>SYN-ACK</strong> zurück — der Handshake bleibt im ersten Schritt stecken.</li>
+        <li>Fazit: Der Server ist erreichbar, aber der Webserver-Dienst auf Port 443 antwortet nicht — z. B. Firewall-Blockade oder Dienst läuft nicht.</li>
       </ul>
       <p>
         Typische Prüfungsfrage: „Woran erkennt man in einem Netzwerkmitschnitt,

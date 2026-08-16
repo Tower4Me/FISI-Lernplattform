@@ -41,7 +41,7 @@
       "id": "q4",
       "question": "Warum sendet der Server im zweiten Schritt ein kombiniertes SYN-ACK-Paket statt zwei getrennter Pakete?",
       "options": [
-        "Weil UDP im Gegensatz zu TCP zwei getrennte Pakete grundsätzlich nicht erlaubt",
+        "Weil der Client sonst gleichzeitig zwei unterschiedliche Startsequenznummern verwenden müsste",
         "Weil es das Client-SYN bestätigt und zugleich den eigenen Verbindungswunsch anzeigt",
         "Weil ein kombiniertes Paket grundsätzlich keine eigene Sequenznummer benötigt",
         "Weil der 3-Way-Handshake ohne diese Kombination gleich fünf statt drei Schritte hätte"
@@ -53,7 +53,7 @@
       "id": "q5",
       "question": "Woran erkennt man in einem Netzwerkmitschnitt einen fehlgeschlagenen TCP-Verbindungsaufbau?",
       "options": [
-        "Im Mitschnitt erscheinen ausschließlich UDP-Pakete anstelle von TCP",
+        "Im Mitschnitt folgt auf das SYN-ACK sofort ein FIN statt eines ACK",
         "Der Ping-Befehl auf dasselbe Ziel schlägt zusätzlich ebenfalls fehl",
         "Im Mitschnitt fehlt lediglich das allererste FIN-Paket der Sitzung",
         "Ein gesendetes SYN-Paket bleibt ohne SYN-ACK-Antwort vom Zielsystem"

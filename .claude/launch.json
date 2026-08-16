@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "static-server",
-      "runtimeExecutable": "python",
+      "runtimeExecutable": "py",
       "runtimeArgs": ["-m", "http.server", "8420"],
       "port": 8420
     }

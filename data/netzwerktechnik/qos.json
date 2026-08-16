@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Wozu dient QoS (Quality of Service) im Netzwerk?",
       "options": [
-        "QoS verschlüsselt standardmäßig den gesamten Datenverkehr im gesamten Netzwerk",
-        "QoS macht den Einsatz von VLANs zur Netzwerksegmentierung überflüssig",
+        "QoS sorgt automatisch dafür, dass jede Anwendung eine feste Mindestbandbreite garantiert bekommt",
+        "QoS erhöht automatisch die insgesamt verfügbare Bandbreite eines Netzwerks",
         "QoS priorisiert zeitkritischen Datenverkehr wie VoIP bei Bandbreitenengpässen",
-        "QoS versorgt angeschlossene Netzwerkgeräte zusätzlich mit elektrischem Strom"
+        "QoS entfernt weniger wichtigen Datenverkehr bei Engpässen vollständig aus dem Netzwerk"
       ],
       "answer": 2,
       "explanation": "QoS klassifiziert und priorisiert Datenverkehr, damit zeitkritische Anwendungen wie VoIP-Telefonie bei knapper Bandbreite bevorzugt weitergeleitet werden."
@@ -20,7 +20,7 @@
         "Ausschließlich VoIP-Verkehr wird im Netzwerk überhaupt weitergeleitet",
         "Alle Pakete werden unabhängig von ihrer Zeitkritikalität exakt gleich behandelt",
         "Das Netzwerk garantiert grundsätzlich jeder Anwendung eine feste Mindestbandbreite",
-        "Sämtlicher Datenverkehr wird dabei automatisch Ende-zu-Ende verschlüsselt übertragen"
+        "Alle Pakete werden dabei automatisch nach ihrer Dateigröße sortiert und priorisiert"
       ],
       "answer": 1,
       "explanation": "Ohne QoS gilt Best Effort: Alle Pakete werden gleich behandelt, egal ob es sich um ein zeitkritisches VoIP-Paket oder einen unkritischen Datei-Download handelt."
@@ -48,6 +48,18 @@
       ],
       "answer": 0,
       "explanation": "Ohne QoS-Priorisierung gilt Best Effort: VoIP-Pakete konkurrieren gleichberechtigt mit allen anderen Paketen um die knappe Bandbreite und können dadurch ruckeln oder abreißen."
+    },
+    {
+      "id": "q5",
+      "question": "Wodurch entsteht Latenz im Netzwerk?",
+      "options": [
+        "Durch Leitungslänge, aktive Komponenten auf dem Weg und Überlastung durch Warteschlangen",
+        "Ausschließlich durch die Verschlüsselung des übertragenen Datenverkehrs",
+        "Ausschließlich durch die Anzahl der im Netzwerk vergebenen IP-Adressen",
+        "Latenz entsteht nur bei kabelloser WLAN-Übertragung, nie bei Kabelverbindungen"
+      ],
+      "answer": 0,
+      "explanation": "Latenz — die Laufzeit eines Pakets vom Sender zum Empfänger — entsteht durch die Signallaufzeit auf der Leitung, durch Verarbeitungszeit an jeder aktiven Komponente (Switch, Router) und durch Wartezeit in Warteschlangen bei Überlastung."
     }
   ]
 }

@@ -94,6 +94,39 @@
         <a href="switching-verfahren.html">Switching-Verfahren</a>
         vertiefend.
       </p>
+
+      <h3>Routing-Tabelle: Wie ein Router entscheidet</h3>
+      <p>
+        Für jedes eingehende Paket schlägt der Router die Ziel-IP in seiner
+        <strong>Routingtabelle</strong> nach: Welches Zielnetz passt, und
+        über welchen Ausgang (Interface bzw. nächster Router, der
+        „Next Hop“) kommt das Paket dorthin? Eine vereinfachte
+        Routingtabelle sieht z. B. so aus:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Zielnetz</th><th>Subnetzmaske</th><th>Next Hop</th><th>Interface</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>192.168.10.0</td><td>255.255.255.0</td><td>direkt verbunden</td><td>LAN 1</td></tr>
+          <tr><td>192.168.20.0</td><td>255.255.255.0</td><td>direkt verbunden</td><td>LAN 2</td></tr>
+          <tr><td>0.0.0.0</td><td>0.0.0.0</td><td>203.0.113.1</td><td>WAN (Internet)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Gibt es für ein Ziel mehrere passende Einträge, entscheidet die
+        <strong>Metrik</strong> (ein Kostenwert, der z. B. die Anzahl der
+        Zwischenstationen oder die Leitungsgeschwindigkeit abbildet): Der
+        Weg mit der niedrigsten Metrik wird bevorzugt. Kleine Netze pflegen
+        ihre Routingtabelle meist <strong>statisch</strong> von Hand,
+        größere Netze nutzen <strong>dynamisches Routing</strong> — die
+        Router tauschen sich dabei automatisch über Routing-Protokolle aus
+        und passen ihre Tabellen bei Änderungen im Netz selbstständig an.
+        Der letzte Eintrag oben (<code>0.0.0.0/0.0.0.0</code>) ist die
+        <strong>Standardroute</strong>: Sie greift, wenn kein spezifischerer
+        Eintrag zum Ziel passt, und leitet alles Übrige — hier den
+        gesamten Internetverkehr — an den nächsten Router weiter.
+      </p>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->
@@ -126,7 +159,9 @@
         MAC-Adressen, sendet gezielt, trennt Kollisionsdomänen. Router
         (Schicht 3) = verbindet Netze über IP-Adressen, trennt zusätzlich
         Broadcast-Domänen. Je höher die Schicht, desto intelligenter und
-        gezielter die Weiterleitung.
+        gezielter die Weiterleitung. Router wählen anhand ihrer
+        Routingtabelle und der Metrik den passenden Weg — statisch von
+        Hand gepflegt oder dynamisch per Routing-Protokoll.
       </p>
     </section>
 

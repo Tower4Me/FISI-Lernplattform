@@ -19,8 +19,8 @@
       "options": [
         "Wenn der Administrator die Adresse manuell und dauerhaft auf APIPA umstellt",
         "Wenn beim Start kein DHCP-Server innerhalb der Wartezeit antwortet",
-        "Wenn zwei verschiedene Geräte im Netz dieselbe IP-Adresse verwenden",
-        "Wenn die DNS-Auflösung eines angefragten Servernamens fehlschlägt"
+        "Wenn ein Gerät seine bereits laufende DHCP-Lease vor Ablauf verlängern möchte",
+        "Wenn ein Gerät zusätzlich zu seiner DHCP-Adresse eine zweite feste IP-Adresse braucht"
       ],
       "answer": 1,
       "explanation": "Erreicht ein Gerät beim Start keinen DHCP-Server, vergibt es sich nach Ablauf der Wartezeit automatisch selbst eine APIPA-Adresse."
@@ -54,9 +54,9 @@
       "question": "Was bedeutet eine sichtbare 169.254.x.x-Adresse für die Fehlersuche?",
       "options": [
         "Das Gerät hat absichtlich eine statische Adresse erhalten",
-        "Das Netzwerkkabel überträgt Daten mit maximaler Geschwindigkeit",
+        "Das Gerät hat eine Adresse aus dem privaten RFC-1918-Bereich erhalten",
         "Der DHCP-Server war beim Start dieses Geräts nicht erreichbar",
-        "Der Router hat das Gerät aus Sicherheitsgründen gesperrt"
+        "Das Gerät kommuniziert bereits erfolgreich mit dem Internet"
       ],
       "answer": 2,
       "explanation": "Eine 169.254.x.x-Adresse ist ein klassisches Diagnosezeichen: Der DHCP-Server war beim Systemstart dieses Geräts nicht erreichbar."
@@ -78,9 +78,9 @@
       "question": "Warum gilt APIPA als reine Notlösung und nicht als dauerhafte Konfiguration?",
       "options": [
         "Weil ohne Gateway und DNS kein Zugriff außerhalb des Segments möglich ist",
-        "Weil sämtliche APIPA-Adressen bereits nach 24 Stunden automatisch ablaufen",
-        "Weil APIPA angeblich nur von sehr alten Betriebssystemen unterstützt wird",
-        "Weil APIPA-Adressen vom Hersteller der Netzwerkkarte gesperrt werden könnten"
+        "Weil eine APIPA-Adresse automatisch zu einem festen, aber oft überlasteten DNS-Server verbindet",
+        "Weil ein Gerät mit APIPA-Adresse auch mit Geräten außerhalb des eigenen Segments kommunizieren kann",
+        "Weil APIPA nur dann funktioniert, wenn zusätzlich ein DHCP-Server im Netz vorhanden ist"
       ],
       "answer": 0,
       "explanation": "Ohne Gateway und DNS-Server bleibt ein Gerät mit APIPA-Adresse auf das lokale Segment beschränkt — für den Dauerbetrieb ungeeignet."

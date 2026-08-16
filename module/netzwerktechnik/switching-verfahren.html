@@ -109,11 +109,9 @@
         </tbody>
       </table>
       <p>
-        Diese Speicherarchitektur ist unabhängig von den drei
-        Switching-Verfahren weiter unten: Sie beantwortet, <em>wo</em>
-        ein Frame zwischengespeichert wird, während Store-and-Forward,
-        Cut-Through und Fragment-Free beantworten, <em>wann</em> die
-        Weiterleitung beginnt.
+        Diese Speicherarchitektur beantwortet <em>wo</em> ein Frame
+        zwischengespeichert wird — unabhängig davon, <em>wann</em> die
+        Weiterleitung beginnt (das regeln die drei Verfahren weiter unten).
       </p>
 
       <h3>Die drei Switching-Verfahren</h3>
@@ -158,12 +156,10 @@
         Store-and-Forward auf den kompletten Frame warten zu müssen.
       </p>
       <p>
-        Store-and-Forward ist heute das mit Abstand gebräuchlichste
-        Verfahren in modernen Switches — der Geschwindigkeitsvorteil von
-        Cut-Through fällt bei den hohen Bandbreiten aktueller Netze kaum
-        noch ins Gewicht, während die Fehlerprüfung verhindert, dass
-        beschädigte Frames unnötig Bandbreite auf nachgelagerten
-        Segmenten verbrauchen.
+        Store-and-Forward ist heute das gebräuchlichste Verfahren: Der
+        Geschwindigkeitsvorteil von Cut-Through fällt bei modernen
+        Bandbreiten kaum noch ins Gewicht, während die Fehlerprüfung
+        beschädigte Frames zuverlässig aussortiert.
       </p>
     </section>
 
@@ -175,22 +171,16 @@
         Szenarien bei einem Kunden.
       </p>
       <ul>
-        <li>Im <strong>Serverraum</strong> verbindet ein Switch mehrere
-          Backup-Server über kurze, hochwertige Kabelstrecken mit sehr
-          wenigen Übertragungsfehlern. Hier zählt die niedrige Latenz mehr
-          als die Fehlerprüfung — der Switch wird auf
-          <strong>Cut-Through</strong> konfiguriert.</li>
+        <li>Im <strong>Serverraum</strong> zählt bei kurzen, störungsarmen
+          Kabelstrecken die niedrige Latenz mehr als die Fehlerprüfung —
+          der Switch läuft im <strong>Cut-Through</strong>-Modus.</li>
         <li>An der <strong>Netzwerkgrenze zu einem alten Gebäudeteil</strong>
-          mit teils noch ungeschirmter, älterer Verkabelung treten
-          gelegentlich Störungen auf. Hier wählt der Techniker
+          mit störanfälliger Altverkabelung wählt der Techniker
           <strong>Store-and-Forward</strong>, damit beschädigte Frames
-          zuverlässig erkannt und verworfen werden, statt sie unnötig
-          weiter ins Netz zu leiten.</li>
-        <li>Ein älterer Switch, der zwischen beiden Welten vermitteln
-          muss, läuft im <strong>Fragment-Free</strong>-Modus — ein
-          Kompromiss, der zumindest Kollisionsfragmente zuverlässig
-          abfängt, ohne die volle Store-and-Forward-Latenz in Kauf zu
-          nehmen.</li>
+          zuverlässig erkannt und verworfen werden.</li>
+        <li>Ein Switch dazwischen läuft im
+          <strong>Fragment-Free</strong>-Modus — Kompromiss zwischen
+          beiden Anforderungen.</li>
       </ul>
       <p>
         Typische Prüfungsfrage: „Warum wartet Fragment-Free genau auf die

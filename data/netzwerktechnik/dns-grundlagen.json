@@ -5,9 +5,9 @@
       "id": "q1",
       "question": "Was ist die grundlegende Aufgabe von DNS?",
       "options": [
-        "Automatische Vergabe von IP-Adressen an neue Geräte im Netz",
-        "Verschlüsselung des gesamten Datenverkehrs im Internet",
-        "Priorisierung von Datenverkehr bei bestehenden Bandbreitenengpässen",
+        "Verwaltung, welche Mailserver im Namen einer Domain E-Mails versenden dürfen",
+        "Digitale Signierung von DNS-Antworten, damit ihre Herkunft geprüft werden kann",
+        "Weiterleiten unbeantwortbarer Anfragen an einen übergeordneten DNS-Server",
         "Übersetzung von Domainnamen in IP-Adressen und umgekehrt"
       ],
       "answer": 3,
@@ -77,13 +77,37 @@
       "id": "q7",
       "question": "Was gibt der TTL-Wert (Time to Live) bei einem DNS-Eintrag an?",
       "options": [
-        "Die maximale Anzahl an Hops, die ein Paket insgesamt im Internet durchlaufen darf",
-        "Die Bandbreite in Mbit/s, die einer Domain fest zugewiesen ist",
+        "Ob eine DNS-Antwort per DNSSEC digital signiert und geprüft wurde",
+        "Ob ein interner DNS-Server die Anfrage per Forwarding weiterleiten muss",
         "Wie lange eine DNS-Antwort gecacht wird, bevor sie erneut abgefragt wird",
         "Die Priorität, mit der ein MX-Record gegenüber anderen bevorzugt wird"
       ],
       "answer": 2,
       "explanation": "Der TTL-Wert bestimmt, wie lange ein Resolver eine DNS-Antwort zwischenspeichern darf, bevor er sie erneut beim zuständigen Nameserver abfragt."
+    },
+    {
+      "id": "q8",
+      "question": "Was bewirkt ein SPF-Eintrag im DNS?",
+      "options": [
+        "Er legt fest, welche Mailserver im Namen einer Domain E-Mails versenden dürfen",
+        "Er signiert DNS-Antworten digital gegen nachträgliche Verfälschung",
+        "Er ordnet einer Domain automatisch eine neue IP-Adresse zu",
+        "Er leitet unbeantwortbare Anfragen an einen übergeordneten DNS-Server weiter"
+      ],
+      "answer": 0,
+      "explanation": "SPF (Sender Policy Framework) legt fest, welche Mailserver berechtigt sind, im Namen einer Domain E-Mails zu versenden — fehlt oder stimmt der Eintrag nicht, lassen sich Absender leichter fälschen."
+    },
+    {
+      "id": "q9",
+      "question": "Wie schützt DNSSEC vor DNS-Spoofing?",
+      "options": [
+        "Es verschlüsselt sämtlichen Datenverkehr zwischen Client und Webserver",
+        "Es signiert DNS-Antworten digital, sodass ihre Herkunft und Unverfälschtheit prüfbar sind",
+        "Es blockiert automatisch alle Anfragen an unbekannte Domainnamen",
+        "Es ersetzt die hosts-Datei durch eine zentrale, serverseitige Liste"
+      ],
+      "answer": 1,
+      "explanation": "DNSSEC signiert DNS-Antworten digital — ein Client kann so prüfen, ob eine Antwort tatsächlich vom zuständigen Nameserver stammt und unterwegs nicht verfälscht wurde. Das ist die zentrale Abwehrmaßnahme gegen DNS-Spoofing."
     }
   ]
 }

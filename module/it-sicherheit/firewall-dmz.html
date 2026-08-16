@@ -40,7 +40,11 @@
         verschlossene Tür. Selbst wenn im Empfangsbereich etwas schiefgeht,
         bleibt der eigentliche Kernbereich geschützt. Genauso funktioniert
         eine <strong>Firewall</strong> mit einer <strong>DMZ</strong> im
-        Netzwerk.
+        Netzwerk. Ohne eine solche Zwischenzone hinge zwischen Internet und
+        internem Netz nur eine einzige Grenze: Wäre der öffentlich
+        erreichbare Server (z. B. Webshop) einmal geknackt, stünde der
+        Angreifer damit sofort mitten im internen Netz mit Fileservern und
+        Kundendaten.
       </p>
     </section>
 
@@ -70,7 +74,8 @@
         Eine Next-Generation-Firewall (NGFW) macht Stateful Inspection,
         kann aber zusätzlich Application Control und Deep Packet Inspection
         bis Schicht 7 – eine reine Paketfilter-Regel („Port 443 erlauben“)
-        ist nur die unterste Ausbaustufe.
+        ist nur die unterste Ausbaustufe. Eine WAF (Web Application
+        Firewall) ist eine auf Webanwendungen spezialisierte Variante davon.
       </p>
 
       <h3>Die DMZ</h3>

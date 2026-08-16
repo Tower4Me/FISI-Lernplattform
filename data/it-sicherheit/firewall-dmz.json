@@ -20,10 +20,10 @@
         "Sie verschlüsselt automatisch sämtliche übertragenen Daten",
         "Sie erkennt, ob ein Paket zu einer bestehenden Verbindung gehört",
         "Sie ersetzt einen vollwertigen Virenscanner vollständig und dauerhaft",
-        "Sie kann ausschließlich auf Schicht 7 des OSI-Modells arbeiten"
+        "Sie prüft zusätzlich Anwendungsinhalte bis Schicht 7 (Deep Packet Inspection)"
       ],
       "answer": 1,
-      "explanation": "Stateful Inspection merkt sich den Verbindungszustand und erkennt, ob ein Paket zu einer bestehenden, legitimen Verbindung gehört."
+      "explanation": "Stateful Inspection merkt sich den Verbindungszustand und erkennt, ob ein Paket zu einer bestehenden, legitimen Verbindung gehört. Deep Packet Inspection bis Schicht 7 leistet erst die NGFW/WAF-Stufe, nicht SPI."
     },
     {
       "id": "q3",

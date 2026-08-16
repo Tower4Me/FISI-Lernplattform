@@ -69,86 +69,35 @@
           <tr><td><strong>FaaS</strong> (Function as a Service)</td><td>Ausführungsumgebung für einzelne Funktionen, die nur bei Bedarf laufen (Serverless)</td><td>nur der eigentliche Funktionscode</td><td>eine Funktion, die nur bei einem bestimmten Ereignis kurz ausgeführt wird</td></tr>
         </tbody>
       </table>
-      <figure class="figure--diagram">
-        <svg viewBox="0 0 460 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cloudstack-title cloudstack-desc">
-          <title id="cloudstack-title">Verantwortungsverteilung zwischen Kunde und Anbieter bei On-Premises, IaaS, PaaS und SaaS</title>
-          <desc id="cloudstack-desc">Tabelle mit fünf Zeilen (Infrastruktur, Betriebssystem, Laufzeitumgebung, Anwendung, Daten) und vier Spalten (On-Premises, IaaS, PaaS, SaaS). Bei On-Premises verwaltet der Kunde alles selbst. Bei IaaS übernimmt der Anbieter die Infrastruktur, der Kunde den Rest. Bei PaaS übernimmt der Anbieter zusätzlich Betriebssystem und Laufzeitumgebung. Bei SaaS übernimmt der Anbieter alles bis auf die Daten, die immer beim Kunden bleiben.</desc>
-
-          <text x="143" y="27" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="600">On-Premises</text>
-          <text x="233" y="27" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">IaaS</text>
-          <text x="323" y="27" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">PaaS</text>
-          <text x="413" y="27" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">SaaS</text>
-
-          <text x="95" y="61" text-anchor="end" fill="var(--text)" font-size="8.5">Infrastruktur</text>
-          <text x="95" y="97" text-anchor="end" fill="var(--text)" font-size="8.5">Betriebssystem</text>
-          <text x="95" y="133" text-anchor="end" fill="var(--text)" font-size="8.5">Laufzeitumgebung</text>
-          <text x="95" y="169" text-anchor="end" fill="var(--text)" font-size="8.5">Anwendung</text>
-          <text x="95" y="205" text-anchor="end" fill="var(--text)" font-size="8.5">Daten</text>
-
-          <!-- Zeile Infrastruktur: K, A, A, A -->
-          <rect x="100" y="40" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="143" y="61" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="190" y="40" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="233" y="61" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-          <rect x="280" y="40" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="323" y="61" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-          <rect x="370" y="40" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="413" y="61" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-
-          <!-- Zeile Betriebssystem: K, K, A, A -->
-          <rect x="100" y="76" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="143" y="97" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="190" y="76" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="233" y="97" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="280" y="76" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="323" y="97" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-          <rect x="370" y="76" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="413" y="97" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-
-          <!-- Zeile Laufzeitumgebung: K, K, A, A -->
-          <rect x="100" y="112" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="143" y="133" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="190" y="112" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="233" y="133" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="280" y="112" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="323" y="133" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-          <rect x="370" y="112" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="413" y="133" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-
-          <!-- Zeile Anwendung: K, K, K, A -->
-          <rect x="100" y="148" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="143" y="169" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="190" y="148" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="233" y="169" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="280" y="148" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="323" y="169" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="370" y="148" width="86" height="32" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="1.5"/>
-          <text x="413" y="169" text-anchor="middle" fill="var(--acc-praxis)" font-size="12" font-weight="700">A</text>
-
-          <!-- Zeile Daten: K, K, K, K -->
-          <rect x="100" y="184" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="143" y="205" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="190" y="184" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="233" y="205" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="280" y="184" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="323" y="205" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-          <rect x="370" y="184" width="86" height="32" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="1.5"/>
-          <text x="413" y="205" text-anchor="middle" fill="var(--acc-quiz)" font-size="12" font-weight="700">K</text>
-
-          <text x="230" y="232" text-anchor="middle" fill="var(--text-muted)" font-size="9">K = Kunde verwaltet · A = Anbieter verwaltet</text>
-        </svg>
-        <figcaption>
-          Je weiter rechts (IaaS → PaaS → SaaS), desto mehr Schichten
-          übernimmt der Anbieter (grün) — die Daten bleiben in jedem
-          Modell Sache des Kunden (violett).
-        </figcaption>
-      </figure>
-
       <p>
         Merkregel für den Verantwortungsgrad: Von IaaS über PaaS zu SaaS
         übernimmt der Anbieter immer mehr Aufgaben, der Kunde immer
         weniger — bei IaaS liegt die meiste Eigenverantwortung noch beim
         Kunden, bei SaaS fast gar keine mehr.
+      </p>
+
+      <h3>Abrechnung & Skalierung</h3>
+      <p>
+        Cloud-Ressourcen werden meist <strong>nutzungsabhängig</strong>
+        abgerechnet, nicht per fester Pauschale: Beim Modell
+        <strong>Pay-per-Use</strong> zahlt man exakt für die tatsächlich
+        verbrauchte Rechenzeit, Speicher- oder Datenmenge — ähnlich einer
+        Stromrechnung. Beim <strong>Pay-as-you-grow</strong> bucht man
+        feste Kontingente, die sich mit wachsendem Bedarf schrittweise
+        erhöhen lassen, ohne im Voraus für ungenutzte Kapazität zu zahlen.
+        Beide Modelle vermeiden die hohe Anfangsinvestition, die bei
+        On-Premises-Hardware nötig wäre.
+      </p>
+      <p>
+        Steigt der Bedarf, lässt sich eine Cloud-Ressource
+        <strong>skalieren</strong>: <strong>Vertikale Skalierung</strong>
+        (Scale-up) vergrößert eine einzelne Instanz (mehr CPU, mehr RAM),
+        <strong>horizontale Skalierung</strong> (Scale-out) fügt
+        stattdessen weitere, gleichartige Instanzen hinzu, auf die sich
+        die Last verteilt. Horizontale Skalierung lässt sich in der Cloud
+        oft automatisch und ohne Ausfallzeit durchführen — ein zentraler
+        Vorteil gegenüber physischer On-Premises-Hardware, bei der
+        Skalierung meist neue Hardware-Beschaffung bedeutet.
       </p>
 
       <h3>Bereitstellungsmodelle</h3>
@@ -202,7 +151,9 @@
         SaaS = fertige Anwendung, FaaS = einzelne Funktionen serverlos.
         Von IaaS zu SaaS übernimmt der Anbieter immer mehr Verantwortung.
         Public Cloud = geteilt, Private Cloud = exklusiv, Hybrid Cloud =
-        Kombination, On-Premises = komplett im eigenen Haus.
+        Kombination, On-Premises = komplett im eigenen Haus. Abrechnung
+        meist nutzungsabhängig (Pay-per-Use/Pay-as-you-grow). Skalierung:
+        vertikal = größere Instanz, horizontal = mehr Instanzen.
       </p>
     </section>
 

@@ -62,6 +62,15 @@
         Spannung in Volt (V) · <strong>I</strong> = Stromstärke in Ampere (A)
       </p>
       <p>Umstellungen: U = P ÷ I &nbsp;·&nbsp; I = P ÷ U</p>
+      <p>
+        Die Formel dient auch umgekehrt zur Kapazitätsprüfung eines
+        Stromkreises: Eine Haushaltssteckdose ist meist mit 16 A bei 230 V
+        abgesichert, das ergibt eine maximale Anschlussleistung von
+        P = 230 V × 16 A = 3.680 W. Werden mehrere Geräte an derselben
+        Steckdosenleiste betrieben, muss die Summe ihrer
+        Leistungsaufnahmen unter diesem Wert bleiben, sonst löst die
+        Sicherung aus.
+      </p>
 
       <h3>Ohmsches Gesetz: R = U / I</h3>
       <p>
@@ -142,7 +151,11 @@
       <p>
         Faustregel für die passende Netzteilgröße: <strong>CPU-TDP +
         GPU-TDP + ca. 100 W Reserve</strong> (für Mainboard, RAM, Lüfter,
-        Laufwerke). Ein zu klein dimensioniertes Netzteil führt unter Last
+        Laufwerke). Die TDP (Thermal Design Power) ist die vom Hersteller
+        angegebene Verlustleistung, für die die Kühlung eines Bauteils
+        mindestens ausgelegt sein muss, und dient hier als praktischer
+        Anhaltswert für dessen maximale Leistungsaufnahme. Ein zu klein
+        dimensioniertes Netzteil führt unter Last
         zu Abstürzen, ein deutlich überdimensioniertes Netzteil kostet nur
         unnötig mehr und arbeitet oft in einem ineffizienteren
         Teillastbereich.
@@ -190,6 +203,21 @@
         E = P × t ÷ 1000 = 541 W × (4 h × 300) ÷ 1000 = 541 × 1.200 ÷ 1000
         = <strong>649,2 kWh/Jahr</strong><br>
         Kosten = 649,2 kWh × 0,32 €/kWh ≈ <strong>207,74 €/Jahr</strong>
+      </p>
+
+      <p><strong>Schritt 4 — Vergleich mit einem zweiten System:</strong></p>
+      <p>
+        Ein Kollege bietet einen vorhandenen Rechner mit einem 80 PLUS
+        Standard-Netzteil (η = 0,80) an. Bei gleicher Nutzleistung zieht
+        dieses P_zu = 460 W ÷ 0,80 = 575 W aus der Steckdose — 34 W mehr
+        als das Bronze-Netzteil oben. Das kostet bei gleicher Nutzung
+        zusätzlich 34 W × 1.200 h ÷ 1.000 × 0,32 €/kWh ≈
+        <strong>13,06 €/Jahr</strong>. Wie viele Jahre eine höhere
+        Anschaffungsinvestition in ein effizienteres Netzteil braucht, um
+        sich über solche jährlichen Einsparungen zu amortisieren, rechnet
+        die Einheit
+        <a href="break-even-deckungsbeitrag.html">Break-Even &amp;
+        Deckungsbeitrag</a> vor.
       </p>
     </section>
 

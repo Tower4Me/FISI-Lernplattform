@@ -35,13 +35,12 @@
       <p>
         Ein Staffellauf-Team funktioniert nach einem strikten Wechselspiel:
         Das <em>Ereignis</em> „Läufer A hat den Stab“ löst die
-        <em>Funktion</em> „Läufer A rennt“ aus. Sobald er am Ziel seines
-        Abschnitts ankommt, tritt das nächste <em>Ereignis</em> ein: „Stab
-        wird übergeben“ — und das löst die nächste <em>Funktion</em> aus:
-        „Läufer B rennt“. Immer abwechselnd: Ereignis löst Funktion aus,
-        Funktion führt zu einem neuen Ereignis. Genau dieses Prinzip nutzt
-        die <strong>Ereignisgesteuerte Prozesskette (EPK)</strong>, um
-        Geschäftsprozesse darzustellen.
+        <em>Funktion</em> „Läufer A rennt“ aus. Kommt er am Ziel an, tritt
+        das nächste <em>Ereignis</em> ein: „Stab wird übergeben“ — das
+        löst „Läufer B rennt“ aus. Immer abwechselnd: Ereignis löst
+        Funktion aus, Funktion führt zu neuem Ereignis. Genau dieses
+        Prinzip nutzt die <strong>Ereignisgesteuerte Prozesskette
+        (EPK)</strong>, um Geschäftsprozesse darzustellen.
       </p>
     </section>
 
@@ -75,27 +74,16 @@
         </tbody>
       </table>
       <p>
-        Wichtige Modellierungsregel: Ein <strong>XOR-</strong> oder
+        Modellierungsregel: Ein <strong>XOR-</strong> oder
         <strong>ODER-Konnektor</strong> darf nur direkt nach einer
         <strong>Funktion</strong> stehen, nie nach einem Ereignis — nur
-        eine Funktion trifft aktiv eine Entscheidung, ein Ereignis ist
-        ein passiv eingetretener Zustand und „entscheidet“ nichts. Nach
-        einem Ereignis ist als Verzweigung deshalb höchstens ein
-        <strong>UND-Konnektor</strong> zulässig (mehrere Ereignisse
-        treten gleichzeitig ein, ohne dass etwas „entschieden“ wird).
+        eine Funktion trifft aktiv eine Entscheidung.
       </p>
 
       <p>
-        Beispiel-Ablauf, der die wichtigsten Symbole einmal verwendet —
-        Bewerbungseingang in der Personalabteilung:
+        Ein durchgerechnetes Beispiel (Bewerbungseingang in der
+        Personalabteilung) zeigt die wichtigsten Symbole im Zusammenspiel:
       </p>
-      <ol>
-        <li><strong>Ereignis</strong>: „Bewerbung ist eingegangen“</li>
-        <li><strong>Funktion</strong>: „Bewerbung prüfen“ (ausgeführt von der Organisationseinheit „Personalabteilung“)</li>
-        <li><strong>XOR-Konnektor</strong>: entweder vollständig oder unvollständig</li>
-        <li>Zweig 1 — <strong>Ereignis</strong>: „Bewerbung ist vollständig“ → <strong>Funktion</strong>: „Zusage zum Gespräch vorbereiten“</li>
-        <li>Zweig 2 — <strong>Ereignis</strong>: „Bewerbung ist unvollständig“ → <strong>Funktion</strong>: „Nachforderung versenden“</li>
-      </ol>
 
       <figure class="figure--diagram">
         <svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="epk-title epk-desc">
@@ -205,11 +193,9 @@
         <li>Zweig „komplex“ → <strong>Ereignis</strong>: „Eskalation ist nötig“ → <strong>Funktion</strong>: „An Second-Level-Support weiterleiten“ (Organisationseinheit: Second-Level-Support)</li>
       </ul>
       <p>
-        Typische Prüfungsfrage: „Dürfen in einer EPK zwei Funktionen direkt
-        aufeinanderfolgen?“ – Antwort: Nein, zwischen zwei Funktionen steht
-        immer mindestens ein Ereignis (bzw. ein Konnektor mit
-        nachfolgendem Ereignis) — Ereignisse und Funktionen wechseln sich
-        strikt ab.
+        Typische Prüfungsfrage: „Dürfen zwei Funktionen direkt
+        aufeinanderfolgen?“ – Nein, dazwischen steht immer mindestens ein
+        Ereignis — beide wechseln sich strikt ab.
       </p>
     </section>
 
@@ -220,7 +206,7 @@
         Eine EPK besteht aus streng abwechselnden Ereignissen (Sechseck,
         passiver Zustand) und Funktionen (abgerundetes Rechteck, aktive
         Tätigkeit), verbunden über Kontrollfluss-Pfeile und die
-        Konnektoren XOR/UND/ODER. EPK bleibt AP1-relevant.
+        Konnektoren XOR/UND/ODER.
       </p>
     </section>
 

@@ -34,14 +34,13 @@
       <h2>Einstieg</h2>
       <p>
         BPMN ist wie eine genormte Flussdiagramm-Sprache für
-        Geschäftsprozesse, die jede Abteilung und jedes Unternehmen
-        gleich lesen kann — ähnlich wie UML Software-Diagramme
-        vereinheitlicht (siehe Einheit UML-Diagramme, Modul Software).
-        Ein Prozess, den eine Fachabteilung mit BPMN beschreibt, lässt
-        sich von der IT-Abteilung ohne Übersetzung genauso verstehen —
-        „wer macht was, in welcher Reihenfolge, und was löst es aus“
-        wird über ein festes, international anerkanntes Symbolset
-        dargestellt.
+        Geschäftsprozesse, die jede Abteilung gleich lesen kann —
+        ähnlich wie UML Software-Diagramme vereinheitlicht (siehe
+        Einheit UML-Diagramme, Modul Software). Ein Prozess, den eine
+        Fachabteilung mit BPMN beschreibt, versteht die IT-Abteilung
+        ohne Übersetzung — „wer macht was, in welcher Reihenfolge, was
+        löst es aus“ wird über ein festes, international anerkanntes
+        Symbolset dargestellt.
       </p>
     </section>
 
@@ -51,8 +50,7 @@
       <p>
         <strong>BPMN</strong> (Business Process Model and Notation) ist
         ein internationaler Standard zur grafischen Modellierung von
-        Geschäftsprozessen — seit 2025 explizit Bestandteil des
-        AP1-Prüfungskatalogs. Zweck: Geschäftsprozesse einheitlich und
+        Geschäftsprozessen. Zweck: Geschäftsprozesse einheitlich und
         verständlich darstellen, unabhängig von ausführender Software
         oder Abteilung — ein Kommunikationsmittel zwischen Fachabteilung
         und IT.
@@ -99,67 +97,18 @@
           <text x="432" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="10">Sequenzfluss</text>
         </svg>
         <figcaption>
-          Die fünf BPMN-Kernsymbole: Start-Ereignis (dünner Kreis),
-          End-Ereignis (dicker Kreis), Aufgabe (abgerundetes Rechteck),
-          Gateway (Raute) und Sequenzfluss (Pfeil).
-        </figcaption>
-      </figure>
-
-      <figure class="figure--diagram">
-        <svg viewBox="0 0 460 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bpmn-parallel-title bpmn-parallel-desc">
-          <title id="bpmn-parallel-title">Paralleles Gateway: gleichzeitige Aufspaltung und Zusammenführung zweier Pfade</title>
-          <desc id="bpmn-parallel-desc">Nach der Aktivität Auftrag erfassen spaltet ein paralleles Gateway (Raute mit Pluszeichen) den Ablauf in zwei gleichzeitig laufende Pfade auf: Lager prüfen und Bonität prüfen. Ein zweites paralleles Gateway führt beide Pfade wieder zusammen, erst danach folgt Auftrag freigeben.</desc>
-
-          <defs>
-            <marker id="bpmn-parallel-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
-            </marker>
-          </defs>
-
-          <rect x="10" y="45" width="90" height="32" rx="16" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
-          <text x="55" y="65" text-anchor="middle" fill="var(--text)" font-size="9">Auftrag erfassen</text>
-          <line x1="100" y1="61" x2="112" y2="61" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
-
-          <polygon points="130,43 148,61 130,79 112,61" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
-          <line x1="130" y1="52" x2="130" y2="70" stroke="var(--text)" stroke-width="2"/>
-          <line x1="121" y1="61" x2="139" y2="61" stroke="var(--text)" stroke-width="2"/>
-
-          <line x1="148" y1="61" x2="180" y2="24" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
-          <line x1="148" y1="61" x2="180" y2="109" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
-
-          <rect x="182" y="10" width="88" height="28" rx="14" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
-          <text x="226" y="28" text-anchor="middle" fill="var(--text)" font-size="9">Lager prüfen</text>
-
-          <rect x="182" y="95" width="88" height="28" rx="14" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
-          <text x="226" y="113" text-anchor="middle" fill="var(--text)" font-size="9">Bonität prüfen</text>
-
-          <line x1="270" y1="24" x2="302" y2="52" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
-          <line x1="270" y1="109" x2="302" y2="70" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
-
-          <polygon points="320,43 338,61 320,79 302,61" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
-          <line x1="320" y1="52" x2="320" y2="70" stroke="var(--text)" stroke-width="2"/>
-          <line x1="311" y1="61" x2="329" y2="61" stroke="var(--text)" stroke-width="2"/>
-
-          <line x1="338" y1="61" x2="350" y2="61" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#bpmn-parallel-arrow)"/>
-
-          <rect x="352" y="45" width="98" height="32" rx="16" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
-          <text x="401" y="65" text-anchor="middle" fill="var(--text)" font-size="9">Auftrag freigeben</text>
-        </svg>
-        <figcaption>
-          Paralleles Gateway (Raute mit „+“): alle abgehenden Pfade
-          laufen gleichzeitig, und die Zusammenführung wartet, bis
-          beide fertig sind — im Unterschied zum exklusiven Gateway
-          oben, bei dem nur genau ein Pfad durchlaufen wird.
+          Die fünf BPMN-Kernsymbole: Start-/End-Ereignis (Kreis), Aufgabe
+          (Rechteck), Gateway (Raute), Sequenzfluss (Pfeil).
         </figcaption>
       </figure>
 
       <h3>Abgrenzung zum UML-Aktivitätsdiagramm</h3>
       <p>
-        BPMN und das UML-Aktivitätsdiagramm verfolgen ein ähnliches Ziel
-        (einen Ablauf darstellen), sind aber unterschiedlich ausgerichtet:
-        BPMN ist speziell für <strong>Geschäftsprozesse</strong> gedacht
-        und soll auch für Fachabteilungen ohne IT-Hintergrund verständlich
-        sein — UML-Aktivitätsdiagramme sind eher in der
+        BPMN und das UML-Aktivitätsdiagramm verfolgen ein ähnliches Ziel,
+        sind aber unterschiedlich ausgerichtet: BPMN ist speziell für
+        <strong>Geschäftsprozesse</strong> gedacht und soll auch für
+        Fachabteilungen ohne IT-Hintergrund verständlich sein —
+        UML-Aktivitätsdiagramme sind eher in der
         <strong>Softwareentwicklung</strong> verankert.
       </p>
     </section>
@@ -236,11 +185,9 @@
           <polyline points="465,205 628,205 628,90" fill="none" stroke="var(--text-muted)" stroke-width="2" marker-end="url(#bpmn-arrow)"/>
         </svg>
         <figcaption>
-          BPMN-Diagramm des Bestellprozesses: Swimlane „Vertrieb" prüft die
-          Bestellung und das Gateway entscheidet über den Lagerbestand — bei
-          „ja" versendet die Swimlane „Lager" die Ware, bei „nein"
-          informiert „Vertrieb" den Kunden. Beide Pfade laufen im gemeinsamen
-          End-Ereignis zusammen.
+          BPMN-Diagramm des Bestellprozesses mit den Swimlanes
+          „Vertrieb" und „Lager", Gateway-Entscheidung und gemeinsamem
+          End-Ereignis.
         </figcaption>
       </figure>
     </section>

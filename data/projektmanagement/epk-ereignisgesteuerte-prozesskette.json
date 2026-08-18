@@ -1,5 +1,5 @@
 {
-  "unit": "software-os-web/epk-ereignisgesteuerte-prozesskette",
+  "unit": "projektmanagement/epk-ereignisgesteuerte-prozesskette",
   "questions": [
     {
       "id": "q1",
@@ -63,15 +63,15 @@
     },
     {
       "id": "q6",
-      "question": "Warum bleibt die EPK im Gegensatz zu PAP und Struktogramm auch in der AP1 (Katalogstand ab 2025) prüfungsrelevant?",
+      "question": "Wozu dient ein Informationsobjekt in einer EPK?",
       "options": [
-        "Weil EPK inzwischen offiziell und vollständig Bestandteil der Abfragesprache SQL selbst geworden ist",
-        "Weil EPK laut aktuellem Katalog die einzige noch überhaupt erlaubte Diagrammart im gesamten Prüfungsstoff ist",
-        "Weil Prozessmodellierung (wie bei BPMN) weiterhin AP1-Stoff ist, PAP/Struktogramm aber als Algorithmus-Notation gestrichen wurden",
-        "Weil EPK kein eigenständiges Thema ist, sondern nach aktuellem Katalogstand lediglich ein untergeordneter Teilbereich von UML ist"
+        "Es markiert, welche Abteilung eine Funktion ausführt",
+        "Es steuert den Ablauf bei einer Entscheidung zwischen mehreren Pfaden",
+        "Es zeigt, welches Dokument oder welche Information eine Funktion verwendet oder erzeugt",
+        "Es beschreibt einen passiv eingetretenen Zustand, der eine Funktion auslöst"
       ],
       "answer": 2,
-      "explanation": "Die Neuordnung 2025 stärkt die Prozessmodellierung (BPMN, EPK) in der AP1, während PAP und Struktogramm als klassische Algorithmus-Notationen aus der AP1 gestrichen wurden."
+      "explanation": "Das Informationsobjekt (Rechteck mit Eselsohr) zeigt, welches Dokument oder welche Information eine Funktion verwendet oder erzeugt — im Unterschied zur Organisationseinheit (Abteilung/Rolle), zum Konnektor (Verzweigung) und zum Ereignis (passiver Zustand)."
     }
   ]
 }

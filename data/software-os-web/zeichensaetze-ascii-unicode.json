@@ -4,14 +4,14 @@
     {
       "id": "q1",
       "question": "Wie viele Zeichen definiert der ASCII-Standard und mit wie vielen Bit?",
-      "options": ["64 Zeichen mit 6 Bit", "256 Zeichen mit 8 Bit", "1024 Zeichen mit 10 Bit", "128 Zeichen mit 7 Bit"],
+      "options": ["Über 140.000 Zeichen mit variabel bis zu 4 Byte", "256 Zeichen mit 8 Bit, wie jedes Byte allgemein", "Genau die Werte 0x0A und 0x0D, wie bei LF und CR", "128 Zeichen mit 7 Bit"],
       "answer": 3,
       "explanation": "ASCII definiert 128 Zeichen mit den Werten 0–127, was genau 7 Bit entspricht."
     },
     {
       "id": "q2",
       "question": "Welchen ASCII-Wert hat das Zeichen „0“ (die Ziffer als Text), im Unterschied zur Zahl 0?",
-      "options": ["48", "0", "10", "128"],
+      "options": ["48", "0", "65", "128"],
       "answer": 0,
       "explanation": "Das Zeichen „0“ hat den ASCII-Wert 48 (hexadezimal 0x30) — die Zahl 0 hat dagegen den Wert 0. Beide werden häufig verwechselt."
     },
@@ -19,7 +19,7 @@
       "id": "q3",
       "question": "Warum reichte ASCII langfristig nicht aus und führte zu Kompatibilitätsproblemen?",
       "options": [
-        "ASCII wurde als Zeichensatz dabei nie offiziell durch irgendein internationales Normungsgremium standardisiert",
+        "ASCII definierte von Anfang an über 140.000 Zeichen für alle Schriftsysteme der Welt",
         "ASCII deckt nur 128 englische Zeichen ab, weshalb Länder eigene, inkompatible Erweiterungen entwickelten",
         "ASCII konnte in seiner ursprünglichen Fassung ausschließlich Zahlen, aber keinerlei Buchstaben darstellen",
         "ASCII wurde bereits im Jahr 1970 angeblich vollständig und ersatzlos durch Unicode abgelöst"
@@ -34,7 +34,7 @@
         "Eine feste Byte-Kodierung, die für jedes einzelne dargestellte Zeichen exakt 2 Bytes benötigt",
         "Ein reines Synonym für den klassischen, historischen ASCII-Wert eines einzelnen Zeichens",
         "Eine eindeutige Kennung für ein Zeichen, geschrieben als U+XXXX, unabhängig von der Byte-Kodierung",
-        "Ein Verfahren, das ausschließlich zur stark verlustbehafteten Kompression von digitalen Bildern dient"
+        "Ein Zeichen, das UTF-8 immer mit genau 4 Bytes kodiert, unabhängig vom Zeichentyp"
       ],
       "answer": 2,
       "explanation": "Ein Codepoint (U+XXXX) identifiziert ein Zeichen eindeutig innerhalb von Unicode — wie dieses Zeichen als Bytes gespeichert wird, legt erst die Kodierung (z. B. UTF-8) fest."
@@ -45,7 +45,7 @@
       "options": [
         "Weil ASCII und UTF-8 in ihrem gesamten Wertebereich angeblich technisch vollständig identisch sind",
         "Weil UTF-8 als Kodierung angeblich ausschließlich für rein englischsprachige Texte entwickelt wurde",
-        "Weil reine ASCII-Dateien entgegen der landläufigen Annahme technisch überhaupt gar keine Bytes enthalten",
+        "Weil UTF-16 und UTF-32 beide ebenfalls mit genau einem Byte pro Zeichen arbeiten wie ASCII",
         "Weil UTF-8 alle ASCII-Zeichen mit genau einem Byte und identischem Bitmuster kodiert — bewusstes Design"
       ],
       "answer": 3,
@@ -74,8 +74,8 @@
       "id": "q8",
       "question": "Ein unter Windows bearbeitetes Shell-Skript zeigt unter Linux beim Ausführen Probleme, und cat -A zeigt am Zeilenende „^M$“ statt nur „$“. Was ist die Ursache?",
       "options": [
-        "Das Skript wurde beim Speichern versehentlich als komplett reine Binärdatei ohne Textformat abgelegt",
-        "Das Skript enthält an mehreren verschiedenen Stellen ungültige, nicht dekodierbare UTF-8-Zeichen",
+        "Das Skript wurde in ISO-8859-1 statt UTF-8 exportiert, wodurch die Umlaute falsch dargestellt werden",
+        "Das Skript wurde mit dos2unix bearbeitet, wodurch zusätzliche Steuerzeichen eingefügt wurden",
         "Das Skript enthält Windows-Zeilenenden (CRLF); das übrige CR wird vom Linux-Interpreter als Teil des Befehls gelesen",
         "Linux unterstützt grundsätzlich und generell keine Shell-Skripte, die ursprünglich von Windows-Nutzern erstellt wurden"
       ],

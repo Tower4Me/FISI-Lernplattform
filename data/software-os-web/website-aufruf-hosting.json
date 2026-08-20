@@ -29,9 +29,9 @@
       "id": "q3",
       "question": "Welche Information enthält der Host-Header eines HTTP-Requests?",
       "options": [
-        "Die IP-Adresse des anfragenden Clients, aus der die Anfrage ursprünglich stammt",
-        "Das auf dem anfragenden Client verwendete Betriebssystem samt Versionsnummer",
-        "Die aktuelle Bildschirmauflösung des Geräts, von dem die Anfrage stammt",
+        "Die IP-Adresse, die der DNS-Server für die angeforderte Domain zurückliefert",
+        "Den HTTP-Statuscode, den der Server in seiner Antwort zurückschickt",
+        "Die Ressourcen wie Bilder oder Skripte, die beim Rendering zusätzlich nachgeladen werden",
         "Den Domainnamen, der beim Server tatsächlich angefordert wird"
       ],
       "answer": 3,
@@ -43,7 +43,7 @@
       "options": [
         "Dass mehrere Websites dieselbe IP-Adresse teilen, unterschieden anhand des Host-Headers",
         "Dass eine einzelne Website automatisch auf mehrere physisch komplett getrennte Server verteilt wird",
-        "Dass eine Website vollständig und dauerhaft ohne jeden vorhandenen DNS-Eintrag erreichbar bleibt",
+        "Dass eine Website vollständig und dauerhaft ganz ohne jeden TCP-Verbindungsaufbau erreichbar bleibt",
         "Dass HTTPS auch ganz ohne ein einziges gültiges TLS-Zertifikat vollkommen einwandfrei funktioniert"
       ],
       "answer": 0,
@@ -55,7 +55,7 @@
       "options": [
         "Er liefert bei jeder Anfrage rein zufällig eine der beiden vorhandenen Websites aus",
         "Anhand des Host-Headers im HTTP-Request, der den angeforderten Domainnamen enthält",
-        "Anhand der aktuellen Bildschirmauflösung des jeweils anfragenden Browsers",
+        "Anhand des HTTP-Statuscodes, den der Webserver in seiner Antwort zurückgibt",
         "Der Webserver kann bei identischer IP-Adresse technisch grundsätzlich nur eine Website ausliefern"
       ],
       "answer": 1,
@@ -68,7 +68,7 @@
         "Direkt und ganz ohne jede vorherige Prüfung sofort den kompletten Server neu starten",
         "Ausschließlich prüfen, ob der angegebene Domainname überhaupt korrekt registriert wurde",
         "Erst DNS prüfen, dann die Serververbindung, dann den HTTP-Statuscode der Antwort",
-        "Zuerst vollständig und dauerhaft das Rendering im Browser des Kunden deaktivieren"
+        "Zuerst den TLS-Handshake ein zweites Mal durchführen, unabhängig vom Ergebnis der DNS-Auflösung"
       ],
       "answer": 2,
       "explanation": "Eine strukturierte Fehlerdiagnose folgt dem Ablauf des Website-Aufrufs: erst DNS-Auflösung prüfen, dann die Erreichbarkeit des Servers (Verbindung), dann die HTTP-Antwort des Servers."

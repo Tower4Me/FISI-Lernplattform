@@ -18,8 +18,8 @@
       "question": "Wofür wird ein CRM-System (Customer Relationship Management) typischerweise eingesetzt?",
       "options": [
         "Zur zentralen Verwaltung des gesamten Website-Contents ohne Programmierkenntnisse",
-        "Ausschließlich zur automatisierten Lohn- und Gehaltsbuchhaltung eines Unternehmens",
-        "Zur Verwaltung von Serverhardware und Netzwerkkomponenten im Rechenzentrum",
+        "Zur revisionssicheren Archivierung von Dokumenten inklusive Versionierung und Volltextsuche",
+        "Zur Verwaltung zentraler Geschäftsprozesse wie Finanzen, Lager und Personal in einem gemeinsamen System",
         "Zur Verwaltung von Kundenkontakten, Vertriebschancen und Support-Historie"
       ],
       "answer": 3,
@@ -32,7 +32,7 @@
         "Die Pflege von Website-Inhalten, ohne dass Programmierkenntnisse nötig sind",
         "Die Verwaltung zentraler Geschäftsprozesse eines Unternehmens wie Finanzen, Lager und Personal",
         "Die revisionssichere Archivierung von Rechnungen und sonstigen Geschäftsdokumenten",
-        "Die zentrale Steuerung und Konfiguration von Netzwerk-Switches im Unternehmensnetz"
+        "Die Verwaltung von Kundenkontakten, Vertriebschancen und der Support-Historie"
       ],
       "answer": 0,
       "explanation": "Ein CMS ermöglicht es, Website-Inhalte zu pflegen und zu veröffentlichen, ohne dass die Nutzer selbst programmieren müssen."
@@ -43,7 +43,7 @@
       "options": [
         "Die Verwaltung von Kundenkontakten und Vertriebschancen im Vertriebsprozess",
         "Die Verwaltung und Archivierung von Dokumenten inklusive Versionierung, Volltextsuche und Zugriffsrechten",
-        "Die zentrale Steuerung und automatisierte Buchung der gesamten Firmenbuchhaltung eines mittelständischen Unternehmens",
+        "Die Verwaltung zentraler Geschäftsprozesse wie Finanzen, Lager und Personal in einem gemeinsamen System mit geteilten Daten",
         "Die Erstellung und Gestaltung von Webseiteninhalten ohne Programmierkenntnisse"
       ],
       "answer": 1,
@@ -53,10 +53,10 @@
       "id": "q5",
       "question": "Was ist ein typisches Merkmal von Open-Source-Software im Vergleich zu proprietärer Software?",
       "options": [
-        "Sie kann aufgrund der Lizenzbedingungen grundsätzlich nicht kommerziell eingesetzt werden",
+        "Sie bietet nur eingeschränkte Anpassbarkeit auf das, was der Hersteller an Konfigurationsmöglichkeiten anbietet",
         "Sie bietet immer einen zentralen Hersteller-Support, der bereits im Lizenzpreis enthalten ist",
         "Der Quellcode ist öffentlich einsehbar und unter einer entsprechenden Lizenz veränderbar",
-        "Sie ist aufgrund des offenen Quellcodes grundsätzlich unsicherer als proprietäre Software"
+        "Sie führt zu einer stärkeren Bindung an einen einzelnen Hersteller (Vendor Lock-in)"
       ],
       "answer": 2,
       "explanation": "Bei Open-Source-Software ist der Quellcode öffentlich einsehbar und unter einer entsprechenden Lizenz (z. B. GPL, MIT) veränderbar — bei proprietärer Software ist der Quellcode unter Verschluss."
@@ -65,9 +65,9 @@
       "id": "q6",
       "question": "Was versteht man unter „Vendor Lock-in“ im Zusammenhang mit proprietärer Software?",
       "options": [
-        "Die automatische Verschlüsselung aller in der Software gespeicherten Kundendaten",
+        "Eine hohe Anpassbarkeit, weil jeder mit den nötigen Kenntnissen die Software erweitern kann",
         "Die gesetzlich verpflichtende Offenlegung des Quellcodes bei proprietärer Software",
-        "Ein Sicherheitsmerkmal proprietärer Software, das unautorisierten Zugriff auf Kundendaten verhindert",
+        "Eine geringere Abhängigkeit von einem einzelnen Anbieter",
         "Eine starke Abhängigkeit vom Hersteller, z. B. bei Preisgestaltung, Updates und Datenformaten"
       ],
       "answer": 3,
@@ -79,7 +79,7 @@
       "options": [
         "Das eigene Entwicklerteam kann den offenen Quellcode selbst anpassen und ist weniger von einem einzelnen Hersteller abhängig",
         "Open-Source-Software kann grundsätzlich, unabhängig vom Lizenzmodell, nicht an eigene Bedürfnisse angepasst werden",
-        "Proprietäre Software ist grundsätzlich immer vollständig kostenlos, während Open-Source-Software stets kostenpflichtig lizenziert werden muss",
+        "Ein Open-Source-CMS bietet stets einen zentralen Hersteller-Support, der im Lizenzpreis enthalten ist",
         "Ein CMS betrifft ausschließlich die interne Dokumentenverwaltung eines Unternehmens, nicht die eigentliche Website"
       ],
       "answer": 0,
@@ -89,10 +89,10 @@
       "id": "q8",
       "question": "Was bezeichnet OEM-Software?",
       "options": [
-        "Eine Software-Kategorie, die ausschließlich für Behörden entwickelt wird",
-        "Eine Lizenzform, bei der Software von einem Hardwarehersteller vorinstalliert und mitverkauft wird, meist fest an das Gerät gebunden",
-        "Ein Synonym für Individualsoftware, die exakt auf ein Unternehmen zugeschnitten ist",
-        "Ein Verfahren, das ausschließlich zur Verschlüsselung von Softwarelizenzen dient"
+        "Eine Lizenzform, bei der der Quellcode öffentlich einsehbar und unter einer Lizenz wie GPL oder MIT frei veränderbar ist",
+        "Eine Lizenzform, bei der Software vom Hardwarehersteller vorinstalliert und mitverkauft wird, meist fest ans Gerät gebunden",
+        "Ein Synonym für Individualsoftware, die eigens exakt auf die Prozesse eines einzelnen Unternehmens zugeschnitten entwickelt wird",
+        "Eine starke Abhängigkeit vom Hersteller, die z. B. bei Preisgestaltung, Updates oder Datenformaten auftreten kann"
       ],
       "answer": 1,
       "explanation": "OEM-Software wird von einem Hardwarehersteller vorinstalliert und zusammen mit dem Gerät verkauft — günstiger als eine Vollversion, aber meist fest an das jeweilige Gerät gebunden."

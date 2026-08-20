@@ -7,8 +7,8 @@
       "options": [
         "Eine Herstellererklärung, dass das Produkt den EU-Richtlinien entspricht",
         "Ein unabhängig geprüftes amtliches Gütesiegel für besonders hohe Produktqualität",
-        "Eine freiwillige Auszeichnung ausschließlich für besonders energieeffiziente elektronische Geräte",
-        "Ein amtlicher Nachweis, dass das Produkt zu genau 100 % recycelbar und wiederverwertbar ist"
+        "Ein freiwilliges Zeichen, das wie das GS-Zeichen eine unabhängige Prüfung voraussetzt",
+        "Ein Nachweis über die Einhaltung eines Code of Conduct bei der Herstellung"
       ],
       "answer": 0,
       "explanation": "Die CE-Kennzeichnung ist keine unabhängig geprüfte Gütesiegel, sondern in der Regel eine Selbsterklärung des Herstellers, dass das Produkt den EU-Richtlinien entspricht — Voraussetzung für den Marktzugang in der EU."
@@ -19,7 +19,7 @@
       "options": [
         "Das GS-Zeichen ist im Gegensatz zur CE-Kennzeichnung gesetzlich zwingend verpflichtend",
         "Beide Kennzeichnungen bedeuten inhaltlich und rechtlich exakt dasselbe, nur der Name unterscheidet sich",
-        "Das GS-Zeichen gilt ausschließlich außerhalb der Europäischen Union, nicht innerhalb",
+        "Das GS-Zeichen ist wie eine Norm (DIN/ISO/IEC) ein rein freiwilliger Standard ohne Prüfung",
         "Das GS-Zeichen setzt eine tatsächliche Prüfung durch eine unabhängige Stelle voraus"
       ],
       "answer": 3,
@@ -30,9 +30,9 @@
       "question": "Wie ist der übliche Charakter von technischen Normen wie DIN, ISO oder IEC einzuordnen?",
       "options": [
         "Sie sind grundsätzlich unmittelbar und ausnahmslos gesetzlich verpflichtend für jedes Unternehmen",
-        "Sie gelten ausschließlich für Softwareprodukte, nicht für physische Geräte oder Anlagen",
+        "Sie setzen wie das GS-Zeichen immer eine Prüfung durch eine unabhängige Stelle voraus",
         "Sie sind meist freiwillige Standards, verpflichtend erst durch Kunden- oder Gesetzesanforderung",
-        "Sie ersetzen vollständig und vollumfänglich die gesetzlich vorgeschriebene CE-Kennzeichnung"
+        "Sie sind wie die CE-Kennzeichnung eine reine Herstellerselbsterklärung ohne Prüfung"
       ],
       "answer": 2,
       "explanation": "Normen wie DIN, ISO oder IEC sind grundsätzlich freiwillige technische Standards — verpflichtend werden sie meist erst, wenn ein Gesetz oder ein Kunde (z. B. in einer Ausschreibung) ihre Einhaltung ausdrücklich verlangt."
@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Was regelt ein Code of Conduct (Verhaltenskodex) im Unternehmen?",
       "options": [
-        "Ausschließlich die technischen IT-Sicherheitsmaßnahmen des gesamten Unternehmens und all seiner Standorte",
+        "Ausschließlich die Einhaltung technischer Normen wie DIN oder ISO",
         "Schriftlich festgelegtes erwartetes Verhalten, z. B. im Umgang mit Geschenken oder Interessenkonflikten",
-        "Die vollständige Gehaltsstruktur und Bonusregelung des gesamten Unternehmens",
-        "Ausschließlich die vertraglichen Kündigungsfristen sämtlicher Arbeitsverträge"
+        "Den Schutz von Mitarbeitenden, die Missstände melden, vor Repressalien",
+        "Ausschließlich die Voraussetzungen für eine CE-Kennzeichnung"
       ],
       "answer": 1,
       "explanation": "Ein Code of Conduct legt schriftlich fest, welches Verhalten von Mitarbeitenden erwartet wird — etwa im Umgang mit Geschenken, Interessenkonflikten oder vertraulichen Informationen."
@@ -54,9 +54,9 @@
       "question": "Was schützt das Hinweisgeberschutzgesetz (HinSchG)?",
       "options": [
         "Mitarbeitende, die Missstände oder Rechtsverstöße melden, vor Repressalien",
-        "Ausschließlich die persönlichen und sensiblen Daten sämtlicher Kunden des Unternehmens",
-        "Die gewerblichen Urheberrechte angestellter und externer Softwareentwicklerinnen",
-        "Die gesetzlichen Garantieansprüche sämtlicher Endkunden gegenüber dem Unternehmen"
+        "Die Einhaltung des unternehmensinternen Code of Conduct",
+        "Die Voraussetzungen für eine CE-Kennzeichnung von IT-Produkten",
+        "Die Einhaltung technischer Normen wie DIN oder ISO im Unternehmen"
       ],
       "answer": 0,
       "explanation": "Das Hinweisgeberschutzgesetz schützt Personen, die interne Missstände oder Rechtsverstöße melden, vor Repressalien wie Kündigung oder Mobbing."
@@ -65,9 +65,9 @@
       "id": "q6",
       "question": "Ein Unternehmen wählt für eine sicherheitskritische Anwendung (z. B. Krankenhaus-IT) bewusst ein Produkt mit zusätzlichem GS-Zeichen statt nur mit CE-Kennzeichnung. Warum?",
       "options": [
-        "Weil das GS-Zeichen in der Herstellung grundsätzlich deutlich billiger als CE ist",
-        "Weil die CE-Kennzeichnung außerhalb der Europäischen Union grundsätzlich nicht anerkannt wird",
-        "Weil ein GS-Zeichen automatisch und in jedem Fall eine längere gesetzliche Garantiezeit bedeutet",
+        "Weil das GS-Zeichen wie die CE-Kennzeichnung eine reine Selbsterklärung des Herstellers ist",
+        "Weil Normen wie DIN oder ISO für sicherheitskritische Anwendungen gesetzlich zwingend vorgeschrieben sind",
+        "Weil ein GS-Zeichen automatisch einen unternehmensweiten Code of Conduct ersetzt",
         "Weil das GS-Zeichen eine unabhängige Prüfung voraussetzt und höheres Vertrauen bietet als CE"
       ],
       "answer": 3,

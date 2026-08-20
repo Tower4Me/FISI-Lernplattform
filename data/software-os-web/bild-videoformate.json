@@ -52,8 +52,8 @@
       "options": [
         "Es komprimiert Bilddateien verlustfrei, ohne dabei den Inhalt der Bilddatei inhaltlich zu analysieren oder zu verändern",
         "Es erkennt Text in einem gescannten Bild oder Foto und wandelt ihn in echten, durchsuchbaren und kopierbaren Text um",
-        "Es wandelt Vektorgrafiken automatisch und ohne Qualitätsverlust in aufgelöste Rastergrafiken mit festem Pixelraster um",
-        "Es verschlüsselt gescannte Dokumente automatisch, sodass sie ohne Passwort nicht mehr geöffnet werden können"
+        "Es wandelt eine Vektorgrafik verlustfrei in eine beliebig skalierbare Rastergrafik um",
+        "Es komprimiert das gescannte Dokument verlustbehaftet wie bei MP3 oder JPEG"
       ],
       "answer": 1,
       "explanation": "OCR erkennt Textinhalte in Bilddaten (z. B. eingescannten Dokumenten) und wandelt sie in editierbaren, durchsuchbaren Text um."
@@ -74,9 +74,9 @@
       "id": "q8",
       "question": "Warum wird ein Firmenlogo für eine Webseite eher als SVG statt als PNG eingebunden, wenn es auf sehr unterschiedlichen Bildschirmgrößen scharf bleiben soll?",
       "options": [
-        "Weil PNG-Dateien von modernen Browsern grundsätzlich gar nicht dargestellt werden können und deshalb für jede Webseite völlig ungeeignet sind",
-        "Weil SVG-Dateien unabhängig vom Bildinhalt grundsätzlich eine kleinere Dateigröße als jede vergleichbare PNG-Datei haben",
-        "Weil das PNG-Format ausschließlich Graustufen darstellen kann und grundsätzlich keine echten Farbinformationen speichert",
+        "Weil PNG als Containerformat nur den Codec H.264 unterstützt, SVG dagegen jeden beliebigen Codec",
+        "Weil PNG als Audioformat gilt und deshalb für Bilder grundsätzlich ungeeignet ist",
+        "Weil PNG anders als SVG erst per OCR durchsuchbar gemacht werden muss, bevor es scharf dargestellt wird",
         "Weil SVG als Vektorgrafik beliebig skaliert werden kann, ohne unscharf zu werden — ohne mehrere Dateigrößen vorhalten zu müssen"
       ],
       "answer": 3,

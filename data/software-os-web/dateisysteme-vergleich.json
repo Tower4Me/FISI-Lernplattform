@@ -5,8 +5,8 @@
       "id": "q1",
       "question": "Welche kritische Einschränkung hat FAT32 bei der Dateigröße?",
       "options": [
-        "Keine Datei darf größer als 700 Byte sein",
-        "FAT32 unterstützt grundsätzlich keine einzelnen Dateien über 1 MB",
+        "Keine Datei darf größer als 16 Exabyte sein",
+        "exFAT wurde speziell entwickelt, um Dateien unter 1 MB effizienter zu speichern als FAT32",
         "FAT32 hat keinerlei Größenbeschränkung",
         "Keine einzelne Datei darf größer als 4 GB sein"
       ],
@@ -31,8 +31,8 @@
       "id": "q4",
       "question": "Wofür ist APFS (Apple File System) optimiert und seit wann ist es Standard auf Apple-Geräten?",
       "options": [
-        "Für magnetische Bandlaufwerke optimiert, bereits seit den 1990er-Jahren im Einsatz",
-        "Ausschließlich für Netzwerkfreigaben entwickelt, seit 2020 auf Apple-Servern Standard",
+        "Für Journaling-freien Betrieb optimiert, bereits seit den 1990er-Jahren im Einsatz",
+        "Für maximale Kompatibilität mit FAT32 entwickelt, seit 2020 Standard auf USB-Sticks",
         "Für SSD/Flash-Speicher, seit 2017 Standard auf macOS/iOS",
         "APFS wird trotz des Namens nicht von Apple, sondern von Microsoft entwickelt und gepflegt"
       ],
@@ -43,9 +43,9 @@
       "id": "q5",
       "question": "Wie löst Journaling das Problem eines Stromausfalls während einer Schreiboperation?",
       "options": [
-        "Journaling verhindert durch spezielle Hardware-Pufferung grundsätzlich jeden erdenklichen Stromausfall direkt am System",
-        "Journaling erstellt bei jeder einzelnen Schreiboperation automatisch eine vollständige zweite physische Kopie der gesamten Festplatte",
-        "Journaling komprimiert bei jeder Schreiboperation grundsätzlich alle betroffenen Dateien, um zusätzliche Schreibzeit zu sparen",
+        "Journaling verhindert Fragmentierung, indem Blöcke immer zusammenhängend gespeichert werden",
+        "Journaling reduziert den Slack Space, indem Blockgrößen dynamisch angepasst werden",
+        "Journaling verhindert, dass eine SSD durch Defragmentierung unnötig Schreibzyklen verbraucht",
         "Die geplante Änderung wird zuerst ins Journal geschrieben, damit das System nach einem Absturz weiß, welche Operationen fertig waren"
       ],
       "answer": 3,
@@ -67,9 +67,9 @@
       "id": "q7",
       "question": "Warum spielt Fragmentierung bei SSDs praktisch keine Rolle, im Gegensatz zu HDDs?",
       "options": [
-        "Weil SSDs im Gegensatz zu HDDs grundsätzlich überhaupt keine Dateien dauerhaft speichern können",
+        "Weil SSDs anders als HDDs grundsätzlich niemals über NTFS oder exFAT formatiert werden können",
         "Weil SSDs keine beweglichen Schreib-/Leseköpfe haben und die physische Position der Datenblöcke deshalb keinen Zugriffszeitverlust verursacht",
-        "Weil SSDs technisch bedingt grundsätzlich niemals mehr als genau eine einzige Datei gleichzeitig auf dem gesamten Datenträger speichern können",
+        "Weil SSDs grundsätzlich keinen Slack Space durch feste Blockgrößen erzeugen können",
         "Weil SSDs durch eine fest eingebaute Firmware-Routine automatisch jede einzelne Nacht vollständig defragmentiert werden"
       ],
       "answer": 1,
@@ -80,7 +80,7 @@
       "question": "Warum sollte eine SSD nicht manuell defragmentiert werden?",
       "options": [
         "Weil eine Defragmentierung bei SSDs aus technischen Gründen grundsätzlich gar nicht möglich ist",
-        "Weil dadurch beim Defragmentieren automatisch alle auf der SSD gespeicherten Daten gelöscht werden",
+        "Weil dadurch automatisch ein Journal-Eintrag für jede verschobene Datei angelegt wird",
         "Weil es keinen Geschwindigkeitsvorteil bringt, aber unnötig die begrenzte Schreiblebensdauer der SSD verbraucht",
         "Weil SSDs im technischen Unterschied zu klassischen HDDs grundsätzlich überhaupt gar kein eigenes Dateisystem verwenden können"
       ],

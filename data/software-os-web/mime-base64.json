@@ -6,9 +6,9 @@
       "question": "Wofür steht MIME und wozu dient es?",
       "options": [
         "Multipurpose Internet Mail Extensions — beschreibt den Inhaltstyp einer Datei für Übertragungsprotokolle",
-        "Ein Verschlüsselungsverfahren, das ausschließlich speziell für abgesicherten Netzwerkverkehr entwickelt wurde",
-        "Ein spezielles Dateisystem, das ausschließlich für externe Datenträger konzipiert wurde",
-        "Ein verlustbehafteter Komprimierungsalgorithmus, der speziell für Bilddateien entwickelt wurde"
+        "Ein HTTP-Header, der den Inhaltstyp einer Antwort angibt, z. B. Content-Type: image/jpeg",
+        "Ein Verfahren, das Binärdaten in druckbare ASCII-Zeichen umwandelt, ohne sie zu komprimieren",
+        "Ein Header, der verhindert, dass der Browser einen vom Server angegebenen MIME-Type ignoriert (nosniff)"
       ],
       "answer": 0,
       "explanation": "MIME (Multipurpose Internet Mail Extensions) beschreibt den Inhaltstyp einer Datei, ursprünglich für E-Mail entwickelt, heute Standard in HTTP und im gesamten Web."
@@ -16,7 +16,7 @@
     {
       "id": "q2",
       "question": "In welchem Format wird ein MIME-Type angegeben?",
-      "options": ["Als reine Zahl zwischen 0 und 255, ähnlich einem HTTP-Statuscode", "typ/subtyp, z. B. image/jpeg", "Ausschließlich als Dateiendung, ganz ohne weitere interne Struktur", "Als fester 4-Byte-Hexadezimalwert, vergleichbar mit einer IPv4-Adresse"],
+      "options": ["Als Wert des HTTP-Headers X-Content-Type-Options, z. B. nosniff", "typ/subtyp, z. B. image/jpeg", "Ausschließlich als Dateiendung, ganz ohne weitere interne Struktur", "Als Base64-kodierte Zeichenkette aus 64 druckbaren ASCII-Zeichen"],
       "answer": 1,
       "explanation": "MIME-Types folgen immer dem Format typ/subtyp, z. B. image/jpeg oder text/html."
     },
@@ -58,7 +58,7 @@
         "Ja, Base64 gilt als eine kryptografisch starke Verschlüsselung für sensible Daten",
         "Nein, Base64 lässt sich sofort wieder dekodieren und bietet keinerlei Schutz",
         "Ja, allerdings ausschließlich dann, wenn das Passwort länger als 32 Zeichen ist",
-        "Ja, solange das jeweilige Code-Repository als privat markiert ist"
+        "Ja, solange zusätzlich die Magic Bytes der Datei geprüft werden"
       ],
       "answer": 1,
       "explanation": "Base64 ist keine Verschlüsselung — jeder kann eine Base64-Zeichenkette in Sekunden zurückwandeln. Ein Base64-kodiertes Passwort ist daher genauso unsicher wie Klartext."
@@ -66,7 +66,7 @@
     {
       "id": "q7",
       "question": "In welchem HTTP-Header wird der MIME-Type einer übertragenen Datei angegeben?",
-      "options": ["Content-Length", "Host", "Content-Type", "User-Agent"],
+      "options": ["X-Content-Type-Options", "application/octet-stream", "Content-Type", "multipart/form-data"],
       "answer": 2,
       "explanation": "Der HTTP-Header Content-Type überträgt den MIME-Type der Antwort, z. B. Content-Type: image/jpeg."
     },

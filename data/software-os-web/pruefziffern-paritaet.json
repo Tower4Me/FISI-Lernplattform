@@ -5,9 +5,9 @@
       "id": "q1",
       "question": "Was ist die Aufgabe einer Prüfziffer?",
       "options": [
-        "Sie verschlüsselt dabei zusätzlich die gesamte restliche Nummer kryptografisch",
+        "Sie wird nach einem international genormten Modulo-97-Verfahren (ISO 7064) berechnet, unabhängig vom Nummerntyp",
         "Sie komprimiert die Nummer dabei automatisch auf eine geringere Anzahl Ziffern",
-        "Sie ersetzt bei der Datenverarbeitung vollständig und rechtlich die Notwendigkeit einer Rechtsgrundlage",
+        "Sie stellt sicher, dass die Gesamtzahl der 1-Bits in der Nummer gerade oder ungerade ist",
         "Sie erkennt Tipp- oder Übertragungsfehler in einer Nummer, kann sie aber nicht korrigieren"
       ],
       "answer": 3,
@@ -29,9 +29,9 @@
       "id": "q3",
       "question": "Ein Kassensystem berechnet aus den ersten 12 Ziffern eines gescannten EAN-Codes eine Prüfziffer, die nicht mit der 13. Ziffer übereinstimmt. Was bedeutet das?",
       "options": [
-        "Das gescannte Produkt wird durch diese Abweichung automatisch stark im Preis reduziert",
+        "Die IBAN des Kunden wird durch diese Abweichung automatisch als ungültig markiert",
         "Der Scan war fehlerhaft, z. B. durch einen verschmutzten oder beschädigten Barcode",
-        "Das gesamte Kassensystem muss aufgrund dieser Abweichung neu gestartet werden",
+        "Das Paritätsbit der Übertragung wird dadurch automatisch neu berechnet",
         "Die Prüfziffer ist in diesem Fall grundsätzlich immer falsch und wird ignoriert"
       ],
       "answer": 1,
@@ -40,7 +40,7 @@
     {
       "id": "q4",
       "question": "Nach welchem Verfahren werden die zwei Prüfziffern einer IBAN berechnet?",
-      "options": ["Modulo-10-Verfahren", "AES-256-Verschlüsselung", "Modulo-97-Verfahren", "Huffman-Codierung"],
+      "options": ["Modulo-10-Verfahren", "Ein einfaches Paritätsbit, das nur gerade oder ungerade Anzahl von 1-Bits prüft", "Modulo-97-Verfahren", "Differenz der Quersumme zur nächsten vollen Zehnerstufe wie bei EAN"],
       "answer": 2,
       "explanation": "Die IBAN-Prüfziffern werden nach dem international genormten Modulo-97-Verfahren (ISO 7064) berechnet."
     },
@@ -48,9 +48,9 @@
       "id": "q5",
       "question": "Warum lohnt es sich, eine IBAN vor dem Absenden einer Überweisung auf die Prüfziffern zu prüfen?",
       "options": [
-        "Weil dadurch bei der Überweisung automatisch die anfallende Überweisungsgebühr entfällt",
-        "Weil die Prüfziffern dabei automatisch die Bank identifizieren, unabhängig vom Ländercode",
-        "Weil eine SEPA-Überweisung ohne vorherige Prüfzifferprüfung technisch grundsätzlich niemals möglich ist",
+        "Weil dadurch automatisch ein Paritätsbit für die gesamte Überweisung berechnet wird",
+        "Weil die Prüfziffern dabei nach dem Modulo-10-Verfahren wie bei EAN-Codes berechnet werden",
+        "Weil ein Kassensystem eine fehlerhafte IBAN sonst als beschädigten Barcode interpretieren würde",
         "Weil ein Tippfehler in der IBAN dadurch sofort erkannt wird, bevor Geld an ein falsches Konto geht"
       ],
       "answer": 3,
@@ -61,8 +61,8 @@
       "question": "Was macht ein einfaches Paritätsbit bei der Datenübertragung?",
       "options": [
         "Es wird so gesetzt, dass die Zahl der 1-Bits gerade oder ungerade ist, ein Fehler wird dadurch erkennbar",
-        "Es verschlüsselt dabei die insgesamt übertragenen Nutzdaten noch vor dem eigentlichen Versand",
-        "Es komprimiert die zu übertragenden Daten bereits vor dem eigentlichen Sendevorgang zusätzlich",
+        "Es berechnet dabei zusätzlich eine Prüfziffer nach dem Modulo-97-Verfahren",
+        "Es berechnet dabei zusätzlich eine Prüfziffer nach dem Modulo-10-Verfahren wie bei EAN-Codes",
         "Es korrigiert dabei ganz automatisch und ohne jedes weitere Zutun restlos jeden einzelnen Übertragungsfehler"
       ],
       "answer": 0,
@@ -74,7 +74,7 @@
       "options": [
         "Weil Paritätsbits als generelles Fehlererkennungsverfahren grundsätzlich in der Praxis niemals wirklich zuverlässig funktionieren",
         "Weil beim gleichzeitigen Kippen zweier Bits die Parität zufällig gleich bleiben kann und der Fehler dann unentdeckt bleibt",
-        "Weil Paritätsbits ausschließlich bei reinen Textdateien funktionieren, jedoch nicht bei binären Daten",
+        "Weil Paritätsbits ausschließlich bei der Berechnung von IBAN-Prüfziffern nach dem Modulo-97-Verfahren eingesetzt werden",
         "Weil Paritätsbits in der Praxis ausschließlich bei der Berechnung von EAN-Codes eingesetzt werden können"
       ],
       "answer": 1,

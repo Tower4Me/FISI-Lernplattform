@@ -8,7 +8,7 @@
         "Sie legt dabei bereits direkt ein vollständiges Dateisystem auf dem Datenträger an",
         "Sie teilt einen physischen Datenträger in logisch getrennte Bereiche (Partitionen) auf",
         "Sie prüft den gesamten Datenträger dabei ausschließlich auf physisch defekte Sektoren durchgehend",
-        "Sie verschlüsselt dabei automatisch den gesamten Inhalt des Datenträgers"
+        "Sie prüft dabei automatisch den gesamten Datenträger auf defekte Sektoren"
       ],
       "answer": 1,
       "explanation": "Partitionierung teilt einen physischen Datenträger in logisch getrennte Bereiche auf, die jeweils eigene Dateisysteme erhalten können — das Anlegen des Dateisystems selbst erfolgt erst bei der Formatierung."
@@ -16,14 +16,14 @@
     {
       "id": "q2",
       "question": "Wie viele primäre Partitionen unterstützt eine klassische MBR-Partitionstabelle maximal?",
-      "options": ["2", "16", "4", "unbegrenzt viele"],
+      "options": ["Bis zu 2 TiB, unabhängig von der Anzahl der Partitionen", "Genau so viele wie bei GPT, da beide Partitionstabellen identisch aufgebaut sind", "4", "unbegrenzt viele"],
       "answer": 2,
       "explanation": "MBR unterstützt maximal 4 primäre Partitionen (bzw. 3 primäre plus eine erweiterte Partition mit mehreren logischen Partitionen darin)."
     },
     {
       "id": "q3",
       "question": "Welche maximale Datenträgergröße kann mit MBR sinnvoll genutzt werden?",
-      "options": ["512 MB", "16 TiB", "es gibt keine Begrenzung", "2 TiB"],
+      "options": ["Nur so viel, wie eine Schnellformatierung an Index-Daten verwalten kann", "Bis zu 4 primäre Partitionen, unabhängig von der Datenträgergröße", "es gibt keine Begrenzung", "2 TiB"],
       "answer": 3,
       "explanation": "MBR unterstützt Datenträger nur bis etwa 2 TiB vollständig nutzbar — größere Datenträger benötigen GPT."
     },
@@ -37,7 +37,7 @@
     {
       "id": "q5",
       "question": "Welche Boot-Voraussetzung ist für GPT-partitionierte Systemlaufwerke in der Regel nötig?",
-      "options": ["Klassisches BIOS-Booten", "UEFI", "Es gibt keine Boot-Voraussetzung", "Eine spezielle Grafikkarte"],
+      "options": ["Klassisches BIOS-Booten", "UEFI", "Es gibt keine Boot-Voraussetzung", "Eine vollständige Formatierung mit Prüfung auf defekte Sektoren"],
       "answer": 1,
       "explanation": "GPT-partitionierte Systemlaufwerke benötigen in der Regel UEFI zum Booten, während MBR mit dem klassischen BIOS-Boot verbunden ist."
     },
@@ -48,7 +48,7 @@
         "Beide Verfahren sind in Aufbau und Wirkung technisch vollständig identisch, nur der Name unterscheidet sich",
         "Die vollständige Formatierung ist grundsätzlich immer schneller abgeschlossen als die Schnellformatierung",
         "Die Schnellformatierung löscht nur den Index, die vollständige prüft zusätzlich auf defekte Sektoren",
-        "Ausschließlich die Schnellformatierung ist überhaupt in der Lage, ein NTFS-Dateisystem anzulegen"
+        "Ausschließlich GPT-partitionierte Datenträger können überhaupt schnellformatiert werden"
       ],
       "answer": 2,
       "explanation": "Die Schnellformatierung löscht nur den Dateisystem-Index, die Daten bleiben zunächst physisch erhalten. Die vollständige Formatierung prüft zusätzlich den kompletten Datenträger auf defekte Sektoren und dauert deshalb deutlich länger."
@@ -57,8 +57,8 @@
       "id": "q7",
       "question": "Warum wählt ein Techniker für eine neue, ungetestete Festplatte eher eine vollständige Formatierung statt einer Schnellformatierung?",
       "options": [
-        "Weil eine Schnellformatierung bei fabrikneuen Festplatten technisch grundsätzlich nicht möglich ist",
-        "Weil eine Schnellformatierung dabei automatisch sämtliche vorhandenen Partitionstabellen löscht",
+        "Weil eine neue Festplatte zunächst zwingend mit GPT statt MBR partitioniert werden muss",
+        "Weil eine Schnellformatierung automatisch einen neuen Laufwerksbuchstaben oder Mountpoint vergibt",
         "Weil eine vollständige Formatierung grundsätzlich immer deutlich schneller abläuft als eine übliche Schnellformatierung",
         "Weil die vollständige Formatierung zusätzlich auf defekte Sektoren prüft, was bei einer neuen Platte sinnvoll ist"
       ],

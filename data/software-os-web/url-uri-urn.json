@@ -18,8 +18,8 @@
       "question": "Was gibt eine URL im Unterschied zu einer URN zusätzlich an?",
       "options": [
         "Nichts Zusätzliches — beide Begriffe sind in ihrer Funktion technisch vollständig identisch",
-        "Ausschließlich den Dateityp der referenzierten Ressource, nicht jedoch ihren Speicherort",
-        "Ausschließlich die genaue Dateigröße der referenzierten Ressource, angegeben in Byte",
+        "Ausschließlich einen eindeutigen Namen, unabhängig vom Ort, wie bei einer URN",
+        "Ausschließlich eine Sprungmarke innerhalb der bereits geladenen Seite (Fragment)",
         "Wo eine Ressource zu finden ist und wie darauf zugegriffen wird (Protokoll, Adresse, Pfad)"
       ],
       "answer": 3,
@@ -47,7 +47,7 @@
     {
       "id": "q5",
       "question": "Was ist der Standard-Port für HTTPS?",
-      "options": ["21", "80", "443", "8443"],
+      "options": ["Der Port ist bei URLs laut Definition immer optional und hat deshalb keinen Standardwert", "Der Wert des Fragments, z. B. #seite2", "443", "8443"],
       "answer": 2,
       "explanation": "Der Standard-Port für HTTPS ist 443. Ein abweichender Port wie 8443 muss in der URL explizit angegeben werden."
     },
@@ -55,7 +55,7 @@
       "id": "q6",
       "question": "Was steht im Query-String einer URL, z. B. bei ?kategorie=notebooks&sortierung=preis?",
       "options": [
-        "Den verschlüsselten Teil der URL, der beim Transport zusätzlich extra abgesichert wird",
+        "Den Namen des verwendeten Schemas/Protokolls, z. B. https",
         "Den Namen des Servers, auf dem die referenzierte Ressource tatsächlich physisch liegt",
         "Eine reine Sprungmarke innerhalb der bereits vollständig im Browser geladenen Seite",
         "Zusätzliche Parameter als Schlüssel-Wert-Paare, die an den Server übermittelt werden"
@@ -68,8 +68,8 @@
       "question": "Eine im Firmennetz aufgerufene URL nutzt den Port 8443 statt des HTTPS-Standardports 443 und wird von der Firewall blockiert. Was ist die naheliegende Ursache?",
       "options": [
         "Der nicht-standardmäßige Port 8443 ist in der Firmen-Firewall nicht freigegeben",
-        "Der Domainname der aufgerufenen URL ist fehlerhaft bzw. ungültig formatiert",
-        "Das Fragment der aufgerufenen URL enthält vermutlich einen kleinen Tippfehler",
+        "Die Subdomain shop. der aufgerufenen URL ist nicht korrekt konfiguriert",
+        "Der Query-String der aufgerufenen URL enthält vermutlich einen kleinen Tippfehler",
         "HTTPS unterstützt als Protokoll grundsätzlich keine benutzerdefinierten Portnummern"
       ],
       "answer": 0,

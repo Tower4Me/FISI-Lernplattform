@@ -7,8 +7,8 @@
       "options": [
         "Eine Liste von ACEs, die für Benutzer/Gruppen erlaubte oder verbotene Aktionen festlegt",
         "Ein reines Synonym für das unter Linux traditionell verwendete einfache rwx-Rechtesystem",
-        "Eine Liste sämtlicher auf dem System aktuell installierter und tatsächlich lauffähiger Programme",
-        "Ein Protokoll, das ausschließlich der Verschlüsselung des gesamten internen Netzwerkverkehrs dient"
+        "Eine Liste von ACEs, die ausschließlich für Gruppen gilt, nicht für einzelne Benutzer",
+        "Ein einfacheres Rechtesystem mit nur drei Gruppen und je drei Rechten, wie unter Linux"
       ],
       "answer": 0,
       "explanation": "Eine ACL besteht aus beliebig vielen ACEs (Access Control Entries), die jeweils für einen bestimmten Benutzer oder eine Gruppe festlegen, welche Aktionen erlaubt oder verboten sind."
@@ -19,8 +19,8 @@
       "options": [
         "Der Allow-Eintrag hat in diesem Fall gegenüber dem Deny-Eintrag immer Vorrang",
         "Der explizite Deny-Eintrag überschreibt den Allow-Eintrag",
-        "Windows ignoriert in diesem Fall beide Einträge und verweigert grundsätzlich jeden Zugriff",
-        "Beide Einträge werden dabei addiert, sodass daraus volle Rechte entstehen"
+        "Der Allow-Eintrag wird automatisch vererbt, der Deny-Eintrag dagegen nicht",
+        "Full Control überschreibt in diesem Fall automatisch jeden Deny-Eintrag"
       ],
       "answer": 1,
       "explanation": "Ein expliziter Deny-Eintrag überschreibt ein an anderer Stelle gewährtes Allow-Recht — das ist einer der zentralen Unterschiede zum einfacheren Linux-rwx-System, das kein direktes explizites Verbot kennt."
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Was bedeutet die standardmäßige Vererbung von Windows-Berechtigungen?",
       "options": [
-        "Jede neu erstellte Datei bekommt automatisch vollen Zugriff für sämtliche Benutzer",
+        "Jede neue Datei erhält automatisch einen expliziten Deny-Eintrag für alle Benutzer außer dem Owner",
         "Berechtigungen werden unter Windows grundsätzlich niemals an untergeordnete Objekte automatisch vererbt",
         "Dateien in einem Ordner übernehmen automatisch die Berechtigungen des übergeordneten Ordners",
-        "Die Vererbung betrifft ausschließlich die Dateigröße, nicht die eigentlichen Zugriffsrechte"
+        "Die Vererbung betrifft ausschließlich, welche Gruppe Vollzugriff (Full Control) erhält"
       ],
       "answer": 2,
       "explanation": "Windows-Berechtigungen werden standardmäßig vererbt — neue Dateien in einem Ordner übernehmen automatisch dessen Berechtigungen, was die Verwaltung vereinfacht."
@@ -49,8 +49,8 @@
       "question": "Was bewirkt der Befehl icacls datei.txt /remove Ben?",
       "options": [
         "Er entfernt sämtliche Berechtigungseinträge für den Benutzer „Ben“ an dieser Datei",
-        "Er löscht die Datei datei.txt dabei vollständig und unwiderruflich vom Datenträger",
-        "Er ändert den Namen der angegebenen Datei dabei auf „Ben“",
+        "Er entfernt die Datei aus der Vererbung des übergeordneten Ordners, ohne ihre Berechtigungseinträge zu ändern",
+        "Er zeigt die aktuellen Berechtigungen der Datei an, ohne etwas zu verändern",
         "Er gewährt dem Benutzer „Ben“ dabei automatisch vollständigen Vollzugriff"
       ],
       "answer": 0,

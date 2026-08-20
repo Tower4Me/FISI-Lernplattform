@@ -36,8 +36,8 @@
       "id": "q4",
       "question": "Warum gilt chmod 777 fast immer als Sicherheitsrisiko?",
       "options": [
-        "Weil der Befehl chmod in modernen Linux-Distributionen technisch nicht mehr existiert",
-        "Weil chmod 777 die betroffene Datei dabei automatisch vollständig verschlüsselt",
+        "Weil chmod 777 laut Definition nur für Verzeichnisse, niemals für einzelne Dateien gilt",
+        "Weil dadurch automatisch der Eigentümer und die Gruppe der Datei auf „root“ gesetzt werden",
         "Weil chmod 777 die Datei anschließend selbst für den Eigentümer unzugänglich macht",
         "Weil damit jeder Benutzer auf dem System die Datei lesen, schreiben und ausführen darf"
       ],
@@ -49,8 +49,8 @@
       "question": "Was bewirkt der Befehl chown ben:users datei.txt?",
       "options": [
         "Er setzt den Eigentümer der Datei auf „ben“ und die Gruppe auf „users“",
-        "Er komprimiert die angegebene Datei, ohne dabei Eigentümer oder Rechte zu ändern",
-        "Er löscht die angegebene Datei vollständig und unwiderruflich vom Datenträger",
+        "Er ändert die Zugriffsrechte (rwx) auf rwxr-xr-x, ohne Eigentümer oder Gruppe zu ändern",
+        "Er wendet eine Rechteänderung rekursiv auf einen ganzen Ordner samt Inhalt an",
         "Er ändert ausschließlich die Zugriffsrechte (rwx) der angegebenen Datei"
       ],
       "answer": 0,
@@ -60,10 +60,10 @@
       "id": "q6",
       "question": "Ein Techniker möchte allen Unterdateien eines Ordners auf einmal dieselben Rechte geben. Welche Option von chmod ist dafür nötig?",
       "options": [
-        "-x",
+        "600 (setzt die Datei auf rw-------, nur der Owner darf lesen und schreiben)",
         "-R (rekursiv, wendet die Änderung auf den ganzen Ordner samt Inhalt an)",
         "chmod kann grundsätzlich nur auf einzelne Dateien angewendet werden",
-        "-v"
+        "chown, weil damit Eigentümer und Gruppe rekursiv auf einen Ordner angewendet werden"
       ],
       "answer": 1,
       "explanation": "Die Option -R wendet chmod rekursiv auf einen Ordner und alle darin enthaltenen Dateien und Unterordner an."

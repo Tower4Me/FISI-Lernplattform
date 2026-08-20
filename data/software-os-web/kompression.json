@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Wie funktioniert das Grundprinzip der Lauflängenkodierung (Run-Length Encoding)?",
       "options": [
-        "Alle Daten werden zunächst vollständig verschlüsselt, bevor sie überhaupt gespeichert werden",
+        "Details, die das Auge kaum wahrnimmt, werden dauerhaft und unwiederbringlich gelöscht",
         "Wiederholte Werte werden durch eine kompaktere Darstellung ersetzt, z. B. „AAAAAABBB“ durch „6A3B“",
         "Bilder werden grundsätzlich in 8×8-Pixel-Blöcke zerlegt und dabei Details unwiderruflich verworfen",
-        "Zeichen werden vor dem Speichern alphabetisch komplett neu sortiert, um Speicherplatz zu sparen"
+        "Häufige Zeichen bekommen kürzere Codes, seltene längere, wie bei der Huffman-Codierung"
       ],
       "answer": 1,
       "explanation": "Lauflängenkodierung ersetzt Wiederholungen durch eine kompaktere Notation (Anzahl + Wert) — die Grundlage vieler verlustfreier Kompressionsverfahren."
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Wie funktioniert die verlustbehaftete Kompression bei JPEG grundlegend?",
       "options": [
-        "Das Bild wird beim Speichern lediglich umbenannt, ohne die eigentlichen Pixeldaten zu verändern",
+        "Wiederholte Werte werden durch eine kompaktere Darstellung ersetzt, wie bei der Lauflängenkodierung",
         "Es wird bei JPEG grundsätzlich eine exakte, vollständig verlustfreie Kopie der Pixeldaten erzeugt",
         "Das Bild wird in 8×8-Blöcke geteilt, per DCT transformiert, kaum wahrnehmbare Details werden verworfen",
-        "Alle Farbinformationen werden bei der JPEG-Kompression grundsätzlich vollständig auf reines Schwarz-Weiß reduziert"
+        "TAR bündelt dabei mehrere Bilddateien zu einem gemeinsamen Archiv"
       ],
       "answer": 2,
       "explanation": "JPEG teilt das Bild in 8×8-Pixel-Blöcke, wendet die Diskrete Kosinustransformation (DCT) an und verwirft dabei für das menschliche Auge kaum wahrnehmbare Details — das reduziert die Dateigröße, aber unwiederbringlich."
@@ -41,8 +41,8 @@
       "id": "q4",
       "question": "Was bedeutet „Generation Loss“ bei wiederholtem Speichern einer JPEG-Datei?",
       "options": [
-        "Die Datei wird bei jedem erneuten Speichern automatisch und kontinuierlich größer",
-        "Die Bildauflösung erhöht sich bei JPEG mit jeder erneuten Bearbeitung automatisch",
+        "Die Datei wird durch die DCT-Transformation bei jedem Speichern automatisch in 8×8-Blöcke geteilt und dadurch größer",
+        "Die Datei wird dadurch automatisch verlustfrei, da JPEG ab der zweiten Speicherung wie PNG komprimiert",
         "JPEG speichert grundsätzlich immer verlustfrei, Generation Loss betrifft ausschließlich nur das Format MP3",
         "Bei jedem erneuten Speichern gehen weitere Bilddetails verloren, die sich summieren"
       ],
@@ -81,7 +81,7 @@
       "options": [
         "Die Datei bei jeder einzelnen Bearbeitung erneut als JPEG mit maximaler Komprimierung abspeichern",
         "Die Datei mehrfach hintereinander erneut und wiederholt komprimieren, um die Dateigröße weiter zu reduzieren",
-        "Zwischen den einzelnen Bearbeitungsschritten das Dateiformat immer wieder beliebig wechseln",
+        "Die Datei zwischen den Bearbeitungsschritten jeweils mit 7-Zip und AES-256 verschlüsseln",
         "Im verlustfreien Originalformat (z. B. RAW oder PNG) arbeiten und erst am Ende einmalig als JPEG exportieren"
       ],
       "answer": 3,

@@ -6,8 +6,8 @@
       "question": "Was ist der Zweck von UML (Unified Modeling Language)?",
       "options": [
         "Eine konkrete Programmiersprache zur direkten Ausführung von bereits kompiliertem Maschinencode",
-        "Ein vollständiges Datenbankverwaltungssystem ausschließlich zur Speicherung fertiger Softwaremodelle",
-        "Ein spezieller Verschlüsselungsstandard, der ausschließlich für rohen Quellcode entwickelt wurde",
+        "Ein klassisches Flussdiagramm, das ausschließlich Entscheidungsknoten und Endknoten kennt",
+        "Eine Notation, die ausschließlich die zeitliche Reihenfolge von Nachrichten zwischen Objekten zeigt",
         "Eine genormte, sprachunabhängige grafische Notation zur Modellierung von Software-Systemen"
       ],
       "answer": 3,
@@ -20,7 +20,7 @@
         "Welche Akteure mit dem System interagieren und welche Anwendungsfälle sie dabei nutzen",
         "Die statische Klassenstruktur eines Systems mit all ihren Attributen und Methoden im Detail",
         "Den zeitlichen Ablauf eines konkreten Algorithmus in Form einzelner nacheinander folgender Schritte",
-        "Die physische Verkabelung und räumliche Verteilung eines Netzwerks im gesamten Rechenzentrum"
+        "Die zeitliche Reihenfolge von Nachrichten zwischen Objekten über Lebenslinien"
       ],
       "answer": 0,
       "explanation": "Ein Use-Case-Diagramm zeigt die Akteure (Nutzer, externe Systeme) und die Anwendungsfälle (Use Cases), mit denen sie das System nutzen."
@@ -50,7 +50,7 @@
       "options": [
         "Die zeitliche Abfolge einzelner Programmschritte innerhalb eines konkreten Ablaufs",
         "Ausschließlich die Akteure eines Systems, ohne jede weitere Strukturinformation",
-        "Die Netzwerktopologie eines gesamten Rechenzentrums samt physischer Verkabelung der Geräte",
+        "Welche Akteure mit dem System interagieren und welche Anwendungsfälle sie dabei nutzen",
         "Klassen mit ihren Attributen und Methoden sowie die Beziehungen zwischen den Klassen"
       ],
       "answer": 3,
@@ -93,7 +93,7 @@
       "options": [
         "Die statische Struktur der Klassen mit all ihren Attributen und Methoden im Detail",
         "Ausschließlich die Akteure eines Systems, komplett ohne jede zeitliche Information",
-        "Die Netzwerktopologie eines gesamten Rechenzentrums samt physischer Geräteverkabelung",
+        "Welche Akteure mit dem System interagieren und welche Anwendungsfälle sie dabei nutzen",
         "Die zeitliche Reihenfolge von Nachrichten zwischen konkreten Objekten oder Akteuren"
       ],
       "answer": 3,
@@ -117,7 +117,7 @@
       "options": [
         "Er markiert lediglich das Ende der jeweiligen Lebenslinie im Diagramm",
         "Er zeigt den Aktivierungszeitraum, in dem das Objekt eine Nachricht aktiv verarbeitet",
-        "Er stellt an dieser Stelle eine zusätzliche Vererbungsbeziehung zwischen Objekten dar",
+        "Er stellt an dieser Stelle eine Generalisierung (Vererbung) zwischen zwei Klassen dar",
         "Er kennzeichnet an dieser Stelle einen zusätzlichen Entscheidungsknoten im Ablauf"
       ],
       "answer": 1,

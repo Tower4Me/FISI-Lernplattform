@@ -6,9 +6,9 @@
       "question": "Was ist eine ISO-Datei?",
       "options": [
         "Ein reines Textdokument völlig ohne jede interne Struktur oder erkennbare Formatierung",
-        "Ein verlustfreies Komprimierungsverfahren, das speziell und ausschließlich nur für Audiodateien wie WAV oder FLAC entwickelt wurde",
+        "Ein Boot-Image mit Windows PE, das nur für die Installation gestartet wird",
         "Ein exaktes Abbild (Image) eines gesamten Datenträgers oder Dateisystems, Byte für Byte, inklusive der Datenträgerstruktur",
-        "Ein Netzwerkprotokoll zur verschlüsselten Übertragung von E-Mails zwischen Servern"
+        "Ein gepacktes Linux-Paket oder Container-Image wie bei Docker"
       ],
       "answer": 2,
       "explanation": "Eine ISO-Datei (nach dem Standard ISO 9660) ist ein exaktes, Byte-für-Byte-Abbild eines gesamten Datenträgers oder Dateisystems inklusive Struktur."
@@ -18,8 +18,8 @@
       "question": "Wofür wird eine ISO-Datei typischerweise eingesetzt?",
       "options": [
         "Ausschließlich zur reinen Textverarbeitung, ganz ohne jeden weiteren erkennbaren praktischen Anwendungszweck im Alltag",
-        "Nur zur verlustbehafteten Komprimierung von Videodateien vor der langfristigen Archivierung",
-        "Ausschließlich für regelmäßige, automatisierte Datenbank-Backups im Rechenzentrum",
+        "Nur zur Verwaltung von WIM-Dateien über das Tool DISM",
+        "Ausschließlich als virtuelle Festplatte für VMware Workstation oder ESXi",
         "Für Betriebssystem-Installationen, das Einbinden als virtuelles DVD-Laufwerk in VMs und beim PXE-Netzwerk-Deployment"
       ],
       "answer": 3,
@@ -43,8 +43,8 @@
       "options": [
         "Das vollständige, fertig installierte und einsatzbereite Windows-System samt aller Anwendungen",
         "Windows PE (Preinstallation Environment) — ein minimales Windows, das nur für die Installation gestartet wird",
-        "Ausschließlich zusätzliche Treiberdateien für Netzwerkkarten, ganz ohne jeden weiteren notwendigen Systembestandteil",
-        "Eine komprimierte Sicherungskopie sämtlicher Benutzerdaten des vorherigen Systems"
+        "Das eigentliche, komprimierte Windows-Dateisystem, wie es in install.wim/install.esd steckt",
+        "Eine paketierte virtuelle Maschine inklusive Konfiguration wie bei OVA/OVF"
       ],
       "answer": 1,
       "explanation": "boot.wim enthält Windows PE, ein minimales Windows-System, das ausschließlich zum Starten des Installationsvorgangs dient."
@@ -52,7 +52,7 @@
     {
       "id": "q5",
       "question": "Mit welchem Tool werden WIM-Dateien typischerweise verwaltet (z. B. um enthaltene Editionen anzuzeigen oder ein Image anzuwenden)?",
-      "options": ["chmod", "icacls", "DISM", "grep"],
+      "options": ["Rufus", "dd", "DISM", "WDS"],
       "answer": 2,
       "explanation": "DISM (Deployment Image Servicing and Management) ist das Standardwerkzeug zur Verwaltung von WIM-Dateien unter Windows."
     },
@@ -60,7 +60,7 @@
       "id": "q6",
       "question": "Warum kann eine einzige WIM-Datei mehrere Windows-Editionen (Home, Pro, Enterprise) enthalten, eine einzelne ISO aber nicht in derselben Weise?",
       "options": [
-        "Weil ISO-Dateien unabhängig vom eigentlichen Inhalt grundsätzlich immer deutlich größer sind als vergleichbare WIM-Dateien",
+        "Weil eine ISO-Datei laut Definition zusätzlich Windows PE (boot.wim) enthalten muss, eine WIM-Datei aber nicht",
         "Weil WIM-Dateien im Unterschied zu ISO-Dateien grundsätzlich keinerlei Komprimierung unterstützen",
         "Weil ISO-Dateien technisch bedingt grundsätzlich ausschließlich für Linux-Distributionen verwendet werden können und sonst nirgends",
         "Weil WIM ein Dateisystem-Image ist und mehrere Editionen komprimiert bündeln kann, eine ISO dagegen nur ein Datenträgerabbild ist"

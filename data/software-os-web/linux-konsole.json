@@ -13,7 +13,7 @@
       "question": "Wie organisiert Linux Datenträger im Unterschied zu Windows?",
       "options": [
         "Genau wie Windows über separate Laufwerksbuchstaben wie C:, D: und E:",
-        "Jeder angeschlossene Datenträger bekommt automatisch eine eigene IP-Adresse",
+        "Über die Datei /etc/fstab, die für jeden Datenträger automatisch eine eigene IP-Adresse vergibt",
         "Über einen einzigen Verzeichnisbaum, in den Datenträger an einem bestimmten Mountpoint eingehängt werden",
         "Linux verwendet für die Organisation von Dateien grundsätzlich keine Verzeichnisse"
       ],
@@ -23,7 +23,7 @@
     {
       "id": "q3",
       "question": "Welche Datei steuert, welche Dateisysteme beim Systemstart automatisch gemountet werden?",
-      "options": ["/etc/passwd", "/etc/hosts", "/etc/mount.conf", "/etc/fstab"],
+      "options": ["/var/log/nginx/error.log", "nginx.conf", "/mnt/usb", "/etc/fstab"],
       "answer": 3,
       "explanation": "/etc/fstab (File System Table) legt fest, welche Dateisysteme beim Booten automatisch an welchem Mountpoint eingehängt werden."
     },
@@ -55,12 +55,12 @@
       "id": "q6",
       "question": "Wozu dient der Befehl man befehlsname?",
       "options": [
-        "Er löscht den angegebenen Befehl dauerhaft aus dem System",
+        "Er zeigt zeilenweise nur die Treffer eines Suchmusters in einer Datei an",
         "Er zeigt die vollständige Dokumentation (Manual) des angegebenen Befehls an",
-        "Er führt den angegebenen Befehl automatisch mit Administratorrechten aus",
-        "Er benennt den angegebenen Befehl systemweit um"
+        "Er zeigt den Inhalt einer Datei seitenweise an, durchsuchbar, ohne alles auf einmal auszugeben",
+        "Er hängt einen weiteren Datenträger an einem bestimmten Verzeichnis in den Baum ein"
       ],
-      "answer": 2,
+      "answer": 1,
       "explanation": "man (Manual) zeigt die vollständige Dokumentation eines Befehls mit allen verfügbaren Optionen an — der erste Anlaufpunkt bei einem unbekannten Parameter."
     }
   ]

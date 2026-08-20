@@ -8,7 +8,7 @@
         "Erst nach amtlicher Registrierung des Werks beim zuständigen Patentamt",
         "Erst nach vollständiger Veröffentlichung des zugrunde liegenden Quellcodes",
         "Automatisch mit der Schöpfung, ohne dass eine Registrierung nötig ist",
-        "Erst nach Abschluss eines EULA mit dem allerersten Nutzer der Software"
+        "Erst mit Übertragung der vermögensrechtlichen Befugnisse auf den Arbeitgeber (§ 69b UrhG)"
       ],
       "answer": 2,
       "explanation": "Das Urheberrecht entsteht automatisch mit der Schöpfung des Werks (§ 69a UrhG bei Software) — eine Registrierung ist dafür nicht erforderlich."
@@ -20,7 +20,7 @@
         "Ein Nutzungsrecht an der Software",
         "Gar nichts, eine Lizenz hat keine rechtliche Wirkung",
         "Das vollständige Urheberrecht selbst",
-        "Das Eigentum am Quellcode-Repository"
+        "Eine Kopie der urheberrechtlichen Verwertungsrechte nach § 69b UrhG"
       ],
       "answer": 0,
       "explanation": "Eine Lizenz räumt ein Nutzungsrecht ein — das Urheberrecht selbst bleibt in Deutschland grundsätzlich beim Urheber und ist nicht übertragbar."
@@ -31,7 +31,7 @@
       "options": [
         "Sie ist grundsätzlich frei und uneingeschränkt auf jedes beliebige Gerät übertragbar",
         "Sie erlaubt automatisch und uneingeschränkt die kommerzielle Weiterverbreitung des Quellcodes",
-        "Sie gilt ausschließlich für frei verfügbare Open-Source-Software jeder Art",
+        "Sie regelt wie die EULA die erlaubte und verbotene Nutzung proprietärer Software",
         "Sie ist an ein bestimmtes Gerät gebunden und in der Regel nicht übertragbar"
       ],
       "answer": 3,
@@ -42,7 +42,7 @@
       "question": "Was unterscheidet die GPL (GNU General Public License) grundlegend von der MIT-Lizenz?",
       "options": [
         "GPL verlangt als Copyleft-Lizenz die Offenlegung abgeleiteter Werke, MIT nicht",
-        "GPL erlaubt grundsätzlich keinerlei kommerzielle Nutzung, die MIT-Lizenz hingegen schon",
+        "GPL ist wie eine OEM-Lizenz fest an ein bestimmtes Gerät gebunden",
         "Beide Lizenzen sind inhaltlich vollständig identisch, nur der Name unterscheidet sich",
         "Die MIT-Lizenz ist in ihren Bedingungen deutlich restriktiver als die GPL"
       ],
@@ -56,7 +56,7 @@
         "Der komplette Quellcode muss dabei vollständig unverändert bleiben",
         "Die Software darf unter der MIT-Lizenz nicht kommerziell genutzt werden",
         "Der ursprüngliche Urheber- und Lizenzvermerk muss erhalten bleiben",
-        "Jede vorgenommene Änderung muss beim ursprünglichen Autor gemeldet werden"
+        "Der veränderte Quellcode muss wie bei der GPL wieder offengelegt werden"
       ],
       "answer": 2,
       "explanation": "Die MIT-Lizenz erlaubt nahezu uneingeschränkte Nutzung, Veränderung und kommerzielle Nutzung — verlangt aber, dass der ursprüngliche Urheber-/Lizenzvermerk erhalten bleibt."

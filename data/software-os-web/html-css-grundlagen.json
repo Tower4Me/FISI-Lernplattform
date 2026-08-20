@@ -6,8 +6,8 @@
       "question": "Was beschreibt HTML an einer Webseite?",
       "options": [
         "Ausschließlich Farben und Schriftarten, komplett unabhängig von Struktur oder Inhalt der Seite",
-        "Nur die Anbindung der Webseite an eine Datenbank im Hintergrund",
-        "Ausschließlich die Netzwerkverbindung zwischen Browser und Webserver",
+        "Nur die Farben, Abstände und Schriftarten, getrennt vom eigentlichen Inhalt",
+        "Ausschließlich, wie sich die Navigationsleiste bei schmalen Bildschirmen zusammenklappt",
         "Die Struktur und den Inhalt der Seite über Elemente wie Überschriften, Absätze und Links"
       ],
       "answer": 3,
@@ -20,7 +20,7 @@
         "CSS beschreibt das Aussehen (Farben, Abstände, Layout), getrennt vom HTML-Inhalt",
         "CSS und HTML beschreiben in Aufbau und Zweck exakt dasselbe, nur mit anderer Syntax",
         "CSS ersetzt die Notwendigkeit von HTML in modernen Webseiten vollständig",
-        "CSS ist ausschließlich für serverseitige Datenbankabfragen einer Webseite zuständig"
+        "CSS ist ausschließlich dafür zuständig, wie eine Navigationsleiste bei schmalen Bildschirmen zusammenklappt"
       ],
       "answer": 0,
       "explanation": "CSS (Cascading Style Sheets) beschreibt das visuelle Erscheinungsbild einer Webseite, bewusst getrennt vom strukturellen HTML-Inhalt."
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Welchen Zweck erfüllen Media Queries im Zusammenhang mit Responsive Design?",
       "options": [
-        "Sie verschlüsseln die gesamte Übertragung der Webseite zwischen dem Server und dem Browser",
+        "Sie beschreiben die Struktur und den Inhalt der Seite über Elemente wie Überschriften und Links",
         "Sie wenden je nach Bildschirmbreite andere CSS-Regeln an, damit sich das Layout anpasst",
-        "Sie ersetzen den gesamten HTML-Code einer Webseite vollständig durch reines CSS",
-        "Sie speichern eingegebene Nutzerdaten dauerhaft und unverschlüsselt im Browser"
+        "Sie sorgen dafür, dass Elemente mit relativen statt festen Pixelwerten mitskalieren",
+        "Sie sorgen dafür, dass flexible Layouts wie Flexbox oder Grid statt starrer Pixel-Positionierung verwendet werden"
       ],
       "answer": 1,
       "explanation": "Media Queries erlauben es, abhängig von der Bildschirmbreite (oder anderen Geräteeigenschaften) unterschiedliche CSS-Regeln anzuwenden — die Grundlage für responsives Design."
@@ -41,8 +41,8 @@
       "id": "q4",
       "question": "Warum werden bei Responsive Design oft relative statt feste Pixeleinheiten verwendet?",
       "options": [
-        "Weil relative Einheiten grundsätzlich schneller vom Browser geladen und verarbeitet werden",
-        "Weil feste Pixeleinheiten in aktuellen Browsern technisch nicht mehr unterstützt werden",
+        "Weil dadurch automatisch eine zusammenklappbare Navigationsleiste wie bei Media Queries entsteht",
+        "Weil dadurch automatisch dieselbe Struktur mit unterschiedlichem Design dargestellt werden kann",
         "Damit Elemente unabhängig von der Bildschirmgröße mitskalieren können",
         "Relative Einheiten stehen in keinerlei Zusammenhang mit Responsive Design"
       ],

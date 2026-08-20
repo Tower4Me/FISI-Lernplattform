@@ -8,7 +8,7 @@
         "Eine vertraglich vereinbarte Leistungszusage mit konkreten, messbaren Kennzahlen",
         "Eine unverbindliche Absichtserklärung ohne jede rechtliche Bindungswirkung für beide Seiten",
         "Ein rein internes Dokument des Dienstleisters ohne jeden Bezug zum eigentlichen Kundenvertrag",
-        "Eine gesetzlich zwingend vorgeschriebene Zertifizierung für sämtliche IT-Dienstleister"
+        "Ein Verfahren zur stufenweisen Weiterleitung ungelöster Anfragen an höhere Ebenen"
       ],
       "answer": 0,
       "explanation": "Ein SLA ist ein vertraglicher Bestandteil, der konkrete und messbare Leistungskennzahlen zwischen Dienstleister und Kunde festlegt, z. B. Reaktionszeit, Lösungszeit oder Verfügbarkeit."
@@ -18,8 +18,8 @@
       "question": "Welche Aufgabe übernimmt typischerweise der First-Level-Support?",
       "options": [
         "Ausschließlich die Behebung komplexer Fehler direkt im Quellcode der Software",
-        "Die eigenständige Entwicklung neuer Softwarefeatures für kommende Versionen",
-        "Die eigenständige Verhandlung neuer SLA-Verträge direkt mit Kunden",
+        "Die tiefere Analyse der Serverkonfiguration bei komplexeren Fällen",
+        "Die Festlegung der vertraglich vereinbarten Verfügbarkeitskennzahl",
         "Entgegennahme von Anfragen, Ticketerfassung und Lösung einfacher Probleme"
       ],
       "answer": 3,
@@ -39,7 +39,7 @@
         "Bei jeder einzelnen eingehenden Supportanfrage grundsätzlich immer zuerst und ohne Ausnahme",
         "Ausschließlich zur reinen Ticketerfassung ohne jede weitere fachliche Bearbeitung",
         "Nur bei den komplexesten Fällen, echten Fehlern im Quellcode, oft durch Entwickler",
-        "Ausschließlich für die Verhandlung neuer Kaufverträge mit externen Lieferanten"
+        "Bei einfachen, standardisierten Problemen mit vorhandener Wissensdatenbank"
       ],
       "answer": 2,
       "explanation": "Third-Level-Support (Spezialisten, Entwickler, Hersteller) wird nur bei den komplexesten Fällen hinzugezogen, die weder First noch Second Level lösen können."
@@ -48,10 +48,10 @@
       "id": "q5",
       "question": "Was versteht man unter Eskalation im Support-Kontext?",
       "options": [
-        "Das automatische und endgültige Schließen eines offenen Support-Tickets nach spätestens 24 Stunden",
+        "Die Erstantwort des First-Level-Supports innerhalb der vereinbarten Reaktionszeit",
         "Die stufenweise Weiterleitung an eine höhere Ebene, wenn die aktuelle nicht helfen kann",
-        "Die einseitige Kündigung eines bestehenden SLA-Vertrags durch den Kunden",
-        "Die nachträgliche Reduzierung der ursprünglich vereinbarten Reaktionszeit"
+        "Die tatsächliche Behebung eines Problems innerhalb der vereinbarten Lösungszeit",
+        "Der zugesicherte Prozentsatz erreichbarer Betriebszeit"
       ],
       "answer": 1,
       "explanation": "Eskalation bezeichnet die stufenweise Weiterleitung einer Anfrage von einer niedrigeren zu einer höheren Support-Ebene, wenn die aktuelle Ebene sie nicht abschließend bearbeiten kann."
@@ -61,7 +61,7 @@
       "question": "Wann gerät ein Vertragspartner grundsätzlich in Verzug (§ 286 BGB)?",
       "options": [
         "Sobald ein Vertrag unterschrieben wurde, völlig unabhängig von jeder Fälligkeit",
-        "Nur dann, wenn eine gerichtliche Klage bereits förmlich eingereicht wurde",
+        "Nur dann, wenn zusätzlich Schadensersatz gefordert wird",
         "Verzug gibt es im deutschen Recht grundsätzlich nicht, nur vertragliche Vertragsstrafen",
         "Wenn er eine fällige Leistung trotz Fälligkeit und meist trotz Mahnung nicht erbringt"
       ],
@@ -74,8 +74,8 @@
       "options": [
         "Nein, bei einem kalendermäßig bestimmten Termin ist eine Mahnung entbehrlich",
         "Ja, ganz ohne vorherige Mahnung kann in Deutschland niemals Verzug eintreten",
-        "Nur dann, wenn der Kunde zusätzlich eine Vertragsstrafe vereinbart hat",
-        "Nur bei Werkverträgen; bei Kaufverträgen ist stets zusätzlich eine Mahnung nötig"
+        "Nur dann, wenn der Gläubiger stattdessen Verzugszinsen verlangt",
+        "Nur bei Werkverträgen; die Selbstvornahme setzt stets zusätzlich eine Mahnung voraus"
       ],
       "answer": 0,
       "explanation": "Ist für die Leistung ein kalendermäßig bestimmter Termin vereinbart, tritt Verzug auch ohne zusätzliche Mahnung ein, sobald der Termin verstrichen ist."

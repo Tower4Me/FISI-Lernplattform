@@ -6,9 +6,9 @@
       "question": "Für welche Zielgruppe ist Leichte Sprache besonders hilfreich?",
       "options": [
         "Menschen mit Lernschwierigkeiten, kognitiven Einschränkungen oder geringen Sprachkenntnissen",
-        "Ausschließlich professionelle Softwareentwicklerinnen und -entwickler mit langjähriger Erfahrung",
-        "Ausschließlich Nutzer mit besonders schnellen und unterbrechungsfreien Internetverbindungen",
-        "Ausschließlich Nutzer, die sich außerhalb des deutschsprachigen Raums befinden"
+        "Ausschließlich Nutzer, die auf einen Screenreader angewiesen sind",
+        "Ausschließlich Nutzer, die die Software nur per Tastatur bedienen",
+        "Ausschließlich Nutzer, die auf Sprachausgabe angewiesen sind"
       ],
       "answer": 0,
       "explanation": "Leichte Sprache mit kurzen Sätzen und ohne unerklärte Fachbegriffe hilft besonders Menschen mit Lernschwierigkeiten, kognitiven Einschränkungen oder geringen Sprachkenntnissen."
@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Warum sind Alt-Texte für Bilder wichtig, damit eine Webseite mit einem Screenreader nutzbar ist?",
       "options": [
-        "Alt-Texte verbessern ausschließlich die Ladegeschwindigkeit der Webseite beim Aufruf",
+        "Alt-Texte sind nur für die Leichte-Sprache-Version einer Webseite relevant",
         "Alt-Texte sind ausschließlich für Suchmaschinen relevant, nicht aber für die tatsächliche Barrierefreiheit",
         "Ohne Alt-Text kann ein Screenreader dem Bild keine sinnvolle Information entnehmen und vorlesen",
-        "Alt-Texte ersetzen vollständig die Notwendigkeit einer durchgängigen Tastaturbedienung"
+        "Alt-Texte ersetzen vollständig die Notwendigkeit einer Spracheingabefunktion"
       ],
       "answer": 2,
       "explanation": "Ein Screenreader kann ein Bild selbst nicht interpretieren — ohne beschreibenden Alt-Text bleibt der Bildinhalt für blinde oder sehbehinderte Nutzer unzugänglich."
@@ -30,8 +30,8 @@
       "question": "Was ermöglicht eine Spracheingabefunktion (Diktierfunktion, Sprachbefehle) in einer Software?",
       "options": [
         "Sie liest sämtliche Inhalte des Bildschirms fortlaufend über einen angeschlossenen Lautsprecher vor",
-        "Sie übersetzt jeden geschriebenen Text automatisch und vollständig in Leichte Sprache um",
-        "Sie erstellt automatisch passende Alt-Texte für sämtliche in der Software enthaltenen Bilder",
+        "Sie stellt sicher, dass alle Funktionen zusätzlich per Tastatur bedienbar sind",
+        "Sie stellt automatisch die WCAG-Konformitätsstufe AA sicher",
         "Sie ermöglicht die Bedienung ohne Tastatur oder Maus, z. B. bei motorischen Einschränkungen"
       ],
       "answer": 3,
@@ -53,10 +53,10 @@
       "id": "q5",
       "question": "Was verlangt das WCAG-Prinzip „Bedienbar“ konkret?",
       "options": [
-        "Alle Inhalte der Software müssen ausschließlich in reiner Textform vorliegen",
+        "Alle Inhalte müssen für Screenreader wahrnehmbar sein, unabhängig von der Eingabemethode",
         "Alle Funktionen müssen auch ohne Maus, z. B. vollständig per Tastatur, nutzbar sein",
-        "Die Software darf grundsätzlich überhaupt keinerlei Bilder oder Grafiken jeglicher Art enthalten",
-        "Die Software muss ausschließlich auf Smartphones und Tablets lauffähig sein"
+        "Alle Inhalte müssen verständlich formuliert und vorhersehbar bedienbar sein",
+        "Die Software muss robust genug sein, um mit assistiven Technologien wie Screenreadern zu funktionieren"
       ],
       "answer": 1,
       "explanation": "„Bedienbar“ bedeutet, dass alle Funktionen auch ohne Maus bedienbar sein müssen — z. B. vollständig über die Tastatur."
@@ -73,9 +73,9 @@
       "question": "Ein Unternehmen testet sein neu gestaltetes Kundenportal vor dem Livegang gezielt mit einem Screenreader. Was wird damit primär überprüft?",
       "options": [
         "Ob Inhalte und Bedienelemente korrekt und sinnvoll vorgelesen werden können",
-        "Ob das Kundenportal auf allen gängigen Bildschirmauflösungen identisch aussieht",
-        "Ob das Portal spürbar schneller lädt als die bisherige Vorgängerversion",
-        "Ob ausreichend Serverkapazität für zu erwartende hohe Nutzerzahlen vorhanden ist"
+        "Ob das Kundenportal die WCAG-Konformitätsstufe AAA statt AA erreicht",
+        "Ob sich das Portal vollständig per Tastatur ohne Maus bedienen lässt",
+        "Ob die Inhalte zusätzlich in Leichter Sprache verfügbar sind"
       ],
       "answer": 0,
       "explanation": "Ein Screenreader-Test prüft konkret, ob Inhalte und Bedienelemente durch semantisch korrekten Aufbau (u. a. Alt-Texte, ARIA-Labels) tatsächlich sinnvoll vorgelesen werden können."

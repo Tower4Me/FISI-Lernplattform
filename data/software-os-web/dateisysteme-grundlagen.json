@@ -19,7 +19,7 @@
       "options": [
         "Weil Umbenennen auf den meisten Dateisystemen technisch grundsätzlich unmöglich ist",
         "Weil die Dateiendung dem Betriebssystem nur einen Hinweis gibt, welches Programm die Datei öffnen soll",
-        "Weil jede Datei beim Umbenennen automatisch und vollständig auf dem gesamten Datenträger neu dupliziert wird",
+        "Weil das Dateisystem beim Umbenennen automatisch einen neuen Inode-Eintrag für die Datei anlegt",
         "Weil die Dateiendung im Dateiinhalt selbst als allererstes Byte fest gespeichert ist"
       ],
       "answer": 1,
@@ -30,9 +30,9 @@
       "question": "Welche der folgenden Angaben zählt zu den Metadaten einer Datei?",
       "options": [
         "Der reine Byte-Inhalt der Datei, wie er vom öffnenden Programm interpretiert wird",
-        "Die im laufenden Programmcode aktuell verarbeiteten Variablenwerte",
+        "Der tatsächliche Dateityp, der in den ersten Bytes der Datei selbst steckt",
         "Zeitstempel für Erstellung, letzte Änderung und letzten Zugriff",
-        "Der Netzwerkport, über den die Datei ursprünglich heruntergeladen wurde"
+        "Die vier Grundprobleme Organisation, Adressierung, Freispeicherverwaltung und Metadatenverwaltung selbst"
       ],
       "answer": 2,
       "explanation": "Zeitstempel (Erstellung, Änderung, Zugriff) sind klassische Metadaten — sie beschreiben die Datei, sind aber nicht der Dateiinhalt selbst."
@@ -55,8 +55,8 @@
       "options": [
         "In der Regel wird nur der Inode-Eintrag als frei markiert, die Daten bleiben zunächst auf dem Datenträger erhalten",
         "Die Datenbytes der Datei werden sofort und unwiderruflich physisch überschrieben",
-        "Die Datei wird beim Löschen automatisch verschlüsselt und dauerhaft in einem separaten externen Cloud-Archiv gespeichert",
-        "Das gesamte Dateisystem wird beim Löschen einer einzelnen Datei automatisch komplett neu formatiert"
+        "Die Datei wird automatisch in die MFT verschoben, ohne dass Daten verloren gehen",
+        "Die Metadatenverwaltung des Dateisystems wird dabei dauerhaft deaktiviert"
       ],
       "answer": 0,
       "explanation": "Beim Löschen wird meist nur der Inode-Eintrag als frei markiert. Die eigentlichen Daten bleiben so lange erhalten, bis sie durch neue Daten überschrieben werden — deshalb sind gelöschte Dateien oft wiederherstellbar."
@@ -67,8 +67,8 @@
       "options": [
         "Ein reines Synonym für den Inode unter Linux, technisch in jeder Hinsicht identisch",
         "Eine Tabelle mit einem Eintrag pro Datei, der alle Metadaten enthält — bei sehr kleinen Dateien sogar den Inhalt selbst",
-        "Ein reines Werkzeug zur automatischen Defragmentierung von ausschließlich NTFS-formatierten Festplatten und Partitionen",
-        "Ein spezielles Verschlüsselungsverfahren ausschließlich für NTFS-Partitionen"
+        "Ein Register, das wie der Inode unter Linux jede Datei über eine eigene Nummer referenziert, aber keine Metadaten enthält",
+        "Der Verweis, über den ein Dateiname auf seinen zugehörigen Inode zeigt"
       ],
       "answer": 1,
       "explanation": "Die MFT enthält für jede Datei einen Eintrag mit sämtlichen Metadaten — bei sehr kleinen Dateien (unter ca. 700 Byte) wird sogar der Inhalt direkt im MFT-Eintrag gespeichert."

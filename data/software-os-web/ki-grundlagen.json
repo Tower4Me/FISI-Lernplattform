@@ -5,10 +5,10 @@
       "id": "q1",
       "question": "Wie verhalten sich die Begriffe Künstliche Intelligenz (KI), Machine Learning (ML) und Deep Learning zueinander?",
       "options": [
-        "Alle drei Begriffe (KI, Machine Learning, Deep Learning) bedeuten in der gesamten Fachliteratur exakt dasselbe Konzept",
+        "Der EU AI Act reguliert automatisch und abschließend, wie sich KI, Machine Learning und Deep Learning zueinander verhalten",
         "KI ist der Oberbegriff, Machine Learning ein Teilbereich, Deep Learning wiederum ein Teilbereich von ML",
         "Deep Learning ist der übergeordnete Oberbegriff, KI ist lediglich ein untergeordneter Teilbereich davon",
-        "Machine Learning und Künstliche Intelligenz schließen sich als Konzepte gegenseitig vollständig aus"
+        "Deep Learning nutzt künstliche neuronale Netze mit vielen Schichten und schließt Machine Learning als Konzept vollständig aus"
       ],
       "answer": 1,
       "explanation": "KI ist der Oberbegriff für intelligentes Systemverhalten. Machine Learning ist ein Teilbereich, bei dem Systeme aus Daten lernen statt fest programmiert zu werden. Deep Learning ist wiederum ein Teilbereich von ML, der künstliche neuronale Netze mit vielen Schichten nutzt."
@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Was unterscheidet Machine Learning grundlegend von klassischer, fest programmierter Software?",
       "options": [
-        "Machine Learning benötigt zur Ausführung grundsätzlich überhaupt keine Software oder Programmierung",
+        "Machine Learning nutzt wie Deep Learning künstliche neuronale Netze mit vielen Schichten, um jede Regel manuell zu programmieren",
         "Machine Learning funktioniert konzeptionell ausschließlich vollständig ohne jegliche Trainingsdaten",
         "Machine-Learning-Systeme lernen Muster aus Trainingsdaten, statt dass jede Regel manuell programmiert wird",
-        "Klassische, fest programmierte Software und Machine Learning sind technisch in wirklich jeder Hinsicht komplett identisch"
+        "Wie generative KI erzeugt auch klassische, fest programmierte Software eigenständig neue Inhalte wie Text oder Bilder aus Trainingsdaten"
       ],
       "answer": 2,
       "explanation": "Machine-Learning-Systeme leiten Muster und Regeln selbst aus Trainingsdaten ab, statt dass ein Entwickler jede einzelne Regel manuell festlegt."
@@ -29,9 +29,9 @@
       "id": "q3",
       "question": "Was ist ein LLM (Large Language Model)?",
       "options": [
-        "Eine spezialisierte Datenbank, die ausschließlich zur strukturierten Speicherung großer Datenmengen dient",
-        "Ein Verschlüsselungsverfahren, das ausschließlich zum Schutz von Netzwerkdaten vor unbefugten Angreifern eingesetzt wird",
-        "Ein Übertragungsprotokoll zum Austausch von Daten zwischen mehreren Servern",
+        "Ein System, das Muster aus Trainingsdaten lernt, statt dass jede Regel fest programmiert wird",
+        "Ein KI-Risiko, bei dem plausibel klingende, aber inhaltlich falsche Aussagen erzeugt werden",
+        "Ein Teilbereich des Machine Learning, der künstliche neuronale Netze mit vielen Schichten nutzt",
         "Ein Sprachmodell, das aus dem bisherigen Text das wahrscheinlich nächste Wort vorhersagt"
       ],
       "answer": 3,
@@ -42,9 +42,9 @@
       "question": "Was bezeichnet der Begriff „Halluzination“ im Zusammenhang mit generativer KI?",
       "options": [
         "Plausibel klingende, aber falsche Aussagen, die die KI erzeugt, ohne es selbst zu merken",
-        "Einen technischen Softwarefehler, der das komplette laufende Programm sofort zum Absturz bringt",
+        "Ein Risiko, bei dem personenbezogene Daten in öffentlichen KI-Diensten extern gespeichert werden",
         "Die grundsätzliche Fähigkeit einer KI, aus reinem Text automatisch Bilder zu erzeugen",
-        "Eine besonders sichere, kryptografisch starke Verschlüsselungsmethode für KI-Systeme"
+        "Eine gesetzliche Regelung, die den KI-Einsatz in der EU je nach Risiko unterschiedlich streng reguliert"
       ],
       "answer": 0,
       "explanation": "Halluzination beschreibt, dass eine KI überzeugend formulierte, aber sachlich falsche Antworten produziert — ohne selbst zwischen korrekt und falsch unterscheiden zu können."
@@ -53,10 +53,10 @@
       "id": "q5",
       "question": "Warum ist die Eingabe personenbezogener Kundendaten in einen öffentlichen, externen KI-Chatbot datenschutzrechtlich riskant?",
       "options": [
-        "Weil der Betrieb von KI-Chatbots in Deutschland grundsätzlich vollständig illegal ist",
+        "Weil der EU AI Act den Einsatz von KI-Systemen in der EU grundsätzlich vollständig verbietet",
         "Weil die Daten extern gespeichert oder fürs Training weiterverwendet werden könnten",
-        "Weil KI-Chatbots für ihren laufenden Betrieb grundsätzlich überhaupt keine Internetverbindung benötigen",
-        "Weil dadurch automatisch die gesetzliche Gewährleistungsfrist für das Produkt verlängert wird"
+        "Weil dabei die Gefahr einer Halluzination besteht, also einer plausibel klingenden, aber falschen Aussage",
+        "Weil dadurch automatisch eine Bias (Verzerrung) in den Trainingsdaten der KI entsteht"
       ],
       "answer": 1,
       "explanation": "Werden personenbezogene Daten in einen externen KI-Dienst eingegeben, besteht das Risiko, dass sie außerhalb des ursprünglichen Zwecks gespeichert oder für das Training der KI weiterverwendet werden — das kann gegen DSGVO-Grundsätze wie Zweckbindung und Datenminimierung verstoßen."
@@ -78,8 +78,8 @@
       "question": "Ein Unternehmen setzt einen KI-Chatbot für den First-Level-Support ein. Was ist ein sinnvoller Umgang mit Anfragen, die der Chatbot nicht zuverlässig beantworten kann?",
       "options": [
         "Der Chatbot sollte trotzdem raten und jede einzelne Anfrage sofort mit einer frei erfundenen Antwort beantworten",
-        "Der Kunde sollte bei unsicheren Anfragen grundsätzlich überhaupt keine Antwort erhalten",
-        "Die Anfrage sollte in diesem Fall automatisch und ohne weitere Prüfung gelöscht werden",
+        "Der Chatbot sollte die Anfrage automatisiert klassifizieren und priorisieren, ohne sie zu beantworten",
+        "Die Anfrage sollte automatisiert und rund um die Uhr beantwortet werden, wie bei Standardanfragen üblich",
         "Die Anfrage sollte an den menschlichen Support eskaliert werden, statt einfach zu raten"
       ],
       "answer": 3,

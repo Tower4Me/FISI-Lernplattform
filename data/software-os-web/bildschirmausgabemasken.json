@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Warum ist es sinnvoller, ein Eingabefeld direkt beim Verlassen zu validieren statt erst beim Absenden des gesamten Formulars?",
       "options": [
-        "Weil eine Validierung direkt beim Verlassen des Feldes serverseitig grundsätzlich weniger Rechenleistung benötigt als eine Sammelprüfung",
+        "Weil dadurch automatisch dieselben Farben und Schriftarten wie im übrigen Kundenportal angezeigt werden",
         "Weil Nutzer den Fehler sofort sehen und korrigieren können, statt erst am Ende auf eine Sammelmeldung zu stoßen",
-        "Weil Formulare ohne jede Validierung grundsätzlich schneller geladen werden als Formulare mit Feldprüfung",
-        "Weil eine sofortige Validierung beim Verlassen des Feldes gesetzlich für alle Webformulare vorgeschrieben ist"
+        "Weil die Maske dadurch automatisch vollständig per Tastatur ohne Maus bedienbar wird",
+        "Weil Pflichtfelder dadurch automatisch mit einem Sternchen und erklärendem Text gekennzeichnet werden"
       ],
       "answer": 1,
       "explanation": "Direktes Feedback beim Verlassen des Feldes vermeidet, dass Nutzer das gesamte Formular erneut durchgehen müssen, um verstreute Fehler zu finden."
@@ -32,7 +32,7 @@
         "Sie wird möglichst kurz und knapp gehalten, auch wenn dadurch für den Nutzer unklar bleibt, was genau zu tun ist",
         "Sie erscheint ausschließlich als eine allgemeine Sammelmeldung am Ende des gesamten Formulars",
         "Sie steht konkret beim betroffenen Feld und beschreibt, was korrigiert werden muss",
-        "Sie wird ausschließlich in einer serverseitigen Protokolldatei gespeichert und dem Nutzer gar nicht angezeigt"
+        "Sie sorgt für ein einheitliches Erscheinungsbild mit denselben Farben und Schriftarten wie die übrige Anwendung"
       ],
       "answer": 2,
       "explanation": "Eine gute Fehlermeldung ist feldnah platziert und konkret formuliert, damit Nutzer sofort wissen, was zu ändern ist."
@@ -41,7 +41,7 @@
       "id": "q4",
       "question": "Was versteht man unter Corporate Identity (CI) bei der Maskengestaltung?",
       "options": [
-        "Die technische Verschlüsselung der vom Nutzer eingegebenen Daten vor der Übertragung",
+        "Die logische, der Aufgabe entsprechende Reihenfolge, in der Felder einer Maske angeordnet sind",
         "Die systematische Prüfung einer Maske auf Barrierefreiheit nach den Kriterien der WCAG",
         "Die festgelegte Reihenfolge, in der einzelne Felder einer Maske serverseitig geprüft und validiert werden müssen",
         "Ein einheitliches Erscheinungsbild (Farben, Schriftarten, Logo) über alle Masken einer Anwendung hinweg"
@@ -54,7 +54,7 @@
       "question": "Wozu dient eine logische Tab-Reihenfolge in einer Eingabemaske?",
       "options": [
         "Sie ermöglicht die vollständige Bedienung der Maske allein über die Tastatur, ohne Maus",
-        "Sie beschleunigt die Datenbankabfrage im Hintergrund, indem Felder in effizienterer Reihenfolge abgefragt werden",
+        "Sie prüft Eingaben direkt beim Verlassen des Feldes auf Format und Plausibilität",
         "Sie legt fest, welche Felder als Pflichtfelder markiert und vor dem Absenden geprüft werden",
         "Sie bestimmt die Farbgebung der Maske entsprechend den Corporate-Identity-Vorgaben des Unternehmens"
       ],
@@ -65,10 +65,10 @@
       "id": "q6",
       "question": "Was bedeutet „Selbstbeschreibungsfähigkeit“ als Grundsatz der Softwareergonomie (ISO 9241-110) im Kontext einer Eingabemaske?",
       "options": [
-        "Die Maske dokumentiert sich automatisch im Quellcode, sodass Entwickler keine separate Dokumentation schreiben müssen",
+        "Die Maske ordnet Felder in einer logischen, der Aufgabe entsprechenden Reihenfolge an",
         "Die Maske ist für Nutzer ohne zusätzliche Erklärung verständlich und macht deutlich, was von ihnen erwartet wird",
-        "Die Maske speichert automatisch alle Eingaben als Backup, falls die Verbindung während des Ausfüllens abbricht",
-        "Die Maske kann ausschließlich von Softwareentwicklern im Quellcode konfiguriert werden, nicht von Endnutzern"
+        "Die Maske prüft Eingaben direkt beim Verlassen des Feldes auf Format und Plausibilität",
+        "Die Maske zeigt ein einheitliches Erscheinungsbild mit denselben Farben und Schriftarten wie die übrige Anwendung"
       ],
       "answer": 1,
       "explanation": "Selbstbeschreibungsfähigkeit bedeutet, dass eine Maske aus sich heraus verständlich ist — Beschriftungen, Struktur und Rückmeldungen erklären dem Nutzer, was zu tun ist, ohne dass eine externe Anleitung nötig wäre."

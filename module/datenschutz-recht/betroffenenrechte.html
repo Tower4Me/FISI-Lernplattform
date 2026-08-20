@@ -34,16 +34,15 @@
     <section id="einstieg" class="section section--einstieg">
       <h2>Einstieg</h2>
       <p>
-        Stell dir dein eigenes Bankkonto vor: Du hast das Recht, deinen
-        Kontoauszug einzusehen (Auskunft), falsche Buchungen korrigieren
-        zu lassen (Berichtigung), das Konto aufzulösen und die Daten
-        löschen zu lassen (Löschung) oder deine Kontohistorie zu einer
-        anderen Bank mitzunehmen (Datenübertragbarkeit). Genau diese
-        Rechte hat auch jede Person gegenüber Unternehmen, die ihre Daten
-        speichern — die DSGVO nennt sie Betroffenenrechte. Und wie bei der
-        Bank gibt es auch hier klare Rollen: die Bank selbst, externe
-        Dienstleister, die im Auftrag arbeiten, und eine Aufsichtsbehörde,
-        die alles überwacht.
+        Stell dir dein Bankkonto vor: Du hast das Recht, den Kontoauszug
+        einzusehen (Auskunft), falsche Buchungen korrigieren zu lassen
+        (Berichtigung), das Konto aufzulösen und die Daten löschen zu
+        lassen (Löschung) oder die Kontohistorie zu einer anderen Bank
+        mitzunehmen (Datenübertragbarkeit). Genau diese Rechte hat jede
+        Person gegenüber Unternehmen, die ihre Daten speichern — die
+        DSGVO nennt sie Betroffenenrechte. Wie bei der Bank gibt es
+        klare Rollen: die Bank selbst, externe Dienstleister im Auftrag,
+        und eine Aufsichtsbehörde, die alles überwacht.
       </p>
     </section>
 
@@ -73,16 +72,19 @@
         <tbody>
           <tr><td><strong>Verantwortlicher</strong></td><td>entscheidet über Zweck und Mittel der Verarbeitung — in der Regel das Unternehmen selbst</td></tr>
           <tr><td><strong>Auftragsverarbeiter</strong></td><td>verarbeitet Daten im Auftrag des Verantwortlichen, z. B. ein Cloud-Anbieter — dafür ist ein Auftragsverarbeitungsvertrag (AVV, Art. 28) nötig</td></tr>
-          <tr><td><strong>Datenschutzbeauftragter (DSB)</strong></td><td>überwacht die Einhaltung der DSGVO im Unternehmen und berät — ab bestimmter Unternehmensgröße/Tätigkeit gesetzlich verpflichtend</td></tr>
+          <tr><td><strong>Datenschutzbeauftragter (DSB)</strong></td><td>überwacht die Einhaltung der DSGVO im Unternehmen und berät — ab bestimmter Unternehmensgröße gesetzlich verpflichtend</td></tr>
           <tr><td><strong>Aufsichtsbehörde</strong></td><td>staatliche Kontrollinstanz (in Deutschland je Bundesland) — Anlaufstelle für Beschwerden und Meldungen von Datenpannen</td></tr>
         </tbody>
       </table>
       <p>
-        Wichtig: Nutzt ein Unternehmen einen externen Cloud-Dienst oder ein
-        Monitoring-Tool, das personenbezogene Daten verarbeitet, bleibt das
-        Unternehmen selbst der <strong>Verantwortliche</strong> —
-        verantwortlich ist es also weiterhin, auch wenn die technische
-        Verarbeitung beim Auftragsverarbeiter läuft.
+        Wichtig: Nutzt ein Unternehmen einen externen Cloud-Dienst, der
+        personenbezogene Daten verarbeitet, bleibt es selbst der
+        <strong>Verantwortliche</strong> — auch wenn die technische
+        Verarbeitung beim Auftragsverarbeiter läuft. Zusätzlich muss der
+        Verantwortliche ein <strong>Verzeichnis von
+        Verarbeitungstätigkeiten</strong> (VVT, Art. 30) führen: eine
+        Übersicht aller Verarbeitungsvorgänge mit Zweck, Datenkategorien
+        und Empfängern.
       </p>
 
       <figure class="figure--diagram">
@@ -149,10 +151,9 @@
           <text x="414" y="24" text-anchor="middle" fill="var(--fail)" font-size="8">Beschwerde bei Verstoß</text>
         </svg>
         <figcaption>
-          Der Verantwortliche bleibt gegenüber der betroffenen Person und
-          der Aufsichtsbehörde in der Pflicht — auch wenn ein
-          Auftragsverarbeiter beauftragt wird oder ein
-          Datenschutzbeauftragter intern überwacht und berät.
+          Der Verantwortliche bleibt gegenüber betroffener Person und
+          Aufsichtsbehörde in der Pflicht, auch bei Auftragsverarbeiter
+          oder DSB.
         </figcaption>
       </figure>
 
@@ -179,9 +180,19 @@
       </table>
       <p>
         Dieser Unterschied wird gerne geprüft: Solange sich der
-        Personenbezug irgendwie wiederherstellen lässt (und sei es über
-        eine separate Tabelle), handelt es sich um Pseudonymisierung —
-        und die DSGVO ist weiterhin anwendbar.
+        Personenbezug wiederherstellen lässt, handelt es sich um
+        Pseudonymisierung — die DSGVO bleibt anwendbar.
+      </p>
+
+      <h3>Meldepflicht bei Datenschutzverletzungen</h3>
+      <p>
+        Bei einer <strong>Datenschutzverletzung</strong> (z. B. einem
+        Datenleck) muss der Verantwortliche dies unverzüglich, möglichst
+        binnen 72 Stunden, der Aufsichtsbehörde melden (Art. 33). Besteht
+        ein hohes Risiko für die Rechte der Betroffenen, müssen
+        zusätzlich die betroffenen Personen selbst benachrichtigt werden
+        (Art. 34). Jede Verletzung muss dokumentiert werden — auch wenn
+        sie nicht meldepflichtig war.
       </p>
     </section>
 
@@ -195,8 +206,7 @@
         <li><strong>Löschanfrage:</strong> Ein ehemaliger Kunde verlangt
           die Löschung seiner Daten (Art. 17). Die Firma prüft, ob
           gesetzliche Aufbewahrungsfristen (z. B. für Rechnungen)
-          entgegenstehen, und löscht anschließend alle Daten, für die
-          keine solche Frist mehr gilt.</li>
+          entgegenstehen, und löscht die übrigen Daten.</li>
         <li><strong>Externer Cloud-Anbieter:</strong> Die Firma nutzt
           einen Cloud-Dienst zur Speicherung von Kundendaten. Da der
           Anbieter im Auftrag verarbeitet, wird ein
@@ -205,9 +215,8 @@
           nicht der Cloud-Anbieter.</li>
         <li><strong>Interne Auswertung:</strong> Für eine
           Verkaufsstatistik werden Kundendaten vollständig
-          <strong>anonymisiert</strong> (kein Rückschluss auf einzelne
-          Personen mehr möglich) statt nur pseudonymisiert — so unterliegt
-          die Statistik nicht mehr der DSGVO.</li>
+          <strong>anonymisiert</strong> statt nur pseudonymisiert — so
+          unterliegt die Statistik nicht mehr der DSGVO.</li>
       </ul>
     </section>
 

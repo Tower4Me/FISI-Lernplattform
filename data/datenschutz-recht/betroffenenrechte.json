@@ -37,9 +37,9 @@
       "question": "Welches Dokument ist beim Einsatz eines externen Auftragsverarbeiters zwingend vorgeschrieben?",
       "options": [
         "Ein Auftragsverarbeitungsvertrag (AVV, Art. 28)",
-        "Eine reine Geheimhaltungsvereinbarung (NDA)",
-        "Ein zusätzlicher Arbeitsvertrag für den Dienstleister",
-        "Eine notarielle Beglaubigung der Firmendaten"
+        "Ein Auskunftsschreiben nach Art. 15",
+        "Eine schriftliche Bestätigung der Anonymisierung",
+        "Ein Nachweis der Aufsichtsbehörde"
       ],
       "answer": 0,
       "explanation": "Der Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO regelt verbindlich, wie der Auftragsverarbeiter mit den personenbezogenen Daten umgehen darf."
@@ -49,9 +49,9 @@
       "question": "Ein Unternehmen ersetzt in einer Datenbank Klarnamen durch Kundennummern, kann den Personenbezug aber über eine separate Zuordnungstabelle jederzeit wiederherstellen. Wie wird dieses Verfahren bezeichnet, und gilt die DSGVO noch?",
       "options": [
         "Anonymisierung — die DSGVO gilt in diesem Fall ab sofort nicht mehr",
-        "Verschlüsselung — der Personenbezug gilt dadurch als vollständig und unwiderruflich entfernt",
+        "Pseudonymisierung — die DSGVO gilt in diesem Fall dennoch nicht mehr",
         "Pseudonymisierung — die DSGVO gilt weiterhin, da der Personenbezug wiederherstellbar ist",
-        "Aggregation — die Daten sind dadurch ab sofort vollständig frei verwendbar"
+        "Anonymisierung — die DSGVO gilt trotzdem weiterhin, da sich der Personenbezug wiederherstellen lässt"
       ],
       "answer": 2,
       "explanation": "Solange sich der Personenbezug über eine Zuordnungstabelle wiederherstellen lässt, handelt es sich um Pseudonymisierung — die Daten bleiben personenbezogen, die DSGVO gilt weiterhin."
@@ -62,7 +62,7 @@
       "options": [
         "Er überwacht die Einhaltung der DSGVO im Unternehmen und berät dazu, ist aber nicht selbst Verantwortlicher",
         "Er verarbeitet als alleiniger offizieller Verantwortlicher sämtliche personenbezogenen Daten im gesamten Betrieb",
-        "Er vergibt eigenständig die Zugangsdaten und Passwörter für alle Mitarbeitenden im Unternehmen",
+        "Er ist als Auftragsverarbeiter für die technische Umsetzung der Verarbeitung zuständig",
         "Er ersetzt vollständig die Aufsichtsbehörde bei allen Beschwerden von Kunden und Betroffenen"
       ],
       "answer": 0,
@@ -72,9 +72,9 @@
       "id": "q7",
       "question": "Wohin kann sich eine betroffene Person wenden, wenn sie sich über den Umgang eines Unternehmens mit ihren Daten beschweren möchte?",
       "options": [
-        "An die örtlich zuständige Polizeidienststelle",
+        "An den betrieblichen Datenschutzbeauftragten (DSB)",
         "An den vom Unternehmen beauftragten Auftragsverarbeiter",
-        "An das für das Unternehmen zuständige Finanzamt",
+        "An den Verantwortlichen selbst, ohne weitere externe Stelle",
         "An die zuständige Datenschutz-Aufsichtsbehörde"
       ],
       "answer": 3,

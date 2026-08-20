@@ -8,7 +8,7 @@
         "Er ist ein laufendes Programm mit eigenem, vom Betriebssystem isoliertem Speicherbereich",
         "Er teilt sich grundsätzlich denselben Speicherbereich mit allen anderen laufenden Prozessen",
         "Er kann laut Definition niemals mehr als einen einzigen Thread enthalten",
-        "Er ist im Kern identisch mit einem einzelnen physischen CPU-Kern"
+        "Er wird vom Scheduler nach einer festen Zeitscheibe zwangsweise unterbrochen"
       ],
       "answer": 0,
       "explanation": "Ein Prozess ist ein laufendes Programm mit eigenem, isoliertem Speicherbereich — er kann grundsätzlich nicht direkt auf den Speicher eines anderen Prozesses zugreifen."
@@ -19,7 +19,7 @@
       "options": [
         "Ein Thread ist völlig unabhängig vom zugehörigen Prozess und besitzt seinen ganz eigenen, isolierten Speicher",
         "Ein Thread läuft innerhalb eines Prozesses und teilt sich dessen Speicher — ein Thread-Wechsel ist günstiger",
-        "Threads existieren als Konzept ausschließlich bei reinen Ein-Kern-Prozessoren",
+        "Threads werden vom Scheduler nach fester Zeitscheibe zwangsweise unterbrochen, Prozesse dagegen nicht",
         "Ein einzelner Prozess kann laut Definition höchstens einen einzigen Thread besitzen"
       ],
       "answer": 1,
@@ -41,9 +41,9 @@
       "id": "q4",
       "question": "Was ist das zentrale Risiko des kooperativen Multitaskings?",
       "options": [
-        "Es benötigt für den Betrieb zwingend einen Prozessor mit mehreren physischen Kernen",
+        "Ein hängender Prozess blockiert bei diesem Modell in der Regel nur sich selbst, nicht das gesamte System",
         "Es kann als Konzept grundsätzlich keine zwei Prozesse gleichzeitig sinnvoll und dauerhaft stabil verwalten",
-        "Es funktioniert als Konzept ausschließlich mit Threads, nicht jedoch mit ganzen Prozessen",
+        "Der Scheduler entzieht dabei jedem Prozess nach fester Zeitscheibe zwangsweise die CPU",
         "Ein hängender Prozess gibt die CPU nie freiwillig ab und blockiert damit das ganze System"
       ],
       "answer": 3,
@@ -56,7 +56,7 @@
         "Der Scheduler entzieht jedem Prozess nach fester Zeitscheibe zwangsweise die CPU",
         "Jeder einzelne Prozess entscheidet dabei ganz allein und ohne Kontrolle, wann genau er die CPU wieder abgibt",
         "Es gibt bei diesem Modell keinen Scheduler, Prozesse laufen komplett unabhängig voneinander",
-        "Präemptives Multitasking funktioniert konzeptionell ausschließlich mit genau zwei Prozessen"
+        "Ein hängender Prozess blockiert bei diesem Modell das gesamte System, da er die CPU nie freiwillig abgibt"
       ],
       "answer": 0,
       "explanation": "Beim präemptiven Multitasking entzieht der Scheduler jedem Prozess nach einer festen Zeitscheibe zwangsweise die CPU — das garantiert Fairness und Stabilität, unabhängig vom Verhalten des einzelnen Prozesses."
@@ -67,8 +67,8 @@
       "options": [
         "Weil moderne Betriebssysteme heutzutage inzwischen grundsätzlich überhaupt kein Multitasking mehr verwenden",
         "Weil der Scheduler dem Prozess die CPU nach fester Zeitscheibe zwangsweise entzieht",
-        "Weil hängende Prozesse vom Betriebssystem automatisch sofort vollständig gelöscht werden",
-        "Weil jeder Prozess dabei grundsätzlich einen eigenen, physisch getrennten Prozessorkern erhält"
+        "Weil Threads sich den Speicher und die Ressourcen ihres Prozesses teilen und dadurch schneller wechseln",
+        "Weil ein fehlerhafter Treiber im privilegierten Kernel-Modus läuft und dadurch nicht isoliert werden kann"
       ],
       "answer": 1,
       "explanation": "Da der Scheduler beim präemptiven Multitasking die CPU zwangsweise nach einer festen Zeitscheibe entzieht, kann ein hängender Prozess die anderen Prozesse nicht dauerhaft blockieren."
@@ -77,10 +77,10 @@
       "id": "q7",
       "question": "Warum nutzen moderne Webbrowser häufig einen eigenen Prozess bzw. Thread pro geöffnetem Tab?",
       "options": [
-        "Damit jeder einzelne Tab automatisch schneller lädt als bei einem gemeinsamen Prozess",
-        "Weil ein Browser sonst technisch grundsätzlich niemals zwei Webseiten gleichzeitig anzeigen könnte, auch nicht kurz",
+        "Damit jeder Tab im Kernel-Modus läuft und dadurch privilegierten Hardwarezugriff erhält",
+        "Weil auf einem Ein-Kern-Prozessor sonst kein Kontextwechsel zwischen Tabs möglich wäre",
         "Damit ein abstürzender Tab isoliert bleibt und den Rest des Browsers nicht mit in den Absturz reißt",
-        "Weil das zugrunde liegende Betriebssystem sonst grundsätzlich keine Threads zulassen würde"
+        "Weil das Betriebssystem dadurch auf kooperatives statt präemptives Multitasking umschaltet"
       ],
       "answer": 2,
       "explanation": "Durch separate Prozesse/Threads pro Tab bleibt ein Absturz auf den betroffenen Tab beschränkt, während die übrigen Tabs und der restliche Browser weiterhin normal funktionieren."

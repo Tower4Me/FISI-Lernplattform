@@ -7,7 +7,7 @@
       "options": [
         "Eine Verzweigung wählt abhängig von einer Bedingung zwischen mehreren Pfaden, eine Sequenz läuft immer gleich ab",
         "Eine Sequenz kann nie mehr als eine Anweisung enthalten",
-        "Eine Verzweigung wiederholt Anweisungen, eine Sequenz nicht",
+        "Eine Verzweigung benötigt immer eine SONST-WENN-Kette, eine Sequenz kommt ohne jede Bedingung aus",
         "Beide Begriffe bezeichnen denselben Ablauf, nur mit anderem Namen"
       ],
       "answer": 0,
@@ -16,7 +16,7 @@
     {
       "id": "q2",
       "question": "Bei einer einseitigen Verzweigung (WENN … DANN, ohne SONST) trifft die Bedingung nicht zu. Was passiert?",
-      "options": ["Ein Laufzeitfehler wird ausgelöst", "Nichts, das Programm läuft ohne den DANN-Zweig weiter", "Der DANN-Zweig wird trotzdem ausgeführt", "Die Bedingung wird automatisch umgekehrt"],
+      "options": ["Ein Laufzeitfehler wird ausgelöst", "Nichts, das Programm läuft ohne den DANN-Zweig weiter", "Der DANN-Zweig wird trotzdem ausgeführt", "Der SONST-Zweig wird stattdessen automatisch ausgeführt"],
       "answer": 1,
       "explanation": "Ohne SONST-Zweig passiert bei nicht zutreffender Bedingung schlicht nichts — der DANN-Zweig wird übersprungen."
     },
@@ -27,7 +27,7 @@
         "Die dritte Bedingung wird immer geprüft, unabhängig von den vorherigen",
         "Alle vorherigen Bedingungen müssen zusätzlich ebenfalls zutreffen",
         "Keine der vorherigen Bedingungen in der Kette hat zugetroffen",
-        "Die Kette darf grundsätzlich nur genau zwei Bedingungen enthalten"
+        "Die Kette endet grundsätzlich mit der letzten SONST-WENN-Bedingung, ein abschließender SONST-Zweig ist dabei nicht vorgesehen"
       ],
       "answer": 2,
       "explanation": "Jedes SONST WENN wird nur geprüft, wenn keine der vorangegangenen Bedingungen in der Kette zugetroffen hat."
@@ -47,9 +47,9 @@
     {
       "id": "q5",
       "question": "Wie heißt eine Kette mehrerer SONST WENN auf derselben Ebene fachlich?",
-      "options": ["Verschachtelte Verzweigung", "Kaskadierte Verzweigung", "Kopfgesteuerte Verzweigung", "Rekursive Verzweigung"],
+      "options": ["Einseitige Verzweigung", "Kaskadierte Verzweigung", "Zweiseitige Verzweigung", "Sequenz"],
       "answer": 1,
-      "explanation": "Mehrere SONST WENN hintereinander auf gleicher Ebene bezeichnet man als kaskadierte Verzweigung — im Unterschied zur Verschachtelung, bei der eine Struktur vollständig in einer anderen steckt."
+      "explanation": "Mehrere SONST WENN hintereinander auf gleicher Ebene bezeichnet man als kaskadierte Verzweigung — anders als bei einseitiger oder zweiseitiger Verzweigung gibt es hier mehr als zwei mögliche Pfade, und anders als bei einer Sequenz findet überhaupt eine Auswahl statt."
     }
   ]
 }

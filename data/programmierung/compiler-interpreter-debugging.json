@@ -8,7 +8,7 @@
         "Er übersetzt und führt den Quellcode Zeile für Zeile direkt zur Laufzeit aus, ohne eine separate ausführbare Datei zu erzeugen",
         "Er übersetzt den kompletten Quellcode vorab in Maschinensprache und erzeugt eine eigenständig lauffähige Datei",
         "Er fügt ausschließlich bereits vorher kompilierte Objektdateien zu einer gemeinsamen Datei zusammen",
-        "Er sucht ausschließlich nach Syntaxfehlern im Quellcode, ohne diesen dabei tatsächlich zu übersetzen"
+        "Er setzt Haltepunkte und erlaubt die schrittweise Ausführung des bereits fertig übersetzten Programms"
       ],
       "answer": 1,
       "explanation": "Ein Compiler übersetzt den gesamten Quellcode im Voraus in Maschinensprache und erzeugt daraus eine eigenständig lauffähige Datei."
@@ -29,7 +29,7 @@
       "id": "q3",
       "question": "Was ist ein typischer Nachteil eines Interpreters im Vergleich zu einem Compiler?",
       "options": [
-        "Interpreter können grundsätzlich nicht mit einem Debugger getestet oder überwacht werden",
+        "Interpreter erzeugen bei jeder Codeänderung eine neu zu kompilierende, eigenständig lauffähige Datei",
         "Interpreter erzeugen bei jeder einzelnen Ausführung zwingend eine eigenständige, dauerhaft und unabhängig ausführbare Programmdatei auf dem Datenträger",
         "Interpreter benötigen grundsätzlich überhaupt keinen lesbaren Quellcode zur Ausführung",
         "Interpretierter Code ist bei der Ausführung tendenziell langsamer, da die Übersetzung bei jeder Ausführung erneut stattfindet"
@@ -53,10 +53,10 @@
       "id": "q5",
       "question": "Was ermöglicht ein Debugger typischerweise?",
       "options": [
-        "Er verhindert bereits während des Schreibens automatisch jeden möglichen Programmierfehler",
+        "Er übersetzt den kompletten Quellcode vorab in Maschinensprache und erzeugt eine eigenständig lauffähige Datei",
         "Er erlaubt es, Haltepunkte (Breakpoints) zu setzen, Variablenwerte zur Laufzeit zu inspizieren und das Programm schrittweise auszuführen",
-        "Er übersetzt den fertigen Quellcode direkt und automatisch in eine andere Programmiersprache",
-        "Er ersetzt die grundsätzliche Notwendigkeit eines Compilers oder Interpreters für die eigentliche Programmausführung vollständig und ohne jede Einschränkung"
+        "Er übersetzt und führt den Quellcode Zeile für Zeile zur Laufzeit aus",
+        "Er fügt mehrere kompilierte Objektdateien und benötigte Bibliotheken zu einer ausführbaren Datei zusammen"
       ],
       "answer": 1,
       "explanation": "Ein Debugger ermöglicht das Setzen von Breakpoints, die Inspektion von Variablenwerten zur Laufzeit und die schrittweise Ausführung eines Programms, um Fehler systematisch zu finden."
@@ -77,9 +77,9 @@
       "id": "q7",
       "question": "Ein Azubi entwickelt ein C-Programm. Beim Kompilieren meldet der Linker einen Fehler, weil eine aufgerufene Bibliotheksfunktion fehlt. Was ist die richtige Reaktion?",
       "options": [
-        "Den vorhandenen Compiler vollständig durch einen Interpreter für die weitere Entwicklung ersetzen",
-        "Den geplanten Schreibtischtest für dieses Programm komplett überspringen und ignorieren",
-        "Den gesamten bisherigen Quellcode löschen und das Programm vollständig neu schreiben",
+        "Das Programm ohne die fehlende Bibliothek einfach mit einem Interpreter statt dem Compiler ausführen",
+        "Den Schreibtischtest jetzt anstelle der fehlenden Bibliothek durchführen, um den Linker-Fehler zu beheben",
+        "Auf den Linker verzichten und die Objektdatei direkt als fertiges Programm ausführen",
         "Die fehlende Bibliothek einbinden, damit der Linker die Verweise auflösen kann"
       ],
       "answer": 3,

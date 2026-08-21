@@ -11,7 +11,7 @@
     {
       "id": "q2",
       "question": "Was liefert der Ausdruck 7 MOD 2?",
-      "options": ["3.5", "1", "3", "0"],
+      "options": ["3.5", "1", "9", "5"],
       "answer": 1,
       "explanation": "MOD liefert den Rest der Ganzzahldivision. 7 geteilt durch 2 ergibt 3 Rest 1, also liefert 7 MOD 2 den Wert 1."
     },
@@ -36,7 +36,7 @@
         "Die Nachbestellung löst nur aus, wenn beide Bedingungen gleichzeitig zutreffen",
         "Die Nachbestellung löst aus, sobald mindestens eine der beiden Bedingungen zutrifft",
         "ODER verhält sich hier identisch zu UND, es macht keinen Unterschied",
-        "Die Bedingung kann mit einem einzelnen Vergleichsoperator ohne ODER formuliert werden"
+        "Die Bedingung müsste stattdessen mit dem Operator UND formuliert werden, damit die Nachbestellung korrekt ausgelöst wird"
       ],
       "answer": 1,
       "explanation": "ODER liefert bereits wahr, wenn mindestens eine der beiden Teilbedingungen zutrifft — anders als UND, das beide verlangt."

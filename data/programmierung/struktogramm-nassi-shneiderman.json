@@ -5,7 +5,7 @@
       "id": "q1",
       "question": "Was ist das zentrale Gestaltungsmerkmal eines Struktogramms im Vergleich zum PAP?",
       "options": [
-        "Es verwendet zur Unterscheidung der Schrittarten zusätzliche Farbcodierungen für jeden einzelnen Kasten",
+        "Es benötigt für jede Verzweigung einen zusätzlichen Flusspfeil zur nächsten Anweisung",
         "Es kommt vollständig ohne Flusspfeile aus — der Ablauf ergibt sich aus Anordnung und Verschachtelung der Kästen",
         "Es kann in seiner gesamten Notation ausschließlich einfache Schleifenkonstrukte darstellen, keine anderen Elemente",
         "Es ersetzt die im PAP üblichen Rechtecke dabei vollständig und ausnahmslos durch spitze Rauten"
@@ -42,8 +42,8 @@
       "question": "Warum erzwingt ein Struktogramm automatisch strukturierte Programmierung?",
       "options": [
         "Weil sich unstrukturierte GOTO-Sprünge in der Verschachtelung nicht abbilden lassen",
-        "Weil die Struktogramm-Notation ausschließlich für objektorientierte Programmiersprachen geeignet ist",
-        "Weil in einem Struktogramm laut Konvention jede einzelne Zeile fortlaufend nummeriert werden muss",
+        "Weil eine fußgesteuerte Schleife darin automatisch mindestens zwei Durchläufe erzwingt",
+        "Weil eine Fallunterscheidung darin zwingend genau zwei nebeneinanderliegende Felder benötigt",
         "Weil Struktogramme in ihrer Notation grundsätzlich überhaupt keine Schleifenkonstrukte erlauben"
       ],
       "answer": 0,
@@ -53,10 +53,10 @@
       "id": "q5",
       "question": "Was stellt die Fallunterscheidung im Struktogramm dar?",
       "options": [
-        "Eine Schleife mit einer von vornherein exakt festgelegten Anzahl an Wiederholungen des Blocks",
+        "Eine Verzweigung mit genau zwei nebeneinanderliegenden Feldern für Ja und Nein",
         "Eine Mehrfachauswahl mit mehreren nebeneinanderliegenden Feldern für die einzelnen Fallwerte",
-        "Den vollständigen Start- und Endpunkt des im Struktogramm dargestellten gesamten Programmablaufs",
-        "Eine einzelne, isolierte Ein- oder Ausgabe-Operation ganz ohne jede weitere Verzweigung im Ablauf"
+        "Eine Sequenz aus mehreren übereinanderliegenden Verarbeitungsschritten, von oben nach unten abgearbeitet",
+        "Eine kopfgesteuerte Schleife, bei der die Bedingung oben in einem schmalen Kopf-Streifen steht"
       ],
       "answer": 1,
       "explanation": "Die Fallunterscheidung erweitert die einfache Verzweigung auf mehrere mögliche Fälle, die als nebeneinanderliegende Felder dargestellt werden."

@@ -8,7 +8,7 @@
         "Ein Programm gliedert sich in Prozeduren, die nacheinander ausgeführt werden und auf gemeinsamen Daten arbeiten",
         "Daten und Funktionen werden dabei ausschließlich zusammen in einzelnen Objekten gekapselt und gespeichert",
         "Das Programm besteht dabei ausschließlich aus zustandslosen, rein mathematischen Funktionen ohne Seiteneffekte",
-        "Bei diesem Paradigma existiert laut Definition keinerlei feste Reihenfolge, alles läuft angeblich gleichzeitig ab"
+        "Es handelt sich dabei um mnemonische Abkürzungen für Maschinenbefehle, die direkt vom Prozessor verarbeitet werden"
       ],
       "answer": 0,
       "explanation": "Prozedurale Programmierung strukturiert ein Programm als Abfolge von Prozeduren/Funktionen, die auf gemeinsamen Daten arbeiten und nacheinander ausgeführt werden."
@@ -17,10 +17,10 @@
       "id": "q2",
       "question": "Welche zentralen Konzepte gehören zur objektorientierten Programmierung (OOP)?",
       "options": [
-        "Ausschließlich die wiederholte Verwendung von Schleifenkonstrukten im Quellcode",
+        "Eine Folge von Prozeduren, die nacheinander ausgeführt werden und auf gemeinsamen Daten arbeiten",
         "Kapselung, Vererbung und Polymorphie",
-        "Die vollständige, bewusste Abwesenheit jeglicher Funktionen im Quellcode",
-        "Ausschließlich die Verwendung globaler, für alle Funktionen sichtbarer Variablen"
+        "Die Verkettung möglichst zustandsloser Funktionen ohne gemeinsamen veränderlichen Zustand",
+        "Reine Binärbefehle, die direkt und prozessorspezifisch vom Prozessor ausgeführt werden"
       ],
       "answer": 1,
       "explanation": "Kapselung (Bündelung von Daten und Funktionen in Objekten/Klassen), Vererbung und Polymorphie sind die zentralen Konzepte der objektorientierten Programmierung."
@@ -29,10 +29,10 @@
       "id": "q3",
       "question": "Was bedeutet Vererbung in der objektorientierten Programmierung?",
       "options": [
-        "Variablenwerte werden beim Vererben automatisch und dauerhaft verschlüsselt gespeichert",
-        "Ein einmal erzeugtes Objekt kann anschließend niemals mehr verändert werden",
+        "Eine Kapselung bündelt dabei ausschließlich Daten, ohne die zugehörigen Funktionen mit einzuschließen",
+        "Das Programm besteht dabei aus einer Folge von Prozeduren, die auf gemeinsamen Daten arbeiten",
         "Eine Klasse übernimmt Eigenschaften und Verhalten einer anderen (Basis-)Klasse",
-        "Zwei Klassen tauschen zur Laufzeit automatisch und ohne Zutun ihre Namen"
+        "Mehrere zustandslose Funktionen werden dabei verkettet, ohne einen gemeinsamen Zustand zu verändern"
       ],
       "answer": 2,
       "explanation": "Vererbung erlaubt es einer Klasse, Eigenschaften und Methoden einer Basisklasse zu übernehmen, statt Code zu duplizieren."
@@ -41,9 +41,9 @@
       "id": "q4",
       "question": "Was ist das Grundprinzip der funktionalen Programmierung?",
       "options": [
-        "Alle Daten müssen bei diesem Paradigma zwingend ausschließlich in globalen Variablen gespeichert werden",
-        "Objekte erben bei diesem Paradigma angeblich zwingend gleichzeitig von mehreren verschiedenen Basisklassen",
-        "Anweisungen laufen bei diesem Paradigma angeblich stets nur in zufälliger, nicht vorhersehbarer Reihenfolge ab",
+        "Anweisungen werden dabei als Folge von Prozeduren nacheinander abgearbeitet, die auf gemeinsamen Daten zugreifen",
+        "Daten und die zugehörigen Funktionen werden dabei in Objekten bzw. Klassen gebündelt",
+        "Eine Klasse übernimmt dabei Eigenschaften und Verhalten einer anderen (Basis-)Klasse",
         "Das Programm verkettet möglichst zustandslose Funktionen, ohne einen gemeinsamen veränderlichen Zustand"
       ],
       "answer": 3,
@@ -52,7 +52,7 @@
     {
       "id": "q5",
       "question": "Welche Sprachebene liegt zwischen Maschinensprache und Hochsprache?",
-      "options": ["Assembler", "Bytecode", "Pseudocode", "Markup-Sprache"],
+      "options": ["Assembler", "Hochsprache", "Maschinensprache", "Objektorientiert"],
       "answer": 0,
       "explanation": "Assembler nutzt mnemonische Abkürzungen für Maschinenbefehle — hardwarenäher als eine Hochsprache, aber für Menschen lesbarer als reine Binärbefehle."
     },

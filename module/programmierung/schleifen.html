@@ -67,6 +67,27 @@ FÜR JEDE Position IN Bestellliste TUE
 ENDE FÜR
       </div>
 
+      <h3>Zählschleife mit Index über ein Array</h3>
+      <p>
+        Ein <strong>Array</strong> (Datenfeld) speichert mehrere Werte
+        desselben Typs unter einem gemeinsamen Namen, durchnummeriert ab
+        Index 0. Reicht <code>FÜR JEDE</code> nicht aus — etwa weil der
+        Index selbst gebraucht wird oder ein Wert an einer bestimmten
+        Position verändert werden soll —, läuft die Zählschleife
+        stattdessen explizit über den Index:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR i VON 0 BIS Länge(Werte) - 1 TUE
+  AUSGABE Werte[i]
+ENDE FÜR
+      </div>
+      <p>
+        <code>Werte[i]</code> greift auf das Element an Position
+        <code>i</code> zu. Der Index läuft bis <code>Länge(Werte) - 1</code>,
+        da die Zählung bei 0 beginnt — ein Array mit 5 Elementen hat also
+        die gültigen Indizes 0 bis 4.
+      </p>
+
       <h3>Kopfgesteuerte Schleife (SOLANGE)</h3>
       <p>
         Prüft die Bedingung <em>vor</em> jedem Durchlauf. Trifft sie von

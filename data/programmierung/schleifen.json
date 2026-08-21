@@ -27,7 +27,7 @@
       "question": "Eine SOLANGE-Schleife soll den Lagerbestand auf 0 herunterzählen, aber im Schleifenkörper wird der Lagerbestand nie verändert. Was ist die Folge?",
       "options": [
         "Die Schleife läuft automatisch genau einmal und endet dann normal",
-        "Die Schleife wird vom Compiler automatisch korrigiert",
+        "Die Schleife wird automatisch zu einer fußgesteuerten Schleife (WIEDERHOLE … BIS) umgewandelt",
         "Es entsteht kein Problem, da SOLANGE-Schleifen sich selbst begrenzen",
         "Die Bedingung wird nie falsch, die Schleife läuft endlos weiter"
       ],
@@ -38,13 +38,20 @@
       "id": "q5",
       "question": "Warum ist FÜR JEDE die passende Wahl, um jede Position einer Bestellliste auf Mengenrabatt zu prüfen?",
       "options": [
-        "Weil FÜR JEDE als einzige Schleifenart Verzweigungen im Körper erlaubt",
+        "Weil SOLANGE die Bedingung erst nach jedem Durchlauf prüft, FÜR JEDE dagegen vorher",
         "Weil die Anzahl der Durchläufe direkt durch die Anzahl der Positionen in der Liste vorgegeben ist",
-        "Weil FÜR JEDE im Gegensatz zu SOLANGE nie eine Endlosschleife erzeugen kann",
-        "Weil FÜR JEDE grundsätzlich schneller ausgeführt wird als SOLANGE"
+        "Weil eine kopfgesteuerte SOLANGE-Schleife bei einer leeren Bestellliste automatisch trotzdem einmal läuft",
+        "Weil eine fußgesteuerte WIEDERHOLE-BIS-Schleife bei einer leeren Bestellliste kein einziges Mal läuft"
       ],
       "answer": 1,
       "explanation": "Eine Zählschleife wie FÜR JEDE passt, weil die Anzahl der Durchläufe bereits durch die Anzahl der Listenelemente feststeht — keine separate Abbruchbedingung nötig."
+    },
+    {
+      "id": "q6",
+      "question": "Ein Array mit 5 Elementen wird mit FÜR i VON 0 BIS Länge(Werte) - 1 TUE durchlaufen. Welche Indizes werden dabei durchlaufen?",
+      "options": ["0 bis 4", "1 bis 5", "0 bis 5", "1 bis 4"],
+      "answer": 0,
+      "explanation": "Die Zählung der Array-Indizes beginnt bei 0, ein Array mit 5 Elementen hat deshalb die gültigen Indizes 0 bis 4 — der letzte gültige Index ist Länge(Werte) - 1, also 5 - 1 = 4."
     }
   ]
 }

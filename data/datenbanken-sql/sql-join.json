@@ -68,7 +68,7 @@
         "Er liefert grundsätzlich nur Zeilen mit einer echten, beidseitigen Übereinstimmung",
         "Er liefert alle Zeilen aus beiden Tabellen, unabhängig von Übereinstimmungen",
         "Er ist in seiner Wirkung vollständig identisch mit einem einfachen INNER JOIN",
-        "Er kann laut Definition ausschließlich bei genau zwei Spalten verwendet werden"
+        "Er liefert dieselben Zeilen wie ein INNER JOIN, nur in anderer Reihenfolge sortiert"
       ],
       "answer": 1,
       "explanation": "FULL OUTER JOIN vereint LEFT JOIN und RIGHT JOIN: alle Zeilen aus beiden Tabellen, mit NULL wo keine Übereinstimmung existiert."
@@ -77,7 +77,7 @@
       "id": "q7",
       "question": "Welches Datenbanksystem unterstützt kein FULL OUTER JOIN?",
       "options": [
-        "PostgreSQL",
+        "SQLite in jeder bisher veröffentlichten Version",
         "SQLite (ab Version 3.39)",
         "MySQL",
         "Alle genannten unterstützen es"

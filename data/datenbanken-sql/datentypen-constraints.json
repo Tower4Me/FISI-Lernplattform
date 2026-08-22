@@ -31,7 +31,7 @@
       "options": [
         "DEFAULT",
         "NOT NULL",
-        "AUTO_INCREMENT",
+        "CHECK",
         "UNIQUE"
       ],
       "answer": 1,
@@ -42,9 +42,9 @@
       "question": "Was leistet der FOREIGN-KEY-Constraint?",
       "options": [
         "Er verhindert, dass in dieser Spalte doppelte Werte gespeichert werden können, unabhängig vom Inhalt",
-        "Er vergibt automatisch fortlaufende, eindeutige IDs für jede neu eingefügte Zeile der Tabelle",
+        "Er erzwingt, dass ein Wert eine bestimmte Bedingung erfüllt, z. B. eine Mindestmenge",
         "Er verweist auf einen existierenden Primärschlüssel einer anderen, referenzierten Tabelle",
-        "Er verschlüsselt automatisch den gespeicherten Inhalt der referenzierten Spalte beim Einfügen"
+        "Er legt einen Standardwert fest, falls beim Einfügen nichts angegeben wird"
       ],
       "answer": 2,
       "explanation": "FOREIGN KEY sorgt für referenzielle Integrität: der Wert muss auf einen existierenden Datensatz in der referenzierten Tabelle zeigen (oder NULL sein)."
@@ -91,7 +91,7 @@
       "options": [
         "Möglichst viele CHECK-Constraints auf allen Spalten ergänzen",
         "Konsequent DEFAULT-Werte für jede Spalte festlegen",
-        "Alle Spalten grundsätzlich als VARCHAR definieren",
+        "Möglichst viele FOREIGN-KEY-Constraints auf allen Spalten ergänzen",
         "Die Tabellenstruktur regelbasiert normalisieren"
       ],
       "answer": 3,

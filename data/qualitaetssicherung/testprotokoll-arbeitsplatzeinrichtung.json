@@ -7,8 +7,8 @@
       "options": [
         "Zur Dokumentation von Soll-Zustand, Ist-Zustand und Ergebnis je Prüfpunkt",
         "Zur ausschließlich internen Ablage ohne jeden weiteren praktischen Nutzen",
-        "Zur genauen Berechnung des Kaufpreises der bestellten Hardware-Komponenten",
-        "Zur vollständigen Ersetzung des Arbeitsvertrags des neu eingestellten Mitarbeiters"
+        "Zur Einstellung von Bildschirm, Tastatur und Sitzposition am neuen Arbeitsplatz",
+        "Zur Feststellung, ob der Virenscanner aktiv ist und aktuelle Updates eingespielt sind"
       ],
       "answer": 0,
       "explanation": "Ein Testprotokoll dokumentiert systematisch Soll-Zustand, Ist-Zustand und Ergebnis für jeden Prüfpunkt."
@@ -55,7 +55,7 @@
       "options": [
         "Es dient als Nachweis, dass die vereinbarten Abnahmekriterien erfüllt sind.",
         "Es hat rein rechtlich und dokumentarisch überhaupt keinerlei Bedeutung für den Auftraggeber.",
-        "Es ersetzt vollständig die offizielle Rechnung für die insgesamt erbrachte Leistung.",
+        "Es dient ausschließlich als Referenzzustand für eine spätere Fehlersuche, nie als Nachweis gegenüber dem Auftraggeber.",
         "Es ist ausschließlich für interne Zwecke gedacht und wird dem Auftraggeber nie übergeben."
       ],
       "answer": 0,
@@ -67,8 +67,8 @@
       "options": [
         "Es hat nach der offiziellen Übergabe überhaupt keinen weiteren praktischen Nutzen.",
         "Es dient als Referenzzustand, falls später am Arbeitsplatz Probleme auftreten.",
-        "Es ersetzt vollständig alle zukünftig notwendigen Wartungsverträge des Kunden.",
-        "Es dient ausschließlich zur nachträglichen Preiskalkulation der erbrachten Leistung."
+        "Es dient ausschließlich als Nachweis gegenüber dem Auftraggeber, nie als Referenzzustand für spätere Fehlersuche.",
+        "Es wird ausschließlich intern verwendet und nie dem neuen Mitarbeiter oder der Geschäftsführung übergeben."
       ],
       "answer": 1,
       "explanation": "Ein Testprotokoll dient auch als Referenzzustand, falls später am Arbeitsplatz Probleme auftreten."

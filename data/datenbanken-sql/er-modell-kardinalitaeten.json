@@ -7,7 +7,7 @@
       "options": [
         "Eine Tabelle",
         "Eine Spalte",
-        "Ein Constraint",
+        "Eine Ellipse in der Chen-Notation",
         "Ein Fremdschlüssel"
       ],
       "answer": 0,
@@ -20,7 +20,7 @@
         "Eine Tabelle",
         "Eine Spalte",
         "Eine Beziehung",
-        "Ein Primärschlüssel-Index"
+        "Eine Raute in der Chen-Notation"
       ],
       "answer": 1,
       "explanation": "Attribute (Eigenschaften einer Entität, z. B. Kundenname) werden zu Spalten der jeweiligen Tabelle."
@@ -65,10 +65,10 @@
       "id": "q6",
       "question": "Was besagt referenzielle Integrität?",
       "options": [
-        "Jede Tabelle muss mindestens eine einzelne Spalte besitzen, sonst ist sie ungültig",
+        "Ein Fremdschlüsselwert darf niemals NULL sein, sondern muss stets auf einen Datensatz verweisen",
         "Ein Fremdschlüssel muss auf einen existierenden Primärschlüssel verweisen oder NULL sein",
-        "Alle Tabellen einer Datenbank müssen exakt dieselbe Anzahl an Spalten besitzen",
-        "Jede Spalte muss datenbankweit über alle vorhandenen Tabellen hinweg einen eindeutigen Namen tragen"
+        "Eine m:n-Beziehung darf niemals über eine Zwischentabelle aufgelöst werden",
+        "Beim Löschen eines referenzierten Datensatzes gibt es dafür grundsätzlich keine Regelungsmöglichkeit"
       ],
       "answer": 1,
       "explanation": "Referenzielle Integrität verhindert „verwaiste“ Fremdschlüssel, die auf nicht existierende Datensätze zeigen."
@@ -103,7 +103,7 @@
       "options": [
         "Bestellung – mehrere Produkte",
         "Kunde – mehrere Bestellungen",
-        "Mitarbeiter – mehrere Projekte",
+        "Bestellposition – mehrere Bestellungen",
         "Person – Personalausweis"
       ],
       "answer": 3,
@@ -116,7 +116,7 @@
         "Für die Kardinalität „genau 1“ auf dieser Seite der Beziehung",
         "Für eine feste 1:1-Beziehung zwischen den beiden verbundenen Tabellen",
         "Für die Kardinalität „viele (n)“ auf dieser Seite der Beziehung",
-        "Für einen Primärschlüssel der referenzierten Tabelle auf dieser Seite"
+        "Für die Raute, die in der Chen-Notation eine Beziehung darstellt"
       ],
       "answer": 2,
       "explanation": "Der Krähenfuß (drei auffächernde Linien) markiert in der Krähenfuß-Notation die „viele“-Seite (n) einer Beziehung, ein einzelner Strich steht für „genau 1“."
@@ -125,9 +125,9 @@
       "id": "q11",
       "question": "Wofür steht ein Kreis vor einem Strich bzw. Krähenfuß in der Krähenfuß-Notation?",
       "options": [
-        "Für einen Primärschlüssel der jeweils angeschlossenen Tabelle auf dieser Seite",
+        "Für eine Ellipse, die in der Notation ein Attribut symbolisiert",
         "Für eine m:n-Beziehung zwischen den beiden verbundenen Tabellen",
-        "Für eine zusätzliche Zwischentabelle innerhalb dieser Notation",
+        "Für eine CASCADE-Löschregel an dieser Stelle der Beziehung",
         "Dafür, dass die Beziehung optional ist (0 möglich) statt verpflichtend"
       ],
       "answer": 3,

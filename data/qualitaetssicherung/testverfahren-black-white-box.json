@@ -54,9 +54,9 @@
       "question": "Wer führt den Abnahmetest typischerweise durch?",
       "options": [
         "Ausschließlich die Entwickler:innen, die den gesamten Code wirklich selbst geschrieben haben",
-        "Ein externes, unabhängiges Prüfsiegel-Institut außerhalb des Projekts",
+        "Die Entwickler:innen, im Rahmen des vorher durchgeführten Integrationstests",
         "Der Auftraggeber, um zu prüfen, ob das System die vereinbarten Anforderungen erfüllt",
-        "Der Betriebsrat des Unternehmens im Rahmen der gesetzlichen Mitbestimmung"
+        "Das QA-Team, im Rahmen des vorher durchgeführten Systemtests"
       ],
       "answer": 2,
       "explanation": "Der Abnahmetest wird vom Auftraggeber durchgeführt, um die Erfüllung der vereinbarten Anforderungen zu prüfen."
@@ -68,7 +68,7 @@
         "Die sehr genaue Prüfung einzelner Codezeilen auf reine Syntaxfehler im Quellcode",
         "Zu ermitteln, wie ein System unter hoher Belastung reagiert und wo die Grenzen liegen",
         "Die formale Abnahme des vollständig fertigen Systems durch den Kunden",
-        "Die ausführliche Prüfung der grafischen Benutzeroberfläche auf geltende Design-Richtlinien"
+        "Die Prüfung, ob alle Codepfade eines Programms durchlaufen werden"
       ],
       "answer": 1,
       "explanation": "Ein Lasttest ermittelt, wie ein System unter hoher Belastung (z. B. viele gleichzeitige Nutzer) reagiert und wo die Belastungsgrenzen liegen."

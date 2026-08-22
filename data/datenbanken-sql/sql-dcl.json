@@ -41,9 +41,9 @@
       "id": "q4",
       "question": "Was ermöglicht die Klausel WITH GRANT OPTION?",
       "options": [
-        "Das erhaltene Recht gilt nur für die Dauer eines einzigen Tages, danach verfällt es automatisch",
+        "Der Benutzer erhält dadurch automatisch auch das Recht DROP TABLE, unabhängig vom ursprünglich gewährten Recht",
         "Der Benutzer bekommt dadurch automatisch vollständige Administratorrechte für die gesamte Datenbank",
-        "Das einmal erteilte Recht kann anschließend nicht mehr entzogen werden, auch nicht per REVOKE",
+        "Der Benutzer muss das erhaltene Recht danach zwingend sofort an mindestens eine weitere Person weitergeben",
         "Der Benutzer darf das Recht an andere weitergeben"
       ],
       "answer": 3,
@@ -87,15 +87,15 @@
     },
     {
       "id": "q8",
-      "question": "Lea hat SELECT-, INSERT- und UPDATE-Rechte auf mitarbeiter. Welcher Befehl entzieht ihr nur SELECT und INSERT, während UPDATE erhalten bleibt?",
+      "question": "Was bewirkt der Befehl REVOKE ALL PRIVILEGES ON mitarbeiter FROM 'lea_fischer';?",
       "options": [
-        "REVOKE ALL PRIVILEGES ON mitarbeiter FROM 'lea_fischer';",
-        "DELETE GRANTS FOR 'lea_fischer';",
-        "REVOKE UPDATE ON mitarbeiter FROM 'lea_fischer';",
-        "REVOKE SELECT, INSERT ON mitarbeiter FROM 'lea_fischer';"
+        "Vergibt Lea zusätzlich alle verfügbaren Rechte auf der Tabelle mitarbeiter",
+        "Entfernt die Tabelle mitarbeiter vollständig aus der Datenbank",
+        "Entzieht Lea sämtliche zuvor gewährten Rechte auf der Tabelle mitarbeiter",
+        "Zeigt Leas aktuell vergebene Rechte an, ohne sie zu verändern"
       ],
-      "answer": 3,
-      "explanation": "REVOKE SELECT, INSERT entzieht gezielt genau diese beiden Rechte, UPDATE bleibt bestehen. ALL PRIVILEGES würde auch UPDATE entziehen, DELETE GRANTS ist kein gültiger SQL-Befehl."
+      "answer": 2,
+      "explanation": "REVOKE entzieht Rechte, ALL PRIVILEGES steht für sämtliche oben genannten Rechte – zusammen entzieht der Befehl Lea alle bisherigen Rechte auf der Tabelle mitarbeiter."
     },
     {
       "id": "q9",

@@ -75,15 +75,15 @@
     },
     {
       "id": "q7",
-      "question": "Warum kann man AVG(jahresgehalt) nicht direkt in einer WHERE-Bedingung ohne Subquery verwenden?",
+      "question": "In welcher Reihenfolge werden innere und äußere Abfrage bei einer Subquery mit IN ausgewertet?",
       "options": [
-        "Das ist ohne Weiteres möglich, es gibt keinen Grund für eine Subquery",
-        "AVG() funktioniert ausschließlich zusammen mit GROUP BY, niemals anders",
-        "WHERE filtert einzelne Zeilen vor jeder Aggregation, ohne Aggregatfunktionen",
-        "AVG() ist als Funktion in SQL grundsätzlich überhaupt nicht erlaubt und nie definiert"
+        "Beide Abfragen werden vollständig gleichzeitig und unabhängig voneinander ausgewertet",
+        "Die innere Abfrage wird zuerst ausgewertet, ihr Ergebnis nutzt dann die äußere Abfrage",
+        "Die äußere Abfrage wird zuerst ausgewertet und liefert der inneren Abfrage ihre Werte",
+        "Das hängt ausschließlich vom verwendeten Vergleichsoperator ab, nicht von der Reihenfolge"
       ],
-      "answer": 2,
-      "explanation": "Aggregatfunktionen benötigen entweder GROUP BY/HAVING oder eine separate Berechnung – z. B. über eine Subquery, deren Ergebnis dann in WHERE verglichen wird."
+      "answer": 1,
+      "explanation": "Erst ermittelt die innere Abfrage ihr Ergebnis (z. B. alle passenden Abteilungs-IDs), danach filtert die äußere Abfrage damit weiter."
     },
     {
       "id": "q8",

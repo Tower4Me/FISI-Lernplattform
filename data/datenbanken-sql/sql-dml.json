@@ -41,10 +41,10 @@
       "id": "q4",
       "question": "Warum sollte man vor einem UPDATE oder DELETE zuerst dieselbe Bedingung mit SELECT testen?",
       "options": [
-        "Damit die Datenbank dadurch insgesamt spürbar schneller wird",
+        "Weil WHERE-Bedingungen bei SELECT grundsätzlich anders aufgebaut sind als bei UPDATE",
         "Um vorher zu prüfen, welche Zeilen betroffen wären",
         "Weil SELECT vor jedem UPDATE zwingend ausgeführt werden muss",
-        "Um dadurch automatisch ein vollständiges Backup zu erstellen"
+        "Weil sich UPDATE ohne vorheriges SELECT syntaktisch gar nicht ausführen lässt"
       ],
       "answer": 1,
       "explanation": "Ein UPDATE oder DELETE ohne korrekte WHERE-Bedingung kann ungewollt viele Zeilen verändern – SELECT zeigt vorher, welche Zeilen betroffen sind."
@@ -108,6 +108,18 @@
       ],
       "answer": 2,
       "explanation": "INSERT INTO tabelle (spalten) VALUES (werte) ist die empfohlene Schreibweise, weil sie unabhängig von der Spaltenreihenfolge in der Tabelle funktioniert."
+    },
+    {
+      "id": "q10",
+      "question": "Was liefert die Abfrage SELECT abteilung_id, COUNT(*) AS anzahl FROM mitarbeiter WHERE jahresgehalt > 35000 GROUP BY abteilung_id HAVING COUNT(*) > 1;?",
+      "options": [
+        "Je Abteilung die Anzahl der Mitarbeitenden mit einem Gehalt über 35000 €, aber nur für Abteilungen mit mehr als einer solchen Person",
+        "Alle Mitarbeitenden mit einem Gehalt über 35000 €, einzeln aufgelistet ohne Gruppierung",
+        "Die Gesamtzahl aller Mitarbeitenden der Firma, unabhängig vom Gehalt",
+        "Nur die Abteilung mit dem höchsten Gesamtgehalt aller Mitarbeitenden"
+      ],
+      "answer": 0,
+      "explanation": "WHERE filtert zuerst auf Gehälter über 35000 €, GROUP BY fasst die verbleibenden Zeilen je Abteilung zusammen, und HAVING zeigt nur Gruppen mit mehr als einer Person."
     }
   ]
 }

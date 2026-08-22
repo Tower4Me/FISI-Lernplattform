@@ -31,8 +31,8 @@
       "options": [
         "Die aktuellen Werte, die gerade konkret in den Tabellenzeilen stehen",
         "Den Bauplan: Tabellen, Spalten, Datentypen und ihre Beziehungen",
-        "Eine vollständige Sicherungskopie der gesamten Datenbank",
-        "Die Liste aller aktuell aktiven, angemeldeten Benutzer"
+        "Die konkrete Rechteverwaltung, wer welche Daten lesen oder ändern darf",
+        "Die Wiederherstellung der Datenbank nach einem Absturz"
       ],
       "answer": 1,
       "explanation": "Das Schema ist die Struktur (Bauplan) der Datenbank, unabhängig von den konkreten Dateninhalten."
@@ -43,7 +43,7 @@
       "options": [
         "Sie haben grundsätzlich kein festes Schema und keine Anfragesprache",
         "Sie können grundsätzlich keinerlei Beziehungen zwischen Tabellen abbilden",
-        "Sie sind grundsätzlich immer schneller als jede vergleichbare NoSQL-Datenbank",
+        "Sie eignen sich laut Definition besser für große, schnell wechselnde Datenmengen als NoSQL",
         "Sie organisieren Daten in Tabellen mit festem Schema und nutzen SQL"
       ],
       "answer": 3,
@@ -89,10 +89,10 @@
       "id": "q8",
       "question": "Was garantiert die Durability-Eigenschaft?",
       "options": [
-        "Dass eine einmal ausgeführte Transaktion sich beliebig oft automatisch wiederholt",
+        "Dass eine Transaktion dadurch niemals eine Fehlermeldung zurückgeben kann",
         "Dass abgeschlossene, committete Transaktionen auch einen Systemabsturz überstehen",
         "Dass grundsätzlich alle angemeldeten Nutzer gleichzeitig schreibend zugreifen dürfen",
-        "Dass alle gespeicherten Daten automatisch und ohne Zutun verschlüsselt werden"
+        "Dass eine Transaktion dadurch niemals vollständig zurückgerollt werden kann"
       ],
       "answer": 1,
       "explanation": "Durability (Dauerhaftigkeit) sorgt dafür, dass einmal committete Änderungen auch einen Systemabsturz überstehen."

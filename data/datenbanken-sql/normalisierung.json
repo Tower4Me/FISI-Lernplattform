@@ -8,7 +8,7 @@
         "Redundanz und Anomalien durch Aufteilung auf mehrere Tabellen zu vermeiden",
         "Tabellen bewusst möglichst groß und breit mit vielen Spalten zu halten",
         "Alle vorhandenen Daten grundsätzlich in einer einzigen großen Tabelle zu vereinen",
-        "Datentypen für alle Spalten einer Tabelle automatisch zu erzeugen"
+        "Den zusammengesetzten Primärschlüssel einer Tabelle vollständig aufzulösen"
       ],
       "answer": 0,
       "explanation": "Normalisierung teilt Daten regelbasiert auf mehrere Tabellen auf, damit jede Tatsache nur einmal gespeichert wird."
@@ -101,7 +101,7 @@
       "id": "q9",
       "question": "Was ist der praktische Vorteil, wenn eine Datenbank in 3NF vorliegt?",
       "options": [
-        "Abfragen benötigen ab 3NF grundsätzlich überhaupt keine JOINs mehr",
+        "Jede Tabelle darf ab 3NF beliebig viele Mehrfachwerte in einer Zelle enthalten",
         "Die Datenbank braucht ab 3NF grundsätzlich überhaupt keine Primärschlüssel mehr",
         "Jede Tatsache steht nur an einer Stelle – Änderungen sind konsistent und ohne Anomalien möglich",
         "Alle Tabellen lassen sich ab 3NF automatisch und ohne Datenverlust zu einer einzigen zusammenfassen"

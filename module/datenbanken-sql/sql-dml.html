@@ -146,6 +146,20 @@
         <code>COUNT()</code> usw. verwenden.
       </p>
 
+      <h3>Eine gegebene Abfrage lesen</h3>
+      <p>
+        Nicht nur das Schreiben, auch das <strong>Lesen</strong> einer
+        fertigen Abfrage gehört dazu. Zu
+        <code>SELECT abteilung_id, COUNT(*) AS anzahl FROM mitarbeiter
+        WHERE jahresgehalt &gt; 35000 GROUP BY abteilung_id HAVING
+        COUNT(*) &gt; 1;</code> lautet die Beschreibung in Worten: „Zähle
+        je Abteilung, wie viele Mitarbeitende mehr als 35000 € verdienen,
+        und zeige nur die Abteilungen mit mehr als einer solchen Person."
+        WHERE filtert zuerst auf die Gehaltsgrenze, GROUP BY bildet die
+        Abteilungsgruppen, HAVING behält nur Gruppen mit mehr als einem
+        Treffer.
+      </p>
+
       <p class="tool-intro">
         Der SQL-Editor unten startet bereits mit den Tabellen und
         Beispieldaten aus TowerTech GmbH – probiere die Befehle direkt
@@ -217,13 +231,6 @@
           40000 € (GROUP BY + HAVING).
         </li>
       </ul>
-      <p>
-        Typische Prüfungsfrage: „Was ist der Unterschied zwischen WHERE
-        und HAVING?" – Antwort: WHERE filtert einzelne Zeilen vor der
-        Gruppierung und kennt keine Aggregatfunktionen; HAVING filtert
-        Gruppen nach GROUP BY und darf Aggregatfunktionen wie AVG()
-        verwenden.
-      </p>
     </section>
 
     <!-- 4. MERKSATZ -->

@@ -458,6 +458,23 @@ pre { max-width: 100%; overflow-x: auto; }
 .figure--diagram svg { max-width: 100%; height: auto; }
 .figure--diagram figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
 
+/* Farblich abgesetzter Abbildungs-Kasten (Rahmen/Hintergrund wie .section,
+   linker Farbrand analog zu .section--*), fuer Diagramme, die im Fliesstext
+   optisch stärker hervorgehoben werden sollen als die neutrale
+   .figure--diagram. */
+.figure--boxed {
+  margin: 1.25rem 0;
+  max-width: 100%;
+  text-align: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--acc-konzept);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+.figure--boxed svg { max-width: 100%; height: auto; }
+.figure--boxed figcaption { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted); }
+
 /* Sprungmarken-Leiste innerhalb von Konzept (z. B. mehrere Diagrammtypen).
    Kein eigener a-Farbwert mehr (frueher var(--link)) -- die globale
    a-Regel deckt das jetzt einheitlich ab (siehe Kommentar dort). */
@@ -1037,6 +1054,7 @@ body:has(#module-list) .site-search--prominent {
   h2, h3 { break-after: avoid; }
   table, tr { break-inside: avoid; }
   .figure--diagram,
+  .figure--boxed,
   .section--einstieg,
   .section--praxis,
   .section--merksatz,

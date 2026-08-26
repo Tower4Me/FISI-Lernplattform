@@ -1,0 +1,65 @@
+{
+  "unit": "netzwerktechnik/strukturierte-verkabelung",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Welche beiden Normen regeln die strukturierte Gebäudeverkabelung?",
+      "options": [
+        "EN 50173 und ISO/IEC 11801",
+        "IEEE 802.3 und IEEE 802.11",
+        "ANSI/TIA-568 und ISO/IEC 27001",
+        "DIN VDE 0100 und EN 50110"
+      ],
+      "answer": 0,
+      "explanation": "Strukturierte Verkabelung ist in der europäischen Norm EN 50173 sowie der internationalen Norm ISO/IEC 11801 geregelt."
+    },
+    {
+      "id": "q2",
+      "question": "Welche Verkabelungsebene verbindet zwei Gebäude auf demselben Campusgelände miteinander?",
+      "options": [
+        "Sekundärverkabelung",
+        "Etagenverteiler",
+        "Primärverkabelung",
+        "Tertiärverkabelung"
+      ],
+      "answer": 2,
+      "explanation": "Die Primärverkabelung (auch Geländeverkabelung) verbindet mehrere Gebäude auf einem Campusgelände über größere Distanzen miteinander. Der Etagenverteiler ist dagegen ein Gerät, keine Verkabelungsebene."
+    },
+    {
+      "id": "q3",
+      "question": "Was verbindet die Sekundärverkabelung innerhalb eines Gebäudes miteinander?",
+      "options": [
+        "Etagenverteiler und Anschlussdose",
+        "Gebäudeverteiler und Etagenverteiler",
+        "Zwei Gebäudeverteiler unterschiedlicher Gebäude",
+        "Anschlussdose und Endgerät"
+      ],
+      "answer": 1,
+      "explanation": "Die Sekundärverkabelung (auch Steigverkabelung) verbindet den zentralen Gebäudeverteiler mit den Etagenverteilern der einzelnen Stockwerke."
+    },
+    {
+      "id": "q4",
+      "question": "Welche Verkabelungsebene verbindet den Etagenverteiler mit der Anschlussdose am Arbeitsplatz?",
+      "options": [
+        "Primärverkabelung",
+        "Sekundärverkabelung",
+        "Gebäudeverteiler",
+        "Tertiärverkabelung"
+      ],
+      "answer": 3,
+      "explanation": "Die Tertiärverkabelung (auch Etagenverkabelung) verbindet den Etagenverteiler mit der Anschlussdose am Arbeitsplatz."
+    },
+    {
+      "id": "q5",
+      "question": "Wo kommen typischerweise die in der Einheit „Verkabelung Twisted Pair“ behandelten Kupferkabel zum Einsatz?",
+      "options": [
+        "In der Primärverkabelung zwischen Gebäuden",
+        "In der Sekundärverkabelung zwischen Gebäudeverteiler und Etagenverteiler",
+        "In der Tertiärverkabelung zwischen Etagenverteiler und Anschlussdose",
+        "Nur bei der Verbindung zweier Etagenverteiler auf gleicher Ebene"
+      ],
+      "answer": 2,
+      "explanation": "Die Tertiärverkabelung ist typischerweise der Bereich, in dem Twisted-Pair-Kupferkabel zum Einsatz kommen — für die größeren Distanzen der Primär- und Sekundärverkabelung eignen sich eher Lichtwellenleiter."
+    }
+  ]
+}

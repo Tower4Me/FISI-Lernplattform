@@ -84,6 +84,30 @@
       ],
       "answer": 1,
       "explanation": "FTTH verlegt Glasfaser direkt bis zum Endkunden und ermöglicht dadurch sehr hohe, weitgehend entfernungsunabhängige Datenraten — im Gegensatz zu DSL über Kupferleitungen."
+    },
+    {
+      "id": "q8",
+      "question": "Wie ist ISDN im Vergleich zu DSL vermittlungstechnisch einzuordnen?",
+      "options": [
+        "ISDN leitungsvermittelt mit festen Kanälen, DSL paketvermittelt und schneller",
+        "ISDN paketvermittelt und schneller, DSL leitungsvermittelt mit festen Kanälen",
+        "Beide Verfahren sind technisch identisch, nur der Name unterscheidet sich",
+        "ISDN überträgt ausschließlich analog, DSL ausschließlich digital"
+      ],
+      "answer": 0,
+      "explanation": "ISDN ist leitungsvermittelt mit fest reservierten Kanälen und dadurch bandbreitenbegrenzt, während DSL paketvermittelt arbeitet und deutlich höhere Datenraten erreicht."
+    },
+    {
+      "id": "q9",
+      "question": "Wie viele B-Kanäle mit welcher Geschwindigkeit hat ein ISDN-Basisanschluss typischerweise?",
+      "options": [
+        "1x 128 kbit/s",
+        "4x 32 kbit/s",
+        "2x 64 kbit/s",
+        "1x 64 kbit/s"
+      ],
+      "answer": 2,
+      "explanation": "Der ISDN-Basisanschluss stellt zwei B-Kanäle mit je 64 kbit/s bereit."
     }
   ]
 }

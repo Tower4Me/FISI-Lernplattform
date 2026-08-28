@@ -108,6 +108,30 @@
       ],
       "answer": 2,
       "explanation": "Im vierten Oktett ergibt die UND-Verknüpfung von 42 (0010 1010) mit 192 (1100 0000) den Wert 0 (0000 0000) — die ersten drei Oktette bleiben durch die Maske 255 unverändert. Netzadresse: 192.168.10.0."
+    },
+    {
+      "id": "q10",
+      "question": "Was ist der Zweck von Supernetting (Route Summarization)?",
+      "options": [
+        "Aufteilung eines großen Netzes in mehrere kleinere Subnetze",
+        "Verschlüsselung des Datenverkehrs zwischen zwei Netzen",
+        "Zusammenfassung mehrerer benachbarter Netze zu einem einzigen Routing-Tabellen-Eintrag",
+        "Automatische Vergabe von IP-Adressen an Endgeräte"
+      ],
+      "answer": 2,
+      "explanation": "Supernetting fasst mehrere benachbarte, kleinere Netze zu einem größeren Adressblock zusammen (CIDR-Aggregation) und reduziert dadurch die Anzahl der Einträge in Routing-Tabellen."
+    },
+    {
+      "id": "q11",
+      "question": "Welcher zusammengefasste Block ergibt sich aus den vier benachbarten Netzen 192.168.0.0/24 bis 192.168.3.0/24?",
+      "options": [
+        "192.168.0.0/22",
+        "192.168.0.0/24",
+        "192.168.0.0/20",
+        "192.168.0.0/26"
+      ],
+      "answer": 0,
+      "explanation": "Vier benachbarte /24-Netze sind 2² = 4 Blöcke, das verschiebt die Netzgrenze um 2 Bit nach links: 24 − 2 = 22. Die ersten 6 Bit des dritten Oktetts sind bei allen vier Netzen identisch, zusammen mit den 16 Bit der ersten beiden Oktette ergibt das /22."
     }
   ]
 }

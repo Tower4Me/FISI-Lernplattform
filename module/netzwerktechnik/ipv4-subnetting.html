@@ -290,6 +290,53 @@
         </tbody>
       </table>
 
+      <h3>Supernetting (Route-Summarization)</h3>
+      <p>
+        <strong>Supernetting</strong> ist das Gegenteil von Subnetting:
+        Statt ein großes Netz in mehrere kleinere Subnetze aufzuteilen,
+        werden mehrere benachbarte, kleinere Netze zu einem einzigen
+        größeren, zusammengefassten Adressblock zusammengefasst
+        (<strong>CIDR-Aggregation</strong>). Voraussetzung dafür ist, dass
+        die Netze direkt aneinandergrenzen, ihre Anzahl eine Zweierpotenz
+        ist und der erste Netzblock auf der passenden Bitgrenze beginnt.
+      </p>
+      <p>
+        Zweck ist die <strong>Route Summarization</strong>: Statt für jedes
+        einzelne kleine Netz eine eigene Zeile in der Routing-Tabelle zu
+        pflegen, genügt ein einziger zusammengefasster Eintrag. Das
+        reduziert die Anzahl der Routing-Tabellen-Einträge, spart Speicher
+        auf dem Router und beschleunigt die Routensuche.
+      </p>
+      <p>
+        Rechenbeispiel: Die vier benachbarten Netze
+        <code>192.168.0.0/24</code>, <code>192.168.1.0/24</code>,
+        <code>192.168.2.0/24</code> und <code>192.168.3.0/24</code> sollen
+        zu einem Block zusammengefasst werden. Die ersten beiden Oktette
+        (<code>192.168</code>) sind bei allen vier Netzen identisch,
+        entscheidend ist das dritte Oktett:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Netz</th><th>3. Oktett dezimal</th><th>3. Oktett binär</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>192.168.0.0/24</td><td>0</td><td>0000 00<strong>00</strong></td></tr>
+          <tr><td>192.168.1.0/24</td><td>1</td><td>0000 00<strong>01</strong></td></tr>
+          <tr><td>192.168.2.0/24</td><td>2</td><td>0000 00<strong>10</strong></td></tr>
+          <tr><td>192.168.3.0/24</td><td>3</td><td>0000 00<strong>11</strong></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die ersten 6 Bit des dritten Oktetts (<code>0000 00</code>) sind
+        bei allen vier Netzen gleich, nur die letzten 2 Bit unterscheiden
+        sich und decken zusammen alle vier Kombinationen (<code>00</code>
+        bis <code>11</code>) ab. Zusammen mit den 16 Bit der ersten beiden
+        Oktette ergeben sich 16 + 6 = <strong>22</strong> gemeinsame
+        Netz-Bit. Die vier /24-Netze lassen sich also durch die einzige
+        Route <strong>192.168.0.0/22</strong> repräsentieren — ein
+        Routing-Tabellen-Eintrag statt vier.
+      </p>
+
       <h3>Private IPv4-Adressbereiche</h3>
       <p>
         Nach RFC 1918 sind drei Adressbereiche für private Netze reserviert

@@ -1,0 +1,77 @@
+{
+  "unit": "hardware/netzwerkkarten",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht die Abkürzung NIC?",
+      "options": [
+        "Network Internet Connector",
+        "New Interface Controller",
+        "Network Interface Card",
+        "Node Identification Code"
+      ],
+      "answer": 2,
+      "explanation": "NIC steht für Network Interface Card – die Hardware-Schnittstelle, über die ein Gerät physisch an ein Netzwerk angeschlossen wird."
+    },
+    {
+      "id": "q2",
+      "question": "Was ist eine MAC-Adresse?",
+      "options": [
+        "Eine 48 Bit lange, weltweit eindeutige Kennung der Netzwerkkarte",
+        "Eine vom Nutzer frei wählbare Kennung ohne festen Aufbau",
+        "Eine temporär vom DHCP-Server vergebene Adresse",
+        "Eine Kennung, die nur innerhalb des lokalen Subnetzes eindeutig sein muss"
+      ],
+      "answer": 0,
+      "explanation": "Die MAC-Adresse ist eine 48 Bit lange, herstellerseitig fest einprogrammierte und weltweit eindeutige Kennung jeder Netzwerkkarte."
+    },
+    {
+      "id": "q3",
+      "question": "Wie ist eine Onboard-Netzwerkkarte typischerweise angebunden?",
+      "options": [
+        "Sie steckt in einem freien PCIe-Steckplatz des Mainboards",
+        "Sie wird ausschließlich über ein externes USB-Kabel angeschlossen",
+        "Sie benötigt immer einen zusätzlichen Adapter zum Mainboard",
+        "Sie ist fest in den Chipsatz-Bereich des Mainboards integriert"
+      ],
+      "answer": 3,
+      "explanation": "Eine Onboard-NIC ist fest in den Chipsatz-Bereich des Mainboards integriert, mit RJ45-Port direkt am I/O-Panel – im Gegensatz zur nachrüstbaren PCIe-Netzwerkkarte."
+    },
+    {
+      "id": "q4",
+      "question": "Wann wird typischerweise eine zusätzliche PCIe-Netzwerkkarte nachgerüstet?",
+      "options": [
+        "Wenn die Onboard-NIC grundsätzlich keine MAC-Adresse besitzt",
+        "Wenn eine zusätzliche oder schnellere Netzwerkkarte nötig ist",
+        "Wenn das Mainboard über keinerlei PCIe-Steckplätze verfügt",
+        "Wenn ausschließlich Fast Ethernet benötigt wird"
+      ],
+      "answer": 1,
+      "explanation": "Eine PCIe-Netzwerkkarte wird meist nachgerüstet, wenn eine zusätzliche oder schnellere NIC benötigt wird, z. B. bei Servern mit mehreren Netzwerkanschlüssen oder für 10-Gigabit-Ethernet."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Datenrate erreicht Gigabit Ethernet?",
+      "options": [
+        "100 Mbit/s",
+        "10 Mbit/s",
+        "1.000 Mbit/s (1 Gbit/s)",
+        "10.000 Mbit/s (10 Gbit/s)"
+      ],
+      "answer": 2,
+      "explanation": "Gigabit Ethernet erreicht 1.000 Mbit/s, also 1 Gbit/s."
+    },
+    {
+      "id": "q6",
+      "question": "Wo finden sich Details zu den nötigen Kabeltypen und Kategorien für eine Netzwerkkarte?",
+      "options": [
+        "In der Einheit „Verkabelung Twisted Pair“",
+        "In der Einheit „Mainboard & Bussysteme“",
+        "In der Einheit „BIOS/UEFI & Boot“",
+        "Nirgends – die Kabelkategorie spielt für Netzwerkkarten keine Rolle"
+      ],
+      "answer": 0,
+      "explanation": "Welches Kabel und welche Kategorie für eine bestimmte Geschwindigkeit nötig ist, steht in der Einheit Verkabelung Twisted Pair — eine Netzwerkkarte kann nur so schnell angebunden sein, wie es Kabel und Gegenstelle zulassen."
+    }
+  ]
+}

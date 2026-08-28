@@ -33,20 +33,42 @@
     <section id="einstieg" class="section section--einstieg">
       <h2>Einstieg</h2>
       <p>
-        Ein geteilter Büroordner im Netzwerk ist wie ein Aktenschrank, den
-        mehrere Kolleg:innen gemeinsam nutzen: Jeder holt sich fertige
-        Dokumente heraus, ohne zu wissen, wie der Schrank innen organisiert
-        ist. Das ist <strong>File-Storage</strong> — genau das liefert ein
-        <strong>NAS</strong>. Eine leere externe Festplatte, die man selbst
-        formatiert und mit einem eigenen Ordnungssystem versieht, ist
-        dagegen <strong>Block-Storage</strong> — nur dass das „Kabel“ hier
-        das Netzwerk ist. Genau das liefert ein <strong>SAN</strong>.
+        Eine Festplatte, die per Kabel direkt an genau einem PC hängt — fest
+        eingebaut oder extern per USB/SATA — ist wie eine eigene Schublade
+        am eigenen Schreibtisch: Nur wer an diesem einen Schreibtisch sitzt,
+        kommt heran, ein Netzwerk steckt gar nicht dazwischen. Das ist
+        <strong>DAS</strong> (Direct Attached Storage) — die einfachste Form
+        der drei. Ein geteilter Büroordner im Netzwerk ist dagegen wie ein
+        Aktenschrank, den mehrere Kolleg:innen gemeinsam nutzen: Jeder holt
+        sich fertige Dokumente heraus, ohne zu wissen, wie der Schrank innen
+        organisiert ist. Das ist <strong>File-Storage</strong> — genau das
+        liefert ein <strong>NAS</strong>. Eine leere externe Festplatte, die
+        man selbst formatiert und mit einem eigenen Ordnungssystem versieht,
+        ist dagegen <strong>Block-Storage</strong> — nur dass das „Kabel“
+        hier das Netzwerk ist. Genau das liefert ein <strong>SAN</strong>.
       </p>
     </section>
 
     <!-- 2. KONZEPT -->
     <section id="konzept" class="section section--konzept">
       <h2>Konzept</h2>
+
+      <h3>DAS: Speicher direkt am Gerät</h3>
+      <p>
+        Bevor Speicher überhaupt übers Netzwerk bereitgestellt wird, gibt es
+        die einfachste Stufe: <strong>DAS (Direct Attached Storage)</strong> —
+        eine Festplatte oder SSD, die direkt und ohne Netzwerk dazwischen an
+        genau einem Gerät hängt (intern verbaut oder extern per USB/SATA
+        angeschlossen). Der Speicher gehört exklusiv diesem einen Gerät;
+        ein Mehrfachzugriff mehrerer Geräte übers Netzwerk ist bei DAS nicht
+        vorgesehen. NAS und SAN lösen genau diese Einschränkung, indem sie
+        denselben Speicher stattdessen übers Netzwerk erreichbar machen —
+        mit wachsender Netzwerk-Einbindung und Komplexität:
+        <strong>DAS</strong> (kein Netzwerk) → <strong>NAS</strong>
+        (Datei-Zugriff übers Netzwerk) → <strong>SAN</strong> (Block-Zugriff
+        übers Netzwerk, über iSCSI auf normalem Ethernet oder über ein
+        dediziertes Fibre-Channel-Netz).
+      </p>
 
       <h3>Zwei Ebenen, Speicher im Netz bereitzustellen</h3>
       <table>
@@ -69,26 +91,28 @@
         </tbody>
       </table>
 
-      <h3>NAS vs. SAN</h3>
+      <h3>DAS vs. NAS vs. SAN</h3>
       <table>
         <thead>
-          <tr><th></th><th>NAS (Network Attached Storage)</th><th>SAN (Storage Area Network)</th></tr>
+          <tr><th></th><th>DAS (Direct Attached Storage)</th><th>NAS (Network Attached Storage)</th><th>SAN (Storage Area Network)</th></tr>
         </thead>
         <tbody>
-          <tr><td>Liefert</td><td>Dateien (File-Storage)</td><td>Blöcke (Block-Storage)</td></tr>
-          <tr><td>Protokolle</td><td>SMB, NFS</td><td>iSCSI, Fibre Channel</td></tr>
-          <tr><td>Client sieht</td><td>Netzwerkfreigabe / Ordner</td><td>lokale Festplatte</td></tr>
-          <tr><td>Dateisystem liegt</td><td>beim NAS</td><td>beim Client</td></tr>
-          <tr><td>Typischer Einsatz</td><td>geteilte Nutzerlaufwerke</td><td>VM-Speicher, Datenbanken</td></tr>
+          <tr><td>Netzwerk dazwischen</td><td>keins — direktes Kabel</td><td>ja — Ethernet</td><td>ja — Ethernet (iSCSI) oder dediziertes FC-Netz</td></tr>
+          <tr><td>Liefert</td><td>Blöcke, lokal am Gerät</td><td>Dateien (File-Storage)</td><td>Blöcke (Block-Storage)</td></tr>
+          <tr><td>Protokolle</td><td>SATA, USB (kein Netzwerkprotokoll)</td><td>SMB, NFS</td><td>iSCSI, Fibre Channel</td></tr>
+          <tr><td>Client sieht</td><td>lokale Festplatte</td><td>Netzwerkfreigabe / Ordner</td><td>lokale Festplatte</td></tr>
+          <tr><td>Dateisystem liegt</td><td>beim Gerät selbst</td><td>beim NAS</td><td>beim Client</td></tr>
+          <tr><td>Typischer Einsatz</td><td>Einzelplatz-PC, interne Serverplatte</td><td>geteilte Nutzerlaufwerke</td><td>VM-Speicher, Datenbanken</td></tr>
         </tbody>
       </table>
       <p>
-        NAS und SAN sind <strong>Architekturkonzepte</strong> (das „Was“),
-        iSCSI und Fibre Channel sind <strong>Protokolle</strong> (das
-        „Wie“). Ein SAN lässt sich sowohl über iSCSI (übers normale
-        Ethernet) als auch über Fibre Channel (eigenes, dediziertes
-        Speichernetz) realisieren — beide sind keine Konkurrenten,
-        sondern unterschiedliche Wege zum selben Architekturziel.
+        DAS, NAS und SAN sind <strong>Architekturkonzepte</strong> (das
+        „Was“), iSCSI und Fibre Channel sind <strong>Protokolle</strong>
+        (das „Wie“), über die ein SAN im Netzwerk realisiert wird. Ein SAN
+        lässt sich sowohl über iSCSI (übers normale Ethernet) als auch über
+        Fibre Channel (eigenes, dediziertes Speichernetz) realisieren —
+        beide sind keine Konkurrenten, sondern unterschiedliche Wege zum
+        selben Architekturziel.
       </p>
 
       <h3>iSCSI im Detail</h3>
@@ -176,12 +200,13 @@
     <section id="merksatz" class="section section--merksatz">
       <h2>Merksatz</h2>
       <p>
-        NAS liefert File-Storage (SMB/NFS, Dateisystem beim NAS), SAN
-        liefert Block-Storage (iSCSI/Fibre Channel, Dateisystem beim
-        Client). iSCSI überträgt SCSI-Befehle über TCP/IP, Fibre Channel
-        nutzt ein eigenes dediziertes Netz und benötigt einen HBA im
-        Server. JBOD bündelt mehrere Platten ohne RAID-Redundanz in einem
-        Gehäuse.
+        DAS hängt ohne Netzwerk direkt an einem einzelnen Gerät. NAS liefert
+        File-Storage übers Netzwerk (SMB/NFS, Dateisystem beim NAS), SAN
+        liefert Block-Storage übers Netzwerk (iSCSI/Fibre Channel,
+        Dateisystem beim Client). iSCSI überträgt SCSI-Befehle über TCP/IP,
+        Fibre Channel nutzt ein eigenes dediziertes Netz und benötigt einen
+        HBA im Server. JBOD bündelt mehrere Platten ohne RAID-Redundanz in
+        einem Gehäuse.
       </p>
     </section>
 

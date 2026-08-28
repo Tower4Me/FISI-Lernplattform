@@ -84,6 +84,30 @@
       ],
       "answer": 1,
       "explanation": "Der Virtualisierungsserver braucht exklusiven Blockzugriff (SAN/iSCSI), das gemeinsam genutzte Abteilungslaufwerk braucht gleichzeitigen Mehrbenutzerzugriff auf Dateien (NAS/SMB)."
+    },
+    {
+      "id": "q8",
+      "question": "Was kennzeichnet DAS (Direct Attached Storage) im Unterschied zu NAS und SAN?",
+      "options": [
+        "Mehrere Geräte greifen dabei gleichzeitig übers Netzwerk auf dieselben Dateien zu",
+        "Speicher ist direkt an ein einzelnes Gerät angeschlossen, ganz ohne Netzwerk dazwischen",
+        "Der Speicher wird dabei ausschließlich über Fibre Channel bereitgestellt",
+        "Der Client erhält dabei immer serverseitig verwaltete, fertige Dateien"
+      ],
+      "answer": 1,
+      "explanation": "DAS ist Speicher, der ohne Netzwerk dazwischen direkt an genau einem Gerät hängt (intern verbaut oder extern per USB/SATA) — ein Mehrfachzugriff mehrerer Geräte übers Netzwerk ist dabei nicht vorgesehen, anders als bei NAS oder SAN."
+    },
+    {
+      "id": "q9",
+      "question": "In welcher Reihenfolge wächst die Netzwerk-Einbindung beim Speicherzugriff?",
+      "options": [
+        "DAS, dann NAS, dann SAN",
+        "SAN, dann DAS, dann NAS",
+        "NAS, dann SAN, dann DAS",
+        "SAN, dann NAS, dann DAS"
+      ],
+      "answer": 0,
+      "explanation": "DAS hängt ganz ohne Netzwerk direkt am Gerät, NAS bringt Datei-Zugriff übers Netzwerk, SAN bringt Block-Zugriff übers Netzwerk (iSCSI/Fibre Channel) — jede Stufe erhöht Netzwerk-Einbindung und Komplexität gegenüber der vorherigen."
     }
   ]
 }

@@ -50,7 +50,8 @@
    "UPDATE – Daten ändern",
    "DELETE – Daten löschen",
    "Aggregatfunktionen",
-   "GROUP BY & HAVING"
+   "GROUP BY & HAVING",
+   "Eine gegebene Abfrage lesen"
   ],
   "merksatz": "DML liest und verändert Daten: SELECT (mit WHERE/ORDER BY/LIMIT) zum gezielten Lesen, INSERT zum Einfügen, UPDATE zum Ändern, DELETE zum Löschen – UPDATE/DELETE immer erst mit SELECT prüfen. Aggregatfunktionen (COUNT, SUM, AVG, MAX, MIN) fassen mehrere Zeilen zu einem Wert zusammen; GROUP BY bildet Gruppen, HAVING filtert diese Gruppen nach einer Aggregat-Bedingung."
  },
@@ -89,7 +90,8 @@
   "headings": [
    "Rechte der betroffenen Person",
    "Wer ist wer? Die Rollen der DSGVO",
-   "Pseudonymisierung vs. Anonymisierung"
+   "Pseudonymisierung vs. Anonymisierung",
+   "Meldepflicht bei Datenschutzverletzungen"
   ],
   "merksatz": "Betroffenenrechte: Auskunft, Berichtigung, Löschung, Datenübertragbarkeit, Widerspruch. Der Verantwortliche bleibt auch bei Beauftragung eines Auftragsverarbeiters (AVV) in der Verantwortung. Pseudonymisierte Daten bleiben personenbezogen (Bezug über Zusatzschlüssel wiederherstellbar), anonymisierte Daten fallen endgültig aus dem Anwendungsbereich der DSGVO heraus."
  },
@@ -154,6 +156,7 @@
  "module/datenschutz-recht/vertragsarten.html": {
   "headings": [
    "Die wichtigsten Vertragsarten",
+   "Beispielrechnung: Kauf vs. Leasing",
    "Werkvertrag vs. Dienstvertrag: die wichtigste Abgrenzung",
    "Typische Bestandteile eines Vertrags"
   ],
@@ -277,13 +280,21 @@
  },
  "module/hardware/nas-san-storage.html": {
   "headings": [
+   "DAS: Speicher direkt am Gerät",
    "Zwei Ebenen, Speicher im Netz bereitzustellen",
-   "NAS vs. SAN",
+   "DAS vs. NAS vs. SAN",
    "iSCSI im Detail",
    "Fibre Channel und HBA",
    "JBOD"
   ],
-  "merksatz": "NAS liefert File-Storage (SMB/NFS, Dateisystem beim NAS), SAN liefert Block-Storage (iSCSI/Fibre Channel, Dateisystem beim Client). iSCSI überträgt SCSI-Befehle über TCP/IP, Fibre Channel nutzt ein eigenes dediziertes Netz und benötigt einen HBA im Server. JBOD bündelt mehrere Platten ohne RAID-Redundanz in einem Gehäuse."
+  "merksatz": "DAS hängt ohne Netzwerk direkt an einem einzelnen Gerät. NAS liefert File-Storage übers Netzwerk (SMB/NFS, Dateisystem beim NAS), SAN liefert Block-Storage übers Netzwerk (iSCSI/Fibre Channel, Dateisystem beim Client). iSCSI überträgt SCSI-Befehle über TCP/IP, Fibre Channel nutzt ein eigenes dediziertes Netz und benötigt einen HBA im Server. JBOD bündelt mehrere Platten ohne RAID-Redundanz in einem Gehäuse."
+ },
+ "module/hardware/netzwerkkarten.html": {
+  "headings": [
+   "Onboard vs. PCIe-Steckkarte",
+   "Geschwindigkeiten"
+  ],
+  "merksatz": "Eine Netzwerkkarte (NIC) verbindet ein Gerät physisch mit dem Netzwerk und trägt eine weltweit eindeutige, 48 Bit lange MAC-Adresse. Sie sitzt entweder fest onboard auf dem Mainboard oder als nachrüstbare PCIe-Steckkarte. Übliche Geschwindigkeiten: Fast Ethernet (100 Mbit/s), Gigabit Ethernet (1 Gbit/s), 10-Gigabit Ethernet (10 Gbit/s)."
  },
  "module/hardware/raid-level.html": {
   "headings": [
@@ -305,6 +316,7 @@
    "HDMI und DisplayPort: reine Bild-/Tonübertragung",
    "Thunderbolt: ein Kabel für alles",
    "RJ45: der Netzwerkstecker",
+   "Steckerformen wiedererkennen",
    "Überblick: welcher Anschluss wofür"
   ],
   "merksatz": "Steckerform (A/B/C) und Datenrate (USB 2.0–USB4) sind zwei verschiedene Eigenschaften von USB. HDMI kommt aus dem Consumer-, DisplayPort aus dem Profi-Bereich — beide übertragen nur Bild/Ton. Thunderbolt nutzt den USB-C-Stecker, tunnelt aber zusätzlich PCIe und DisplayPort in einem Kabel. RJ45 ist der Stecker fürs kabelgebundene Netzwerk, nicht für Video oder Strom."
@@ -313,7 +325,8 @@
   "headings": [
    "Technologievergleich",
    "NAND-Flash-Typen (SSDs)",
-   "Speichermedien im Überblick"
+   "Speichermedien im Überblick",
+   "USB-Speichermedien"
   ],
   "merksatz": "HDD (mechanisch, günstig, hohe Kapazität)"
  },
@@ -323,6 +336,9 @@
    "Scheinleistung (VA) vs. Wirkleistung (W)"
   ],
   "merksatz": "VFD (Offline) schaltet erst bei Störung um, VI (Line-Interactive) gleicht kleine Schwankungen per AVR ohne Umschaltung aus, VFI (Online) liefert durch Doppelwandlung 0 ms Umschaltzeit — je höher die Klasse, desto höher Schutz, Preis und Energieverlust. Wirkleistung (W) = Scheinleistung (VA) × cos φ — eine USV muss beide Werte für die angeschlossene Last erfüllen."
+ },
+ "module/it-sicherheit/aaa-radius-tacacs.html": {
+  "merksatz": "AAA = wer bist du (Authentication), was darfst du (Authorization), was hast du getan (Accounting). RADIUS: UDP, verschlüsselt nur das Passwort, oft WLAN. TACACS+: TCP, verschlüsselt alles, trennt die drei A sauber, oft Geräte-Admin."
  },
  "module/it-sicherheit/angriffsmethoden.html": {
   "headings": [
@@ -334,16 +350,15 @@
   "headings": [
    "Passwort-Komplexität berechnen",
    "Captcha, PIN und TAN",
-   "AAA: Authentication, Authorization, Accounting",
    "Single Sign-On (SSO)"
   ],
-  "merksatz": "Drei Faktorarten: Wissen, Besitz, Sein. Echte MFA kombiniert unterschiedliche Faktorarten, nicht zweimal denselben. Passwort- Stärke = Zeichenraum Länge , Länge wirkt stärker als Komplexität. Captcha erkennt Bots, PIN ist ein kurzer Wissensfaktor, TAN ein Einmalkennwort pro Transaktion. AAA = wer bist du, was darfst du, was hast du getan. SSO spart Logins, braucht aber zwingend MFA als Ausgleich für das erhöhte Risiko."
+  "merksatz": "Drei Faktorarten: Wissen, Besitz, Sein. Echte MFA kombiniert unterschiedliche Faktorarten, nicht zweimal denselben. Passwort- Stärke = Zeichenraum Länge , Länge wirkt stärker als Komplexität. Captcha erkennt Bots, PIN ist ein kurzer Wissensfaktor, TAN ein Einmalkennwort pro Transaktion. SSO spart Logins, braucht aber zwingend MFA als Ausgleich für das erhöhte Risiko."
  },
  "module/it-sicherheit/backup-arten.html": {
   "headings": [
    "Die 3-2-1-Regel"
   ],
-  "merksatz": "Voll = alles, schnell zurück. Differenziell = seit letztem Vollbackup, Restore braucht 2 Teile. Inkrementell = seit letztem Backup, Restore braucht die lückenlose Kette. 3-2-1(-1-0)-Regel: 3 Kopien, 2 Medien, 1 offsite (optional 1 offline/unveränderlich). RAID ersetzt kein Backup."
+  "merksatz": "Voll = alles, schnell zurück. Differenziell = seit letztem Vollbackup, Restore braucht 2 Teile. Inkrementell = seit letztem Backup, Restore braucht die lückenlose Kette. Das Archivbit steuert das: Voll/Inkrementell löschen es, Differenziell nicht. 3-2-1(-1-0)-Regel: 3 Kopien, 2 Medien, 1 offsite (optional 1 offline/unveränderlich). RAID ersetzt kein Backup."
  },
  "module/it-sicherheit/berechtigungskonzepte.html": {
   "headings": [
@@ -356,7 +371,7 @@
   "headings": [
    "Typische Härtungsmaßnahmen"
   ],
-  "merksatz": "Härtung = minimale Angriffsfläche: alles Unnötige deaktivieren, entfernen oder schließen (Dienste, Konten, Ports, Software). Baseline-Vorlagen wie CIS Benchmarks liefern geprüfte Ausgangskonfigurationen. Server werden meist strenger gehärtet als Client-Rechner."
+  "merksatz": "Härtung = minimale Angriffsfläche: alles Unnötige deaktivieren, entfernen oder schließen (Dienste, Konten, Ports, Software) – geordnet in vier Bereichen: Grundinstallation, Dienste/Features, Anmelden, Administrieren. Baseline-Vorlagen wie CIS Benchmarks liefern geprüfte Ausgangskonfigurationen. Server werden meist strenger gehärtet als Client-Rechner."
  },
  "module/it-sicherheit/datensicherung-datenschutz.html": {
   "headings": [
@@ -373,7 +388,8 @@
  },
  "module/it-sicherheit/firewall-dmz.html": {
   "headings": [
-   "Die DMZ"
+   "Die DMZ",
+   "Proxy-Server: Forward- vs. Reverse-Proxy"
   ],
   "merksatz": "Firewall-Ausbaustufen: Paketfilter (L3/L4) → Stateful Inspection (+ Verbindungszustand) → NGFW/WAF (bis L7). Die DMZ ist ein Puffernetz zwischen zwei Firewalls für von außen erreichbare Server – ein kompromittierter DMZ-Server öffnet nicht automatisch das interne LAN."
  },
@@ -407,7 +423,7 @@
   "merksatz": "BCM-Ablauf: Vorbereitung → Erkennung → Eindämmung → Behebung → Nachbereitung. RTO = maximale Ausfallzeit (Blick nach vorn). RPO = maximal tolerierbarer Datenverlust (Blick zurück, Backup-Frequenz). USV überbrückt kurze Stromausfälle. Verfügbarkeit in „Neunen“: mehr Neunen = weniger erlaubte Ausfallzeit pro Jahr."
  },
  "module/it-sicherheit/schadsoftware-typen.html": {
-  "merksatz": "Virus braucht Wirt + Nutzeraktion. Wurm verbreitet sich selbstständig übers Netz. Trojaner tarnt sich als nützliches Programm. Ransomware verschlüsselt und erpresst. Spyware spioniert heimlich. Rootkit versteckt sich tief im System."
+  "merksatz": "Virus braucht Wirt + Nutzeraktion. Wurm verbreitet sich selbstständig übers Netz. Trojaner tarnt sich als nützliches Programm. Ransomware verschlüsselt und erpresst. Spyware spioniert heimlich. Rootkit versteckt sich tief im System. Weitere Varianten: Keylogger, Backdoor, Adware, Scareware."
  },
  "module/it-sicherheit/schutzbedarfsanalyse.html": {
   "merksatz": "Schutzbedarf (normal/hoch/sehr hoch) richtet sich nach der Schadenshöhe bei Verlust von Vertraulichkeit, Integrität oder Verfügbarkeit. Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe. Auf ein Risiko reagiert man mit: vermeiden, vermindern, übertragen oder akzeptieren."
@@ -417,6 +433,13 @@
  },
  "module/it-sicherheit/sicherheitsstandards-isms.html": {
   "merksatz": "Ein ISMS ist ein fortlaufender PDCA-Prozess, kein einmaliges Projekt. BSI IT-Grundschutz liefert konkrete Bausteine (v. a. DE/ Behörden), ISO/IEC 27001 ist der international zertifizierbare Rahmen – beide lassen sich kombinieren."
+ },
+ "module/it-sicherheit/ssh.html": {
+  "headings": [
+   "Authentifizierung: Passwort vs. Public-Key",
+   "Abgrenzung zu TLS"
+  ],
+  "merksatz": "SSH ist ein verschlüsseltes Protokoll für Fernzugriff über TCP-Port 22 und löst das unverschlüsselte Telnet ab. Authentifizierung per Passwort oder per sichererem Public-Key-Verfahren (privater Schlüssel bleibt beim Client). SCP und SFTP nutzen SSH für verschlüsselten Dateitransfer. Anders als TLS, das Anwendungsprotokolle wie HTTPS absichert, ist SSH ein eigenständiges Protokoll für Terminal-Zugriff und Dateitransfer."
  },
  "module/it-sicherheit/toms.html": {
   "merksatz": "TOMs = technisch (in der Technik) + organisatorisch (in den Regeln), gefordert von Art. 32 DSGVO und angemessen zum Risiko. Zutritt (Raum), Zugang (System), Zugriff (Daten) sauber auseinanderhalten. Eine Datenpanne muss i. d. R. binnen 72 Stunden gemeldet werden (Art. 33)."
@@ -633,9 +656,10 @@
  "module/netzwerktechnik/cloud-grundlagen.html": {
   "headings": [
    "Servicemodelle",
+   "Abrechnung & Skalierung",
    "Bereitstellungsmodelle"
   ],
-  "merksatz": "IaaS = Infrastruktur, PaaS = zusätzlich Plattform/Laufzeitumgebung, SaaS = fertige Anwendung, FaaS = einzelne Funktionen serverlos. Von IaaS zu SaaS übernimmt der Anbieter immer mehr Verantwortung. Public Cloud = geteilt, Private Cloud = exklusiv, Hybrid Cloud = Kombination, On-Premises = komplett im eigenen Haus."
+  "merksatz": "IaaS = Infrastruktur, PaaS = zusätzlich Plattform/Laufzeitumgebung, SaaS = fertige Anwendung, FaaS = einzelne Funktionen serverlos. Von IaaS zu SaaS übernimmt der Anbieter immer mehr Verantwortung. Public Cloud = geteilt, Private Cloud = exklusiv, Hybrid Cloud = Kombination, On-Premises = komplett im eigenen Haus. Abrechnung meist nutzungsabhängig (Pay-per-Use/Pay-as-you-grow). Skalierung: vertikal = größere Instanz, horizontal = mehr Instanzen."
  },
  "module/netzwerktechnik/container-docker.html": {
   "headings": [
@@ -654,9 +678,10 @@
   "headings": [
    "Auflösungsablauf (vereinfacht)",
    "Wichtige Record-Typen",
-   "Lokale hosts-Datei"
+   "Lokale hosts-Datei",
+   "DNS-Sicherheit & Betrieb"
   ],
-  "merksatz": "DNS übersetzt Domainnamen in IP-Adressen (und zurück). Wichtigste Records: A/AAAA (Name → IPv4/IPv6), MX (Mailserver), CNAME (Alias), PTR (IP → Name), SOA (Zonen-Verwaltungsdaten). Die lokale hosts-Datei wird vor jeder DNS-Anfrage geprüft und hat Vorrang."
+  "merksatz": "DNS übersetzt Domainnamen in IP-Adressen (und zurück). Wichtigste Records: A/AAAA (Name → IPv4/IPv6), MX (Mailserver), CNAME (Alias), PTR (IP → Name), SOA (Zonen-Verwaltungsdaten). Die lokale hosts-Datei wird vor jeder DNS-Anfrage geprüft und hat Vorrang. SPF schützt vor gefälschten Absendern, DNSSEC signiert Antworten gegen DNS-Spoofing, Forwarding leitet unbekannte Anfragen weiter."
  },
  "module/netzwerktechnik/ethernet-zugriffsverfahren.html": {
   "headings": [
@@ -678,6 +703,9 @@
   "merksatz": "Kern-Größen zum Merken: IPv4-Header 20 Byte, TCP-Header 20 Byte, UDP-Header nur 8 Byte, Ethernet-Header 14 Byte plus 4 Byte FCS am Ende. Von außen nach innen: Ethernet ⊃ IP ⊃ TCP/UDP ⊃ Nutzdaten."
  },
  "module/netzwerktechnik/internetzugang-dsl.html": {
+  "headings": [
+   "ISDN als Vorgänger (Legacy)"
+  ],
   "merksatz": "ADSL = asymmetrisch (Download schneller als Upload, für Privatnutzer). SDSL = symmetrisch (gleiche Geschwindigkeit beider Richtungen, für Firmen mit Upload-Bedarf). VDSL = höhere Datenraten auf kürzeren Leitungslängen. Datenraten in Mbit/s: 1 MByte/s = 8 Mbit/s."
  },
  "module/netzwerktechnik/ipv4-subnetting.html": {
@@ -685,6 +713,7 @@
    "CIDR-Schreibweise",
    "Netzadresse berechnen: bitweises UND (ANDing)",
    "Netz-, Broadcast- und Host-Adressen",
+   "Supernetting (Route-Summarization)",
    "Private IPv4-Adressbereiche"
   ],
   "merksatz": "IPv4 = 32 Bit, aufgeteilt in Netz- und Hostanteil per Subnetzmaske bzw. CIDR (/x). Nutzbare Hosts pro Subnetz = 2 Hostbits − 2 (Netz- und Broadcast-Adresse sind reserviert und nicht vergebbar)."
@@ -693,7 +722,8 @@
   "headings": [
    "Adresstypen",
    "Automatische Adressvergabe: SLAAC",
-   "EUI-64: Interface-Identifier aus der MAC-Adresse"
+   "EUI-64: Interface-Identifier aus der MAC-Adresse",
+   "Subnetting-Beispiel: ein /56-Präfix aufteilen"
   ],
   "merksatz": "IPv6 = 128 Bit, hexadezimal in 8 Blöcken, :: kürzt Nullfolgen einmal pro Adresse. Global Unicast = öffentlich, Unique Local = privat, Link-Local (fe80::/10) = automatisch pro Interface, nur lokal. SLAAC lässt Geräte sich ohne DHCP selbst adressieren, EUI-64 leitet den Interface-Identifier aus der MAC-Adresse ab."
  },
@@ -716,7 +746,10 @@
   "merksatz": "ping prüft Erreichbarkeit, tracert zeigt den Weg über einzelne Hops, ipconfig zeigt die eigene Netzwerkkonfiguration, nslookup prüft DNS-Auflösung. Loopback (127.0.0.1) testet den eigenen TCP/IP-Stack ohne Netzwerk. Systematische Fehlersuche geht von innen (eigenes Gerät) nach außen (Internet)."
  },
  "module/netzwerktechnik/netzwerkkomponenten.html": {
-  "merksatz": "Hub (Schicht 1) = dumm, sendet an alle. Switch (Schicht 2) = lernt MAC-Adressen, sendet gezielt, trennt Kollisionsdomänen. Router (Schicht 3) = verbindet Netze über IP-Adressen, trennt zusätzlich Broadcast-Domänen. Je höher die Schicht, desto intelligenter und gezielter die Weiterleitung."
+  "headings": [
+   "Routing-Tabelle: Wie ein Router entscheidet"
+  ],
+  "merksatz": "Hub (Schicht 1) = dumm, sendet an alle. Switch (Schicht 2) = lernt MAC-Adressen, sendet gezielt, trennt Kollisionsdomänen. Router (Schicht 3) = verbindet Netze über IP-Adressen, trennt zusätzlich Broadcast-Domänen. Je höher die Schicht, desto intelligenter und gezielter die Weiterleitung. Router wählen anhand ihrer Routingtabelle und der Metrik den passenden Weg — statisch von Hand gepflegt oder dynamisch per Routing-Protokoll."
  },
  "module/netzwerktechnik/netzwerktopologien.html": {
   "merksatz": "Bus = ein Strang, ein Bruch legt alles lahm. Stern = Standard in modernen LANs, ein Kabelausfall betrifft nur ein Gerät. Ring = jedes Gerät hat zwei Nachbarn. Mesh = sehr ausfallsicher, aber verkabelungsaufwendig."
@@ -728,7 +761,10 @@
   "merksatz": "Ports (0–65535) identifizieren die zuständige Anwendung auf einem Gerät. 0–1023 = Well-Known Ports (feste Standarddienste), 1024–49151 = Registered Ports, 49152–65535 = dynamische Ports für ausgehende Client-Verbindungen."
  },
  "module/netzwerktechnik/qos.html": {
-  "merksatz": "QoS priorisiert zeitkritischen Verkehr (z. B. VoIP) bei Bandbreitenengpässen. Ohne QoS gilt Best Effort — alle Pakete werden gleich behandelt. QoS-Regeln klassifizieren Pakete nach Protokoll, Port oder VLAN und weisen ihnen Prioritätsstufen zu."
+  "merksatz": "QoS priorisiert zeitkritischen Verkehr (z. B. VoIP) bei Bandbreitenengpässen. Ohne QoS gilt Best Effort — alle Pakete werden gleich behandelt. QoS-Regeln klassifizieren Pakete nach Protokoll, Port oder VLAN und weisen ihnen Prioritätsstufen zu. Latenz — Leitungslänge, aktive Komponenten, Warteschlangen — ist der Grund, warum sich fehlende Priorisierung bei Sprache und Video sofort bemerkbar macht."
+ },
+ "module/netzwerktechnik/strukturierte-verkabelung.html": {
+  "merksatz": "Strukturierte Verkabelung nach EN 50173/ISO 11801 gliedert sich in drei Ebenen: Primärverkabelung (Gebäude-zu-Gebäude im Campusbereich), Sekundärverkabelung (Gebäudeverteiler zu Etagenverteiler) und Tertiärverkabelung (Etagenverteiler zu Anschlussdose am Arbeitsplatz)."
  },
  "module/netzwerktechnik/switching-verfahren.html": {
   "headings": [
@@ -772,7 +808,10 @@
   "merksatz": "Virtualisierung teilt physische Ressourcen in mehrere logisch getrennte virtuelle Instanzen (Server, Desktop oder Anwendung). Typ-1-Hypervisor läuft direkt auf der Hardware (Bare-Metal, produktiv), Typ-2-Hypervisor läuft innerhalb eines Host-Betriebssystems (einfacher, für Tests). Vorteile: bessere Auslastung, Isolation, Flexibilität, Snapshots."
  },
  "module/netzwerktechnik/vlan.html": {
-  "merksatz": "VLAN trennt Broadcast-Domänen logisch über einen physischen Switch — untagged (Access) für Endgeräte, tagged (Trunk) mit VLAN-Tag nach IEEE 802.1Q für Verbindungen zwischen Switches/Router. Kommunikation zwischen unterschiedlichen VLANs läuft ausschließlich über einen Router (Inter-VLAN-Routing)."
+  "headings": [
+   "Natives VLAN und VLAN-Hopping"
+  ],
+  "merksatz": "VLAN trennt Broadcast-Domänen logisch über einen physischen Switch — untagged (Access) für Endgeräte, tagged (Trunk) mit VLAN-Tag nach IEEE 802.1Q für Verbindungen zwischen Switches/Router. Kommunikation zwischen unterschiedlichen VLANs läuft ausschließlich über einen Router (Inter-VLAN-Routing). Natives VLAN läuft ungetaggt über den Trunk — auf eine ungenutzte VLAN-ID legen, sonst droht VLAN-Hopping."
  },
  "module/netzwerktechnik/vpn-grundlagen.html": {
   "headings": [
@@ -788,9 +827,10 @@
    "SSID",
    "Verschlüsselungsstandards",
    "Personal vs. Enterprise",
-   "Access Point & Repeater"
+   "Access Point & Repeater",
+   "Planung: Site-Survey, WLAN-Scan & Gästezugang"
   ],
-  "merksatz": "WLAN nach IEEE 802.11 (Wi-Fi 4/5/6), SSID = Netzname. WPA3 ist der aktuelle Verschlüsselungsstandard, WEP/WPA gelten als unsicher. Personal = gemeinsames Passwort, Enterprise = individuelle Logins über RADIUS. Access Points verbinden Funk mit LAN, Repeater verlängern die Reichweite auf Kosten der Datenrate."
+  "merksatz": "WLAN nach IEEE 802.11 (Wi-Fi 4/5/6), SSID = Netzname. WPA3 ist der aktuelle Verschlüsselungsstandard, WEP/WPA gelten als unsicher. Personal = gemeinsames Passwort, Enterprise = individuelle Logins über RADIUS (AAA: Authentication/Authorization/Accounting). Access Points verbinden Funk mit LAN, Repeater verlängern die Reichweite auf Kosten der Datenrate. Site-Survey plant AP-Standorte vorab, BSSID identifiziert den einzelnen AP, Captive Portal regelt den Gästezugang."
  },
  "module/programmierung/compiler-interpreter-debugging.html": {
   "headings": [
@@ -819,6 +859,7 @@
  "module/programmierung/schleifen.html": {
   "headings": [
    "Zählschleife",
+   "Zählschleife mit Index über ein Array",
    "Kopfgesteuerte Schleife (SOLANGE)",
    "Fußgesteuerte Schleife (WIEDERHOLE … BIS)",
    "Endlosschleifen vermeiden",
@@ -875,7 +916,7 @@
   "merksatz": "Lewins 3-Phasen-Modell steuert episodischen Wandel: Unfreeze (Widerstände abbauen), Change (umsetzen), Refreeze (neuen Zustand verankern). Kaizen ergänzt dies um kontinuierliche, meist bottom-up initiierte kleine Verbesserungsschritte ohne festes Ende."
  },
  "module/projektmanagement/epk-ereignisgesteuerte-prozesskette.html": {
-  "merksatz": "Eine EPK besteht aus streng abwechselnden Ereignissen (Sechseck, passiver Zustand) und Funktionen (abgerundetes Rechteck, aktive Tätigkeit), verbunden über Kontrollfluss-Pfeile und die Konnektoren XOR/UND/ODER. EPK bleibt AP1-relevant."
+  "merksatz": "Eine EPK besteht aus streng abwechselnden Ereignissen (Sechseck, passiver Zustand) und Funktionen (abgerundetes Rechteck, aktive Tätigkeit), verbunden über Kontrollfluss-Pfeile und die Konnektoren XOR/UND/ODER."
  },
  "module/projektmanagement/feedback-retrospektive.html": {
   "headings": [
@@ -921,6 +962,9 @@
   "merksatz": "Das Harvard-Konzept trennt Mensch und Problem, fragt nach Interessen statt Positionen, entwickelt mehrere Optionen und nutzt objektive Kriterien. Die BATNA (beste Alternative ohne Einigung) stärkt die eigene Verhandlungsposition. Ziel ist eine Win-win-Lösung statt Win-lose oder Lose-lose."
  },
  "module/projektmanagement/lastenheft-pflichtenheft.html": {
+  "headings": [
+   "Typische Inhalte"
+  ],
   "merksatz": "Lastenheft = vom Auftraggeber, beschreibt was/wofür gebraucht wird (Anforderungen, ohne Lösungsdetails). Pflichtenheft = vom Auftragnehmer, beschreibt wie/womit die Anforderungen konkret umgesetzt werden. Das Pflichtenheft antwortet auf das Lastenheft und wird häufig Vertragsbestandteil."
  },
  "module/projektmanagement/netzplan.html": {
@@ -1292,6 +1336,7 @@
   "headings": [
    "Rechtsgrundlage: Betriebsverfassungsgesetz (BetrVG)",
    "Organe der betrieblichen Mitbestimmung",
+   "Jugend- und Auszubildendenvertretung (JAV) im Detail",
    "Abstufung der Beteiligungsrechte",
    "Abgrenzung zur Gewerkschaft"
   ],
@@ -1372,6 +1417,7 @@
   "headings": [
    "Grundidee",
    "Die vier Säulen der Ordnungspolitik",
+   "Konjunkturphasen erkennen",
    "Abgrenzung"
   ],
   "merksatz": "Soziale Marktwirtschaft = freier Wettbewerb (Angebot/Nachfrage, Privateigentum) plus staatlich organisierter sozialer Ausgleich. Vier Säulen: Wettbewerbsordnung, Sozialpolitik, Konjunkturpolitik, Stabilitätspolitik (magisches Viereck nach StabG 1967)."

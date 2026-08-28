@@ -124,28 +124,6 @@
         </tbody>
       </table>
 
-      <h3>AAA: Authentication, Authorization, Accounting</h3>
-      <p>
-        In Netzwerken fasst man Zugangskontrolle oft als <strong>AAA</strong>
-        zusammen:
-      </p>
-      <table>
-        <thead>
-          <tr><th>Begriff</th><th>Frage</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Authentication</strong></td><td>Wer bist du? (Identität prüfen)</td></tr>
-          <tr><td><strong>Authorization</strong></td><td>Was darfst du? (Rechte zuweisen)</td></tr>
-          <tr><td><strong>Accounting</strong></td><td>Was hast du getan? (Protokollieren)</td></tr>
-        </tbody>
-      </table>
-      <p>
-        <strong>RADIUS</strong> und <strong>TACACS+</strong> sind bekannte
-        AAA-Protokolle: RADIUS verschlüsselt nur das Passwort (oft für
-        WLAN/802.1X), TACACS+ verschlüsselt das gesamte Paket und trennt
-        die drei A sauber (beliebt in Cisco-Administration).
-      </p>
-
       <h3>Single Sign-On (SSO)</h3>
       <p>
         Bei <strong>SSO</strong> meldet sich der Nutzer einmal an und erhält
@@ -153,6 +131,12 @@
         Verwaltung. Risiko: Fällt das eine Konto, fallen potenziell alle
         angebundenen Dienste – deshalb gehört zu SSO praktisch immer MFA
         (Standards: SAML, OAuth 2.0, OpenID Connect).
+      </p>
+
+      <p>
+        Wie Zugriffsrechte und Protokollierung nach der Anmeldung geregelt
+        werden, behandelt die Einheit
+        <a href="../it-sicherheit/aaa-radius-tacacs.html">AAA: Authentication, Authorization, Accounting</a>.
       </p>
     </section>
 
@@ -167,7 +151,6 @@
         <li>Mitarbeiter melden sich künftig mit Passwort <strong>und</strong> einer Push-Benachrichtigung auf dem Diensthandy an → echte MFA, weil Wissen (Passwort) und Besitz (Smartphone) kombiniert werden.</li>
         <li>Ein Kollege schlägt vor, stattdessen Passwort plus eine zusätzliche Sicherheitsfrage zu verlangen → wird abgelehnt, da beides derselbe Faktor „Wissen“ ist und keine echte MFA darstellt.</li>
         <li>Über einen zentralen Login-Dienst (SSO) erhalten Mitarbeiter nach einer Anmeldung automatisch Zugriff auf E-Mail, Zeiterfassung und internes Wiki. Weil ein einziges kompromittiertes Konto damit mehrere Systeme öffnen würde, wird SSO verpflichtend mit MFA kombiniert.</li>
-        <li>Für den Zugang zu den Netzwerk-Switches wird TACACS+ eingesetzt, weil es die drei A sauber trennt und jede Konfigurationsänderung protokolliert.</li>
         <li>Beim Online-Banking-Portal des Kunden wird jede Überweisung zusätzlich mit einer <strong>pushTAN</strong> bestätigt → selbst ein abgefangenes Passwort reicht Angreifern nicht, da die TAN nur für diese eine Transaktion gilt.</li>
         <li>Das Kontaktformular bekommt nach einer Bot-Spam-Welle ein <strong>Captcha</strong> → kein Authentifizierungsfaktor, aber wirksam gegen automatisierte Angriffe.</li>
       </ul>
@@ -186,9 +169,8 @@
         unterschiedliche Faktorarten, nicht zweimal denselben. Passwort-
         Stärke = Zeichenraum<sup>Länge</sup>, Länge wirkt stärker als
         Komplexität. Captcha erkennt Bots, PIN ist ein kurzer Wissensfaktor,
-        TAN ein Einmalkennwort pro Transaktion. AAA = wer bist du, was
-        darfst du, was hast du getan. SSO spart Logins, braucht aber
-        zwingend MFA als Ausgleich für das erhöhte Risiko.
+        TAN ein Einmalkennwort pro Transaktion. SSO spart Logins, braucht
+        aber zwingend MFA als Ausgleich für das erhöhte Risiko.
       </p>
     </section>
 

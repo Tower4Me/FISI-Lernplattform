@@ -39,30 +39,6 @@
     },
     {
       "id": "q4",
-      "question": "Wofür steht das zweite A in AAA (Authentication, Authorization, Accounting)?",
-      "options": [
-        "Automation — was wird automatisiert?",
-        "Availability — ist das System erreichbar?",
-        "Anonymization — werden Daten anonymisiert?",
-        "Authorization — was darf ich?"
-      ],
-      "answer": 3,
-      "explanation": "Authorization klärt, welche Rechte eine bereits authentifizierte Person hat."
-    },
-    {
-      "id": "q5",
-      "question": "Welches AAA-Protokoll verschlüsselt das gesamte Datenpaket und ist beliebt für die Geräte-Administration?",
-      "options": [
-        "RADIUS",
-        "TACACS+",
-        "SAML",
-        "OpenID Connect"
-      ],
-      "answer": 1,
-      "explanation": "TACACS+ verschlüsselt das komplette Paket und trennt die drei A sauber — häufig für Netzwerkgeräte-Administration genutzt."
-    },
-    {
-      "id": "q6",
       "question": "Warum gehört zu Single Sign-On (SSO) praktisch immer MFA dazu?",
       "options": [
         "Weil ein kompromittiertes SSO-Konto alle angebundenen Dienste zugänglich macht",
@@ -74,7 +50,7 @@
       "explanation": "SSO bündelt den Zugang zu vielen Diensten hinter einem Login — MFA gleicht das dadurch erhöhte Risiko aus."
     },
     {
-      "id": "q7",
+      "id": "q5",
       "question": "Welche Standards werden häufig für Single Sign-On eingesetzt?",
       "options": [
         "RAID, JBOD, iSCSI",
@@ -86,7 +62,7 @@
       "explanation": "SAML, OAuth 2.0 und OpenID Connect sind verbreitete SSO-/Föderations-Standards."
     },
     {
-      "id": "q8",
+      "id": "q6",
       "question": "Wie berechnet sich die Anzahl möglicher Kombinationen eines Passworts?",
       "options": [
         "Länge mal Zeichenraum",
@@ -98,7 +74,7 @@
       "explanation": "Die Formel lautet Zeichenraum^Länge — jedes zusätzliche Zeichen in der Länge wirkt multiplikativ auf die Kombinationszahl."
     },
     {
-      "id": "q9",
+      "id": "q7",
       "question": "Wofür wird ein Captcha typischerweise eingesetzt?",
       "options": [
         "Als eigenständiger Authentifizierungsfaktor anstelle eines Passworts",
@@ -110,7 +86,7 @@
       "explanation": "Ein Captcha unterscheidet Mensch von Bot und erschwert automatisierte Angriffe — es ist selbst kein Authentifizierungsfaktor."
     },
     {
-      "id": "q10",
+      "id": "q8",
       "question": "Was unterscheidet eine TAN von einer PIN?",
       "options": [
         "Beide Begriffe sind technisch identisch und beliebig oft wiederverwendbar einsetzbar",

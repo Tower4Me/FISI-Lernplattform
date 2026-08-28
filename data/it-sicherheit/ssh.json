@@ -1,0 +1,101 @@
+{
+  "unit": "it-sicherheit/ssh",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Über welchen TCP-Port läuft SSH standardmäßig?",
+      "options": [
+        "Port 23",
+        "Port 22",
+        "Port 443",
+        "Port 21"
+      ],
+      "answer": 1,
+      "explanation": "SSH ist standardmäßig auf TCP-Port 22 erreichbar."
+    },
+    {
+      "id": "q2",
+      "question": "Welches ältere Protokoll wird durch SSH als sichere Alternative abgelöst?",
+      "options": [
+        "SNMP",
+        "FTP",
+        "Telnet",
+        "HTTP"
+      ],
+      "answer": 2,
+      "explanation": "SSH ersetzt das unverschlüsselte Telnet für den Fernzugriff auf die Kommandozeile."
+    },
+    {
+      "id": "q3",
+      "question": "Was ist der zentrale Nachteil von Telnet gegenüber SSH?",
+      "options": [
+        "Telnet benötigt zwingend eine Public-Key-Authentifizierung",
+        "Telnet funktioniert ausschließlich innerhalb lokaler Netzwerke",
+        "Telnet unterstützt grundsätzlich keine Kommandozeilen-Sitzungen",
+        "Telnet überträgt Zugangsdaten unverschlüsselt im Klartext"
+      ],
+      "answer": 3,
+      "explanation": "Telnet überträgt Kommandos und Zugangsdaten unverschlüsselt im Klartext, wodurch sie auf dem Transportweg mitgelesen werden können — genau das verhindert SSH durch Verschlüsselung."
+    },
+    {
+      "id": "q4",
+      "question": "Wodurch unterscheidet sich die Public-Key-Authentifizierung bei SSH von der Passwort-Authentifizierung?",
+      "options": [
+        "Es wird kein Passwort übertragen, der private Schlüssel bleibt beim Client",
+        "Sie überträgt das Passwort zusätzlich verschlüsselt zur Sicherheit",
+        "Sie funktioniert nur bei Verbindungen über Telnet",
+        "Sie speichert den privaten Schlüssel zusätzlich auf dem Server"
+      ],
+      "answer": 0,
+      "explanation": "Bei der Public-Key-Authentifizierung bleibt der private Schlüssel auf dem Client, nur der öffentliche Schlüssel liegt auf dem Server — es wird kein Passwort über das Netzwerk übertragen."
+    },
+    {
+      "id": "q5",
+      "question": "Wo liegt bei der Public-Key-Authentifizierung der öffentliche Schlüssel des Nutzers?",
+      "options": [
+        "Ausschließlich auf dem Client-Rechner des Nutzers",
+        "In der Datei authorized_keys auf dem Server",
+        "Bei einer externen Zertifizierungsstelle (CA)",
+        "Nirgends – er wird bei jeder Anmeldung neu erzeugt"
+      ],
+      "answer": 1,
+      "explanation": "Der öffentliche Schlüssel wird auf dem Server in der Datei authorized_keys hinterlegt, während der private Schlüssel beim Client bleibt."
+    },
+    {
+      "id": "q6",
+      "question": "Welche zwei Protokolle für Dateitransfer bauen auf einer SSH-Verbindung auf?",
+      "options": [
+        "FTP und TFTP",
+        "HTTP und HTTPS",
+        "SMTP und IMAP",
+        "SCP und SFTP"
+      ],
+      "answer": 3,
+      "explanation": "SCP (Secure Copy) und SFTP (SSH File Transfer Protocol) nutzen beide eine SSH-Verbindung für verschlüsselten Dateitransfer."
+    },
+    {
+      "id": "q7",
+      "question": "Was unterscheidet SSH grundsätzlich von TLS?",
+      "options": [
+        "SSH und TLS verwenden beide ausschließlich dasselbe Zertifikats- und CA-System zur Absicherung",
+        "TLS benötigt grundsätzlich keine Verschlüsselung, SSH dagegen setzt vollständig auf Verschlüsselung",
+        "SSH sichert eigenständig Fernzugriff, Terminal und Dateitransfer, TLS dagegen Anwendungsprotokolle wie HTTPS",
+        "SSH sichert ausschließlich Webseitenaufrufe ab, während TLS nur Terminal-Sitzungen absichert"
+      ],
+      "answer": 2,
+      "explanation": "SSH ist ein eigenständiges Protokoll für Fernzugriff, Terminal-Sitzungen und Dateitransfer, während TLS primär Anwendungsprotokolle wie HTTP (als HTTPS) absichert."
+    },
+    {
+      "id": "q8",
+      "question": "Warum deaktiviert der Administrator im Praxisbeispiel den zusätzlichen Telnet-Zugang auf dem Server?",
+      "options": [
+        "Weil Telnet Zugangsdaten unverschlüsselt im Klartext überträgt",
+        "Weil Telnet ausschließlich für Dateitransfer genutzt werden kann",
+        "Weil Telnet zwingend eine Public-Key-Authentifizierung voraussetzt",
+        "Weil Telnet grundsätzlich keine Kommandozeile bereitstellt"
+      ],
+      "answer": 0,
+      "explanation": "Telnet überträgt Zugangsdaten unverschlüsselt, weshalb der Administrator diesen unsicheren Zugang zugunsten von SSH deaktiviert."
+    }
+  ]
+}

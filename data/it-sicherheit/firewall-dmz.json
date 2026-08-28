@@ -72,6 +72,30 @@
       ],
       "answer": 2,
       "explanation": "Typisch sind zwei Firewall-Grenzen: Internet–DMZ und DMZ–internes LAN."
+    },
+    {
+      "id": "q7",
+      "question": "Was unterscheidet einen Forward-Proxy von einem Reverse-Proxy?",
+      "options": [
+        "Forward-Proxy sitzt client-seitig (z. B. Internetzugriff filtern), Reverse-Proxy server-seitig (z. B. Lastverteilung)",
+        "Beide sitzen ausschließlich auf der Serverseite, nur die Portnummer unterscheidet sich",
+        "Forward-Proxy verbirgt die Backend-Struktur, Reverse-Proxy filtert den Internetzugriff der Clients",
+        "Es gibt keinen technischen Unterschied, nur unterschiedliche Namen für dasselbe Verfahren"
+      ],
+      "answer": 0,
+      "explanation": "Ein Forward-Proxy sitzt auf Client-Seite und filtert/anonymisiert deren Internetzugriff, ein Reverse-Proxy sitzt auf Server-Seite und übernimmt z. B. Lastverteilung."
+    },
+    {
+      "id": "q8",
+      "question": "Was unterscheidet einen Proxy grundsätzlich von einer Firewall?",
+      "options": [
+        "Ein Proxy filtert ausschließlich nach IP-Adressen, eine Firewall ausschließlich nach Portnummern",
+        "Ein Proxy leitet Verbindungen auf Anwendungsebene stellvertretend weiter, eine Firewall filtert nur auf Paket-/Portebene",
+        "Beide Begriffe bezeichnen exakt dieselbe Technik, nur auf unterschiedlichen Netzwerkebenen benannt",
+        "Eine Firewall leitet Verbindungen stellvertretend weiter, ein Proxy blockiert sie nur nach festen Regeln"
+      ],
+      "answer": 1,
+      "explanation": "Ein Proxy arbeitet auf Anwendungsebene und leitet Verbindungen im Namen des Clients/Servers aktiv weiter, während eine Firewall primär nach Regeln auf Paket-/Portebene filtert."
     }
   ]
 }

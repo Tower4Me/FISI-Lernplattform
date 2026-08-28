@@ -84,6 +84,30 @@
       ],
       "answer": 2,
       "explanation": "Für den aktiven Videoschnitt zählt hohe Geschwindigkeit (NVMe), fürs Langzeitarchiv dagegen niedrige Kosten pro TB bei seltenem Zugriff (HDD/Bandlaufwerk) — die Wahl richtet sich nach dem Einsatzzweck."
+    },
+    {
+      "id": "q8",
+      "question": "Welche Speichertechnik steckt in der Regel in einem USB-Stick oder einer externen SSD?",
+      "options": [
+        "Rotierende Magnetscheiben wie bei einer HDD",
+        "NAND-Flash, wie auch bei internen SSDs",
+        "Ausschließlich optische Speicherung per Laser",
+        "Ein eigenes, nur für USB entwickeltes Speicherprinzip"
+      ],
+      "answer": 1,
+      "explanation": "USB-Sticks und externe SSDs speichern Daten in der Regel auf NAND-Flash, genau wie interne SSDs. Sie unterscheiden sich vor allem in Formfaktor und Anschluss (USB statt SATA/NVMe)."
+    },
+    {
+      "id": "q9",
+      "question": "Wovon hängt die Übertragungsgeschwindigkeit eines USB-Speichermediums maßgeblich ab?",
+      "options": [
+        "Ausschließlich von der Steckerform USB-C",
+        "Vom verwendeten USB-Standard (z. B. USB 2.0 vs. USB 3.x)",
+        "Von der Kapazität des Speichermediums in GB",
+        "Die Geschwindigkeit ist bei allen USB-Anschlüssen identisch"
+      ],
+      "answer": 1,
+      "explanation": "Der jeweilige USB-Standard (USB 2.0, USB 3.x) ist entscheidend für die erreichbare Geschwindigkeit. USB-C ist nur eine Steckerform, unter der verschiedene Standards mit unterschiedlichem Tempo laufen können."
     }
   ]
 }

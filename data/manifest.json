@@ -225,6 +225,12 @@
           "quiz": "data/hardware/mainboard-busse.json"
         },
         {
+          "slug": "netzwerkkarten",
+          "name": "Netzwerkkarten",
+          "exams": ["ap1"],
+          "quiz": "data/hardware/netzwerkkarten.json"
+        },
+        {
           "slug": "bios-uefi-boot",
           "name": "BIOS/UEFI & Bootvorgang",
           "exams": ["ap1", "ap2"],
@@ -543,6 +549,12 @@
           "quiz": "data/it-sicherheit/zertifikate-tls-pki.json"
         },
         {
+          "slug": "ssh",
+          "name": "SSH",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/ssh.json"
+        },
+        {
           "slug": "schadsoftware-typen",
           "name": "Schadsoftware-Typen",
           "exams": ["ap1", "ap2"],
@@ -571,6 +583,12 @@
           "name": "Authentifizierung, MFA & AAA",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/authentifizierung-mfa-aaa.json"
+        },
+        {
+          "slug": "aaa-radius-tacacs",
+          "name": "AAA: Authentication, Authorization, Accounting",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/aaa-radius-tacacs.json"
         },
         {
           "slug": "berechtigungskonzepte",

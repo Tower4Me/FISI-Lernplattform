@@ -1,0 +1,77 @@
+{
+  "unit": "it-sicherheit/aaa-radius-tacacs",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Wofür steht das zweite A in AAA (Authentication, Authorization, Accounting)?",
+      "options": [
+        "Authentication",
+        "Auditing",
+        "Authorization",
+        "Access Control"
+      ],
+      "answer": 2,
+      "explanation": "Authorization ist das zweite A und klärt, welche Rechte eine bereits authentifizierte Person hat. Auditing und Access Control sind reale Sicherheitsbegriffe, aber kein Teil des AAA-Akronyms."
+    },
+    {
+      "id": "q2",
+      "question": "Welches AAA-Protokoll verschlüsselt das gesamte Datenpaket und ist beliebt für die Geräte-Administration?",
+      "options": [
+        "RADIUS",
+        "TACACS+",
+        "SAML",
+        "OpenID Connect"
+      ],
+      "answer": 1,
+      "explanation": "TACACS+ verschlüsselt das komplette Paket und trennt die drei A sauber — häufig für Netzwerkgeräte-Administration genutzt."
+    },
+    {
+      "id": "q3",
+      "question": "Über welches Transportprotokoll läuft RADIUS typischerweise, im Unterschied zu TACACS+?",
+      "options": [
+        "UDP, während TACACS+ TCP nutzt",
+        "TCP, während TACACS+ UDP nutzt",
+        "Beide nutzen ausschließlich TCP",
+        "Beide nutzen ausschließlich UDP"
+      ],
+      "answer": 0,
+      "explanation": "RADIUS überträgt seine Pakete über UDP, TACACS+ nutzt das verbindungsorientierte TCP."
+    },
+    {
+      "id": "q4",
+      "question": "Was verschlüsselt RADIUS standardmäßig bei der Authentifizierung – im Unterschied zu TACACS+?",
+      "options": [
+        "Nur das Passwort, während TACACS+ das gesamte Paket verschlüsselt",
+        "Das gesamte Paket, während TACACS+ nur das Passwort verschlüsselt",
+        "Nur die Benutzernamen, während TACACS+ gar nichts verschlüsselt",
+        "Gar nichts, während TACACS+ nur das Passwort verschlüsselt"
+      ],
+      "answer": 0,
+      "explanation": "RADIUS verschlüsselt in der Grundform nur das Passwort-Feld, TACACS+ verschlüsselt den kompletten Paketinhalt."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Mitarbeiter meldet sich mit korrektem Passwort erfolgreich an einem System an. Hat er damit automatisch Zugriff auf alle Funktionen?",
+      "options": [
+        "Ja, eine erfolgreiche Authentifizierung gewährt automatisch sämtliche Rechte.",
+        "Nein, ob er Zugriff auf einzelne Funktionen erhält, klärt erst die Autorisierung.",
+        "Ja, Authentifizierung und Autorisierung sind im AAA-Modell ein und derselbe Schritt.",
+        "Nein, ohne ein vorheriges Accounting ist überhaupt keine Anmeldung möglich."
+      ],
+      "answer": 1,
+      "explanation": "Authentifizierung bestätigt nur die Identität. Welche Rechte diese Identität hat, legt die getrennte Autorisierung fest – z. B. korrektes Passwort, aber nur Lesezugriff."
+    },
+    {
+      "id": "q6",
+      "question": "Welches Beispiel beschreibt am besten die Aufgabe von Accounting im AAA-Modell?",
+      "options": [
+        "Ein Administrator vergibt einer Rolle Lesezugriff auf eine Konfigurationsdatei",
+        "Ein System prüft ein eingegebenes Zertifikat gegen den hinterlegten Schlüssel",
+        "Ein Protokoll hält fest, wer wann welchen Switch-Port konfiguriert hat",
+        "Ein Nutzer meldet sich per Fingerabdruck an einem Firmenlaptop an"
+      ],
+      "answer": 2,
+      "explanation": "Accounting protokolliert nachträglich nachvollziehbar, wer wann welche Aktion durchgeführt hat – hier: wer wann welchen Switch-Port konfiguriert hat."
+    }
+  ]
+}

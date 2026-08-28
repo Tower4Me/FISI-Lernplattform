@@ -122,6 +122,48 @@
           DMZ-Server öffnet noch keinen Zugriff auf das interne Netz.
         </figcaption>
       </figure>
+
+      <h3>Proxy-Server: Forward- vs. Reverse-Proxy</h3>
+      <p>
+        Ein <strong>Proxy-Server</strong> leitet Verbindungen
+        stellvertretend für eine andere Partei weiter. Man unterscheidet
+        zwei Einsatzrichtungen:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Sitzt auf Seite von</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Forward-Proxy</td>
+            <td>Client</td>
+            <td>Internetzugriff der Clients filtern, protokollieren
+              oder den Nutzer gegenüber dem Zielserver anonymisieren</td>
+          </tr>
+          <tr>
+            <td>Reverse-Proxy</td>
+            <td>Server</td>
+            <td>Lastverteilung auf mehrere Backend-Server, verbirgt die
+              interne Serverstruktur vor dem Internet</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Abgrenzung zur Firewall:</strong> Ein Proxy arbeitet auf
+        Anwendungsebene und leitet Verbindungen im Namen des Clients
+        bzw. Servers aktiv weiter – er ist selbst Kommunikationspartner
+        für beide Seiten. Eine Firewall dagegen filtert primär nach
+        Regeln auf Paket-/Portebene und lässt Verbindungen entweder
+        durch oder blockiert sie, ohne selbst als aktiver
+        Kommunikationspartner aufzutreten.
+      </p>
+      <p>
+        Ein <strong>Reverse-Proxy sitzt in der Praxis häufig in der
+        DMZ</strong>: Er nimmt Anfragen aus dem Internet entgegen und
+        leitet sie gezielt an die eigentlichen Backend-Server im
+        internen Netz weiter, ohne deren Adressen oder Struktur nach
+        außen preiszugeben.
+      </p>
     </section>
 
     <!-- 3. PRAXISBEISPIEL -->

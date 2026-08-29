@@ -77,13 +77,13 @@
       "id": "q7",
       "question": "Welche vier Grundprobleme löst ein Dateisystem laut Konzept dieser Einheit?",
       "options": [
-        "Verschlüsselung, Kompression, Backup und Virenschutz der gespeicherten Daten",
-        "Drucken, Scannen, Netzwerken und automatisches Booten des Systems",
+        "Verschlüsselung, Komprimierung, Zugriffsrechte und Versionierung von Dateien",
+        "Organisation, Adressierung, Zugriffskontrolle und Partitionierung",
         "Organisation, Adressierung, Freispeicherverwaltung, Metadatenverwaltung",
-        "RAID, NAS, SAN und iSCSI als zentrale Speichertechnologien"
+        "Freispeicherverwaltung, Metadatenverwaltung, RAID-Redundanz und Journaling"
       ],
       "answer": 2,
-      "explanation": "Ein Dateisystem organisiert Dateien hierarchisch, adressiert Speicherblöcke, verwaltet freien Speicherplatz und speichert Metadaten getrennt vom Inhalt."
+      "explanation": "Ein Dateisystem organisiert Dateien hierarchisch (Organisation), adressiert Speicherblöcke (Adressierung), verwaltet freien Speicherplatz (Freispeicherverwaltung) und speichert Metadaten getrennt vom Inhalt (Metadatenverwaltung). Verschlüsselung, Komprimierung, Zugriffsrechte und Versionierung sind reale Zusatzfunktionen, aber keine der vier Grundprobleme; Zugriffskontrolle/Partitionierung sowie RAID-Redundanz/Journaling sind ebenfalls reale, aber andere Konzepte aus dem Speicher-Umfeld."
     }
   ]
 }

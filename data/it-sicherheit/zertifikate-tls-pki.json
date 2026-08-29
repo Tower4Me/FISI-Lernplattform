@@ -5,13 +5,13 @@
       "id": "q1",
       "question": "Was bestätigt ein digitales Zertifikat?",
       "options": [
-        "Dass eine Website vollständig fehlerfrei programmiert und ausführlich getestet wurde",
-        "Dass eine Website dauerhaft und für jeden kostenlos nutzbar ist",
-        "Dass ein Server unter allen Umständen niemals ausfällt",
-        "Dass ein öffentlicher Schlüssel zu einer bestimmten Domain/Person gehört"
+        "Dass der Inhalt der Website inhaltlich korrekt und wahr ist",
+        "Dass die Verbindung dadurch vollständig anonym und unverfolgbar bleibt",
+        "Dass ein öffentlicher Schlüssel zu einer bestimmten Domain/Person gehört",
+        "Dass die Verbindung zusätzlich durch eine Firewall geschützt wird"
       ],
-      "answer": 3,
-      "explanation": "Ein Zertifikat bindet einen öffentlichen Schlüssel nachweislich an eine Identität (z. B. eine Domain)."
+      "answer": 2,
+      "explanation": "Ein Zertifikat bindet einen öffentlichen Schlüssel nachweislich an eine Identität (z. B. eine Domain) und bestätigt damit nur, mit wem verschlüsselt kommuniziert wird — nicht die Richtigkeit der Inhalte, nicht Anonymität und auch keinen zusätzlichen Firewall-Schutz."
     },
     {
       "id": "q2",
@@ -43,11 +43,11 @@
       "options": [
         "Die Website ist in jedem Fall vollständig seriös und vertrauenswürdig",
         "Die Verbindung ist verschlüsselt, das Zertifikat gültig",
-        "Die Website hat garantiert überhaupt keine Werbung",
-        "Der Server steht garantiert ausschließlich in Deutschland"
+        "Der Betreiber der Website wurde dabei umfassend und persönlich auf seine Identität geprüft",
+        "Der Server ist dadurch zusätzlich vor Angriffen wie DDoS geschützt"
       ],
       "answer": 1,
-      "explanation": "Das Schloss bestätigt nur verschlüsselte Übertragung und ein gültiges Zertifikat — nicht die Seriosität des Angebots."
+      "explanation": "Das Schloss bestätigt ausschließlich verschlüsselte Übertragung und ein gültiges Zertifikat — nicht die Seriosität der Inhalte, nicht automatisch eine umfassende Identitätsprüfung des Betreibers (das leisten nur bestimmte, heute seltene Zertifikatstypen) und keinen Schutz vor Angriffen wie DDoS."
     },
     {
       "id": "q5",

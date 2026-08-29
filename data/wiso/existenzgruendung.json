@@ -5,13 +5,13 @@
       "id": "q1",
       "question": "Wie haftet ein Einzelunternehmer für Verbindlichkeiten seines Unternehmens?",
       "options": [
-        "Gar nicht, das Risiko trägt allein die Bank",
+        "Nur anteilig entsprechend einer vertraglich vereinbarten Beteiligungsquote",
         "Nur bis zur Höhe des Stammkapitals",
         "Voll, mit dem gesamten Privatvermögen",
         "Nur mit dem Betriebsvermögen"
       ],
       "answer": 2,
-      "explanation": "Einzelunternehmer haften unbeschränkt mit ihrem gesamten Privatvermögen."
+      "explanation": "Einzelunternehmer haften unbeschränkt mit ihrem gesamten Privatvermögen. Eine Haftungsbegrenzung auf ein Stammkapital gilt nur für Kapitalgesellschaften wie GmbH/UG, eine Beschränkung auf das Betriebsvermögen oder eine anteilige Haftung nach Beteiligungsquote gibt es beim Einzelunternehmen nicht."
     },
     {
       "id": "q2",
@@ -19,23 +19,23 @@
       "options": [
         "1 €",
         "Kein Mindestkapital erforderlich",
-        "Wird individuell vom Gewerbeamt bei der Anmeldung festgelegt",
+        "12.500 €",
         "25.000 €"
       ],
       "answer": 3,
-      "explanation": "Für die Gründung einer GmbH ist ein Mindeststammkapital von 25.000 € vorgeschrieben."
+      "explanation": "Für die Gründung einer GmbH ist ein Mindeststammkapital von 25.000 € vorgeschrieben. 1 € ist das Mindestkapital der UG (haftungsbeschränkt), nicht der GmbH; ein Einzelunternehmen braucht gar kein Mindestkapital; 12.500 € ist keine gesetzlich vorgesehene Zwischenstufe."
     },
     {
       "id": "q3",
       "question": "Warum wird die UG (haftungsbeschränkt) oft als „Mini-GmbH“ bezeichnet?",
       "options": [
         "Weil sie bereits ab 1 € Stammkapital gegründet werden kann, aber ebenfalls Haftungsbeschränkung bietet",
-        "Weil sie steuerlich in jeder erdenklichen Hinsicht komplett identisch mit einem klassischen Einzelunternehmen ist",
+        "Weil sie im Gegensatz zur GmbH nicht notariell beurkundet werden muss",
         "Weil sie wie das Einzelunternehmen kein Mindestkapital benötigt",
-        "Weil sie im Unterschied zur GmbH keinerlei Eintragung ins Handelsregister überhaupt benötigt"
+        "Weil sie im Unterschied zur GmbH keinerlei Eintragung ins Handelsregister benötigt"
       ],
       "answer": 0,
-      "explanation": "Die UG kann bereits mit 1 € Stammkapital gegründet werden und bietet trotzdem eine Haftungsbeschränkung auf das Gesellschaftsvermögen."
+      "explanation": "Die UG kann bereits mit 1 € Stammkapital gegründet werden und bietet trotzdem eine Haftungsbeschränkung wie die GmbH — daher „Mini-GmbH“. Anders als die übrigen Optionen suggerieren, benötigt sie aber ebenfalls eine notarielle Beurkundung und einen Handelsregistereintrag, und ein Mindestkapital von 1 € ist etwas anderes als „kein“ Mindestkapital wie beim Einzelunternehmen."
     },
     {
       "id": "q4",
@@ -65,13 +65,13 @@
       "id": "q6",
       "question": "Welches ist ein typisches Risiko der Selbstständigkeit im Vergleich zur Anstellung?",
       "options": [
-        "Eine automatische Pflichtversicherung in der gesetzlichen Arbeitslosenversicherung wie bei Angestellten",
-        "Ein garantiertes staatliches Mindesteinkommen unabhängig vom tatsächlichen Geschäftserfolg",
-        "Ein gesetzlicher Anspruch auf bezahlten Jahresurlaub wie bei fest angestellten Beschäftigten",
+        "Unregelmäßiges und schwankendes Einkommen je nach Auftragslage",
+        "Keine automatische Lohnfortzahlung im Krankheitsfall wie beim EFZG für Angestellte",
+        "Höhere persönliche Verantwortung für unternehmerische Entscheidungen ohne Rückversicherung durch Vorgesetzte",
         "Fehlende automatische gesetzliche Absicherung, z. B. freiwillige statt Pflicht-Rentenversicherung"
       ],
       "answer": 3,
-      "explanation": "Selbstständige sind in der Regel nicht automatisch pflichtversichert und müssen sich freiwillig absichern, z. B. in der Rentenversicherung."
+      "explanation": "Selbstständige sind in der Regel nicht automatisch pflichtversichert (z. B. in der Rentenversicherung) und müssen sich freiwillig absichern. Schwankendes Einkommen, fehlende Lohnfortzahlung und höhere Entscheidungsverantwortung sind ebenfalls reale Herausforderungen der Selbstständigkeit, aber nicht das hier gemeinte Risiko der fehlenden gesetzlichen Sozialversicherung."
     },
     {
       "id": "q7",

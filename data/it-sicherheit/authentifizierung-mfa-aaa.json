@@ -7,11 +7,11 @@
       "options": [
         "Wissen, Besitz, Sein",
         "Passwort, PIN, Muster",
-        "Online, Offline, Hybrid",
-        "Lokal, Remote, Cloud"
+        "Identifizierung, Authentifizierung, Autorisierung",
+        "Zwei-Faktor, Multi-Faktor, Single Sign-On"
       ],
       "answer": 0,
-      "explanation": "Die drei Faktorarten sind Wissen (etwas, das man weiß), Besitz (etwas, das man hat) und Sein/Inhärenz (etwas, das man ist)."
+      "explanation": "Die drei Faktorarten sind Wissen (etwas, das man weiß), Besitz (etwas, das man hat) und Sein/Inhärenz (etwas, das man ist). Passwort/PIN/Muster sind nur Beispiele für den Faktor Wissen, keine drei eigenen Faktorarten. Identifizierung/Authentifizierung/Autorisierung ist ein anderes Begriffstrio (der Ablauf der Zugriffskontrolle), und Zwei-Faktor/Multi-Faktor/SSO sind Authentifizierungsverfahren, keine Faktorarten."
     },
     {
       "id": "q2",
@@ -53,13 +53,13 @@
       "id": "q5",
       "question": "Welche Standards werden häufig für Single Sign-On eingesetzt?",
       "options": [
-        "RAID, JBOD, iSCSI",
+        "Kerberos, LDAP, RADIUS",
         "HTTP Basic Auth, Digest Auth, NTLM",
         "SAML, OAuth 2.0, OpenID Connect",
-        "SMTP, IMAP, POP3"
+        "TLS, SSH, IPsec"
       ],
       "answer": 2,
-      "explanation": "SAML, OAuth 2.0 und OpenID Connect sind verbreitete SSO-/Föderations-Standards."
+      "explanation": "SAML, OAuth 2.0 und OpenID Connect sind die verbreiteten SSO-/Föderations-Standards. Kerberos/LDAP/RADIUS sind Verzeichnis- und Netzwerk-Authentifizierungsprotokolle, HTTP Basic/Digest/NTLM sind ältere, nicht-föderierte Login-Verfahren, und TLS/SSH/IPsec sind Verschlüsselungs- bzw. Transportprotokolle — keiner dieser drei Sätze ist auf SSO spezialisiert."
     },
     {
       "id": "q6",

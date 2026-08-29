@@ -6,12 +6,12 @@
       "question": "Wofür steht die Abkürzung TOM im Datenschutz?",
       "options": [
         "Ausschließlich technische oder rein manuelle Maßnahmen",
-        "Tabellarische Objekt-Modelle in der Datenmodellierung",
-        "Transport- und Ordnungsmerkmale von Datenpaketen",
+        "Transparenz-, Organisations- und Meldepflichten nach der DSGVO",
+        "Technische Optimierungs- und Migrationsmaßnahmen in der IT",
         "Technische und organisatorische Maßnahmen"
       ],
       "answer": 3,
-      "explanation": "TOM = technische und organisatorische Maßnahmen, gefordert von Art. 32 DSGVO."
+      "explanation": "TOM steht für Technische und organisatorische Maßnahmen, gefordert von Art. 32 DSGVO — beide Kategorien zusammen, nicht nur eine davon. Transparenz-/Meldepflichten und allgemeine IT-Optimierung sind reale, aber andere Datenschutz- bzw. IT-Begriffe."
     },
     {
       "id": "q2",
@@ -77,13 +77,13 @@
       "id": "q7",
       "question": "Welche der vier in Art. 32 DSGVO ausdrücklich genannten Maßnahmen ist korrekt?",
       "options": [
-        "Kündigung und arbeitsrechtliche Abmahnung des Mitarbeiters",
-        "Normalisierung und Indizierung von Datenbanktabellen",
+        "Backup und Redundanz der IT-Systeme",
+        "Firewall-Konfiguration und Penetrationstests",
         "Pseudonymisierung und Verschlüsselung",
-        "Inventur und kaufmännische Skontierung im Rechnungswesen"
+        "Zwei-Faktor-Authentifizierung und Passwort-Rotation"
       ],
       "answer": 2,
-      "explanation": "Art. 32 nennt u. a. Pseudonymisierung und Verschlüsselung sowie Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit."
+      "explanation": "Art. 32 DSGVO nennt ausdrücklich Pseudonymisierung und Verschlüsselung als Beispielmaßnahmen. Backup/Redundanz, Firewall/Pentests und 2FA/Passwort-Rotation sind ebenfalls sinnvolle Sicherheitsmaßnahmen, aber nicht die im Gesetzestext von Art. 32 wörtlich benannten Beispiele."
     },
     {
       "id": "q8",

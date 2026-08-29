@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IT-Sicherheit: Authentifizierung, MFA & AAA</title>
+  <title>IT-Sicherheit: MFA & SSO</title>
   <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <link rel="stylesheet" href="../../assets/style.css">
   <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
@@ -15,12 +15,12 @@
       <ol>
         <li><a href="../../index.html">Lernplan</a></li>
         <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
-        <li aria-current="page">Authentifizierung, MFA & AAA</li>
+        <li aria-current="page">MFA & SSO</li>
       </ol>
     </nav>
 
     <h1 class="unit-title">
-      Authentifizierung, MFA & AAA
+      MFA & SSO
       <span class="badges">
         <span class="badge badge--ap1">AP1</span>
         <span class="badge badge--ap2">AP2</span>
@@ -129,8 +129,34 @@
         Bei <strong>SSO</strong> meldet sich der Nutzer einmal an und erhält
         Zugang zu mehreren Diensten. Vorteil: weniger Passwörter, zentrale
         Verwaltung. Risiko: Fällt das eine Konto, fallen potenziell alle
-        angebundenen Dienste – deshalb gehört zu SSO praktisch immer MFA
-        (Standards: SAML, OAuth 2.0, OpenID Connect).
+        angebundenen Dienste – deshalb gehört zu SSO praktisch immer MFA.
+      </p>
+      <p>
+        Technisch sind daran zwei Rollen beteiligt: Der
+        <strong>Identity Provider (IdP)</strong> verwaltet den eigentlichen
+        Login und prüft, wer sich anmeldet. Der
+        <strong>Service Provider (SP)</strong> ist der Dienst oder die
+        Website, die der Nutzer eigentlich nutzen will. Der Ablauf läuft
+        dabei immer in derselben Reihenfolge: Der Nutzer ruft den SP auf →
+        der SP hat noch keine gültige Sitzung und leitet zum IdP weiter →
+        der Nutzer meldet sich einmal beim IdP an → der IdP stellt ein
+        signiertes Token (auch Assertion genannt) aus, das die Identität
+        und oft die zugehörigen Berechtigungen bestätigt → der Browser wird
+        mit diesem Token zurück zum SP geleitet → der SP vertraut dem
+        Token, weil er dem IdP vertraut, und gewährt Zugriff, ohne dass dort
+        ein eigenes Passwort nötig wäre.
+      </p>
+      <p>
+        Praxisbeispiel: Meldet man sich bei einer fremden Website über
+        „Mit Google anmelden“ oder „Mit Microsoft anmelden“ an, sieht diese
+        Website niemals das Google- bzw. Microsoft-Passwort – sie erhält von
+        Google bzw. Microsoft nur ein Token, das die Identität bestätigt.
+      </p>
+      <p>
+        Verbreitete Standards dafür sind SAML, OAuth 2.0 und OpenID
+        Connect: SAML ist vor allem in klassischen
+        Unternehmens-/Intranet-SSO-Umgebungen verbreitet, OAuth 2.0 und
+        OpenID Connect dagegen häufiger in modernen Web- und Mobile-Apps.
       </p>
 
       <p>

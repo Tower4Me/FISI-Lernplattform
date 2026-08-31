@@ -20,6 +20,11 @@ MODULE_DIR = REPO_ROOT / "module"
 MANIFEST_PATH = REPO_ROOT / "data" / "manifest.json"
 
 HREF_RE = re.compile(r'href="([^"]+)"')
+# Entfernt <code>/<pre>-Blockinhalte vor der href-Suche: Lehrinhalte zeigen
+# darin oft Link-Syntax als Beispiel (z. B. <code>&lt;a href="..."&gt;</code>
+# in module/software-os-web/html-css-grundlagen.html), was sonst als toter
+# Link "..." fehlerhaft erkannt wird.
+CODE_PRE_RE = re.compile(r"<(code|pre)\b[^>]*>.*?</\1>", re.IGNORECASE | re.DOTALL)
 
 
 def load_manifest_units():
@@ -48,7 +53,8 @@ def main():
 
     for html_file in html_files:
         text = html_file.read_text(encoding="utf-8")
-        for href in HREF_RE.findall(text):
+        scanned_text = CODE_PRE_RE.sub("", text)
+        for href in HREF_RE.findall(scanned_text):
             if is_external_or_skippable(href):
                 continue
 

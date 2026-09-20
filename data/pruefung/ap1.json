@@ -392,6 +392,47 @@
       "schwierigkeit": "leicht"
     },
     {
+      "id": "ap1-hw-szenario1-a",
+      "typ": "mc",
+      "scenario_id": "ap1-hw-szenario-buerobau",
+      "scenario_text": "Die Musterbau GmbH stattet einen neuen Arbeitsplatz für die Buchhaltung aus. Der ausgewählte Rechner hat aktuell 8 GB RAM (ein Modul) und soll für die parallele Nutzung von Tabellenkalkulation, Mailclient und einer Buchhaltungssoftware aufgerüstet werden. Das Mainboard besitzt 4 RAM-Steckplätze und unterstützt maximal 64 GB.",
+      "teilaufgabe": "a",
+      "frage": "Auf welche Weise sollte der Arbeitsspeicher am sinnvollsten erweitert werden?",
+      "optionen": ["Das vorhandene 8-GB-Modul entnehmen und durch ein einzelnes größeres Modul ersetzen oder zusätzliche Module in die freien Steckplätze einsetzen.", "Den Rechner komplett neu kaufen, da RAM bei diesem Mainboard grundsätzlich nicht erweiterbar ist.", "Eine externe USB-Festplatte anschließen, da diese den Arbeitsspeicher direkt ersetzt.", "Die Auslagerungsdatei auf der Festplatte vergrößern, da dies technisch identisch zu mehr RAM ist."],
+      "antwort": 0,
+      "erklaerung": "Bei freien Steckplätzen lässt sich RAM durch Nachrüsten zusätzlicher Module oder Austausch gegen größere Module erweitern — eine Auslagerungsdatei ist deutlich langsamer als echter Arbeitsspeicher und kein gleichwertiger Ersatz.",
+      "modul": "hardware",
+      "teile": ["ap1"],
+      "block": "hardware-arbeitsplatz",
+      "schwierigkeit": "leicht"
+    },
+    {
+      "id": "ap1-hw-szenario1-b",
+      "typ": "mc",
+      "scenario_id": "ap1-hw-szenario-buerobau",
+      "teilaufgabe": "b",
+      "frage": "Welche Angabe muss vor dem Kauf zusätzlicher RAM-Module unbedingt geprüft werden, damit die Module mit dem vorhandenen Modul zusammenarbeiten?",
+      "optionen": ["Die Speichertechnik (z. B. DDR4) und die maximale Taktrate, die das Mainboard unterstützt.", "Die Herstellerfarbe der Kühlkörper auf den RAM-Modulen.", "Die Anzahl der USB-Anschlüsse am Gehäuse.", "Die Auflösung des angeschlossenen Monitors."],
+      "antwort": 0,
+      "erklaerung": "RAM-Module müssen zur unterstützten Speichertechnik und Taktrate des Mainboards passen, sonst funktionieren sie nicht oder laufen nur mit der niedrigeren gemeinsamen Taktrate.",
+      "modul": "hardware",
+      "teile": ["ap1"],
+      "block": "hardware-arbeitsplatz",
+      "schwierigkeit": "mittel"
+    },
+    {
+      "id": "ap1-hw-multi-001",
+      "typ": "mc-multi",
+      "frage": "Nennen Sie zwei Maßnahmen, mit denen sich die Lebensdauer und Zuverlässigkeit eines Desktop-PCs im Dauerbetrieb erhöhen lassen.",
+      "optionen": ["Regelmäßige Reinigung von Lüftern und Kühlkörpern von Staub.", "Den PC dauerhaft in direktem Sonnenlicht auf der Fensterbank betreiben.", "Ausreichende Gehäusebelüftung durch freien Luftstrom sicherstellen.", "Alle Gehäuselüfter dauerhaft deaktivieren, um Geräusche zu vermeiden."],
+      "antwort": [0, 2],
+      "erklaerung": "Staubfreie Kühlkörper und ein freier Luftstrom verhindern Überhitzung und damit vorzeitigen Verschleiß. Direkte Sonneneinstrahlung und deaktivierte Lüfter wirken dagegen.",
+      "modul": "hardware",
+      "teile": ["ap1"],
+      "block": "hardware-arbeitsplatz",
+      "schwierigkeit": "mittel"
+    },
+    {
       "id": "ap1-os-001",
       "typ": "mc",
       "frage": "Welche Kernaufgabe hat der Kernel eines Betriebssystems?",

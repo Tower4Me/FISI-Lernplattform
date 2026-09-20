@@ -130,6 +130,26 @@
   }
 
   /* --------------------------------------------------------- Ziehung --- */
+  // Fragen mit gleicher scenario_id bilden eine atomare Einheit: entweder
+  // wird die ganze Gruppe gezogen oder keine ihrer Teilaufgaben.
+  function groupIntoUnits(poolBlock) {
+    var map = {}, units = [];
+    poolBlock.forEach(function (f) {
+      var k = f.scenario_id || ("__solo__" + f.id);
+      if (!map[k]) { map[k] = { questions: [] }; units.push(map[k]); }
+      map[k].questions.push(f);
+    });
+    units.forEach(function (u) {
+      if (u.questions.length > 1) {
+        u.questions.sort(function (a, b) {
+          var ta = a.teilaufgabe || "", tb = b.teilaufgabe || "";
+          return ta < tb ? -1 : ta > tb ? 1 : 0;
+        });
+      }
+    });
+    return units;
+  }
+
   function drawForBlock(pool, block) {
     var poolBlock = pool.filter(function (f) {
       return f.teile.indexOf(teilId) !== -1 && f.block === block.id;
@@ -140,26 +160,42 @@
     var key = teilId + "__" + block.id;
     var seenMap = seenAll[key] || {};
 
-    var unseen = poolBlock.filter(function (f) { return !(f.id in seenMap); });
-    var chosen, cycled = false;
+    var units = groupIntoUnits(poolBlock);
+    var unseenUnits = units.filter(function (u) {
+      return u.questions.some(function (f) { return !(f.id in seenMap); });
+    });
+    var seenUnits = units.filter(function (u) {
+      return u.questions.every(function (f) { return f.id in seenMap; });
+    });
 
-    if (unseen.length >= target) {
-      chosen = shuffle(unseen).slice(0, target);
-    } else {
-      var restNeeded = target - unseen.length;
-      var seenSorted = poolBlock
-        .filter(function (f) { return f.id in seenMap; })
-        .sort(function (a, b) { return seenMap[a.id] - seenMap[b.id]; });
-      chosen = unseen.concat(seenSorted.slice(0, restNeeded));
-      cycled = restNeeded > 0;
+    var chosenUnits = [], count = 0, cycled = false;
+    shuffle(unseenUnits).forEach(function (u) {
+      if (count < target) { chosenUnits.push(u); count += u.questions.length; }
+    });
+
+    if (count < target) {
+      cycled = true;
+      var seenSorted = seenUnits.slice().sort(function (a, b) {
+        var ta = Math.min.apply(null, a.questions.map(function (f) { return seenMap[f.id]; }));
+        var tb = Math.min.apply(null, b.questions.map(function (f) { return seenMap[f.id]; }));
+        return ta - tb;
+      });
+      seenSorted.forEach(function (u) {
+        if (count < target) { chosenUnits.push(u); count += u.questions.length; }
+      });
     }
 
     var now = Date.now();
-    chosen.forEach(function (f) { seenMap[f.id] = now; });
+    chosenUnits.forEach(function (u) { u.questions.forEach(function (f) { seenMap[f.id] = now; }); });
     seenAll[key] = seenMap;
     writeLS(LS_SEEN, seenAll);
 
-    return { questions: shuffle(chosen), cycled: cycled, poolSize: poolBlock.length };
+    var questions = [];
+    shuffle(chosenUnits).forEach(function (u) {
+      u.questions.forEach(function (f) { questions.push(f); });
+    });
+
+    return { questions: questions, cycled: cycled, poolSize: poolBlock.length };
   }
 
   function augment(f, blockId) {
@@ -172,6 +208,14 @@
         if (q.displayOptions[i].orig === f.antwort) { q.correctDisplayIndex = i; break; }
       }
       q.userAnswer = null;
+    } else if (f.typ === "mc-multi") {
+      var withOrig2 = f.optionen.map(function (text, i) { return { text: text, orig: i }; });
+      q.displayOptions = shuffle(withOrig2);
+      q.correctDisplayIndices = [];
+      q.displayOptions.forEach(function (opt, i) {
+        if (f.antwort.indexOf(opt.orig) !== -1) q.correctDisplayIndices.push(i);
+      });
+      q.userAnswer = [];
     } else if (f.typ === "order") {
       q.userAnswer = shuffle(f.optionen);
     } else if (f.typ === "num") {
@@ -195,12 +239,16 @@
   /* --------------------------------------------------------- Bewertung --- */
   function isAnswered(q) {
     if (q.raw.typ === "mc") return q.userAnswer !== null;
+    if (q.raw.typ === "mc-multi") return q.userAnswer.length > 0;
     if (q.raw.typ === "num") return q.userAnswer !== null;
     return true; // order: es gibt immer eine aktuelle Reihenfolge
   }
 
   function isCorrect(q) {
     if (q.raw.typ === "mc") return q.userAnswer === q.correctDisplayIndex;
+    if (q.raw.typ === "mc-multi") {
+      return q.userAnswer.slice().sort().join(",") === q.correctDisplayIndices.slice().sort().join(",");
+    }
     if (q.raw.typ === "num") {
       return q.userAnswer !== null && Math.abs(q.userAnswer - q.raw.loesung) <= (q.raw.toleranz || 0);
     }
@@ -209,6 +257,10 @@
 
   function formatUserAnswer(q) {
     if (q.raw.typ === "mc") return q.userAnswer === null ? "keine Antwort" : q.displayOptions[q.userAnswer].text;
+    if (q.raw.typ === "mc-multi") {
+      if (!q.userAnswer.length) return "keine Antwort";
+      return q.userAnswer.map(function (i) { return q.displayOptions[i].text; }).join("; ");
+    }
     if (q.raw.typ === "num") {
       if (q.userAnswer === null) return "keine Antwort";
       return q.userAnswer + (q.raw.einheit ? " " + q.raw.einheit : "");
@@ -218,6 +270,9 @@
 
   function formatCorrectAnswer(q) {
     if (q.raw.typ === "mc") return q.raw.optionen[q.raw.antwort];
+    if (q.raw.typ === "mc-multi") {
+      return q.raw.antwort.map(function (i) { return q.raw.optionen[i]; }).join("; ");
+    }
     if (q.raw.typ === "num") {
       var tol = q.raw.toleranz ? " (± " + q.raw.toleranz + ")" : "";
       return q.raw.loesung + (q.raw.einheit ? " " + q.raw.einheit : "") + tol;
@@ -359,8 +414,16 @@
       st.cycledBlocks = []; // nur einmal beim Start des Durchlaufs anzeigen
     }
 
+    if (q.raw.scenario_id && q.raw.scenario_text) {
+      var scBox = el("div", "exam-scenario");
+      scBox.appendChild(el("p", "exam-scenario__text", q.raw.scenario_text));
+      wrap.appendChild(scBox);
+    }
+
     var qBox = el("div", "exam-question");
-    qBox.appendChild(el("p", "exam-question__text", q.raw.frage));
+    var qLabel = q.raw.teilaufgabe ? "Teilaufgabe " + q.raw.teilaufgabe + ") " + q.raw.frage : q.raw.frage;
+    qBox.appendChild(el("p", "exam-question__text", qLabel));
+    if (q.raw.typ === "mc-multi") qBox.appendChild(el("p", "exam-question__hint", "Mehrfachauswahl möglich."));
     qBox.appendChild(renderQuestionBody(q));
     wrap.appendChild(qBox);
 
@@ -436,6 +499,29 @@
         ul.appendChild(li);
       });
       return ul;
+    }
+
+    if (q.raw.typ === "mc-multi") {
+      var ulm = el("ul", "exam-options");
+      q.displayOptions.forEach(function (opt, i) {
+        var li = el("li", "exam-option");
+        var label = el("label", "exam-option__label");
+        var input = document.createElement("input");
+        input.type = "checkbox";
+        input.checked = q.userAnswer.indexOf(i) !== -1;
+        input.addEventListener("change", function () {
+          var pos = q.userAnswer.indexOf(i);
+          if (input.checked && pos === -1) q.userAnswer.push(i);
+          if (!input.checked && pos !== -1) q.userAnswer.splice(pos, 1);
+          var navBtn = document.querySelectorAll(".exam-navgrid__item")[current.cur];
+          if (navBtn) navBtn.classList.toggle("is-answered", q.userAnswer.length > 0);
+        });
+        label.appendChild(input);
+        label.appendChild(el("span", null, opt.text));
+        li.appendChild(label);
+        ulm.appendChild(li);
+      });
+      return ulm;
     }
 
     if (q.raw.typ === "num") {

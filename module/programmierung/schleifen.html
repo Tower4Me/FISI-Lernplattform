@@ -124,42 +124,45 @@ BIS Eingabe korrekt ist
     <section id="praxis" class="section section--praxis">
       <h2>Praxisbeispiel</h2>
       <p>
-        Ein Auszubildender der TechNord GmbH soll für jede Position
-        einer Bestellliste prüfen, ob Mengenrabatt gilt:
+        Auch Schleifen werden oft zunächst in Pseudocode geplant, bevor
+        sie in eine konkrete Sprache übersetzt werden. Ein
+        Raketenstart-Countdown zählt rückwärts — zunächst als
+        Pseudocode-Vorgabe:
       </p>
       <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
-FÜR JEDE Position IN Bestellliste TUE
-  WENN Position.Menge &gt;= 100 DANN
-    Position.Rabatt = 10%
-  SONST
-    Position.Rabatt = 0%
-  ENDE WENN
+FÜR i VON 10 ABWÄRTS BIS 1 TUE
+  AUSGABE i
 ENDE FÜR
+AUSGABE "Start!"
+      </div>
+      <p>Dieselbe Logik in Python (<code>for</code> statt <code>FÜR</code>):</p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+for i in range(10, 0, -1):
+    print(i)
+print("Start!")
       </div>
       <p>
-        Die <code>FÜR JEDE</code>-Schleife durchläuft jede Position der
-        Bestellliste einmal; da die Anzahl der Positionen von der
-        Bestellliste selbst vorgegeben wird, ist eine Zählschleife hier
-        die passende Wahl — nicht SOLANGE oder WIEDERHOLE, die eher für
-        Bedingungen ohne von vornherein feste Durchlaufzahl geeignet
-        sind.
+        <code>FÜR i VON 10 ABWÄRTS BIS 1</code> entspricht
+        <code>range(10, 0, -1)</code> — zählt von 10 abwärts bis
+        einschließlich 1 (Schrittweite -1). <code>AUSGABE</code> wird zu
+        <code>print()</code>.
       </p>
 
       <h3>Übungsaufgabe</h3>
       <p>
-        Schreibe eine Schleife in Pseudocode, die die Summe der Zahlen
-        von 1 bis 10 berechnet.
+        Schreibe eine Schleife in Python, die die Summe der Zahlen von 1
+        bis 10 berechnet.
       </p>
       <details class="loesung">
         <summary>Musterlösung anzeigen</summary>
-        <pre><code>Summe = 0
-FÜR i VON 1 BIS 10 TUE
-  Summe = Summe + i
-ENDE FÜR</code></pre>
+        <pre><code>summe = 0
+for i in range(1, 11):
+    summe = summe + i
+print(summe)</code></pre>
         <p>
           Eine Zählschleife passt hier, da die Anzahl der Durchläufe (10)
           von vornherein feststeht. Bei jedem Durchlauf wird der aktuelle
-          Wert von <code>i</code> zur laufenden <code>Summe</code>
+          Wert von <code>i</code> zur laufenden <code>summe</code>
           addiert.
         </p>
       </details>

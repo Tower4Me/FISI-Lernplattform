@@ -105,10 +105,26 @@ ALGORITHMUS GrößteZahl(a, b, c)
     <section id="praxis" class="section section--praxis">
       <h2>Praxisbeispiel</h2>
       <p>
-        Verzweigungen sind im echten Code fast immer als
-        <code>if</code>/<code>elif</code>/<code>else</code> zu finden
-        (Python-Syntax). Eine Funktion ordnet einen BMI-Wert seiner
-        Kategorie zu:
+        Verzweigungen werden oft zunächst in Pseudocode geplant, bevor
+        sie in eine konkrete Sprache übersetzt werden. Eine Funktion
+        ordnet einen BMI-Wert seiner Kategorie zu — zunächst als
+        Pseudocode-Vorgabe:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+ALGORITHMUS BmiKategorie(bmi)
+  WENN bmi &lt; 18.5 DANN
+    AUSGABE "Untergewicht"
+  SONST WENN bmi &lt; 25 DANN
+    AUSGABE "Normalgewicht"
+  SONST WENN bmi &lt; 30 DANN
+    AUSGABE "Übergewicht"
+  SONST
+    AUSGABE "Adipositas"
+  ENDE WENN
+      </div>
+      <p>
+        Dieselbe Logik in Python (<code>if</code>/<code>elif</code>/<code>else</code>
+        statt <code>WENN</code>/<code>SONST WENN</code>/<code>SONST</code>):
       </p>
       <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
 def bmi_kategorie(bmi):
@@ -122,10 +138,11 @@ def bmi_kategorie(bmi):
         print("Adipositas")
       </div>
       <p>
-        <code>elif</code> ist die Kaskadierung aus dem Konzeptabschnitt
-        (<code>SONST WENN</code>) — jede weitere Bedingung wird nur
-        geprüft, wenn keine der vorherigen zutraf. <code>else</code>
-        greift, wenn gar keine Bedingung zutrifft.
+        Jede Pseudocode-Zeile hat eine direkte Python-Entsprechung:
+        <code>WENN</code> wird zu <code>if</code>, <code>SONST WENN</code>
+        zu <code>elif</code> — die Kaskadierung aus dem Konzeptabschnitt
+        bleibt identisch erhalten —, <code>SONST</code> zu
+        <code>else</code> und <code>AUSGABE</code> zu <code>print()</code>.
       </p>
 
       <h3>Übungsaufgabe</h3>

@@ -427,14 +427,6 @@
     qBox.appendChild(renderQuestionBody(q));
     wrap.appendChild(qBox);
 
-    var flagBtn = el("button", "btn", q.flagged ? "Markierung entfernen" : "Später ansehen");
-    flagBtn.type = "button";
-    flagBtn.addEventListener("click", function () {
-      q.flagged = !q.flagged;
-      renderRunning();
-    });
-    wrap.appendChild(flagBtn);
-
     var navRow = el("div", "exam-nav-row");
     var backBtn = el("button", "btn", "← Zurück");
     backBtn.type = "button";
@@ -447,6 +439,14 @@
     nextBtn.disabled = st.cur === st.questions.length - 1;
     nextBtn.addEventListener("click", function () { st.cur++; renderRunning(); });
     navRow.appendChild(nextBtn);
+
+    var flagBtn = el("button", "btn", q.flagged ? "Markierung entfernen" : "Später ansehen");
+    flagBtn.type = "button";
+    flagBtn.addEventListener("click", function () {
+      q.flagged = !q.flagged;
+      renderRunning();
+    });
+    navRow.appendChild(flagBtn);
     wrap.appendChild(navRow);
 
     var grid = el("div", "exam-navgrid");

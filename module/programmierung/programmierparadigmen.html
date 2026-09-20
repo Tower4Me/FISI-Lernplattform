@@ -140,32 +140,51 @@
           Basisklasse „Kunde“, statt Code doppelt zu schreiben.</li>
       </ul>
 
-      <h3>Übungsaufgabe</h3>
+      <h3>Paradigmen-Vergleich: dieselbe Aufgabe, drei Stile</h3>
       <p>
-        Schreibe in Pseudocode einen rein <strong>prozeduralen</strong>
-        Algorithmus, der prüft, ob eine gegebene Jahreszahl ein Schaltjahr
-        ist. Regel: durch 4 teilbar, aber nicht durch 100 — außer sie ist
-        zusätzlich auch durch 400 teilbar.
+        Aufgabe: aus einer Zahlenliste die Quadratzahlen berechnen.
+        Dieselbe Aufgabe, dreimal gelöst — je nach Paradigma sieht der
+        Code sehr unterschiedlich aus:
       </p>
-      <details class="loesung">
-        <summary>Musterlösung anzeigen</summary>
-        <pre><code>ALGORITHMUS IstSchaltjahr(Jahr)
-  WENN (Jahr MOD 4 == 0) UND (Jahr MOD 100 != 0) DANN
-    ERGEBNIS = true
-  SONST WENN Jahr MOD 400 == 0 DANN
-    ERGEBNIS = true
-  SONST
-    ERGEBNIS = false
-  ENDE WENN
-  RÜCKGABE ERGEBNIS</code></pre>
-        <p>
-          Der Algorithmus ist rein prozedural: eine einfache Abfolge von
-          Prüfungen auf gemeinsamen Daten (<code>Jahr</code>), ohne
-          Objekte oder Klassen. Die kaskadierte Verzweigung deckt beide
-          Schaltjahr-Fälle ab: „durch 4, aber nicht durch 100“ oder
-          „zusätzlich durch 400 teilbar“.
-        </p>
-      </details>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+# Imperativ / prozedural
+zahlen = [1, 2, 3, 4, 5]
+quadrate = []
+for zahl in zahlen:
+    quadrate.append(zahl ** 2)
+print(quadrate)
+      </div>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+# Objektorientiert
+class ZahlenListe:
+    def __init__(self, werte):
+        self.werte = werte
+
+    def quadrate(self):
+        ergebnis = []
+        for zahl in self.werte:
+            ergebnis.append(zahl ** 2)
+        return ergebnis
+
+liste = ZahlenListe([1, 2, 3, 4, 5])
+print(liste.quadrate())
+      </div>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+# Funktional
+zahlen = [1, 2, 3, 4, 5]
+quadrate = list(map(lambda zahl: zahl ** 2, zahlen))
+print(quadrate)
+      </div>
+      <p>
+        <strong>Imperativ</strong> arbeitet mit einem expliziten Loop —
+        die Ergebnisliste wird schrittweise per <code>append</code>
+        gefüllt (veränderlicher Zustand). <strong>Objektorientiert</strong>
+        bündelt Daten (<code>werte</code>) und Verhalten
+        (<code>quadrate()</code>-Methode) in einer Klasse.
+        <strong>Funktional</strong> wendet mit <code>map()</code> eine
+        reine Funktion auf jedes Element an — kein expliziter Loop, kein
+        veränderlicher Zwischenzustand.
+      </p>
     </section>
 
     <!-- 4. MERKSATZ -->

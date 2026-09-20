@@ -868,13 +868,13 @@
         },
         {
           "slug": "verzweigungen-if-else",
-          "name": "Verzweigungen (WENN/SONST)",
+          "name": "Verzweigungen (If/Else)",
           "exams": ["ap1"],
           "quiz": "data/programmierung/verzweigungen-if-else.json"
         },
         {
           "slug": "schleifen",
-          "name": "Schleifen (SOLANGE, FÜR)",
+          "name": "Schleifen (While, For)",
           "exams": ["ap1"],
           "quiz": "data/programmierung/schleifen.json"
         },
@@ -883,6 +883,12 @@
           "name": "Verschachtelung & Kaskadierung von Kontrollstrukturen",
           "exams": ["ap1"],
           "quiz": "data/programmierung/verschachtelung-kaskadierung.json"
+        },
+        {
+          "slug": "pseudocode",
+          "name": "Pseudocode",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/programmierung/pseudocode.json"
         },
         {
           "slug": "pap-programmablaufplan",

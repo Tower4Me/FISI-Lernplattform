@@ -1,0 +1,40 @@
+{
+  "unit": "programmierung/pseudocode",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist Pseudocode?",
+      "options": ["Eine informelle, sprachneutrale Notation, um einen Algorithmus in Schritten zu beschreiben", "Die exakte Syntax einer bestimmten Programmiersprache wie Java", "Ausschließlich eine grafische Darstellung mit genormten Symbolen", "Ein automatisch generierter Kommentar im echten Quellcode"],
+      "answer": 0,
+      "explanation": "Pseudocode beschreibt einen Algorithmus informell und sprachneutral in Schritten, ohne sich an die feste Syntax einer konkreten Programmiersprache zu halten."
+    },
+    {
+      "id": "q2",
+      "question": "Warum wird in der Abschlussprüfung häufig Pseudocode statt einer konkreten Programmiersprache verlangt?",
+      "options": ["Weil Pseudocode automatisch getestet und kompiliert wird", "Weil bewertet wird, ob die Logik stimmt, unabhängig von der exakten Syntax einer Sprache", "Weil Pseudocode die einzige in der Prüfung zugelassene Programmiersprache ist", "Weil Pseudocode schneller ausgeführt wird als echter Code"],
+      "answer": 1,
+      "explanation": "Pseudocode macht die Prüfungsaufgabe unabhängig von einer bestimmten Programmiersprache — bewertet wird die Ablauflogik, nicht Syntax-Details einer konkreten Sprache."
+    },
+    {
+      "id": "q3",
+      "question": "Worin unterscheidet sich Pseudocode grundsätzlich von einem PAP (Programmablaufplan)?",
+      "options": ["Pseudocode kann keine Verzweigungen darstellen, ein PAP schon", "Ein PAP ist nur für AP1 relevant, Pseudocode nur für AP2", "Pseudocode ist Fließtext, ein PAP stellt denselben Algorithmus über genormte grafische Symbole dar", "Es gibt keinen Unterschied, beide Begriffe meinen dasselbe"],
+      "answer": 2,
+      "explanation": "Pseudocode und PAP können denselben Algorithmus abbilden, nur in unterschiedlicher Form: Pseudocode als Text, der PAP über genormte Symbole und Flusspfeile."
+    },
+    {
+      "id": "q4",
+      "question": "Braucht Pseudocode einen Compiler oder Interpreter, um ausgeführt zu werden?",
+      "options": ["Ja, sonst lässt er sich nicht testen", "Nein, er ist nicht zum Ausführen gedacht, sondern zum Festhalten einer Lösungsidee", "Nur bei Schleifen, nicht bei Verzweigungen", "Ja, aber nur für die Zuweisung von Variablen"],
+      "answer": 1,
+      "explanation": "Pseudocode ist keine ausführbare Sprache — er dient dazu, einen Algorithmus für Menschen nachvollziehbar festzuhalten, unabhängig von der späteren Umsetzung."
+    },
+    {
+      "id": "q5",
+      "question": "Ein Struktogramm und ein Pseudocode-Algorithmus beschreiben denselben Ablauf. Welche Aussage trifft zu?",
+      "options": ["Das ist unmöglich, beide Formen schließen sich gegenseitig aus", "Beide stellen dieselbe Logik dar, nur in unterschiedlicher Form (Text vs. verschachtelte Kästen)", "Ein Struktogramm kann ausschließlich Schleifen darstellen, Pseudocode nur Verzweigungen", "Pseudocode ist die grafische Weiterentwicklung eines Struktogramms"],
+      "answer": 1,
+      "explanation": "Pseudocode (Text) und Struktogramm (verschachtelte Kästen ohne Pfeile) sind zwei unterschiedliche Darstellungsformen für denselben Algorithmus."
+    }
+  ]
+}

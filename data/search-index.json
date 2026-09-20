@@ -852,9 +852,18 @@
   "headings": [
    "Die drei wichtigsten Paradigmen",
    "Sprachhöhe: Maschinensprache bis Hochsprache",
-   "Übungsaufgabe"
+   "Paradigmen-Vergleich: dieselbe Aufgabe, drei Stile"
   ],
   "merksatz": "Prozedural = Abfolge von Prozeduren auf gemeinsamen Daten. Objektorientiert = Daten und Funktionen in Objekten/Klassen gebündelt (Kapselung, Vererbung, Polymorphie). Funktional = Verkettung zustandsloser Funktionen. Sprachhöhe: Maschinensprache (prozessorspezifisch) → Assembler (mnemonisch) → Hochsprache (abstrakt, portabel, menschenlesbar)."
+ },
+ "module/programmierung/pseudocode.html": {
+  "headings": [
+   "Wozu in der Abschlussprüfung",
+   "Abgrenzung zu PAP, Struktogramm und echtem Code",
+   "Grundelemente",
+   "Übungsaufgabe"
+  ],
+  "merksatz": "Pseudocode = informelle, sprachneutrale Beschreibung eines Algorithmus in Schritten, unabhängig von einer konkreten Programmiersprache und ohne Compiler/Interpreter ausführbar. In der AP wird die Logik bewertet, nicht die exakte Syntax einer Sprache. Dient als Vorstufe zu PAP, Struktogramm oder echtem Code — alle können denselben Algorithmus darstellen, nur in unterschiedlicher Form."
  },
  "module/programmierung/schleifen.html": {
   "headings": [
@@ -879,9 +888,10 @@
    "Arithmetische Operatoren",
    "Vergleichsoperatoren",
    "Logische Operatoren",
+   "Eingebaute Funktionen & Methoden",
    "Übungsaufgabe"
   ],
-  "merksatz": "Variable = benannter, veränderlicher Speicherplatz; Datentyp legt die erlaubte Art des Werts fest (Integer, Float, String, Boolean). Arithmetische Operatoren (+, -, *, /, MOD) rechnen mit Werten. Vergleichsoperatoren (==, !=, <, >, <=, >=) liefern immer einen Boolean. Logische Operatoren (UND, ODER, NICHT) verknüpfen mehrere Bedingungen zu einer neuen."
+  "merksatz": "Variable = benannter, veränderlicher Speicherplatz; Datentyp legt die erlaubte Art des Werts fest (Integer, Float, String, Boolean). Arithmetische Operatoren (+, -, *, /, % Modulo) rechnen mit Werten. Vergleichsoperatoren (==, !=, <, >, <=, >=) liefern immer einen Boolean. Logische Operatoren (UND, ODER, NICHT) verknüpfen mehrere Bedingungen zu einer neuen."
  },
  "module/programmierung/verschachtelung-kaskadierung.html": {
   "headings": [

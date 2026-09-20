@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programmierung: Pseudocode</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#programmierung">Programmierung</a></li>
+        <li aria-current="page">Pseudocode</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Pseudocode
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Kochrezept wird zuerst in Alltagssprache aufgeschrieben —
+        „Zwiebeln anbraten, bis sie glasig sind“ — bevor es an eine
+        konkrete Küchenausstattung angepasst wird. Genauso wird ein
+        Algorithmus zuerst in <strong>Pseudocode</strong> festgehalten:
+        die einzelnen Schritte und Entscheidungen werden aufgeschrieben,
+        ohne sich schon auf eine bestimmte Programmiersprache
+        festzulegen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        <strong>Pseudocode</strong> ist eine informelle, sprachneutrale
+        Notation, um einen Algorithmus in einzelnen Schritten zu
+        beschreiben — ohne sich an die exakte Syntax einer bestimmten
+        Programmiersprache zu halten. Es gibt keine einzige „richtige“
+        Pseudocode-Syntax; wichtig ist nur, dass der Ablauf für
+        Menschen eindeutig nachvollziehbar bleibt.
+      </p>
+
+      <h3>Wozu in der Abschlussprüfung</h3>
+      <p>
+        Aufgaben wie „Schreibe in Pseudocode einen Algorithmus, der …“
+        verlangen keine lauffähige Syntax einer konkreten Sprache.
+        Bewertet wird die <strong>Logik</strong> — Schritte, Bedingungen,
+        Reihenfolge —, nicht ob z. B. Python- oder Java-Syntax exakt
+        eingehalten wurde.
+      </p>
+
+      <h3>Abgrenzung zu PAP, Struktogramm und echtem Code</h3>
+      <p>
+        Pseudocode, PAP und Struktogramm können denselben Algorithmus
+        darstellen — nur in unterschiedlicher Form:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Form</th><th>Darstellung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Pseudocode</strong></td><td>Fließtext in Schritten, sprachneutral</td></tr>
+          <tr><td><strong>PAP</strong></td><td>genormte grafische Symbole, durch Pfeile verbunden</td></tr>
+          <tr><td><strong>Struktogramm</strong></td><td>verschachtelte Kästen ohne Pfeile</td></tr>
+          <tr><td><strong>Echter Code</strong></td><td>konkrete Programmiersprache mit fester Syntax, durch Compiler/Interpreter ausführbar</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Anders als echter Code braucht Pseudocode keinen Compiler oder
+        Interpreter — er ist nicht zum Ausführen gedacht, sondern zum
+        Festhalten und Kommunizieren einer Lösungsidee, unabhängig
+        davon, in welcher Sprache sie später umgesetzt wird.
+      </p>
+
+      <h3>Grundelemente</h3>
+      <p>
+        Eine durchgängige Notation erleichtert das Lesen. Die
+        wichtigsten Bausteine:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Element</th><th>Notation</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zuweisung</td><td><code>Variable = Wert</code></td><td><code>Menge = 120</code></td></tr>
+          <tr><td>Ausgabe</td><td><code>AUSGABE Wert</code></td><td><code>AUSGABE Ergebnis</code></td></tr>
+          <tr><td>Verzweigung</td><td><code>WENN Bedingung DANN … SONST … ENDE WENN</code></td><td>siehe Praxisbeispiel</td></tr>
+          <tr><td>Zählschleife</td><td><code>FÜR i VON 1 BIS 5 TUE … ENDE FÜR</code></td><td>siehe Einheit „Schleifen“</td></tr>
+          <tr><td>Kopfgesteuerte Schleife</td><td><code>SOLANGE Bedingung TUE … ENDE SOLANGE</code></td><td>siehe Einheit „Schleifen“</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Getränkeautomat soll vor der Ausgabe prüfen, ob genug
+        Guthaben eingeworfen wurde und ob das Produkt noch vorrätig ist:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+ALGORITHMUS GetraenkAusgeben(Guthaben, Preis, Bestand)
+  WENN Bestand == 0 DANN
+    AUSGABE "Ausverkauft"
+  SONST WENN Guthaben &lt; Preis DANN
+    AUSGABE "Guthaben nicht ausreichend"
+  SONST
+    Bestand = Bestand - 1
+    AUSGABE "Produkt wird ausgegeben"
+  ENDE WENN
+  RÜCKGABE Bestand
+      </div>
+      <p>
+        Die Reihenfolge der Prüfungen ist bewusst gewählt: zuerst wird
+        geprüft, ob überhaupt noch Bestand da ist — erst danach, ob das
+        Guthaben reicht. Für die Bewertung in der AP wäre genau diese
+        Ablauflogik entscheidend, nicht die konkrete Schreibweise der
+        Zeilen.
+      </p>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Schreibe in Pseudocode einen Algorithmus, der prüft, ob eine
+        eingegebene Temperatur im sicheren Bereich für einen
+        Serverraum liegt (zwischen 18 und 27 Grad, jeweils
+        einschließlich). Ausgabe: „Normal“ oder „Alarm“.
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>ALGORITHMUS TemperaturPruefen(Temperatur)
+  WENN (Temperatur &gt;= 18) UND (Temperatur &lt;= 27) DANN
+    AUSGABE "Normal"
+  SONST
+    AUSGABE "Alarm"
+  ENDE WENN</code></pre>
+        <p>
+          Eine zweiseitige Verzweigung reicht hier aus: der
+          <strong>UND</strong>-Operator verknüpft die beiden
+          Bereichsgrenzen zu einer einzigen Bedingung, kein SONST-WENN
+          nötig.
+        </p>
+      </details>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Pseudocode = informelle, sprachneutrale Beschreibung eines
+        Algorithmus in Schritten, unabhängig von einer konkreten
+        Programmiersprache und ohne Compiler/Interpreter ausführbar.
+        In der AP wird die Logik bewertet, nicht die exakte Syntax
+        einer Sprache. Dient als Vorstufe zu PAP, Struktogramm oder
+        echtem Code — alle können denselben Algorithmus darstellen,
+        nur in unterschiedlicher Form.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/programmierung/pseudocode.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+    <p>Hast du Feedback? <a href="https://github.com/Tower4Me/FISI-Lernplattform" target="_blank" rel="noopener">Auf GitHub melden</a>.</p>
+    <p class="footer-disclaimer">Mit KI-Unterstützung erstellt und sorgfältig gepflegt. Ergänzung zur Prüfungsvorbereitung, ohne Anspruch auf Vollständigkeit; verbindlich sind die offiziellen Unterlagen der zuständigen Kammer.</p>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/manifest-loader.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+
+  <script src="../../assets/next-unit.js"></script>
+</body>
+</html>

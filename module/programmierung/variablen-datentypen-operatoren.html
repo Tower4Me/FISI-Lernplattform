@@ -78,7 +78,7 @@
           <tr><td><code>-</code></td><td>Subtraktion</td><td>5 - 3 → 2</td></tr>
           <tr><td><code>*</code></td><td>Multiplikation</td><td>5 * 3 → 15</td></tr>
           <tr><td><code>/</code></td><td>Division</td><td>7 / 2 → 3.5</td></tr>
-          <tr><td><code>MOD</code></td><td>Rest der Ganzzahldivision</td><td>7 MOD 2 → 1</td></tr>
+          <tr><td><code>%</code> (Modulo)</td><td>Rest der Ganzzahldivision</td><td>7 % 2 → 1</td></tr>
         </tbody>
       </table>
 
@@ -109,6 +109,32 @@
           <tr><td><strong>UND</strong></td><td>wahr nur, wenn <em>beide</em> Teilbedingungen wahr sind</td></tr>
           <tr><td><strong>ODER</strong></td><td>wahr, wenn <em>mindestens eine</em> Teilbedingung wahr ist</td></tr>
           <tr><td><strong>NICHT</strong></td><td>kehrt eine Bedingung um (aus wahr wird falsch und umgekehrt)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Eingebaute Funktionen & Methoden</h3>
+      <p>
+        Eine <strong>Funktion</strong> wird frei aufgerufen
+        (<code>funktion(wert)</code>), eine <strong>Methode</strong>
+        gehört zu einem Objekt bzw. Datentyp und wird über
+        Punktnotation aufgerufen (<code>wert.methode()</code>). Auswahl
+        gängiger, häufig genutzter Funktionen/Methoden — nicht
+        abschließend:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Art</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>print()</code></td><td>Funktion</td><td>Ausgabe auf dem Bildschirm</td><td><code>print("Hallo")</code></td></tr>
+          <tr><td><code>input()</code></td><td>Funktion</td><td>liest Eingabe, liefert immer einen String</td><td><code>name = input()</code></td></tr>
+          <tr><td><code>len()</code></td><td>Funktion</td><td>Länge eines Strings oder einer Liste</td><td><code>len("Hallo")</code> → 5</td></tr>
+          <tr><td><code>round()</code></td><td>Funktion</td><td>rundet eine Zahl auf n Nachkommastellen</td><td><code>round(3.146, 2)</code> → 3.15</td></tr>
+          <tr><td><code>int()</code> / <code>float()</code> / <code>str()</code></td><td>Funktion</td><td>wandelt einen Wert in Ganzzahl/Gleitkomma/String um</td><td><code>int("42")</code> → 42</td></tr>
+          <tr><td><code>.lower()</code></td><td>Methode</td><td>wandelt String in Kleinbuchstaben</td><td><code>"Hallo".lower()</code> → "hallo"</td></tr>
+          <tr><td><code>.upper()</code></td><td>Methode</td><td>wandelt String in Großbuchstaben</td><td><code>"Hallo".upper()</code> → "HALLO"</td></tr>
+          <tr><td><code>.strip()</code></td><td>Methode</td><td>entfernt Leerzeichen am Anfang/Ende</td><td><code>" Hallo ".strip()</code> → "Hallo"</td></tr>
+          <tr><td><code>.replace()</code></td><td>Methode</td><td>ersetzt Teilstring durch anderen</td><td><code>"3,14".replace(",", ".")</code> → "3.14"</td></tr>
         </tbody>
       </table>
     </section>
@@ -168,7 +194,7 @@ Ueberstunden = Stunden &gt; 40</code></pre>
       <p>
         Variable = benannter, veränderlicher Speicherplatz; Datentyp legt
         die erlaubte Art des Werts fest (Integer, Float, String, Boolean).
-        Arithmetische Operatoren (+, -, *, /, MOD) rechnen mit Werten.
+        Arithmetische Operatoren (+, -, *, /, % Modulo) rechnen mit Werten.
         Vergleichsoperatoren (==, !=, &lt;, &gt;, &lt;=, &gt;=) liefern
         immer einen Boolean. Logische Operatoren (UND, ODER, NICHT)
         verknüpfen mehrere Bedingungen zu einer neuen.

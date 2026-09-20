@@ -10,10 +10,10 @@
     },
     {
       "id": "q2",
-      "question": "Was liefert der Ausdruck 7 MOD 2?",
+      "question": "Was liefert der Ausdruck 7 % 2?",
       "options": ["3.5", "1", "9", "5"],
       "answer": 1,
-      "explanation": "MOD liefert den Rest der Ganzzahldivision. 7 geteilt durch 2 ergibt 3 Rest 1, also liefert 7 MOD 2 den Wert 1."
+      "explanation": "% (Modulo) liefert den Rest der Ganzzahldivision. 7 geteilt durch 2 ergibt 3 Rest 1, also liefert 7 % 2 den Wert 1."
     },
     {
       "id": "q3",
@@ -25,7 +25,7 @@
     {
       "id": "q4",
       "question": "Ein Kunde bekommt einen Rabatt nur, wenn er mindestens 100 Stück und Premium-Status hat. Welcher logische Operator verknüpft die beiden Bedingungen korrekt?",
-      "options": ["NICHT", "ODER", "MOD", "UND"],
+      "options": ["NICHT", "ODER", "%", "UND"],
       "answer": 3,
       "explanation": "UND liefert nur dann wahr, wenn beide Teilbedingungen zutreffen — genau die geforderte \"sowohl als auch\"-Regel."
     },

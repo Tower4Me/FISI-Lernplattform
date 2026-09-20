@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Programmierung: Verzweigungen (WENN/SONST)</title>
+  <title>Programmierung: Verzweigungen (If/Else)</title>
   <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
   <link rel="stylesheet" href="../../assets/style.css">
   <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
@@ -15,12 +15,12 @@
       <ol>
         <li><a href="../../index.html">Lernplan</a></li>
         <li><a href="../../index.html#programmierung">Programmierung</a></li>
-        <li aria-current="page">Verzweigungen (WENN/SONST)</li>
+        <li aria-current="page">Verzweigungen (If/Else)</li>
       </ol>
     </nav>
 
     <h1 class="unit-title">
-      Verzweigungen (WENN/SONST)
+      Verzweigungen (If/Else)
       <span class="badges">
         <span class="badge badge--ap1">AP1</span>
       </span>
@@ -105,41 +105,52 @@ ALGORITHMUS GrößteZahl(a, b, c)
     <section id="praxis" class="section section--praxis">
       <h2>Praxisbeispiel</h2>
       <p>
-        Ein Auszubildender der TechNord GmbH prüft für eine einzelne
-        Bestellposition, ob Mengenrabatt gilt:
+        Verzweigungen sind im echten Code fast immer als
+        <code>if</code>/<code>elif</code>/<code>else</code> zu finden
+        (Python-Syntax). Eine Funktion ordnet einen BMI-Wert seiner
+        Kategorie zu:
       </p>
       <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
-WENN Position.Menge &gt;= 100 DANN
-  Position.Rabatt = 10%
-SONST
-  Position.Rabatt = 0%
-ENDE WENN
+def bmi_kategorie(bmi):
+    if bmi &lt; 18.5:
+        print("Untergewicht")
+    elif bmi &lt; 25:
+        print("Normalgewicht")
+    elif bmi &lt; 30:
+        print("Übergewicht")
+    else:
+        print("Adipositas")
       </div>
       <p>
-        Die <code>WENN</code>-Verzweigung entscheidet über den
-        Rabattsatz dieser einen Position. Sollen alle Positionen einer
-        ganzen Bestellliste geprüft werden, braucht es zusätzlich eine
-        Schleife um diese Verzweigung herum — dazu mehr in der Einheit
-        „Schleifen“.
+        <code>elif</code> ist die Kaskadierung aus dem Konzeptabschnitt
+        (<code>SONST WENN</code>) — jede weitere Bedingung wird nur
+        geprüft, wenn keine der vorherigen zutraf. <code>else</code>
+        greift, wenn gar keine Bedingung zutrifft.
       </p>
 
       <h3>Übungsaufgabe</h3>
       <p>
-        Die TechNord GmbH staffelt die Versandkosten: ab einem
-        Bestellwert von 50 € versandkostenfrei, sonst 4,95 €
-        Versandkosten. Schreibe die Verzweigung in Pseudocode.
+        Schreibe eine Funktion <code>note_ausgeben(punkte)</code>: ab 92
+        Punkten „sehr gut“, ab 81 „gut“, ab 67 „befriedigend“, ab 50
+        „ausreichend“, sonst „nicht bestanden“.
       </p>
       <details class="loesung">
         <summary>Musterlösung anzeigen</summary>
-        <pre><code>WENN Bestellwert &gt;= 50 DANN
-  Versandkosten = 0
-SONST
-  Versandkosten = 4.95
-ENDE WENN</code></pre>
+        <pre><code>def note_ausgeben(punkte):
+    if punkte &gt;= 92:
+        print("sehr gut")
+    elif punkte &gt;= 81:
+        print("gut")
+    elif punkte &gt;= 67:
+        print("befriedigend")
+    elif punkte &gt;= 50:
+        print("ausreichend")
+    else:
+        print("nicht bestanden")</code></pre>
         <p>
-          Eine zweiseitige Verzweigung reicht hier aus, da es genau zwei
-          sich gegenseitig ausschließende Fälle gibt — kein SONST-WENN
-          nötig, da keine dritte Stufe existiert.
+          Eine Kette aus <code>elif</code> reicht hier aus, da die
+          Stufen sich gegenseitig ausschließen und von oben nach unten
+          in absteigender Reihenfolge geprüft werden.
         </p>
       </details>
     </section>

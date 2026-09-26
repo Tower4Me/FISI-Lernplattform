@@ -5,8 +5,10 @@ Prueft je Frage in jeder unter data/pruefung/index.json referenzierten
 Pool-Datei:
   - alle elf Pflichtfelder vorhanden (id, typ, frage, modul, teile, block,
     schwierigkeit, erklaerung, plus typspezifische Felder)
-  - typ ist mc/num/order
+  - typ ist mc/mc-multi/num/order
   - mc: genau 4 optionen, antwort im Bereich 0-3
+  - mc-multi: mindestens 2 optionen, antwort ist eine nicht-leere Liste
+    eindeutiger Indizes in optionen (Mehrfachauswahl, assets/exam-engine.js)
   - num: einheit/loesung/toleranz vorhanden, loesung numerisch
   - order: mindestens 2 optionen
   - id ist global eindeutig ueber alle Pool-Dateien
@@ -35,7 +37,7 @@ POOL_DIR = REPO_ROOT / "data" / "pruefung"
 INDEX_PATH = POOL_DIR / "index.json"
 MANIFEST_PATH = REPO_ROOT / "data" / "manifest.json"
 
-TYPEN = {"mc", "num", "order"}
+TYPEN = {"mc", "mc-multi", "num", "order"}
 SCHWIERIGKEITEN = {"leicht", "mittel", "schwer"}
 COMMON_FELDER = {"id", "typ", "frage", "modul", "teile", "block", "schwierigkeit", "erklaerung"}
 
@@ -143,6 +145,19 @@ def main():
                 errors.append(f"{label}: mc braucht genau 4 optionen")
             if not isinstance(antwort, int) or isinstance(antwort, bool) or not (0 <= antwort <= 3):
                 errors.append(f"{label}: antwort muss ein int 0-3 sein")
+        elif typ == "mc-multi":
+            optionen = f.get("optionen")
+            antwort = f.get("antwort")
+            if not isinstance(optionen, list) or len(optionen) < 2:
+                errors.append(f"{label}: mc-multi braucht mindestens 2 optionen")
+                optionen = []
+            if (
+                not isinstance(antwort, list)
+                or not antwort
+                or len(set(antwort)) != len(antwort)
+                or not all(isinstance(a, int) and not isinstance(a, bool) and 0 <= a < len(optionen) for a in antwort)
+            ):
+                errors.append(f"{label}: antwort muss eine nicht-leere Liste eindeutiger Indizes in optionen sein")
         elif typ == "num":
             for feld in ("einheit", "loesung", "toleranz"):
                 if feld not in f:

@@ -4,6 +4,7 @@
     {
       "slug": "projektmanagement",
       "name": "Projektmanagement",
+      "short": "Projektmanagement",
       "units": [
         {
           "slug": "projektbegriff-magisches-dreieck",
@@ -130,37 +131,43 @@
     {
       "slug": "kalkulation",
       "name": "Kalkulation & Grundrechnen",
+      "short": "Kalkulation",
       "units": [
         {
           "slug": "bits-und-bytes",
           "name": "Bits & Bytes",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/kalkulation/bits-und-bytes.json"
+          "quiz": "data/kalkulation/bits-und-bytes.json",
+          "scripts": ["tools/speicherbedarf-rechner.js"]
         },
         {
           "slug": "datenmengen-uebertragung",
           "name": "Übertragungsdauer & Bandbreite",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/kalkulation/datenmengen-uebertragung.json"
+          "quiz": "data/kalkulation/datenmengen-uebertragung.json",
+          "scripts": ["tools/uebertragungsdauer-rechner.js"]
         },
         {
           "slug": "zahlensysteme",
           "name": "Zahlensysteme",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/kalkulation/zahlensysteme.json"
+          "quiz": "data/kalkulation/zahlensysteme.json",
+          "scripts": ["tools/zahlensystem-konverter.js", "tools/hex-viewer.js"]
         },
         {
           "slug": "elektrotechnik-grundformeln",
           "name": "Elektrotechnik-Grundformeln",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/kalkulation/elektrotechnik-grundformeln.json"
+          "quiz": "data/kalkulation/elektrotechnik-grundformeln.json",
+          "scripts": ["tools/elektrotechnik-rechner.js"]
         },
         {
           "slug": "handelskalkulation",
           "name": "Handelskalkulation",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/handelskalkulation.json",
-          "aliases": ["Vollkostenrechnung"]
+          "aliases": ["Vollkostenrechnung"],
+          "scripts": ["tools/handelskalkulation-rechner.js"]
         },
         {
           "slug": "zuschlagskalkulation-bab",
@@ -180,7 +187,8 @@
           "name": "Break-Even & Deckungsbeitrag",
           "exams": ["ap1", "ap2"],
           "quiz": "data/kalkulation/break-even-deckungsbeitrag.json",
-          "aliases": ["Rentabilität", "Amortisation"]
+          "aliases": ["Rentabilität", "Amortisation"],
+          "scripts": ["tools/break-even-rechner.js"]
         },
         {
           "slug": "kauf-miete-leasing-tco",
@@ -193,6 +201,7 @@
     {
       "slug": "hardware",
       "name": "Hardware & Technologien",
+      "short": "Hardware",
       "units": [
         {
           "slug": "computer-grundaufbau",
@@ -319,6 +328,7 @@
     {
       "slug": "netzwerktechnik",
       "name": "Netzwerktechnik",
+      "short": "Netzwerktechnik",
       "units": [
         {
           "slug": "iso-osi-tcp-ip",
@@ -505,6 +515,7 @@
     {
       "slug": "it-sicherheit",
       "name": "IT-Sicherheit",
+      "short": "IT-Sicherheit",
       "units": [
         {
           "slug": "schutzziele-cia",
@@ -631,6 +642,7 @@
     {
       "slug": "datenschutz-recht",
       "name": "Datenschutz & Recht",
+      "short": "Datenschutz & Recht",
       "units": [
         {
           "slug": "dsgvo-grundlagen",
@@ -697,6 +709,7 @@
     {
       "slug": "software-os-web",
       "name": "Software, OS & Web",
+      "short": "Software/OS/Web",
       "units": [
         {
           "slug": "software-klassifikation",
@@ -853,6 +866,7 @@
     {
       "slug": "programmierung",
       "name": "Programmierung",
+      "short": "Programmierung",
       "units": [
         {
           "slug": "programmierparadigmen",
@@ -914,6 +928,7 @@
     {
       "slug": "datenbanken-sql",
       "name": "Datenbanken & SQL",
+      "short": "Datenbanken & SQL",
       "units": [
         {
           "slug": "db-grundlagen",
@@ -980,6 +995,7 @@
     {
       "slug": "qualitaetssicherung",
       "name": "Qualitätssicherung",
+      "short": "Qualitätssicherung",
       "units": [
         {
           "slug": "pdca-prozessorientiertes-qm",
@@ -1010,6 +1026,7 @@
     {
       "slug": "kaufmaennisches",
       "name": "Kaufmännisches & Auftragsabwicklung",
+      "short": "Kaufmännisches",
       "units": [
         {
           "slug": "wirtschaftssektoren-grundfunktionen",
@@ -1106,6 +1123,7 @@
     {
       "slug": "wiso",
       "name": "WiSo",
+      "short": "WiSo",
       "units": [
         {
           "slug": "duales-system-ausbildungsvertrag",
@@ -1238,6 +1256,7 @@
     {
       "slug": "pruefung",
       "name": "Prüfung",
+      "short": "Prüfung",
       "units": [
         {
           "slug": "ap-ablauf",

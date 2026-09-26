@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#$module_slug">$module_name</a></li>
+        <li aria-current="page">$unit_name</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      $unit_name
+      <span class="badges">
+$badges
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+$content
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+    <p>Hast du Feedback? <a href="https://github.com/Tower4Me/FISI-Lernplattform" target="_blank" rel="noopener">Auf GitHub melden</a>.</p>
+    <p class="footer-disclaimer">Mit KI-Unterstützung erstellt und sorgfältig gepflegt. Ergänzung zur Prüfungsvorbereitung, ohne Anspruch auf Vollständigkeit; verbindlich sind die offiziellen Unterlagen der zuständigen Kammer.</p>
+  </footer>
+
+$scripts
+</body>
+</html>

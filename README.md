@@ -26,6 +26,28 @@ py -m http.server 8000
 
 Dann `http://localhost:8000` im Browser öffnen.
 
+## Selbst erweitern
+
+Die Seiten unter `module/` werden erzeugt und nicht direkt bearbeitet. Voraussetzung ist nur Python 3 (Standardbibliothek).
+
+- **Inhalt einer Einheit:** `content/<modul>/<einheit>.html` (nur der Inhalt der Seite, fünf Abschnitte)
+- **Quizfragen:** `data/<modul>/<einheit>.json`
+- **Titel, Reihenfolge, AP1/AP2, Tools:** `data/manifest.json`
+- **Seitenrahmen (Kopf, Footer, Skripte):** `templates/`
+- **Neue Einheit:** Vorlagen `templates/einheit-vorlage.html` und `templates/quiz-vorlage.json`
+
+Nach jeder Änderung neu bauen und prüfen:
+
+```bash
+py tools/build_pages.py
+py tools/build_search_index.py
+py tools/validate_manifest.py
+py tools/check_links.py
+py tools/validate_pool.py
+```
+
+Die erzeugten Dateien (`module/`, `data/search-index.json`) werden mitcommittet. Bei jedem Push prüft GitHub Actions, dass sie aktuell sind. Verbindliche Regeln für Aufbau, Quizfragen und Gestaltung: [CONVENTIONS.md](CONVENTIONS.md), Projektüberblick: [CLAUDE.md](CLAUDE.md).
+
 ---
 
 *Nur für den privaten Lerngebrauch.*

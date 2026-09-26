@@ -14,8 +14,7 @@ Pool-Datei:
   - block ist fuer MINDESTENS EINEN der in teile gelisteten Pruefungsteile
     ein dort definierter Block (eine Frage kann laut Schema mehreren Teilen
     dienen, deren Blockstruktur sich unterscheidet -- block muss daher nicht
-    in jedem gelisteten Teil gueltig sein, siehe Beispiel in
-    prompt-pruefungssimulator.md Abschnitt 3: block "adressierung" bei
+    in jedem gelisteten Teil gueltig sein, Beispiel: block "adressierung" bei
     teile ["ap2-netzwerke", "ap1"], obwohl ap1 diesen Block nicht hat)
   - modul ist ein in data/manifest.json bekannter Modul-Slug
   - schwierigkeit ist leicht/mittel/schwer

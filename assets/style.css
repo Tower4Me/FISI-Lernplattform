@@ -1101,9 +1101,8 @@ body:has(#module-list) .site-search--prominent {
      "Berechne …", jeweils class="tool-intro") — ohne das Tool darunter
      wuerden sie im Ausdruck sinnlos allein/als Frage ohne Antwort stehen
      bleiben. Nur die reine Instruktionszeile traegt die Klasse, keine
-     Erklaerungsabsaetze mit eigenstaendigem Lerninhalt (siehe FIXLOG.md
-     zum Sonderfall "Projektbegriff & magisches Dreieck", wo ein
-     Mischsatz dafuer aufgeteilt wurde). */
+     Erklaerungsabsaetze mit eigenstaendigem Lerninhalt (Mischsaetze
+     werden aufgeteilt, Beispiel "Projektbegriff & magisches Dreieck"). */
   .tool,
   .tool-intro { display: none; }
 

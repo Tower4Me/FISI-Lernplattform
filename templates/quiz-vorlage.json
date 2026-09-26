@@ -1,0 +1,17 @@
+{
+  "unit": "{{MODUL_SLUG}}/{{EINHEIT_SLUG}}",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "{{FRAGE}}",
+      "options": [
+        "{{OPTION_A}}",
+        "{{OPTION_B}}",
+        "{{OPTION_C}}",
+        "{{OPTION_D}}"
+      ],
+      "answer": 0,
+      "explanation": "{{ERKLAERUNG}}"
+    }
+  ]
+}

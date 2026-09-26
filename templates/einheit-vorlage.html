@@ -1,0 +1,48 @@
+    <!--
+      VORLAGE fuer content/<modul-slug>/<einheit-slug>.html (diesen Kommentar loeschen).
+      Nur der Inhalt von <main>: Kopf, Titel, Badges, Footer und Script-Tags
+      erzeugt tools/build_pages.py aus data/manifest.json. {{...}} ersetzen.
+      5 Abschnitte, Reihenfolge und Anker fest (CONVENTIONS.md Abschnitt 3);
+      build_pages.py bricht ab, wenn ein Anker fehlt oder falsch sortiert ist.
+    -->
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <!-- Alltagsanalogie, die das Thema greifbar macht. Kein Fachjargon vor der Analogie. -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>{{ANALOGIE}}</p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <!-- Fachliche Erklaerung: Definitionen, Zusammenhaenge, ggf. Tabelle oder
+         Inline-SVG (CONVENTIONS.md Abschnitt 11). Zwischenueberschriften als <h3>. -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>{{KONZEPT}}</p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <!-- Pruefungsnahes Szenario (Betriebssituation wie in den AP-Aufgaben).
+         Optionales Tool: <p class="tool-intro">…</p> + <div class="tool" data-tool="<tool-slug>">,
+         Skript im Manifest unter "scripts" eintragen (CONVENTIONS.md Abschnitt 1). -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>{{PRAXIS}}</p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <!-- 1-2 Saetze in genau einem <p>, die haengenbleiben sollen
+         (merksaetze.html und der Suchindex lesen diesen Absatz). -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>{{MERKSATZ}}</p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <!-- Fragen stehen in data/<modul-slug>/<einheit-slug>.json (Vorlage: templates/quiz-vorlage.json). -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/{{MODUL_SLUG}}/{{EINHEIT_SLUG}}.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

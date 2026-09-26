@@ -1,0 +1,174 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Brief auf dem Weg von München nach Hamburg durchläuft mehrere
+        unabhängige Stationen: Der Schreiber verfasst den Text (Inhalt),
+        steckt ihn in einen Umschlag mit Adresse (Verpackung), die Post
+        sortiert ihn nach Postleitzahl in die richtige Region (Vermittlung),
+        ein LKW transportiert das Paket physisch über die Autobahn
+        (Transportweg). Jede Station kümmert sich nur um ihre eigene
+        Aufgabe und muss nicht wissen, was in den anderen Stationen
+        passiert – der Postbote liest nicht den Briefinhalt, der Autor
+        kümmert sich nicht um die LKW-Route. Genau nach diesem Prinzip
+        sind Computernetzwerke in <strong>Schichten</strong> aufgebaut.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Für die Kommunikation in Netzwerken gibt es zwei bekannte
+        Schichtenmodelle: das theoretische <strong>ISO/OSI-Modell</strong>
+        mit 7 Schichten und das praktisch verwendete
+        <strong>TCP/IP-Modell</strong> mit 4 Schichten, auf dem das
+        Internet tatsächlich basiert.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>OSI-Schicht</th><th>Name</th><th>Aufgabe</th><th>TCP/IP-Schicht</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>7</td><td>Anwendung</td><td>Schnittstelle zur Anwendung (Browser, Mail-Client)</td><td rowspan="3">Anwendungsschicht</td></tr>
+          <tr><td>6</td><td>Darstellung</td><td>Datenformat, Verschlüsselung, Kompression</td></tr>
+          <tr><td>5</td><td>Sitzung</td><td>Auf- und Abbau von Sitzungen zwischen zwei Systemen</td></tr>
+          <tr><td>4</td><td>Transport</td><td>Ende-zu-Ende-Übertragung, Ports, Segmentierung (TCP/UDP)</td><td>Transportschicht</td></tr>
+          <tr><td>3</td><td>Vermittlung (Netzwerk)</td><td>Logische Adressierung und Routing (IP-Adressen)</td><td>Internetschicht</td></tr>
+          <tr><td>2</td><td>Sicherung</td><td>Fehlererkennung, physische Adressierung (MAC-Adressen)</td><td rowspan="2">Netzzugangsschicht</td></tr>
+          <tr><td>1</td><td>Bitübertragung</td><td>Übertragung roher Bits über das physische Medium (Kabel, Funk)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Das TCP/IP-Modell fasst mehrere OSI-Schichten zusammen: Die
+        <strong>Netzzugangsschicht</strong> deckt OSI-Schicht 1+2 ab, die
+        <strong>Internetschicht</strong> entspricht OSI-Schicht 3, die
+        <strong>Transportschicht</strong> entspricht OSI-Schicht 4, und die
+        <strong>Anwendungsschicht</strong> fasst OSI-Schicht 5–7 in einer
+        einzigen Schicht zusammen. Das OSI-Modell ist detaillierter und
+        eignet sich gut, um Netzwerkprobleme systematisch einzugrenzen
+        („Auf welcher Schicht liegt der Fehler?“); das TCP/IP-Modell
+        beschreibt, wie das Internet tatsächlich funktioniert.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="osi-title osi-desc">
+          <title id="osi-title">OSI-7-Schichten-Stapel neben dem TCP/IP-4-Schichten-Stapel mit sichtbarer Zuordnung</title>
+          <desc id="osi-desc">Links die sieben OSI-Schichten von 1 (Bitübertragung) bis 7 (Anwendung) übereinander gestapelt. Rechts die vier TCP/IP-Schichten in gleicher Höhe: Anwendungsschicht deckt OSI 5 bis 7 ab, Transportschicht OSI 4, Internetschicht OSI 3, Netzzugangsschicht OSI 1 bis 2.</desc>
+
+          <text x="90" y="12" text-anchor="middle" fill="var(--text-muted)" font-size="11">OSI (7 Schichten)</text>
+          <text x="320" y="12" text-anchor="middle" fill="var(--text-muted)" font-size="11">TCP/IP (4 Schichten)</text>
+
+          <rect x="20" y="20" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <circle cx="35" cy="38" r="10" fill="none" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <text x="35" y="42" text-anchor="middle" fill="var(--text)" font-size="10">7</text>
+          <text x="52" y="42" fill="var(--text)" font-size="11">Anwendung</text>
+
+          <rect x="20" y="56" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <circle cx="35" cy="74" r="10" fill="none" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <text x="35" y="78" text-anchor="middle" fill="var(--text)" font-size="10">6</text>
+          <text x="52" y="78" fill="var(--text)" font-size="11">Darstellung</text>
+
+          <rect x="20" y="92" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <circle cx="35" cy="110" r="10" fill="none" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <text x="35" y="114" text-anchor="middle" fill="var(--text)" font-size="10">5</text>
+          <text x="52" y="114" fill="var(--text)" font-size="11">Sitzung</text>
+
+          <rect x="20" y="128" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="35" cy="146" r="10" fill="none" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="35" y="150" text-anchor="middle" fill="var(--text)" font-size="10">4</text>
+          <text x="52" y="150" fill="var(--text)" font-size="11">Transport</text>
+
+          <rect x="20" y="164" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <circle cx="35" cy="182" r="10" fill="none" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="35" y="186" text-anchor="middle" fill="var(--text)" font-size="10">3</text>
+          <text x="52" y="186" fill="var(--text)" font-size="11">Vermittlung</text>
+
+          <rect x="20" y="200" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <circle cx="35" cy="218" r="10" fill="none" stroke="var(--acc-merksatz)" stroke-width="1.5"/>
+          <text x="35" y="222" text-anchor="middle" fill="var(--text)" font-size="10">2</text>
+          <text x="52" y="222" fill="var(--text)" font-size="11">Sicherung</text>
+
+          <rect x="20" y="236" width="140" height="36" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <circle cx="35" cy="254" r="10" fill="none" stroke="var(--acc-merksatz)" stroke-width="1.5"/>
+          <text x="35" y="258" text-anchor="middle" fill="var(--text)" font-size="10">1</text>
+          <text x="52" y="258" fill="var(--text)" font-size="11">Bitübertragung</text>
+
+          <line x1="160" y1="128" x2="260" y2="128" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="160" y1="164" x2="260" y2="164" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <line x1="160" y1="200" x2="260" y2="200" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+          <rect x="260" y="20" width="120" height="108" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="320" y="78" text-anchor="middle" fill="var(--text)" font-size="11">Anwendungsschicht</text>
+
+          <rect x="260" y="128" width="120" height="36" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="320" y="150" text-anchor="middle" fill="var(--text)" font-size="11">Transportschicht</text>
+
+          <rect x="260" y="164" width="120" height="36" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="320" y="186" text-anchor="middle" fill="var(--text)" font-size="11">Internetschicht</text>
+
+          <rect x="260" y="200" width="120" height="72" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <text x="320" y="240" text-anchor="middle" fill="var(--text)" font-size="11">Netzzugangsschicht</text>
+        </svg>
+        <figcaption>
+          OSI-Schichten 5–7 entsprechen zusammen der TCP/IP-Anwendungsschicht,
+          Schicht 4 der Transportschicht, Schicht 3 der Internetschicht und
+          Schichten 1–2 zusammen der Netzzugangsschicht — gleiche Höhe im
+          Diagramm macht die Zuordnung direkt sichtbar.
+        </figcaption>
+      </figure>
+
+      <p>
+        Merkhilfe für die Reihenfolge von unten nach oben (1→7):
+        <strong>B</strong>itübertragung, <strong>S</strong>icherung,
+        <strong>V</strong>ermittlung, <strong>T</strong>ransport,
+        <strong>S</strong>itzung, <strong>D</strong>arstellung,
+        <strong>A</strong>nwendung.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Nutzer ruft im Browser eine Webseite auf. Der Weg lässt sich
+        Schicht für Schicht nachvollziehen:
+      </p>
+      <ul>
+        <li><strong>Anwendungsschicht (OSI 7 / TCP/IP-Anwendung):</strong> Der Browser sendet eine HTTP-Anfrage.</li>
+        <li><strong>Darstellungsschicht (OSI 6):</strong> Die Verbindung wird per TLS verschlüsselt (HTTPS).</li>
+        <li><strong>Sitzungsschicht (OSI 5):</strong> Eine Sitzung zwischen Browser und Webserver wird verwaltet.</li>
+        <li><strong>Transportschicht (OSI 4 / TCP/IP-Transport):</strong> TCP segmentiert die Daten, adressiert Port 443 und sorgt für zuverlässige Zustellung.</li>
+        <li><strong>Vermittlungsschicht (OSI 3 / TCP/IP-Internet):</strong> Die IP-Adresse des Webservers wird für das Routing durchs Internet verwendet.</li>
+        <li><strong>Sicherungsschicht (OSI 2) / Bitübertragung (OSI 1, beide TCP/IP-Netzzugang):</strong> Die Daten werden über das lokale Netzwerk (z. B. WLAN) per MAC-Adresse ausgeliefert und als elektrische/optische Signale physisch übertragen.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Auf welcher OSI-Schicht arbeitet ein
+        Switch, auf welcher ein Router?“ – Antwort: Switch = Schicht 2
+        (MAC-Adressen), Router = Schicht 3 (IP-Adressen) — vertieft in der
+        Einheit „Netzwerkkomponenten“.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        OSI hat 7 Schichten (theoretisches Referenzmodell), TCP/IP hat 4
+        (praktisches Internetmodell). TCP/IP-Netzzugang = OSI 1+2,
+        Internetschicht = OSI 3, Transport = OSI 4, Anwendung = OSI 5-7.
+        Von unten nach oben: Bitübertragung, Sicherung, Vermittlung,
+        Transport, Sitzung, Darstellung, Anwendung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/iso-osi-tcp-ip.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

@@ -1,0 +1,172 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Rastergrafik ist wie ein Mosaik aus kleinen bunten Kacheln
+        (Pixeln) — zoomst du nah genug heran, siehst du irgendwann nur
+        noch einzelne Kacheln statt eines scharfen Bildes. Eine
+        Vektorgrafik ist dagegen wie der Bauplan eines Architekten,
+        beschrieben durch mathematische Linien und Kurven — man kann ihn
+        in jeder Größe neu „zeichnen“, ohne je unscharf zu werden. Und
+        bei Video ist ein Container (z. B. MP4) wie ein Lieferwagen, der
+        unterschiedlich verpackte Fracht (den Codec, z. B. H.264)
+        transportieren kann — der Wagentyp allein sagt nichts darüber
+        aus, wie die Ladung innen komprimiert wurde.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Raster vs. Vektor</h3>
+      <p>
+        <strong>Rastergrafik</strong> (JPEG, PNG, GIF) besteht aus einem
+        festen Raster von Pixeln — vergrößern macht sie unscharf, da
+        einzelne Pixel sichtbar werden. <strong>Vektorgrafik</strong>
+        (SVG) besteht dagegen aus mathematischen Kurven und Formen und
+        ist beliebig skalierbar, ganz ohne Qualitätsverlust — deshalb das
+        Standardformat für Logos und Icons im Web.
+      </p>
+
+      <h3>Bildformate</h3>
+      <table>
+        <thead>
+          <tr><th>Format</th><th>Komprimierung</th><th>Transparenz</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>JPEG/JPG</strong></td><td>verlustbehaftet</td><td>nein</td><td>Fotos, Bilder mit vielen Farben</td></tr>
+          <tr><td><strong>PNG</strong></td><td>verlustfrei</td><td>ja (Alpha-Kanal)</td><td>Screenshots, Logos, Grafiken mit Text</td></tr>
+          <tr><td><strong>GIF</strong></td><td>verlustfrei</td><td>ja (1-Bit)</td><td>Animationen, max. 256 Farben</td></tr>
+          <tr><td><strong>WebP</strong></td><td>verlustfrei & verlustbehaftet</td><td>ja</td><td>Web-Optimierung, moderner JPEG/PNG-Ersatz</td></tr>
+          <tr><td><strong>SVG</strong> (Vektor)</td><td>keine (Vektorgrafik)</td><td>ja</td><td>Logos, Icons, skalierbare Grafiken</td></tr>
+          <tr><td><strong>BMP</strong></td><td>keine (unkomprimiert)</td><td>begrenzt</td><td>Windows-intern, sehr große Dateien</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Audioformate</h3>
+      <table>
+        <thead>
+          <tr><th>Format</th><th>Komprimierung</th><th>Qualität</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MP3</strong></td><td>verlustbehaftet</td><td>gut bei kleiner Dateigröße</td><td>Musik, Podcasts, breite Unterstützung</td></tr>
+          <tr><td><strong>AAC</strong></td><td>verlustbehaftet</td><td>besser als MP3 bei gleicher Größe</td><td>Streaming (Spotify, Apple Music)</td></tr>
+          <tr><td><strong>FLAC</strong></td><td>verlustfrei</td><td>Original-Qualität</td><td>Archivierung, Audiophile</td></tr>
+          <tr><td><strong>WAV</strong></td><td>keine (unkomprimiert)</td><td>höchste Qualität</td><td>Tonstudio, professionelle Bearbeitung</td></tr>
+          <tr><td><strong>OGG</strong></td><td>verlustbehaftet</td><td>gut</td><td>Open-Source-Alternative zu MP3</td></tr>
+          <tr><td><strong>Opus</strong></td><td>verlustbehaftet</td><td>sehr gut bei niedriger Bitrate</td><td>Video-Chat, Streaming, moderner Nachfolger von OGG</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Videoformate: Container vs. Codec</h3>
+      <p>
+        Bei Video gibt es zwei getrennte Konzepte: der
+        <strong>Container</strong> ist das Dateiformat (.mp4, .mkv,
+        .avi), der <strong>Codec</strong> ist das eigentliche
+        Komprimierungsverfahren (H.264, H.265, AV1). Ein Container kann
+        verschiedene Codecs enthalten — eine .mp4-Datei kann z. B. H.264
+        oder H.265 verwenden.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 440 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="container-codec-title container-codec-desc">
+          <title id="container-codec-title">Container vs. Codec am Beispiel MP4</title>
+          <desc id="container-codec-desc">Ein Container wie MP4 ist eine Box, die eine Video- und eine Audiospur bündelt. Derselbe Container-Typ MP4 kann dabei unterschiedliche Codecs enthalten — im linken Beispiel H.264, im rechten Beispiel H.265 für die Videospur, jeweils mit AAC für die Audiospur.</desc>
+
+          <rect x="20" y="30" width="190" height="130" rx="10" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2.5"/>
+          <text x="115" y="50" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Container: MP4</text>
+          <rect x="35" y="62" width="160" height="44" rx="5" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="115" y="80" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="700">Videospur</text>
+          <text x="115" y="93" text-anchor="middle" fill="var(--text-muted)" font-size="8">Codec: H.264</text>
+          <rect x="35" y="112" width="160" height="34" rx="5" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="115" y="127" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="700">Audiospur</text>
+          <text x="115" y="139" text-anchor="middle" fill="var(--text-muted)" font-size="8">Codec: AAC</text>
+
+          <rect x="230" y="30" width="190" height="130" rx="10" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2.5"/>
+          <text x="325" y="50" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Container: MP4</text>
+          <rect x="245" y="62" width="160" height="44" rx="5" fill="var(--acc-praxis)" fill-opacity="0.2" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="325" y="80" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="700">Videospur</text>
+          <text x="325" y="93" text-anchor="middle" fill="var(--text-muted)" font-size="8">Codec: H.265</text>
+          <rect x="245" y="112" width="160" height="34" rx="5" fill="var(--acc-quiz)" fill-opacity="0.2" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="325" y="127" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="700">Audiospur</text>
+          <text x="325" y="139" text-anchor="middle" fill="var(--text-muted)" font-size="8">Codec: AAC</text>
+
+          <text x="220" y="182" text-anchor="middle" fill="var(--text-muted)" font-size="9">gleicher Container (MP4) — unterschiedlicher Video-Codec möglich</text>
+        </svg>
+        <figcaption>
+          Der Container ist die Box, die Spuren bündelt — welcher Codec
+          darin komprimiert, ist eine davon unabhängige zweite
+          Entscheidung.
+        </figcaption>
+      </figure>
+
+      <table>
+        <thead>
+          <tr><th>Container</th><th>typische Codecs</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>MP4</strong> (.mp4)</td><td>H.264, H.265</td><td>Web, Streaming, universell</td></tr>
+          <tr><td><strong>MKV</strong> (.mkv)</td><td>fast alle</td><td>Filme mit mehreren Tonspuren/Untertiteln</td></tr>
+          <tr><td><strong>AVI</strong> (.avi)</td><td>DivX, Xvid</td><td>veraltet, kaum noch genutzt</td></tr>
+          <tr><td><strong>WebM</strong> (.webm)</td><td>VP8, VP9, AV1</td><td>Web-Video (Open Source)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>OCR — Optical Character Recognition</h3>
+      <p>
+        <strong>OCR</strong> (optische Zeichenerkennung) ist Software,
+        die in einem gescannten Bild oder Foto enthaltenen Text erkennt
+        und in echten, durchsuchbaren und kopierbaren Text umwandelt —
+        aus einer reinen Bild-Rastergrafik eines Dokuments wird so ein
+        durchsuchbares PDF. Die Erkennungsgenauigkeit hängt stark von
+        Bildqualität, Schriftart und Kontrast der Vorlage ab. Typische
+        Einsatzfelder: Digitalisierung von Papierarchiven (siehe Einheit
+        Scanner & Sensoren, Modul Hardware), automatisches Auslesen von
+        Rechnungen, Nummernschilderkennung.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH digitalisiert ihr Papierarchiv und überarbeitet
+        gleichzeitig ihre Firmenwebsite:
+      </p>
+      <ul>
+        <li><strong>Papierarchiv:</strong> Alte Verträge werden mit einem
+          Dokumentenscanner eingescannt und per <strong>OCR</strong> in
+          durchsuchbare PDF-Dateien umgewandelt — Mitarbeiter können nun
+          per Volltextsuche einen bestimmten Vertrag finden, statt
+          Aktenordner durchzublättern.</li>
+        <li><strong>Firmenlogo auf der Webseite:</strong> Statt einer PNG-
+          Datei wird das Logo als <strong>SVG</strong> (Vektorgrafik)
+          eingebunden — es bleibt auf jedem Bildschirm scharf, vom
+          kleinen Smartphone bis zum großen 4K-Monitor, ohne mehrere
+          Dateigrößen vorhalten zu müssen.</li>
+        <li><strong>Produktvideo:</strong> wird als <strong>MP4-Container</strong>
+          mit <strong>H.264-Codec</strong> exportiert — die
+          kompatibelste Kombination für die meisten Browser und Geräte.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Rastergrafik (JPEG/PNG/GIF) = Pixelraster, wird beim Vergrößern
+        unscharf. Vektorgrafik (SVG) = mathematische Kurven, beliebig
+        skalierbar. Bei Video sind Container (Dateiformat, z. B. MP4) und
+        Codec (Kompressionsverfahren, z. B. H.264) getrennte Konzepte.
+        OCR wandelt gescannten Bildtext in durchsuchbaren, echten Text um.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/bild-videoformate.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

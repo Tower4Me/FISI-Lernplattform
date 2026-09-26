@@ -1,0 +1,171 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Firmengebäude hat oft einen Empfangsbereich, den auch externe
+        Besucher betreten dürfen, ohne gleich Zutritt zu den Büros im
+        Inneren zu bekommen. Zwischen Empfang und Büros liegt eine weitere
+        verschlossene Tür. Selbst wenn im Empfangsbereich etwas schiefgeht,
+        bleibt der eigentliche Kernbereich geschützt. Genauso funktioniert
+        eine <strong>Firewall</strong> mit einer <strong>DMZ</strong> im
+        Netzwerk. Ohne eine solche Zwischenzone hinge zwischen Internet und
+        internem Netz nur eine einzige Grenze: Wäre der öffentlich
+        erreichbare Server (z. B. Webshop) einmal geknackt, stünde der
+        Angreifer damit sofort mitten im internen Netz mit Fileservern und
+        Kundendaten.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>Firewall</strong> kontrolliert den Datenverkehr
+        zwischen Netzen anhand von Regeln. Sie ist die wichtigste Grenze
+        zwischen „innen“ (vertrauenswürdig) und „außen“ (Internet). Es gibt
+        verschiedene Ausbaustufen:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Arbeitet auf</th><th>Erkennt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Paketfilter</td><td>Schicht 3/4 (IP, Port)</td><td>Quelle, Ziel, Port, Protokoll</td></tr>
+          <tr><td>Stateful Inspection (SPI)</td><td>Schicht 3/4 + Verbindungszustand</td><td>Gehört das Paket zu einer bestehenden Verbindung?</td></tr>
+          <tr><td>Application Firewall / NGFW / WAF</td><td>bis Schicht 7</td><td>Anwendung, Inhalt, Deep Packet Inspection</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Eine Next-Generation-Firewall (NGFW) macht Stateful Inspection,
+        kann aber zusätzlich Application Control und Deep Packet Inspection
+        bis Schicht 7 – eine reine Paketfilter-Regel („Port 443 erlauben“)
+        ist nur die unterste Ausbaustufe. Eine WAF (Web Application
+        Firewall) ist eine auf Webanwendungen spezialisierte Variante davon.
+      </p>
+
+      <h3>Die DMZ</h3>
+      <p>
+        Eine <strong>DMZ</strong> (Demilitarisierte Zone) ist ein Puffernetz
+        zwischen Internet und internem LAN. Server, die von außen
+        erreichbar sein müssen (Webserver, Mailserver), stehen hier. Wird
+        ein DMZ-Server gehackt, hat der Angreifer noch keinen Zugriff auf
+        das interne Netz – dazwischen liegt eine zweite Firewall-Grenze.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dmz-title">
+          <title id="dmz-title">Netzwerkzonen-Diagramm: Internet, DMZ und internes LAN, getrennt durch zwei Firewalls</title>
+          <rect x="60" y="10" width="200" height="40" rx="6" fill="var(--surface-2)" stroke="var(--border)"/>
+          <text x="160" y="35" text-anchor="middle" fill="var(--text)" font-size="15">Internet</text>
+
+          <line x1="160" y1="50" x2="160" y2="78" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="40" y="80" width="240" height="34" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="160" y="102" text-anchor="middle" fill="var(--text)" font-size="14">Firewall 1</text>
+
+          <line x1="160" y1="114" x2="160" y2="138" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="20" y="140" width="280" height="80" rx="8" fill="var(--surface)" stroke="var(--acc-einstieg)" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="160" y="160" text-anchor="middle" fill="var(--acc-einstieg)" font-size="13" font-weight="600">DMZ (von außen erreichbar)</text>
+          <text x="160" y="185" text-anchor="middle" fill="var(--text)" font-size="14">Webserver</text>
+          <text x="160" y="205" text-anchor="middle" fill="var(--text)" font-size="14">Mailserver</text>
+
+          <line x1="160" y1="220" x2="160" y2="248" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="40" y="250" width="240" height="34" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="160" y="272" text-anchor="middle" fill="var(--text)" font-size="14">Firewall 2</text>
+
+          <line x1="160" y1="284" x2="160" y2="308" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="20" y="310" width="280" height="70" rx="8" fill="var(--surface)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="160" y="332" text-anchor="middle" fill="var(--ok)" font-size="13" font-weight="600">Internes LAN (maximal geschützt)</text>
+          <text x="160" y="358" text-anchor="middle" fill="var(--text)" font-size="14">Clients, Fileserver</text>
+        </svg>
+        <figcaption>
+          Zwei Firewalls trennen drei Zonen: Internet, DMZ (von außen
+          erreichbare Server) und internes LAN. Ein kompromittierter
+          DMZ-Server öffnet noch keinen Zugriff auf das interne Netz.
+        </figcaption>
+      </figure>
+
+      <h3>Proxy-Server: Forward- vs. Reverse-Proxy</h3>
+      <p>
+        Ein <strong>Proxy-Server</strong> leitet Verbindungen
+        stellvertretend für eine andere Partei weiter. Man unterscheidet
+        zwei Einsatzrichtungen:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Sitzt auf Seite von</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Forward-Proxy</td>
+            <td>Client</td>
+            <td>Internetzugriff der Clients filtern, protokollieren
+              oder den Nutzer gegenüber dem Zielserver anonymisieren</td>
+          </tr>
+          <tr>
+            <td>Reverse-Proxy</td>
+            <td>Server</td>
+            <td>Lastverteilung auf mehrere Backend-Server, verbirgt die
+              interne Serverstruktur vor dem Internet</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Abgrenzung zur Firewall:</strong> Ein Proxy arbeitet auf
+        Anwendungsebene und leitet Verbindungen im Namen des Clients
+        bzw. Servers aktiv weiter – er ist selbst Kommunikationspartner
+        für beide Seiten. Eine Firewall dagegen filtert primär nach
+        Regeln auf Paket-/Portebene und lässt Verbindungen entweder
+        durch oder blockiert sie, ohne selbst als aktiver
+        Kommunikationspartner aufzutreten.
+      </p>
+      <p>
+        Ein <strong>Reverse-Proxy sitzt in der Praxis häufig in der
+        DMZ</strong>: Er nimmt Anfragen aus dem Internet entgegen und
+        leitet sie gezielt an die eigentlichen Backend-Server im
+        internen Netz weiter, ohne deren Adressen oder Struktur nach
+        außen preiszugeben.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die „Baumann IT-Systemhaus GmbH“ plant das Netzwerk für einen
+        Kunden mit eigenem Webshop und internem Fileserver:
+      </p>
+      <ul>
+        <li>Der Webshop-Server muss von jedem Kunden im Internet erreichbar sein → er kommt in die <strong>DMZ</strong>, nicht ins interne LAN.</li>
+        <li><strong>Firewall 1</strong> (zwischen Internet und DMZ) lässt nur HTTPS-Verkehr (Port 443) zum Webshop-Server durch.</li>
+        <li><strong>Firewall 2</strong> (zwischen DMZ und internem LAN) lässt nur die eine Verbindung durch, die der Webshop-Server für Bestelldaten zur internen Datenbank benötigt – sonst nichts.</li>
+        <li>Ein Angreifer, der eine Schwachstelle im Webshop ausnutzt, landet damit nur in der DMZ. Um an den internen Fileserver mit den Kundendaten zu gelangen, müsste er zusätzlich Firewall 2 überwinden.</li>
+        <li>Eine reine Paketfilter-Regel würde nur Quelle/Ziel/Port prüfen; die eingesetzte NGFW erkennt zusätzlich, ob der Datenverkehr zur Anwendung „Webshop“ überhaupt plausibel aussieht (Deep Packet Inspection).</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Firewall-Ausbaustufen: Paketfilter (L3/L4) → Stateful Inspection
+        (+ Verbindungszustand) → NGFW/WAF (bis L7). Die DMZ ist ein
+        Puffernetz zwischen zwei Firewalls für von außen erreichbare
+        Server – ein kompromittierter DMZ-Server öffnet nicht automatisch
+        das interne LAN.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/firewall-dmz.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

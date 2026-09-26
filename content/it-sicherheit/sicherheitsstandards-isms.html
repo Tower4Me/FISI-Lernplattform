@@ -1,0 +1,135 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Restaurant kann für sich behaupten, „bei uns ist die Küche
+        sauber". Glaubwürdiger wird das, wenn ein unabhängiger Prüfer nach
+        einem festen Kriterienkatalog kontrolliert und ein Zertifikat
+        aushändigt, das jeder Gast versteht. Genauso verhält es sich mit
+        IT-Sicherheit in Unternehmen: Man kann sich Maßnahmen selbst
+        ausdenken, oder man folgt einem etablierten Standard, der genau
+        vorgibt, was zu tun ist – und der sich extern bestätigen lässt.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Sicherheit lässt sich nicht improvisieren. Etablierte Standards geben
+        ein Gerüst vor, wie man Informationssicherheit systematisch aufbaut
+        und nachweist. Im Zentrum steht dabei das
+        <strong>Informationssicherheits-Managementsystem (ISMS)</strong>:
+        kein einzelnes Produkt, sondern ein fortlaufender Prozess – Risiken
+        erkennen, Maßnahmen festlegen, umsetzen, prüfen, verbessern. Dieser
+        Kreislauf folgt dem <strong>PDCA-Zyklus</strong> (Plan, Do, Check,
+        Act).
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pdca-title pdca-desc">
+          <title id="pdca-title">Der PDCA-Zyklus als fortlaufender Kreislauf: Plan, Do, Check, Act</title>
+          <desc id="pdca-desc">Vier Stationen im Kreis, im Uhrzeigersinn verbunden durch Pfeile: Plan (planen), Do (umsetzen), Check (prüfen), Act (verbessern) — danach beginnt der Kreislauf erneut bei Plan, symbolisiert durch den geschlossenen Ring aus vier Pfeilsegmenten um eine zentrale Beschriftung „kontinuierliche Verbesserung".</desc>
+
+          <defs>
+            <marker id="pdca-arrow" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto">
+              <path d="M0,0 L7,2.5 L0,5" fill="var(--acc-praxis)"/>
+            </marker>
+          </defs>
+
+          <path d="M176,53 A100,100 0 0 1 247,124" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+          <path d="M247,176 A100,100 0 0 1 176,247" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+          <path d="M124,247 A100,100 0 0 1 53,176" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+          <path d="M53,124 A100,100 0 0 1 124,53" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5" marker-end="url(#pdca-arrow)"/>
+
+          <text x="150" y="146" text-anchor="middle" fill="var(--text-muted)" font-size="8">kontinuierliche</text>
+          <text x="150" y="158" text-anchor="middle" fill="var(--text-muted)" font-size="8">Verbesserung</text>
+
+          <rect x="115" y="30" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="150" y="46" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Plan</text>
+          <text x="150" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="8">planen</text>
+
+          <rect x="215" y="130" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="250" y="146" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Do</text>
+          <text x="250" y="160" text-anchor="middle" fill="var(--text-muted)" font-size="8">umsetzen</text>
+
+          <rect x="115" y="230" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <text x="150" y="246" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Check</text>
+          <text x="150" y="260" text-anchor="middle" fill="var(--text-muted)" font-size="8">prüfen</text>
+
+          <rect x="15" y="130" width="70" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="50" y="146" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Act</text>
+          <text x="50" y="160" text-anchor="middle" fill="var(--text-muted)" font-size="8">verbessern</text>
+        </svg>
+        <figcaption>
+          Der PDCA-Zyklus läuft nie ab, sondern beginnt nach Act wieder
+          bei Plan — genau dieser wiederholbare Regelkreis macht ein
+          ISMS zu einem fortlaufenden Prozess statt einem Einmalprojekt.
+        </figcaption>
+      </figure>
+
+      <p>Zwei Standards sind für die Prüfung besonders relevant:</p>
+
+      <table>
+        <thead>
+          <tr><th>Merkmal</th><th>BSI IT-Grundschutz</th><th>ISO/IEC 27001</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Herausgeber</td><td>Bundesamt für Sicherheit in der Informationstechnik (BSI)</td><td>Internationale Normungsorganisation (ISO/IEC)</td></tr>
+          <tr><td>Charakter</td><td>Sehr konkrete Bausteine und Maßnahmenkataloge</td><td>Eher Rahmenwerk als konkrete Einzelmaßnahmen</td></tr>
+          <tr><td>Struktur</td><td>Standards 200-1 bis 200-3</td><td>Anforderungen an das ISMS selbst</td></tr>
+          <tr><td>Verbreitung</td><td>In Deutschland besonders bei Behörden verbreitet</td><td>International anerkannt, zertifizierbar durch externes Audit</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Eine <strong>ISO-27001-Zertifizierung</strong> ist in der Praxis oft
+        Voraussetzung für Aufträge großer Kunden – ein extern geprüfter
+        Vertrauensnachweis. Der BSI-Grundschutz kann dabei als Weg zur
+        Zertifizierung dienen („ISO 27001 auf Basis von IT-Grundschutz").
+      </p>
+
+      <p>
+        Zwei ergänzende Prinzipien: <strong>Security by Design</strong>
+        plant Sicherheit von Anfang an in die Architektur ein, statt sie
+        nachträglich zu ergänzen. <strong>Security by Default</strong>
+        liefert die Werkseinstellung bereits möglichst sicher (z. B.
+        Firewall aktiv, unnötige Dienste aus).
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Dienstleister möchte einen Auftrag für eine Behörde
+        übernehmen. Die Ausschreibung verlangt den Nachweis eines
+        funktionierenden Informationssicherheits-Managements.
+      </p>
+      <ul>
+        <li>Die Behörde selbst arbeitet nach <strong>BSI IT-Grundschutz</strong>, weil er sehr konkrete, in Deutschland etablierte Bausteine vorgibt.</li>
+        <li>Der Dienstleister lässt sich zusätzlich nach <strong>ISO/IEC 27001</strong> zertifizieren, um auch international als vertrauenswürdig zu gelten.</li>
+        <li>Intern etabliert der Dienstleister ein <strong>ISMS</strong>: Er identifiziert Risiken (z. B. veraltete Serversoftware), legt Maßnahmen fest (Patch-Management einführen), setzt sie um, prüft die Wirksamkeit nach einem Quartal und passt den Prozess an – ein klassischer PDCA-Durchlauf.</li>
+        <li>Neue Systeme werden von Anfang an nach dem Prinzip <strong>Security by Design</strong> geplant, neue Server werden mit deaktivierten Standarddiensten ausgeliefert (<strong>Security by Default</strong>).</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein ISMS ist ein fortlaufender PDCA-Prozess, kein einmaliges
+        Projekt. BSI IT-Grundschutz liefert konkrete Bausteine (v. a. DE/
+        Behörden), ISO/IEC 27001 ist der international zertifizierbare
+        Rahmen – beide lassen sich kombinieren.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/sicherheitsstandards-isms.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

@@ -1,0 +1,126 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Jedes Fahrzeug trägt zwei Kennzeichnungen: die
+        <strong>Fahrgestellnummer</strong>, die der Hersteller unlösbar in
+        die Karosserie einprägt und die weltweit eindeutig ist, und das
+        <strong>Kfz-Kennzeichen</strong>, das nach den einheitlichen Regeln
+        der Straßenverkehrsordnung vergeben wird, egal ob das Auto in
+        Berlin oder München fährt. Die Fahrgestellnummer identifiziert das
+        Fahrzeug selbst, die Straßenverkehrsordnung sorgt dafür, dass sich
+        alle Fahrzeuge nach denselben Regeln im Verkehr bewegen. Genau
+        dieses Doppelprinzip steckt in Schicht 2 (Sicherungsschicht) eines
+        Netzwerks: Ein Teil kümmert sich um die eindeutige Adressierung
+        jeder einzelnen Netzwerkkarte, ein anderer Teil sorgt für eine
+        einheitliche Schnittstelle nach oben, unabhängig vom genutzten
+        Medium.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Die MAC-Adresse (48 Bit)</h3>
+      <p>
+        Jede Netzwerkkarte besitzt eine <strong>MAC-Adresse</strong>
+        (Media Access Control), 48 Bit lang und hexadezimal notiert
+        (z. B. <code>3C:52:82:1A:9F:01</code>). Sie ist herstellerseitig
+        fest in die Hardware eingebrannt und besteht aus zwei Hälften:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Teil</th><th>Größe</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>OUI</strong> (Organizationally Unique Identifier)</td><td>24 Bit (3 Byte)</td><td>vom Hersteller bei der IEEE registrierter Herstellerkennungsteil</td></tr>
+          <tr><td>Geräteindividueller Teil</td><td>24 Bit (3 Byte)</td><td>vom Hersteller selbst fortlaufend vergeben, sichert die weltweite Eindeutigkeit</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Aus dieser Kombination ergibt sich: Keine zwei Netzwerkkarten
+        weltweit tragen dieselbe MAC-Adresse (Ausnahme: absichtlich
+        manipulierte Adressen, siehe unten).
+      </p>
+
+      <h3>MAC-Teilschicht vs. LLC-Teilschicht</h3>
+      <p>
+        Die OSI-Sicherungsschicht (Schicht 2) ist intern in zwei
+        Teilschichten aufgeteilt:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Teilschicht</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>LLC</strong> (Logical Link Control), obere Teilschicht</td><td>stellt der Vermittlungsschicht (Schicht 3) eine einheitliche Schnittstelle bereit, unabhängig vom genutzten Übertragungsmedium; übernimmt Flusskontrolle und Multiplexing mehrerer Protokolle über dieselbe Verbindung</td></tr>
+          <tr><td><strong>MAC</strong> (Media Access Control), untere Teilschicht</td><td>regelt Adressierung (MAC-Adressen) und Medienzugriff — <em>wer</em> darf <em>wann</em> senden</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die konkreten Zugriffsverfahren (CSMA/CD im Kabel, CSMA/CA im
+        Funk) behandelt die Einheit
+        <a href="ethernet-zugriffsverfahren.html">Ethernet &amp;
+        Zugriffsverfahren</a> vertiefend.
+      </p>
+
+      <h3>MAC-Adresse vs. IP-Adresse: physisch vs. logisch</h3>
+      <p>
+        Die <strong>MAC-Adresse</strong> ist <strong>physisch</strong> und
+        nur lokal relevant, fest an die Netzwerkkarte gebunden. Die
+        <strong>IP-Adresse</strong> (Schicht 3) ist <strong>logisch</strong>,
+        veränderlich und funktioniert auch über Netzgrenzen hinweg
+        (Routing). Innerhalb eines Segments läuft die Zustellung immer
+        über die MAC-Adresse — wie IP zu MAC aufgelöst wird, behandelt die
+        Einheit <a href="arp.html">ARP</a>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Auszubildender soll bei einer neu gelieferten Netzwerkkarte
+        herausfinden, von welchem Hersteller sie stammt — ohne die
+        Verpackung zur Hand zu haben.
+      </p>
+      <ul>
+        <li>Per <code>ipconfig /all</code> liest er die MAC-Adresse aus:
+          <code>A4:C3:F0:12:34:56</code>.</li>
+        <li>Die ersten drei Byte (<code>A4:C3:F0</code>) sind die
+          <strong>OUI</strong> — per IEEE-Datenbank ermittelt er daraus
+          den Hersteller, ohne die Karte zu sehen.</li>
+        <li>Die letzten drei Byte (<code>12:34:56</code>) sind
+          herstellerintern vergeben und machen die Karte weltweit
+          eindeutig.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum genügt zur eindeutigen
+        Identifikation im lokalen Netz die MAC-Adresse, während im
+        Internet zusätzlich IP-Adressen nötig sind?“ – Antwort: Die
+        MAC-Adresse ist zwar weltweit eindeutig, aber nicht routingfähig
+        — sie wird nicht über Netzgrenzen hinweg weitergegeben. Für die
+        logische Adressierung und das Routing über mehrere Netze hinweg
+        braucht es die IP-Adresse auf Schicht 3.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        MAC-Adresse = 48 Bit, OUI (Hersteller) + geräteindividueller Teil,
+        physisch und nur lokal relevant. Schicht 2 gliedert sich in LLC
+        (einheitliche Schnittstelle nach oben) und MAC (Adressierung +
+        Medienzugriff). MAC = physisch/lokal, IP = logisch/routbar.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/mac-llc.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

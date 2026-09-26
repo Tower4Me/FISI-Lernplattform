@@ -1,0 +1,179 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Variable ist wie eine beschriftete Kiste, in der über die
+        Zeit unterschiedlicher Inhalt liegen kann — solange er zur
+        angegebenen Kistenart passt: eine Kiste für Zahlen, eine für
+        Text, eine für Ja/Nein-Werte. Operatoren sind die Werkzeuge, mit
+        denen mit dem Kisteninhalt gearbeitet wird: rechnen (Taschenrechner),
+        vergleichen (Waage: größer, kleiner, gleich) oder mehrere
+        Bedingungen verknüpfen (UND/ODER, wie „nur wenn beides zutrifft“
+        oder „wenn mindestens eines zutrifft“).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Variablen und Datentypen</h3>
+      <p>
+        Eine <strong>Variable</strong> ist ein benannter Speicherplatz für
+        einen Wert, der sich während der Programmlaufzeit ändern kann.
+        Der <strong>Datentyp</strong> legt fest, welche Art von Wert
+        gespeichert werden darf:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Datentyp</th><th>Beispielwert</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Ganzzahl</strong> (Integer)</td><td>42</td></tr>
+          <tr><td><strong>Gleitkommazahl</strong> (Float/Double)</td><td>3.14</td></tr>
+          <tr><td><strong>Zeichenkette</strong> (String)</td><td>"Hallo Welt"</td></tr>
+          <tr><td><strong>Wahrheitswert</strong> (Boolean)</td><td>true / false</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Arithmetische Operatoren</h3>
+      <p>Rechnen mit Zahlen (Integer/Float):</p>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>+</code></td><td>Addition</td><td>5 + 3 → 8</td></tr>
+          <tr><td><code>-</code></td><td>Subtraktion</td><td>5 - 3 → 2</td></tr>
+          <tr><td><code>*</code></td><td>Multiplikation</td><td>5 * 3 → 15</td></tr>
+          <tr><td><code>/</code></td><td>Division</td><td>7 / 2 → 3.5</td></tr>
+          <tr><td><code>%</code> (Modulo)</td><td>Rest der Ganzzahldivision</td><td>7 % 2 → 1</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Vergleichsoperatoren</h3>
+      <p>
+        Vergleichen zweier Werte, das Ergebnis ist immer ein
+        <strong>Boolean</strong> (wahr oder falsch):
+      </p>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>==</code></td><td>gleich</td><td>5 == 5 → wahr</td></tr>
+          <tr><td><code>!=</code></td><td>ungleich</td><td>5 != 3 → wahr</td></tr>
+          <tr><td><code>&lt;</code> / <code>&gt;</code></td><td>kleiner / größer</td><td>3 &lt; 5 → wahr</td></tr>
+          <tr><td><code>&lt;=</code> / <code>&gt;=</code></td><td>kleiner-gleich / größer-gleich</td><td>5 &gt;= 5 → wahr</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Logische Operatoren</h3>
+      <p>Verknüpfen mehrerer Bedingungen (Boolean-Werte) zu einer neuen Bedingung:</p>
+      <table>
+        <thead>
+          <tr><th>Operator</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>UND</strong></td><td>wahr nur, wenn <em>beide</em> Teilbedingungen wahr sind</td></tr>
+          <tr><td><strong>ODER</strong></td><td>wahr, wenn <em>mindestens eine</em> Teilbedingung wahr ist</td></tr>
+          <tr><td><strong>NICHT</strong></td><td>kehrt eine Bedingung um (aus wahr wird falsch und umgekehrt)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Eingebaute Funktionen & Methoden</h3>
+      <p>
+        Eine <strong>Funktion</strong> wird frei aufgerufen
+        (<code>funktion(wert)</code>), eine <strong>Methode</strong>
+        gehört zu einem Objekt bzw. Datentyp und wird über
+        Punktnotation aufgerufen (<code>wert.methode()</code>). Auswahl
+        gängiger, häufig genutzter Funktionen/Methoden — nicht
+        abschließend:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Art</th><th>Bedeutung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>print()</code></td><td>Funktion</td><td>Ausgabe auf dem Bildschirm</td><td><code>print("Hallo")</code></td></tr>
+          <tr><td><code>input()</code></td><td>Funktion</td><td>liest Eingabe, liefert immer einen String</td><td><code>name = input()</code></td></tr>
+          <tr><td><code>len()</code></td><td>Funktion</td><td>Länge eines Strings oder einer Liste</td><td><code>len("Hallo")</code> → 5</td></tr>
+          <tr><td><code>round()</code></td><td>Funktion</td><td>rundet eine Zahl auf n Nachkommastellen</td><td><code>round(3.146, 2)</code> → 3.15</td></tr>
+          <tr><td><code>int()</code> / <code>float()</code> / <code>str()</code></td><td>Funktion</td><td>wandelt einen Wert in Ganzzahl/Gleitkomma/String um</td><td><code>int("42")</code> → 42</td></tr>
+          <tr><td><code>.lower()</code></td><td>Methode</td><td>wandelt String in Kleinbuchstaben</td><td><code>"Hallo".lower()</code> → "hallo"</td></tr>
+          <tr><td><code>.upper()</code></td><td>Methode</td><td>wandelt String in Großbuchstaben</td><td><code>"Hallo".upper()</code> → "HALLO"</td></tr>
+          <tr><td><code>.strip()</code></td><td>Methode</td><td>entfernt Leerzeichen am Anfang/Ende</td><td><code>" Hallo ".strip()</code> → "Hallo"</td></tr>
+          <tr><td><code>.replace()</code></td><td>Methode</td><td>ersetzt Teilstring durch anderen</td><td><code>"3,14".replace(",", ".")</code> → "3.14"</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH prüft, ob ein Kunde Anspruch auf einen
+        Premium-Rabatt hat: mindestens 100 Stück bestellt <strong>und</strong>
+        Premium-Status.
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+Menge = 120
+IstPremium = true
+Einzelpreis = 19.99
+Rabattsatz = 0.10
+
+Anspruch = (Menge &gt;= 100) UND (IstPremium == true)
+Rabattbetrag = Menge * Einzelpreis * Rabattsatz
+      </div>
+      <p>
+        <code>Menge &gt;= 100</code> und <code>IstPremium == true</code> sind
+        zwei Vergleiche, jeder liefert für sich einen Boolean. Der
+        <strong>UND</strong>-Operator verknüpft beide: <code>Anspruch</code>
+        wird nur dann <code>true</code>, wenn beide Teilbedingungen
+        zutreffen. <code>Rabattbetrag</code> wird über die arithmetischen
+        Operatoren <code>*</code> (Multiplikation) aus Menge, Einzelpreis
+        und Rabattsatz berechnet.
+      </p>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Ein Azubi soll den Bruttolohn aus Stundenlohn und geleisteten
+        Stunden berechnen und danach prüfen, ob Überstunden (mehr als 40
+        Stunden) angefallen sind. Schreibe die Berechnung in Pseudocode.
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>Stundenlohn = 18.50
+Stunden = 43
+
+Bruttolohn = Stundenlohn * Stunden
+Ueberstunden = Stunden &gt; 40</code></pre>
+        <p>
+          <code>Bruttolohn</code> entsteht über den arithmetischen
+          Operator <code>*</code> (Multiplikation). <code>Ueberstunden</code>
+          entsteht über den Vergleichsoperator <code>&gt;</code> und
+          liefert direkt einen Boolean (hier: <code>true</code>, da 43 &gt; 40).
+        </p>
+      </details>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Variable = benannter, veränderlicher Speicherplatz; Datentyp legt
+        die erlaubte Art des Werts fest (Integer, Float, String, Boolean).
+        Arithmetische Operatoren (+, -, *, /, % Modulo) rechnen mit Werten.
+        Vergleichsoperatoren (==, !=, &lt;, &gt;, &lt;=, &gt;=) liefern
+        immer einen Boolean. Logische Operatoren (UND, ODER, NICHT)
+        verknüpfen mehrere Bedingungen zu einer neuen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/programmierung/variablen-datentypen-operatoren.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

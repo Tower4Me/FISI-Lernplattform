@@ -71,14 +71,14 @@ def main():
         for t in ("standard", "simulator", "ohne-quiz")
     }
 
-    built = skipped = 0
+    built = 0
+    missing = []
     for module in manifest["modules"]:
         for unit in module["units"]:
             rel = f'{module["slug"]}/{unit["slug"]}.html'
             src = CONTENT_DIR / rel
             if not src.exists():
-                # ponytail: Uebergang waehrend der Umstellung; nach Phase 3 Fehler.
-                skipped += 1
+                missing.append(rel)
                 continue
             out = render(page, scripts, module, unit, read(src))
             dest = MODULE_DIR / rel
@@ -87,8 +87,10 @@ def main():
                 f.write(out)
             built += 1
 
-    print(f"{built} Seiten gebaut, {skipped} ohne content/ uebersprungen.")
-    return 0
+    print(f"{built} Seiten gebaut.")
+    for rel in missing:
+        print(f"FEHLER: content/{rel} fehlt (Einheit steht im Manifest).")
+    return 1 if missing else 0
 
 
 if __name__ == "__main__":

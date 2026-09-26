@@ -1,0 +1,150 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir ein Klassenzimmer vor, in dem eine Vertretungslehrkraft
+        nur den Nachnamen eines Schülers kennt, aber nicht weiß, an
+        welchem Platz er sitzt. Sie ruft laut in die Klasse: „Wer ist
+        Müller?“ — alle anderen Schüler hören die Frage, ignorieren sie
+        aber, da sie nicht gemeint sind. Nur der gesuchte Schüler meldet
+        sich und sagt: „Ich, dritte Reihe, Platz 2.“ Genau nach diesem
+        Prinzip löst <strong>ARP</strong> im Netzwerk eine bekannte
+        IP-Adresse in die passende MAC-Adresse auf.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Damit ein Gerät ein IP-Paket im lokalen Netz tatsächlich zustellen
+        kann, muss es die passende <strong>MAC-Adresse</strong> zur
+        Ziel-IP-Adresse kennen (siehe
+        <a href="mac-llc.html">MAC &amp; LLC</a>). Das übernimmt
+        <strong>ARP</strong> (Address Resolution Protocol) — ausschließlich
+        innerhalb eines lokalen Netzsegments, über Router hinweg wird ARP
+        nicht verwendet. Der Grund liegt im Ablauf selbst: Eine
+        ARP-Request ist ein Broadcast, und Router leiten Broadcasts
+        grundsätzlich nicht in ein anderes Netzsegment weiter — die
+        Anfrage kommt also nie im Netz auf der anderen Seite eines Routers
+        an.
+      </p>
+
+      <h3>Ablauf: Request und Reply</h3>
+      <ol>
+        <li>Das sendende Gerät prüft zunächst seinen lokalen
+          <strong>ARP-Cache</strong> (Tabelle mit bereits bekannten
+          IP-MAC-Zuordnungen).</li>
+        <li>Ist die Zuordnung unbekannt, sendet das Gerät eine
+          <strong>ARP-Request</strong> als Broadcast ins lokale Netz:
+          „Wer hat die IP-Adresse X.X.X.X?“</li>
+        <li>Das Gerät mit dieser IP-Adresse antwortet mit einer
+          <strong>ARP-Reply</strong> und teilt seine MAC-Adresse direkt
+          (Unicast) mit.</li>
+        <li>Die Zuordnung wird im ARP-Cache gespeichert, damit nicht bei
+          jedem Paket erneut gefragt werden muss.</li>
+      </ol>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="arp-title arp-desc">
+          <title id="arp-title">ARP-Ablauf: Broadcast-Anfrage, Unicast-Antwort und Cache-Eintrag</title>
+          <desc id="arp-desc">Der Sender schickt eine ARP-Request als Broadcast an alle Geräte im Segment und fragt, wer die IP-Adresse 192.168.1.50 hat. Andere Geräte empfangen die Anfrage, ignorieren sie aber, da sie nicht gemeint sind. Nur der Ziel-Host mit passender IP-Adresse antwortet direkt per Unicast mit seiner MAC-Adresse. Der Sender speichert die Zuordnung anschließend im ARP-Cache.</desc>
+
+          <defs>
+            <marker id="arp-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="13">Sender</text>
+          <line x1="75" y1="53" x2="75" y2="250" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="195" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="3 2"/>
+          <text x="250" y="39" text-anchor="middle" fill="var(--text-muted)" font-size="12">Andere Geräte</text>
+          <line x1="250" y1="53" x2="250" y2="250" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="13">Ziel-Host</text>
+          <line x1="425" y1="53" x2="425" y2="250" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <text x="250" y="72" text-anchor="middle" fill="var(--text)" font-size="11">1. ARP-Request (Broadcast): „Wer hat 192.168.1.50?“</text>
+          <line x1="75" y1="80" x2="248" y2="80" stroke="var(--text)" stroke-width="2" marker-end="url(#arp-arrow)"/>
+          <line x1="75" y1="90" x2="423" y2="90" stroke="var(--text)" stroke-width="2" marker-end="url(#arp-arrow)"/>
+          <text x="250" y="108" text-anchor="middle" fill="var(--text-muted)" font-size="9">nicht gemeint, ignoriert</text>
+
+          <text x="250" y="148" text-anchor="middle" fill="var(--text)" font-size="11">2. ARP-Reply (Unicast): „MAC AA:BB:CC:DD:EE:FF“</text>
+          <line x1="425" y1="156" x2="77" y2="156" stroke="var(--text)" stroke-width="2" marker-end="url(#arp-arrow)"/>
+
+          <text x="75" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="10">3. Sender trägt</text>
+          <text x="75" y="213" text-anchor="middle" fill="var(--text-muted)" font-size="10">IP↔MAC in</text>
+          <text x="75" y="226" text-anchor="middle" fill="var(--text-muted)" font-size="10">ARP-Cache ein</text>
+        </svg>
+        <figcaption>
+          Nur der gesuchte Ziel-Host antwortet auf die Broadcast-Anfrage —
+          alle anderen Geräte empfangen sie zwar, ignorieren sie aber, da
+          ihre IP-Adresse nicht angefragt wurde.
+        </figcaption>
+      </figure>
+
+      <h3>Sicherheitsrisiko: ARP-Spoofing</h3>
+      <p>
+        Da ARP-Replies ungeprüft übernommen werden, kann ein Angreifer im
+        selben Netzsegment gefälschte ARP-Antworten senden und sich so als
+        ein anderes Gerät ausgeben (<strong>ARP-Spoofing</strong>) — dazu
+        vertiefend die Einheit
+        <a href="../it-sicherheit/angriffsmethoden.html">Angriffsmethoden</a>
+        im Modul IT-Sicherheit.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Systemadministrator soll erklären, warum ein neu ans Netz
+        angeschlossener Drucker zunächst von keinem PC im selben Segment
+        erreichbar ist, obwohl er bereits eine gültige IP-Adresse besitzt.
+      </p>
+      <ul>
+        <li>Kein PC im Netz hat bisher mit dem Drucker kommuniziert — es
+          existiert also noch kein Eintrag für dessen IP-Adresse im
+          jeweiligen <strong>ARP-Cache</strong>.</li>
+        <li>Sobald ein PC den Drucker anspricht, sendet er automatisch
+          eine <strong>ARP-Request</strong> als Broadcast: „Wer hat die
+          IP-Adresse des Druckers?“</li>
+        <li>Der Drucker antwortet per <strong>ARP-Reply</strong>, der PC
+          trägt die Zuordnung in seinen Cache ein — ab jetzt funktioniert
+          die Kommunikation ohne erneute Auflösung.</li>
+        <li>Zur Fehlersuche lässt sich der ARP-Cache per <code>arp -a</code>
+          in der Kommandozeile einsehen.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum wird eine ARP-Anfrage als Broadcast
+        statt als gezielte Nachricht versendet?“ – Antwort: Der Sender
+        kennt zu diesem Zeitpunkt nur die Ziel-IP-Adresse, nicht aber deren
+        MAC-Adresse — ohne MAC-Adresse lässt sich das Zielgerät nicht
+        gezielt (Unicast) adressieren, deshalb erreicht die Anfrage per
+        Broadcast alle Geräte im Segment.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ARP löst eine bekannte IP-Adresse in die zugehörige MAC-Adresse im
+        lokalen Netz auf: Request als Broadcast, Reply als Unicast,
+        Ergebnis im ARP-Cache gespeichert. ARP arbeitet nur lokal, nicht
+        über Netzgrenzen hinweg.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/arp.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

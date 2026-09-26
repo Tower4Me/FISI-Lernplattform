@@ -1,0 +1,171 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Arzt geht bei einer Untersuchung systematisch vor: Erst wird
+        der eigene Puls kontrolliert (funktioniert überhaupt das
+        Messgerät?), dann die Grundfunktionen des Patienten geprüft, dann
+        gezielt nachgeforscht, wo genau ein Problem liegt. Genauso
+        systematisch gehen IT-Fachkräfte bei Netzwerkproblemen vor — mit
+        einer Handvoll eingebauter Kommandozeilen-Werkzeuge lässt sich
+        Schritt für Schritt eingrenzen, ob das eigene Gerät, das lokale
+        Netz oder eine entfernte Gegenstelle die Ursache eines Problems
+        ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ping</code></td><td>Prüft, ob ein Zielgerät erreichbar ist, indem ICMP-Echo-Anfragen gesendet werden. Zeigt Antwortzeit und Paketverlust.</td></tr>
+          <tr><td><code>tracert</code> (Windows) / <code>traceroute</code> (Linux)</td><td>Zeigt jede einzelne Zwischenstation (Router-Hop) auf dem Weg zum Ziel — hilfreich, um zu sehen, an welcher Stelle eine Verbindung stockt.</td></tr>
+          <tr><td><code>ipconfig</code> (Windows) / <code>ifconfig</code>/<code>ip addr</code> (Linux)</td><td>Zeigt die aktuelle Netzwerkkonfiguration des eigenen Geräts: IP-Adresse, Subnetzmaske, Gateway. Mit Zusatz <code>/all</code> auch MAC-Adresse und DNS-Server.</td></tr>
+          <tr><td><code>nslookup</code></td><td>Fragt gezielt einen DNS-Server ab und zeigt, zu welcher IP-Adresse ein Domainname aufgelöst wird — nützlich zur Prüfung, ob DNS-Einträge korrekt gesetzt sind.</td></tr>
+          <tr><td><code>netsh</code> (Windows)</td><td>Kommandozeilen-Werkzeug zur Anzeige und Konfiguration von Netzwerkeinstellungen (z. B. Firewall-Regeln, WLAN-Profile, IP-Konfiguration).</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Loopback-Adresse</h3>
+      <p>
+        Die <strong>Loopback-Adresse</strong> (IPv4: <code>127.0.0.1</code>,
+        IPv6: <code>::1</code>) verweist ein Gerät immer auf sich selbst,
+        unabhängig von einer echten Netzwerkverbindung. Ein
+        <code>ping 127.0.0.1</code> prüft deshalb nicht das Netzwerk,
+        sondern nur, ob der lokale TCP/IP-Stack des eigenen Geräts korrekt
+        funktioniert — der erste Schritt einer systematischen
+        Fehlersuche.
+      </p>
+
+      <h3>Systematische Fehlersuche (Schichtenmodell in der Praxis)</h3>
+      <p>
+        Bei Verbindungsproblemen empfiehlt sich ein Vorgehen von innen
+        nach außen:
+      </p>
+      <ol>
+        <li><code>ping 127.0.0.1</code> — funktioniert der eigene TCP/IP-Stack?</li>
+        <li><code>ipconfig</code> — hat das Gerät überhaupt eine gültige IP-Adresse (keine APIPA-Adresse)?</li>
+        <li><code>ping</code> auf das eigene Standardgateway — ist der lokale Router erreichbar?</li>
+        <li><code>ping</code> auf eine bekannte externe IP-Adresse — funktioniert die Verbindung nach außen?</li>
+        <li><code>nslookup</code> bzw. <code>ping</code> auf einen Domainnamen — funktioniert die DNS-Auflösung?</li>
+      </ol>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 470 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="diag-title diag-desc">
+          <title id="diag-title">Flussdiagramm der systematischen Netzwerk-Fehlersuche von innen nach außen</title>
+          <desc id="diag-desc">Fünf aufeinanderfolgende Ja/Nein-Entscheidungen: Funktioniert der Loopback-Test? Ist die IP-Adresse gültig? Ist das Gateway erreichbar? Ist eine externe IP-Adresse erreichbar? Funktioniert die DNS-Auflösung? Bei Nein wird jeweils die vermutliche Fehlerursache benannt, bei Ja geht es zur nächsten Prüfung, bis am Ende die Verbindung als funktionsfähig bestätigt wird.</desc>
+
+          <defs>
+            <marker id="diag-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="70" y="10" width="140" height="30" rx="5" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="140" y="30" text-anchor="middle" fill="var(--text)" font-size="10">Kein Zugriff auf Ziel</text>
+          <line x1="140" y1="40" x2="140" y2="53" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+
+          <polygon points="140,55 210,80 140,105 70,80" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="84" text-anchor="middle" fill="var(--text)" font-size="8.5">ping 127.0.0.1 OK?</text>
+          <line x1="210" y1="80" x2="278" y2="80" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="73" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="60" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="84" text-anchor="middle" fill="var(--text)" font-size="9">Lokaler TCP/IP-Stack defekt</text>
+          <line x1="140" y1="105" x2="140" y2="153" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="130" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,155 210,180 140,205 70,180" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="184" text-anchor="middle" fill="var(--text)" font-size="8.5">IP gültig (kein APIPA)?</text>
+          <line x1="210" y1="180" x2="278" y2="180" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="173" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="160" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="184" text-anchor="middle" fill="var(--text)" font-size="9">DHCP-Problem (APIPA)</text>
+          <line x1="140" y1="205" x2="140" y2="253" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="230" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,255 210,280 140,305 70,280" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="284" text-anchor="middle" fill="var(--text)" font-size="8.5">Gateway erreichbar?</text>
+          <line x1="210" y1="280" x2="278" y2="280" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="273" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="260" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="284" text-anchor="middle" fill="var(--text)" font-size="9">Lokales Netz gestört</text>
+          <line x1="140" y1="305" x2="140" y2="353" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="330" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,355 210,380 140,405 70,380" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="384" text-anchor="middle" fill="var(--text)" font-size="8.5">Externe IP erreichbar?</text>
+          <line x1="210" y1="380" x2="278" y2="380" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="373" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="360" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="384" text-anchor="middle" fill="var(--text)" font-size="9">Problem bei WAN/Provider</text>
+          <line x1="140" y1="405" x2="140" y2="453" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="430" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <polygon points="140,455 210,480 140,505 70,480" fill="var(--surface-2)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="140" y="484" text-anchor="middle" fill="var(--text)" font-size="8.5">DNS-Auflösung OK?</text>
+          <line x1="210" y1="480" x2="278" y2="480" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="245" y="473" text-anchor="middle" fill="var(--fail)" font-size="9">Nein</text>
+          <rect x="280" y="460" width="160" height="40" rx="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="1.5"/>
+          <text x="360" y="484" text-anchor="middle" fill="var(--text)" font-size="9">DNS-Problem</text>
+          <line x1="140" y1="505" x2="140" y2="548" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#diag-arrow)"/>
+          <text x="150" y="530" fill="var(--acc-praxis)" font-size="9">Ja</text>
+
+          <rect x="55" y="550" width="170" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="140" y="573" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Verbindung funktioniert</text>
+        </svg>
+        <figcaption>
+          Jede Stufe grenzt den Fehler weiter ein: von innen (eigener
+          TCP/IP-Stack) über das lokale Netz bis nach außen (Internet,
+          DNS) — bei „Nein" steht die vermutliche Ursache direkt daneben.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Mitarbeiter meldet: „Ich komme nicht mehr auf die
+        Firmenwebseite.“
+      </p>
+      <ul>
+        <li>Der IT-Support prüft zunächst per <code>ping 127.0.0.1</code> — die Antwort kommt sofort, der lokale Netzwerk-Stack funktioniert also.</li>
+        <li>Mit <code>ipconfig</code> zeigt sich eine gültige IP-Adresse aus dem Firmennetz — kein APIPA-Problem.</li>
+        <li>Ein <code>ping</code> auf das Standardgateway (Router) antwortet ebenfalls — die lokale Netzwerkverbindung ist also in Ordnung.</li>
+        <li>Ein <code>ping</code> auf eine externe IP-Adresse (z. B. eines bekannten Servers) schlägt fehl — es liegt ein Problem außerhalb des lokalen Netzes vor, z. B. beim Internetanbieter.</li>
+        <li>Zur Kontrolle zeigt <code>tracert</code> auf die Zieladresse, bei welchem Hop die Verbindung genau abbricht — hilfreich für die Meldung an den Internetanbieter.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Ein Ping auf 127.0.0.1 funktioniert, ein
+        Ping auf das Standardgateway nicht. Wo liegt die Ursache
+        vermutlich?“ – Antwort: Der lokale TCP/IP-Stack des Geräts
+        funktioniert, aber die Verbindung zum lokalen Netzwerk (Kabel,
+        Switch-Port, WLAN) ist gestört — die Fehlerursache liegt zwischen
+        dem eigenen Gerät und dem Router.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ping prüft Erreichbarkeit, tracert zeigt den Weg über einzelne
+        Hops, ipconfig zeigt die eigene Netzwerkkonfiguration, nslookup
+        prüft DNS-Auflösung. Loopback (127.0.0.1) testet den eigenen
+        TCP/IP-Stack ohne Netzwerk. Systematische Fehlersuche geht von
+        innen (eigenes Gerät) nach außen (Internet).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/netzwerk-diagnose.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

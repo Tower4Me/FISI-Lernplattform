@@ -1,0 +1,159 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Schleife ist wie eine Waschmaschine: „Schleudere, solange
+        noch Wasser im Bottich ist“ (Bedingung wird vor jedem Durchlauf
+        geprüft) oder „schleudere mindestens einmal, prüfe danach, ob
+        noch Wasser da ist“ (Bedingung wird nach dem Durchlauf geprüft).
+        Ohne Schleife müsste jeder einzelne Waschgang von Hand
+        einprogrammiert werden.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Eine <strong>Schleife</strong> wiederholt einen Anweisungsblock,
+        solange bzw. bis eine Bedingung erfüllt ist — ohne dass der
+        Code dafür mehrfach geschrieben werden muss.
+      </p>
+
+      <h3>Zählschleife</h3>
+      <p>
+        Wird eingesetzt, wenn die Anzahl der Durchläufe im Voraus
+        bekannt ist — entweder als feste Zahl oder als Anzahl der
+        Elemente einer Liste:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR i VON 1 BIS 5 TUE
+  AUSGABE i
+ENDE FÜR
+
+FÜR JEDE Position IN Bestellliste TUE
+  AUSGABE Position
+ENDE FÜR
+      </div>
+
+      <h3>Zählschleife mit Index über ein Array</h3>
+      <p>
+        Ein <strong>Array</strong> (Datenfeld) speichert mehrere Werte
+        desselben Typs unter einem gemeinsamen Namen, durchnummeriert ab
+        Index 0. Reicht <code>FÜR JEDE</code> nicht aus — etwa weil der
+        Index selbst gebraucht wird oder ein Wert an einer bestimmten
+        Position verändert werden soll —, läuft die Zählschleife
+        stattdessen explizit über den Index:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR i VON 0 BIS Länge(Werte) - 1 TUE
+  AUSGABE Werte[i]
+ENDE FÜR
+      </div>
+      <p>
+        <code>Werte[i]</code> greift auf das Element an Position
+        <code>i</code> zu. Der Index läuft bis <code>Länge(Werte) - 1</code>,
+        da die Zählung bei 0 beginnt — ein Array mit 5 Elementen hat also
+        die gültigen Indizes 0 bis 4.
+      </p>
+
+      <h3>Kopfgesteuerte Schleife (SOLANGE)</h3>
+      <p>
+        Prüft die Bedingung <em>vor</em> jedem Durchlauf. Trifft sie von
+        Anfang an nicht zu, läuft die Schleife kein einziges Mal:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+SOLANGE Lagerbestand &gt; 0 TUE
+  Lagerbestand = Lagerbestand - 1
+ENDE SOLANGE
+      </div>
+
+      <h3>Fußgesteuerte Schleife (WIEDERHOLE … BIS)</h3>
+      <p>
+        Prüft die Bedingung <em>nach</em> dem Durchlauf und läuft
+        deshalb immer mindestens einmal, selbst wenn die Bedingung von
+        Anfang an zutrifft:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+WIEDERHOLE
+  Eingabe = LiesPasswortEingabe()
+BIS Eingabe korrekt ist
+      </div>
+
+      <h3>Endlosschleifen vermeiden</h3>
+      <p>
+        Bei jeder Schleife muss sich innerhalb des Schleifenkörpers etwas
+        ändern, das irgendwann die Abbruchbedingung erfüllt (z. B. eine
+        Zählvariable erhöhen oder den Lagerbestand verringern). Fehlt
+        diese Änderung, läuft die Schleife unkontrolliert endlos weiter.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Auch Schleifen werden oft zunächst in Pseudocode geplant, bevor
+        sie in eine konkrete Sprache übersetzt werden. Ein
+        Raketenstart-Countdown zählt rückwärts — zunächst als
+        Pseudocode-Vorgabe:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+FÜR i VON 10 ABWÄRTS BIS 1 TUE
+  AUSGABE i
+ENDE FÜR
+AUSGABE "Start!"
+      </div>
+      <p>Dieselbe Logik in Python (<code>for</code> statt <code>FÜR</code>):</p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+for i in range(10, 0, -1):
+    print(i)
+print("Start!")
+      </div>
+      <p>
+        <code>FÜR i VON 10 ABWÄRTS BIS 1</code> entspricht
+        <code>range(10, 0, -1)</code> — zählt von 10 abwärts bis
+        einschließlich 1 (Schrittweite -1). <code>AUSGABE</code> wird zu
+        <code>print()</code>.
+      </p>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Schreibe eine Schleife in Python, die die Summe der Zahlen von 1
+        bis 10 berechnet.
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>summe = 0
+for i in range(1, 11):
+    summe = summe + i
+print(summe)</code></pre>
+        <p>
+          Eine Zählschleife passt hier, da die Anzahl der Durchläufe (10)
+          von vornherein feststeht. Bei jedem Durchlauf wird der aktuelle
+          Wert von <code>i</code> zur laufenden <code>summe</code>
+          addiert.
+        </p>
+      </details>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Zählschleife (FÜR): Anzahl der Durchläufe steht vorher fest.
+        Kopfgesteuerte Schleife (SOLANGE): Bedingung wird vorher geprüft,
+        kann null Mal laufen. Fußgesteuerte Schleife (WIEDERHOLE … BIS):
+        Bedingung wird nachher geprüft, läuft mindestens einmal. Jede
+        Schleife braucht eine Änderung im Schleifenkörper, die die
+        Abbruchbedingung irgendwann erfüllt — sonst Endlosschleife.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/programmierung/schleifen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

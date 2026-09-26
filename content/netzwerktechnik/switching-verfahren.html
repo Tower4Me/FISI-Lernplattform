@@ -1,0 +1,183 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir eine Poststelle vor, die Pakete sortiert und weiterleitet.
+        Ein besonders <strong>gründlicher Sachbearbeiter</strong> wartet,
+        bis das komplette Paket angekommen ist, prüft es auf
+        Beschädigungen und schickt es erst dann weiter — sicher, aber
+        langsam. Ein <strong>schneller Kurier</strong> dagegen liest nur
+        das Adressetikett, sobald es sichtbar ist, und reicht das Paket
+        sofort weiter, ohne auf den Rest zu warten oder es zu prüfen —
+        schnell, aber riskant, falls das Paket beschädigt ist. Ein
+        <strong>Kompromiss-Sachbearbeiter</strong> wartet wenigstens, bis
+        die ersten paar Zentimeter des Pakets durch seine Hände gelaufen
+        sind (grobe Transportschäden zeigen sich meist gleich am Anfang),
+        bevor er weiterreicht. Genau diese drei Strategien nutzt ein
+        <strong>Switch</strong>, um ankommende Frames zu verarbeiten.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>MAC-Adresstabelle (CAM-Tabelle)</h3>
+      <p>
+        Damit ein Switch Frames gezielt nur an den richtigen Port
+        weiterleiten kann (siehe
+        <a href="netzwerkkomponenten.html">Netzwerkkomponenten</a>),
+        braucht er eine Zuordnung, welche MAC-Adresse an welchem Port
+        hängt. Diese <strong>MAC-Adresstabelle</strong> (auch
+        <strong>CAM-Tabelle</strong>, Content Addressable Memory) liegt im
+        Speicher des Switches und wird durch
+        <strong>Backward Learning</strong> automatisch aufgebaut: Bei
+        jedem eingehenden Frame merkt sich der Switch die
+        <strong>Quell-MAC-Adresse</strong> zusammen mit dem Port, über den
+        der Frame hereinkam.
+      </p>
+      <ul>
+        <li>Ist die <strong>Ziel-MAC-Adresse</strong> eines Frames noch
+          nicht in der Tabelle bekannt, <strong>flutet</strong> der
+          Switch den Frame an alle Ports außer dem Eingangsport — wie ein
+          Hub, aber nur so lange, bis die Adresse gelernt wurde.</li>
+        <li>Einträge verfallen nach einer gewissen Zeit ohne weiteren
+          Datenverkehr von dieser MAC-Adresse (<strong>Aging Time</strong>,
+          häufig ca. 300 Sekunden) — das verhindert veraltete Einträge,
+          z. B. wenn ein Gerät an einen anderen Port umgesteckt wurde.</li>
+      </ul>
+
+      <h3>Pufferspeicher-Architektur: Shared Memory vs. Port-based Memory</h3>
+      <p>
+        Davon zu unterscheiden ist eine zweite Speicherfrage: <em>Wo</em>
+        legt der Switch Frames ab, während er auf einen freien
+        Ausgangsport wartet oder — bei Store-and-Forward — den kompletten
+        Frame puffert?
+      </p>
+      <table>
+        <thead>
+          <tr><th>Architektur</th><th>Speicherzuordnung</th><th>Vor-/Nachteil</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Port-based Memory</strong> (Port-Buffered Memory)</td>
+            <td>jeder Port hat seinen eigenen, festen Pufferspeicher</td>
+            <td>einfach und vorhersehbar, aber ineffizient: Ein einzelner
+              Port-Puffer kann überlaufen (Frames werden verworfen), obwohl
+              an anderen Ports noch reichlich freier Speicher vorhanden
+              wäre</td>
+          </tr>
+          <tr>
+            <td><strong>Shared Memory</strong></td>
+            <td>ein gemeinsamer Speicherpool für alle Ports, dynamisch
+              zugewiesen</td>
+            <td>nutzt den vorhandenen Speicher effizienter und verkraftet
+              ungleichmäßige Lastspitzen besser, benötigt dafür aber mehr
+              Steuerungsaufwand (Speicherverwaltung)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Diese Speicherarchitektur beantwortet <em>wo</em> ein Frame
+        zwischengespeichert wird — unabhängig davon, <em>wann</em> die
+        Weiterleitung beginnt (das regeln die drei Verfahren weiter unten).
+      </p>
+
+      <h3>Die drei Switching-Verfahren</h3>
+      <p>
+        Unabhängig von der MAC-Adresstabelle stellt sich eine zweite
+        Frage: <em>Wann genau</em> beginnt der Switch, einen bereits
+        empfangenen Frame weiterzuleiten? Dafür gibt es drei Verfahren:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Verfahren</th><th>Weiterleitung ab</th><th>Fehlerprüfung</th><th>Latenz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Store-and-Forward</strong></td>
+            <td>vollständig empfangenem Frame</td>
+            <td>ja — FCS/CRC-Prüfung, fehlerhafte Frames werden verworfen</td>
+            <td>am höchsten</td>
+          </tr>
+          <tr>
+            <td><strong>Cut-Through</strong> (auch: Fast Forward)</td>
+            <td>gelesener Ziel-MAC-Adresse (nach den ersten 6 Byte des Frames)</td>
+            <td>keine — fehlerhafte Frames werden ggf. mitweitergeleitet</td>
+            <td>am niedrigsten</td>
+          </tr>
+          <tr>
+            <td><strong>Fragment-Free</strong> (auch: Modified Cut-Through)</td>
+            <td>empfangenen ersten 64 Byte</td>
+            <td>teilweise — erkennt Kollisionsfragmente, keine vollständige CRC-Prüfung</td>
+            <td>Kompromiss</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Die 64-Byte-Grenze bei Fragment-Free ist kein Zufall: Sie
+        entspricht genau der Mindestgröße eines gültigen Ethernet-Frames
+        (siehe <a href="header-uebersicht.html">Protokoll-Header im
+        Überblick</a>). Kollisionsfragmente — sogenannte
+        <strong>Runts</strong> — entstehen fast immer innerhalb dieser
+        ersten 64 Byte. Fragment-Free wartet also gerade so lange, dass
+        die häufigste Fehlerquelle zuverlässig erkannt wird, ohne wie
+        Store-and-Forward auf den kompletten Frame warten zu müssen.
+      </p>
+      <p>
+        Store-and-Forward ist heute das gebräuchlichste Verfahren: Der
+        Geschwindigkeitsvorteil von Cut-Through fällt bei modernen
+        Bandbreiten kaum noch ins Gewicht, während die Fehlerprüfung
+        beschädigte Frames zuverlässig aussortiert.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus konfiguriert Switches für zwei unterschiedliche
+        Szenarien bei einem Kunden.
+      </p>
+      <ul>
+        <li>Im <strong>Serverraum</strong> zählt bei kurzen, störungsarmen
+          Kabelstrecken die niedrige Latenz mehr als die Fehlerprüfung —
+          der Switch läuft im <strong>Cut-Through</strong>-Modus.</li>
+        <li>An der <strong>Netzwerkgrenze zu einem alten Gebäudeteil</strong>
+          mit störanfälliger Altverkabelung wählt der Techniker
+          <strong>Store-and-Forward</strong>, damit beschädigte Frames
+          zuverlässig erkannt und verworfen werden.</li>
+        <li>Ein Switch dazwischen läuft im
+          <strong>Fragment-Free</strong>-Modus — Kompromiss zwischen
+          beiden Anforderungen.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum wartet Fragment-Free genau auf die
+        ersten 64 Byte eines Frames, bevor weitergeleitet wird?“ –
+        Antwort: 64 Byte ist die Mindestgröße eines gültigen
+        Ethernet-Frames. Kollisionsfragmente (Runts) entstehen fast immer
+        innerhalb dieser ersten 64 Byte — Fragment-Free kann sie damit
+        zuverlässig erkennen, ohne wie Store-and-Forward auf den
+        kompletten Frame warten zu müssen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        MAC-Adresstabelle (CAM) wird durch Backward Learning aufgebaut,
+        unbekannte Ziele werden geflutet. Store-and-Forward = ganzer
+        Frame + CRC-Prüfung = sicher, aber langsam. Cut-Through = nur
+        Ziel-MAC gelesen = schnell, aber ungeprüft. Fragment-Free = erste
+        64 Byte = Kompromiss, erkennt Kollisionsfragmente (Runts).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/switching-verfahren.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

@@ -1,0 +1,122 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine alte Kupfer-Telefonleitung, die eigentlich nur für Sprachanrufe
+        gebaut wurde, lässt sich mit dem richtigen „Übersetzer“ am Ende der
+        Leitung trotzdem für viel mehr nutzen — ähnlich wie eine schmale
+        Landstraße, die durch geschicktes Ampelmanagement plötzlich mehr
+        Verkehr aufnehmen kann als ursprünglich geplant. Genau das leistet
+        <strong>DSL</strong>: Es nutzt die vorhandene Telefonleitung, um
+        zusätzlich zum Telefonsignal auch Internet-Datenverkehr zu
+        übertragen — ganz ohne neue Leitung verlegen zu müssen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>DSL</strong> (Digital Subscriber Line) überträgt digitale
+        Daten über die vorhandene Kupfer-Telefonleitung zwischen
+        Teilnehmeranschluss und Vermittlungsstelle. Da die nutzbare
+        Bandbreite mit zunehmender Leitungslänge abnimmt, ist die
+        erreichbare Geschwindigkeit stark von der Entfernung zur
+        Vermittlungsstelle abhängig.
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Variante</th><th>Bedeutung</th><th>Merkmal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>ADSL</strong></td><td>Asymmetric DSL</td><td>Download deutlich schneller als Upload — passend für typisches Nutzerverhalten (mehr Herunterladen als Hochladen)</td></tr>
+          <tr><td><strong>SDSL</strong></td><td>Symmetric DSL</td><td>Download- und Upload-Geschwindigkeit gleich — für Firmen mit hohem Upload-Bedarf (z. B. eigener Server)</td></tr>
+          <tr><td><strong>VDSL</strong></td><td>Very High Speed DSL</td><td>deutlich höhere Datenraten als ADSL, aber nur auf kürzeren Leitungslängen nutzbar (Glasfaser reicht näher an den Endkunden heran)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>ISDN als Vorgänger (Legacy)</h3>
+      <p>
+        Vor DSL war <strong>ISDN</strong> (Integrated Services Digital
+        Network) die verbreitete Technik für digitale Datenübertragung über
+        die klassische Telefonleitung. Anders als DSL ist ISDN
+        <strong>leitungsvermittelt</strong>: Für eine Verbindung wird ein
+        fester Kanal reserviert, z. B. zwei B-Kanäle mit je 64 kbit/s beim
+        Basisanschluss. Diese feste Kanalstruktur begrenzt die Bandbreite
+        hart — im Unterschied dazu arbeitet DSL paketvermittelt und erreicht
+        dadurch deutlich höhere Datenraten.
+      </p>
+      <p>
+        In Deutschland ist die ISDN-Netzabschaltung inzwischen weitgehend
+        abgeschlossen, im aktiven Feldeinsatz spielt ISDN kaum noch eine
+        Rolle. Relevant bleibt das Thema vor allem für die Prüfung, als
+        Verständnis der Entwicklung von leitungsvermittelter Technik (ISDN)
+        hin zu paketvermittelter, schnellerer Technik (DSL).
+      </p>
+
+      <p>
+        Neben DSL gibt es weitere Zugangstechnologien, die in der Praxis
+        zunehmend an Bedeutung gewinnen:
+      </p>
+      <ul>
+        <li><strong>Kabel-Internet (DOCSIS):</strong> nutzt das TV-Kabelnetz, oft hohe Downloadraten, Bandbreite wird sich mit Nachbarn im selben Segment geteilt.</li>
+        <li><strong>Glasfaser (FTTH – Fiber to the Home):</strong> Glasfaser bis in die Wohnung, aktuell höchste erreichbare Datenraten, weitgehend entfernungsunabhängig. Technisch meist als <strong>GPON</strong> (Gigabit Passive Optical Network) umgesetzt: Eine Faser vom Anbieter wird über einen passiven optischen Splitter auf mehrere Haushalte aufgeteilt — ähnlich wie beim Kabel-Internet teilen sich also mehrere Teilnehmer ein gemeinsames Medium, allerdings bei insgesamt deutlich höherer Gesamtbandbreite.</li>
+        <li><strong>Mobilfunk (LTE/5G):</strong> drahtloser Internetzugang über das Mobilfunknetz, alternative Lösung dort, wo keine Festnetzanbindung verfügbar ist. Nachteile gegenüber einer festen Leitung: schwankende Geschwindigkeit je nach Funkzellen-Auslastung und Entfernung zum Mast, meist ein Datenvolumen-Limit statt echter Flatrate, und eine spürbar höhere Latenz — als dauerhafter Ersatz für einen Firmenanschluss nur bedingt geeignet.</li>
+      </ul>
+
+      <p>
+        <strong>Datenraten</strong> werden meist in Mbit/s (Megabit pro
+        Sekunde) angegeben — wichtig ist die Unterscheidung zu Byte:
+        1 MByte/s entspricht 8 Mbit/s. Ein Download mit „16.000“ (16
+        Mbit/s) beworbener Leitung lädt eine 16 MByte große Datei also
+        rechnerisch in rund 8 Sekunden, nicht in einer Sekunde.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus berät zwei Kunden bei der Wahl ihres
+        Internetanschlusses.
+      </p>
+      <ul>
+        <li>Ein <strong>Privathaushalt</strong> streamt hauptsächlich Videos und lädt kaum große Dateien hoch — hier reicht ein <strong>ADSL</strong>- oder <strong>VDSL</strong>-Anschluss mit hoher Downloadrate völlig aus.</li>
+        <li>Ein <strong>kleines Unternehmen</strong> betreibt einen eigenen Server für Kundenzugriffe von außen und benötigt für Backups regelmäßig große Datenmengen hochzuladen — hier wird ein <strong>SDSL</strong>-Anschluss mit symmetrischer Bandbreite empfohlen.</li>
+        <li>Da beide Standorte weniger als 500 Meter von der nächsten Vermittlungsstelle entfernt liegen, ist <strong>VDSL</strong> technisch möglich und bietet gegenüber klassischem ADSL deutlich höhere Datenraten.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Ein Kunde lädt regelmäßig große
+        Datenmengen auf einen eigenen Server hoch. Welche DSL-Variante
+        empfehlen Sie und warum?“ – Antwort: SDSL, da Download- und
+        Upload-Geschwindigkeit hier symmetrisch sind — bei ADSL wäre der
+        Upload deutlich langsamer als der Download.
+      </p>
+
+      <p class="tool-intro">Rechne Bandbreite und Downloadzeit für eine eigene Datei um:</p>
+      <div class="tool" data-tool="dsl-umrechner">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ADSL = asymmetrisch (Download schneller als Upload, für
+        Privatnutzer). SDSL = symmetrisch (gleiche Geschwindigkeit beider
+        Richtungen, für Firmen mit Upload-Bedarf). VDSL = höhere Datenraten
+        auf kürzeren Leitungslängen. Datenraten in Mbit/s: 1 MByte/s = 8
+        Mbit/s.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/internetzugang-dsl.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

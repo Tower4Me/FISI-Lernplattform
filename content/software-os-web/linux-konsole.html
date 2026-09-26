@@ -1,0 +1,163 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Die Kommandozeile ist wie ein Gespräch mit dem Betriebssystem in
+        einer sehr kompakten Sprache: statt durch Menüs zu klicken, tippt
+        man kurze Befehlswörter — wer den Wortschatz kennt, kommt oft
+        schneller ans Ziel als mit der Maus, vor allem bei
+        wiederkehrenden Aufgaben auf einem Server. Windows organisiert
+        Laufwerke dabei wie separate Aktenschränke (C:, D:, E:)
+        nebeneinander; Linux kennt nur einen einzigen, riesigen
+        Aktenschrank mit einer festen Schublade an der Wurzel — jeder
+        weitere Datenträger wird als zusätzliche Schublade an einer
+        bestimmten Stelle in diesen einen Schrank eingeschoben
+        (Mounting).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Navigation</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>pwd</code></td><td>zeigt das aktuelle Arbeitsverzeichnis an (print working directory)</td></tr>
+          <tr><td><code>cd Ordner</code></td><td>wechselt in ein Verzeichnis; <code>cd ..</code> wechselt eine Ebene nach oben</td></tr>
+          <tr><td><code>ls</code> / <code>ls -l</code></td><td>listet den Verzeichnisinhalt bzw. mit Details/Rechten auf</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Dateioperationen</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>cp quelle ziel</code></td><td>kopiert eine Datei</td></tr>
+          <tr><td><code>mv quelle ziel</code></td><td>verschiebt oder benennt eine Datei um</td></tr>
+          <tr><td><code>rm datei</code></td><td>löscht eine Datei (unwiderruflich, kein Papierkorb)</td></tr>
+          <tr><td><code>mkdir ordner</code></td><td>legt ein neues Verzeichnis an</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Dateiinhalt ansehen und durchsuchen</h3>
+      <table>
+        <thead>
+          <tr><th>Befehl</th><th>Zweck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>cat datei</code></td><td>gibt den kompletten Dateiinhalt aus</td></tr>
+          <tr><td><code>less datei</code></td><td>zeigt den Inhalt seitenweise an, durchsuchbar, ohne alles auf einmal auszugeben</td></tr>
+          <tr><td><code>grep "muster" datei</code></td><td>durchsucht eine Datei zeilenweise nach einem Textmuster — z. B. Fehlermeldungen in Logdateien finden</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Befehle lassen sich über die <strong>Pipe</strong> (<code>|</code>)
+        verketten: Die Ausgabe des einen Befehls wird zur Eingabe des
+        nächsten. Beispiel: <code>cat zugriff.log | grep "error"</code>
+        gibt nur die Zeilen von <code>zugriff.log</code> aus, die
+        „error“ enthalten. Mit <code>&gt;</code> wird eine Ausgabe
+        stattdessen in eine Datei umgeleitet (überschreibt sie), mit
+        <code>&gt;&gt;</code> an eine bestehende Datei angehängt.
+      </p>
+
+      <h3>Verzeichnisbaum und Mounting</h3>
+      <p>
+        Linux kennt keine Laufwerksbuchstaben wie C: oder D:. Stattdessen
+        gibt es einen einzigen <strong>Verzeichnisbaum</strong>, beginnend
+        bei der Wurzel <code>/</code>. Jeder weitere Datenträger wird
+        einem Verzeichnis in diesem Baum zugewiesen — diesen Vorgang nennt
+        man <strong>Mounting</strong> (Einhängen), das Zielverzeichnis
+        heißt <strong>Mountpoint</strong> (z. B. <code>/mnt/usb</code>).
+        Erst ab dem Moment des Mountens ist der Inhalt des Datenträgers
+        über diesen Pfad erreichbar; nach dem Aushängen
+        (<code>umount</code>) bleibt der Mountpoint selbst bestehen, nur
+        sein Inhalt ist wieder unerreichbar.
+      </p>
+      <p>
+        Die Datei <code>/etc/fstab</code> (File System Table) steuert,
+        welche Dateisysteme beim Systemstart automatisch gemountet
+        werden:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Gerät</th><th>Mountpoint</th><th>Typ</th><th>Optionen</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>/dev/sda1</td><td>/</td><td>ext4</td><td>defaults</td></tr>
+          <tr><td>UUID=1A2B-3C4D</td><td>/mnt/usb</td><td>vfat</td><td>auto,user</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Eine fehlerhafte <code>/etc/fstab</code> kann dazu führen, dass
+        Linux beim Booten hängenbleibt — deshalb vor jeder Änderung ein
+        Backup anlegen und mit <code>mount -a</code> testen (versucht alle
+        fstab-Einträge zu mounten, ohne neu zu starten).
+      </p>
+
+      <h3>Hilfe zu Befehlen</h3>
+      <p>
+        <code>man befehl</code> (Manual) zeigt die vollständige
+        Dokumentation eines Befehls mit allen Optionen an —
+        der erste Anlaufpunkt bei einem unbekannten oder vergessenen
+        Parameter. Die Rechte für Dateien und Verzeichnisse (rwx,
+        chmod, chown) sind ein eigenständiges Thema und werden in der
+        Einheit „Linux-Dateiberechtigungen“ behandelt.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Techniker der TechNord GmbH richtet einen neuen Linux-
+        Webserver ein:
+      </p>
+      <ul>
+        <li><strong>Verzeichnis wechseln und Inhalt prüfen:</strong>
+          <code>cd /var/www</code>, danach <code>ls -l</code>, um zu
+          sehen, was dort bereits liegt.</li>
+        <li><strong>Konfigurationsdatei sichern:</strong>
+          <code>cp nginx.conf nginx.conf.bak</code>, bevor Änderungen
+          vorgenommen werden.</li>
+        <li><strong>Externe Backup-Platte einhängen:</strong>
+          <code>mount /dev/sdb1 /mnt/backup</code>, danach mit
+          <code>ls -l /mnt/backup</code> den Inhalt prüfen.</li>
+        <li><strong>Dauerhaftes Einhängen:</strong> Eintrag der
+          Backup-Platte in <code>/etc/fstab</code>, damit sie bei jedem
+          Neustart automatisch verfügbar ist.</li>
+        <li><strong>Fehlersuche:</strong>
+          <code>cat /var/log/nginx/error.log | grep "error"</code>
+          filtert gezielt Fehlermeldungen aus einer langen Logdatei,
+          statt sie komplett mit <code>cat</code> allein auszugeben.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Navigation: <code>pwd</code>, <code>cd</code>, <code>ls</code>.
+        Dateioperationen: <code>cp</code>, <code>mv</code>,
+        <code>rm</code>, <code>mkdir</code>. Inhalt ansehen/durchsuchen:
+        <code>cat</code>, <code>less</code>, <code>grep</code>, per Pipe
+        (<code>|</code>) verkettet. Linux hat einen Verzeichnisbaum statt
+        Laufwerksbuchstaben, Datenträger werden gemountet,
+        <code>/etc/fstab</code> steuert das automatische Einhängen beim
+        Boot. <code>man befehl</code> zeigt die Dokumentation eines
+        Befehls.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/linux-konsole.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

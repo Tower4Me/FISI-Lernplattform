@@ -1,0 +1,203 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Auto lässt sich testen, ohne die Motorhaube zu öffnen –
+        man fährt es einfach und prüft, ob es sich wie erwartet
+        verhält. Oder man öffnet die Motorhaube und prüft jedes
+        einzelne Bauteil und jede Verkabelung. Genau diese beiden
+        Blickwinkel unterscheidet man auch beim Softwaretest:
+        <strong>Black-Box</strong> (von außen) und
+        <strong>White-Box</strong> (von innen). Zusätzlich wird ein
+        Auto in mehreren Etappen geprüft – einzelne Teile, verbaute
+        Systeme, das Gesamtfahrzeug und schließlich die Abnahme durch
+        die Käuferin.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Testarten nach Sichtweise</h3>
+      <table>
+        <thead><tr><th>Testart</th><th>Merkmal</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Black-Box-Test</strong></td>
+            <td>testet nur Ein- und Ausgabe, ohne Kenntnis der
+                internen Struktur oder des Quellcodes –
+                funktionales Verhalten steht im Fokus</td>
+          </tr>
+          <tr>
+            <td><strong>White-Box-Test</strong></td>
+            <td>testet mit Kenntnis der internen Struktur/des
+                Quellcodes, z. B. ob alle Codepfade durchlaufen
+                werden – strukturelles Testen</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Teststufen entlang des Entwicklungsprozesses</h3>
+      <table>
+        <thead><tr><th>Stufe</th><th>Inhalt</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Unittest (Komponententest)</strong></td>
+            <td>testet einzelne, kleinste Programmeinheiten (z. B.
+                eine Funktion) isoliert – meist durch die
+                Entwickler:innen selbst, klassischerweise ein
+                White-Box-Test</td>
+          </tr>
+          <tr>
+            <td><strong>Integrationstest</strong></td>
+            <td>prüft das Zusammenspiel mehrerer bereits getesteter
+                Komponenten, insbesondere ihre Schnittstellen</td>
+          </tr>
+          <tr>
+            <td><strong>Systemtest</strong></td>
+            <td>testet das Gesamtsystem als Ganzes gegen die
+                festgelegten Anforderungen – meist als Black-Box-Test</td>
+          </tr>
+          <tr>
+            <td><strong>Abnahmetest</strong></td>
+            <td>der Auftraggeber prüft, ob das System die
+                vereinbarten Anforderungen erfüllt, bevor er es
+                förmlich abnimmt</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="vmodell-title vmodell-desc">
+          <title id="vmodell-title">V-Modell: Teststufen und ihre zugehörige Entwicklungsphase</title>
+          <desc id="vmodell-desc">Die linke, absteigende Seite zeigt die Entwicklungsphasen von Anforderungen über Grobentwurf und Feinentwurf bis zur Implementierung. Die rechte, aufsteigende Seite zeigt die dazu passenden Teststufen: Unittest direkt nach der Implementierung, dann Integrationstest, Systemtest und zuletzt Abnahmetest. Beide Seiten sind mit gleichem Versatz symmetrisch zueinander gespiegelt. Gestrichelte Linien verbinden jede Entwicklungsphase mit der Teststufe, die genau gegen sie prüft — Feinentwurf gegen Integrationstest, Grobentwurf gegen Systemtest, Anforderungen gegen Abnahmetest.</desc>
+
+          <defs>
+            <marker id="vm-arrow" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto">
+              <path d="M0,0 L7,2.5 L0,5" fill="var(--acc-einstieg)"/>
+            </marker>
+            <marker id="vm-arrow2" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto">
+              <path d="M0,0 L7,2.5 L0,5" fill="var(--acc-praxis)"/>
+            </marker>
+          </defs>
+
+          <line x1="130" y1="30" x2="470" y2="30" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <line x1="185" y1="115" x2="415" y2="115" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <line x1="240" y1="200" x2="360" y2="200" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <text x="300" y="18" text-anchor="middle" fill="var(--text-muted)" font-size="8">testet gegen</text>
+
+          <line x1="75" y1="50" x2="130" y2="95" stroke="var(--acc-einstieg)" stroke-width="2" marker-end="url(#vm-arrow)"/>
+          <line x1="130" y1="135" x2="185" y2="180" stroke="var(--acc-einstieg)" stroke-width="2" marker-end="url(#vm-arrow)"/>
+          <line x1="185" y1="220" x2="240" y2="265" stroke="var(--acc-einstieg)" stroke-width="2" marker-end="url(#vm-arrow)"/>
+
+          <line x1="360" y1="265" x2="415" y2="220" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#vm-arrow2)"/>
+          <line x1="415" y1="180" x2="470" y2="135" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#vm-arrow2)"/>
+          <line x1="470" y1="95" x2="525" y2="50" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#vm-arrow2)"/>
+
+          <rect x="20" y="10" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="27" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Anforderungen</text>
+          <text x="75" y="40" text-anchor="middle" fill="var(--text-muted)" font-size="7">Lastenheft/Pflichtenheft</text>
+
+          <rect x="75" y="95" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="130" y="112" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Grobentwurf</text>
+          <text x="130" y="125" text-anchor="middle" fill="var(--text-muted)" font-size="7">Systemarchitektur</text>
+
+          <rect x="130" y="180" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="185" y="197" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Feinentwurf</text>
+          <text x="185" y="210" text-anchor="middle" fill="var(--text-muted)" font-size="7">Komponenten</text>
+
+          <rect x="185" y="265" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2.5"/>
+          <text x="240" y="282" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Implementierung</text>
+          <text x="240" y="295" text-anchor="middle" fill="var(--text-muted)" font-size="7">Code</text>
+
+          <rect x="305" y="265" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="360" y="282" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Unittest</text>
+          <text x="360" y="295" text-anchor="middle" fill="var(--text-muted)" font-size="7">White-Box · Entwickler:innen</text>
+
+          <rect x="360" y="180" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="415" y="197" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Integrationstest</text>
+          <text x="415" y="210" text-anchor="middle" fill="var(--text-muted)" font-size="7">Entwickler:innen</text>
+
+          <rect x="415" y="95" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="470" y="112" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Systemtest</text>
+          <text x="470" y="125" text-anchor="middle" fill="var(--text-muted)" font-size="7">Black-Box · QA-Team</text>
+
+          <rect x="470" y="10" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="525" y="27" text-anchor="middle" fill="var(--text)" font-size="9.5" font-weight="700">Abnahmetest</text>
+          <text x="525" y="40" text-anchor="middle" fill="var(--text-muted)" font-size="7">Auftraggeber</text>
+
+          <text x="300" y="323" text-anchor="middle" fill="var(--text-muted)" font-size="8.5">links: Entwicklung (absteigend) — rechts: passende Teststufe (aufsteigend)</text>
+        </svg>
+        <figcaption>
+          Jede Entwicklungsphase links hat eine passende Teststufe rechts,
+          die genau gegen sie prüft: Feinentwurf gegen Integrationstest,
+          Grobentwurf gegen Systemtest, Anforderungen gegen Abnahmetest.
+        </figcaption>
+      </figure>
+
+      <h3>Lasttest</h3>
+      <p>
+        Ein <strong>Lasttest</strong> (Performance-/Stresstest) prüft,
+        wie ein System unter hoher Belastung reagiert – etwa bei
+        vielen gleichzeitigen Nutzer:innen oder großen Datenmengen.
+        Ziel ist es, Belastungsgrenzen und das Skalierungsverhalten
+        eines Systems zu ermitteln, bevor es produktiv geht.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TowerTech GmbH entwickelt für einen Kunden eine neue
+        Web-Anwendung gemäß dem vereinbarten Lastenheft/Pflichtenheft
+        (siehe Einheit
+        <a href="../projektmanagement/lastenheft-pflichtenheft.html">Lastenheft vs. Pflichtenheft</a>).
+      </p>
+      <ul>
+        <li>
+          <strong>Unittest:</strong> Entwickler:innen testen einzelne
+          Funktionen isoliert, z. B. die Berechnung eines Rabatts –
+          ein klassischer White-Box-Test.
+        </li>
+        <li>
+          <strong>Integrationstest:</strong> Das Zusammenspiel von
+          Zahlungsmodul und Bestellmodul wird geprüft.
+        </li>
+        <li>
+          <strong>Systemtest:</strong> Die gesamte Anwendung wird als
+          Black-Box gegen das Pflichtenheft getestet.
+        </li>
+        <li>
+          <strong>Abnahmetest:</strong> Der Kunde prüft die Anwendung
+          in einer Testumgebung und nimmt sie anschließend förmlich ab.
+        </li>
+        <li>
+          <strong>Lasttest:</strong> Vor dem Livegang simuliert
+          TowerTech 1.000 gleichzeitige Nutzer:innen – dabei zeigt sich
+          ein Flaschenhals in der Datenbank, der noch vor dem echten
+          Start behoben wird.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Black-Box testet von außen (Verhalten), White-Box mit Kenntnis
+        des Codes (Struktur). Die Teststufen laufen von Unit- über
+        Integrations- und Systemtest bis zum Abnahmetest durch den
+        Auftraggeber. Der Lasttest prüft zusätzlich das Verhalten
+        unter hoher Belastung.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/qualitaetssicherung/testverfahren-black-white-box.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

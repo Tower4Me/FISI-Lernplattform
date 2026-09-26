@@ -1,0 +1,115 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In einem Bürogebäude sitzen Buchhaltung und Entwicklungsabteilung
+        vielleicht im selben Flur und nutzen dieselbe Verkabelung. Trotzdem
+        teilt der Hausmeister die Mitarbeitenden per <strong>Zutrittskarte</strong>
+        in getrennte Bereiche ein — wer keine Karte für die Buchhaltung hat,
+        kommt dort nicht hinein, obwohl er körperlich direkt davor stehen
+        könnte. Genau das leistet ein <strong>VLAN</strong> im Netzwerk: Es
+        trennt Geräte logisch in eigene Gruppen, auch wenn sie am selben
+        physischen Switch hängen.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein VLAN teilt ein physisches Netzwerk in mehrere logisch getrennte
+        Broadcast-Domänen, ohne dass zusätzliche Verkabelung nötig ist. Jeder
+        Switch-Port wird einer VLAN-ID zugeordnet (nach IEEE 802.1Q). Geräte in
+        unterschiedlichen VLANs erreichen sich nur über einen Router
+        (Inter-VLAN-Routing) — genau wie physisch getrennte Netze.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Port-Typ</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Untagged (Access-Port)</strong></td><td>Der Port gehört fest zu genau einem VLAN. Angeschlossene Endgeräte (PC, Drucker) senden und empfangen ohne VLAN-Tag — sie merken selbst nichts vom VLAN.</td></tr>
+          <tr><td><strong>Tagged (Trunk-Port)</strong></td><td>Der Port transportiert Datenverkehr mehrerer VLANs gleichzeitig. Jeder Frame trägt ein VLAN-Tag (4 Byte, VLAN-ID 1–4094), damit der Empfänger-Switch weiß, zu welchem VLAN er gehört. Wird typischerweise zwischen Switches oder zu einem Router verwendet.</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die physische Verkabelung bleibt dabei unverändert — meist eine
+        <strong>Sterntopologie</strong> mit einem zentralen Switch (siehe
+        Einheit <a href="netzwerktopologien.html">Netzwerktopologien</a>),
+        auf der VLANs die logische Trennung darüberlegen.
+      </p>
+
+      <h3>Natives VLAN und VLAN-Hopping</h3>
+      <p>
+        Auf einem Trunk-Port lässt sich ein VLAN als <strong>natives
+        VLAN</strong> festlegen: Frames dieses einen VLANs laufen dort
+        ausnahmsweise ohne Tag über den Trunk, alle anderen VLANs weiterhin
+        getaggt. Das ist praktisch für ältere Geräte, die selbst keine Tags
+        verstehen — birgt aber ein Sicherheitsrisiko: Beim
+        <strong>VLAN-Hopping</strong> hängt ein Angreifer gezielt ein
+        gefälschtes VLAN-Tag an einen Frame, um über das native VLAN
+        Zugriff auf ein eigentlich fremdes VLAN zu erschleichen. Übliche
+        Gegenmaßnahme: das native VLAN auf eine ungenutzte VLAN-ID legen,
+        die kein Endgerät regulär verwendet.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus teilt das Netzwerk eines Kunden in zwei Bereiche
+        auf.
+      </p>
+      <ul>
+        <li>Der Switch wird in zwei <strong>VLANs</strong> unterteilt:
+          VLAN 10 für die Buchhaltung, VLAN 20 für den Empfang und das
+          Gäste-WLAN.</li>
+        <li>Die Access-Ports der PCs sind <strong>untagged</strong> ihrem
+          jeweiligen VLAN zugeordnet, die Verbindung zum Router ist ein
+          <strong>tagged Trunk-Port</strong>, der beide VLANs gleichzeitig
+          transportiert.</li>
+      </ul>
+
+      <table>
+        <thead>
+          <tr><th>Switch-Port</th><th>Modus</th><th>VLAN(s)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Port 1–8 (Buchhaltung)</td><td>Access (untagged)</td><td>VLAN 10</td></tr>
+          <tr><td>Port 9–16 (Empfang/Gast)</td><td>Access (untagged)</td><td>VLAN 20</td></tr>
+          <tr><td>Port 24 (zum Router)</td><td>Trunk (tagged)</td><td>VLAN 10 + VLAN 20, natives VLAN auf ungenutzte ID 999 gelegt</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Typische Prüfungsfrage: „Warum lässt sich mit VLANs Sicherheit
+        erhöhen, obwohl alle Geräte am selben physischen Switch hängen?“ –
+        Antwort: VLANs trennen Broadcast-Domänen logisch; Geräte in
+        unterschiedlichen VLANs können sich nur über einen Router erreichen,
+        genau wie in physisch getrennten Netzen — ein Angreifer im
+        Gäste-VLAN kommt so nicht direkt an die Buchhaltung heran.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        VLAN trennt Broadcast-Domänen logisch über einen physischen Switch —
+        untagged (Access) für Endgeräte, tagged (Trunk) mit VLAN-Tag nach
+        IEEE 802.1Q für Verbindungen zwischen Switches/Router.
+        Kommunikation zwischen unterschiedlichen VLANs läuft ausschließlich
+        über einen Router (Inter-VLAN-Routing). Natives VLAN läuft
+        ungetaggt über den Trunk — auf eine ungenutzte VLAN-ID legen, sonst
+        droht VLAN-Hopping.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/vlan.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

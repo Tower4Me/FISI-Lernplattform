@@ -1,0 +1,467 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine IP-Adresse funktioniert wie eine Postanschrift mit zwei Teilen:
+        „Musterstraße 12, 10115 Berlin“. Die Postleitzahl sagt, in welchem
+        <strong>Zustellbezirk</strong> (Netz) sich das Haus befindet, die
+        Hausnummer identifiziert das <strong>einzelne Haus</strong> (Gerät)
+        innerhalb dieses Bezirks. Der Postbote muss nur wissen: Gehört die
+        PLZ zu meinem Bezirk? Wenn ja, liefere ich direkt zur Hausnummer. Wenn
+        nein, gebe ich den Brief an die Poststelle des richtigen Bezirks
+        weiter. Genau das leistet die <strong>Subnetzmaske</strong> bei einer
+        IPv4-Adresse: Sie legt fest, welcher Teil der Adresse „Bezirk“ (Netz)
+        und welcher Teil „Hausnummer“ (Host) ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>IPv4-Adresse</strong> besteht aus 32 Bit, dargestellt
+        als vier durch Punkte getrennte Dezimalzahlen (0–255), z. B.
+        <code>192.168.10.42</code>. Jede Adresse gliedert sich in zwei
+        logische Teile:
+      </p>
+      <ul>
+        <li><strong>Netzanteil</strong> — identifiziert das Subnetz, in dem sich das Gerät befindet.</li>
+        <li><strong>Hostanteil</strong> — identifiziert das einzelne Gerät innerhalb dieses Subnetzes.</li>
+      </ul>
+      <p>
+        Welcher Teil der Adresse zum Netz und welcher zum Host gehört, legt
+        die <strong>Subnetzmaske</strong> fest (z. B. <code>255.255.255.0</code>).
+        Gesetzte Bits (1) in der Maske markieren den Netzanteil, ungesetzte
+        Bits (0) den Hostanteil.
+      </p>
+
+      <h3>CIDR-Schreibweise</h3>
+      <p>
+        Statt der ausgeschriebenen Maske wird oft die <strong>CIDR-Notation</strong>
+        (Classless Inter-Domain Routing) verwendet: Ein Schrägstrich gefolgt
+        von der Anzahl gesetzter Netz-Bits, z. B. <code>192.168.10.0/24</code>.
+        Die „24“ bedeutet: die ersten 24 Bit (= 255.255.255.0) sind Netzanteil,
+        die restlichen 8 Bit sind Hostanteil.
+      </p>
+      <table>
+        <thead>
+          <tr><th>CIDR</th><th>Subnetzmaske</th><th>Nutzbare Hosts</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>/24</td><td>255.255.255.0</td><td>254 (2⁸ − 2)</td></tr>
+          <tr><td>/25</td><td>255.255.255.128</td><td>126 (2⁷ − 2)</td></tr>
+          <tr><td>/26</td><td>255.255.255.192</td><td>62 (2⁶ − 2)</td></tr>
+          <tr><td>/27</td><td>255.255.255.224</td><td>30 (2⁵ − 2)</td></tr>
+          <tr><td>/28</td><td>255.255.255.240</td><td>14 (2⁴ − 2)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Formel für nutzbare Hosts pro Subnetz: <strong>2<sup>Hostbits</sup> − 2</strong>
+        — die „−2“ steht für Netz- und Broadcast-Adresse, die nicht an Geräte
+        vergeben werden dürfen.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="netzhost-title netzhost-desc">
+          <title id="netzhost-title">Netz- und Hostanteil im Vergleich: /24 gegenüber /26</title>
+          <desc id="netzhost-desc">Zwei 32-Bit-Balken zeigen, wie die Subnetzmaske die Aufteilung zwischen Netzanteil und Hostanteil verschiebt: Bei /24 sind die ersten 24 Bit Netzanteil und die letzten 8 Bit Hostanteil. Bei /26 wandern zwei weitere Bit vom Host- in den Netzanteil, sodass nur noch 6 Bit für Hosts bleiben.</desc>
+
+          <text x="230" y="25" text-anchor="middle" fill="var(--text)" font-size="12">/24 = 255.255.255.0</text>
+          <rect x="30" y="32" width="300" height="30" fill="var(--acc-praxis)"/>
+          <rect x="330" y="32" width="100" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="180" y="76" text-anchor="middle" fill="var(--text-muted)" font-size="10">Netzanteil (24 Bit)</text>
+          <text x="380" y="76" text-anchor="middle" fill="var(--text-muted)" font-size="10">Host (8 Bit)</text>
+
+          <text x="230" y="100" text-anchor="middle" fill="var(--text)" font-size="12">/26 = 255.255.255.192</text>
+          <rect x="30" y="107" width="325" height="30" fill="var(--acc-praxis)"/>
+          <rect x="355" y="107" width="75" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="193" y="151" text-anchor="middle" fill="var(--text-muted)" font-size="10">Netzanteil (26 Bit)</text>
+          <text x="393" y="151" text-anchor="middle" fill="var(--text-muted)" font-size="10">Host (6 Bit)</text>
+
+          <line x1="130" y1="32" x2="130" y2="137" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="230" y1="32" x2="230" y2="137" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="330" y1="32" x2="330" y2="137" stroke="var(--border)" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <text x="80" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">1. Oktett</text>
+          <text x="180" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">2. Oktett</text>
+          <text x="280" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">3. Oktett</text>
+          <text x="380" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="10">4. Oktett</text>
+        </svg>
+        <figcaption>
+          Je länger der CIDR-Wert, desto mehr Bit gehören zum Netzanteil
+          (grün) und desto weniger bleiben für den Hostanteil übrig: Bei
+          /26 sind zwei Bit mehr vom vierten Oktett dem Netz zugeschlagen
+          als bei /24 — deshalb bleiben nur noch 6 statt 8 Hostbit.
+        </figcaption>
+      </figure>
+
+      <h3>Netzadresse berechnen: bitweises UND (ANDing)</h3>
+      <p>
+        Um aus einer IP-Adresse und ihrer Subnetzmaske die tatsächliche
+        <strong>Netzadresse</strong> zu berechnen, werden beide Werte
+        <strong>Bit für Bit UND-verknüpft</strong> (ANDing): Nur wenn
+        <strong>beide</strong> Bits an derselben Stelle 1 sind, ergibt sich
+        eine 1 im Ergebnis — sonst immer 0.
+      </p>
+      <table>
+        <thead>
+          <tr><th>IP-Bit</th><th>Masken-Bit</th><th>UND-Ergebnis</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>1</td><td><strong>1</strong></td></tr>
+          <tr><td>1</td><td>0</td><td>0</td></tr>
+          <tr><td>0</td><td>1</td><td>0</td></tr>
+          <tr><td>0</td><td>0</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Durchgerechnetes Beispiel: <code>192.168.10.42</code> mit der
+        Maske <code>255.255.255.192</code> (<code>/26</code>). In den
+        ersten drei Oktetten ist die Maske jeweils <code>255</code>
+        (binär <code>1111 1111</code>) — jedes IP-Bit wird dort mit 1
+        UND-verknüpft und bleibt dadurch unverändert. Die ersten drei
+        Oktette der Netzadresse entsprechen also einfach der IP-Adresse:
+        <code>192.168.10.</code>. Interessant wird es erst im vierten
+        Oktett, wo die Maske nicht mehr durchgehend 1 ist:
+      </p>
+      <table>
+        <thead>
+          <tr><th>4. Oktett</th><th>Dezimal</th><th>Binär</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>IP-Adresse</td><td>42</td><td>0010 1010</td></tr>
+          <tr><td>Subnetzmaske</td><td>192</td><td>1100 0000</td></tr>
+          <tr><td><strong>UND-Ergebnis</strong></td><td><strong>0</strong></td><td><strong>0000 0000</strong></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Das Ergebnis der UND-Verknüpfung ist im vierten Oktett
+        <code>0</code> — die Netzadresse lautet also
+        <strong>192.168.10.0</strong>.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="and-title and-desc">
+          <title id="and-title">ANDing von 192.168.10.42 mit der Maske 255.255.255.192</title>
+          <desc id="and-desc">Die ersten drei Oktette bleiben unverändert, da die Maske dort 255 ist. Im vierten Oktett wird 42 (0010 1010) mit 192 (1100 0000) UND-verknüpft und ergibt 0 (0000 0000) — die Netzadresse ist 192.168.10.0.</desc>
+
+          <text x="20" y="32" fill="var(--text-muted)" font-size="15">192</text>
+          <text x="64" y="32" fill="var(--text-muted)" font-size="15">.</text>
+          <text x="74" y="32" fill="var(--text-muted)" font-size="15">168</text>
+          <text x="118" y="32" fill="var(--text-muted)" font-size="15">.</text>
+          <text x="128" y="32" fill="var(--text-muted)" font-size="15">10</text>
+          <text x="156" y="32" fill="var(--text-muted)" font-size="15">.</text>
+          <rect x="166" y="12" width="44" height="28" rx="4" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="188" y="32" text-anchor="middle" fill="var(--text)" font-size="15" font-weight="600">42</text>
+
+          <text x="20" y="52" fill="var(--text-muted)" font-size="11">4. Oktett im Detail (Bit für Bit):</text>
+
+          <rect x="94" y="58" width="284" height="130" rx="6" fill="none" stroke="var(--acc-praxis)" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+          <text x="20" y="84" fill="var(--text)" font-size="12">IP</text>
+          <g font-size="13" fill="var(--text)">
+            <rect x="100" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="117" y="84" text-anchor="middle">0</text>
+            <rect x="134" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="151" y="84" text-anchor="middle">0</text>
+            <rect x="168" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="185" y="84" text-anchor="middle">1</text>
+            <rect x="202" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="219" y="84" text-anchor="middle">0</text>
+            <rect x="236" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="253" y="84" text-anchor="middle">1</text>
+            <rect x="270" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="287" y="84" text-anchor="middle">0</text>
+            <rect x="304" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="321" y="84" text-anchor="middle">1</text>
+            <rect x="338" y="64" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="355" y="84" text-anchor="middle">0</text>
+          </g>
+
+          <text x="20" y="126" fill="var(--text)" font-size="12">Maske (UND)</text>
+          <g font-size="13" fill="var(--text)">
+            <rect x="100" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="117" y="126" text-anchor="middle">1</text>
+            <rect x="134" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="151" y="126" text-anchor="middle">1</text>
+            <rect x="168" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="185" y="126" text-anchor="middle">0</text>
+            <rect x="202" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="219" y="126" text-anchor="middle">0</text>
+            <rect x="236" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="253" y="126" text-anchor="middle">0</text>
+            <rect x="270" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="287" y="126" text-anchor="middle">0</text>
+            <rect x="304" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="321" y="126" text-anchor="middle">0</text>
+            <rect x="338" y="106" width="34" height="30" fill="var(--surface-2)" stroke="var(--border)"/>
+            <text x="355" y="126" text-anchor="middle">0</text>
+          </g>
+
+          <line x1="95" y1="142" x2="376" y2="142" stroke="var(--text)" stroke-width="1.5"/>
+
+          <text x="20" y="171" fill="var(--text)" font-size="12" font-weight="600">Ergebnis</text>
+          <g font-size="13" font-weight="600" fill="var(--text)">
+            <rect x="100" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="117" y="171" text-anchor="middle">0</text>
+            <rect x="134" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="151" y="171" text-anchor="middle">0</text>
+            <rect x="168" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="185" y="171" text-anchor="middle">0</text>
+            <rect x="202" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="219" y="171" text-anchor="middle">0</text>
+            <rect x="236" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="253" y="171" text-anchor="middle">0</text>
+            <rect x="270" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="287" y="171" text-anchor="middle">0</text>
+            <rect x="304" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="321" y="171" text-anchor="middle">0</text>
+            <rect x="338" y="150" width="34" height="32" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="355" y="171" text-anchor="middle">0</text>
+          </g>
+
+          <text x="236" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="11">Ergebnis 4. Oktett = 0 → Netzadresse 192.168.10.0</text>
+        </svg>
+        <figcaption>
+          Bitweises UND für das vierte Oktett von 192.168.10.42 mit der
+          Maske 255.255.255.192: 42 (0010 1010) UND 192 (1100 0000)
+          ergibt 0 (0000 0000). Die ersten drei Oktette bleiben unverändert,
+          da dort die Maske durchgehend 255 ist.
+        </figcaption>
+      </figure>
+
+      <p>
+        Aus der Netzadresse lassen sich die übrigen Adressen direkt
+        ableiten: Die <strong>Broadcast-Adresse</strong> ergibt sich, wenn
+        man in der Netzadresse alle <strong>Hostbits</strong> (die Bits,
+        die nicht zur Maske gehören) auf 1 setzt — bei <code>/26</code>
+        sind das die letzten 6 Bit des vierten Oktetts:
+        <code>0000 0000</code> → <code>0011 1111</code> = 63, also
+        <strong>192.168.10.63</strong>. Die nutzbaren Host-Adressen liegen
+        dazwischen: <strong>192.168.10.1</strong> (erste) bis
+        <strong>192.168.10.62</strong> (letzte).
+      </p>
+
+      <h3>Netz-, Broadcast- und Host-Adressen</h3>
+      <p>
+        In jedem Subnetz sind zwei Adressen reserviert:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Adresse</th><th>Bedeutung</th><th>Beispiel bei 192.168.10.0/24</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Netzadresse</strong></td><td>Alle Host-Bits = 0, identifiziert das Subnetz selbst, nicht vergebbar an Geräte</td><td>192.168.10.0</td></tr>
+          <tr><td><strong>Broadcast-Adresse</strong></td><td>Alle Host-Bits = 1, adressiert alle Geräte im Subnetz gleichzeitig, nicht vergebbar an Geräte</td><td>192.168.10.255</td></tr>
+          <tr><td><strong>Host-Adressen</strong></td><td>Alle Werte dazwischen, an Geräte vergebbar</td><td>192.168.10.1 – 192.168.10.254</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Supernetting (Route-Summarization)</h3>
+      <p>
+        <strong>Supernetting</strong> ist das Gegenteil von Subnetting:
+        Statt ein großes Netz in mehrere kleinere Subnetze aufzuteilen,
+        werden mehrere benachbarte, kleinere Netze zu einem einzigen
+        größeren, zusammengefassten Adressblock zusammengefasst
+        (<strong>CIDR-Aggregation</strong>). Voraussetzung dafür ist, dass
+        die Netze direkt aneinandergrenzen, ihre Anzahl eine Zweierpotenz
+        ist und der erste Netzblock auf der passenden Bitgrenze beginnt.
+      </p>
+      <p>
+        Zweck ist die <strong>Route Summarization</strong>: Statt für jedes
+        einzelne kleine Netz eine eigene Zeile in der Routing-Tabelle zu
+        pflegen, genügt ein einziger zusammengefasster Eintrag. Das
+        reduziert die Anzahl der Routing-Tabellen-Einträge, spart Speicher
+        auf dem Router und beschleunigt die Routensuche.
+      </p>
+      <p>
+        Rechenbeispiel: Die vier benachbarten Netze
+        <code>192.168.0.0/24</code>, <code>192.168.1.0/24</code>,
+        <code>192.168.2.0/24</code> und <code>192.168.3.0/24</code> sollen
+        zu einem Block zusammengefasst werden. Die ersten beiden Oktette
+        (<code>192.168</code>) sind bei allen vier Netzen identisch,
+        entscheidend ist das dritte Oktett:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Netz</th><th>3. Oktett dezimal</th><th>3. Oktett binär</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>192.168.0.0/24</td><td>0</td><td>0000 00<strong>00</strong></td></tr>
+          <tr><td>192.168.1.0/24</td><td>1</td><td>0000 00<strong>01</strong></td></tr>
+          <tr><td>192.168.2.0/24</td><td>2</td><td>0000 00<strong>10</strong></td></tr>
+          <tr><td>192.168.3.0/24</td><td>3</td><td>0000 00<strong>11</strong></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die ersten 6 Bit des dritten Oktetts (<code>0000 00</code>) sind
+        bei allen vier Netzen gleich, nur die letzten 2 Bit unterscheiden
+        sich und decken zusammen alle vier Kombinationen (<code>00</code>
+        bis <code>11</code>) ab. Zusammen mit den 16 Bit der ersten beiden
+        Oktette ergeben sich 16 + 6 = <strong>22</strong> gemeinsame
+        Netz-Bit. Die vier /24-Netze lassen sich also durch die einzige
+        Route <strong>192.168.0.0/22</strong> repräsentieren — ein
+        Routing-Tabellen-Eintrag statt vier.
+      </p>
+
+      <h3>Private IPv4-Adressbereiche</h3>
+      <p>
+        Nach RFC 1918 sind drei Adressbereiche für private Netze reserviert
+        und werden im öffentlichen Internet nicht geroutet:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Bereich</th><th>CIDR</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10.0.0.0 – 10.255.255.255</td><td>10.0.0.0/8</td></tr>
+          <tr><td>172.16.0.0 – 172.31.255.255</td><td>172.16.0.0/12</td></tr>
+          <tr><td>192.168.0.0 – 192.168.255.255</td><td>192.168.0.0/16</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus soll für die Filiale einer Firma ein Subnetz für
+        27 Arbeitsplatzrechner einrichten, mit möglichst wenig
+        verschwendeten Adressen.
+      </p>
+      <ul>
+        <li>27 Hosts benötigen mindestens 27 nutzbare Adressen. 2⁵ − 2 = 30 reicht (5 Hostbits), 2⁴ − 2 = 14 reicht nicht.</li>
+        <li>5 Hostbits bedeuten 32 − 5 = 27 Netzbits, also eine <strong>/27</strong>-Maske: <code>255.255.255.224</code>.</li>
+        <li>Gewähltes Netz: <strong>192.168.50.0/27</strong>. Netzadresse: 192.168.50.0, Broadcast-Adresse: 192.168.50.31.</li>
+        <li>Nutzbare Host-Adressen: 192.168.50.1 bis 192.168.50.30 (30 Stück) — genug für 27 Rechner plus Reserve für neue Geräte.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Wie viele nutzbare Host-Adressen bietet ein
+        Subnetz mit der Maske 255.255.255.240?“ – Antwort: /28 hat 4
+        Hostbits, also 2⁴ − 2 = 14 nutzbare Adressen (Netz- und
+        Broadcast-Adresse abgezogen).
+      </p>
+
+      <div class="tool" id="subnet-calc-widget">
+        <style>
+          #subnet-calc-widget .subnet-calc-field { flex: 1 1 12rem; }
+          #subnet-calc-widget .subnet-calc-error {
+            color: var(--fail);
+            font-weight: 600;
+            margin-top: 0.75rem;
+          }
+          #subnet-calc-widget .subnet-calc-results {
+            margin: 0.75rem 0 0;
+          }
+          #subnet-calc-widget .subnet-calc-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid var(--border);
+          }
+          #subnet-calc-widget .subnet-calc-row:last-child { border-bottom: none; }
+          #subnet-calc-widget .subnet-calc-row dt { color: var(--text-muted); }
+          #subnet-calc-widget .subnet-calc-row dd {
+            margin: 0;
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+          }
+          #subnet-calc-widget .subnet-calc-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0.25rem 0 0.75rem;
+          }
+          #subnet-calc-widget .subnet-calc-subresult {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 2px solid var(--border);
+          }
+          #subnet-calc-widget .subnet-calc-subresult h4 {
+            margin: 0 0 0.5rem;
+            font-size: 1rem;
+            color: var(--text);
+          }
+        </style>
+
+        <p class="subnet-calc-note">
+          Interaktiver Subnetzrechner — rechnet mit derselben
+          bitweisen UND-Verknüpfung, die oben in
+          <a href="#konzept">Konzept</a> Schritt für Schritt erklärt wird.
+          Zum Ausprobieren mit eigenen Werten.
+        </p>
+
+        <div class="tool__row">
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-ip">IP-Adresse</label>
+            <input class="tool__input" type="text" id="subnet-calc-ip" placeholder="z. B. 192.168.10.42" autocomplete="off">
+          </div>
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-mask">Maske (CIDR oder Dezimal)</label>
+            <input class="tool__input" type="text" id="subnet-calc-mask" placeholder="z. B. /26 oder 255.255.255.192" autocomplete="off">
+          </div>
+        </div>
+        <div class="tool__row">
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-base">Ausgangsnetz / Basis-Präfix (optional)</label>
+            <input class="tool__input" type="text" id="subnet-calc-base" placeholder="z. B. /24 — muss kleiner als die Maske sein" autocomplete="off">
+            <p class="subnet-calc-note">Das größere Netz, das in kleinere Subnetze aufgeteilt wird. Muss ein kleineres Präfix haben als die Maske oben, z. B. Basis /24 bei Maske /26 → 4 Subnetze à 62 Hosts.</p>
+          </div>
+        </div>
+        <div class="tool__row">
+          <div class="subnet-calc-field">
+            <label class="tool__label" for="subnet-calc-n">Subnetz Nr. anzeigen (optional)</label>
+            <input class="tool__input" type="number" id="subnet-calc-n" min="1" step="1" placeholder="z. B. 14" autocomplete="off" disabled>
+            <p class="subnet-calc-note" id="subnet-calc-n-hint">Basis-Präfix eingeben, um einzelne Subnetze anzuzeigen.</p>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" type="button" id="subnet-calc-btn">Berechnen</button>
+
+        <p class="subnet-calc-error" id="subnet-calc-error" hidden></p>
+
+        <dl class="subnet-calc-results" id="subnet-calc-results" hidden>
+          <div class="subnet-calc-row"><dt>Netzadresse</dt><dd id="subnet-calc-net"></dd></div>
+          <div class="subnet-calc-row"><dt>Broadcast-Adresse</dt><dd id="subnet-calc-broadcast"></dd></div>
+          <div class="subnet-calc-row"><dt>Erste nutzbare Adresse</dt><dd id="subnet-calc-first"></dd></div>
+          <div class="subnet-calc-row"><dt>Letzte nutzbare Adresse</dt><dd id="subnet-calc-last"></dd></div>
+          <div class="subnet-calc-row"><dt>Nutzbare Hosts</dt><dd id="subnet-calc-hosts"></dd></div>
+          <div class="subnet-calc-row"><dt>Subnetzmaske (dezimal)</dt><dd id="subnet-calc-mask-decimal"></dd></div>
+          <div class="subnet-calc-row"><dt>CIDR</dt><dd id="subnet-calc-cidr-out"></dd></div>
+          <div class="subnet-calc-row"><dt>Anzahl Subnetze</dt><dd id="subnet-calc-subnets"></dd></div>
+        </dl>
+
+        <p class="subnet-calc-error" id="subnet-calc-sub-error" hidden></p>
+
+        <div class="subnet-calc-subresult" id="subnet-calc-subresult" hidden>
+          <h4 id="subnet-calc-subresult-title">Subnetz Nr.</h4>
+          <dl class="subnet-calc-results">
+            <div class="subnet-calc-row"><dt>Netzadresse</dt><dd id="subnet-calc-sub-net"></dd></div>
+            <div class="subnet-calc-row"><dt>Broadcast-Adresse</dt><dd id="subnet-calc-sub-broadcast"></dd></div>
+            <div class="subnet-calc-row"><dt>Erste nutzbare Adresse</dt><dd id="subnet-calc-sub-first"></dd></div>
+            <div class="subnet-calc-row"><dt>Letzte nutzbare Adresse</dt><dd id="subnet-calc-sub-last"></dd></div>
+            <div class="subnet-calc-row"><dt>Nutzbare Hosts</dt><dd id="subnet-calc-sub-hosts"></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        IPv4 = 32 Bit, aufgeteilt in Netz- und Hostanteil per Subnetzmaske
+        bzw. CIDR (/x). Nutzbare Hosts pro Subnetz = 2<sup>Hostbits</sup> − 2
+        (Netz- und Broadcast-Adresse sind reserviert und nicht vergebbar).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/ipv4-subnetting.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

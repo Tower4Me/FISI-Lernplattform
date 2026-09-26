@@ -1,0 +1,146 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Wer eine Pfütze unter einem tropfenden Rohr immer wieder
+        aufwischt, ohne das Rohr zu reparieren, findet sie am nächsten
+        Tag wieder vor. Nur wer die eigentliche Ursache – das undichte
+        Rohr – behebt, löst das Problem dauerhaft. Genau darum geht es
+        bei der <strong>Root-Cause-Analyse</strong>: nicht nur Symptome
+        behandeln, sondern die tatsächliche Ursache finden.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Die 5-Why-Methode</h3>
+      <p>
+        Bei der <strong>5-Why-Methode</strong> wird ausgehend von einem
+        Symptom so lange „Warum?“ gefragt (klassischerweise fünfmal),
+        bis die eigentliche, <strong>zugrunde liegende Ursache</strong>
+        gefunden ist – statt bei der ersten Erklärung stehen zu
+        bleiben.
+      </p>
+
+      <h3>Ishikawa-Diagramm (Fischgrätendiagramm)</h3>
+      <p>
+        Das <strong>Ishikawa-Diagramm</strong> (auch
+        Ursache-Wirkungs-Diagramm) visualisiert mögliche Ursachen eines
+        Problems strukturiert nach Kategorien. Das Problem steht als
+        „Fischkopf“ am rechten Ende, die Hauptkategorien bilden die
+        „Gräten“. Klassisch werden sechs Kategorien unterschieden
+        (die „6 M“):
+      </p>
+      <table>
+        <thead><tr><th>Kategorie</th><th>Beispiel im IT-Kontext</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mensch (Man)</strong></td><td>fehlende Schulung, Bedienfehler</td></tr>
+          <tr><td><strong>Maschine (Machine)</strong></td><td>Hardwaredefekt, veraltete Systeme</td></tr>
+          <tr><td><strong>Methode (Method)</strong></td><td>fehlerhafter Prozess, fehlende Checkliste</td></tr>
+          <tr><td><strong>Material</strong></td><td>fehlerhafte Komponenten, Fehlkonfiguration</td></tr>
+          <tr><td><strong>Mitwelt/Umgebung (Milieu)</strong></td><td>Temperatur, Stromversorgung</td></tr>
+          <tr><td><strong>Management</strong></td><td>unklare Zuständigkeiten, Ressourcenmangel</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fischgraet-title fischgraet-desc">
+          <title id="fischgraet-title">Ishikawa-Fischgrätdiagramm mit den sechs M-Kategorien</title>
+          <desc id="fischgraet-desc">Eine waagerechte Wirbelsäule führt zum Problem-Kopf rechts. Sechs schräge Gräten münden in die Wirbelsäule: oben Mensch, Maschine und Methode, unten Material, Umgebung und Management, jeweils mit einem Beispiel aus dem IT-Kontext.</desc>
+
+          <defs>
+            <marker id="fischgraet-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+            <marker id="fischgraet-bone-arrow" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto">
+              <path d="M0,0 L7,2.5 L0,5" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="40" y1="160" x2="475" y2="160" stroke="var(--text)" stroke-width="2.5" marker-end="url(#fischgraet-arrow)"/>
+
+          <rect x="480" y="125" width="110" height="70" rx="6" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2.5"/>
+          <text x="535" y="158" text-anchor="middle" fill="var(--text)" font-size="13" font-weight="700">Problem</text>
+          <text x="535" y="175" text-anchor="middle" fill="var(--text-muted)" font-size="9">„Fischkopf“</text>
+
+          <line x1="65" y1="72" x2="120" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="65" y="64" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Mensch</text>
+          <text x="65" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">fehlende Schulung</text>
+
+          <line x1="185" y1="72" x2="240" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="185" y="64" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Maschine</text>
+          <text x="185" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">Hardwaredefekt</text>
+
+          <line x1="305" y1="72" x2="360" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="305" y="64" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Methode</text>
+          <text x="305" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">fehlerhafter Prozess</text>
+
+          <line x1="65" y1="248" x2="120" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="65" y="262" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Material</text>
+          <text x="65" y="276" text-anchor="middle" fill="var(--text-muted)" font-size="8">falsche Konfiguration</text>
+
+          <line x1="185" y1="248" x2="240" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="185" y="262" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Umgebung</text>
+          <text x="185" y="276" text-anchor="middle" fill="var(--text-muted)" font-size="8">Temperatur, Strom</text>
+
+          <line x1="305" y1="248" x2="360" y2="160" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#fischgraet-bone-arrow)"/>
+          <text x="305" y="262" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Management</text>
+          <text x="305" y="276" text-anchor="middle" fill="var(--text-muted)" font-size="8">unklare Zuständigkeit</text>
+        </svg>
+        <figcaption>
+          Sechs Gräten (die „6 M“) münden in die Wirbelsäule, die zum
+          Problem-Kopf führt.
+        </figcaption>
+      </figure>
+
+      <p>
+        In der Praxis wird meist im Team (Brainstorming) je Kategorie
+        gesammelt, welche Ursachen zum Problem beigetragen haben
+        könnten. Die wahrscheinlichste Ursache wird anschließend
+        priorisiert und ggf. mit der 5-Why-Methode weiter vertieft.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Server der TowerTech GmbH fällt wiederholt aus. Das
+        Support-Team führt eine 5-Why-Analyse durch:
+      </p>
+      <ol>
+        <li><strong>Warum</strong> ist der Server ausgefallen? – Weil die Festplatte voll war.</li>
+        <li><strong>Warum</strong> war die Festplatte voll? – Weil Logdateien nicht automatisch rotiert wurden.</li>
+        <li><strong>Warum</strong> wurden sie nicht rotiert? – Weil die Log-Rotations-Konfiguration fehlerhaft war.</li>
+        <li><strong>Warum</strong> war sie fehlerhaft? – Weil sie bei der letzten Systemumstellung nicht angepasst wurde.</li>
+        <li><strong>Warum</strong> wurde das übersehen? – Weil es dafür keinen festen Prüfpunkt in der Checkliste zur Systemumstellung gab.</li>
+      </ol>
+      <p>
+        Die eigentliche <strong>Root Cause</strong> ist damit nicht die
+        volle Festplatte, sondern ein fehlender Prozessschritt. Als
+        Lösung ergänzt TowerTech die Checkliste um einen Prüfpunkt zur
+        Log-Rotation – damit das Problem nicht erneut auftritt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Die 5-Why-Methode gräbt durch wiederholtes Nachfragen von der
+        Symptomebene zur eigentlichen Root Cause vor. Das
+        Ishikawa-Diagramm sammelt mögliche Ursachen strukturiert nach
+        Kategorien (die „6 M“: Mensch, Maschine, Methode, Material,
+        Umgebung, Management) und macht sie im Team sichtbar.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/problemanalyse-5whys-ishikawa.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

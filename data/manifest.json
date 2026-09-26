@@ -10,7 +10,8 @@
           "slug": "projektbegriff-magisches-dreieck",
           "name": "Projektbegriff & magisches Dreieck",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/projektmanagement/projektbegriff-magisches-dreieck.json"
+          "quiz": "data/projektmanagement/projektbegriff-magisches-dreieck.json",
+          "scripts": ["tools/magisches-dreieck.js"]
         },
         {
           "slug": "projektphasen-meilensteine",
@@ -255,7 +256,8 @@
           "slug": "raid-level",
           "name": "RAID-Level",
           "exams": ["ap2"],
-          "quiz": "data/hardware/raid-level.json"
+          "quiz": "data/hardware/raid-level.json",
+          "scripts": ["tools/raid-rechner.js"]
         },
         {
           "slug": "nas-san-storage",
@@ -267,7 +269,8 @@
           "slug": "schnittstellen-video",
           "name": "Schnittstellen & Video",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/hardware/schnittstellen-video.json"
+          "quiz": "data/hardware/schnittstellen-video.json",
+          "scripts": ["tools/nic-simulator.js"]
         },
         {
           "slug": "drucker",
@@ -382,13 +385,15 @@
           "slug": "ipv4-subnetting",
           "name": "IPv4 & Subnetting",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/netzwerktechnik/ipv4-subnetting.json"
+          "quiz": "data/netzwerktechnik/ipv4-subnetting.json",
+          "scripts": ["tools/subnetz-rechner.js"]
         },
         {
           "slug": "ipv6-grundlagen",
           "name": "IPv6-Grundlagen",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/netzwerktechnik/ipv6-grundlagen.json"
+          "quiz": "data/netzwerktechnik/ipv6-grundlagen.json",
+          "scripts": ["tools/ipv6-tool.js"]
         },
         {
           "slug": "mac-llc",
@@ -478,7 +483,8 @@
           "slug": "internetzugang-dsl",
           "name": "Internetzugang (DSL-Varianten)",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/netzwerktechnik/internetzugang-dsl.json"
+          "quiz": "data/netzwerktechnik/internetzugang-dsl.json",
+          "scripts": ["tools/dsl-umrechner.js"]
         },
         {
           "slug": "netzwerk-diagnose",
@@ -545,13 +551,15 @@
           "slug": "kryptographie-sym-asym",
           "name": "Kryptographie (symmetrisch/asymmetrisch)",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/it-sicherheit/kryptographie-sym-asym.json"
+          "quiz": "data/it-sicherheit/kryptographie-sym-asym.json",
+          "scripts": ["tools/verschluesselung-demo.js"]
         },
         {
           "slug": "hash-signatur",
           "name": "Hashverfahren & digitale Signatur",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/it-sicherheit/hash-signatur.json"
+          "quiz": "data/it-sicherheit/hash-signatur.json",
+          "scripts": ["tools/hash-demo.js"]
         },
         {
           "slug": "zertifikate-tls-pki",
@@ -593,7 +601,8 @@
           "slug": "authentifizierung-mfa-aaa",
           "name": "MFA & SSO",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/it-sicherheit/authentifizierung-mfa-aaa.json"
+          "quiz": "data/it-sicherheit/authentifizierung-mfa-aaa.json",
+          "scripts": ["tools/passwort-komplexitaet-rechner.js"]
         },
         {
           "slug": "aaa-radius-tacacs",
@@ -666,7 +675,8 @@
           "slug": "vertragsarten",
           "name": "Vertragsarten",
           "exams": ["ap1", "ap2"],
-          "quiz": "data/datenschutz-recht/vertragsarten.json"
+          "quiz": "data/datenschutz-recht/vertragsarten.json",
+          "scripts": ["tools/vertragsart-klassifizierer.js"]
         },
         {
           "slug": "sla-support-level",
@@ -793,7 +803,8 @@
           "slug": "zeichensaetze-ascii-unicode",
           "name": "Zeichensätze — ASCII, Unicode, UTF-8",
           "exams": ["ap1"],
-          "quiz": "data/software-os-web/zeichensaetze-ascii-unicode.json"
+          "quiz": "data/software-os-web/zeichensaetze-ascii-unicode.json",
+          "scripts": ["tools/bits-konverter.js", "tools/crlf-visualizer.js"]
         },
         {
           "slug": "kompression",
@@ -811,7 +822,8 @@
           "slug": "pruefziffern-paritaet",
           "name": "Prüfziffern & Parität",
           "exams": ["ap1"],
-          "quiz": "data/software-os-web/pruefziffern-paritaet.json"
+          "quiz": "data/software-os-web/pruefziffern-paritaet.json",
+          "scripts": ["tools/pruefziffern-rechner.js"]
         },
         {
           "slug": "url-uri-urn",
@@ -853,7 +865,8 @@
           "slug": "mime-base64",
           "name": "MIME-Types & Base64",
           "exams": ["ap1"],
-          "quiz": "data/software-os-web/mime-base64.json"
+          "quiz": "data/software-os-web/mime-base64.json",
+          "scripts": ["tools/base64-encoder.js"]
         },
         {
           "slug": "deployment-formate",
@@ -958,37 +971,43 @@
           "slug": "sql-ddl",
           "name": "SQL & DDL",
           "exams": ["ap2"],
-          "quiz": "data/datenbanken-sql/sql-ddl.json"
+          "quiz": "data/datenbanken-sql/sql-ddl.json",
+          "scripts": ["tools/sql-editor.js"]
         },
         {
           "slug": "sql-dml",
           "name": "SQL & DML",
           "exams": ["ap2"],
-          "quiz": "data/datenbanken-sql/sql-dml.json"
+          "quiz": "data/datenbanken-sql/sql-dml.json",
+          "scripts": ["tools/sql-editor.js"]
         },
         {
           "slug": "sql-join",
           "name": "SQL & JOIN",
           "exams": ["ap2"],
-          "quiz": "data/datenbanken-sql/sql-join.json"
+          "quiz": "data/datenbanken-sql/sql-join.json",
+          "scripts": ["tools/sql-editor.js"]
         },
         {
           "slug": "sql-dcl",
           "name": "SQL & DCL",
           "exams": ["ap2"],
-          "quiz": "data/datenbanken-sql/sql-dcl.json"
+          "quiz": "data/datenbanken-sql/sql-dcl.json",
+          "scripts": ["tools/sql-editor.js"]
         },
         {
           "slug": "sql-subqueries",
           "name": "Subqueries",
           "exams": ["ap2"],
-          "quiz": "data/datenbanken-sql/sql-subqueries.json"
+          "quiz": "data/datenbanken-sql/sql-subqueries.json",
+          "scripts": ["tools/sql-editor.js"]
         },
         {
           "slug": "sql-transaktionen",
           "name": "Transaktionen",
           "exams": ["ap2"],
-          "quiz": "data/datenbanken-sql/sql-transaktionen.json"
+          "quiz": "data/datenbanken-sql/sql-transaktionen.json",
+          "scripts": ["tools/sql-editor.js"]
         }
       ]
     },

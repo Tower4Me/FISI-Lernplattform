@@ -1,0 +1,165 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine neu zusammengewürfelte Sportmannschaft ist zu Saisonbeginn
+        höflich und zurückhaltend, bald gibt es Streit um Positionen und
+        Taktik, dann einigt man sich auf feste Rollen und Regeln, spielt
+        danach eingespielt zusammen – und am Saisonende löst sich das
+        Team auf oder wird neu gemischt. Genau diese fünf Stationen
+        beschreibt das <strong>Teamphasenmodell nach Bruce
+        Tuckman</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <table>
+        <thead><tr><th>Phase</th><th>Merkmale</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Forming</strong> (Orientierung)</td>
+            <td>Teammitglieder lernen sich kennen, verhalten sich
+                vorsichtig und höflich, unsicher über Rollen und
+                Ziele</td>
+          </tr>
+          <tr>
+            <td><strong>2. Storming</strong> (Konfrontation)</td>
+            <td>erste Konflikte treten offen zutage – Konkurrenz um
+                Rollen und Status</td>
+          </tr>
+          <tr>
+            <td><strong>3. Norming</strong> (Organisation)</td>
+            <td>das Team einigt sich auf gemeinsame Regeln, Rollen und
+                Arbeitsweisen, der Zusammenhalt wächst spürbar</td>
+          </tr>
+          <tr>
+            <td><strong>4. Performing</strong> (Hochleistung)</td>
+            <td>das Team arbeitet effizient und weitgehend
+                eigenständig, konzentriert auf die eigentliche
+                Aufgabe</td>
+          </tr>
+          <tr>
+            <td><strong>5. Adjourning</strong> (Auflösung)</td>
+            <td>nach Abschluss der Aufgabe löst sich das Team auf –
+                oft mit einem Rückblick auf den Prozess</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Bedeutung für Führung und Projektleitung</h3>
+      <p>
+        Jede Phase erfordert einen anderen Führungsstil: In der
+        <strong>Storming</strong>-Phase braucht es aktive
+        Konfliktmoderation, in der <strong>Performing</strong>-Phase
+        eher Zurückhaltung und Delegation, da das Team selbstständig
+        arbeitet. Das Modell verläuft zudem <strong>nicht zwingend
+        linear</strong>: Kommen neue Mitglieder hinzu oder ändert sich
+        die Aufgabe grundlegend, kann ein Team in frühere Phasen
+        zurückfallen.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tuckman-title tuckman-desc">
+          <title id="tuckman-title">Die Tuckman-Kurve: Leistungsfähigkeit über die fünf Teamphasen</title>
+          <desc id="tuckman-desc">Liniendiagramm über die fünf Phasen Forming, Storming, Norming, Performing und Adjourning. Die Leistungsfähigkeit startet mittel bei Forming, sinkt bei Storming ab, steigt über Norming bis zum Höhepunkt bei Performing und fällt bei Adjourning wieder ab. Eine gestrichelte Rückfall-Linie von Performing zurück zu Storming zeigt, dass ein Team bei Veränderungen in frühere Phasen zurückfallen kann.</desc>
+
+          <defs>
+            <marker id="tuckman-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+            <marker id="tuckman-arrow-fail" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--fail)"/>
+            </marker>
+          </defs>
+
+          <line x1="40" y1="220" x2="450" y2="220" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#tuckman-arrow)"/>
+          <text x="460" y="224" fill="var(--text-muted)" font-size="10">Zeit</text>
+          <line x1="40" y1="220" x2="40" y2="20" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#tuckman-arrow)"/>
+          <text x="15" y="120" text-anchor="middle" fill="var(--text-muted)" font-size="9" transform="rotate(-90 15 120)">Leistungsfähigkeit / Zusammenhalt</text>
+
+          <polyline points="70,170 150,195 230,120 310,55 390,150" fill="none" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+
+          <path d="M300,60 C 260,208 190,208 158,192" fill="none" stroke="var(--fail)" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#tuckman-arrow-fail)"/>
+          <text x="230" y="234" text-anchor="middle" fill="var(--fail)" font-size="9">Rückfall möglich</text>
+
+          <circle cx="70" cy="170" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="150" cy="195" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="230" cy="120" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="310" cy="55" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <circle cx="390" cy="150" r="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+
+          <g text-anchor="middle" fill="var(--text)" font-size="9">
+            <text x="70" y="250">Forming</text>
+            <text x="150" y="250">Storming</text>
+            <text x="230" y="250">Norming</text>
+            <text x="310" y="250">Performing</text>
+            <text x="390" y="250">Adjourning</text>
+          </g>
+        </svg>
+        <figcaption>
+          Die Leistungsfähigkeit sinkt beim Storming ab, steigt über
+          Norming bis zum Performing-Höhepunkt und fällt beim Adjourning
+          wieder — ein Rückfall aus späteren Phasen (gestrichelt) ist
+          ebenfalls möglich.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TowerTech GmbH stellt ein bereichsübergreifendes
+        Projektteam für die Einführung eines neuen Cloud-Angebots
+        zusammen.
+      </p>
+      <ul>
+        <li>
+          <strong>Forming:</strong> Die Teammitglieder aus
+          Vertrieb, Entwicklung und Support lernen sich in der ersten
+          Sitzung kennen und verhalten sich zurückhaltend.
+        </li>
+        <li>
+          <strong>Storming:</strong> Es kommt zu hitzigen Diskussionen
+          darüber, welche Cloud-Architektur die richtige ist –
+          unterschiedliche fachliche Standpunkte prallen aufeinander.
+        </li>
+        <li>
+          <strong>Norming:</strong> Das Team einigt sich auf eine
+          gemeinsame Architekturentscheidung und klare Zuständigkeiten.
+        </li>
+        <li>
+          <strong>Performing:</strong> Das Team arbeitet nun
+          selbstständig an der technischen Umsetzung, die Projektleitung
+          greift kaum noch ein.
+        </li>
+        <li>
+          <strong>Adjourning:</strong> Nach erfolgreichem
+          Projektabschluss löst sich das Team auf; im Abschlussmeeting
+          werden Lessons Learned festgehalten.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Tuckmans 5 Teamphasen: Forming (Kennenlernen), Storming
+        (Konflikte), Norming (Regeln finden), Performing
+        (Hochleistung), Adjourning (Auflösung). Jede Phase braucht
+        einen anderen Führungsstil, und Teams können bei
+        Veränderungen in frühere Phasen zurückfallen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/teamphasen-tuckman.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

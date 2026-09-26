@@ -1,0 +1,185 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Unterschiedliche Dateisysteme sind wie unterschiedliche
+        Aktenschrank-Modelle. NTFS ist der große Bürocontainer mit
+        Sicherheitsschloss und Prüfprotokoll (ACL, Journaling,
+        Verschlüsselung) — mächtig, aber schwerer als nötig für einen
+        einfachen USB-Stick. FAT32 ist der einfache Schuhkarton, den
+        jedes Gerät versteht — dafür passt kein einzelnes Dokument über
+        4 GB hinein. exFAT ist derselbe Schuhkarton ohne diese Grenze.
+        Und ext4 ist das bewährte Aktensystem des Linux-„Gebäudes“ mit
+        eigenem Sicherheitsprotokoll.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Die wichtigsten Dateisysteme</h3>
+      <table>
+        <thead>
+          <tr><th>Dateisystem</th><th>Betriebssystem</th><th>Max. Dateigröße</th><th>Journaling</th><th>Berechtigungen</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>NTFS</strong></td><td>Windows</td><td>~16 EB</td><td>ja</td><td>ACL</td><td>Windows-Systemlaufwerke</td></tr>
+          <tr><td><strong>FAT32</strong></td><td>alle (Windows/Linux/macOS/Kameras)</td><td>4 GB</td><td>nein</td><td>nein</td><td>USB-Sticks, maximale Kompatibilität</td></tr>
+          <tr><td><strong>exFAT</strong></td><td>Windows/macOS/Linux</td><td>~16 EB</td><td>nein</td><td>nein</td><td>große SD-Karten (SDXC), USB</td></tr>
+          <tr><td><strong>ext4</strong></td><td>Linux</td><td>16 TB</td><td>ja</td><td>rwx</td><td>Linux-Systemlaufwerke (Standard seit 2008)</td></tr>
+          <tr><td><strong>APFS</strong> (Apple File System)</td><td>macOS/iOS</td><td>sehr groß (praktisch keine relevante Grenze)</td><td>ja</td><td>eigenes Rechtemodell</td><td>seit 2017 Standard auf Apple-Geräten, für SSD/Flash-Speicher optimiert, unterstützt Snapshots</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>FAT32</strong> hat ein hartes Limit: keine einzelne Datei
+        darf größer als 4 GB (genau: 4 GB minus 1 Byte) sein — ein
+        8-GB-Video passt deshalb nicht auf einen FAT32-formatierten
+        USB-Stick. <strong>exFAT</strong> wurde von Microsoft als
+        Nachfolger genau für dieses Problem entwickelt: keine 4-GB-Grenze
+        mehr, bei weiterhin breiter Kompatibilität. <strong>NTFS</strong>
+        kann von Linux nur mit zusätzlichem Treiber beschrieben werden,
+        von macOS nur gelesen, nicht geschrieben — <strong>ext4</strong>
+        kann Windows ohne Drittanbieter-Software gar nicht lesen.
+      </p>
+
+      <h3>Journaling</h3>
+      <p>
+        Fällt der Strom mitten in einem Schreibvorgang aus, kann eine
+        Datei halb geschrieben und das Dateisystem inkonsistent
+        zurückbleiben. <strong>Journaling</strong> löst dieses Problem:
+        Bevor das Dateisystem eine Änderung vornimmt, schreibt es die
+        geplante Aktion zuerst in ein separates <strong>Journal</strong>
+        (ein Protokoll). Nach einem Absturz liest das System beim
+        nächsten Start das Journal und weiß genau, welche Operationen
+        abgeschlossen waren und welche nicht — unvollständige werden
+        rückgängig gemacht oder nachgeholt.
+      </p>
+      <table>
+        <thead>
+          <tr><th></th><th>Mit Journaling (NTFS, ext4, APFS)</th><th>Ohne Journaling (FAT32, exFAT)</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nach einem Absturz</strong></td>
+            <td>System prüft nur das Journal beim Booten, stellt
+              konsistenten Zustand in Sekunden wieder her</td>
+            <td>System muss den gesamten Datenträger prüfen
+              (chkdsk/fsck) — dauert bei großen Laufwerken lange, Dateien
+              können korrumpiert bleiben</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Fragmentierung</h3>
+      <p>
+        Ein Dateisystem speichert Dateien in Blöcken (Clustern). Ist eine
+        Datei zu groß für einen zusammenhängenden freien Bereich, werden
+        ihre Blöcke über den Datenträger verteilt gespeichert —
+        <strong>Fragmentierung</strong>. Das entsteht, weil beim Löschen
+        und Neuschreiben von Dateien über die Zeit lückenhafte
+        Freiflächen entstehen, in die neue große Dateien nicht mehr am
+        Stück passen.
+      </p>
+      <p>
+        Bei einer <strong>HDD</strong> (bewegliche Schreib-/Leseköpfe)
+        kostet jeder Sprung zwischen fragmentierten Blöcken messbar Zeit.
+        Bei einer <strong>SSD</strong> ohne bewegliche Teile spielt die
+        physische Position dagegen keine Rolle.
+      </p>
+      <p>
+        <strong>Defragmentierung</strong> ordnet Blöcke neu an, damit
+        Dateien wieder zusammenhängend liegen — sinnvoll nur bei HDDs.
+        Bei SSDs ist Defragmentieren kontraproduktiv: Es bringt keinen
+        Geschwindigkeitsvorteil, verbraucht aber unnötig die begrenzte
+        Schreiblebensdauer der SSD. Windows erkennt SSDs automatisch und
+        deaktiviert die reguläre Defragmentierung für sie.
+      </p>
+
+      <h3>Slack Space</h3>
+      <p>
+        Dateisysteme arbeiten in festen Blockgrößen (z. B. 4 KB bei
+        NTFS). Eine Datei mit nur 1 KB Inhalt belegt trotzdem den
+        gesamten 4-KB-Block — die übrigen 3 KB bleiben ungenutzt. Dieser
+        verschwendete Platz heißt <strong>Slack Space</strong>.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 400 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="slack-title slack-desc">
+          <title id="slack-title">Slack Space: ungenutzter Rest eines festen Blocks</title>
+          <desc id="slack-desc">Eine 1-KB-Datei belegt trotzdem einen ganzen 4-KB-Block; 3 KB bleiben als Slack Space ungenutzt. Eine 4-KB-Datei füllt denselben Blocktyp dagegen vollständig aus, ohne Slack Space.</desc>
+
+          <defs>
+            <pattern id="slack-hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="var(--fail)" stroke-width="2"/>
+            </pattern>
+          </defs>
+
+          <text x="40" y="14" fill="var(--text)" font-size="10" font-weight="700">Datei A (1 KB) im 4-KB-Block</text>
+          <rect x="40" y="28" width="80" height="55" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="80" y="52" text-anchor="middle" fill="var(--text)" font-size="8.5">Datei-Inhalt</text>
+          <text x="80" y="64" text-anchor="middle" fill="var(--text-muted)" font-size="8">1 KB</text>
+          <rect x="120" y="28" width="240" height="55" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2" stroke-dasharray="4 3"/>
+          <rect x="120" y="28" width="240" height="55" fill="url(#slack-hatch)"/>
+          <text x="240" y="52" text-anchor="middle" fill="var(--fail)" font-size="8.5">Slack Space — ungenutzt</text>
+          <text x="240" y="64" text-anchor="middle" fill="var(--fail)" font-size="8">3 KB verschwendet</text>
+
+          <text x="40" y="113" fill="var(--text)" font-size="10" font-weight="700">Datei B (4 KB) im 4-KB-Block</text>
+          <rect x="40" y="127" width="320" height="55" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="200" y="150" text-anchor="middle" fill="var(--text)" font-size="8.5">Datei-Inhalt (voll ausgenutzt)</text>
+          <text x="200" y="163" text-anchor="middle" fill="var(--text-muted)" font-size="8">4 KB — kein Slack Space</text>
+        </svg>
+        <figcaption>
+          Feste Blockgrößen führen bei kleinen Dateien zu ungenutztem
+          Slack Space — bei genau blockgroßen Dateien entsteht keiner.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TechNord GmbH benötigt einen USB-Stick, der sowohl
+        unter Windows als auch macOS beschreibbar sein soll und Dateien
+        über 4 GB (z. B. Videoprojekte) speichern können muss:
+      </p>
+      <ul>
+        <li><strong>FAT32</strong> scheidet aus — die 4-GB-Grenze pro
+          Datei würde die Videoprojekte blockieren.</li>
+        <li><strong>NTFS</strong> scheidet ebenfalls aus — macOS kann
+          NTFS-Partitionen nur lesen, nicht beschreiben.</li>
+        <li><strong>exFAT</strong> ist die richtige Wahl: keine
+          4-GB-Grenze und von beiden Betriebssystemen problemlos
+          beschreibbar.</li>
+      </ul>
+      <p>
+        Zusätzlich stellt ein Techniker fest, dass ein älterer
+        HDD-Server spürbar langsamer geworden ist — eine
+        <strong>Defragmentierung</strong> schafft hier Abhilfe. Ein
+        neuerer Server mit SSD wird dagegen bewusst <strong>nicht</strong>
+        defragmentiert, da das nur die Lebensdauer der SSD unnötig
+        verkürzen würde, ohne einen Geschwindigkeitsvorteil zu bringen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        NTFS (Windows, ACL, Journaling) · FAT32 (universell, aber 4-GB-
+        Grenze) · exFAT (FAT32-Nachfolger ohne diese Grenze) · ext4
+        (Linux, rwx, Journaling) · APFS (macOS, für SSD optimiert).
+        Journaling schützt vor Inkonsistenz nach Absturz. Fragmentierung
+        betrifft nur HDDs spürbar — SSDs niemals defragmentieren. Slack
+        Space ist verschwendeter Platz durch feste Blockgrößen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/dateisysteme-vergleich.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

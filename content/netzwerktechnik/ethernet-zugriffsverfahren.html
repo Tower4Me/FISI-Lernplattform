@@ -1,0 +1,266 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir mehrere Personen mit Walkie-Talkies vor, die sich
+        denselben Funkkanal teilen. In einer <strong>ruhigen Umgebung</strong>
+        kann jeder gleichzeitig sein eigenes Sprechen und ein
+        überlappendes fremdes Sprechen hören — merkt er die Überlagerung,
+        bricht er sofort ab und versucht es nach einer kurzen, zufälligen
+        Pause erneut. In einer <strong>sehr lauten Umgebung</strong>
+        dagegen übertönt das eigene Sprechen alles andere — man hört
+        selbst nicht, ob gerade jemand anderes auch sendet. Also lauscht
+        man vorher besonders lange, wartet ab, spricht dann und bittet um
+        eine kurze Bestätigung („Hast du mich verstanden?“), um
+        sicherzugehen. Genau diese zwei Strategien — <strong>erkennen</strong>
+        vs. <strong>vermeiden</strong> — stecken hinter den beiden
+        wichtigsten Zugriffsverfahren im Netzwerk: CSMA/CD (Kabel) und
+        CSMA/CA (Funk).
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ein <strong>Zugriffsverfahren</strong> regelt, wie sich mehrere
+        Geräte ein gemeinsames Übertragungsmedium (ein Kabel oder einen
+        Funkkanal) teilen, ohne sich dauerhaft gegenseitig zu stören.
+      </p>
+
+      <h3>CSMA/CD (Ethernet, kabelgebunden)</h3>
+      <p>
+        <strong>CSMA/CD</strong> steht für <em>Carrier Sense Multiple
+        Access with Collision Detection</em>:
+      </p>
+      <ul>
+        <li><strong>Carrier Sense:</strong> Vor dem Senden lauscht das
+          Gerät, ob das Medium gerade frei ist.</li>
+        <li><strong>Multiple Access:</strong> Mehrere Geräte teilen sich
+          dasselbe Medium und dürfen grundsätzlich senden.</li>
+        <li><strong>Collision Detection:</strong> Senden zwei Geräte
+          trotzdem gleichzeitig, erkennt die Elektronik die dadurch
+          entstehende Kollision auf der Leitung, beide Geräte brechen die
+          Übertragung ab und warten je eine zufällige Zeitspanne
+          (<strong>Backoff</strong>), bevor sie es erneut versuchen.</li>
+      </ul>
+      <p>
+        Wichtig für die Prüfung: In modernen, geswitchten
+        <strong>Vollduplex</strong>-Netzen (siehe
+        <a href="netzwerkkomponenten.html">Netzwerkkomponenten</a>) treten
+        praktisch <strong>keine Kollisionen</strong> mehr auf, da jeder
+        Switch-Port eine eigene Kollisionsdomäne bildet. CSMA/CD ist damit
+        heute größtenteils <strong>historisch</strong> — relevant vor
+        allem bei <strong>Hubs</strong> im <strong>Halbduplex</strong>.
+      </p>
+
+      <h3>CSMA/CA (WLAN, Funk)</h3>
+      <p>
+        <strong>CSMA/CA</strong> steht für <em>Carrier Sense Multiple
+        Access with Collision Avoidance</em>. Im Funk lassen sich
+        Kollisionen nicht zuverlässig erkennen, da die eigene Übertragung
+        den Empfang übertönt. Deshalb setzt WLAN auf
+        <strong>Vermeidung</strong> statt Erkennung:
+      </p>
+      <ul>
+        <li>Vor dem Senden wird länger gelauscht und zusätzlich eine
+          zufällige Wartezeit eingehalten, auch wenn das Medium bereits
+          frei erscheint.</li>
+        <li>Nach erfolgreichem Empfang bestätigt der Empfänger mit einem
+          <strong>ACK</strong> — bleibt die Bestätigung aus, geht der
+          Sender von einer Kollision oder einem Übertragungsfehler aus
+          und sendet erneut.</li>
+        <li>Optional reserviert ein <strong>RTS/CTS</strong>-Handshake
+          (Request to Send / Clear to Send) das Medium vorab, um auch das
+          sogenannte „Hidden-Node“-Problem zu entschärfen (zwei Geräte,
+          die sich gegenseitig nicht hören können, aber denselben
+          Access Point erreichen).</li>
+      </ul>
+      <p>
+        Der entscheidende Unterschied: <strong>CD erkennt</strong> eine
+        Kollision, nachdem sie passiert ist (funktioniert nur, weil ein
+        Kabel elektrische Überlagerung messbar macht). <strong>CA
+        vermeidet</strong> eine Kollision von vornherein, weil sie im
+        Funk gar nicht zuverlässig erkannt werden kann.
+      </p>
+
+      <h3>LAN-/Ethernet-Standards (IEEE 802.3)</h3>
+      <p>
+        Ethernet-Standards folgen dem Namensschema
+        <strong>Geschwindigkeit / BASE / Medium</strong>: Die Zahl am
+        Anfang gibt die Datenrate an, „BASE“ steht für Basisband
+        (unmoduliertes Signal), das Kürzel am Ende beschreibt das Medium
+        (z. B. „T“ für Twisted Pair).
+      </p>
+      <table>
+        <thead>
+          <tr><th>Bezeichnung</th><th>Datenrate</th><th>Umgangsname</th><th>Mindest-Kabelkategorie</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10BASE-T</td><td>10 Mbit/s</td><td>Ethernet</td><td>Cat 3</td></tr>
+          <tr><td>100BASE-TX</td><td>100 Mbit/s</td><td>Fast Ethernet</td><td>Cat 5</td></tr>
+          <tr><td>1000BASE-T</td><td>1000 Mbit/s (1 Gbit/s)</td><td>Gigabit Ethernet</td><td>Cat 5e</td></tr>
+          <tr><td>10GBASE-T</td><td>10 Gbit/s</td><td>10-Gigabit Ethernet</td><td>Cat 6a</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Details zu den Kabelkategorien selbst (Schirmungsarten,
+        Steckerbelegung T568A/B, Segmentlängen) behandelt die Einheit
+        <a href="verkabelung-twisted-pair.html">Verkabelung Twisted
+        Pair</a> vertiefend — hier nur die Mindestanforderung je
+        Ethernet-Standard.
+      </p>
+
+      <h3>Einordnung: 802.3 vs. 802.11</h3>
+      <p>
+        <strong>IEEE 802.3</strong> definiert Ethernet für kabelgebundene
+        LANs (CSMA/CD), <strong>IEEE 802.11</strong> definiert WLAN für
+        Funknetze (CSMA/CA) — vertiefend dazu die Einheit
+        <a href="wlan-grundlagen.html">WLAN-Grundlagen</a>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus modernisiert das Netzwerk eines Kunden, das
+        bislang über einen alten Hub lief, und richtet parallel ein
+        neues WLAN ein.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="csma-title csma-desc">
+          <title id="csma-title">Ablauf CSMA/CD im Vergleich zu CSMA/CA</title>
+          <desc id="csma-desc">Links CSMA/CD: Lauschen, Senden, bei Kollision Abbruch und Backoff mit erneutem Versuch, ohne Kollision fertig. Rechts CSMA/CA: Lauschen, zufällige Wartezeit vor dem Senden, Senden, ACK abwarten — bei ACK fertig, ohne ACK erneuter Versuch von vorn.</desc>
+
+          <defs>
+            <marker id="csma-arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+              <path d="M0,0 L7,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <line x1="320" y1="28" x2="320" y2="335" stroke="var(--border)" stroke-width="1" stroke-dasharray="4 3"/>
+
+          <text x="130" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="var(--acc-einstieg)">CSMA/CD — Kabel/Ethernet</text>
+          <text x="510" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="var(--acc-praxis)">CSMA/CA — Funk/WLAN</text>
+
+          <!-- CD Boxen -->
+          <g font-size="9" fill="var(--text)" text-anchor="middle">
+            <rect x="20" y="35" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="56">1. Lauschen —</text>
+            <text x="130" y="70">Medium frei?</text>
+
+            <rect x="20" y="115" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="145">2. Senden</text>
+
+            <rect x="20" y="195" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="216">3. Kollision erkannt</text>
+            <text x="130" y="230">(Spannungsanomalie)</text>
+
+            <rect x="20" y="275" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+            <text x="130" y="296">4. Abbruch + Backoff</text>
+            <text x="130" y="310">(zufällige Wartezeit)</text>
+          </g>
+
+          <!-- CD Pfeile -->
+          <line x1="130" y1="85" x2="130" y2="112" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <line x1="130" y1="165" x2="130" y2="192" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <text x="136" y="182" font-size="7" fill="var(--text-muted)">bei Kollision</text>
+          <line x1="130" y1="245" x2="130" y2="272" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+
+          <!-- CD "keine Kollision -> fertig" -->
+          <line x1="240" y1="140" x2="270" y2="140" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <text x="255" y="132" text-anchor="middle" font-size="6.5" fill="var(--text-muted)">keine Kollision</text>
+          <rect x="272" y="125" width="44" height="30" rx="4" fill="var(--surface)" stroke="var(--ok)" stroke-width="1.5"/>
+          <text x="294" y="144" text-anchor="middle" font-size="8" fill="var(--ok)">Fertig</text>
+
+          <!-- CD Ruecksprung-Schleife -->
+          <path d="M20,300 L10,300 L10,60 L18,60" fill="none" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#csma-arrow)"/>
+          <text x="14" y="185" font-size="7" fill="var(--text-muted)" transform="rotate(-90 14 185)">erneuter Versuch</text>
+
+          <text x="130" y="350" text-anchor="middle" font-size="7" fill="var(--text-muted)">Relevant vor allem bei Hubs / Halbduplex.</text>
+
+          <!-- CA Boxen -->
+          <g font-size="9" fill="var(--text)" text-anchor="middle">
+            <rect x="400" y="35" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="56">1. Lauschen</text>
+            <text x="510" y="70">(länger als bei CD)</text>
+
+            <rect x="400" y="115" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="136">2. Zufällige Wartezeit</text>
+            <text x="510" y="150">(Backoff vor dem Senden)</text>
+
+            <rect x="400" y="195" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="225">3. Senden</text>
+
+            <rect x="400" y="275" width="220" height="50" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+            <text x="510" y="305">4. ACK abwarten</text>
+          </g>
+
+          <!-- CA Pfeile -->
+          <line x1="510" y1="85" x2="510" y2="112" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <line x1="510" y1="165" x2="510" y2="192" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <line x1="510" y1="245" x2="510" y2="272" stroke="var(--text)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+
+          <!-- CA "ACK erhalten -> fertig" -->
+          <line x1="400" y1="300" x2="368" y2="300" stroke="var(--ok)" stroke-width="1.5" marker-end="url(#csma-arrow)"/>
+          <text x="384" y="292" text-anchor="middle" font-size="6.5" fill="var(--text-muted)">ACK erhalten</text>
+          <rect x="322" y="285" width="44" height="30" rx="4" fill="var(--surface)" stroke="var(--ok)" stroke-width="1.5"/>
+          <text x="344" y="304" text-anchor="middle" font-size="8" fill="var(--ok)">Fertig</text>
+
+          <!-- CA Ruecksprung-Schleife -->
+          <path d="M620,300 L632,300 L632,60 L622,60" fill="none" stroke="var(--text-muted)" stroke-width="1.3" marker-end="url(#csma-arrow)"/>
+          <text x="636" y="185" font-size="7" fill="var(--text-muted)" transform="rotate(-90 636 185)">kein ACK → erneut</text>
+
+          <text x="510" y="345" text-anchor="middle" font-size="7" fill="var(--text-muted)">Optional: RTS/CTS reserviert</text>
+          <text x="510" y="356" text-anchor="middle" font-size="7" fill="var(--text-muted)">das Medium vorab (Hidden Node).</text>
+        </svg>
+        <figcaption>
+          CSMA/CD (links): Kollision wird erkannt, danach Backoff und
+          erneuter Versuch. CSMA/CA (rechts): Kollision wird durch
+          Lauschen und Warten vor dem Senden vermieden, ein ausbleibendes
+          ACK löst einen neuen Versuch aus.
+        </figcaption>
+      </figure>
+
+      <ul>
+        <li>Im alten Netz hing noch alles an einem <strong>Hub</strong> im
+          Halbduplex — echte Kollisionen mit Backoff (CSMA/CD).</li>
+        <li>Der neue <strong>Switch</strong> läuft im Vollduplex: Jeder
+          Port eine eigene Kollisionsdomäne, Kollisionen entfallen
+          praktisch.</li>
+        <li>Im neuen <strong>WLAN</strong> lauscht jedes Gerät vor dem
+          Senden, wartet zufällig und wertet ein ausbleibendes
+          <strong>ACK</strong> als Kollisions-/Fehlerhinweis (CSMA/CA).</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum wird in modernen, geswitchten
+        Netzwerken kaum noch von CSMA/CD gesprochen?“ – Antwort: Switches
+        im Vollduplex-Betrieb trennen jeden Port in eine eigene
+        Kollisionsdomäne, wodurch die Grundvoraussetzung für Kollisionen
+        (gemeinsam genutztes Medium im Halbduplex) entfällt — CSMA/CD war
+        vor allem bei Hubs und Halbduplex-Verbindungen relevant.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        CD = Collision <strong>Detection</strong> = Kabel/Ethernet =
+        Kollision <strong>erkennen</strong>, nachdem sie passiert ist. CA
+        = Collision <strong>Avoidance</strong> = Funk/WLAN = Kollision
+        <strong>vermeiden</strong>, weil sie im Funk nicht zuverlässig
+        erkennbar ist.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/ethernet-zugriffsverfahren.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

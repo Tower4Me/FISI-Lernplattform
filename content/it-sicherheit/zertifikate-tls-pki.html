@@ -1,0 +1,158 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Notar beglaubigt eine Unterschrift: Er bestätigt mit seinem
+        eigenen guten Namen, dass eine bestimmte Unterschrift wirklich zu
+        einer bestimmten Person gehört. Ohne diese Beglaubigung könnte
+        jeder behaupten, eine beliebige Unterschrift zu besitzen. Im Internet
+        übernimmt eine <strong>Zertifizierungsstelle</strong> genau diese
+        Rolle: Sie bestätigt, dass ein öffentlicher Schlüssel wirklich zu
+        einer bestimmten Website gehört.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Asymmetrische Verschlüsselung und digitale Signaturen lösen viele
+        Probleme – aber ein Problem bleibt: Woher weiß man, dass ein
+        öffentlicher Schlüssel wirklich zu „firma.de“ gehört und nicht zu
+        einem Angreifer, der sich als „firma.de“ ausgibt?
+      </p>
+
+      <p>
+        Eine <strong>Zertifizierungsstelle</strong> (Certificate Authority,
+        <strong>CA</strong>) prüft die Identität eines Antragstellers und
+        bestätigt die Zuordnung „dieser öffentliche Schlüssel gehört zu
+        dieser Domain“ mit einem digital signierten
+        <strong>Zertifikat</strong>. Der Browser vertraut einer festen Liste
+        bekannter CAs. Diese gesamte Vertrauenskette – von der Root-CA über
+        Zwischenzertifikate bis zum Website-Zertifikat – nennt man
+        <strong>PKI</strong> (Public Key Infrastructure).
+      </p>
+
+      <h3>TLS und HTTPS</h3>
+      <p>
+        <strong>HTTPS</strong> ist HTTP über <strong>TLS</strong> (Transport
+        Layer Security). Beim Verbindungsaufbau (TLS-Handshake) prüft der
+        Client anhand des Zertifikats, ob der Server echt ist
+        (Authentizität), und beide Seiten handeln einen symmetrischen
+        Sitzungsschlüssel aus – genau die hybride Verschlüsselung, die
+        auch bei symmetrischer/asymmetrischer Kryptographie beschrieben
+        wird.
+      </p>
+
+      <p>
+        Für den Sitzungsschlüssel selbst nutzt TLS meist ein
+        <strong>Diffie-Hellman-Verfahren</strong>: Beide Seiten berechnen
+        daraus unabhängig voneinander denselben symmetrischen Schlüssel,
+        ohne ihn jemals unverschlüsselt zu übertragen. Das aktuelle
+        <strong>TLS 1.3</strong> erzwingt dieses Verfahren und einen
+        kürzeren Handshake; das ältere <strong>TLS 1.2</strong> ließ noch
+        schwächere, mittlerweile als unsicher geltende Verschlüsselungs-
+        verfahren zu.
+      </p>
+
+      <p>
+        Das <strong>Schloss-Symbol</strong> im Browser bedeutet: Die
+        Verbindung ist verschlüsselt und das Zertifikat ist gültig. Es
+        bedeutet <strong>nicht</strong> automatisch, dass die Website
+        selbst vertrauenswürdig oder seriös ist – auch Phishing-Seiten
+        können ein gültiges Zertifikat besitzen.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pki-title pki-desc">
+          <title id="pki-title">PKI-Vertrauenskette: Root-CA signiert Intermediate-CA signiert End-Zertifikat, der Browser prüft die Kette</title>
+          <desc id="pki-desc">Die Root-CA, im Browser vorinstalliert, signiert die Intermediate-CA. Diese wiederum signiert das End-Zertifikat einer konkreten Website. Der Browser vertraut der Root-CA direkt und prüft anhand der Signaturkette, ob das End-Zertifikat der Website lückenlos bis zu einer vertrauten Root-CA zurückverfolgt werden kann.</desc>
+
+          <defs>
+            <marker id="pki-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <rect x="60" y="15" width="180" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="150" y="35" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Root-CA</text>
+          <text x="150" y="50" text-anchor="middle" fill="var(--text-muted)" font-size="8">im Browser vorinstalliert</text>
+
+          <line x1="150" y1="59" x2="150" y2="117" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#pki-arrow)"/>
+          <text x="158" y="93" fill="var(--text-muted)" font-size="9">signiert</text>
+
+          <rect x="60" y="120" width="180" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="150" y="140" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Intermediate-CA</text>
+          <text x="150" y="155" text-anchor="middle" fill="var(--text-muted)" font-size="8">Zwischenzertifikat</text>
+
+          <line x1="150" y1="164" x2="150" y2="222" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#pki-arrow)"/>
+          <text x="158" y="198" fill="var(--text-muted)" font-size="9">signiert</text>
+
+          <rect x="60" y="225" width="180" height="50" rx="6" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="150" y="248" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">End-Zertifikat</text>
+          <text x="150" y="263" text-anchor="middle" fill="var(--text-muted)" font-size="8">z. B. musterhandel.de</text>
+
+          <rect x="280" y="130" width="140" height="44" rx="6" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2"/>
+          <text x="350" y="157" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Browser</text>
+
+          <line x1="280" y1="140" x2="242" y2="45" stroke="var(--text-muted)" stroke-width="1.3" stroke-dasharray="4 3"/>
+          <text x="335" y="95" text-anchor="middle" fill="var(--text-muted)" font-size="8">vertraut direkt</text>
+
+          <line x1="280" y1="162" x2="242" y2="250" stroke="var(--acc-einstieg)" stroke-width="1.5" marker-end="url(#pki-arrow)"/>
+          <text x="335" y="215" text-anchor="middle" fill="var(--acc-einstieg)" font-size="8">prüft Kette</text>
+        </svg>
+        <figcaption>
+          Der Browser vertraut nur der Root-CA direkt — ein
+          End-Zertifikat gilt nur als echt, wenn sich die Signaturkette
+          lückenlos bis zu einer vertrauten Root-CA zurückverfolgen lässt.
+        </figcaption>
+      </figure>
+
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Rolle</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zertifikat</td><td>Digital signierte Bestätigung: „Dieser öffentliche Schlüssel gehört zu dieser Domain“</td></tr>
+          <tr><td>CA (Certificate Authority)</td><td>Stelle, die die Identität prüft und das Zertifikat signiert</td></tr>
+          <tr><td>PKI (Public Key Infrastructure)</td><td>Gesamte Vertrauenskette aus Root-CA, Zwischen- und Endzertifikaten</td></tr>
+          <tr><td>TLS</td><td>Protokoll, das Zertifikatsprüfung + hybride Verschlüsselung für sichere Verbindungen kombiniert</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde ruft den Online-Shop „musterhandel.de“ auf und sieht ein
+        Schloss-Symbol in der Adressleiste.
+      </p>
+      <ul>
+        <li>Der Browser hat beim TLS-Handshake das Zertifikat von „musterhandel.de“ geprüft und festgestellt, dass es von einer vertrauenswürdigen CA signiert wurde – der Server ist also authentisch.</li>
+        <li>Client und Server haben dabei einen symmetrischen Sitzungsschlüssel ausgehandelt, mit dem die Bestelldaten anschließend schnell und verschlüsselt übertragen werden.</li>
+        <li>Ein IT-Azubi im Support erklärt einem verunsicherten Kunden: „Das Schloss bedeutet, dass niemand die Übertragung mitlesen kann und der Server nachweislich der ist, für den er sich ausgibt. Ob der Shop selbst seriös ist, sagt das Schloss allein nicht aus.“</li>
+        <li>Läuft das Zertifikat ab oder wurde es von keiner vertrauten CA signiert, zeigt der Browser eine Warnung – ein typisches Zeichen für eine mögliche Phishing-Seite oder ein Konfigurationsproblem.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Zertifikat bestätigt (signiert von einer CA), dass ein
+        öffentlicher Schlüssel zu einer bestimmten Domain gehört. Die
+        gesamte Vertrauenskette heißt PKI. TLS nutzt Zertifikate zur
+        Serverprüfung und danach hybride Verschlüsselung für die
+        Datenübertragung (HTTPS = HTTP über TLS).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/zertifikate-tls-pki.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

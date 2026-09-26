@@ -1,0 +1,202 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In der Personalliste von TowerTech GmbH steht bei jedem
+        Mitarbeitenden nur eine <code>abteilung_id</code> – keine
+        Abteilungsbezeichnung, kein Standort. Wer wissen will, in welcher
+        Abteilung „Elif Kaya" arbeitet, müsste erst die
+        <code>mitarbeiter</code>-Tabelle nach ihrer <code>abteilung_id</code>
+        durchsuchen und dann separat in der <code>abteilung</code>-Tabelle
+        nachschlagen, wie diese ID heißt – zwei Abfragen, die man von Hand
+        zusammenführen müsste. <strong>JOIN</strong> erledigt genau das in
+        einem einzigen Schritt: Es verknüpft Zeilen aus zwei Tabellen über
+        eine gemeinsame Spalte, meist Primär- und Fremdschlüssel.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Ohne JOIN bräuchte man zwei Abfragen und müsste das Ergebnis selbst
+        zusammenführen. Mit JOIN steht die Verknüpfung direkt in der
+        Abfrage – über <code>ON</code> wird festgelegt, welche Spalten
+        zusammengehören:
+      </p>
+      <table>
+        <tbody>
+          <tr><td><code>SELECT m.vollname, a.name FROM mitarbeiter m INNER JOIN abteilung a ON m.abteilung_id = a.abteilung_id;</code></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Die vier JOIN-Typen</h3>
+      <table>
+        <thead>
+          <tr><th>JOIN-Typ</th><th>Zeigt</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>INNER JOIN</strong></td><td>nur Zeilen mit Übereinstimmung auf beiden Seiten</td><td>Mitarbeitende mit gültiger Abteilung</td></tr>
+          <tr><td><strong>LEFT JOIN</strong></td><td>alle Zeilen der linken Tabelle, passende rechts oder <code>NULL</code></td><td>alle Mitarbeitenden, auch ohne zugewiesene Abteilung</td></tr>
+          <tr><td><strong>RIGHT JOIN</strong></td><td>alle Zeilen der rechten Tabelle, passende links oder <code>NULL</code></td><td>alle Abteilungen, auch ohne Personal</td></tr>
+          <tr><td><strong>FULL OUTER JOIN</strong></td><td>alle Zeilen aus beiden Tabellen</td><td>vollständige Übersicht über beide Seiten</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 420 305" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="joinvenn-title joinvenn-desc">
+          <title id="joinvenn-title">Venn-Diagramme der vier JOIN-Typen</title>
+          <desc id="joinvenn-desc">Vier Mengendiagramme zeigen, welcher Bereich der Tabellen A (mitarbeiter) und B (abteilung) im Ergebnis erscheint: INNER JOIN nur die Schnittmenge, LEFT JOIN die vollständige Menge A, RIGHT JOIN die vollständige Menge B, FULL OUTER JOIN die Vereinigung beider Mengen.</desc>
+
+          <defs>
+            <clipPath id="joinvenn-clipA1">
+              <circle cx="80" cy="85" r="32"/>
+            </clipPath>
+          </defs>
+
+          <text x="101" y="20" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">INNER JOIN</text>
+          <g clip-path="url(#joinvenn-clipA1)">
+            <circle cx="122" cy="85" r="32" fill="var(--acc-quiz)" fill-opacity="0.5"/>
+          </g>
+          <circle cx="80" cy="85" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="122" cy="85" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <text x="63" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="139" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="311" y="20" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">LEFT JOIN</text>
+          <circle cx="290" cy="85" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="332" cy="85" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <text x="273" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="349" y="89" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="101" y="170" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">RIGHT JOIN</text>
+          <circle cx="80" cy="235" r="32" fill="none" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="122" cy="235" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <text x="63" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="139" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="311" y="170" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">FULL OUTER JOIN</text>
+          <circle cx="290" cy="235" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <circle cx="332" cy="235" r="32" fill="var(--acc-quiz)" fill-opacity="0.5" stroke="var(--text)" stroke-width="2"/>
+          <text x="273" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">A</text>
+          <text x="349" y="239" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="700">B</text>
+
+          <text x="210" y="292" text-anchor="middle" fill="var(--text-muted)" font-size="9">A = mitarbeiter (links) — B = abteilung (rechts)</text>
+        </svg>
+        <figcaption>
+          Die schattierte Fläche zeigt, welche Zeilen im Ergebnis
+          erscheinen: INNER JOIN nur Übereinstimmungen, LEFT/RIGHT JOIN
+          zusätzlich alle unverknüpften Zeilen der genannten Seite,
+          FULL OUTER JOIN beide Seiten vollständig.
+        </figcaption>
+      </figure>
+
+      <p>
+        Für die Prüfung sind vor allem <strong>INNER JOIN</strong> und
+        <strong>LEFT JOIN</strong> relevant. Bei den Dialekten gibt es
+        Unterschiede: <strong>MySQL</strong> unterstützt kein
+        <code>FULL OUTER JOIN</code> (Workaround: <code>LEFT JOIN</code>
+        und <code>RIGHT JOIN</code> per <code>UNION</code> kombinieren).
+        <strong>SQLite</strong> unterstützte <code>RIGHT JOIN</code> und
+        <code>FULL OUTER JOIN</code> lange gar nicht – seit Version 3.39
+        (2022) aber schon, ebenso im SQL-Editor dieser Einheit.
+      </p>
+
+      <p>
+        Ein <strong>LEFT JOIN</strong> ist besonders nützlich, um fehlende
+        Zuordnungen aufzuspüren: Zeilen, bei denen die rechte Seite
+        <code>NULL</code> ist, haben keinen passenden Eintrag gefunden.
+      </p>
+
+      <p class="tool-intro">Probiere die JOIN-Typen direkt aus:</p>
+      <div class="tool" data-tool="sql-editor">
+        <script type="application/sql">
+          CREATE TABLE abteilung (
+            abteilung_id INTEGER PRIMARY KEY,
+            name VARCHAR(100) NOT NULL,
+            buero_standort VARCHAR(100)
+          );
+          CREATE TABLE mitarbeiter (
+            mitarbeiter_id INTEGER PRIMARY KEY,
+            vollname VARCHAR(100) NOT NULL,
+            email VARCHAR(150) UNIQUE,
+            jahresgehalt DECIMAL(10,2) DEFAULT 0.00,
+            abteilung_id INTEGER,
+            FOREIGN KEY (abteilung_id) REFERENCES abteilung(abteilung_id)
+          );
+          INSERT INTO abteilung (abteilung_id, name, buero_standort) VALUES
+            (1, 'Netzwerktechnik', 'Essen'),
+            (2, 'Support', 'Duisburg'),
+            (3, 'Vertrieb', 'Köln'),
+            (4, 'Geschäftsführung', 'Essen');
+          INSERT INTO mitarbeiter (mitarbeiter_id, vollname, email, jahresgehalt, abteilung_id) VALUES
+            (1, 'Elif Kaya', 'elif.kaya@towertech.de', 48000, 1),
+            (2, 'Tom Ricci', 'tom.ricci@towertech.de', 39000, 2),
+            (3, 'Sofia Bergmann', 'sofia.bergmann@towertech.de', 52000, 1),
+            (4, 'Nina Albrecht', 'nina.albrecht@towertech.de', 61000, 3),
+            (5, 'Paul Nowak', 'paul.nowak@towertech.de', 33000, 2),
+            (6, 'Rangi Cole', 'rangi.cole@towertech.de', 45000, NULL);
+        </script>
+        <p class="muted">SQL-Editor wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Bei TowerTech GmbH gibt es einen Freelancer (Rangi Cole) ohne feste
+        Abteilungszuordnung und eine Abteilung „Geschäftsführung" ohne
+        eigenes Personal. Eine Auszubildende soll damit die JOIN-Typen
+        nachvollziehen:
+      </p>
+      <ul>
+        <li>
+          <strong>Aufgabe 1 (INNER JOIN):</strong>
+          <code>SELECT m.vollname, a.name FROM mitarbeiter m INNER JOIN
+          abteilung a ON m.abteilung_id = a.abteilung_id;</code> – Rangi
+          Cole (keine Abteilung) und „Geschäftsführung" (kein Personal)
+          tauchen <strong>nicht</strong> auf.
+        </li>
+        <li>
+          <strong>Aufgabe 2 (LEFT JOIN, fehlende Zuordnung finden):</strong>
+          <code>SELECT m.vollname FROM mitarbeiter m LEFT JOIN abteilung a
+          ON m.abteilung_id = a.abteilung_id WHERE a.abteilung_id IS
+          NULL;</code> – zeigt genau Rangi Cole: Mitarbeitende ohne
+          zugewiesene Abteilung.
+        </li>
+        <li>
+          <strong>Aufgabe 3 (RIGHT JOIN, leere Abteilungen finden):</strong>
+          <code>SELECT a.name FROM mitarbeiter m RIGHT JOIN abteilung a ON
+          m.abteilung_id = a.abteilung_id WHERE m.mitarbeiter_id IS
+          NULL;</code> – zeigt „Geschäftsführung": eine Abteilung ohne
+          Personal.
+        </li>
+        <li>
+          <strong>Aufgabe 4 (FULL OUTER JOIN):</strong> vollständige
+          Übersicht aller Mitarbeitenden <em>und</em> aller Abteilungen in
+          einer Abfrage, inklusive beider Sonderfälle.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        INNER JOIN = nur Übereinstimmungen. LEFT JOIN = alles von links,
+        rechts ggf. NULL. RIGHT JOIN = alles von rechts, links ggf. NULL.
+        FULL OUTER JOIN = alles von beiden Seiten. Ein LEFT JOIN mit
+        anschließendem <code>WHERE spalte IS NULL</code> findet gezielt
+        Zeilen ohne Gegenstück in der anderen Tabelle.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/datenbanken-sql/sql-join.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

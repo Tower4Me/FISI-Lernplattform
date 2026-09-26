@@ -1,0 +1,167 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Kein Schutz ist perfekt – irgendwann passiert trotzdem etwas: ein
+        Feuer, ein Hackerangriff, ein simpler Festplattendefekt. Ein
+        Flugzeug hat für genau diesen Fall einen Notfallplan mit klaren
+        Schritten für die Crew, keine Improvisation im Ernstfall. Genauso
+        braucht IT ein <strong>Notfallmanagement</strong>: einen Plan, der
+        vorher feststeht und regelmäßig geübt wird, statt ihn erst zu
+        erfinden, wenn der Server schon brennt.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>Business Continuity Management (BCM)</strong> sorgt dafür,
+        dass der Betrieb nach einem Vorfall schnell und geordnet
+        weiterläuft. Ein Vorfall durchläuft typischerweise fünf Phasen:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Phase</th><th>Inhalt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1. Vorbereitung</strong></td><td>Notfallplan: Wer macht was? Kontaktlisten, Zuständigkeiten, Wiederanlaufpläne — regelmäßig geübt</td></tr>
+          <tr><td><strong>2. Erkennung</strong></td><td>Vorfall bemerken: Monitoring, Alarme, Meldungen von Nutzern</td></tr>
+          <tr><td><strong>3. Eindämmung</strong></td><td>Schaden begrenzen: betroffenes System isolieren, vom Netz nehmen</td></tr>
+          <tr><td><strong>4. Behebung</strong></td><td>Ursache beseitigen, Systeme aus sauberem Backup wiederherstellen</td></tr>
+          <tr><td><strong>5. Nachbereitung</strong></td><td>Lessons Learned: Was ist passiert, wie verhindern wir das künftig?</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Ein Notfallplan, der in der Schublade liegt und nie geübt wurde,
+        ist im Ernstfall wertlos — genau wie eine Brandschutzübung muss der
+        Wiederanlauf regelmäßig getestet werden, sonst stellt man erst im
+        Ernstfall fest, dass das Backup gar nicht wiederherstellbar war.
+      </p>
+
+      <h3>RTO und RPO</h3>
+      <p>
+        Zwei Kennzahlen bestimmen, wie eine Backup- und Notfallstrategie
+        ausgelegt werden muss. Sie werden in der Prüfung gern verwechselt:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Kennzahl</th><th>Frage</th><th>Bestimmt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>RTO</strong><br>Recovery Time Objective</td><td>Wie lange darf der Ausfall maximal dauern?</td><td>Wie schnell der Wiederanlauf gehen muss (Redundanz, Ersatzhardware)</td></tr>
+          <tr><td><strong>RPO</strong><br>Recovery Point Objective</td><td>Wie viel Datenverlust ist tolerierbar?</td><td>Wie oft gesichert werden muss (Backup-Frequenz)</td></tr>
+        </tbody>
+      </table>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rtorpo-title rtorpo-desc">
+          <title id="rtorpo-title">Zeitstrahl RTO und RPO um den Ausfallzeitpunkt</title>
+          <desc id="rtorpo-desc">Zeitstrahl mit drei Punkten: letztes Backup, Ausfall und Wiederanlauf. Die Zeitspanne zwischen letztem Backup und Ausfall ist das RPO, das Datenverlustfenster. Die Zeitspanne zwischen Ausfall und Wiederanlauf ist das RTO, die Wiederherstellungsdauer.</desc>
+
+          <defs>
+            <marker id="rtorpo-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+            <marker id="rtorpo-arrow-rev" markerWidth="10" markerHeight="10" refX="2" refY="3" orient="auto">
+              <path d="M8,0 L0,3 L8,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="40" y1="100" x2="440" y2="100" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#rtorpo-arrow)"/>
+          <text x="448" y="104" fill="var(--text-muted)" font-size="10">Zeit</text>
+
+          <line x1="100" y1="92" x2="100" y2="108" stroke="var(--text)" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="4" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="100" y="85" text-anchor="middle" fill="var(--text)" font-size="9">Letztes Backup</text>
+
+          <line x1="240" y1="92" x2="240" y2="108" stroke="var(--fail)" stroke-width="2"/>
+          <circle cx="240" cy="100" r="5" fill="var(--surface)" stroke="var(--fail)" stroke-width="2.5"/>
+          <text x="240" y="85" text-anchor="middle" fill="var(--fail)" font-size="9" font-weight="600">Ausfall</text>
+
+          <line x1="380" y1="92" x2="380" y2="108" stroke="var(--text)" stroke-width="1.5"/>
+          <circle cx="380" cy="100" r="4" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="380" y="85" text-anchor="middle" fill="var(--text)" font-size="9">Wiederanlauf</text>
+
+          <line x1="100" y1="58" x2="240" y2="58" stroke="var(--acc-quiz)" stroke-width="2" marker-start="url(#rtorpo-arrow-rev)" marker-end="url(#rtorpo-arrow)"/>
+          <text x="170" y="44" text-anchor="middle" fill="var(--acc-quiz)" font-size="10" font-weight="600">RPO: 15 Min (Datenverlust)</text>
+
+          <line x1="240" y1="142" x2="380" y2="142" stroke="var(--acc-einstieg)" stroke-width="2" marker-start="url(#rtorpo-arrow-rev)" marker-end="url(#rtorpo-arrow)"/>
+          <text x="310" y="158" text-anchor="middle" fill="var(--acc-einstieg)" font-size="10" font-weight="600">RTO: 2 Std (Wiederherstellung)</text>
+        </svg>
+        <figcaption>
+          RPO blickt zurück (Datenverlust-Fenster bis zum letzten
+          Backup), RTO blickt nach vorn (Wiederherstellungsdauer bis
+          zum Wiederanlauf) — beide treffen sich am Ausfallzeitpunkt.
+        </figcaption>
+      </figure>
+
+      <p>
+        Merkhilfe: <strong>RTO</strong> blickt nach <u>vorn</u> — die Zeit
+        <em>nach</em> dem Ausfall, bis wieder alles läuft. <strong>RPO</strong>
+        blickt nach <u>hinten</u> — die Zeit <em>vor</em> dem Ausfall, bis zu
+        der Daten gerettet sind. Ein RPO von 1 Stunde bedeutet: stündliches
+        Backup, maximal 1 Stunde Datenverlust im schlimmsten Fall.
+      </p>
+
+      <h3>USV (Unterbrechungsfreie Stromversorgung)</h3>
+      <p>
+        Eine <strong>USV</strong> überbrückt Stromausfälle per Akku, lange
+        genug, um Systeme geordnet herunterzufahren oder bis ein
+        Notstromaggregat anspringt. Sie schützt die Verfügbarkeit und
+        verhindert Datenverlust durch plötzliches, ungeordnetes Abschalten.
+        In Serverräumen ist eine USV Pflicht.
+      </p>
+
+      <h3>Hochverfügbarkeit</h3>
+      <p>
+        Verfügbarkeit wird in Prozent angegeben. „Drei Neunen“ (99,9 %)
+        erlauben rund 8,8 Stunden Ausfall pro Jahr, „fünf Neunen“
+        (99,999 %) nur etwa 5 Minuten. Erreicht wird das durch Redundanz:
+        doppelte Hardware, Cluster, Failover-Systeme, die bei Ausfall einer
+        Komponente automatisch übernehmen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Online-Shop legt mit seinem IT-Dienstleister fest: Der Server
+        darf maximal 2 Stunden ausfallen, maximal 15 Minuten Datenverlust
+        sind tolerierbar.
+      </p>
+      <ul>
+        <li>Das ergibt eine <strong>RTO von 2 Stunden</strong> — der Dienstleister muss ein Ersatzsystem bereithalten, das innerhalb dieser Zeit vollständig übernehmen kann (z. B. per Failover-Cluster).</li>
+        <li>Das ergibt eine <strong>RPO von 15 Minuten</strong> — die Backup-Frequenz muss entsprechend hoch sein, z. B. alle 10–15 Minuten ein Transaktionslog-Backup der Datenbank.</li>
+        <li>Bei einem Stromausfall überbrückt die <strong>USV</strong> die ersten Minuten, während das Notstromaggregat anläuft — so bleibt der Server erreichbar, statt ungeordnet abzustürzen.</li>
+        <li>Nach einem simulierten Serverausfall in der jährlichen Notfallübung (Phase 1 „Vorbereitung“ des BCM) zeigt sich, dass die Wiederherstellung tatsächlich nur 90 Minuten dauert — die RTO wird eingehalten.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Ein Unternehmen fordert maximal 4 Stunden
+        Ausfallzeit und maximal 1 Stunde Datenverlust. Nennen Sie RTO und
+        RPO.“ – Antwort: RTO = 4 Stunden, RPO = 1 Stunde.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        BCM-Ablauf: Vorbereitung → Erkennung → Eindämmung → Behebung →
+        Nachbereitung. RTO = maximale Ausfallzeit (Blick nach vorn). RPO =
+        maximal tolerierbarer Datenverlust (Blick zurück, Backup-Frequenz).
+        USV überbrückt kurze Stromausfälle. Verfügbarkeit in „Neunen“:
+        mehr Neunen = weniger erlaubte Ausfallzeit pro Jahr.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/rto-rpo-verfuegbarkeit.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

@@ -1,0 +1,148 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir eine Arztpraxis vor. Die Patientenakten sind hochsensibel,
+        also verlässt sich die Praxis nicht auf eine einzige Vorkehrung. Am
+        Eingang ist ein Schloss (nicht jeder kommt ins Gebäude). Der
+        Aktenschrank ist abschließbar (nicht jeder im Gebäude kommt an die
+        Akten). Jede Mitarbeiterin hat nur einen Schlüssel für die Akten,
+        die sie wirklich braucht (die Empfangskraft kommt nicht an die
+        Diagnosen des Chefarztes). Und es gibt eine Kopie im Tresor, falls es
+        brennt.
+      </p>
+      <p>
+        Genau dieses gestaffelte Prinzip aus mehreren, ineinandergreifenden
+        Maßnahmen sind die <strong>technischen und organisatorischen
+        Maßnahmen</strong> (TOMs) im Datenschutz: nicht ein großer Schutz,
+        sondern viele kleine, die zusammen ein sinnvolles Ganzes ergeben.
+      </p>
+      <p>
+        Ohne eine solche verbindliche Vorgabe entschied früher jedes
+        Unternehmen für sich, ob und wie es personenbezogene Daten schützt –
+        Lücken fielen oft erst auf, wenn schon etwas passiert war. Gäbe es
+        keine verpflichtenden TOMs, könnte auch keine Aufsichtsbehörde
+        prüfen, ob der Schutz dem tatsächlichen Risiko angemessen ist.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>TOMs</strong> sind alle Vorkehrungen, mit denen ein
+        Verantwortlicher personenbezogene Daten schützt. Sie sind in
+        <strong>Art. 32 DSGVO</strong> („Sicherheit der Verarbeitung")
+        gefordert. Das Ziel: ein Schutzniveau, das dem Risiko der Verarbeitung
+        angemessen ist. Je höher der mögliche Schaden für die Betroffenen,
+        desto stärker müssen die Maßnahmen sein.
+      </p>
+
+      <p>Der Name benennt bereits die zwei Arten:</p>
+      <ul>
+        <li>
+          <strong>Technische Maßnahmen</strong> stecken in Technik/Hardware/
+          Software: Verschlüsselung, Firewall, Zutrittssysteme mit Chipkarte,
+          Backups, automatische Bildschirmsperre.
+        </li>
+        <li>
+          <strong>Organisatorische Maßnahmen</strong> sind Regeln, Prozesse
+          und Zuständigkeiten: Berechtigungskonzept, Besucherregelung,
+          Schulungen, Vier-Augen-Prinzip, Löschkonzept.
+        </li>
+      </ul>
+
+      <p>
+        Art. 32 nennt beispielhaft vier Maßnahmen ausdrücklich:
+        <strong>Pseudonymisierung</strong> und <strong>Verschlüsselung</strong>,
+        die Sicherstellung von <strong>Vertraulichkeit, Integrität,
+        Verfügbarkeit und Belastbarkeit</strong> der Systeme, die
+        <strong>Wiederherstellbarkeit</strong> nach einem Zwischenfall sowie
+        ein <strong>regelmäßiges Überprüfen</strong> der Wirksamkeit.
+      </p>
+
+      <p>
+        Für die Prüfung wichtig ist zusätzlich die klassische Systematik der
+        <strong>acht Kontrollen</strong> (aus der Anlage zum alten BDSG; sie ist
+        in der DSGVO nicht mehr wortgleich vorgeschrieben, wird aber weiterhin
+        als Ordnungsraster verlangt und geprüft):
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Kontrolle</th><th>Frage</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zutrittskontrolle</td><td>Wer kommt in den Raum?</td><td>Chipkarte, Alarmanlage, Pförtner</td></tr>
+          <tr><td>Zugangskontrolle</td><td>Wer kommt ins System?</td><td>Passwort, 2FA, Bildschirmsperre</td></tr>
+          <tr><td>Zugriffskontrolle</td><td>Wer darf welche Daten?</td><td>Berechtigungskonzept, Rollen (RBAC)</td></tr>
+          <tr><td>Weitergabekontrolle</td><td>Wie werden Daten sicher übertragen?</td><td>VPN, TLS, verschlüsselte USB-Sticks</td></tr>
+          <tr><td>Eingabekontrolle</td><td>Wer hat was geändert?</td><td>Protokollierung, Logging</td></tr>
+          <tr><td>Auftragskontrolle</td><td>Hält sich der Dienstleister an Vorgaben?</td><td>Auftragsverarbeitungsvertrag, Kontrollen</td></tr>
+          <tr><td>Verfügbarkeitskontrolle</td><td>Sind Daten gegen Verlust geschützt?</td><td>Backup, USV, RAID, Brandschutz</td></tr>
+          <tr><td>Trennungskontrolle</td><td>Werden Daten je Zweck getrennt?</td><td>getrennte Datenbanken, Mandantentrennung</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Merke die Abgrenzung, die oft verwechselt wird:
+        <strong>Zutritt</strong> = Raum betreten,
+        <strong>Zugang</strong> = System/Gerät nutzen,
+        <strong>Zugriff</strong> = konkrete Daten sehen/bearbeiten.
+      </p>
+
+      <p>
+        TOMs sind auch der Grund, warum eine Datenpanne Folgen für das
+        Unternehmen hat: Verletzt ein Vorfall den Schutz personenbezogener
+        Daten, muss er nach <strong>Art. 33 DSGVO</strong> in der Regel
+        innerhalb von <strong>72 Stunden</strong> der zuständigen
+        Aufsichtsbehörde gemeldet werden – bei hohem Risiko für die
+        Betroffenen zusätzlich diesen selbst.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Eine Steuerkanzlei richtet Telearbeitsplätze ein. Die
+        Datenschutzbeauftragte verlangt „geeignete TOMs". Ordne die getroffenen
+        Maßnahmen den Kontrollen zu:
+      </p>
+      <ul>
+        <li>Die Wohnungstür und der Arbeitsraum sind abschließbar → <strong>Zutrittskontrolle</strong>.</li>
+        <li>Login am Laptop nur mit Passwort und Chipkarte (2FA) → <strong>Zugangskontrolle</strong>.</li>
+        <li>Der Mitarbeiter sieht nur die Mandanten, die ihm zugewiesen sind → <strong>Zugriffskontrolle</strong>.</li>
+        <li>Die Verbindung ins Kanzleinetz läuft über VPN → <strong>Weitergabekontrolle</strong>.</li>
+        <li>Die SSD des Laptops ist vollverschlüsselt → technische Maßnahme (Vertraulichkeit nach Art. 32).</li>
+        <li>Jede Nacht läuft ein automatisches Backup auf den Kanzleiserver → <strong>Verfügbarkeitskontrolle</strong>.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage dazu: „Nennen Sie zwei technische und zwei
+        organisatorische Maßnahmen." Antwort z. B. technisch: Festplatten-
+        verschlüsselung, VPN; organisatorisch: Berechtigungskonzept,
+        Mitarbeiterschulung. Zusatzfrage: „Innerhalb welcher Frist muss eine
+        Datenpanne der Aufsichtsbehörde gemeldet werden?" – Antwort: in der
+        Regel 72 Stunden (Art. 33 DSGVO).
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        TOMs = technisch (in der Technik) + organisatorisch (in den Regeln),
+        gefordert von Art. 32 DSGVO und angemessen zum Risiko. Zutritt (Raum),
+        Zugang (System), Zugriff (Daten) sauber auseinanderhalten. Eine
+        Datenpanne muss i. d. R. binnen 72 Stunden gemeldet werden (Art. 33).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/toms.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

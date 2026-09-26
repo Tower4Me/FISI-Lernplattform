@@ -1,0 +1,225 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Der menschliche Blutkreislauf transportiert Sauerstoff von der
+        Lunge zu den Organen und bringt verbrauchtes Blut zurück –
+        ein ständiger Kreislauf ohne Anfang und Ende. Ähnlich
+        funktioniert die Wirtschaft: Güter und Geld fließen ständig
+        zwischen <strong>Haushalten</strong> und
+        <strong>Unternehmen</strong> hin und her. Diesen Kreislauf
+        nennt man den <strong>Wirtschaftskreislauf</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Einfacher Wirtschaftskreislauf</h3>
+      <p>
+        Im einfachsten Modell stehen sich zwei Akteure gegenüber:
+        <strong>Haushalte</strong> stellen Unternehmen ihre
+        Arbeitskraft zur Verfügung und erhalten dafür Löhne/Gehälter;
+        mit diesem Einkommen kaufen sie wiederum Güter und
+        Dienstleistungen bei den Unternehmen. Güterstrom und
+        Geldstrom laufen dabei in <strong>entgegengesetzte
+        Richtungen</strong>.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 640 300" role="img" aria-labelledby="wk-title wk-desc">
+          <title id="wk-title">Einfacher Wirtschaftskreislauf</title>
+          <desc id="wk-desc">Haushalte und Unternehmen tauschen Arbeitskraft/Güter gegen Geld in entgegengesetzten Kreisläufen aus.</desc>
+
+          <rect x="30" y="110" width="160" height="80" rx="10"
+                fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+          <text x="110" y="155" text-anchor="middle" fill="var(--text)" font-size="18">Haushalte</text>
+
+          <rect x="450" y="110" width="160" height="80" rx="10"
+                fill="var(--surface)" stroke="var(--border)" stroke-width="2"/>
+          <text x="530" y="155" text-anchor="middle" fill="var(--text)" font-size="18">Unternehmen</text>
+
+          <!-- Guetestrom: Arbeitskraft (Haushalt -> Unternehmen), oben -->
+          <path d="M 190 130 H 450" fill="none" stroke="var(--link)" stroke-width="2.5" marker-end="url(#arrowLink)"/>
+          <text x="320" y="115" text-anchor="middle" fill="var(--link)" font-size="15">Arbeitskraft, Güter</text>
+
+          <!-- Geldstrom: Löhne/Entgelte (Unternehmen -> Haushalt), unten -->
+          <path d="M 450 170 H 190" fill="none" stroke="var(--text-muted)" stroke-width="2.5" marker-end="url(#arrowMuted)"/>
+          <text x="320" y="205" text-anchor="middle" fill="var(--text-muted)" font-size="15">Löhne, Entgelte (Geld)</text>
+
+          <defs>
+            <marker id="arrowLink" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--link)"/>
+            </marker>
+            <marker id="arrowMuted" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+        </svg>
+        <figcaption>
+          Einfacher Wirtschaftskreislauf: Güter-/Leistungsstrom und
+          Geldstrom verlaufen in entgegengesetzten Richtungen zwischen
+          Haushalten und Unternehmen.
+        </figcaption>
+      </figure>
+
+      <h3>Erweiterter Wirtschaftskreislauf</h3>
+      <p>
+        In der Realität kommen weitere Akteure hinzu:
+      </p>
+      <ul>
+        <li>
+          <strong>Staat:</strong> erhebt Steuern von Haushalten und
+          Unternehmen, zahlt dafür Transferleistungen (z. B. Renten,
+          Arbeitslosengeld) und stellt öffentliche Güter bereit
+          (Infrastruktur, Bildung).
+        </li>
+        <li>
+          <strong>Banken/Kapitalsammelstellen:</strong> nehmen
+          Ersparnisse der Haushalte auf und vergeben Kredite an
+          Unternehmen (und Haushalte), gegen Zinsen.
+        </li>
+        <li>
+          <strong>Ausland:</strong> Export- und Importströme
+          verbinden die inländische Wirtschaft mit anderen Ländern.
+        </li>
+      </ul>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 700 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wke-title wke-desc">
+          <title id="wke-title">Erweiterter Wirtschaftskreislauf mit Staat, Banken und Ausland</title>
+          <desc id="wke-desc">Zusätzlich zum einfachen Kreislauf zwischen Haushalten und Unternehmen zeigt der erweiterte Kreislauf drei weitere Akteure: Der Staat erhebt Steuern von Haushalten und Unternehmen und zahlt dafür Transferleistungen bzw. stellt öffentliche Güter bereit. Banken nehmen Ersparnisse der Haushalte auf und vergeben Kredite an Unternehmen, jeweils gegen Zinsen. Das Ausland ist über Export- und Importströme mit den Unternehmen verbunden.</desc>
+
+          <defs>
+            <marker id="wke-arrow-link" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--link)"/>
+            </marker>
+            <marker id="wke-arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6 Z" fill="var(--text-muted)"/>
+            </marker>
+            <marker id="wke-arrow-muted-start" markerWidth="10" markerHeight="10" refX="2" refY="3" orient="auto">
+              <path d="M8,0 L0,3 L8,6 Z" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="220" y1="90" x2="110" y2="215" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="188" y="150" text-anchor="start" fill="var(--text-muted)" font-size="9">Steuern /</text>
+          <text x="188" y="161" text-anchor="start" fill="var(--text-muted)" font-size="9">Transfers</text>
+
+          <line x1="340" y1="90" x2="430" y2="215" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="362" y="150" text-anchor="end" fill="var(--text-muted)" font-size="9">Steuern /</text>
+          <text x="362" y="161" text-anchor="end" fill="var(--text-muted)" font-size="9">öff. Güter</text>
+
+          <line x1="220" y1="400" x2="110" y2="285" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="198" y="345" text-anchor="start" fill="var(--text-muted)" font-size="9">Ersparnis /</text>
+          <text x="198" y="356" text-anchor="start" fill="var(--text-muted)" font-size="9">Zinsen</text>
+
+          <line x1="340" y1="400" x2="430" y2="285" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="352" y="345" text-anchor="end" fill="var(--text-muted)" font-size="9">Kredit /</text>
+          <text x="352" y="356" text-anchor="end" fill="var(--text-muted)" font-size="9">Zinsen</text>
+
+          <line x1="505" y1="250" x2="550" y2="250" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#wke-arrow-muted)" marker-start="url(#wke-arrow-muted-start)"/>
+          <text x="527" y="242" text-anchor="middle" fill="var(--text-muted)" font-size="8.5">Export /</text>
+          <text x="527" y="266" text-anchor="middle" fill="var(--text-muted)" font-size="8.5">Import</text>
+
+          <path d="M 185 235 H 355" fill="none" stroke="var(--link)" stroke-width="2.2" marker-end="url(#wke-arrow-link)"/>
+          <text x="270" y="228" text-anchor="middle" fill="var(--link)" font-size="9">Arbeitskraft, Güter</text>
+          <path d="M 355 265 H 185" fill="none" stroke="var(--text-muted)" stroke-width="2.2" marker-end="url(#wke-arrow-muted)"/>
+          <text x="270" y="280" text-anchor="middle" fill="var(--text-muted)" font-size="9">Löhne, Entgelte</text>
+
+          <rect x="185" y="30" width="170" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2.5"/>
+          <text x="270" y="65" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Staat</text>
+
+          <rect x="35" y="215" width="150" height="70" rx="8" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2.5"/>
+          <text x="110" y="256" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Haushalte</text>
+
+          <rect x="355" y="215" width="150" height="70" rx="8" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <text x="430" y="256" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Unternehmen</text>
+
+          <rect x="185" y="400" width="170" height="60" rx="8" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <text x="270" y="435" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Banken</text>
+
+          <rect x="550" y="215" width="140" height="70" rx="8" fill="var(--surface-2)" stroke="var(--text)" stroke-width="2.5"/>
+          <text x="620" y="256" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">Ausland</text>
+        </svg>
+        <figcaption>
+          Zusätzlich zum einfachen Kreislauf: Der Staat erhebt Steuern und
+          zahlt Transfers bzw. öffentliche Güter zurück, Banken
+          vermitteln zwischen Ersparnissen und Krediten, das Ausland ist
+          über Export/Import mit den Unternehmen verbunden.
+        </figcaption>
+      </figure>
+
+      <h3>Wertschöpfungskette</h3>
+      <p>
+        Die <strong>Wertschöpfungskette</strong> beschreibt die Abfolge
+        der Aktivitäten, mit denen ein Unternehmen aus Vorleistungen
+        (Rohstoffe, Bauteile, Dienstleistungen anderer Unternehmen) ein
+        fertiges Produkt oder eine Dienstleistung für den Endkunden
+        macht. Jede Stufe fügt <strong>Wert</strong> hinzu – die
+        <strong>Wertschöpfung</strong> einer Stufe entspricht dem
+        Verkaufswert abzüglich der Kosten der eingekauften
+        Vorleistungen.
+      </p>
+      <p>
+        Beispiel IT-Branche: Ein Hardwarehersteller liefert
+        Komponenten an einen Distributor, der sie an ein IT-Systemhaus
+        weiterverkauft. Das Systemhaus konfiguriert daraus eine
+        einsatzfertige IT-Lösung für den Endkunden inklusive Einrichtung
+        und Support – auf jeder Stufe entsteht zusätzlicher Wert.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TowerTech GmbH ist ein IT-Systemhaus und Teil einer
+        Wertschöpfungskette:
+      </p>
+      <ul>
+        <li>
+          Sie kauft Server-Hardware von einem Großhandels-Distributor
+          (Vorleistung).
+        </li>
+        <li>
+          Ihre Mitarbeitenden (Haushalte) stellen ihre Arbeitskraft zur
+          Verfügung – TowerTech zahlt dafür Löhne, ein klassischer
+          Bestandteil des Wirtschaftskreislaufs.
+        </li>
+        <li>
+          TowerTech konfiguriert die Hardware zu einer
+          einsatzbereiten IT-Infrastruktur-Lösung und verkauft sie mit
+          Einrichtungsservice an einen Kundenbetrieb – der Unterschied
+          zwischen Verkaufspreis und Einkaufspreis der Hardware
+          entspricht der Wertschöpfung von TowerTech auf dieser Stufe.
+        </li>
+        <li>
+          Ein Teil des erzielten Gewinns fließt als Steuer an den
+          Staat, ein Teil des Mitarbeitereinkommens wird bei einer Bank
+          gespart – beides Beispiele für den erweiterten
+          Wirtschaftskreislauf.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Im Wirtschaftskreislauf fließen Güter/Leistungen und Geld in
+        entgegengesetzte Richtungen zwischen Haushalten und
+        Unternehmen; Staat, Banken und Ausland erweitern das Modell.
+        Die Wertschöpfungskette zeigt, wie jede Produktionsstufe durch
+        Verarbeitung von Vorleistungen zusätzlichen Wert schafft.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/wiso/wirtschaftskreislauf-wertschoepfungskette.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

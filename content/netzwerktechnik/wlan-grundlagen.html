@@ -1,0 +1,234 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen Konferenzraum mit mehreren gleichzeitig laufenden
+        Gesprächen vor. Damit sich nicht alle gegenseitig übertönen, hat
+        jede Gesprächsrunde einen eigenen Namen, den man ansagen kann („Ich
+        möchte mich der Gruppe ‚Marketing-Team‘ anschließen“), und wer
+        mitreden will, braucht ein Passwort, das nur Eingeweihte kennen.
+        Ein <strong>WLAN</strong> funktioniert nach demselben Prinzip: Ein
+        Funknetz bekommt einen Namen (SSID), zum Mitmachen braucht man ein
+        Passwort, und moderne Verschlüsselung sorgt dafür, dass Außenstehende
+        nicht einfach mithören können.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>WLAN-Standards (IEEE 802.11)</h3>
+      <p>
+        Die 802.11-Reihe wurde über die Jahre schrittweise erweitert —
+        von 802.11a/b in den späten 1990ern bis zum aktuellen Wi-Fi 7.
+        Bei den Datenraten gilt: „bis zu“ statt falscher Präzision, da die
+        theoretische Maximalrate in der Praxis kaum erreicht wird.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 660 165" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wifi-zeit-title wifi-zeit-desc">
+          <title id="wifi-zeit-title">Zeitstrahl der WLAN-Standards 802.11</title>
+          <desc id="wifi-zeit-desc">Horizontaler Zeitstrahl mit sechs Punkten von links nach rechts: 802.11a/802.11b (1999), 802.11g (2003), 802.11n / Wi-Fi 4 (2009), 802.11ac / Wi-Fi 5 (2013), 802.11ax / Wi-Fi 6 (2019) und 802.11be / Wi-Fi 7 (2024), mit jeweiligem Frequenzband und grober Datenrate.</desc>
+
+          <line x1="40" y1="90" x2="620" y2="90" stroke="var(--border)" stroke-width="2"/>
+
+          <g font-size="8" text-anchor="middle">
+            <!-- 802.11a/b -->
+            <circle cx="40" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="40" y1="95" x2="40" y2="108" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="40" y="120" fill="var(--text)" font-weight="600">802.11a / 802.11b</text>
+            <text x="40" y="132" fill="var(--text-muted)" font-size="7">1999 — 5 GHz / 2,4 GHz</text>
+
+            <!-- 802.11g -->
+            <circle cx="156" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="156" y1="85" x2="156" y2="72" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="156" y="60" fill="var(--text)" font-weight="600">802.11g</text>
+            <text x="156" y="48" fill="var(--text-muted)" font-size="7">2003 — 2,4 GHz</text>
+
+            <!-- 802.11n -->
+            <circle cx="272" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="272" y1="95" x2="272" y2="108" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="272" y="120" fill="var(--text)" font-weight="600">802.11n (Wi-Fi 4)</text>
+            <text x="272" y="132" fill="var(--text-muted)" font-size="7">2009 — bis 600 Mbit/s</text>
+
+            <!-- 802.11ac -->
+            <circle cx="388" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="388" y1="85" x2="388" y2="72" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="388" y="60" fill="var(--text)" font-weight="600">802.11ac (Wi-Fi 5)</text>
+            <text x="388" y="48" fill="var(--text-muted)" font-size="7">2013 — mehrere Gbit/s</text>
+
+            <!-- 802.11ax -->
+            <circle cx="504" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="504" y1="95" x2="504" y2="108" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="504" y="120" fill="var(--text)" font-weight="600">802.11ax (Wi-Fi 6/6E)</text>
+            <text x="504" y="132" fill="var(--text-muted)" font-size="7">2019 — effizienter, 6 GHz</text>
+
+            <!-- 802.11be -->
+            <circle cx="620" cy="90" r="5" fill="var(--acc-quiz)" stroke="var(--text)" stroke-width="1"/>
+            <line x1="620" y1="85" x2="620" y2="72" stroke="var(--text-muted)" stroke-width="1"/>
+            <text x="620" y="60" fill="var(--text)" font-weight="600">802.11be (Wi-Fi 7)</text>
+            <text x="620" y="48" fill="var(--text-muted)" font-size="7">2024 — bis 46 Gbit/s</text>
+          </g>
+        </svg>
+        <figcaption>
+          Zeitstrahl der 802.11-Standards von 802.11a/b (1999) bis
+          802.11be / Wi-Fi 7 (2024) — steigende Frequenzbänder und
+          Datenraten über die Jahre.
+        </figcaption>
+      </figure>
+
+      <table>
+        <thead>
+          <tr><th>Standard</th><th>Wi-Fi-Name</th><th>Frequenzband</th><th>Max. Datenrate (theoretisch)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>802.11a</td><td>—</td><td>5 GHz</td><td>bis zu 54 Mbit/s</td></tr>
+          <tr><td>802.11b</td><td>—</td><td>2,4 GHz</td><td>bis zu 11 Mbit/s</td></tr>
+          <tr><td>802.11g</td><td>—</td><td>2,4 GHz</td><td>bis zu 54 Mbit/s</td></tr>
+          <tr><td>802.11n</td><td>Wi-Fi 4</td><td>2,4 / 5 GHz</td><td>bis zu 600 Mbit/s</td></tr>
+          <tr><td>802.11ac</td><td>Wi-Fi 5</td><td>5 GHz</td><td>bis zu mehreren Gbit/s</td></tr>
+          <tr><td>802.11ax</td><td>Wi-Fi 6 / 6E</td><td>2,4 / 5 / 6 GHz</td><td>bis zu mehreren Gbit/s, effizienter bei vielen Geräten</td></tr>
+          <tr><td>802.11be</td><td>Wi-Fi 7</td><td>2,4 / 5 / 6 GHz</td><td>bis zu ca. 46 Gbit/s (theoretisch, u. a. durch Multi-Link Operation)</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Das <strong>2,4-GHz-Band</strong> hat größere Reichweite, aber
+        weniger Kanäle und mehr Störungen (z. B. durch Bluetooth,
+        Mikrowellen). Das <strong>5-GHz-Band</strong> bietet mehr Kanäle
+        und höhere Datenraten, aber geringere Reichweite und schlechtere
+        Wanddurchdringung.
+      </p>
+      <p>
+        Damit sich mehrere WLAN-Geräte den gemeinsamen Funkkanal
+        überhaupt teilen können, kommt das Zugriffsverfahren
+        <strong>CSMA/CA</strong> zum Einsatz — Details dazu (und warum
+        WLAN nicht wie kabelgebundenes Ethernet auf CSMA/CD setzen kann)
+        behandelt die Einheit
+        <a href="ethernet-zugriffsverfahren.html">Ethernet, LAN-Standards
+        &amp; Zugriffsverfahren</a>.
+      </p>
+
+      <h3>SSID</h3>
+      <p>
+        Die <strong>SSID</strong> (Service Set Identifier) ist der Name
+        eines WLAN-Netzes, über den Geräte das gewünschte Netz erkennen und
+        auswählen. Eine SSID kann sichtbar (Broadcast) oder versteckt
+        (Hidden SSID) konfiguriert sein — versteckt bietet dabei nur
+        geringen zusätzlichen Schutz, da die SSID trotzdem bei jeder
+        Verbindung übertragen wird.
+      </p>
+
+      <h3>Verschlüsselungsstandards</h3>
+      <table>
+        <thead>
+          <tr><th>Standard</th><th>Sicherheitsniveau</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>WEP</td><td>veraltet, gilt als unsicher, sollte nicht mehr verwendet werden</td></tr>
+          <tr><td>WPA</td><td>Übergangslösung nach WEP, ebenfalls veraltet</td></tr>
+          <tr><td>WPA2</td><td>lange Zeit Standard, AES-Verschlüsselung, gilt bei korrekter Konfiguration als sicher</td></tr>
+          <tr><td>WPA3</td><td>aktueller Standard, stärkerer Schutz gegen Offline-Angriffe auf das Passwort (u. a. durch SAE-Verfahren)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Personal vs. Enterprise</h3>
+      <p>
+        Bei <strong>WPA2/WPA3-Personal</strong> (auch PSK, Pre-Shared Key)
+        teilen sich alle Nutzer ein gemeinsames Passwort — typisch für
+        Heimnetze. Bei <strong>WPA2/WPA3-Enterprise</strong> meldet sich
+        jeder Nutzer mit eigenen Zugangsdaten gegen einen zentralen
+        Authentifizierungsserver an (<strong>RADIUS</strong>) — typisch in
+        Firmennetzen, da einzelne Zugänge gezielt gesperrt werden können,
+        ohne dass alle anderen Nutzer ihr Passwort ändern müssen. RADIUS
+        übernimmt dabei die klassischen <strong>AAA</strong>-Aufgaben:
+        <strong>A</strong>uthentication (wer ist der Nutzer?),
+        <strong>A</strong>uthorization (was darf er?) und
+        <strong>A</strong>ccounting (was hat er getan, protokolliert für
+        spätere Auswertung).
+      </p>
+
+      <h3>Access Point & Repeater</h3>
+      <ul>
+        <li><strong>Access Point (AP):</strong> Verbindet Funkgeräte mit dem kabelgebundenen Netzwerk (LAN). Mehrere APs können dieselbe SSID ausstrahlen, damit Geräte nahtlos zwischen Funkzellen wechseln (Roaming).</li>
+        <li><strong>Repeater:</strong> Empfängt ein bestehendes WLAN-Signal und sendet es verstärkt weiter, um die Reichweite zu vergrößern — reduziert dabei aber meist die nutzbare Datenrate, da derselbe Funkkanal für Empfang und Weitersendung verwendet wird.</li>
+      </ul>
+
+      <h3>Planung: Site-Survey, WLAN-Scan & Gästezugang</h3>
+      <p>
+        Vor der Installation mehrerer Access Points führt ein Techniker
+        einen <strong>Site-Survey</strong> durch: Mit einem Messgerät oder
+        Laptop wird die Signalstärke an verschiedenen Punkten im Gebäude
+        gemessen, um Funklöcher und AP-Standorte vorab zu planen, statt
+        nachträglich nachzurüsten. Ein <strong>WLAN-Scan</strong> zeigt
+        dabei alle in Reichweite sichtbaren Netze mit ihren Kenndaten:
+      </p>
+      <table>
+        <thead>
+          <tr><th>SSID</th><th>BSSID</th><th>Kanal</th><th>Signal</th><th>Sicherheit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Firma-Mitarbeiter</td><td>A4:C3:F0:12:34:56</td><td>36</td><td>−52 dBm</td><td>WPA3-Enterprise</td></tr>
+          <tr><td>Firma-Gast</td><td>A4:C3:F0:12:34:57</td><td>6</td><td>−54 dBm</td><td>WPA2-Personal</td></tr>
+          <tr><td>Nachbar-WLAN</td><td>8C:AA:B5:90:11:22</td><td>36</td><td>−78 dBm</td><td>WPA2-Personal</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Die <strong>BSSID</strong> ist die MAC-Adresse des jeweiligen
+        Access Points — nützlich, um bei mehreren APs mit derselben SSID
+        (Roaming) einen bestimmten Access Point eindeutig zu identifizieren.
+        Der Kanal entscheidet über Störungen: Liegen zwei Netze auf
+        demselben Kanal (hier Firma-Mitarbeiter und Nachbar-WLAN auf
+        Kanal 36), können sie sich gegenseitig stören. Für Gäste richtet
+        man häufig zusätzlich ein <strong>Captive Portal</strong> ein:
+        Beim ersten Verbindungsversuch öffnet sich automatisch eine
+        Anmeldeseite im Browser (z. B. Nutzungsbedingungen bestätigen oder
+        einen Zugangscode eingeben), bevor der eigentliche Internetzugang
+        freigeschaltet wird.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus plant das WLAN für ein Bürogebäude mit drei
+        Etagen und unterschiedlichen Nutzergruppen.
+      </p>
+      <ul>
+        <li>Für Mitarbeitende wird ein <strong>WPA2-Enterprise</strong>-Netz eingerichtet, das jeden Login gegen den zentralen <strong>RADIUS</strong>-Server prüft — scheidet ein Mitarbeiter aus, wird nur sein einzelnes Konto gesperrt, nicht das gesamte WLAN-Passwort geändert.</li>
+        <li>Für Gäste gibt es ein separates <strong>WPA2-Personal</strong>-Netz mit eigenem, regelmäßig wechselndem Passwort — logisch getrennt vom Firmennetz (siehe VLAN).</li>
+        <li>In jeder Etage steht ein eigener <strong>Access Point</strong>, alle mit derselben SSID, damit Mitarbeitende beim Gehen durchs Gebäude nahtlos zwischen den Etagen-APs wechseln können.</li>
+        <li>Im entlegenen Lagerraum, in dem kein AP direkt erreichbar ist, wird ein <strong>Repeater</strong> aufgestellt, um das Signal des nächstgelegenen APs zu verlängern.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum eignet sich WPA2/WPA3-Enterprise
+        besser als Personal für ein Firmennetz mit vielen Mitarbeitenden?“
+        – Antwort: Jeder Nutzer erhält eigene Zugangsdaten über RADIUS,
+        einzelne Zugänge lassen sich gezielt sperren, ohne dass alle
+        anderen Nutzer ein neues gemeinsames Passwort erhalten müssen.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        WLAN nach IEEE 802.11 (Wi-Fi 4/5/6), SSID = Netzname. WPA3 ist der
+        aktuelle Verschlüsselungsstandard, WEP/WPA gelten als unsicher.
+        Personal = gemeinsames Passwort, Enterprise = individuelle Logins
+        über RADIUS (AAA: Authentication/Authorization/Accounting). Access
+        Points verbinden Funk mit LAN, Repeater verlängern die Reichweite
+        auf Kosten der Datenrate. Site-Survey plant AP-Standorte vorab,
+        BSSID identifiziert den einzelnen AP, Captive Portal regelt den
+        Gästezugang.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/wlan-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

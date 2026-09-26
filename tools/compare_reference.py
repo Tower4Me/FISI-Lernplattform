@@ -56,6 +56,7 @@ def compare_file(rel):
 
 
 def main():
+    sys.stdout.reconfigure(encoding="utf-8")
     if not REF_DIR.is_dir():
         print(f"Referenz fehlt: {REF_DIR}")
         return 1

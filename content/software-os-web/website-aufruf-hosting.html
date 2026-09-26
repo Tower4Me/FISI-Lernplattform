@@ -1,0 +1,151 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Website aufzurufen ist wie Essen zu bestellen: Du kennst die
+        Adresse des Restaurants nicht auswendig, also schlägst du sie
+        nach (DNS wie ein Telefonbuch). Dann schickst du deine Bestellung
+        an genau diese Adresse (Verbindung + Anfrage). In demselben
+        Gebäude teilen sich aber oft mehrere Restaurants dieselbe
+        Lieferadresse — erst der Zusatz auf deiner Bestellung („für
+        Restaurant XY“) sorgt dafür, dass die richtige Küche liefert.
+        Genau das leisten virtuelle Hosts für mehrere Websites auf einem
+        einzigen Server.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Ablauf eines Website-Aufrufs</h3>
+      <ol>
+        <li><strong>URL-Eingabe:</strong> Der Nutzer gibt z. B.
+          <code>https://www.technord.de</code> in den Browser ein.</li>
+        <li><strong>DNS-Auflösung:</strong> Der Domainname wird über DNS
+          in eine IP-Adresse übersetzt (siehe Modul Netzwerktechnik,
+          DNS-Grundlagen).</li>
+        <li><strong>Verbindungsaufbau:</strong> Der Browser baut eine
+          TCP-Verbindung zur Ziel-IP auf — bei HTTPS zusätzlich einen
+          TLS-Handshake für die verschlüsselte Verbindung (siehe Modul
+          IT-Sicherheit, Zertifikate & TLS/PKI).</li>
+        <li><strong>HTTP-Request:</strong> Der Browser sendet eine
+          Anfrage (z. B. GET) an den Server — inklusive eines
+          <strong>Host-Headers</strong>, der den angeforderten
+          Domainnamen enthält.</li>
+        <li><strong>Serververarbeitung & HTTP-Response:</strong> Der
+          Server verarbeitet die Anfrage und schickt eine Antwort mit
+          Statuscode und Inhalt (HTML, CSS, JavaScript, Bilder) zurück.</li>
+        <li><strong>Rendering:</strong> Der Browser stellt die empfangene
+          Seite dar und lädt bei Bedarf weitere Ressourcen (Bilder,
+          Skripte) mit zusätzlichen Anfragen nach.</li>
+      </ol>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="webcall-title webcall-desc">
+          <title id="webcall-title">Sequenzdiagramm: Ablauf eines Website-Aufrufs</title>
+          <desc id="webcall-desc">Der Browser fragt zunächst per DNS die IP-Adresse der Domain ab. Danach baut er eine TCP- bzw. TLS-Verbindung zum Webserver auf und sendet einen HTTP-Request mit Host-Header. Der Webserver antwortet mit einer HTTP-Response, die der Browser abschließend rendert.</desc>
+
+          <defs>
+            <marker id="webcall-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="12">Browser</text>
+          <line x1="75" y1="53" x2="75" y2="355" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="195" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="250" y="39" text-anchor="middle" fill="var(--text)" font-size="12">DNS-Server</text>
+          <line x1="250" y1="53" x2="250" y2="355" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="12">Webserver</text>
+          <line x1="425" y1="53" x2="425" y2="355" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <line x1="75" y1="90" x2="248" y2="90" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="163" y="83" text-anchor="middle" fill="var(--text)" font-size="9">1. DNS-Anfrage</text>
+
+          <line x1="250" y1="125" x2="77" y2="125" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="163" y="118" text-anchor="middle" fill="var(--text)" font-size="9">2. DNS-Antwort (IP)</text>
+
+          <line x1="75" y1="170" x2="423" y2="170" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="250" y="163" text-anchor="middle" fill="var(--text)" font-size="9">3. TCP/TLS-Verbindungsaufbau</text>
+
+          <line x1="75" y1="215" x2="423" y2="215" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="250" y="208" text-anchor="middle" fill="var(--text)" font-size="9">4. HTTP-Request (Host-Header)</text>
+
+          <line x1="425" y1="260" x2="77" y2="260" stroke="var(--text)" stroke-width="2" marker-end="url(#webcall-arrow)"/>
+          <text x="250" y="253" text-anchor="middle" fill="var(--text)" font-size="9">5. HTTP-Response (HTML, CSS, …)</text>
+
+          <line x1="75" y1="290" x2="75" y2="300" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="20" y="300" width="110" height="42" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2" stroke-dasharray="3 2"/>
+          <text x="75" y="317" text-anchor="middle" fill="var(--text)" font-size="9" font-weight="700">6. Rendering</text>
+          <text x="75" y="330" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">Seite wird dargestellt</text>
+        </svg>
+        <figcaption>
+          Erst nach der DNS-Auflösung baut der Browser die eigentliche
+          Verbindung zum Webserver auf — Rendering (Schritt 6) läuft rein
+          lokal im Browser, ohne weitere Netzwerknachricht.
+        </figcaption>
+      </figure>
+
+      <h3>Virtuelle Hosts (Virtual Hosts)</h3>
+      <p>
+        Mehrere Websites können auf demselben physischen Server und
+        derselben IP-Adresse betrieben werden — das nennt man
+        <strong>virtuelles Hosting</strong>. Beim
+        <strong>namensbasierten virtuellen Hosting</strong> unterscheidet
+        der Webserver die angeforderte Website anhand des
+        <strong>Host-Headers</strong> im HTTP-Request: Auch wenn zwei
+        Domains dieselbe IP-Adresse teilen, weiß der Server anhand dieses
+        Headers, welche der auf ihm gehosteten Websites tatsächlich
+        ausgeliefert werden soll.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH betreibt auf einem einzigen Webserver
+        gleichzeitig die Firmenwebsite (<code>www.technord.de</code>) und
+        ein Kunden-Support-Portal (<code>support.technord.de</code>) —
+        beide teilen sich dieselbe öffentliche IP-Adresse:
+      </p>
+      <ul>
+        <li>Fragt ein Browser <code>support.technord.de</code> an, liest
+          der Webserver den <strong>Host-Header</strong> der Anfrage aus
+          und liefert die richtige Website aus — obwohl technisch
+          dieselbe IP-Adresse angesprochen wurde.</li>
+        <li><strong>Fehlerdiagnose:</strong> Ein Kunde meldet, die
+          Website sei nicht erreichbar. Der Support geht den Ablauf
+          Schritt für Schritt durch: Löst der Domainname korrekt per DNS
+          auf? Lässt sich überhaupt eine TCP-Verbindung aufbauen (z. B.
+          mit <code>telnet</code> oder <code>ping</code> testbar)? Welchen
+          HTTP-Statuscode liefert der Server zurück? So lässt sich
+          eingrenzen, ob DNS, Netzwerk oder der Webserver selbst die
+          Ursache ist.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ablauf eines Website-Aufrufs: DNS-Auflösung → Verbindungsaufbau
+        (TCP, ggf. TLS) → HTTP-Request (mit Host-Header) →
+        HTTP-Response → Rendering. Virtuelle Hosts erlauben mehrere
+        Websites auf derselben IP-Adresse — der Webserver unterscheidet
+        sie anhand des Host-Headers im HTTP-Request.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/website-aufruf-hosting.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

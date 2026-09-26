@@ -1,0 +1,200 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein einzelner Koch in einer Küche kann eigentlich nur an einem
+        Topf gleichzeitig rühren — wechselt er aber schnell genug zwischen
+        mehreren Töpfen hin und her, wirkt es, als würde alles gleichzeitig
+        kochen. Genau das macht eine CPU beim Multitasking. Beim
+        kooperativen Modell gibt jeder Topf den Herd freiwillig ab, sobald
+        er „fertig ist für den Moment“ — hängt ein Topf fest, blockiert er
+        die ganze Küche. Beim präemptiven Modell gibt es einen strengen
+        Küchenchef (den Scheduler), der jedem Topf nach einer festen
+        Zeitspanne zwangsweise den Herd wieder wegnimmt — fair für alle,
+        selbst wenn ein Topf nicht „freiwillig“ loslassen würde.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Prozess, Task und Thread</h3>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Prozess</strong></td>
+            <td>ein laufendes Programm mit eigenem, vom Betriebssystem
+              isoliertem Speicherbereich — ein Prozess kann grundsätzlich
+              nicht direkt auf den Speicher eines anderen Prozesses
+              zugreifen</td>
+          </tr>
+          <tr>
+            <td><strong>Thread</strong></td>
+            <td>ein Ausführungsstrang <em>innerhalb</em> eines Prozesses;
+              ein Prozess kann mehrere Threads besitzen, die sich den
+              Speicher und die Ressourcen des Prozesses teilen — Threads
+              zu wechseln ist deutlich schneller als ganze Prozesse zu
+              wechseln</td>
+          </tr>
+          <tr>
+            <td><strong>Task</strong></td>
+            <td>allgemeiner Begriff für eine auszuführende Arbeitseinheit
+              — wird in der Praxis oft uneinheitlich synonym zu „Prozess“
+              verwendet (z. B. Task-Manager, Taskplaner)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Multitasking</h3>
+      <p>
+        <strong>Multitasking</strong> bedeutet, dass mehrere Prozesse
+        scheinbar gleichzeitig ausgeführt werden. Auf einem Ein-Kern-
+        Prozessor geschieht das durch sehr schnelles Umschalten zwischen
+        Prozessen (Kontextwechsel); auf Mehrkern-Prozessoren können
+        zusätzlich mehrere Prozesse tatsächlich parallel auf
+        unterschiedlichen Kernen laufen.
+      </p>
+
+      <h3>Kooperatives vs. präemptives Multitasking</h3>
+      <table>
+        <thead>
+          <tr><th>Modell</th><th>Funktionsweise</th><th>Risiko</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Kooperatives Multitasking</strong> (älteres
+              Modell, z. B. frühe Windows-Versionen)</td>
+            <td>jeder Prozess gibt die CPU freiwillig ab, sobald er
+              wartet oder „fertig“ ist</td>
+            <td>ein fehlerhafter oder hängender Prozess gibt die CPU nie
+              ab und blockiert dadurch das gesamte System</td>
+          </tr>
+          <tr>
+            <td><strong>Präemptives Multitasking</strong> (moderner
+              Standard, z. B. aktuelles Windows/Linux/macOS)</td>
+            <td>der Scheduler des Betriebssystems entzieht jedem Prozess
+              nach einer festen Zeitscheibe zwangsweise die CPU,
+              unabhängig vom Prozess selbst</td>
+            <td>deutlich stabiler — ein hängender Prozess blockiert in
+              der Regel nur sich selbst, nicht das gesamte System</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="multitask-title multitask-desc">
+          <title id="multitask-title">Zeitachsen-Vergleich: kooperatives vs. präemptives Multitasking</title>
+          <desc id="multitask-desc">Beim kooperativen Multitasking läuft Prozess A zunächst, gibt die CPU freiwillig an Prozess B ab, hängt sich danach aber auf und gibt die CPU nie wieder ab — das System blockiert. Beim präemptiven Multitasking erzwingt der Scheduler nach jeder festen Zeitscheibe einen Wechsel zwischen den Prozessen, unabhängig davon, ob ein Prozess freiwillig abgeben würde.</desc>
+
+          <defs>
+            <marker id="mt-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+            <pattern id="mt-hatch" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="6" stroke="var(--fail)" stroke-width="2"/>
+            </pattern>
+          </defs>
+
+          <text x="240" y="16" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Kooperatives Multitasking</text>
+
+          <text x="150" y="18" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">gibt CPU ab</text>
+          <line x1="150" y1="23" x2="150" y2="28" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#mt-arrow)"/>
+          <text x="240" y="20" text-anchor="middle" fill="var(--fail)" font-size="7.5" font-weight="700">kein Wechsel!</text>
+
+          <rect x="20" y="28" width="130" height="40" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="85" y="52" text-anchor="middle" fill="var(--text)" font-size="9">Prozess A</text>
+
+          <rect x="150" y="28" width="90" height="40" fill="var(--acc-quiz)" fill-opacity="0.25" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="195" y="52" text-anchor="middle" fill="var(--text)" font-size="9">Prozess B</text>
+
+          <rect x="240" y="28" width="220" height="40" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2"/>
+          <rect x="240" y="28" width="220" height="40" fill="url(#mt-hatch)"/>
+          <text x="350" y="46" text-anchor="middle" fill="var(--fail)" font-size="8.5">Prozess A hängt</text>
+          <text x="350" y="58" text-anchor="middle" fill="var(--fail)" font-size="7.5">gibt CPU nie wieder ab</text>
+
+          <text x="240" y="96" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Präemptives Multitasking</text>
+
+          <line x1="93.3" y1="102" x2="93.3" y2="108" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <line x1="166.6" y1="102" x2="166.6" y2="108" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <line x1="239.9" y1="102" x2="239.9" y2="108" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <line x1="313.2" y1="102" x2="313.2" y2="108" stroke="var(--text-muted)" stroke-width="1.5"/>
+          <line x1="386.5" y1="102" x2="386.5" y2="108" stroke="var(--text-muted)" stroke-width="1.5"/>
+
+          <rect x="20" y="108" width="73.3" height="40" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="56.65" y="132" text-anchor="middle" fill="var(--text)" font-size="9">A</text>
+          <rect x="93.3" y="108" width="73.3" height="40" fill="var(--acc-quiz)" fill-opacity="0.25" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="129.95" y="132" text-anchor="middle" fill="var(--text)" font-size="9">B</text>
+          <rect x="166.6" y="108" width="73.3" height="40" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="203.25" y="132" text-anchor="middle" fill="var(--text)" font-size="9">A</text>
+          <rect x="239.9" y="108" width="73.3" height="40" fill="var(--acc-quiz)" fill-opacity="0.25" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="276.55" y="132" text-anchor="middle" fill="var(--text)" font-size="9">B</text>
+          <rect x="313.2" y="108" width="73.3" height="40" fill="var(--acc-praxis)" fill-opacity="0.25" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="349.85" y="132" text-anchor="middle" fill="var(--text)" font-size="9">A</text>
+          <rect x="386.5" y="108" width="73.5" height="40" fill="var(--acc-quiz)" fill-opacity="0.25" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <text x="423.25" y="132" text-anchor="middle" fill="var(--text)" font-size="9">B</text>
+
+          <line x1="20" y1="152" x2="93.3" y2="152" stroke="var(--text-muted)" stroke-width="1"/>
+          <line x1="20" y1="148" x2="20" y2="152" stroke="var(--text-muted)" stroke-width="1"/>
+          <line x1="93.3" y1="148" x2="93.3" y2="152" stroke="var(--text-muted)" stroke-width="1"/>
+          <text x="56.65" y="163" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">1 Zeitscheibe</text>
+
+          <text x="240" y="182" text-anchor="middle" fill="var(--text-muted)" font-size="8">gleich große Zeitscheiben — unabhängig vom Prozessverhalten</text>
+        </svg>
+        <figcaption>
+          Kooperatives Multitasking kann durch einen hängenden Prozess das
+          gesamte System blockieren — präemptives Multitasking erzwingt
+          den Wechsel per Scheduler unabhängig vom Prozessverhalten.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Nutzer meldet dem Support der TechNord GmbH, eine ältere
+        Anwendung friere ab und zu ein — er befürchtet, dass dadurch der
+        ganze PC lahmgelegt wird:
+      </p>
+      <ul>
+        <li><strong>Erklärung durch den Support:</strong> Da das
+          aktuelle Betriebssystem <strong>präemptives Multitasking</strong>
+          nutzt, sollte die hängende Anwendung isoliert bleiben — im
+          Task-Manager lässt sie sich gezielt beenden, ohne andere
+          Programme zu beeinträchtigen.</li>
+        <li><strong>Falls tatsächlich das gesamte System einfriert</strong>,
+          deutet das auf ein tieferliegendes Problem hin, z. B. einen
+          fehlerhaften Treiber, der im privilegierten Kernel-Modus läuft
+          und dadurch nicht durch normales Prozess-Scheduling isoliert
+          werden kann.</li>
+        <li><strong>Moderne Webbrowser</strong> nutzen zudem für jeden
+          Tab einen eigenen Prozess bzw. Thread — stürzt ein einzelner Tab
+          ab, bleibt der Rest des Browsers unbeeinträchtigt nutzbar.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Prozess hat eigenen isolierten Speicher, ein Thread läuft
+        innerhalb eines Prozesses und teilt sich dessen Ressourcen —
+        Thread-Wechsel sind günstiger als Prozess-Wechsel. Kooperatives
+        Multitasking verlässt sich darauf, dass Prozesse die CPU
+        freiwillig abgeben (Risiko: Systemblockade). Präemptives
+        Multitasking entzieht zwangsweise per Scheduler nach fester
+        Zeitscheibe — der moderne, stabilere Standard.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/multitasking-prozesse.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

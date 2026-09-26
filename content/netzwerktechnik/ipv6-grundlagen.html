@@ -1,0 +1,216 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir vor, eine kleine Stadt hätte irgendwann so viele Häuser
+        gebaut, dass die vierstelligen Hausnummern nicht mehr ausreichen —
+        jede mögliche Kombination ist längst vergeben. Die Lösung: ein neues,
+        viel größeres Nummernsystem, das niemals ausgeht. Genau das ist die
+        Motivation hinter <strong>IPv6</strong>: IPv4 hat nur rund 4,3
+        Milliarden Adressen, und die sind angesichts von Milliarden
+        vernetzter Geräte weltweit längst knapp. IPv6 stellt eine
+        astronomisch größere Anzahl an Adressen bereit — und bringt dabei
+        gleich neue Mechanismen mit, mit denen sich Geräte ihre Adresse
+        selbst „aussuchen“ können, ganz ohne zentrale Verwaltung.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>IPv6-Adresse</strong> ist 128 Bit lang (gegenüber 32 Bit
+        bei IPv4) und wird in acht Blöcken zu je 16 Bit hexadezimal
+        geschrieben, getrennt durch Doppelpunkte, z. B.
+        <code>2001:0db8:0000:0000:0000:ff00:0042:8329</code>. Zur
+        Vereinfachung dürfen führende Nullen in einem Block weggelassen und
+        eine zusammenhängende Folge von Null-Blöcken einmal pro Adresse durch
+        <code>::</code> ersetzt werden — verkürzt also
+        <code>2001:db8::ff00:42:8329</code>.
+      </p>
+
+      <h3>Adresstypen</h3>
+      <table>
+        <thead>
+          <tr><th>Adresstyp</th><th>Präfix</th><th>Vergleichbar mit IPv4</th><th>Reichweite</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Global Unicast</strong></td><td>2000::/3</td><td>öffentliche IPv4-Adresse</td><td>weltweit eindeutig, im Internet routbar</td></tr>
+          <tr><td><strong>Unique Local (ULA)</strong></td><td>fc00::/7</td><td>private IPv4-Adresse (RFC 1918)</td><td>nur innerhalb einer Organisation, nicht im öffentlichen Internet routbar</td></tr>
+          <tr><td><strong>Link-Local</strong></td><td>fe80::/10</td><td>APIPA (169.254.0.0/16)</td><td>nur im lokalen Netzsegment, wird jedem Interface automatisch zugewiesen</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Eine Link-Local-Adresse erhält jede IPv6-fähige Netzwerkschnittstelle
+        automatisch, sobald sie aktiviert wird — sie ist Voraussetzung für
+        grundlegende Netzwerkprotokolle (z. B. Nachbarschaftserkennung) und
+        wird nie über den Router hinaus weitergeleitet.
+      </p>
+
+      <h3>Automatische Adressvergabe: SLAAC</h3>
+      <p>
+        <strong>SLAAC</strong> (Stateless Address Autoconfiguration) erlaubt
+        es einem Gerät, sich seine eigene Global-Unicast-Adresse ganz ohne
+        DHCP-Server selbst zu erzeugen:
+      </p>
+      <ol>
+        <li>Der Router sendet regelmäßig <strong>Router Advertisements</strong> (RA) mit dem Netzwerkpräfix (z. B. <code>2001:db8:abcd:1::/64</code>) ins lokale Netz.</li>
+        <li>Das Gerät übernimmt dieses Präfix als Netzanteil seiner Adresse.</li>
+        <li>Den Hostanteil (Interface-Identifier) erzeugt das Gerät selbst — häufig per <strong>EUI-64</strong>-Verfahren.</li>
+      </ol>
+
+      <h3>EUI-64: Interface-Identifier aus der MAC-Adresse</h3>
+      <p>
+        Beim EUI-64-Verfahren wird die 48 Bit lange MAC-Adresse der
+        Netzwerkkarte zu einem 64 Bit langen Interface-Identifier erweitert:
+      </p>
+      <ul>
+        <li>Die MAC-Adresse wird in der Mitte aufgetrennt (24 Bit Hersteller-Kennung + 24 Bit Geräte-Kennung).</li>
+        <li>Dazwischen wird die feste Bitfolge <code>FFFE</code> eingefügt — aus 48 Bit werden so 64 Bit.</li>
+        <li>Ein einzelnes Bit (das „Universal/Local“-Bit) wird invertiert, um anzuzeigen, dass die Adresse global eindeutig abgeleitet wurde.</li>
+      </ul>
+      <p>
+        Damit lässt sich aus jeder MAC-Adresse eindeutig ein
+        Interface-Identifier ableiten, ohne dass ein Server Adressen
+        verwalten oder Kollisionen verhindern muss.
+      </p>
+
+      <h3>Subnetting-Beispiel: ein /56-Präfix aufteilen</h3>
+      <p>
+        Ein Internetanbieter vergibt an einen Kunden häufig ein
+        <strong>/56-Präfix</strong> — daraus lassen sich eigene
+        <strong>/64-Subnetze</strong> bilden, da jedes einzelne Subnetz in
+        IPv6 standardmäßig 64 Bit Netzanteil hat. Zwischen /56 und /64
+        liegen 8 frei wählbare Bit, also 2⁸ = 256 mögliche Subnetze. Bei
+        einem Präfix <code>2001:db8:abcd:1200::/56</code> ergeben sich die
+        ersten vier /64-Subnetze durch Hochzählen dieser 8 Bit im siebten
+        Block:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Subnetz</th><th>Präfix</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1.</td><td><code>2001:db8:abcd:1200::/64</code></td></tr>
+          <tr><td>2.</td><td><code>2001:db8:abcd:1201::/64</code></td></tr>
+          <tr><td>3.</td><td><code>2001:db8:abcd:1202::/64</code></td></tr>
+          <tr><td>4.</td><td><code>2001:db8:abcd:1203::/64</code></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Jedes dieser vier /64-Subnetze kann z. B. eine eigene Abteilung
+        (Verwaltung, Lager, Produktion, Gäste-WLAN) bekommen — mit noch
+        immer 64 Bit für den Hostanteil bleibt in jedem einzelnen Subnetz
+        praktisch unbegrenzt Platz für Geräte.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eui64-title eui64-desc">
+          <title id="eui64-title">EUI-64-Verfahren Schritt für Schritt am Beispiel MAC 00:1A:2B:3C:4D:5E</title>
+          <desc id="eui64-desc">Die MAC-Adresse 00:1A:2B:3C:4D:5E wird in der Mitte zwischen Herstellerkennung und Gerätekennung aufgetrennt. Dazwischen wird FFFE eingefügt, wodurch acht Byte entstehen: 00:1A:2B:FF:FE:3C:4D:5E. Anschließend wird das Universal/Local-Bit des ersten Byte invertiert, aus 00 wird 02. Das Ergebnis, in IPv6-Blöcke gruppiert, ist der Interface-Identifier 021A:2BFF:FE3C:4D5E.</desc>
+
+          <text x="10" y="35" fill="var(--text-muted)" font-size="9">MAC-Adresse</text>
+          <rect x="100" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="140" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="180" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="220" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="260" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="300" y="40" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <g text-anchor="middle" fill="var(--text)" font-size="11">
+            <text x="118" y="60">00</text><text x="158" y="60">1A</text><text x="198" y="60">2B</text>
+            <text x="238" y="60">3C</text><text x="278" y="60">4D</text><text x="318" y="60">5E</text>
+          </g>
+          <line x1="218" y1="35" x2="218" y2="75" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="118" y="28" fill="var(--acc-einstieg)" font-size="8">Hersteller (OUI)</text>
+          <text x="277" y="28" fill="var(--acc-quiz)" font-size="8">Gerät</text>
+
+          <text x="10" y="100" fill="var(--text-muted)" font-size="9">+ FFFE</text>
+          <text x="10" y="112" fill="var(--text-muted)" font-size="9">eingefügt</text>
+          <rect x="100" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="140" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="180" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="220" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <rect x="260" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-merksatz)" stroke-width="2"/>
+          <rect x="300" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="340" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <rect x="380" y="100" width="36" height="30" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="1.5"/>
+          <g text-anchor="middle" fill="var(--text)" font-size="11">
+            <text x="118" y="120">00</text><text x="158" y="120">1A</text><text x="198" y="120">2B</text>
+            <text x="238" y="120" font-weight="700">FF</text><text x="278" y="120" font-weight="700">FE</text>
+            <text x="318" y="120">3C</text><text x="358" y="120">4D</text><text x="398" y="120">5E</text>
+          </g>
+
+          <text x="10" y="160" fill="var(--text-muted)" font-size="9">U/L-Bit</text>
+          <text x="10" y="172" fill="var(--text-muted)" font-size="9">geflippt</text>
+          <rect x="100" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--fail)" stroke-width="2.5"/>
+          <rect x="140" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="180" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="220" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="260" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="300" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="340" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <rect x="380" y="160" width="36" height="30" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <g text-anchor="middle" fill="var(--text)" font-size="11">
+            <text x="118" y="180" fill="var(--fail)" font-weight="700">02</text>
+            <text x="158" y="180">1A</text><text x="198" y="180">2B</text>
+            <text x="238" y="180">FF</text><text x="278" y="180">FE</text>
+            <text x="318" y="180">3C</text><text x="358" y="180">4D</text><text x="398" y="180">5E</text>
+          </g>
+
+          <text x="220" y="215" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Interface-ID: 021A:2BFF:FE3C:4D5E</text>
+        </svg>
+        <figcaption>
+          Die MAC wird in der Mitte getrennt (blau/violett), FFFE
+          eingefügt (gelb) und im ersten Byte das U/L-Bit invertiert
+          (00 → 02, rot) — daraus ergibt sich der 64-Bit-Interface-Identifier.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Notebook wird in ein Firmennetz eingebunden, das sowohl IPv4 als
+        auch IPv6 (Dual-Stack) betreibt.
+      </p>
+      <ul>
+        <li>Sobald die Netzwerkkarte aktiv ist, erhält sie sofort eine <strong>Link-Local-Adresse</strong> (fe80::…) — ganz ohne Router oder DHCP, ausschließlich für Kommunikation im lokalen Segment.</li>
+        <li>Der Router im Netz sendet ein <strong>Router Advertisement</strong> mit dem Präfix <code>2001:db8:abcd:5::/64</code>.</li>
+        <li>Das Notebook führt <strong>SLAAC</strong> aus: Es übernimmt das Präfix und bildet per <strong>EUI-64</strong> aus seiner MAC-Adresse einen eindeutigen Interface-Identifier — ohne dass ein DHCPv6-Server befragt werden musste.</li>
+        <li>Die IT-Administration erkennt am Aufbau der Adresse (Präfix 2001:db8:abcd:5::/64) sofort, aus welchem Subnetz das Gerät stammt — nützlich bei der Fehlersuche im Netzwerklog.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Welchen IPv4-Mechanismus ersetzt die
+        IPv6-Link-Local-Adresse funktional?“ – Antwort: APIPA
+        (169.254.0.0/16) — beide vergeben automatisch eine
+        Segment-lokale Adresse, wenn kein DHCP-Server verfügbar ist bzw.
+        grundsätzlich beim Interface-Start.
+      </p>
+
+      <p class="tool-intro">Kürze/expandiere eine IPv6-Adresse oder leite einen Interface-Identifier per EUI-64 aus einer MAC-Adresse ab:</p>
+      <div class="tool" data-tool="ipv6-tool">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        IPv6 = 128 Bit, hexadezimal in 8 Blöcken, <code>::</code> kürzt
+        Nullfolgen einmal pro Adresse. Global Unicast = öffentlich, Unique
+        Local = privat, Link-Local (fe80::/10) = automatisch pro Interface,
+        nur lokal. SLAAC lässt Geräte sich ohne DHCP selbst adressieren,
+        EUI-64 leitet den Interface-Identifier aus der MAC-Adresse ab.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/ipv6-grundlagen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

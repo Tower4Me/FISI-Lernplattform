@@ -1,0 +1,177 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Türsteher an einem Vereinsheim könnte den Ausweis prüfen (etwas,
+        das du <em>hast</em>), das Vereins-Passwort abfragen (etwas, das du
+        <em>weißt</em>) oder dein Gesicht mit einer Mitgliederliste
+        abgleichen (etwas, das du <em>bist</em>). Verlangt er zwei
+        unterschiedliche Nachweise gleichzeitig, kommt selbst ein Dieb mit
+        gestohlenem Ausweis nicht hinein, wenn er nicht zusätzlich das
+        Passwort kennt. Genau das ist das Prinzip hinter starker
+        Authentifizierung.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>Authentifizierung</strong> beweist eine Identität. Sie
+        stützt sich auf drei Arten von Faktoren:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Faktor</th><th>Beschreibung</th><th>Beispiel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Wissen</strong></td><td>Etwas, das man weiß</td><td>Passwort, PIN, Sicherheitsfrage</td></tr>
+          <tr><td><strong>Besitz</strong></td><td>Etwas, das man hat</td><td>Smartphone (TAN-App), Hardware-Token, Smartcard</td></tr>
+          <tr><td><strong>Sein / Inhärenz</strong></td><td>Etwas, das man ist</td><td>Fingerabdruck, Gesicht, Iris (Biometrie)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Werden zwei unterschiedliche Faktorarten kombiniert, spricht man von
+        <strong>Zwei-Faktor-Authentifizierung (2FA)</strong> bzw. allgemein
+        <strong>Multi-Faktor-Authentifizierung (MFA)</strong>. Ein häufiger
+        Fehler: Passwort <strong>plus</strong> Sicherheitsfrage ist
+        <strong>keine</strong> echte 2FA – beides ist der Faktor „Wissen“.
+        Echte MFA kombiniert verschiedene Faktorarten, z. B. Passwort
+        (Wissen) plus Code aus einer App (Besitz).
+      </p>
+
+      <p>
+        Bei Passwörtern gilt: <strong>Länge schlägt Komplexität</strong>.
+        Ein langer, gut merkbarer Satz ist oft sicherer als ein kurzes,
+        kompliziertes Kunstwort. Wichtiger als starre Regeln: für jeden
+        Dienst ein eigenes Passwort, idealerweise verwaltet in einem
+        Passwort-Manager, dazu MFA wo immer möglich.
+      </p>
+
+      <h3>Passwort-Komplexität berechnen</h3>
+      <p>
+        Wie lange ein systematisches Durchprobieren (Brute-Force) dauert,
+        hängt von der Anzahl möglicher Kombinationen ab. Diese ergibt sich
+        aus <strong>Zeichenraum<sup>Länge</sup></strong>: Je größer der
+        Zeichenraum (welche Zeichenarten erlaubt sind) und je länger das
+        Passwort, desto mehr Kombinationen muss ein Angreifer testen.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Zeichenraum</th><th>Länge</th><th>Mögliche Kombinationen</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nur Ziffern (10 Zeichen)</td><td>4</td><td>10<sup>4</sup> = 10.000</td></tr>
+          <tr><td>Kleinbuchstaben (26 Zeichen)</td><td>8</td><td>26<sup>8</sup> ≈ 209 Milliarden</td></tr>
+          <tr><td>Groß-/Kleinbuchstaben, Ziffern, Sonderzeichen (~94 Zeichen)</td><td>12</td><td>94<sup>12</sup> ≈ 4,7 · 10<sup>23</sup></td></tr>
+        </tbody>
+      </table>
+      <p>
+        Jedes zusätzliche Zeichen in der <strong>Länge</strong> wirkt
+        multiplikativ und damit stärker auf die Kombinationszahl als ein
+        größerer Zeichenraum bei gleicher Länge – das erklärt, warum
+        „Länge schlägt Komplexität“ mehr ist als eine Faustregel.
+      </p>
+
+      <h3>Captcha, PIN und TAN</h3>
+      <p>
+        Drei Begriffe, die oft mit Authentifizierung verwechselt werden,
+        aber unterschiedliche Aufgaben haben:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Aufgabe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Captcha</strong></td><td>Unterscheidet Mensch von Bot bei Formularen/Logins, um automatisierte Angriffe (Brute-Force, Massen-Registrierung) zu erschweren. Kein eigener Authentifizierungsfaktor.</td></tr>
+          <tr><td><strong>PIN</strong> (Persönliche Identifikationsnummer)</td><td>Kurzer Wissensfaktor, fast immer in Kombination mit einem Besitzfaktor genutzt (z. B. Bankkarte + PIN = Besitz + Wissen).</td></tr>
+          <tr><td><strong>TAN</strong> (Transaktionsnummer)</td><td>Einmalkennwort für genau eine Aktion, danach wertlos; moderne Verfahren (mTAN/pushTAN) sind zusätzlich zeit- und transaktionsgebunden.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Single Sign-On (SSO)</h3>
+      <p>
+        Bei <strong>SSO</strong> meldet sich der Nutzer einmal an und erhält
+        Zugang zu mehreren Diensten. Vorteil: weniger Passwörter, zentrale
+        Verwaltung. Risiko: Fällt das eine Konto, fallen potenziell alle
+        angebundenen Dienste – deshalb gehört zu SSO praktisch immer MFA.
+      </p>
+      <p>
+        Technisch sind daran zwei Rollen beteiligt: Der
+        <strong>Identity Provider (IdP)</strong> verwaltet den eigentlichen
+        Login und prüft, wer sich anmeldet. Der
+        <strong>Service Provider (SP)</strong> ist der Dienst oder die
+        Website, die der Nutzer eigentlich nutzen will. Der Ablauf läuft
+        dabei immer in derselben Reihenfolge: Der Nutzer ruft den SP auf →
+        der SP hat noch keine gültige Sitzung und leitet zum IdP weiter →
+        der Nutzer meldet sich einmal beim IdP an → der IdP stellt ein
+        signiertes Token (auch Assertion genannt) aus, das die Identität
+        und oft die zugehörigen Berechtigungen bestätigt → der Browser wird
+        mit diesem Token zurück zum SP geleitet → der SP vertraut dem
+        Token, weil er dem IdP vertraut, und gewährt Zugriff, ohne dass dort
+        ein eigenes Passwort nötig wäre.
+      </p>
+      <p>
+        Praxisbeispiel: Meldet man sich bei einer fremden Website über
+        „Mit Google anmelden“ oder „Mit Microsoft anmelden“ an, sieht diese
+        Website niemals das Google- bzw. Microsoft-Passwort – sie erhält von
+        Google bzw. Microsoft nur ein Token, das die Identität bestätigt.
+      </p>
+      <p>
+        Verbreitete Standards dafür sind SAML, OAuth 2.0 und OpenID
+        Connect: SAML ist vor allem in klassischen
+        Unternehmens-/Intranet-SSO-Umgebungen verbreitet, OAuth 2.0 und
+        OpenID Connect dagegen häufiger in modernen Web- und Mobile-Apps.
+      </p>
+
+      <p>
+        Wie Zugriffsrechte und Protokollierung nach der Anmeldung geregelt
+        werden, behandelt die Einheit
+        <a href="../it-sicherheit/aaa-radius-tacacs.html">AAA: Authentication, Authorization, Accounting</a>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus führt für einen Kunden ein neues Login-Konzept
+        ein:
+      </p>
+      <ul>
+        <li>Mitarbeiter melden sich künftig mit Passwort <strong>und</strong> einer Push-Benachrichtigung auf dem Diensthandy an → echte MFA, weil Wissen (Passwort) und Besitz (Smartphone) kombiniert werden.</li>
+        <li>Ein Kollege schlägt vor, stattdessen Passwort plus eine zusätzliche Sicherheitsfrage zu verlangen → wird abgelehnt, da beides derselbe Faktor „Wissen“ ist und keine echte MFA darstellt.</li>
+        <li>Über einen zentralen Login-Dienst (SSO) erhalten Mitarbeiter nach einer Anmeldung automatisch Zugriff auf E-Mail, Zeiterfassung und internes Wiki. Weil ein einziges kompromittiertes Konto damit mehrere Systeme öffnen würde, wird SSO verpflichtend mit MFA kombiniert.</li>
+        <li>Beim Online-Banking-Portal des Kunden wird jede Überweisung zusätzlich mit einer <strong>pushTAN</strong> bestätigt → selbst ein abgefangenes Passwort reicht Angreifern nicht, da die TAN nur für diese eine Transaktion gilt.</li>
+        <li>Das Kontaktformular bekommt nach einer Bot-Spam-Welle ein <strong>Captcha</strong> → kein Authentifizierungsfaktor, aber wirksam gegen automatisierte Angriffe.</li>
+      </ul>
+
+      <p class="tool-intro">Berechne Kombinationsanzahl und Brute-Force-Dauer für ein eigenes Passwort-Szenario:</p>
+      <div class="tool" data-tool="passwort-komplexitaet-rechner">
+        <p class="muted">Tool wird geladen …</p>
+      </div>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Drei Faktorarten: Wissen, Besitz, Sein. Echte MFA kombiniert
+        unterschiedliche Faktorarten, nicht zweimal denselben. Passwort-
+        Stärke = Zeichenraum<sup>Länge</sup>, Länge wirkt stärker als
+        Komplexität. Captcha erkennt Bots, PIN ist ein kurzer Wissensfaktor,
+        TAN ein Einmalkennwort pro Transaktion. SSO spart Logins, braucht
+        aber zwingend MFA als Ausgleich für das erhöhte Risiko.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/authentifizierung-mfa-aaa.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

@@ -1,0 +1,150 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir eine Autovermietung am Flughafen vor. Jeder Reisende
+        könnte theoretisch selbst ein Auto mitbringen — aber viel
+        praktischer ist es, sich am Schalter zu melden: „Ich brauche ein
+        Auto für drei Tage.“ Der Schalter prüft die freien Fahrzeuge, bietet
+        eines an, der Kunde nimmt es an, und der Schalter trägt den Kunden
+        als aktuellen Nutzer dieses Autos ein — befristet, mit
+        Rückgabetermin. Genau nach diesem Prinzip funktioniert
+        <strong>DHCP</strong>: Ein Gerät „mietet“ sich beim DHCP-Server
+        automatisch eine IP-Adresse, statt dass ein Administrator sie von
+        Hand vergeben muss.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>DHCP</strong> (Dynamic Host Configuration Protocol) vergibt
+        Geräten im Netzwerk automatisch eine IP-Adresse samt weiterer
+        Konfiguration (Subnetzmaske, Standardgateway, DNS-Server) — ohne
+        dass jedes Gerät manuell eingerichtet werden muss. Der Ablauf einer
+        Adressvergabe folgt vier Schritten, gemerkt als
+        <strong>DORA</strong>:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Schritt</th><th>Nachricht</th><th>Ablauf</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>D</strong></td><td>Discover</td><td>Das Client-Gerät sendet beim Start einen Broadcast: „Ist hier ein DHCP-Server, der mir eine Adresse geben kann?“</td></tr>
+          <tr><td><strong>O</strong></td><td>Offer</td><td>Jeder erreichbare DHCP-Server antwortet per Broadcast mit einem konkreten Adressangebot (IP-Adresse, Lease-Dauer, weitere Parameter).</td></tr>
+          <tr><td><strong>R</strong></td><td>Request</td><td>Der Client wählt eines der Angebote aus und sendet einen Broadcast, mit dem er dieses Angebot ausdrücklich anfordert — sichtbar auch für alle anderen anbietenden Server, die ihr Angebot dadurch zurückziehen.</td></tr>
+          <tr><td><strong>A</strong></td><td>Acknowledge</td><td>Der ausgewählte Server bestätigt die Zuteilung endgültig (ACK) und trägt die Adresse als vergeben (belegt) in seiner Datenbank ein.</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Alle vier Nachrichten laufen zunächst als <strong>Broadcast</strong>
+        ab, da der Client zu Beginn noch keine eigene IP-Adresse besitzt und
+        den DHCP-Server nicht gezielt adressieren kann.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="dora-title dora-desc">
+          <title id="dora-title">DORA-Ablauf: Discover, Offer, Request, Acknowledge zwischen Client und DHCP-Server</title>
+          <desc id="dora-desc">Sequenzdiagramm zwischen Client und DHCP-Server: Der Client sendet Discover als Broadcast, der Server antwortet mit Offer als Broadcast, der Client sendet Request als Broadcast, der Server bestätigt mit Acknowledge als Broadcast. Danach ist der Client netzwerkfähig.</desc>
+
+          <defs>
+            <marker id="dora-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="13">Client</text>
+          <line x1="75" y1="53" x2="75" y2="270" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="13">DHCP-Server</text>
+          <line x1="425" y1="53" x2="425" y2="270" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <line x1="75" y1="80" x2="423" y2="80" stroke="var(--text)" stroke-width="2" marker-end="url(#dora-arrow)"/>
+          <text x="250" y="73" text-anchor="middle" fill="var(--text)" font-size="12">1. Discover (Broadcast)</text>
+
+          <line x1="425" y1="122" x2="77" y2="122" stroke="var(--text)" stroke-width="2" marker-end="url(#dora-arrow)"/>
+          <text x="250" y="115" text-anchor="middle" fill="var(--text)" font-size="12">2. Offer (Broadcast)</text>
+
+          <line x1="75" y1="164" x2="423" y2="164" stroke="var(--text)" stroke-width="2" marker-end="url(#dora-arrow)"/>
+          <text x="250" y="157" text-anchor="middle" fill="var(--text)" font-size="12">3. Request (Broadcast)</text>
+
+          <line x1="425" y1="206" x2="77" y2="206" stroke="var(--text)" stroke-width="2" marker-end="url(#dora-arrow)"/>
+          <text x="250" y="199" text-anchor="middle" fill="var(--text)" font-size="12">4. Acknowledge (Broadcast)</text>
+
+          <text x="250" y="235" text-anchor="middle" fill="var(--text-muted)" font-size="11">Adresse vergeben — Client ist netzwerkfähig</text>
+        </svg>
+        <figcaption>
+          D-O-R-A: Discover, Offer, Request, Acknowledge — alle vier
+          Schritte laufen als Broadcast, da der Client anfangs noch keine
+          eigene IP-Adresse hat.
+        </figcaption>
+      </figure>
+
+      <h3>Lease-Dauer und Verlängerung</h3>
+      <p>
+        Eine vergebene IP-Adresse ist nur befristet gültig
+        (<strong>Lease</strong>). Vor Ablauf versucht der Client, die
+        Adresse beim ursprünglichen Server zu verlängern (Renewal) — meist
+        unauffällig im Hintergrund, ohne den vollständigen DORA-Ablauf zu
+        wiederholen. Läuft die Lease komplett ab, ohne verlängert zu werden,
+        muss das Gerät erneut mit Discover starten.
+      </p>
+
+      <h3>Typische DHCP-Parameter</h3>
+      <ul>
+        <li>IP-Adresse und Subnetzmaske</li>
+        <li>Standardgateway (Router-Adresse)</li>
+        <li>DNS-Server-Adresse(n)</li>
+        <li>Lease-Dauer</li>
+      </ul>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein neuer Laptop wird morgens im Büro per Netzwerkkabel
+        angeschlossen und gestartet.
+      </p>
+      <ul>
+        <li><strong>Discover:</strong> Der Laptop hat noch keine IP-Adresse und sendet einen Broadcast ins Netz: „Wer kann mir eine Adresse geben?“</li>
+        <li><strong>Offer:</strong> Der zentrale DHCP-Server der Firma antwortet mit dem Angebot <code>192.168.10.55</code>, Lease-Dauer 24 Stunden, Gateway <code>192.168.10.1</code>, DNS-Server <code>192.168.10.5</code>.</li>
+        <li><strong>Request:</strong> Der Laptop fordert dieses Angebot per Broadcast ausdrücklich an.</li>
+        <li><strong>Acknowledge:</strong> Der Server bestätigt die Vergabe, der Laptop übernimmt die vollständige Netzwerkkonfiguration und ist damit netzwerkfähig — ganz ohne manuelle Eingabe durch den IT-Support.</li>
+      </ul>
+      <p>
+        Typische Prüfungsfrage: „Warum laufen Discover und Request als
+        Broadcast statt als gezielte Nachricht an den Server?“ – Antwort:
+        Der Client besitzt zu diesem Zeitpunkt noch keine eigene
+        IP-Adresse und kann den DHCP-Server deshalb nicht direkt (unicast)
+        adressieren — ein Broadcast erreicht alle Geräte im Segment,
+        einschließlich eines eventuell vorhandenen DHCP-Servers.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        DHCP vergibt IP-Konfiguration automatisch nach dem
+        <strong>DORA</strong>-Prinzip: <strong>D</strong>iscover (Client
+        sucht Server), <strong>O</strong>ffer (Server bietet Adresse an),
+        <strong>R</strong>equest (Client fordert Angebot an),
+        <strong>A</strong>cknowledge (Server bestätigt). Adressen sind
+        zeitlich befristet (Lease) und werden vor Ablauf verlängert.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/netzwerktechnik/dhcp-dora.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

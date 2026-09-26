@@ -1,0 +1,167 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Fotograf, der jedes Foto-Shooting komplett neu auf eine externe
+        Festplatte kopiert, braucht viel Platz und Zeit, kann aber im
+        Ernstfall sofort alles von einer einzigen Kopie zurückholen. Ein
+        anderer notiert sich stattdessen nur, welche Fotos seit dem letzten
+        Shooting neu dazugekommen sind – das spart Platz, macht die
+        Wiederherstellung aber komplizierter, wenn mehrere Notizzettel
+        zusammenpassen müssen. Genau diese Abwägung steckt hinter den
+        verschiedenen <strong>Backup-Arten</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>Es gibt drei grundlegende Backup-Arten:</p>
+
+      <table>
+        <thead>
+          <tr><th>Art</th><th>Sichert</th><th>Wiederherstellung (Restore)</th><th>Speicher/Zeit</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Vollbackup</strong></td><td>Alle Daten, jedes Mal komplett</td><td>Schnell (nur 1 Datensatz)</td><td>Hoch</td></tr>
+          <tr><td><strong>Differenziell</strong></td><td>Alles seit dem letzten Vollbackup</td><td>Vollbackup + letztes differenzielles</td><td>Mittel</td></tr>
+          <tr><td><strong>Inkrementell</strong></td><td>Nur Änderungen seit dem letzten Backup (egal welcher Art)</td><td>Vollbackup + lückenlos alle inkrementellen (langsamer)</td><td>Gering</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Der Unterschied beim Restore ist prüfungsrelevant: Ein
+        <strong>differenzielles</strong> Backup braucht zur Wiederherstellung
+        nur das letzte Vollbackup plus das letzte differenzielle Backup –
+        unabhängig davon, wie viele differenzielle Backups dazwischen
+        entstanden sind, jedes enthält ja bereits alle Änderungen seit dem
+        Vollbackup. Ein <strong>inkrementelles</strong> Backup dagegen
+        braucht das Vollbackup <em>und lückenlos jedes</em> nachfolgende
+        inkrementelle Backup in der richtigen Reihenfolge – fehlt eines,
+        ist die Kette unterbrochen und die Wiederherstellung unvollständig.
+      </p>
+
+      <p>
+        Technisch steuert das <strong>Archivbit</strong> (ein Flag pro
+        Datei) diese Logik: Jede Datei setzt es automatisch beim Erstellen
+        oder Ändern. Voll- und inkrementelle Backups <strong>löschen</strong>
+        das Archivbit nach der Sicherung – die Datei gilt dann als
+        gesichert, bis sie erneut geändert wird. Differenzielle Backups
+        lassen das Archivbit dagegen unangetastet, weshalb sie bei jedem
+        Lauf erneut alle Änderungen seit dem Vollbackup mitsichern.
+      </p>
+
+      <h3>Die 3-2-1-Regel</h3>
+      <p>
+        Eine bewährte Faustregel für Backup-Strategien: <strong>3</strong>
+        Kopien der Daten (Original plus 2 Backups), auf <strong>2</strong>
+        verschiedenen Speichermedien, davon <strong>1</strong> Kopie
+        außerhalb des Standorts (offsite) – falls Feuer oder Diebstahl den
+        Hauptstandort komplett trifft. Gegen Ransomware wird die Regel
+        heute oft um eine weitere „1“ und eine „0“ ergänzt:
+        <strong>3-2-1-1-0</strong> – mindestens eine Kopie <em>offline
+        oder unveränderlich</em> (kann ein Verschlüsselungstrojaner nicht
+        erreichen), und „0“ steht für null Fehler bei regelmäßig
+        getesteten Wiederherstellungen.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="backup-title backup-desc">
+          <title id="backup-title">Restore-Kette: inkrementelle vs. differenzielle Backup-Strategie bei Ausfall am Mittwoch</title>
+          <desc id="backup-desc">Bei der inkrementellen Strategie werden für die Wiederherstellung am Mittwoch das Vollbackup vom Sonntag sowie lückenlos beide inkrementellen Backups von Montag und Dienstag benötigt. Bei der differenziellen Strategie werden nur das Vollbackup vom Sonntag und das letzte differenzielle Backup vom Dienstag benötigt, das Backup vom Montag wird nicht gebraucht, da das Dienstags-Backup bereits alle Änderungen seit Sonntag enthält.</desc>
+
+          <defs>
+            <marker id="backup-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <text x="30" y="15" fill="var(--text)" font-size="10" font-weight="600">Inkrementell-Strategie (alle Backups nötig)</text>
+          <rect x="30" y="30" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="65" y="48" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">So</text>
+          <text x="65" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Vollbackup</text>
+          <line x1="100" y1="47" x2="148" y2="47" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="150" y="30" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="185" y="48" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Mo</text>
+          <text x="185" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Inkrementell</text>
+          <line x1="220" y1="47" x2="268" y2="47" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="270" y="30" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="305" y="48" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Di</text>
+          <text x="305" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Inkrementell</text>
+          <line x1="340" y1="47" x2="378" y2="47" stroke="var(--fail)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="380" y="30" width="70" height="34" rx="5" fill="var(--fail)" fill-opacity="0.12" stroke="var(--fail)" stroke-width="2"/>
+          <text x="415" y="48" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Mi</text>
+          <text x="415" y="60" text-anchor="middle" fill="var(--text-muted)" font-size="7">Restore</text>
+
+          <text x="30" y="145" fill="var(--text)" font-size="10" font-weight="600">Differenziell-Strategie (nur letztes Diff. nötig)</text>
+          <rect x="30" y="160" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="65" y="178" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">So</text>
+          <text x="65" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Vollbackup</text>
+          <rect x="150" y="160" width="70" height="34" rx="5" fill="var(--surface)" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="185" y="178" text-anchor="middle" fill="var(--text-muted)" font-size="12" font-weight="700">Mo</text>
+          <text x="185" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Differenziell</text>
+          <text x="185" y="204" text-anchor="middle" fill="var(--text-muted)" font-size="7">nicht benötigt</text>
+          <path d="M100,177 Q185,135 270,177" fill="none" stroke="var(--acc-praxis)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="270" y="160" width="70" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="305" y="178" text-anchor="middle" fill="var(--text)" font-size="12" font-weight="700">Di</text>
+          <text x="305" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Differenziell</text>
+          <line x1="340" y1="177" x2="378" y2="177" stroke="var(--fail)" stroke-width="2" marker-end="url(#backup-arrow)"/>
+          <rect x="380" y="160" width="70" height="34" rx="5" fill="var(--fail)" fill-opacity="0.12" stroke="var(--fail)" stroke-width="2"/>
+          <text x="415" y="178" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="700">Mi</text>
+          <text x="415" y="190" text-anchor="middle" fill="var(--text-muted)" font-size="7">Restore</text>
+        </svg>
+        <figcaption>
+          Inkrementell braucht die lückenlose Kette aller Backups seit
+          dem Vollbackup. Differenziell überspringt frühere
+          Zwischenbackups (gestrichelt) — das letzte enthält bereits
+          alle Änderungen seit dem Vollbackup.
+        </figcaption>
+      </figure>
+
+      <p>
+        Wichtig: RAID (Modul 3.2) ist <strong>kein</strong> Ersatz für ein
+        Backup. RAID schützt vor dem Ausfall einzelner Festplatten, aber
+        eine versehentlich gelöschte oder durch Ransomware verschlüsselte
+        Datei ist auf allen gespiegelten Platten gleichermaßen betroffen.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus richtet für einen Kunden folgende Backup-Strategie
+        ein: Sonntags läuft ein Vollbackup, an den übrigen Wochentagen ein
+        inkrementelles Backup.
+      </p>
+      <ul>
+        <li>Fällt der Server am <strong>Mittwoch</strong> aus, braucht die Wiederherstellung das Vollbackup vom Sonntag <strong>plus</strong> die inkrementellen Backups von Montag und Dienstag – in dieser Reihenfolge.</li>
+        <li>Fehlt das inkrementelle Backup von Montag (z. B. wegen eines technischen Fehlers), lässt sich der Stand von Dienstag nicht mehr korrekt rekonstruieren – die Kette ist unterbrochen.</li>
+        <li>Bei einer differenziellen Strategie hätte man dagegen am Mittwoch nur das Vollbackup vom Sonntag plus das differenzielle Backup vom Dienstag gebraucht, da dieses bereits alle Änderungen seit Sonntag enthält.</li>
+        <li>Zusätzlich wird die 3-2-1-1-0-Regel umgesetzt: Originaldaten auf dem Server, eine Kopie auf einem lokalen NAS, eine weitere Kopie extern in einem Cloud-Speicher mit unveränderlichen (immutable) Snapshots gegen Ransomware. Die Wiederherstellung wird einmal im Quartal getestet.</li>
+        <li>Ein anderer Kunde sichert stattdessen auf Bänder (Tapes) im Rotationsverfahren. Läuft am Montag versehentlich ein inkrementelles statt des geplanten differenziellen Backups, löscht das die Archivbits der geänderten Dateien. Fällt der Server am Mittwoch aus, reichen Vollbackup-Band (Sonntag) und Dienstags-Band <strong>nicht</strong> mehr aus – zusätzlich wird das Montags-Band gebraucht, weil die Dienstags-Sicherung durch das gelöschte Archivbit nur noch Änderungen seit Montag statt seit Sonntag enthält.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Voll = alles, schnell zurück. Differenziell = seit letztem
+        Vollbackup, Restore braucht 2 Teile. Inkrementell = seit letztem
+        Backup, Restore braucht die lückenlose Kette. Das Archivbit
+        steuert das: Voll/Inkrementell löschen es, Differenziell nicht.
+        3-2-1(-1-0)-Regel:
+        3 Kopien, 2 Medien, 1 offsite (optional 1 offline/unveränderlich).
+        RAID ersetzt kein Backup.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/backup-arten.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

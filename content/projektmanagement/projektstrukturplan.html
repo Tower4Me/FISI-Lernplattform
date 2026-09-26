@@ -1,0 +1,167 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Hausbau lässt sich wie ein Stammbaum der Aufgaben zerlegen:
+        oben das gesamte Haus, darunter Äste wie Fundament, Rohbau und
+        Innenausbau, jeder Ast verzweigt weiter in Einzelaufgaben wie
+        Elektrik oder Sanitär — bis sie klein genug sind, um sie jemandem
+        zuzuweisen. Beginnt man beim Haus und zerlegt schrittweise
+        (Top-down), oder sammelt man zuerst Einzelaufgaben und gruppiert
+        sie (Bottom-up)? Meist pendelt man zwischen beiden — das
+        Yo-Yo-Prinzip.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Der <strong>Projektstrukturplan (PSP)</strong> gliedert ein
+        Gesamtprojekt hierarchisch in überschaubare Teilaufgaben — er ist
+        die Basis für die anschließende Termin-, Kosten- und
+        Ressourcenplanung.
+      </p>
+      <p>
+        Typische Ebenen: <strong>Projekt</strong> (Gesamtprojekt) →
+        <strong>Teilprojekte/Phasen</strong> → <strong>Arbeitspakete</strong>
+        (die kleinsten, nicht weiter zerlegten Einheiten, die einer
+        Person oder einem Team konkret zugeordnet werden können).
+      </p>
+
+      <h3>Drei Vorgehensweisen</h3>
+      <table>
+        <thead>
+          <tr><th>Vorgehen</th><th>Ablauf</th><th>Vor-/Nachteil</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Top-down</strong></td>
+            <td>das Gesamtprojekt wird von oben nach unten in immer
+              kleinere Teile zerlegt</td>
+            <td>behält den Gesamtüberblick und liefert eine konsistente
+              Struktur, kann aber Detailwissen der ausführenden Ebene
+              übersehen</td>
+          </tr>
+          <tr>
+            <td><strong>Bottom-up</strong></td>
+            <td>einzelne Arbeitspakete werden zunächst gesammelt (z. B.
+              im Team) und anschließend zu größeren Gruppen
+              zusammengefasst</td>
+            <td>nutzt das Detailwissen der Ausführenden, birgt aber die
+              Gefahr von Lücken oder Doppelungen und einer weniger
+              konsistenten Gesamtstruktur</td>
+          </tr>
+          <tr>
+            <td><strong>Yo-Yo-Prinzip</strong> (Gegenstromverfahren)</td>
+            <td>Kombination aus beidem: zunächst eine grobe
+              Top-down-Struktur entwerfen, dann mit dem Team Bottom-up
+              abgleichen und iterativ in beide Richtungen anpassen</td>
+            <td>verbindet die Vorteile beider Verfahren</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH plant die Einführung eines neuen ERP-Systems:
+      </p>
+      <ul>
+        <li><strong>Top-down-Entwurf:</strong> Gesamtprojekt
+          „ERP-Einführung“ → fünf Teilprojekte (Analyse, Konfiguration,
+          Datenmigration, Schulung, Go-Live) → jedes weiter in
+          Arbeitspakete zerlegt, z. B. „Datenmigration“ in vier Schritte
+          von Export bis Produktiv-Import (siehe Diagramm).</li>
+        <li><strong>Bottom-up-Abgleich:</strong> Die Fachabteilungen
+          werden anschließend einbezogen und ergänzen ein vergessenes
+          Arbeitspaket: „Anpassung der Schnittstelle zur
+          Buchhaltungssoftware“.</li>
+      </ul>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 620 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="psp-title psp-desc">
+          <title id="psp-title">Projektstrukturplan der ERP-Einführung als Baumdiagramm</title>
+          <desc id="psp-desc">Das Gesamtprojekt ERP-Einführung gliedert sich in die fünf Teilprojekte Analyse, Konfiguration, Datenmigration, Schulung und Go-Live. Das Teilprojekt Datenmigration ist beispielhaft weiter in Arbeitspakete zerlegt: Datenexport Altsystem, Datenbereinigung, Import Testsystem, Import Produktivsystem sowie ein gestrichelt dargestelltes fünftes Arbeitspaket Schnittstelle Buchhaltung, das erst nachträglich im Bottom-up-Abgleich ergänzt wurde.</desc>
+
+          <line x1="310" y1="55" x2="70" y2="95" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="310" y1="55" x2="190" y2="95" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="310" y1="55" x2="310" y2="95" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="310" y1="55" x2="430" y2="95" stroke="var(--text-muted)" stroke-width="1.2"/>
+          <line x1="310" y1="55" x2="550" y2="95" stroke="var(--text-muted)" stroke-width="1.2"/>
+
+          <rect x="210" y="15" width="200" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="310" y="40" text-anchor="middle" fill="var(--text)" font-size="14" font-weight="700">ERP-Einführung</text>
+
+          <rect x="15" y="95" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="70" y="120" text-anchor="middle" fill="var(--text)" font-size="11">Analyse</text>
+
+          <rect x="135" y="95" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="190" y="120" text-anchor="middle" fill="var(--text)" font-size="11">Konfiguration</text>
+
+          <rect x="255" y="95" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <text x="310" y="120" text-anchor="middle" fill="var(--text)" font-size="11" font-weight="600">Datenmigration</text>
+
+          <rect x="375" y="95" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="430" y="120" text-anchor="middle" fill="var(--text)" font-size="11">Schulung</text>
+
+          <rect x="495" y="95" width="110" height="40" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="1.5"/>
+          <text x="550" y="120" text-anchor="middle" fill="var(--text)" font-size="11">Go-Live</text>
+
+          <line x1="310" y1="135" x2="86" y2="200" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="310" y1="135" x2="198" y2="200" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="310" y1="135" x2="310" y2="200" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="310" y1="135" x2="422" y2="200" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="310" y1="135" x2="534" y2="200" stroke="var(--acc-quiz)" stroke-width="1.2" stroke-dasharray="3 2"/>
+
+          <rect x="34" y="200" width="104" height="50" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="86" y="222" text-anchor="middle" fill="var(--text)" font-size="9">Datenexport</text>
+          <text x="86" y="236" text-anchor="middle" fill="var(--text)" font-size="9">Altsystem</text>
+
+          <rect x="146" y="200" width="104" height="50" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="198" y="222" text-anchor="middle" fill="var(--text)" font-size="9">Daten-</text>
+          <text x="198" y="236" text-anchor="middle" fill="var(--text)" font-size="9">bereinigung</text>
+
+          <rect x="258" y="200" width="104" height="50" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="310" y="222" text-anchor="middle" fill="var(--text)" font-size="9">Import</text>
+          <text x="310" y="236" text-anchor="middle" fill="var(--text)" font-size="9">Testsystem</text>
+
+          <rect x="370" y="200" width="104" height="50" rx="5" fill="var(--surface)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="422" y="222" text-anchor="middle" fill="var(--text)" font-size="9">Import</text>
+          <text x="422" y="236" text-anchor="middle" fill="var(--text)" font-size="9">Produktiv</text>
+
+          <rect x="482" y="200" width="104" height="50" rx="5" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="534" y="218" text-anchor="middle" fill="var(--text)" font-size="9">Schnittstelle</text>
+          <text x="534" y="231" text-anchor="middle" fill="var(--text)" font-size="9">Buchhaltung</text>
+          <text x="534" y="264" text-anchor="middle" fill="var(--acc-quiz)" font-size="8">(Bottom-up ergänzt)</text>
+        </svg>
+        <figcaption>
+          Top-down-Zerlegung (durchgezogene Linien) bis auf Ebene der
+          Arbeitspakete; das gestrichelt hervorgehobene Arbeitspaket
+          „Schnittstelle Buchhaltung“ kam erst durch den
+          Bottom-up-Abgleich hinzu — genau das Yo-Yo-Prinzip.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Der Projektstrukturplan gliedert ein Projekt hierarchisch in
+        Teilprojekte und Arbeitspakete. Top-down zerlegt vom Ganzen
+        herab, Bottom-up sammelt Einzelaufgaben und gruppiert sie
+        aufwärts, das Yo-Yo-Prinzip kombiniert beide Richtungen
+        iterativ.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/projektstrukturplan.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

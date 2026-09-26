@@ -1,0 +1,204 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Stell dir einen Bodyguard vor, der jemanden vor dem Stolpern
+        bewahren soll. Der erste Typ reagiert erst, wenn die Person
+        tatsächlich schon zu fallen beginnt — er greift danach zu, mit
+        einer kurzen Verzögerung. Der zweite Typ hält die Person die
+        ganze Zeit locker am Arm und gleicht kleine Wackler sofort aus,
+        bevor sie zum echten Fall werden. Der dritte Typ trägt die
+        Person durchgehend selbst — völlig unabhängig davon, ob der
+        Untergrund gerade wackelt oder nicht. Genau diese drei
+        Reaktionsstufen beschreibt die Norm IEC 62040-3 für
+        USV-Anlagen: VFD, VI und VFI.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Eine USV (unterbrechungsfreie Stromversorgung) sitzt zwischen
+        Steckdose und angeschlossenem Gerät und überbrückt kurze
+        Netzausfälle oder Spannungsschwankungen mit einem eingebauten
+        Akku, sodass Server oder Arbeitsplatzrechner weiterlaufen oder
+        kontrolliert heruntergefahren werden können, statt abrupt
+        auszufallen. Details zu Einsatzszenarien und Redundanzstrategien
+        stehen in der Einheit <em>RTO/RPO & Verfügbarkeit</em>. Die Norm
+        <strong>IEC 62040-3</strong> unterscheidet zusätzlich drei
+        Betriebsklassen danach, wie stark eine USV das angeschlossene
+        System von Netzstörungen entkoppelt.
+      </p>
+
+      <h3>Die drei USV-Klassen</h3>
+      <table>
+        <thead>
+          <tr><th>Klasse</th><th>Funktionsprinzip</th><th>Umschaltzeit</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>VFD</strong> (Voltage and Frequency Dependent) —
+              „Offline-USV“</td>
+            <td>im Normalbetrieb wird das Netz direkt durchgeleitet;
+              erst bei einer Störung schaltet die USV auf den
+              Akku-Wechselrichter um</td>
+            <td>kurze Umschaltzeit (wenige Millisekunden)</td>
+            <td>unkritische Geräte: Heim-Router, einzelner Büro-PC</td>
+          </tr>
+          <tr>
+            <td><strong>VI</strong> (Voltage Independent) —
+              „Line-Interactive“</td>
+            <td>zusätzlich ein automatischer Spannungsregler (AVR),
+              der kleinere Spannungsschwankungen direkt ausgleicht, ohne
+              auf Akkubetrieb umzuschalten; nur bei größeren
+              Abweichungen/Netzausfall wird umgeschaltet</td>
+            <td>kürzer als VFD, aber nicht null</td>
+            <td>Büro-Arbeitsplätze, kleinere Netzwerkschränke</td>
+          </tr>
+          <tr>
+            <td><strong>VFI</strong> (Voltage and Frequency Independent) —
+              „Online“ / Doppelwandler-USV</td>
+            <td>durchgehende Doppelwandlung: Netzstrom wird ständig in
+              Gleichstrom und zurück in Wechselstrom gewandelt; die
+              Ausgangsspannung ist komplett unabhängig vom Eingangsnetz</td>
+            <td>0 ms (keine Umschaltung nötig, da durchgehend über den
+              Wechselrichter versorgt)</td>
+            <td>Serverräume, Rechenzentren, kritische Infrastruktur</td>
+          </tr>
+        </tbody>
+      </table>
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="usv-title usv-desc">
+          <title id="usv-title">Leistungspfade der drei USV-Klassen VFD, VI und VFI</title>
+          <desc id="usv-desc">Drei übereinander angeordnete Leistungspfade von Netz zu Last. Bei VFD läuft das Netz direkt durch, der Akku mit Wechselrichter hängt gestrichelt daneben und wird erst bei einer Störung zugeschaltet. Bei VI läuft das Netz über einen automatischen Spannungsregler (AVR), der Akku ist ebenfalls gestrichelt und wird nur bei größeren Abweichungen zugeschaltet. Bei VFI läuft das Netz durchgehend über Gleichrichter und Wechselrichter, der Akku hängt durchgezogen dazwischen und ist ständig im Pfad — Umschaltzeit 0 Millisekunden.</desc>
+
+          <text x="10" y="22" fill="var(--text)" font-size="10" font-weight="600">VFD — Offline (Umschaltung erst bei Störung)</text>
+          <rect x="10" y="40" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="45" y="62" text-anchor="middle" fill="var(--text)" font-size="9">Netz</text>
+          <rect x="400" y="40" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="435" y="62" text-anchor="middle" fill="var(--text)" font-size="9">Last</text>
+          <line x1="80" y1="58" x2="400" y2="58" stroke="var(--text-muted)" stroke-width="2.5"/>
+          <circle cx="240" cy="58" r="4" fill="var(--surface)" stroke="var(--text)" stroke-width="1.5"/>
+          <line x1="240" y1="58" x2="240" y2="90" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <rect x="190" y="90" width="100" height="30" rx="5" fill="var(--surface)" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="240" y="109" text-anchor="middle" fill="var(--text-muted)" font-size="8">Akku + Wechselrichter</text>
+          <text x="240" y="132" text-anchor="middle" fill="var(--text-muted)" font-size="8">Netz läuft normal durch, Akku springt erst bei Störung ein</text>
+
+          <text x="10" y="162" fill="var(--text)" font-size="10" font-weight="600">VI — Line-Interactive (AVR gleicht Schwankungen aus)</text>
+          <rect x="10" y="180" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="45" y="202" text-anchor="middle" fill="var(--text)" font-size="9">Netz</text>
+          <rect x="205" y="180" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="240" y="202" text-anchor="middle" fill="var(--text)" font-size="9">AVR</text>
+          <rect x="400" y="180" width="70" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="435" y="202" text-anchor="middle" fill="var(--text)" font-size="9">Last</text>
+          <line x1="80" y1="198" x2="205" y2="198" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <line x1="275" y1="198" x2="400" y2="198" stroke="var(--acc-praxis)" stroke-width="2.5"/>
+          <line x1="240" y1="216" x2="240" y2="230" stroke="var(--acc-praxis)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <rect x="190" y="230" width="100" height="30" rx="5" fill="var(--surface)" stroke="var(--acc-praxis)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="240" y="249" text-anchor="middle" fill="var(--acc-praxis)" font-size="8">Akku + Wechselrichter</text>
+          <text x="240" y="272" text-anchor="middle" fill="var(--text-muted)" font-size="8">AVR gleicht kleine Schwankungen ohne Akku aus</text>
+
+          <text x="10" y="302" fill="var(--text)" font-size="10" font-weight="600">VFI — Online (Doppelwandlung, 0 ms)</text>
+          <rect x="10" y="320" width="65" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="42" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Netz</text>
+          <rect x="85" y="320" width="110" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="140" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Gleichrichter</text>
+          <rect x="285" y="320" width="110" height="36" rx="5" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="340" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Wechselrichter</text>
+          <rect x="405" y="320" width="65" height="36" rx="5" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.5"/>
+          <text x="437" y="342" text-anchor="middle" fill="var(--text)" font-size="9">Last</text>
+          <line x1="75" y1="338" x2="85" y2="338" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <line x1="195" y1="338" x2="285" y2="338" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <line x1="395" y1="338" x2="405" y2="338" stroke="var(--acc-quiz)" stroke-width="2.5"/>
+          <line x1="240" y1="338" x2="240" y2="365" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <rect x="190" y="365" width="100" height="30" rx="5" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="240" y="384" text-anchor="middle" fill="var(--text)" font-size="8">Akku (ständig aktiv)</text>
+          <text x="240" y="407" text-anchor="middle" fill="var(--text-muted)" font-size="8">Doppelwandlung durchgehend, Akku permanent im Pfad</text>
+        </svg>
+        <figcaption>
+          Gestrichelte Akku-Anbindung = wird erst bei Bedarf zugeschaltet
+          (VFD, VI). Durchgezogene Akku-Anbindung bei VFI = ständig im
+          Leistungspfad, daher 0 ms Umschaltzeit.
+        </figcaption>
+      </figure>
+
+      <p>
+        Je höher die Schutzklasse, desto höher aber auch Anschaffungspreis
+        und Energieverlust im Dauerbetrieb (bei VFI wird die Energie
+        ständig doppelt gewandelt) — die Wahl ist immer eine Abwägung
+        zwischen Schutzbedarf und Kosten.
+      </p>
+
+      <h3>Scheinleistung (VA) vs. Wirkleistung (W)</h3>
+      <p>
+        USV-Anlagen werden in <strong>VA</strong> (Voltampere,
+        Scheinleistung) angegeben, angeschlossene Geräte dagegen meist in
+        <strong>Watt</strong> (Wirkleistung). Beide hängen über den
+        Leistungsfaktor (<strong>cos φ</strong>) zusammen:
+      </p>
+      <p><strong>P (Wirkleistung) = S (Scheinleistung) × cos φ</strong></p>
+      <p>
+        Eine USV mit z. B. 1000 VA und einem üblichen Leistungsfaktor von
+        0,6 liefert real nur <strong>600 W</strong> nutzbare
+        Wirkleistung — die reine VA-Angabe allein reicht für die
+        Dimensionierung nicht aus. Bei der Auswahl einer USV muss
+        immer geprüft werden, ob sowohl die VA- als auch die
+        W-Angabe für die angeschlossene Last ausreicht.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH stattet drei unterschiedliche Standorte mit USV-
+        Anlagen aus:
+      </p>
+      <ul>
+        <li><strong>Serverraum:</strong> ein Server-Rack benötigt 3.000 W
+          Wirkleistung bei einem Leistungsfaktor von 0,9. Erforderliche
+          Scheinleistung: S = P ÷ cos φ = 3.000 W ÷ 0,9 ≈
+          <strong>3.333 VA</strong>. Für den Serverraum wird eine
+          <strong>VFI-USV</strong> (Online, 0 ms Umschaltzeit) mit
+          mindestens dieser Leistung gewählt, da schon eine
+          Millisekunde Unterbrechung Serverdienste stören könnte.</li>
+        <li><strong>Büro-Arbeitsplätze:</strong> hier genügt eine
+          <strong>VI-USV</strong> — kleinere Spannungsschwankungen werden
+          direkt ausgeglichen, ein kurzer Umschaltmoment bei echtem
+          Stromausfall ist für einzelne PCs unkritisch.</li>
+        <li><strong>Homeoffice-Router eines Mitarbeiters:</strong> eine
+          einfache <strong>VFD-USV</strong> reicht, um kurze
+          Stromausfälle zu überbrücken.</li>
+      </ul>
+      <p>
+        Zusätzlich betreibt der Serverraum ein Diesel-Notstromaggregat für
+        längere Ausfälle. Die USV überbrückt bei vollem Akku 20 Minuten,
+        das Aggregat braucht 3 Minuten zum Hochfahren. Bei linearer
+        Entladung muss das Aggregat spätestens starten, wenn der
+        USV-Akku noch (3 ÷ 20) × 100 % ≈ <strong>15 % Restladung</strong>
+        hat, damit die Last rechtzeitig übernommen wird, bevor der Akku
+        leer ist.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        VFD (Offline) schaltet erst bei Störung um, VI (Line-Interactive)
+        gleicht kleine Schwankungen per AVR ohne Umschaltung aus, VFI
+        (Online) liefert durch Doppelwandlung 0 ms Umschaltzeit — je höher
+        die Klasse, desto höher Schutz, Preis und Energieverlust. Wirkleistung
+        (W) = Scheinleistung (VA) × cos φ — eine USV muss beide Werte für die
+        angeschlossene Last erfüllen.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/hardware/usv-klassen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

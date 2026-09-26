@@ -1,0 +1,191 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine ISO-Datei ist wie eine Fotokopie eines ganzen Buchs samt
+        Einband und Bindung — Byte für Byte, inklusive der kompletten
+        Struktur des Original-Datenträgers. Eine WIM-Datei ist dagegen
+        eher wie eine flexible E-Book-Ausgabe desselben Inhalts: Sie
+        lässt sich auf beliebiger Hardware neu „aufschlagen“ und kann
+        sogar mehrere Sprachausgaben (Windows-Editionen) in einer
+        einzigen Datei enthalten, aus denen man bei der Installation
+        wählt.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>ISO — das Abbild eines Datenträgers</h3>
+      <p>
+        Eine <strong>ISO-Datei</strong> (benannt nach dem Standard
+        ISO 9660 für optische Datenträger) ist ein exaktes Abbild
+        (Image) eines gesamten Datenträgers oder Dateisystems, Byte für
+        Byte — inklusive der kompletten Struktur des Datenträgers, nicht
+        nur der enthaltenen Dateien.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Einsatz</th><th>Beschreibung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Betriebssystem-Installation</td><td>Windows, Linux, macOS werden als ISO verteilt — herunterladen, auf USB-Stick schreiben (z. B. mit Rufus oder <code>dd</code>), davon booten</td></tr>
+          <tr><td>Virtuelle Maschinen</td><td>VMware, VirtualBox und Hyper-V können ISO-Dateien direkt als virtuelles DVD-Laufwerk einbinden, ohne physischen Datenträger</td></tr>
+          <tr><td>PXE-Boot</td><td>beim Netzwerk-Deployment über PXE (Preboot Execution Environment) wird oft eine ISO bzw. deren Inhalt über das Netzwerk bereitgestellt</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Unter Linux: <code>dd if=windows11.iso of=/dev/sdb bs=4M status=progress</code>
+        schreibt die ISO auf einen USB-Stick (Achtung: überschreibt das
+        Zielgerät vollständig) — <code>mount -o loop windows11.iso /mnt/iso</code>
+        hängt die ISO dagegen nur ein, um den Inhalt anzusehen, ohne sie
+        zu entpacken.
+      </p>
+
+      <h3>WIM — Windows Imaging Format</h3>
+      <p>
+        <strong>WIM</strong> ist das von Microsoft entwickelte Format für
+        Betriebssystem-Images, speziell für das Deployment von Windows
+        entwickelt. Der entscheidende Unterschied zu ISO: Eine ISO ist
+        ein Abbild eines <em>Datenträgers</em>, WIM ist ein Abbild eines
+        <em>Dateisystems</em> — dadurch hardware-unabhängig, komprimiert,
+        und mehrere Windows-Editionen (Home, Pro, Enterprise) können in
+        einer einzigen WIM-Datei stecken; die gewünschte Edition wird
+        erst bei der Installation ausgewählt.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Datei</th><th>Bedeutung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>install.wim</code> / <code>install.esd</code></td><td>das eigentliche, komprimierte Windows-Dateisystem auf jedem Installationsmedium (<code>sources\install.wim</code>) — die .esd-Variante ist stärker komprimiert</td></tr>
+          <tr><td><code>boot.wim</code></td><td>das Boot-Image mit Windows PE (Preinstallation Environment) — ein minimales Windows, das nur für die Installation gestartet wird</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Verwaltet wird WIM über das Tool <strong>DISM</strong>
+        (Deployment Image Servicing and Management): z. B.
+        <code>dism /Get-WimInfo /WimFile:install.wim</code> zeigt, welche
+        Editionen enthalten sind, <code>dism /Apply-Image …</code> packt
+        das Image auf ein Ziellaufwerk aus.
+      </p>
+
+      <h3>Weitere Deployment-Formate</h3>
+      <table>
+        <thead>
+          <tr><th>Format</th><th>Beschreibung</th><th>Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>VHD/VHDX</strong></td><td>Virtual Hard Disk (Microsoft), VHDX ist die moderne Version</td><td>Hyper-V-VMs, Windows-To-Go, Backups</td></tr>
+          <tr><td><strong>VMDK</strong></td><td>VMware Disk Format, virtuelle Festplatte für VMware</td><td>VMware Workstation, ESXi</td></tr>
+          <tr><td><strong>OVA/OVF</strong></td><td>Open Virtualization Format — paketierte VM inkl. Konfiguration</td><td>VM-Import/-Export zwischen Hypervisoren</td></tr>
+          <tr><td><strong>TAR.GZ/TAR.XZ</strong></td><td>gepackte Linux-Pakete oder Container-Images</td><td>Docker-Images, Software-Deployment unter Linux</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Beim <strong>PXE-Boot</strong> lädt ein Client zunächst über das
+        Netzwerk <code>boot.wim</code> (Windows PE) bzw. ein
+        Linux-Boot-Image, um danach über Windows Deployment Services
+        (WDS) oder einen anderen Deployment-Server das eigentliche
+        <code>install.wim</code> zu empfangen und zu installieren — alle
+        beschriebenen Formate arbeiten hier zusammen.
+      </p>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 500 325" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pxe-title pxe-desc">
+          <title id="pxe-title">Ablauf eines PXE-Boots: Client lädt boot.wim, dann install.wim vom Deployment-Server</title>
+          <desc id="pxe-desc">Sequenzdiagramm zwischen Client und Deployment-Server: Der Client fragt per PXE-Boot an, der Server sendet boot.wim (Windows PE), das der Client startet. Anschließend fragt der Client install.wim an, der Server sendet es, und der Client installiert Windows.</desc>
+
+          <defs>
+            <marker id="pxe-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text)"/>
+            </marker>
+          </defs>
+
+          <rect x="20" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2"/>
+          <text x="75" y="39" text-anchor="middle" fill="var(--text)" font-size="12">Client</text>
+          <line x1="75" y1="53" x2="75" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <rect x="370" y="15" width="110" height="38" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="425" y="39" text-anchor="middle" fill="var(--text)" font-size="11.5">Deployment-Server</text>
+          <line x1="425" y1="53" x2="425" y2="300" stroke="var(--border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <line x1="75" y1="85" x2="423" y2="85" stroke="var(--text)" stroke-width="2" marker-end="url(#pxe-arrow)"/>
+          <text x="250" y="78" text-anchor="middle" fill="var(--text)" font-size="10">1. PXE-Boot-Anfrage</text>
+
+          <line x1="425" y1="127" x2="77" y2="127" stroke="var(--text)" stroke-width="2" marker-end="url(#pxe-arrow)"/>
+          <text x="250" y="120" text-anchor="middle" fill="var(--text)" font-size="10">2. sendet boot.wim (Windows PE)</text>
+
+          <line x1="75" y1="127" x2="75" y2="137" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="20" y="137" width="110" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2" stroke-dasharray="3 2"/>
+          <text x="75" y="152" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">3. Windows PE</text>
+          <text x="75" y="164" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">startet lokal</text>
+
+          <line x1="75" y1="200" x2="423" y2="200" stroke="var(--text)" stroke-width="2" marker-end="url(#pxe-arrow)"/>
+          <text x="250" y="193" text-anchor="middle" fill="var(--text)" font-size="10">4. Anfrage install.wim</text>
+
+          <line x1="425" y1="242" x2="77" y2="242" stroke="var(--text)" stroke-width="2" marker-end="url(#pxe-arrow)"/>
+          <text x="250" y="235" text-anchor="middle" fill="var(--text)" font-size="10">5. sendet install.wim</text>
+
+          <line x1="75" y1="242" x2="75" y2="252" stroke="var(--acc-einstieg)" stroke-width="1.5"/>
+          <rect x="20" y="252" width="110" height="34" rx="5" fill="var(--surface-2)" stroke="var(--acc-einstieg)" stroke-width="2" stroke-dasharray="3 2"/>
+          <text x="75" y="267" text-anchor="middle" fill="var(--text)" font-size="8.5" font-weight="700">6. Installation</text>
+          <text x="75" y="279" text-anchor="middle" fill="var(--text-muted)" font-size="7.5">läuft lokal</text>
+
+          <text x="250" y="313" text-anchor="middle" fill="var(--text-muted)" font-size="10">Windows ist installiert</text>
+        </svg>
+        <figcaption>
+          PXE-Boot in zwei Runden: Erst lädt der Client das minimale
+          boot.wim (Windows PE) zum Starten, danach erst das eigentliche,
+          deutlich größere install.wim zur Installation.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die TechNord GmbH rollt Windows auf 50 neuen Arbeitsplatzrechnern
+        aus:
+      </p>
+      <ul>
+        <li><strong>Einzelinstallation zum Testen:</strong> Ein
+          Techniker lädt die Windows-<strong>ISO</strong> herunter und
+          bindet sie direkt in eine virtuelle Testmaschine ein, ohne
+          einen physischen Datenträger zu benötigen.</li>
+        <li><strong>Massenverteilung im Netzwerk:</strong> Für die
+          restlichen 49 Rechner nutzt die IT-Abteilung
+          <strong>PXE-Boot</strong>: Jeder Client lädt zunächst
+          <code>boot.wim</code> (Windows PE) über das Netzwerk, danach
+          überträgt der Windows-Deployment-Server das eigentliche
+          <code>install.wim</code>.</li>
+        <li><strong>Edition wählen:</strong> Mit
+          <code>dism /Get-WimInfo /WimFile:install.wim</code> prüft der
+          Techniker vorab, welche Windows-Editionen im WIM-Image
+          enthalten sind, und wählt „Pro“ für die Installation aus —
+          eine einzige WIM-Datei genügt für alle benötigten Editionen.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        ISO = exaktes Abbild eines gesamten Datenträgers (ISO 9660).
+        WIM = Abbild eines Dateisystems, hardware-unabhängig, komprimiert,
+        mehrere Editionen in einer Datei — verwaltet über DISM.
+        <code>install.wim</code> = eigentliches System, <code>boot.wim</code>
+        = Windows-PE-Boot-Image. PXE-Boot kombiniert beide für die
+        Netzwerkinstallation.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/software-os-web/deployment-formate.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

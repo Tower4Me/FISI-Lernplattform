@@ -1,0 +1,189 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        In der Notaufnahme eines Krankenhauses wird jeder Patient
+        zunächst erfasst und nach Dringlichkeit sortiert (Triage) –
+        ein akuter Notfall wird sofort behandelt, ein leichter Fall
+        muss warten. Reicht die Kompetenz der Ambulanz nicht aus, wird
+        an eine Fachabteilung weitergeleitet. Genau nach diesem Prinzip
+        funktioniert ein <strong>Ticketsystem</strong> im IT-Support:
+        Anfragen werden erfasst, priorisiert und bei Bedarf an die
+        passende Stelle <strong>eskaliert</strong>.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <h3>Ticketsystem</h3>
+      <p>
+        Ein <strong>Ticketsystem</strong> erfasst, verfolgt und
+        dokumentiert Störungen und Anfragen zentral – unabhängig
+        davon, ob sie per E-Mail, Kundenportal oder Telefon eingehen.
+        Jedes Ticket erhält typischerweise:
+      </p>
+      <ul>
+        <li>eine eindeutige <strong>ID</strong> zur Nachverfolgung</li>
+        <li>einen <strong>Status</strong> (offen, in Bearbeitung, gelöst, geschlossen)</li>
+        <li>eine <strong>Priorität</strong> und Kategorie</li>
+        <li>eine Zuordnung zu einer bearbeitenden Person oder einem Team</li>
+      </ul>
+
+      <h3>Störungsmanagement (Incident Management)</h3>
+      <p>
+        Störungsmanagement (angelehnt an ITIL, siehe Einheit
+        <a href="../software-os-web/it-servicemanagement.html">IT-Servicemanagement (ITIL)</a>)
+        verfolgt vor allem ein Ziel: den <strong>Normalbetrieb so
+        schnell wie möglich wiederherzustellen</strong> – nicht
+        zwingend die dauerhafte Ursachenbehebung. Dabei unterscheidet
+        man:
+      </p>
+      <table>
+        <thead><tr><th>Begriff</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Incident (Störung)</strong></td>
+            <td>ein einzelnes, ungeplantes Ereignis, das den Betrieb
+                stört (z. B. ein Drucker funktioniert nicht)</td>
+          </tr>
+          <tr>
+            <td><strong>Problem</strong></td>
+            <td>die zugrunde liegende Ursache, die mehreren Incidents
+                gemeinsam ist (siehe Einheit
+                <a href="problemanalyse-5whys-ishikawa.html">Problemanalyse (5 Whys, Ishikawa)</a>)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Tickets werden häufig nach einer Kombination aus
+        <strong>Dringlichkeit</strong> und <strong>Auswirkung</strong>
+        priorisiert – ein Ausfall mit hoher Dringlichkeit und großer
+        Auswirkung (z. B. Serverausfall im gesamten Betrieb) hat
+        höchste Priorität. Je Prioritätsstufe gelten oft vereinbarte
+        Reaktionszeiten (siehe Einheit
+        <a href="../datenschutz-recht/sla-support-level.html">SLA &amp; Support-Level</a>).
+      </p>
+
+      <h3>Eskalation</h3>
+      <table>
+        <thead><tr><th>Eskalationsart</th><th>Bedeutung</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Fachliche (funktionale) Eskalation</strong></td>
+            <td>Weiterleitung an höhere Fachkompetenz, wenn die
+                aktuelle Ebene das Problem nicht lösen kann</td>
+          </tr>
+          <tr>
+            <td><strong>Hierarchische Eskalation</strong></td>
+            <td>Einbindung von Vorgesetzten, z. B. wenn eine
+                SLA-Frist zu reißen droht oder der Kunde unzufrieden
+                ist</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 410 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eskalation-title eskalation-desc">
+          <title id="eskalation-title">Zwei Eskalationsachsen: fachlich (waagerecht) und hierarchisch (senkrecht)</title>
+          <desc id="eskalation-desc">Ausgehend vom First-Level-Support führt die fachliche Eskalation waagerecht über Second-Level zu Third-Level-Support, wenn die Fachkompetenz nicht ausreicht. Die hierarchische Eskalation führt senkrecht über den Teamleiter bis zur Geschäftsleitung, wenn Fristen oder Kundenzufriedenheit betroffen sind. Beide Achsen sind unabhängig voneinander und können gleichzeitig genutzt werden.</desc>
+
+          <defs>
+            <marker id="eskalation-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L8,3 L0,6" fill="var(--text-muted)"/>
+            </marker>
+          </defs>
+
+          <line x1="20" y1="232" x2="390" y2="232" stroke="var(--acc-praxis)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <text x="205" y="222" text-anchor="middle" fill="var(--acc-praxis)" font-size="10" font-weight="600">fachliche (funktionale) Eskalation</text>
+
+          <line x1="10" y1="294" x2="10" y2="60" stroke="var(--acc-quiz)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <text x="10" y="180" text-anchor="middle" fill="var(--acc-quiz)" font-size="9" font-weight="600" transform="rotate(-90 10 180)">hierarchische Eskalation</text>
+
+          <rect x="20" y="250" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="75" y="276" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">First-Level</text>
+
+          <rect x="150" y="250" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="205" y="276" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Second-Level</text>
+
+          <rect x="280" y="250" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="335" y="276" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Third-Level</text>
+
+          <line x1="130" y1="272" x2="150" y2="272" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <line x1="260" y1="272" x2="280" y2="272" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+
+          <rect x="20" y="150" width="110" height="44" rx="6" fill="var(--surface-2)" stroke="var(--acc-quiz)" stroke-width="2"/>
+          <text x="75" y="176" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="600">Teamleiter</text>
+
+          <rect x="20" y="65" width="110" height="44" rx="6" fill="var(--surface)" stroke="var(--acc-quiz)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="75" y="83" text-anchor="middle" fill="var(--text-muted)" font-size="9">Geschäfts-</text>
+          <text x="75" y="96" text-anchor="middle" fill="var(--text-muted)" font-size="9">leitung</text>
+
+          <line x1="75" y1="250" x2="75" y2="194" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#eskalation-arrow)"/>
+          <line x1="75" y1="150" x2="75" y2="109" stroke="var(--text-muted)" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#eskalation-arrow)"/>
+
+          <text x="140" y="215" fill="var(--text-muted)" font-size="8">z. B. Standardlösung reicht nicht</text>
+          <text x="140" y="145" fill="var(--text-muted)" font-size="8">z. B. SLA-Frist droht zu reißen</text>
+        </svg>
+        <figcaption>
+          Die beiden Eskalationsachsen sind unabhängig: fachliche
+          Eskalation (grün, waagerecht) sucht mehr Fachkompetenz,
+          hierarchische Eskalation (violett, senkrecht) bindet
+          Vorgesetzte ein — beide können, wie im Praxisbeispiel,
+          gleichzeitig genutzt werden.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein Kunde der TowerTech GmbH meldet ein Ticket: „Drucker
+        druckt nicht.“
+      </p>
+      <ul>
+        <li>
+          Der First-Level-Support nimmt das Ticket auf, vergibt eine
+          ID und versucht eine Standardlösung (Treiber neu
+          installieren) – das Problem besteht jedoch weiter.
+        </li>
+        <li>
+          Da die Standardlösung nicht ausreicht, erfolgt eine
+          <strong>fachliche Eskalation</strong> an den Second-Level-Support.
+        </li>
+        <li>
+          Der Second-Level-Support stellt einen Hardwaredefekt fest,
+          der vor Ort behoben werden muss – die Bearbeitungszeit
+          verlängert sich dadurch.
+        </li>
+        <li>
+          Da die vereinbarte SLA-Reaktionszeit dadurch zu reißen droht,
+          informiert der Support zusätzlich per <strong>hierarchischer
+          Eskalation</strong> den Teamleiter, der den Kunden proaktiv
+          über die Verzögerung informiert.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Ein Ticketsystem erfasst, priorisiert und verfolgt Störungen
+        zentral. Störungsmanagement zielt auf schnelle
+        Wiederherstellung des Betriebs (Incident), während die
+        Behebung des zugrunde liegenden Problems eigenständig erfolgt.
+        Fachliche Eskalation leitet an höhere Kompetenz weiter,
+        hierarchische Eskalation bindet Vorgesetzte ein.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/projektmanagement/ticketsystem-stoerungsmanagement-eskalation.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

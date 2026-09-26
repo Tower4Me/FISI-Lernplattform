@@ -1,0 +1,162 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Verzweigung ist wie ein Verkehrsschild auf einer Reise:
+        „Ist die Straße gesperrt, nimm die Umleitung — sonst fahr
+        geradeaus weiter.“ Ohne dieses Schild würde jedes Programm immer
+        stur denselben Weg nehmen, egal was gerade zutrifft.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+      <p>
+        Eine <strong>Verzweigung</strong> lässt ein Programm abhängig von
+        einer Bedingung einen von mehreren möglichen Pfaden ausführen.
+        Sie grenzt sich damit von der <strong>Sequenz</strong> ab, dem
+        Normalfall: Anweisungen werden dort einfach nacheinander
+        abgearbeitet, ohne Auswahl.
+      </p>
+
+      <h3>Einseitige Verzweigung</h3>
+      <p>
+        Nur ein Pfad ist optional — trifft die Bedingung nicht zu,
+        passiert einfach nichts:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+WENN Lagerbestand &lt; 10 DANN
+  Nachbestellung = true
+ENDE WENN
+      </div>
+
+      <h3>Zweiseitige Verzweigung</h3>
+      <p>
+        Genau einer von zwei Pfaden wird immer ausgeführt — entweder der
+        <code>DANN</code>-Zweig oder der <code>SONST</code>-Zweig:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+WENN Menge &gt;= 100 DANN
+  Rabatt = 10%
+SONST
+  Rabatt = 0%
+ENDE WENN
+      </div>
+
+      <h3>Mehrfache Verzweigung</h3>
+      <p>
+        Mehr als zwei mögliche Pfade werden über
+        <code>SONST WENN</code>-Ketten geprüft. Jede weitere Bedingung
+        wird nur dann geprüft, wenn keine der vorherigen zutraf:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+ALGORITHMUS GrößteZahl(a, b, c)
+  WENN a &gt;= b UND a &gt;= c DANN
+    ERGEBNIS = a
+  SONST WENN b &gt;= c DANN
+    ERGEBNIS = b
+  SONST
+    ERGEBNIS = c
+  ENDE WENN
+  RÜCKGABE ERGEBNIS
+      </div>
+      <p>
+        Eine solche Kette mehrerer <code>SONST WENN</code> auf derselben
+        Ebene wird auch <strong>kaskadierte Verzweigung</strong> genannt
+        — mehr dazu inklusive Abgrenzung zur Verschachtelung in der
+        Einheit „Verschachtelung &amp; Kaskadierung von
+        Kontrollstrukturen“.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Verzweigungen werden oft zunächst in Pseudocode geplant, bevor
+        sie in eine konkrete Sprache übersetzt werden. Eine Funktion
+        ordnet einen BMI-Wert seiner Kategorie zu — zunächst als
+        Pseudocode-Vorgabe:
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+ALGORITHMUS BmiKategorie(bmi)
+  WENN bmi &lt; 18.5 DANN
+    AUSGABE "Untergewicht"
+  SONST WENN bmi &lt; 25 DANN
+    AUSGABE "Normalgewicht"
+  SONST WENN bmi &lt; 30 DANN
+    AUSGABE "Übergewicht"
+  SONST
+    AUSGABE "Adipositas"
+  ENDE WENN
+      </div>
+      <p>
+        Dieselbe Logik in Python (<code>if</code>/<code>elif</code>/<code>else</code>
+        statt <code>WENN</code>/<code>SONST WENN</code>/<code>SONST</code>):
+      </p>
+      <div class="code-block" style="background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:0.75rem;font-family:monospace;white-space:pre-wrap;">
+def bmi_kategorie(bmi):
+    if bmi &lt; 18.5:
+        print("Untergewicht")
+    elif bmi &lt; 25:
+        print("Normalgewicht")
+    elif bmi &lt; 30:
+        print("Übergewicht")
+    else:
+        print("Adipositas")
+      </div>
+      <p>
+        Jede Pseudocode-Zeile hat eine direkte Python-Entsprechung:
+        <code>WENN</code> wird zu <code>if</code>, <code>SONST WENN</code>
+        zu <code>elif</code> — die Kaskadierung aus dem Konzeptabschnitt
+        bleibt identisch erhalten —, <code>SONST</code> zu
+        <code>else</code> und <code>AUSGABE</code> zu <code>print()</code>.
+      </p>
+
+      <h3>Übungsaufgabe</h3>
+      <p>
+        Schreibe eine Funktion <code>note_ausgeben(punkte)</code>: ab 92
+        Punkten „sehr gut“, ab 81 „gut“, ab 67 „befriedigend“, ab 50
+        „ausreichend“, sonst „nicht bestanden“.
+      </p>
+      <details class="loesung">
+        <summary>Musterlösung anzeigen</summary>
+        <pre><code>def note_ausgeben(punkte):
+    if punkte &gt;= 92:
+        print("sehr gut")
+    elif punkte &gt;= 81:
+        print("gut")
+    elif punkte &gt;= 67:
+        print("befriedigend")
+    elif punkte &gt;= 50:
+        print("ausreichend")
+    else:
+        print("nicht bestanden")</code></pre>
+        <p>
+          Eine Kette aus <code>elif</code> reicht hier aus, da die
+          Stufen sich gegenseitig ausschließen und von oben nach unten
+          in absteigender Reihenfolge geprüft werden.
+        </p>
+      </details>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Verzweigung = abhängig von einer Bedingung wird einer von
+        mehreren möglichen Pfaden ausgeführt. Einseitig (WENN … DANN,
+        ohne Alternative), zweiseitig (WENN … DANN … SONST, genau ein
+        Pfad) oder mehrfach als Kette aus SONST-WENN (kaskadiert, jede
+        Bedingung nur geprüft, wenn die vorherige nicht zutraf).
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/programmierung/verzweigungen-if-else.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

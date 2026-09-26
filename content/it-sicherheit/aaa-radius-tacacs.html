@@ -1,0 +1,95 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Ein Mitarbeiterausweis an der Bürotür: Der Chip auf der Karte
+        beweist, wer du bist – das Lesegerät gleicht ihn mit der Datenbank
+        ab (<strong>Authentication</strong>). Das Schloss selbst
+        entscheidet dann anhand deiner Berechtigungsgruppe, welche Türen
+        sich öffnen: der Empfangsbereich ja, der Serverraum nein
+        (<strong>Authorization</strong>). Im Hintergrund protokolliert das
+        System automatisch, wer wann welche Tür benutzt hat
+        (<strong>Accounting</strong>). Drei getrennte Fragen, drei
+        getrennte Schritte – genau das steckt hinter AAA.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        <strong>AAA</strong> steht für drei aufeinanderfolgende, aber
+        unabhängige Schritte der Zugangskontrolle:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Begriff</th><th>Frage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Authentication</strong></td><td>Wer bist du? (Identität prüfen)</td></tr>
+          <tr><td><strong>Authorization</strong></td><td>Was darfst du? (Rechte zuweisen)</td></tr>
+          <tr><td><strong>Accounting</strong></td><td>Was hast du getan? (Protokollieren)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <strong>RADIUS</strong> und <strong>TACACS+</strong> sind die
+        bekanntesten AAA-Protokolle, unterscheiden sich aber deutlich in
+        der Umsetzung. RADIUS verschlüsselt nur das Passwort-Feld,
+        überträgt seine Pakete über <strong>UDP</strong> und kommt vor
+        allem bei der WLAN-Anmeldung über 802.1X zum Einsatz. TACACS+
+        verschlüsselt dagegen das gesamte Paket, läuft über das
+        verbindungsorientierte <strong>TCP</strong> und trennt die drei A
+        sauber voneinander – deshalb ist es vor allem für die
+        Administration von Netzwerkgeräten (z. B. Cisco-Switches) beliebt.
+      </p>
+
+      <p>
+        Die Trennung der drei Schritte ist mehr als Begriffskosmetik: Eine
+        erfolgreiche Authentifizierung bedeutet nicht automatisch
+        vollständige Autorisierung. Ein Nutzer kann sich mit korrektem
+        Passwort anmelden und trotzdem nur eingeschränkte Rechte besitzen –
+        etwa Lesezugriff auf eine Konfiguration, aber kein Schreibrecht.
+        Wer bist du und was darfst du sind zwei unabhängige
+        Entscheidungen, die getrennt geprüft und getrennt protokolliert
+        werden.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Ein IT-Systemhaus sichert den Zugriff auf die Netzwerk-Switches
+        eines Kunden über <strong>TACACS+</strong> ab: Jede
+        Konfigurationsänderung wird protokolliert, und Rollen trennen
+        Lesezugriff (Support-Mitarbeiter sehen die Konfiguration) von
+        Schreibzugriff (nur Netzwerkadministratoren dürfen Änderungen
+        vornehmen). Parallel dazu läuft die WLAN-Anmeldung der Mitarbeiter
+        über <strong>RADIUS</strong>/802.1X gegen den zentralen
+        Verzeichnisdienst – bei jedem Firmenlaptop, der sich ins WLAN
+        einbucht, prüft der RADIUS-Server die Zugangsdaten gegen dasselbe
+        zentrale Nutzerkonto, das auch für Login und E-Mail gilt.
+      </p>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        AAA = wer bist du (Authentication), was darfst du (Authorization),
+        was hast du getan (Accounting). RADIUS: UDP, verschlüsselt nur das
+        Passwort, oft WLAN. TACACS+: TCP, verschlüsselt alles, trennt die
+        drei A sauber, oft Geräte-Admin.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/aaa-radius-tacacs.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

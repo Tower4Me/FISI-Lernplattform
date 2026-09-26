@@ -586,10 +586,22 @@
           "quiz": "data/it-sicherheit/angriffsmethoden.json"
         },
         {
+          "slug": "firewall-funktionen",
+          "name": "Firewall-Funktionen",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/firewall-funktionen.json"
+        },
+        {
           "slug": "firewall-dmz",
-          "name": "Firewall & DMZ",
+          "name": "Firewall-Architekturen & DMZ",
           "exams": ["ap1", "ap2"],
           "quiz": "data/it-sicherheit/firewall-dmz.json"
+        },
+        {
+          "slug": "ids-ips",
+          "name": "IDS/IPS",
+          "exams": ["ap1", "ap2"],
+          "quiz": "data/it-sicherheit/ids-ips.json"
         },
         {
           "slug": "endpoint-security",

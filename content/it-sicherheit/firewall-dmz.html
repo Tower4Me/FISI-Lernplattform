@@ -21,29 +21,11 @@
       <h2>Konzept</h2>
 
       <p>
-        Eine <strong>Firewall</strong> kontrolliert den Datenverkehr
-        zwischen Netzen anhand von Regeln. Sie ist die wichtigste Grenze
-        zwischen „innen“ (vertrauenswürdig) und „außen“ (Internet). Es gibt
-        verschiedene Ausbaustufen:
-      </p>
-
-      <table>
-        <thead>
-          <tr><th>Typ</th><th>Arbeitet auf</th><th>Erkennt</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Paketfilter</td><td>Schicht 3/4 (IP, Port)</td><td>Quelle, Ziel, Port, Protokoll</td></tr>
-          <tr><td>Stateful Inspection (SPI)</td><td>Schicht 3/4 + Verbindungszustand</td><td>Gehört das Paket zu einer bestehenden Verbindung?</td></tr>
-          <tr><td>Application Firewall / NGFW / WAF</td><td>bis Schicht 7</td><td>Anwendung, Inhalt, Deep Packet Inspection</td></tr>
-        </tbody>
-      </table>
-
-      <p>
-        Eine Next-Generation-Firewall (NGFW) macht Stateful Inspection,
-        kann aber zusätzlich Application Control und Deep Packet Inspection
-        bis Schicht 7 – eine reine Paketfilter-Regel („Port 443 erlauben“)
-        ist nur die unterste Ausbaustufe. Eine WAF (Web Application
-        Firewall) ist eine auf Webanwendungen spezialisierte Variante davon.
+        Welche Funktionen eine einzelne Firewall hat (Paketfilter, SPI,
+        ALG, NGFW), behandelt die Einheit
+        <a href="../it-sicherheit/firewall-funktionen.html">Firewall-Funktionen</a>.
+        Hier geht es darum, wie Firewalls im Netz <strong>angeordnet</strong>
+        werden.
       </p>
 
       <h3>Die DMZ</h3>
@@ -91,40 +73,50 @@
         </figcaption>
       </figure>
 
-      <h3>Proxy-Server: Forward- vs. Reverse-Proxy</h3>
-      <p>
-        Ein <strong>Proxy-Server</strong> leitet Verbindungen
-        stellvertretend für eine andere Partei weiter. Man unterscheidet
-        zwei Einsatzrichtungen:
-      </p>
+      <h3>Firewall-Architekturen im Vergleich</h3>
       <table>
         <thead>
-          <tr><th>Typ</th><th>Sitzt auf Seite von</th><th>Typischer Einsatz</th></tr>
+          <tr><th>Architektur</th><th>Aufbau</th><th>Stärke</th><th>Schwäche</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td>Forward-Proxy</td>
-            <td>Client</td>
-            <td>Internetzugriff der Clients filtern, protokollieren
-              oder den Nutzer gegenüber dem Zielserver anonymisieren</td>
+            <td>Einstufig</td>
+            <td>Eine Firewall zwischen Internet und LAN; eine DMZ hängt, falls vorhanden, an einer dritten Schnittstelle derselben Firewall</td>
+            <td>Günstig, einfach zu verwalten</td>
+            <td>Single Point of Failure: Ein Fehler oder eine Lücke in diesem einen Gerät öffnet alle Zonen</td>
           </tr>
           <tr>
-            <td>Reverse-Proxy</td>
-            <td>Server</td>
-            <td>Lastverteilung auf mehrere Backend-Server, verbirgt die
-              interne Serverstruktur vor dem Internet</td>
+            <td>Zweistufig</td>
+            <td>Zwei Firewalls hintereinander, die DMZ liegt dazwischen</td>
+            <td>Ein Angreifer muss zwei getrennte Grenzen überwinden</td>
+            <td>Mehr Geräte, mehr Regelwerke, höherer Aufwand</td>
+          </tr>
+          <tr>
+            <td>Screened Subnet</td>
+            <td>Eigenes Subnetz (die DMZ) zwischen äußerem und innerem Paketfilter; die öffentlich erreichbaren Server stehen nur in diesem Subnetz</td>
+            <td>Klare Trennung: Das LAN ist von außen gar nicht direkt adressierbar</td>
+            <td>Schutz hängt an den Regeln zweier Paketfilter, kein Blick in Anwendungsinhalte</td>
+          </tr>
+          <tr>
+            <td>P-A-P</td>
+            <td>Paketfilter – Application Level Gateway – Paketfilter; der gesamte Verkehr muss durch das ALG in der Mitte</td>
+            <td>Höchste Schutzstufe: keine direkte Verbindung, Kontrolle bis Schicht 7</td>
+            <td>Teuer, aufwendig, jedes Protokoll braucht einen passenden Proxy im ALG</td>
           </tr>
         </tbody>
       </table>
       <p>
-        <strong>Abgrenzung zur Firewall:</strong> Ein Proxy arbeitet auf
-        Anwendungsebene und leitet Verbindungen im Namen des Clients
-        bzw. Servers aktiv weiter – er ist selbst Kommunikationspartner
-        für beide Seiten. Eine Firewall dagegen filtert primär nach
-        Regeln auf Paket-/Portebene und lässt Verbindungen entweder
-        durch oder blockiert sie, ohne selbst als aktiver
-        Kommunikationspartner aufzutreten.
+        <strong>Screened Subnet</strong> ist der klassische Fachbegriff für
+        die zweistufige DMZ-Bauweise mit zwei Paketfiltern („screening
+        router“). Setzt man in die Mitte zusätzlich ein Application Level
+        Gateway, entsteht die <strong>P-A-P</strong>-Struktur. Bei einer
+        zweistufigen Lösung werden oft Firewalls von
+        <strong>zwei verschiedenen Herstellern</strong> eingesetzt: Eine
+        Sicherheitslücke in einem Produkt öffnet dann nicht gleich beide
+        Grenzen.
       </p>
+
+      <h3>Reverse-Proxy in der DMZ</h3>
       <p>
         Ein <strong>Reverse-Proxy sitzt in der Praxis häufig in der
         DMZ</strong>: Er nimmt Anfragen aus dem Internet entgegen und
@@ -146,7 +138,7 @@
         <li><strong>Firewall 1</strong> (zwischen Internet und DMZ) lässt nur HTTPS-Verkehr (Port 443) zum Webshop-Server durch.</li>
         <li><strong>Firewall 2</strong> (zwischen DMZ und internem LAN) lässt nur die eine Verbindung durch, die der Webshop-Server für Bestelldaten zur internen Datenbank benötigt – sonst nichts.</li>
         <li>Ein Angreifer, der eine Schwachstelle im Webshop ausnutzt, landet damit nur in der DMZ. Um an den internen Fileserver mit den Kundendaten zu gelangen, müsste er zusätzlich Firewall 2 überwinden.</li>
-        <li>Eine reine Paketfilter-Regel würde nur Quelle/Ziel/Port prüfen; die eingesetzte NGFW erkennt zusätzlich, ob der Datenverkehr zur Anwendung „Webshop“ überhaupt plausibel aussieht (Deep Packet Inspection).</li>
+        <li>Eine einstufige Lösung mit einer einzigen Firewall und DMZ-Schnittstelle wäre günstiger. Weil aber Kundendaten betroffen sind, empfiehlt Baumann die <strong>zweistufige</strong> Variante mit Geräten zweier Hersteller.</li>
       </ul>
     </section>
 
@@ -154,11 +146,11 @@
     <section id="merksatz" class="section section--merksatz">
       <h2>Merksatz</h2>
       <p>
-        Firewall-Ausbaustufen: Paketfilter (L3/L4) → Stateful Inspection
-        (+ Verbindungszustand) → NGFW/WAF (bis L7). Die DMZ ist ein
-        Puffernetz zwischen zwei Firewalls für von außen erreichbare
-        Server – ein kompromittierter DMZ-Server öffnet nicht automatisch
-        das interne LAN.
+        Die DMZ ist ein Puffernetz zwischen zwei Firewalls für von außen
+        erreichbare Server – ein kompromittierter DMZ-Server öffnet nicht
+        automatisch das interne LAN. Einstufig = ein Gerät (Single Point of
+        Failure), zweistufig/Screened Subnet = zwei Grenzen, P-A-P =
+        Paketfilter – Application Level Gateway – Paketfilter.
       </p>
     </section>
 

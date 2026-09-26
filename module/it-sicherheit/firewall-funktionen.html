@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT-Sicherheit: Firewall-Funktionen</title>
+  <script>(function(){try{var t=localStorage.getItem("fisi:theme");if(!t){t=(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"white";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="breadcrumbs" aria-label="Brotkrumen">
+      <ol>
+        <li><a href="../../index.html">Lernplan</a></li>
+        <li><a href="../../index.html#it-sicherheit">IT-Sicherheit</a></li>
+        <li aria-current="page">Firewall-Funktionen</li>
+      </ol>
+    </nav>
+
+    <h1 class="unit-title">
+      Firewall-Funktionen
+      <span class="badges">
+        <span class="badge badge--ap1">AP1</span>
+        <span class="badge badge--ap2">AP2</span>
+      </span>
+    </h1>
+  </header>
+
+  <main class="site-main">
+
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Vor einem Club kann die Einlasskontrolle unterschiedlich gründlich
+        sein. Der einfachste Türsteher schaut nur auf die Gästeliste: Name
+        drauf, rein. Ein aufmerksamerer merkt sich zusätzlich, wer schon
+        drin war und nur kurz zum Rauchen draußen ist. Ein dritter schaut
+        in jede Tasche, bevor jemand durchgeht. Und manchmal geht gar kein
+        Gast selbst hinein, sondern ein Bote holt die Bestellung und bringt
+        sie heraus. Genau diese Stufen gibt es auch bei einer
+        <strong>Firewall</strong>: Je tiefer sie in den Datenverkehr
+        hineinschaut, desto mehr Angriffe erkennt sie, desto mehr
+        Rechenleistung braucht sie aber auch.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine <strong>Firewall</strong> kontrolliert den Datenverkehr
+        zwischen Netzen anhand von Regeln. Sie ist die wichtigste Grenze
+        zwischen „innen“ (vertrauenswürdig) und „außen“ (Internet). Es gibt
+        verschiedene Ausbaustufen:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Arbeitet auf</th><th>Erkennt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Paketfilter</td><td>Schicht 3/4 (IP, Port)</td><td>Quelle, Ziel, Port, Protokoll</td></tr>
+          <tr><td>Stateful Inspection (SPI)</td><td>Schicht 3/4 + Verbindungszustand</td><td>Gehört das Paket zu einer bestehenden Verbindung?</td></tr>
+          <tr><td>Application Level Gateway (ALG) / Proxy</td><td>Schicht 7</td><td>Befehle und Inhalte eines bestimmten Anwendungsprotokolls</td></tr>
+          <tr><td>Application Firewall / NGFW / WAF</td><td>bis Schicht 7</td><td>Anwendung, Inhalt, Deep Packet Inspection</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Paketfilter und Stateful Inspection</h3>
+      <p>
+        Ein <strong>Paketfilter</strong> betrachtet jedes Paket einzeln und
+        vergleicht nur die Kopfdaten mit seiner Regelliste: Quell- und
+        Ziel-IP, Quell- und Zielport, Protokoll. Er weiß nicht, ob ein
+        eingehendes Paket die Antwort auf eine Anfrage von innen ist. Für
+        Antworten müssten deshalb pauschal ganze Portbereiche geöffnet
+        werden.
+      </p>
+      <p>
+        <strong>Stateful Packet Inspection (SPI)</strong> führt zusätzlich
+        eine Zustandstabelle über alle aktiven Verbindungen. Baut ein Client
+        von innen eine Verbindung auf, trägt die Firewall sie ein und lässt
+        nur die passenden Antwortpakete wieder herein. Ein Paket von außen,
+        das zu keiner bekannten Verbindung gehört, wird verworfen. SPI ist
+        heute der Standard jeder Firewall.
+      </p>
+
+      <h3>Application Level Gateway (ALG) und Proxy</h3>
+      <p>
+        Ein <strong>Application Level Gateway</strong> arbeitet auf
+        Schicht 7 und versteht ein bestimmtes Anwendungsprotokoll, zum
+        Beispiel HTTP, SMTP oder FTP. Es gibt keine direkte Verbindung
+        zwischen Client und Server: Das ALG nimmt die Verbindung selbst an,
+        prüft die Befehle und Inhalte und baut eine eigene, neue Verbindung
+        zum Ziel auf. Ein ALG arbeitet damit als <strong>Proxy</strong>.
+        Nicht erlaubte Befehle (z. B. ein Datei-Upload per FTP) kann es
+        gezielt sperren, auch wenn der Port an sich offen ist.
+      </p>
+      <p>
+        Man unterscheidet zwei Einsatzrichtungen eines Proxys:
+      </p>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Sitzt auf Seite von</th><th>Typischer Einsatz</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Forward-Proxy</td>
+            <td>Client</td>
+            <td>Internetzugriff der Clients filtern, protokollieren
+              oder den Nutzer gegenüber dem Zielserver anonymisieren</td>
+          </tr>
+          <tr>
+            <td>Reverse-Proxy</td>
+            <td>Server</td>
+            <td>Lastverteilung auf mehrere Backend-Server, verbirgt die
+              interne Serverstruktur vor dem Internet</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Abgrenzung zur Firewall:</strong> Ein Proxy arbeitet auf
+        Anwendungsebene und leitet Verbindungen im Namen des Clients
+        bzw. Servers aktiv weiter – er ist selbst Kommunikationspartner
+        für beide Seiten. Eine Firewall dagegen filtert primär nach
+        Regeln auf Paket-/Portebene und lässt Verbindungen entweder
+        durch oder blockiert sie, ohne selbst als aktiver
+        Kommunikationspartner aufzutreten.
+      </p>
+
+      <h3>Deep Packet Inspection (DPI)</h3>
+      <p>
+        <strong>Deep Packet Inspection</strong> untersucht nicht nur die
+        Kopfdaten, sondern auch die Nutzdaten eines Pakets. So erkennt die
+        Firewall, welche Anwendung tatsächlich über einen Port spricht (z. B.
+        ein Filesharing-Programm, das sich hinter Port 443 versteckt) oder ob
+        im Inhalt ein bekanntes Angriffsmuster steckt. Verschlüsselter
+        Verkehr (HTTPS) lässt sich nur prüfen, wenn die Firewall ihn
+        aufbricht (TLS-Inspection) – das kostet Rechenleistung und muss
+        datenschutzrechtlich geregelt sein.
+      </p>
+
+      <h3>Next-Generation-Firewall (NGFW)</h3>
+      <p>
+        Eine Next-Generation-Firewall (NGFW) macht Stateful Inspection,
+        kann aber zusätzlich Application Control und Deep Packet Inspection
+        bis Schicht 7 – eine reine Paketfilter-Regel („Port 443 erlauben“)
+        ist nur die unterste Ausbaustufe. Eine WAF (Web Application
+        Firewall) ist eine auf Webanwendungen spezialisierte Variante davon.
+      </p>
+      <p>
+        Typische Zusatzfunktionen einer NGFW sind Regeln pro Benutzer oder
+        Gruppe statt nur pro IP-Adresse, ein integriertes IPS sowie
+        URL-Filter. Wie ein IPS Angriffe erkennt, behandelt die Einheit
+        <a href="../it-sicherheit/ids-ips.html">IDS/IPS</a>; wie Firewalls
+        zu einer DMZ angeordnet werden, die Einheit
+        <a href="../it-sicherheit/firewall-dmz.html">Firewall-Architekturen &amp; DMZ</a>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die „Baumann IT-Systemhaus GmbH“ soll für einen Kunden mit eigenem
+        Webshop entscheiden, welche Firewall-Funktionen nötig sind:
+      </p>
+      <ul>
+        <li>Eine <strong>Paketfilter</strong>-Regel „TCP 443 zum Webshop-Server erlauben“ lässt Kunden aus dem Internet auf den Shop zugreifen.</li>
+        <li>Damit die Mitarbeiter im Internet surfen können, ohne dass eingehend große Portbereiche offen stehen, nutzt die Firewall <strong>Stateful Inspection</strong>: Nur Antworten auf Verbindungen, die von innen aufgebaut wurden, kommen herein.</li>
+        <li>Ein Angreifer schickt eine SQL-Injection über ganz normales HTTPS an Port 443. Paketfilter und SPI sehen nur eine erlaubte Verbindung und lassen sie durch.</li>
+        <li>Eine reine Paketfilter-Regel würde nur Quelle/Ziel/Port prüfen; die eingesetzte NGFW erkennt zusätzlich, ob der Datenverkehr zur Anwendung „Webshop“ überhaupt plausibel aussieht (Deep Packet Inspection).</li>
+        <li>Den Internetzugriff der Mitarbeiter leitet die Firma über einen <strong>Forward-Proxy</strong>, der bekannte Schadseiten sperrt und Zugriffe protokolliert.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        Firewall-Ausbaustufen: Paketfilter (L3/L4) → Stateful Inspection
+        (+ Verbindungszustand) → NGFW/WAF (bis L7). Ein ALG/Proxy prüft ein
+        Anwendungsprotokoll und baut als Stellvertreter eine eigene
+        Verbindung auf; Deep Packet Inspection schaut in die Nutzdaten.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/firewall-funktionen.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a href="../../index.html">← Zurück zum Lernplan</a>
+    <p>Hast du Feedback? <a href="https://github.com/Tower4Me/FISI-Lernplattform" target="_blank" rel="noopener">Auf GitHub melden</a>.</p>
+    <p class="footer-disclaimer">Mit KI-Unterstützung erstellt und sorgfältig gepflegt. Ergänzung zur Prüfungsvorbereitung, ohne Anspruch auf Vollständigkeit; verbindlich sind die offiziellen Unterlagen der zuständigen Kammer.</p>
+  </footer>
+
+  <script src="../../assets/quiz-engine.js"></script>
+
+  <script src="../../assets/manifest-loader.js"></script>
+
+  <script src="../../assets/theme.js"></script>
+
+  <script src="../../assets/search.js"></script>
+
+  <script src="../../assets/next-unit.js"></script>
+</body>
+</html>

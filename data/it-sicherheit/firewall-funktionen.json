@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/firewall-funktionen",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was prüft ein einfacher Paketfilter?",
+      "options": [
+        "Nur den Inhalt von Anwendungsdaten (Deep Packet Inspection)",
+        "Ausschließlich den Verbindungszustand",
+        "Nur die Signatur bekannter Schadsoftware",
+        "Quelle, Ziel, Port und Protokoll (Schicht 3/4)"
+      ],
+      "answer": 3,
+      "explanation": "Ein Paketfilter arbeitet auf Schicht 3/4 und prüft Quelle, Ziel, Port und Protokoll."
+    },
+    {
+      "id": "q2",
+      "question": "Was kann eine Stateful-Inspection-Firewall zusätzlich zu einem reinen Paketfilter?",
+      "options": [
+        "Sie verschlüsselt automatisch sämtliche übertragenen Daten",
+        "Sie erkennt, ob ein Paket zu einer bestehenden Verbindung gehört",
+        "Sie ersetzt einen vollwertigen Virenscanner vollständig und dauerhaft",
+        "Sie prüft zusätzlich Anwendungsinhalte bis Schicht 7 (Deep Packet Inspection)"
+      ],
+      "answer": 1,
+      "explanation": "Stateful Inspection merkt sich den Verbindungszustand und erkennt, ob ein Paket zu einer bestehenden, legitimen Verbindung gehört. Deep Packet Inspection bis Schicht 7 leistet erst die NGFW/WAF-Stufe, nicht SPI."
+    },
+    {
+      "id": "q3",
+      "question": "Wie arbeitet ein Application Level Gateway (ALG)?",
+      "options": [
+        "Es vergleicht nur IP-Adressen und Ports mit einer festen Regelliste",
+        "Es spiegelt den gesamten Verkehr an einen Überwachungsport",
+        "Es baut als Stellvertreter eine eigene Verbindung zum Ziel auf",
+        "Es verschlüsselt alle Verbindungen zwischen zwei Standorten"
+      ],
+      "answer": 2,
+      "explanation": "Ein ALG arbeitet als Proxy auf Schicht 7: Es nimmt die Verbindung selbst an, prüft das Anwendungsprotokoll und baut eine eigene, neue Verbindung zum Ziel auf. Eine direkte Verbindung zwischen Client und Server gibt es nicht."
+    },
+    {
+      "id": "q4",
+      "question": "Was kann eine Next-Generation-Firewall (NGFW) zusätzlich zu Stateful Inspection leisten?",
+      "options": [
+        "Ausschließlich Ports ohne jede weitere Prüfung blockieren",
+        "Application Control und Deep Packet Inspection bis Layer 7",
+        "Ausschließlich die Verschlüsselung des internen WLAN-Netzwerks verwalten",
+        "Automatisch regelmäßige Datenbank-Backups erstellen und verwalten"
+      ],
+      "answer": 1,
+      "explanation": "NGFW/WAF arbeiten bis Schicht 7 und erkennen Anwendung und Inhalt, nicht nur IP/Port."
+    },
+    {
+      "id": "q5",
+      "question": "Eine Firewall soll erkennen, dass ein Filesharing-Programm über Port 443 kommuniziert. Welche Funktion ist dafür nötig?",
+      "options": [
+        "Paketfilter mit Regel für Port 443",
+        "Network Address Translation (NAT)",
+        "Stateful Inspection der Verbindungstabelle",
+        "Deep Packet Inspection der Nutzdaten"
+      ],
+      "answer": 3,
+      "explanation": "Port und Verbindungszustand sehen bei Filesharing über Port 443 aus wie normales HTTPS. Nur Deep Packet Inspection wertet die Nutzdaten aus und erkennt so die tatsächliche Anwendung."
+    },
+    {
+      "id": "q6",
+      "question": "Was unterscheidet einen Forward-Proxy von einem Reverse-Proxy?",
+      "options": [
+        "Forward-Proxy sitzt client-seitig (z. B. Internetzugriff filtern), Reverse-Proxy server-seitig (z. B. Lastverteilung)",
+        "Beide sitzen ausschließlich auf der Serverseite, nur die Portnummer unterscheidet sich",
+        "Forward-Proxy verbirgt die Backend-Struktur, Reverse-Proxy filtert den Internetzugriff der Clients",
+        "Es gibt keinen technischen Unterschied, nur unterschiedliche Namen für dasselbe Verfahren"
+      ],
+      "answer": 0,
+      "explanation": "Ein Forward-Proxy sitzt auf Client-Seite und filtert/anonymisiert deren Internetzugriff, ein Reverse-Proxy sitzt auf Server-Seite und übernimmt z. B. Lastverteilung."
+    },
+    {
+      "id": "q7",
+      "question": "Was unterscheidet einen Proxy grundsätzlich von einer Firewall?",
+      "options": [
+        "Ein Proxy filtert ausschließlich nach IP-Adressen, eine Firewall ausschließlich nach Portnummern",
+        "Ein Proxy leitet Verbindungen auf Anwendungsebene stellvertretend weiter, eine Firewall filtert nur auf Paket-/Portebene",
+        "Beide Begriffe bezeichnen exakt dieselbe Technik, nur auf unterschiedlichen Netzwerkebenen benannt",
+        "Eine Firewall leitet Verbindungen stellvertretend weiter, ein Proxy blockiert sie nur nach festen Regeln"
+      ],
+      "answer": 1,
+      "explanation": "Ein Proxy arbeitet auf Anwendungsebene und leitet Verbindungen im Namen des Clients/Servers aktiv weiter, während eine Firewall primär nach Regeln auf Paket-/Portebene filtert."
+    }
+  ]
+}

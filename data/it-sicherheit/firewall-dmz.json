@@ -3,30 +3,6 @@
   "questions": [
     {
       "id": "q1",
-      "question": "Was prüft ein einfacher Paketfilter?",
-      "options": [
-        "Nur den Inhalt von Anwendungsdaten (Deep Packet Inspection)",
-        "Ausschließlich den Verbindungszustand",
-        "Nur die Signatur bekannter Schadsoftware",
-        "Quelle, Ziel, Port und Protokoll (Schicht 3/4)"
-      ],
-      "answer": 3,
-      "explanation": "Ein Paketfilter arbeitet auf Schicht 3/4 und prüft Quelle, Ziel, Port und Protokoll."
-    },
-    {
-      "id": "q2",
-      "question": "Was kann eine Stateful-Inspection-Firewall zusätzlich zu einem reinen Paketfilter?",
-      "options": [
-        "Sie verschlüsselt automatisch sämtliche übertragenen Daten",
-        "Sie erkennt, ob ein Paket zu einer bestehenden Verbindung gehört",
-        "Sie ersetzt einen vollwertigen Virenscanner vollständig und dauerhaft",
-        "Sie prüft zusätzlich Anwendungsinhalte bis Schicht 7 (Deep Packet Inspection)"
-      ],
-      "answer": 1,
-      "explanation": "Stateful Inspection merkt sich den Verbindungszustand und erkennt, ob ein Paket zu einer bestehenden, legitimen Verbindung gehört. Deep Packet Inspection bis Schicht 7 leistet erst die NGFW/WAF-Stufe, nicht SPI."
-    },
-    {
-      "id": "q3",
       "question": "Was ist eine DMZ?",
       "options": [
         "Ein Puffernetz zwischen Internet und LAN für außen erreichbare Server",
@@ -38,7 +14,7 @@
       "explanation": "Die DMZ (Demilitarisierte Zone) ist ein Puffernetz, in dem von außen erreichbare Server wie Web- oder Mailserver stehen."
     },
     {
-      "id": "q4",
+      "id": "q2",
       "question": "Warum stehen Webserver typischerweise in der DMZ statt im internen LAN?",
       "options": [
         "Weil in der DMZ grundsätzlich deutlich schnellere Internetleitungen verfügbar sind",
@@ -50,19 +26,7 @@
       "explanation": "Zwischen DMZ und internem LAN liegt eine zweite Firewall — ein gehackter DMZ-Server hat damit noch keinen direkten Zugriff aufs interne Netz."
     },
     {
-      "id": "q5",
-      "question": "Was kann eine Next-Generation-Firewall (NGFW) zusätzlich zu Stateful Inspection leisten?",
-      "options": [
-        "Ausschließlich Ports ohne jede weitere Prüfung blockieren",
-        "Application Control und Deep Packet Inspection bis Layer 7",
-        "Ausschließlich die Verschlüsselung des internen WLAN-Netzwerks verwalten",
-        "Automatisch regelmäßige Datenbank-Backups erstellen und verwalten"
-      ],
-      "answer": 1,
-      "explanation": "NGFW/WAF arbeiten bis Schicht 7 und erkennen Anwendung und Inhalt, nicht nur IP/Port."
-    },
-    {
-      "id": "q6",
+      "id": "q3",
       "question": "Wie viele Firewall-Grenzen liegen in einer typischen DMZ-Architektur zwischen Internet und internem LAN?",
       "options": [
         "Keine — Internet, DMZ und internes LAN sind direkt verbunden",
@@ -74,28 +38,52 @@
       "explanation": "Typisch sind zwei Firewall-Grenzen: Internet–DMZ und DMZ–internes LAN."
     },
     {
-      "id": "q7",
-      "question": "Was unterscheidet einen Forward-Proxy von einem Reverse-Proxy?",
+      "id": "q4",
+      "question": "Was ist der Hauptnachteil einer einstufigen Firewall-Architektur?",
       "options": [
-        "Forward-Proxy sitzt client-seitig (z. B. Internetzugriff filtern), Reverse-Proxy server-seitig (z. B. Lastverteilung)",
-        "Beide sitzen ausschließlich auf der Serverseite, nur die Portnummer unterscheidet sich",
-        "Forward-Proxy verbirgt die Backend-Struktur, Reverse-Proxy filtert den Internetzugriff der Clients",
-        "Es gibt keinen technischen Unterschied, nur unterschiedliche Namen für dasselbe Verfahren"
-      ],
-      "answer": 0,
-      "explanation": "Ein Forward-Proxy sitzt auf Client-Seite und filtert/anonymisiert deren Internetzugriff, ein Reverse-Proxy sitzt auf Server-Seite und übernimmt z. B. Lastverteilung."
-    },
-    {
-      "id": "q8",
-      "question": "Was unterscheidet einen Proxy grundsätzlich von einer Firewall?",
-      "options": [
-        "Ein Proxy filtert ausschließlich nach IP-Adressen, eine Firewall ausschließlich nach Portnummern",
-        "Ein Proxy leitet Verbindungen auf Anwendungsebene stellvertretend weiter, eine Firewall filtert nur auf Paket-/Portebene",
-        "Beide Begriffe bezeichnen exakt dieselbe Technik, nur auf unterschiedlichen Netzwerkebenen benannt",
-        "Eine Firewall leitet Verbindungen stellvertretend weiter, ein Proxy blockiert sie nur nach festen Regeln"
+        "Sie kann grundsätzlich keine DMZ anbinden",
+        "Ein Fehler in dem einen Gerät öffnet alle Zonen",
+        "Sie arbeitet ausschließlich auf Schicht 7",
+        "Sie benötigt zwingend zwei verschiedene Hersteller"
       ],
       "answer": 1,
-      "explanation": "Ein Proxy arbeitet auf Anwendungsebene und leitet Verbindungen im Namen des Clients/Servers aktiv weiter, während eine Firewall primär nach Regeln auf Paket-/Portebene filtert."
+      "explanation": "Bei einer einstufigen Architektur trennt ein einziges Gerät alle Zonen (Single Point of Failure). Eine DMZ kann trotzdem an einer dritten Schnittstelle hängen."
+    },
+    {
+      "id": "q5",
+      "question": "Welche Komponente steht bei einer P-A-P-Architektur in der Mitte?",
+      "options": [
+        "Ein zweiter Paketfilter",
+        "Ein WLAN-Access-Point",
+        "Ein Intrusion Detection System",
+        "Ein Application Level Gateway"
+      ],
+      "answer": 3,
+      "explanation": "P-A-P steht für Paketfilter – Application Level Gateway – Paketfilter. Der gesamte Verkehr muss durch das ALG in der Mitte, eine direkte Verbindung gibt es nicht."
+    },
+    {
+      "id": "q6",
+      "question": "Was beschreibt ein Screened Subnet?",
+      "options": [
+        "Ein eigenes Subnetz zwischen äußerem und innerem Paketfilter",
+        "Ein VLAN, das nur für Drucker und Scanner reserviert ist",
+        "Ein Subnetz, dessen Datenverkehr vollständig verschlüsselt ist",
+        "Ein Netz, das nur über einen Mirror-Port erreichbar ist"
+      ],
+      "answer": 0,
+      "explanation": "Beim Screened Subnet liegt die DMZ als eigenes Subnetz zwischen einem äußeren und einem inneren Paketfilter. Das ist die klassische zweistufige DMZ-Bauweise."
+    },
+    {
+      "id": "q7",
+      "question": "Warum setzt man bei einer zweistufigen Architektur oft Firewalls zweier Hersteller ein?",
+      "options": [
+        "Weil ein Hersteller allein keine zwei Geräte liefern darf",
+        "Damit eine Lücke in einem Produkt nicht beide Grenzen öffnet",
+        "Weil nur so überhaupt eine Verbindung ins Internet möglich ist",
+        "Damit beide Firewalls dieselbe Regelliste teilen können"
+      ],
+      "answer": 1,
+      "explanation": "Haben beide Firewalls dieselbe Software, öffnet eine einzige Sicherheitslücke beide Grenzen gleichzeitig. Zwei Hersteller verhindern das."
     }
   ]
 }

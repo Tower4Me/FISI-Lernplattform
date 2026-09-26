@@ -389,15 +389,34 @@
  "module/it-sicherheit/firewall-dmz.html": {
   "headings": [
    "Die DMZ",
-   "Proxy-Server: Forward- vs. Reverse-Proxy"
+   "Firewall-Architekturen im Vergleich",
+   "Reverse-Proxy in der DMZ"
   ],
-  "merksatz": "Firewall-Ausbaustufen: Paketfilter (L3/L4) → Stateful Inspection (+ Verbindungszustand) → NGFW/WAF (bis L7). Die DMZ ist ein Puffernetz zwischen zwei Firewalls für von außen erreichbare Server – ein kompromittierter DMZ-Server öffnet nicht automatisch das interne LAN."
+  "merksatz": "Die DMZ ist ein Puffernetz zwischen zwei Firewalls für von außen erreichbare Server – ein kompromittierter DMZ-Server öffnet nicht automatisch das interne LAN. Einstufig = ein Gerät (Single Point of Failure), zweistufig/Screened Subnet = zwei Grenzen, P-A-P = Paketfilter – Application Level Gateway – Paketfilter."
+ },
+ "module/it-sicherheit/firewall-funktionen.html": {
+  "headings": [
+   "Paketfilter und Stateful Inspection",
+   "Application Level Gateway (ALG) und Proxy",
+   "Deep Packet Inspection (DPI)",
+   "Next-Generation-Firewall (NGFW)"
+  ],
+  "merksatz": "Firewall-Ausbaustufen: Paketfilter (L3/L4) → Stateful Inspection (+ Verbindungszustand) → NGFW/WAF (bis L7). Ein ALG/Proxy prüft ein Anwendungsprotokoll und baut als Stellvertreter eine eigene Verbindung auf; Deep Packet Inspection schaut in die Nutzdaten."
  },
  "module/it-sicherheit/hash-signatur.html": {
   "headings": [
    "Digitale Signatur"
   ],
   "merksatz": "Hash = digitaler Fingerabdruck: Einweg, Lawineneffekt, kollisionssicher – schützt Integrität. Digitale Signatur = Hash + privater Schlüssel des Senders – schützt zusätzlich Authentizität und Verbindlichkeit."
+ },
+ "module/it-sicherheit/ids-ips.html": {
+  "headings": [
+   "HIDS und NIDS",
+   "Erkennungsmethoden: Signatur vs. Anomalie",
+   "False Positives und False Negatives",
+   "IDS vs. IPS"
+  ],
+  "merksatz": "IDS erkennt und meldet (passiv, z. B. am Mirror-Port), IPS erkennt und blockiert (inline). HIDS überwacht einen Rechner, NIDS ein Netzsegment. Signaturbasiert findet Bekanntes mit wenig Fehlalarmen, anomaliebasiert auch Neues, aber mit mehr False Positives."
  },
  "module/it-sicherheit/kryptographie-sym-asym.html": {
   "headings": [

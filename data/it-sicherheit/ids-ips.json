@@ -1,0 +1,89 @@
+{
+  "unit": "it-sicherheit/ids-ips",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Was ist der grundlegende Unterschied zwischen IDS und IPS?",
+      "options": [
+        "IDS blockiert Angriffe, IPS meldet sie nur",
+        "IDS arbeitet nur auf Rechnern, IPS nur im Netz",
+        "IDS meldet nur, IPS blockiert zusätzlich",
+        "IDS prüft nur Ports, IPS nur IP-Adressen"
+      ],
+      "answer": 2,
+      "explanation": "Ein IDS erkennt und meldet Angriffe (passiv). Ein IPS erkennt sie auf die gleiche Weise, greift aber aktiv ein und blockiert."
+    },
+    {
+      "id": "q2",
+      "question": "Welches System überwacht Logdateien und Systemdateien auf einem einzelnen Server?",
+      "options": [
+        "HIDS",
+        "NIDS",
+        "NAT",
+        "WAF"
+      ],
+      "answer": 0,
+      "explanation": "Ein hostbasiertes IDS (HIDS) läuft auf dem Rechner selbst und überwacht dessen Logdateien, Systemdateien und Prozesse. Ein NIDS überwacht dagegen den Verkehr eines Netzsegments."
+    },
+    {
+      "id": "q3",
+      "question": "Ein System soll auch völlig neue Angriffe erkennen, für die es noch keine Signatur gibt. Welche Erkennungsmethode macht das möglich?",
+      "options": [
+        "Signaturbasierte Erkennung",
+        "Paketfilterung nach Portnummer",
+        "Stateful Inspection",
+        "Anomaliebasierte Erkennung"
+      ],
+      "answer": 3,
+      "explanation": "Die anomaliebasierte Erkennung lernt den Normalzustand und meldet Abweichungen. So fallen auch unbekannte Angriffe auf, allerdings mit mehr Fehlalarmen."
+    },
+    {
+      "id": "q4",
+      "question": "Was ist ein False Positive bei einem IDS?",
+      "options": [
+        "Ein echter Angriff, der unerkannt bleibt",
+        "Harmloser Verkehr wird als Angriff gemeldet",
+        "Ein Angriff, der erkannt und blockiert wird",
+        "Eine Signatur, die nicht mehr aktualisiert wird"
+      ],
+      "answer": 1,
+      "explanation": "Ein False Positive ist ein Fehlalarm: Harmloser Verkehr wird als Angriff eingestuft. Ein unerkannter echter Angriff heißt False Negative."
+    },
+    {
+      "id": "q5",
+      "question": "Wie wird ein IDS typischerweise ins Netz eingebunden, damit es den Verkehr nicht verzögern kann?",
+      "options": [
+        "Inline zwischen Firewall und Switch",
+        "Als Standard-Gateway aller Clients",
+        "Über einen Mirror-Port am Switch",
+        "Als DNS-Server im internen Netz"
+      ],
+      "answer": 2,
+      "explanation": "Am Mirror-Port erhält das IDS nur eine Kopie des Verkehrs. Es liegt nicht im Datenweg und kann den Verkehr daher weder verzögern noch blockieren. Inline sitzt dagegen ein IPS."
+    },
+    {
+      "id": "q6",
+      "question": "Warum betreibt man ein neues IPS zunächst oft nur im Erkennungsmodus?",
+      "options": [
+        "Um Fehlalarme zu finden, bevor es Verkehr blockiert",
+        "Weil ein IPS in den ersten Wochen keine Signaturen laden kann",
+        "Weil der Erkennungsmodus die Netzwerkbandbreite verdoppelt",
+        "Damit die Firewall-Regeln automatisch gelöscht werden können"
+      ],
+      "answer": 0,
+      "explanation": "Ein IPS blockiert bei einem False Positive legitimen Verkehr. Im Erkennungsmodus lassen sich solche Fehlalarme erst finden und als Ausnahme eintragen."
+    },
+    {
+      "id": "q7",
+      "question": "Welche Schwäche hat eine rein signaturbasierte Erkennung?",
+      "options": [
+        "Sie erzeugt bei bekannten Angriffen sehr viele Fehlalarme",
+        "Sie funktioniert nur auf einem einzelnen Rechner",
+        "Sie kann keine Portscans im Netz erkennen",
+        "Sie erkennt keine Zero-Day-Angriffe ohne Signatur"
+      ],
+      "answer": 3,
+      "explanation": "Signaturbasierte Erkennung vergleicht mit bekannten Mustern. Für einen neuen Angriff (Zero-Day) gibt es noch keine Signatur, er bleibt unerkannt."
+    }
+  ]
+}

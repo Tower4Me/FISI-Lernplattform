@@ -1,0 +1,179 @@
+    <!-- 1. EINSTIEG (Analogie) -->
+    <section id="einstieg" class="section section--einstieg">
+      <h2>Einstieg</h2>
+      <p>
+        Eine Alarmanlage im Firmengebäude schlägt Alarm, wenn nachts jemand
+        durchs Fenster steigt – den Einbrecher aufhalten kann sie nicht, sie
+        meldet nur. Ein Wachmann an der Tür dagegen greift sofort ein und
+        lässt verdächtige Personen gar nicht erst hinein. Beide können sich
+        irren: Die Alarmanlage heult auch, wenn eine Katze durchs Bild
+        läuft, und der Wachmann schickt womöglich einen echten Kunden weg.
+        Genau diesen Unterschied gibt es zwischen einem
+        <strong>IDS</strong>, das Angriffe nur erkennt und meldet, und
+        einem <strong>IPS</strong>, das sie aktiv blockiert.
+      </p>
+    </section>
+
+    <!-- 2. KONZEPT -->
+    <section id="konzept" class="section section--konzept">
+      <h2>Konzept</h2>
+
+      <p>
+        Eine Firewall entscheidet anhand von Regeln, welcher Verkehr
+        überhaupt erlaubt ist. Ein <strong>Intrusion Detection System
+        (IDS)</strong> überwacht zusätzlich den erlaubten Verkehr bzw. ein
+        System auf Anzeichen eines Angriffs und meldet Auffälligkeiten. Ein
+        <strong>Intrusion Prevention System (IPS)</strong> erkennt auf die
+        gleiche Weise, greift aber selbst ein und verwirft verdächtige
+        Pakete oder beendet Verbindungen.
+      </p>
+
+      <h3>HIDS und NIDS</h3>
+      <table>
+        <thead>
+          <tr><th>Typ</th><th>Überwacht</th><th>Beispiele für Auffälligkeiten</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HIDS (hostbasiert)</td>
+            <td>Einen einzelnen Rechner: Logdateien, Systemdateien, Prozesse</td>
+            <td>Geänderte Systemdateien, viele fehlgeschlagene Anmeldungen, unbekannter Dienst startet</td>
+          </tr>
+          <tr>
+            <td>NIDS (netzwerkbasiert)</td>
+            <td>Den Datenverkehr eines Netzsegments</td>
+            <td>Portscan, bekanntes Angriffsmuster im Paketinhalt, ungewöhnlich viel Verkehr zu einem Ziel</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Ein HIDS sieht auch, was auf dem Rechner nach dem Entschlüsseln
+        passiert, schützt aber nur diesen einen Rechner. Ein NIDS überblickt
+        ein ganzes Segment, kann verschlüsselte Inhalte aber nicht lesen.
+      </p>
+
+      <h3>Erkennungsmethoden: Signatur vs. Anomalie</h3>
+      <table>
+        <thead>
+          <tr><th>Methode</th><th>Funktionsweise</th><th>Stärke</th><th>Schwäche</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Signaturbasiert</td>
+            <td>Vergleich mit einer Datenbank bekannter Angriffsmuster</td>
+            <td>Wenige Fehlalarme bei bekannten Angriffen</td>
+            <td>Erkennt neue, noch unbekannte Angriffe (Zero-Day) nicht; Signaturen müssen laufend aktualisiert werden</td>
+          </tr>
+          <tr>
+            <td>Anomaliebasiert</td>
+            <td>Lernt den Normalzustand und meldet Abweichungen davon</td>
+            <td>Kann auch unbekannte Angriffe erkennen</td>
+            <td>Mehr Fehlalarme; ungewöhnliches, aber harmloses Verhalten fällt ebenfalls auf</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>False Positives und False Negatives</h3>
+      <ul>
+        <li><strong>False Positive</strong> (Fehlalarm): Harmloser Verkehr wird als Angriff gemeldet. Beim IDS kostet das Zeit für die Prüfung, beim IPS wird legitimer Verkehr blockiert.</li>
+        <li><strong>False Negative</strong>: Ein echter Angriff bleibt unerkannt. Das ist das gefährlichere Ergebnis, fällt aber niemandem auf.</li>
+      </ul>
+      <p>
+        Schärfere Regeln senken die False Negatives, erhöhen aber die False
+        Positives. Deshalb wird ein neues System meist erst im reinen
+        Erkennungsmodus betrieben und feinjustiert, bevor es blockieren darf.
+      </p>
+
+      <h3>IDS vs. IPS</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>IDS</th><th>IPS</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Reaktion</td><td>Erkennt und meldet (passiv)</td><td>Erkennt und blockiert (aktiv)</td></tr>
+          <tr><td>Einbindung</td><td>Erhält eine Kopie des Verkehrs, z. B. über einen Mirror-Port am Switch</td><td>Inline: Der gesamte Verkehr fließt durch das Gerät</td></tr>
+          <tr><td>Folge bei Fehlalarm</td><td>Unnötige Meldung</td><td>Legitime Verbindung wird unterbrochen</td></tr>
+          <tr><td>Folge bei Ausfall</td><td>Keine Überwachung, Netz läuft weiter</td><td>Netz kann stehen, wenn das Gerät keinen Verkehr mehr durchlässt</td></tr>
+        </tbody>
+      </table>
+
+      <figure class="figure--diagram">
+        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="idsips-title">
+          <title id="idsips-title">Einbindung: IPS inline zwischen Firewall und Switch, IDS erhält über den Mirror-Port des Switches nur eine Kopie des Verkehrs</title>
+          <rect x="10" y="10" width="170" height="40" rx="6" fill="var(--surface-2)" stroke="var(--border)"/>
+          <text x="95" y="35" text-anchor="middle" fill="var(--text)" font-size="15">Internet</text>
+
+          <line x1="95" y1="50" x2="95" y2="78" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="10" y="80" width="170" height="34" rx="6" fill="var(--surface-2)" stroke="var(--acc-praxis)" stroke-width="2"/>
+          <text x="95" y="102" text-anchor="middle" fill="var(--text)" font-size="14">Firewall</text>
+
+          <line x1="95" y1="114" x2="95" y2="142" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="10" y="144" width="170" height="34" rx="6" fill="var(--surface)" stroke="var(--acc-konzept)" stroke-width="2"/>
+          <text x="95" y="166" text-anchor="middle" fill="var(--text)" font-size="14">IPS (inline)</text>
+
+          <line x1="95" y1="178" x2="95" y2="206" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="10" y="208" width="170" height="34" rx="6" fill="var(--surface-2)" stroke="var(--border)"/>
+          <text x="95" y="230" text-anchor="middle" fill="var(--text)" font-size="14">Switch</text>
+
+          <line x1="180" y1="225" x2="203" y2="225" stroke="var(--border)" stroke-width="2" stroke-dasharray="5 4"/>
+          <rect x="205" y="200" width="108" height="50" rx="6" fill="var(--surface)" stroke="var(--acc-einstieg)" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="259" y="221" text-anchor="middle" fill="var(--text)" font-size="14">IDS</text>
+          <text x="259" y="239" text-anchor="middle" fill="var(--text-muted)" font-size="14">Mirror-Port</text>
+
+          <line x1="95" y1="242" x2="95" y2="270" stroke="var(--border)" stroke-width="2"/>
+
+          <rect x="10" y="272" width="170" height="34" rx="6" fill="var(--surface)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="95" y="294" text-anchor="middle" fill="var(--text)" font-size="14">Internes LAN</text>
+        </svg>
+        <figcaption>
+          Das IPS sitzt im Datenweg und kann Pakete verwerfen. Das IDS hängt
+          am Mirror-Port des Switches, bekommt nur eine Kopie des Verkehrs
+          und kann deshalb nur melden.
+        </figcaption>
+      </figure>
+
+      <p>
+        Viele Next-Generation-Firewalls bringen ein IPS bereits mit, siehe
+        <a href="../it-sicherheit/firewall-funktionen.html">Firewall-Funktionen</a>.
+      </p>
+    </section>
+
+    <!-- 3. PRAXISBEISPIEL -->
+    <section id="praxis" class="section section--praxis">
+      <h2>Praxisbeispiel</h2>
+      <p>
+        Die „Baumann IT-Systemhaus GmbH“ betreut eine Arztpraxis-Kette mit
+        einem zentralen Server für Patientendaten. Nach einem Vorfall bei
+        einer anderen Praxis soll Angriffsverkehr früher auffallen:
+      </p>
+      <ul>
+        <li>Baumann installiert zuerst ein <strong>NIDS</strong> am Mirror-Port des zentralen Switches. Es meldet in der ersten Woche 40 Alarme.</li>
+        <li>35 davon sind <strong>False Positives</strong>: Die nächtliche Datensicherung überträgt große Datenmengen und fällt der anomaliebasierten Erkennung als ungewöhnlich auf. Baumann nimmt den Backup-Server für diese Zeit als bekannte Ausnahme auf.</li>
+        <li>Die übrigen Alarme stammen von der <strong>signaturbasierten</strong> Erkennung: ein Portscan aus dem Internet und ein Rechner mit veraltetem Browser, der eine bekannte Schadseite aufruft.</li>
+        <li>Erst nach dieser Feinjustierung wird die IPS-Funktion der Firewall eingeschaltet. Sonst hätte sie die Datensicherung jede Nacht blockiert.</li>
+        <li>Auf dem Server mit den Patientendaten läuft zusätzlich ein <strong>HIDS</strong>, das Änderungen an Systemdateien meldet.</li>
+      </ul>
+    </section>
+
+    <!-- 4. MERKSATZ -->
+    <section id="merksatz" class="section section--merksatz">
+      <h2>Merksatz</h2>
+      <p>
+        IDS erkennt und meldet (passiv, z. B. am Mirror-Port), IPS erkennt
+        und blockiert (inline). HIDS überwacht einen Rechner, NIDS ein
+        Netzsegment. Signaturbasiert findet Bekanntes mit wenig
+        Fehlalarmen, anomaliebasiert auch Neues, aber mit mehr False
+        Positives.
+      </p>
+    </section>
+
+    <!-- 5. QUIZ -->
+    <section id="quiz" class="section section--quiz">
+      <h2>Quiz</h2>
+      <div data-quiz-src="../../data/it-sicherheit/ids-ips.json">
+        <p class="muted">Quiz wird geladen …</p>
+      </div>
+    </section>

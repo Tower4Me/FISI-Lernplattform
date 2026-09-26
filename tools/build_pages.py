@@ -11,12 +11,17 @@ Eingaben:
       simulator  Inhalt hat id="exam-root" (exam-engine.js)
       ohne-quiz  sonst
 
+Prueft dabei die Abschnitts-Anker im Inhalt (CONVENTIONS.md Abschnitt 2):
+standard braucht einstieg/konzept/praxis/merksatz/quiz in dieser Reihenfolge,
+die anderen Typen mindestens merksatz.
+
 Deterministisch: gleiche Eingabe ergibt byte-identische Ausgabe (UTF-8, LF).
 Exit-Code 0 bei Erfolg, sonst 1.
 """
 
 import html
 import json
+import re
 import sys
 from pathlib import Path
 from string import Template
@@ -26,6 +31,9 @@ MANIFEST_PATH = REPO_ROOT / "data" / "manifest.json"
 CONTENT_DIR = REPO_ROOT / "content"
 MODULE_DIR = REPO_ROOT / "module"
 TEMPLATE_DIR = REPO_ROOT / "templates"
+
+SECTION_ID_RE = re.compile(r'<section[^>]*\bid="([a-z]+)"')
+STANDARD_ANCHORS = ["einstieg", "konzept", "praxis", "merksatz", "quiz"]
 
 
 def read(path):
@@ -39,6 +47,16 @@ def page_type(content):
     if 'id="exam-root"' in content:
         return "simulator"
     return "ohne-quiz"
+
+
+def anchor_error(content):
+    anchors = SECTION_ID_RE.findall(content)
+    if page_type(content) == "standard":
+        if anchors != STANDARD_ANCHORS:
+            return f"Anker {anchors}, erwartet {STANDARD_ANCHORS}"
+    elif "merksatz" not in anchors:
+        return 'kein <section id="merksatz">'
+    return None
 
 
 def render(page, scripts, module, unit, content):
@@ -72,15 +90,19 @@ def main():
     }
 
     built = 0
-    missing = []
+    errors = []
     for module in manifest["modules"]:
         for unit in module["units"]:
             rel = f'{module["slug"]}/{unit["slug"]}.html'
             src = CONTENT_DIR / rel
             if not src.exists():
-                missing.append(rel)
+                errors.append(f"content/{rel} fehlt (Einheit steht im Manifest).")
                 continue
-            out = render(page, scripts, module, unit, read(src))
+            content = read(src)
+            problem = anchor_error(content)
+            if problem:
+                errors.append(f"content/{rel}: {problem}")
+            out = render(page, scripts, module, unit, content)
             dest = MODULE_DIR / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
             with open(dest, "w", encoding="utf-8", newline="\n") as f:
@@ -88,9 +110,9 @@ def main():
             built += 1
 
     print(f"{built} Seiten gebaut.")
-    for rel in missing:
-        print(f"FEHLER: content/{rel} fehlt (Einheit steht im Manifest).")
-    return 1 if missing else 0
+    for e in errors:
+        print(f"FEHLER: {e}")
+    return 1 if errors else 0
 
 
 if __name__ == "__main__":

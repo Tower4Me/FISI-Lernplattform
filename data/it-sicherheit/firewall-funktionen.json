@@ -65,7 +65,7 @@
       "id": "q6",
       "question": "Was unterscheidet einen Forward-Proxy von einem Reverse-Proxy?",
       "options": [
-        "Forward-Proxy sitzt client-seitig (z. B. Internetzugriff filtern), Reverse-Proxy server-seitig (z. B. Lastverteilung)",
+        "Forward-Proxy sitzt beim Client (Zugriff filtern), Reverse-Proxy beim Server (Lastverteilung)",
         "Beide sitzen ausschließlich auf der Serverseite, nur die Portnummer unterscheidet sich",
         "Forward-Proxy verbirgt die Backend-Struktur, Reverse-Proxy filtert den Internetzugriff der Clients",
         "Es gibt keinen technischen Unterschied, nur unterschiedliche Namen für dasselbe Verfahren"
@@ -78,7 +78,7 @@
       "question": "Was unterscheidet einen Proxy grundsätzlich von einer Firewall?",
       "options": [
         "Ein Proxy filtert ausschließlich nach IP-Adressen, eine Firewall ausschließlich nach Portnummern",
-        "Ein Proxy leitet Verbindungen auf Anwendungsebene stellvertretend weiter, eine Firewall filtert nur auf Paket-/Portebene",
+        "Ein Proxy leitet Verbindungen stellvertretend weiter, eine Firewall filtert nach Paketregeln",
         "Beide Begriffe bezeichnen exakt dieselbe Technik, nur auf unterschiedlichen Netzwerkebenen benannt",
         "Eine Firewall leitet Verbindungen stellvertretend weiter, ein Proxy blockiert sie nur nach festen Regeln"
       ],

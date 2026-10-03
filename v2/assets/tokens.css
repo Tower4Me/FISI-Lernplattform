@@ -1,0 +1,77 @@
+/* v2 Design-Tokens (AUFTRAG-V2 Abschnitt 7). Theme: data-theme="light"|"dark" auf <html>,
+   ohne Attribut folgt die Seite prefers-color-scheme. */
+
+@font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Sans"; src: url("fonts/IBMPlexSans-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+
+:root {
+  --bg: #F6F4EF;
+  --surface: #FFFFFF;
+  --surface-2: #EAE6DC;
+  --ink: #1C1B19;
+  --muted: #5E5A52;
+  --rule: #D9D4C7;
+  --accent: #B5440F;
+  --accent-strong: #8A330B;
+  --accent-bg: #FBE9DF;
+  --info: #27566B;
+  --info-bg: #E3ECEF;
+  --ok: #1E6B3A;
+  --ok-bg: #E2F0E5;
+  --bad: #A3261B;
+  --bad-bg: #F7E0DC;
+
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --radius-box: 10px;
+  --radius-ctl: 8px;
+  --radius-pill: 999px;
+  --measure: 72ch;
+  --touch: 44px;
+  color-scheme: light;
+}
+
+/* Dunkle Werte stehen zweimal: einmal für "System" im Dunkelmodus, einmal für die feste Wahl. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1917;
+    --surface: #23221F;
+    --surface-2: #2C2A26;
+    --ink: #ECE8E1;
+    --muted: #ABA59A;
+    --rule: #3B3833;
+    --accent: #E8875A;
+    --accent-strong: #F2A47E;
+    --accent-bg: #3D2619;
+    --info: #86B9CC;
+    --info-bg: #1E3039;
+    --ok: #74C48E;
+    --ok-bg: #1E3326;
+    --bad: #F08A7A;
+    --bad-bg: #3E2320;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1A1917;
+  --surface: #23221F;
+  --surface-2: #2C2A26;
+  --ink: #ECE8E1;
+  --muted: #ABA59A;
+  --rule: #3B3833;
+  --accent: #E8875A;
+  --accent-strong: #F2A47E;
+  --accent-bg: #3D2619;
+  --info: #86B9CC;
+  --info-bg: #1E3039;
+  --ok: #74C48E;
+  --ok-bg: #1E3326;
+  --bad: #F08A7A;
+  --bad-bg: #3E2320;
+  color-scheme: dark;
+}

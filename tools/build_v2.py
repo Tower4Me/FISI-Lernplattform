@@ -141,7 +141,7 @@ NOTE_RE = re.compile(r'<aside class="note" data-typ="([a-z-]+)">', re.S)
 H3_RE = re.compile(r"<h3( id=\"([^\"]+)\")?>(.*?)</h3>", re.S)
 
 
-def render_fragment(src, where):
+def render_fragment(src, where, prefix=""):
     """Ergänzt h3-ids, Note-Labels und Merksatz-Rahmen. Liefert (html, merksatz_html)."""
     merks = MERKSATZ_RE.findall(src)
     if len(merks) != 1:
@@ -149,7 +149,7 @@ def render_fragment(src, where):
     used = set()
 
     def h3(m):
-        hid = m.group(2) or slugify(m.group(3))
+        hid = prefix + (m.group(2) or slugify(m.group(3)))
         base, n = hid, 2
         while hid in used:
             hid, n = f"{base}-{n}", n + 1
@@ -467,7 +467,9 @@ def build():
             for u in k["unterpunkte"]:
                 src = read_fragment(u)
                 frag, merk = render_fragment(src, u["datei"])
-                frags[u["id"]], merks[u["id"]] = frag, f"<p>{merk}</p>"
+                merks[u["id"]] = f"<p>{merk}</p>"
+                # Druckfassung: mehrere Unterpunkte auf einer Seite, daher ids mit Präfix
+                frags[u["id"]] = render_fragment(src, u["datei"], prefix=f"u{u['id']}-")[0]
                 out[f"{lf['id']}/{u['href']}"] = build_unterpunkt(site, lf, k, u, frag, plain_text(frag))
             if "check" in k:
                 out[f"{lf['id']}/{k['check']['href']}"] = build_check(site, lf, k, load_check(k))

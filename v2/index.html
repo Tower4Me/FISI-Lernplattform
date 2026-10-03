@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lernfelder – FISI Lernplattform</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<script src="assets/theme.js"></script>
+<script src="assets/app.js" defer></script>
+<script src="assets/tabs.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+</svg>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="site-header">
+  <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
+  <a class="brand" href="index.html"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
+  <div class="header-tools">
+    <a class="header-link" href="../module/pruefung/simulation-ap1.html">Prüfungssimulator</a>
+    <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
+    <div class="theme-switch" role="group" aria-label="Farbschema">
+      <button type="button" data-theme-value="light" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span class="ts-text">Hell</span></button>
+      <button type="button" data-theme-value="dark" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span class="ts-text">Dunkel</span></button>
+      <button type="button" data-theme-value="system" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-auto"/></svg><span class="ts-text">System</span></button>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidenav" id="nav" aria-label="Lernfelder">
+  <ul class="nav-lf">
+  </ul>
+  <div class="nav-extra"><a href="../module/pruefung/simulation-ap1.html"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Prüfungssimulator</a></div>
+</nav>
+<main class="page" id="inhalt">
+<header class="page-head">
+  <h1>Lernfelder</h1>
+  <p class="page-meta"><span>Fachinformatiker/in Systemintegration, nach KMK-Rahmenlehrplan</span></p>
+</header>
+<div class="content">
+<p class="lead">Die Inhalte folgen den Lernfeldern der Berufsschule. LF1 bis LF6 gehören zur AP1, LF7 bis LF12b zur AP2.</p>
+<ul class="rb-list">
+<li class="lf-item" data-stufe="AP1"><span class="num">LF1</span><div><strong>Das Unternehmen und die eigene Rolle im Betrieb beschreiben</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Den eigenen Ausbildungsbetrieb erklären und die eigene Rolle darin einordnen.</p></div></li>
+<li class="lf-item" data-stufe="AP1"><span class="num">LF2</span><div><strong>Arbeitsplätze nach Kundenwunsch ausstatten</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Einen Arbeitsplatz vom Kundenwunsch bis zur Übergabe planen, anbieten, beschaffen und einrichten.</p></div></li>
+<li class="lf-item" data-stufe="AP1"><span class="num">LF3</span><div><strong>Clients in Netzwerke einbinden</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Eine bestehende Netzwerkinfrastruktur verstehen und neue Clients passend einbinden.</p></div></li>
+<li class="lf-item" data-stufe="AP1"><span class="num">LF4</span><div><strong>Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Mit einer vorhandenen Sicherheitsleitlinie den Schutzbedarf im eigenen Arbeitsbereich auf Grundschutzniveau bestimmen.</p></div></li>
+<li class="lf-item" data-stufe="AP1"><span class="num">LF5</span><div><strong>Software zur Verwaltung von Daten anpassen</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Informationen als Daten abbilden, verwalten und eine Anwendung dafür anpassen.</p></div></li>
+<li class="lf-item" data-stufe="AP1"><span class="num">LF6</span><div><strong>Serviceanfragen bearbeiten</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Serviceanfragen einordnen, Fehlerursachen finden, beheben und dabei gut kommunizieren.</p></div></li>
+<li class="lf-item" data-stufe="AP2"><span class="num">LF7</span><div><strong>Cyber-physische Systeme ergänzen</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Ein bestehendes cyber-physisches System um Komponenten erweitern und in Betrieb nehmen.</p></div></li>
+<li class="lf-item" data-stufe="AP2"><span class="num">LF8</span><div><strong>Daten systemübergreifend bereitstellen</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Daten aus verteilten Quellen zusammenführen, aufbereiten und für die Weiterverarbeitung bereitstellen.</p></div></li>
+<li class="lf-item" data-stufe="AP2"><span class="num">LF9</span><div><strong>Netzwerke und Dienste bereitstellen</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Netzwerke und Netzwerkdienste nach Kundenanforderung planen, einrichten und erweitern.</p></div></li>
+<li class="lf-item" data-stufe="AP2"><span class="num">LF10b</span><div><strong>Serverdienste bereitstellen und Administrationsaufgaben automatisieren</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Serverdienste auswählen, bereitstellen, überwachen und wiederkehrende Administration automatisieren.</p></div></li>
+<li class="lf-item" data-stufe="AP2"><span class="num">LF11b</span><div><strong>Betrieb und Sicherheit vernetzter Systeme gewährleisten</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Über eine Risikoanalyse den Schutzbedarf vernetzter Systeme bestimmen und Schutzmaßnahmen planen, umsetzen und dokumentieren.</p></div></li>
+<li class="lf-item" data-stufe="AP2"><span class="num">LF12b</span><div><strong>Kundenspezifische Systemintegration durchführen</strong><span class="badge">in Arbeit</span><p style="margin:2px 0 0;color:var(--muted)">Einen Systemintegrationsauftrag vollständig als Projekt durchführen und bewerten.</p></div></li>
+</ul>
+</div>
+</main>
+</div>
+</body>
+</html>

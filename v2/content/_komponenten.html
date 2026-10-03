@@ -1,0 +1,73 @@
+<p class="lead">Diese Seite zeigt jeden Baustein einmal. Oben rechts zwischen Hell, Dunkel und System umschalten, um beide Themes zu prüfen. Sie ist nirgends verlinkt.</p>
+
+<h3>Erklärung</h3>
+<p>Fließtext mit <strong>Hervorhebung</strong>, <em>Betonung</em>, einem <a href="#">Link</a> und <code>Inline-Code</code>. Die Textspalte ist auf 72 Zeichen begrenzt, damit Zeilen gut lesbar bleiben.</p>
+<ul><li>Listenpunkt eins</li><li>Listenpunkt zwei mit etwas längerem Text, der umbricht, um den Zeilenabstand zu zeigen.</li></ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Arztpraxis speichert Befunde auf einem Server im Empfangsbereich. Fällt der Server aus, kann niemand Termine sehen.</p>
+</div>
+
+<div class="vergleich">
+  <table>
+    <caption>Vergleich</caption>
+    <thead><tr><th>Merkmal</th><th>Symmetrisch</th><th>Asymmetrisch</th></tr></thead>
+    <tbody>
+      <tr><th>Schlüssel</th><td>ein gemeinsamer</td><td>Schlüsselpaar</td></tr>
+      <tr><th>Tempo</th><td>schnell</td><td>langsamer</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="reiter" data-reiter>
+  <div class="reiter-panel" data-label="Variante A"><h4>Variante A</h4><p>Inhalt des ersten Reiters.</p></div>
+  <div class="reiter-panel" data-label="Variante B"><h4>Variante B</h4><p>Inhalt des zweiten Reiters.</p></div>
+  <div class="reiter-panel" data-label="Variante C"><h4>Variante C</h4><p>Inhalt des dritten Reiters.</p></div>
+</div>
+
+<figure class="grafik">
+  <svg viewBox="0 0 520 120" role="img" aria-label="Drei Kästen mit Pfeilen">
+    <rect class="g-box" x="10" y="30" width="140" height="60" rx="8"/>
+    <rect class="g-accent" x="190" y="30" width="140" height="60" rx="8"/>
+    <rect class="g-info" x="370" y="30" width="140" height="60" rx="8"/>
+    <path class="g-line" d="M150 60h36M330 60h36"/>
+    <text x="80" y="65" text-anchor="middle">Erfassen</text>
+    <text x="260" y="65" text-anchor="middle">Bewerten</text>
+    <text x="440" y="65" text-anchor="middle">Handeln</text>
+  </svg>
+  <figcaption>Grafik: Inline-SVG, Farben aus den Tokens.</figcaption>
+</figure>
+
+<aside class="note" data-typ="hinweis"><p>Klarstellung oder Nuance.</p></aside>
+<aside class="note" data-typ="fehler"><p>Typisches Missverständnis und die richtige Sicht.</p></aside>
+<aside class="note" data-typ="vertiefung"><p>Wird in <a href="#">LF11b, Kapitel 11.2</a> ausführlicher behandelt. Dort geht es um die Risikoanalyse vernetzter Systeme.</p></aside>
+<aside class="note" data-typ="ueber-ap"><p>Tiefe, die in der Prüfung nicht verlangt wird.</p></aside>
+
+<p class="merksatz">Der Schutzbedarf richtet sich nach dem größten möglichen Schaden, nicht nach dem wahrscheinlichsten.</p>
+
+<h2>Check-Ansichten</h2>
+<div class="check">
+  <div class="check-jump"><button type="button" class="is-ok">F1</button><button type="button" aria-current="step">F2</button><button type="button">F3</button><button type="button">F4</button></div>
+  <p class="check-count">Frage 2 von 4</p>
+  <p class="check-stem">Welches Schutzziel ist verletzt, wenn ein Server ausfällt?</p>
+  <div class="check-options">
+    <button type="button" class="opt is-correct" disabled>Verfügbarkeit<span class="opt-tag">richtig</span></button>
+    <button type="button" class="opt is-wrong" disabled aria-pressed="true">Vertraulichkeit<span class="opt-tag">deine Wahl</span></button>
+    <button type="button" class="opt" disabled>Integrität</button>
+  </div>
+  <div class="check-feedback is-bad"><p class="fb-verdict">Leider falsch</p><p>Ein Ausfall verhindert den Zugriff. Das betrifft die Verfügbarkeit.</p></div>
+  <div class="check-feedback is-ok"><p class="fb-verdict">Richtig</p><p>Erklärung nach dem Antworten.</p></div>
+  <div class="check-options"><button type="button" class="opt" aria-pressed="true">Ausgewählt, noch nicht geprüft</button><button type="button" class="opt">Nicht ausgewählt</button></div>
+  <div class="check-actions"><button type="button" class="btn btn-primary">Prüfen</button><button type="button" class="btn">Weiter</button></div>
+  <div class="check-result">
+    <p class="check-count">Ergebnis</p>
+    <p class="result-score">75 %</p>
+    <p class="result-sub">3 von 4 richtig. Bestes Ergebnis bisher: 75 %.</p>
+    <ol class="result-list">
+      <li class="is-ok"><span class="rq">F1</span><svg class="icon"><use href="#i-check"/></svg><span>Schutzziele benennen</span></li>
+      <li class="is-bad"><span class="rq">F2</span><svg class="icon"><use href="#i-x"/></svg><span>Server-Ausfall zuordnen</span></li>
+    </ol>
+    <button type="button" class="btn btn-primary">Nochmal versuchen</button>
+  </div>
+</div>

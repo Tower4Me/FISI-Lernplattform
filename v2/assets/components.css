@@ -112,7 +112,7 @@ img, svg { max-width: 100%; }
 .nav-extra { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--rule); }
 .nav-extra a { display: flex; align-items: center; gap: 8px; padding: 8px 10px; min-height: var(--touch); border-radius: var(--radius-ctl); color: var(--muted); }
 .nav-extra a:hover { background: var(--surface-2); color: var(--ink); }
-body.only-ap1 .lf[data-stufe="AP2"] { display: none; }
+body.only-ap1 .lf[data-stufe="AP2"], body.only-ap1 .lf-item[data-stufe="AP2"] { display: none; }
 
 /* ---------- Brotkrumen, Seitenkopf, Badges ---------- */
 .breadcrumb { font-size: 14px; color: var(--muted); margin-bottom: 18px; }

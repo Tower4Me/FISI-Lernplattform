@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Komponenten – FISI v2</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components.css">
+<script src="assets/theme.js"></script>
+<script src="assets/tabs.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="site-header">
+  <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
+  <a class="brand" href="#"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
+  <div class="header-tools">
+    <a class="header-link" href="#">Prüfungssimulator</a>
+    <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
+    <div class="theme-switch" role="group" aria-label="Farbschema">
+      <button type="button" data-theme-value="light" aria-pressed="false"><svg class="icon"><use href="#i-sun"/></svg><span class="ts-text">Hell</span></button>
+      <button type="button" data-theme-value="dark" aria-pressed="false"><svg class="icon"><use href="#i-moon"/></svg><span class="ts-text">Dunkel</span></button>
+      <button type="button" data-theme-value="system" aria-pressed="false"><svg class="icon"><use href="#i-auto"/></svg><span class="ts-text">System</span></button>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidenav" id="nav" aria-label="Lernfelder">
+  <ul class="nav-lf">
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF3</span><span>Clients in Netzwerke einbinden</span><svg class="icon chev"><use href="#i-chev"/></svg></button></li>
+    <li class="lf is-open" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="true"><span class="num">LF4</span><span>Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen</span><svg class="icon chev"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="#"><span class="num">4.1</span><span>Informationssicherheit</span><span class="kap-progress">5/5</span></a></li>
+        <li class="kap is-open"><a class="kap-head" href="#"><span class="num">4.2</span><span>Schutzbedarf feststellen</span><span class="kap-progress">2/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up is-done" href="#"><span class="num">4.2.1</span><span class="t">Ablauf der Analyse</span><svg class="icon done"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-done" href="#"><span class="num">4.2.2</span><span class="t">Schutzbedarfskategorien</span><svg class="icon done"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" href="#" aria-current="page"><span class="num">4.2.3</span><span class="t">Schadensszenarien</span><svg class="icon done"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" href="#"><span class="num">4.2.4</span><span class="t">Vererbung</span><svg class="icon done"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" href="#"><span class="num">4.2.5</span><span class="t">Check</span><svg class="icon done"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="#"><span class="num">4.R</span><span>Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP2"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF9</span><span>Netzwerke und Dienste bereitstellen</span><svg class="icon chev"><use href="#i-chev"/></svg></button></li>
+  </ul>
+</nav>
+<main class="page" id="inhalt">
+  <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="#">LF4</a></li><li><a href="#">4.2 Schutzbedarf feststellen</a></li><li aria-current="page">4.2.3</li></ol></nav>
+  <header class="page-head">
+    <h1><span class="num">4.2.3</span>Komponenten-Übersicht</h1>
+    <p class="page-meta"><span class="badge badge-ap1">AP1</span><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
+  </header>
+  <div class="content">
+    <p class="lead">Diese Seite zeigt jeden Baustein einmal. Oben rechts zwischen Hell, Dunkel und System umschalten, um beide Themes zu prüfen. Sie ist nirgends verlinkt.</p>
+
+    <h3 id="erklaerung">Erklärung<a class="anchor" href="#erklaerung" aria-hidden="true">#</a></h3>
+    <p>Fließtext mit <strong>Hervorhebung</strong>, <em>Betonung</em>, einem <a href="#">Link</a> und <code>Inline-Code</code>. Die Textspalte ist auf 72 Zeichen begrenzt, damit Zeilen gut lesbar bleiben.</p>
+    <ul><li>Listenpunkt eins</li><li>Listenpunkt zwei mit etwas längerem Text, der umbricht, um den Zeilenabstand zu zeigen.</li></ul>
+
+    <div class="beispiel">
+      <p class="block-label">Beispiel</p>
+      <p>Eine Arztpraxis speichert Befunde auf einem Server im Empfangsbereich. Fällt der Server aus, kann niemand Termine sehen.</p>
+    </div>
+
+    <div class="vergleich">
+      <table>
+        <caption>Vergleich</caption>
+        <thead><tr><th>Merkmal</th><th>Symmetrisch</th><th>Asymmetrisch</th></tr></thead>
+        <tbody>
+          <tr><th>Schlüssel</th><td>ein gemeinsamer</td><td>Schlüsselpaar</td></tr>
+          <tr><th>Tempo</th><td>schnell</td><td>langsamer</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="reiter" data-reiter>
+      <div class="reiter-panel" data-label="Variante A"><h4>Variante A</h4><p>Inhalt des ersten Reiters.</p></div>
+      <div class="reiter-panel" data-label="Variante B"><h4>Variante B</h4><p>Inhalt des zweiten Reiters.</p></div>
+      <div class="reiter-panel" data-label="Variante C"><h4>Variante C</h4><p>Inhalt des dritten Reiters.</p></div>
+    </div>
+
+    <figure class="grafik">
+      <svg viewBox="0 0 520 120" role="img" aria-label="Drei Kästen mit Pfeilen">
+        <rect class="g-box" x="10" y="30" width="140" height="60" rx="8"/>
+        <rect class="g-accent" x="190" y="30" width="140" height="60" rx="8"/>
+        <rect class="g-info" x="370" y="30" width="140" height="60" rx="8"/>
+        <path class="g-line" d="M150 60h36M330 60h36"/>
+        <text x="80" y="65" text-anchor="middle">Erfassen</text>
+        <text x="260" y="65" text-anchor="middle">Bewerten</text>
+        <text x="440" y="65" text-anchor="middle">Handeln</text>
+      </svg>
+      <figcaption>Grafik: Inline-SVG, Farben aus den Tokens.</figcaption>
+    </figure>
+
+    <aside class="note note-hinweis"><p class="note-label"><svg class="icon"><use href="#i-info"/></svg>Hinweis</p><p>Klarstellung oder Nuance.</p></aside>
+    <aside class="note note-fehler"><p class="note-label"><svg class="icon"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>Typisches Missverständnis und die richtige Sicht.</p></aside>
+    <aside class="note note-vertiefung"><p class="note-label"><svg class="icon"><use href="#i-layers"/></svg>Vertiefung</p><p>Wird in <a href="#">LF11b, Kapitel 11.2</a> ausführlicher behandelt. Dort geht es um die Risikoanalyse vernetzter Systeme.</p></aside>
+    <aside class="note note-ueber-ap"><p class="note-label"><svg class="icon"><use href="#i-skip"/></svg>Über AP hinaus</p><p>Tiefe, die in der Prüfung nicht verlangt wird.</p></aside>
+
+    <div class="merksatz"><p class="block-label">Merksatz</p><p>Der Schutzbedarf richtet sich nach dem größten möglichen Schaden, nicht nach dem wahrscheinlichsten.</p></div>
+
+    <h2>Check-Ansichten</h2>
+    <div class="check">
+      <div class="check-jump"><button type="button" class="is-ok">F1</button><button type="button" aria-current="step">F2</button><button type="button">F3</button><button type="button">F4</button></div>
+      <p class="check-count">Frage 2 von 4</p>
+      <p class="check-stem">Welches Schutzziel ist verletzt, wenn ein Server ausfällt?</p>
+      <div class="check-options">
+        <button type="button" class="opt is-correct" disabled>Verfügbarkeit<span class="opt-tag">richtig</span></button>
+        <button type="button" class="opt is-wrong" disabled aria-pressed="true">Vertraulichkeit<span class="opt-tag">deine Wahl</span></button>
+        <button type="button" class="opt" disabled>Integrität</button>
+      </div>
+      <div class="check-feedback is-bad"><p class="fb-verdict">Leider falsch</p><p>Ein Ausfall verhindert den Zugriff. Das betrifft die Verfügbarkeit.</p></div>
+      <div class="check-feedback is-ok"><p class="fb-verdict">Richtig</p><p>Erklärung nach dem Antworten.</p></div>
+      <div class="check-options"><button type="button" class="opt" aria-pressed="true">Ausgewählt, noch nicht geprüft</button><button type="button" class="opt">Nicht ausgewählt</button></div>
+      <div class="check-actions"><button type="button" class="btn btn-primary">Prüfen</button><button type="button" class="btn">Weiter</button></div>
+      <div class="check-result">
+        <p class="check-count">Ergebnis</p>
+        <p class="result-score">75 %</p>
+        <p class="result-sub">3 von 4 richtig. Bestes Ergebnis bisher: 75 %.</p>
+        <ol class="result-list">
+          <li class="is-ok"><span class="rq">F1</span><svg class="icon"><use href="#i-check"/></svg><span>Schutzziele benennen</span></li>
+          <li class="is-bad"><span class="rq">F2</span><svg class="icon"><use href="#i-x"/></svg><span>Server-Ausfall zuordnen</span></li>
+        </ol>
+        <button type="button" class="btn btn-primary">Nochmal versuchen</button>
+      </div>
+    </div>
+  </div>
+  <nav class="pager" aria-label="Blättern">
+    <a class="prev" href="#"><span class="dir">Zurück</span><span class="pt"><span class="num">4.2.2</span>Schutzbedarfskategorien</span></a>
+    <a class="next" href="#"><span class="dir">Weiter</span><span class="pt"><span class="num">4.2.4</span>Vererbung</span></a>
+  </nav>
+</main>
+</div>
+</body>
+</html>

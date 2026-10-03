@@ -292,7 +292,7 @@ h3:hover .anchor { color: var(--muted); }
   .header-link { display: none; }
   .sidenav {
     position: fixed; top: 61px; left: 0; right: 0; bottom: 0; z-index: 15; max-height: none;
-    background: var(--bg); border-right: 0; display: none; padding: 16px 16px 40px;
+    background: var(--bg); border-right: 0; display: none; padding: 16px 16px 40px; align-self: stretch;
   }
   body.nav-open .sidenav { display: block; }
   body.nav-open { overflow: hidden; }

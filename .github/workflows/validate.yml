@@ -21,3 +21,7 @@ jobs:
       - run: python tools/build_search_index.py
       - name: Pruefen, ob data/search-index.json aktuell ist
         run: git diff --exit-code -- data/search-index.json
+      - run: python tools/build_v2.py
+      - name: Pruefen, ob v2/ aktuell ist
+        run: git diff --exit-code -- v2/ && test -z "$(git status --porcelain -- v2/)"
+      - run: python tools/check_v2.py

@@ -534,6 +534,162 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "2.2",
+          "titel": "Hardware eines Arbeitsplatzrechners",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "2.2.1",
+              "titel": "Aufbau eines PCs",
+              "slug": "aufbau-eines-pcs",
+              "quellen": {
+                "rahmenlehrplan": "LF2: technische Merkmale anhand von Datenblättern vergleichen, informationstechnische Kenngrößen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "computer-grundaufbau",
+                "mainboard-busse",
+                "gehaeuse-formfaktoren"
+              ],
+              "begriffe": [
+                "pc-hardware"
+              ]
+            },
+            {
+              "nummer": "2.2.2",
+              "titel": "Prozessor",
+              "slug": "prozessor",
+              "quellen": {
+                "rahmenlehrplan": "LF2: technische Merkmale anhand von Datenblättern vergleichen, informationstechnische Kenngrößen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022, Aufgabe 2 (CPU einsetzen, logische Prozessoren)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "cpu-aufbau"
+              ],
+              "begriffe": [
+                "pc-hardware"
+              ]
+            },
+            {
+              "nummer": "2.2.3",
+              "titel": "Arbeitsspeicher",
+              "slug": "arbeitsspeicher",
+              "quellen": {
+                "rahmenlehrplan": "LF2: technische Merkmale anhand von Datenblättern vergleichen, informationstechnische Kenngrößen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022, Aufgabe 2 (RAM-Kanäle)"
+                ],
+                "extern": [
+                  "JEDEC DDR4/DDR5"
+                ]
+              },
+              "material": [
+                "arbeitsspeicher-ram"
+              ],
+              "begriffe": [
+                "pc-hardware"
+              ]
+            },
+            {
+              "nummer": "2.2.4",
+              "titel": "Massenspeicher",
+              "slug": "massenspeicher",
+              "quellen": {
+                "rahmenlehrplan": "LF2: technische Merkmale anhand von Datenblättern vergleichen, informationstechnische Kenngrößen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "SATA-IO (SATA III 6 Gbit/s)",
+                  "NVM Express"
+                ]
+              },
+              "material": [
+                "ssd-hdd-nvme"
+              ],
+              "begriffe": [
+                "pc-hardware"
+              ]
+            },
+            {
+              "nummer": "2.2.5",
+              "titel": "Grafik und Monitore",
+              "slug": "grafik-und-monitore",
+              "quellen": {
+                "rahmenlehrplan": "LF2: technische Merkmale anhand von Datenblättern vergleichen, informationstechnische Kenngrößen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024, Aufgabe 1 (Monitor in Nutzwertanalyse)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "grafikkarte-gpu",
+                "monitore-display"
+              ],
+              "begriffe": [
+                "pc-hardware"
+              ]
+            },
+            {
+              "nummer": "2.2.6",
+              "titel": "Schnittstellen",
+              "slug": "schnittstellen",
+              "quellen": {
+                "rahmenlehrplan": "LF2: technische Merkmale anhand von Datenblättern vergleichen, informationstechnische Kenngrößen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (DP/HDMI)",
+                  "AP1 Frühjahr 2024 (Monitoranschlüsse)",
+                  "AP1 Frühjahr 2025 (USB-Typen)",
+                  "AP1 Herbst 2025 (Strom über USB)"
+                ],
+                "extern": [
+                  "USB-IF: USB 3.2, USB4, USB Power Delivery"
+                ]
+              },
+              "material": [
+                "schnittstellen-video",
+                "netzwerkkarten"
+              ],
+              "begriffe": [
+                "schnittstellen"
+              ]
+            },
+            {
+              "nummer": "2.2.7",
+              "titel": "Drucker und Peripherie",
+              "slug": "drucker-und-peripherie",
+              "quellen": {
+                "rahmenlehrplan": "LF2: technische Merkmale anhand von Datenblättern vergleichen, informationstechnische Kenngrößen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "drucker",
+                "scanner-sensoren"
+              ],
+              "begriffe": [
+                "pc-hardware"
+              ]
+            }
+          ]
         }
       ]
     },

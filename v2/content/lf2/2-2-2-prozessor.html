@@ -1,0 +1,38 @@
+<p class="lead">Der Prozessor bestimmt, wie schnell Programme laufen. Für einen Büroarbeitsplatz reicht ein Mittelklasse-Prozessor, für Videoschnitt oder große Berechnungen nicht. Um das zu beurteilen, musst du die Kennzahlen im Datenblatt verstehen.</p>
+
+<h3>Die wichtigsten Kennzahlen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Kennzahl</th><th>Bedeutung</th><th>Für wen wichtig</th></tr></thead>
+    <tbody>
+      <tr><th>Kerne</th><td>eigenständige Recheneinheiten; mehrere Kerne arbeiten gleichzeitig</td><td>viele Programme parallel, Videoschnitt, virtuelle Maschinen</td></tr>
+      <tr><th>Threads</th><td>Ausführungsstränge eines Programms, die der Prozessor bearbeitet; mit Simultaneous Multithreading (bei Intel: Hyper-Threading) bearbeitet ein Kern gleichzeitig zwei Threads und wird besser ausgelastet. Nicht jeder Kern beherrscht das: Viele Prozessoren kombinieren Leistungs- und Effizienzkerne, im Datenblatt steht dann etwa „14 Kerne, 20 Threads“</td><td>Programme, die Arbeit auf viele Threads verteilen</td></tr>
+      <tr><th>Taktfrequenz</th><td>Arbeitstakt in Gigahertz (GHz); Basistakt und kurzzeitig höherer Boost-Takt</td><td>Programme, die nur wenige Kerne nutzen</td></tr>
+      <tr><th>Cache</th><td>sehr schneller Zwischenspeicher im Prozessor (Stufen L1, L2, L3)</td><td>allgemein: mehr Cache entlastet den langsameren Arbeitsspeicher</td></tr>
+      <tr><th>Integrierte Grafik</th><td>Grafikeinheit im Prozessor</td><td>Büro-PCs ohne eigene Grafikkarte</td></tr>
+      <tr><th>Leistungsaufnahme (TDP)</th><td>in Watt; Wärme, die Kühler und Netzteil bewältigen müssen</td><td>leise und sparsame Geräte</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Gigahertz-Zahl allein sagt wenig: Ein neuerer Prozessor mit weniger Takt kann schneller sein als ein älterer mit mehr Takt. Für einen fairen Vergleich nutzt man unabhängige Leistungstests (Benchmarks).</p>
+
+<h3>Sockel und Kompatibilität</h3>
+<p>Prozessor und Mainboard müssen denselben <strong>Sockel</strong> haben, und der Chipsatz muss den Prozessor unterstützen. Die Liste der unterstützten Prozessoren steht beim Hersteller des Mainboards. Oft ist vorher ein BIOS/UEFI-Update nötig, damit das Mainboard einen neueren Prozessor erkennt. Auch der Kühler muss zum Sockel und zur Wärmeleistung passen.</p>
+
+<h3>Einen Prozessor einsetzen</h3>
+<ol>
+  <li>Trenne das Gerät vom Strom und erde dich, etwa über ein Antistatikarmband.</li>
+  <li>Markierung am Prozessor (meist ein kleines Dreieck) an der Markierung des Sockels ausrichten.</li>
+  <li>Prozessor ohne Druck einlegen und die Halterung schließen. Niemals mit Gewalt.</li>
+  <li>Wärmeleitpaste auftragen, falls am Kühler keine aufgetragen ist, Kühler montieren und anschließen.</li>
+</ol>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für zehn Büroarbeitsplätze mit E-Mail, Textverarbeitung und Webanwendungen wählt ein Systemhaus einen sparsamen Prozessor mit sechs Kernen und integrierter Grafik. Für den Videoschnitt-Platz der Marketingabteilung nimmt es einen Prozessor mit deutlich mehr Kernen und eine eigene Grafikkarte.</p>
+</div>
+
+<ul class="merksatz">
+  <li><strong>Kerne</strong> arbeiten parallel, <strong>Threads</strong> lasten sie besser aus, der <strong>Takt</strong> zählt vor allem bei wenig parallelen Programmen, der <strong>Cache</strong> beschleunigt den Zugriff.</li>
+  <li><strong>Sockel und Chipsatz</strong> von Prozessor und Mainboard müssen zusammenpassen.</li>
+</ul>

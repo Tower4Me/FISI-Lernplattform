@@ -719,6 +719,58 @@
           "tiefe": "Auswahl nach Anforderungen"
         }
       ]
+    },
+    {
+      "begriff": "pc-hardware",
+      "kernfakten": [
+        "EVA: Eingabe, Verarbeitung, Ausgabe, plus Speicherung.",
+        "Mainboard: Sockel, Chipsatz, RAM-, PCIe-, M.2-Steckplätze, SATA; Formfaktoren ATX, Micro-ATX, Mini-ITX.",
+        "CPU: Kerne, Threads (SMT/Hyper-Threading: 2 Threads je Kern, nicht bei allen Kernen, P-/E-Kerne), Takt (GHz, Boost), Cache L1-L3, TDP; Sockel und Chipsatz müssen passen, ggf. BIOS-Update.",
+        "RAM: flüchtig; DDR4/DDR5 nicht tauschbar; DIMM/SO-DIMM; ECC (On-Die-ECC bei DDR5 ersetzt es nicht); Dual Channel mit zwei gleichen Modulen verdoppelt die mögliche Datenrate.",
+        "Massenspeicher: HDD günstig/langsam, SSD schnell/stoßfest, TBW; SATA max. 6 Gbit/s (SSD ca. 550 MB/s), NVMe über PCIe deutlich schneller; M.2 ist Bauform (NVMe oder SATA).",
+        "Monitor: Full HD 1920x1080, WQHD 2560x1440, 4K UHD 3840x2160; IPS, VA, TN.",
+        "Drucker: Kosten pro Seite = Preis Verbrauchsmaterial / Reichweite."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-2-1",
+          "tiefe": "Aufbau"
+        },
+        {
+          "id": "2-2-2",
+          "tiefe": "CPU"
+        },
+        {
+          "id": "2-2-3",
+          "tiefe": "RAM"
+        },
+        {
+          "id": "2-2-4",
+          "tiefe": "Speicher"
+        },
+        {
+          "id": "2-2-5",
+          "tiefe": "Grafik, Monitor"
+        },
+        {
+          "id": "2-2-7",
+          "tiefe": "Drucker"
+        }
+      ]
+    },
+    {
+      "begriff": "schnittstellen",
+      "kernfakten": [
+        "USB-Stecker A, B/Micro, C; Standard bestimmt Datenrate: USB 2.0 480 Mbit/s, 3.2 Gen1 (=3.0) 5, Gen2 (=3.1 Gen2) 10, Gen2x2 20 Gbit/s, USB4 40 (bis 80) Gbit/s.",
+        "USB-Strom bei 5 V: USB 2.0 0,5 A, USB 3.x 0,9 A, USB-C bis 3 A; Power Delivery bis 100 W (ab 60 W passendes Kabel), PD 3.1 bis 240 W.",
+        "Bild: HDMI, DisplayPort (Daisy Chain), USB-C DP-Alt-Mode, Thunderbolt; VGA/DVI veraltet."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-2-6",
+          "tiefe": "Arbeitsplatzanschlüsse"
+        }
+      ]
     }
   ]
 }

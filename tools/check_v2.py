@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 V2 = ROOT / "v2"
 
 errors = []
+pending = []  # Vertiefungen, deren Ziel-Lernfeld noch fehlt
 
 
 def err(msg):
@@ -105,7 +106,7 @@ def check_structure(site):
                 if not p.exists():
                     err(f"Fragment fehlt: v2/{u['datei']}")
                     continue
-                check_fragment(p.read_text(encoding="utf-8"), f"v2/{u['datei']}")
+                check_fragment(p.read_text(encoding="utf-8"), f"v2/{u['datei']}", lf["id"], {x["id"] for x in site})
                 if not (V2 / lf["id"] / u["href"]).exists():
                     err(f"Seite fehlt (Build ausführen): v2/{lf['id']}/{u['href']}")
             if "check" in k:
@@ -116,7 +117,7 @@ def check_structure(site):
                     err(f"Check fehlt: v2/{k['check']['datei']}")
 
 
-def check_fragment(src, where):
+def check_fragment(src, where, lf_id="", written_lfs=()):
     n = len(build_v2.MERKSATZ_RE.findall(src))
     if n != 1:
         err(f"{where}: {n} Merksätze, erwartet genau 1")
@@ -124,13 +125,24 @@ def check_fragment(src, where):
         err(f"{where}: enthält Emoji")
     if re.search(r"<h[12][ >]", src):
         err(f"{where}: h1/h2 im Fragment, Zwischenüberschriften sind h3")
-    for typ, body in re.findall(r'<aside class="note" data-typ="([a-z-]+)">(.*?)</aside>', src, re.S):
+    for typ, ziel, body in re.findall(r'<aside class="note" data-typ="([a-z-]+)"(?: data-ziel="([^"]+)")?>(.*?)</aside>', src, re.S):
         if typ not in build_v2.NOTE_TYPES:
             err(f"{where}: unbekannter Note-Typ {typ}")
-        if typ == "vertiefung" and "<a href=" not in body:
-            err(f"{where}: Vertiefung ohne Link")
-        if typ == "vertiefung" and re.search(r'<a href="(?!\.\./lf)', body):
-            err(f"{where}: Vertiefung verweist ins selbe Lernfeld (nur auf andere Lernfelder erlaubt)")
+        if typ != "vertiefung":
+            continue
+        links = re.findall(r'<a href="\.\./(lf[0-9a-z]+)/', body)
+        if re.search(r'<a href="(?!\.\./lf)', body) or lf_id in links:
+            err(f"{where}: Vertiefung verweist ins selbe Lernfeld (nur andere Lernfelder)")
+        elif links:
+            continue
+        elif not ziel:
+            err(f"{where}: Vertiefung ohne Link braucht data-ziel=\"lfN\"")
+        elif ziel == lf_id:
+            err(f"{where}: data-ziel zeigt aufs eigene Lernfeld")
+        elif ziel in written_lfs:
+            err(f"{where}: {ziel} ist geschrieben, Link in der Vertiefung nachtragen")
+        else:
+            pending.append(f"{where} -> {ziel}")
     if re.search(r"<(script|style|link)\b", src):
         err(f"{where}: script/style/link gehören nicht ins Fragment")
 
@@ -263,6 +275,10 @@ def main():
         site = []
     check_structure(site)
     check_pages()
+    if pending:
+        print(f"Offene Vertiefungen (Link nachtragen, sobald das Lernfeld steht): {len(pending)}")
+        for p in pending:
+            print("  ", p)
     for e in errors:
         print("FEHLER:", e)
     print(f"check_v2: {len(errors)} Fehler")

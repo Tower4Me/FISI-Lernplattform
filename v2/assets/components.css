@@ -193,18 +193,16 @@ h3:hover .anchor { color: var(--muted); }
 .grafik text.g-mono { font-family: var(--font-mono); }
 
 /* Notes: getönte Fläche, Label in Mono, kein Seitenstreifen */
-.note { margin: 24px 0; padding: 14px 18px; border-radius: var(--radius-box); background: var(--surface-2); }
+.note { margin: 18px 0; padding: 10px 14px; border-radius: var(--radius-box); background: var(--surface-2); font-size: 15.5px; line-height: 1.55; }
 .note > :last-child { margin-bottom: 0; }
-.note .note-label { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; font: 600 12px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
-.note .note-label .icon { width: 16px; height: 16px; }
+.note .note-label { display: flex; align-items: center; gap: 6px; margin: 0 0 2px; font: 600 12px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.note .note-label .icon { width: 15px; height: 15px; }
 .note-hinweis { background: var(--info-bg); }
 .note-hinweis .note-label { color: var(--info); }
 .note-fehler { background: var(--bad-bg); }
 .note-fehler .note-label { color: var(--bad); }
 .note-vertiefung { background: var(--ok-bg); }
 .note-vertiefung .note-label { color: var(--ok); }
-.note-ueber-ap { background: transparent; border: 1px dashed var(--rule); }
-.note-ueber-ap .note-label { color: var(--muted); }
 
 /* Merksatz */
 .merksatz { margin: 32px 0; padding: 18px 22px; border-radius: var(--radius-box); background: var(--accent-bg); }

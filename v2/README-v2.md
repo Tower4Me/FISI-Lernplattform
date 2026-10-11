@@ -93,17 +93,21 @@ Nur der Inhalt, ohne `<html>`, Kopf oder Navigation. Bausteine:
 
 <figure class="grafik"><svg viewBox="…" role="img" aria-label="…">…</svg><figcaption>…</figcaption></figure>
 
-<aside class="note" data-typ="hinweis">…</aside>      <!-- hinweis | fehler | vertiefung | ueber-ap -->
+<aside class="note" data-typ="hinweis">…</aside>      <!-- hinweis | fehler | vertiefung -->
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b">…</aside>  <!-- Ziel-Lernfeld noch nicht geschrieben -->
 
 <p class="merksatz">Genau ein Merksatz pro Unterpunkt.</p>
 ```
 
 Notes und Merksatz bekommen Label und Icon beim Build.
 
-Querverweise: Eine `vertiefung`-Note verweist nur auf ein **anderes** Lernfeld und verlinkt die Zielseite.
-Innerhalb desselben Lernfelds gibt es keine Vertiefungs-Box, höchstens einen Satz im Text
-(„folgt in einem späteren Abschnitt“). Ein Ausblick auf ein späteres Lernfeld ist ein `hinweis`,
-`ueber-ap` nur für Tiefe, die in keiner Prüfung verlangt wird. Kurze Rückverweise im
+Querverweise (Entscheidung Ben, 2026-10-11):
+- `vertiefung`: nur auf ein **anderes** Lernfeld, mit Link auf die Zielseite. Ist das Ziel-Lernfeld noch
+  nicht geschrieben, steht der Kasten ohne Link mit `data-ziel="lfN"`. `check_v2.py` listet diese offenen
+  Vertiefungen und meldet einen Fehler, sobald das Ziel-Lernfeld existiert und der Link fehlt.
+- Verweis im selben Lernfeld: ein kurzer `hinweis` („folgt in Kapitel 4.5.2“), kein langer Text.
+- Keine Kennzeichnung „Über AP hinaus“ oder „Erst AP2“: Prüfungsrelevanz ist ohne Katalog nicht
+  belegbar. Stoff, der nicht ins Lernfeld gehört, kommt in das passende Lernfeld. Kurze Rückverweise im
 Fließtext („siehe Kapitel 4.2.2“) bleiben unverlinkt, damit der Lesefluss nicht von Links zerrissen wird.
 
 ## Check-JSON

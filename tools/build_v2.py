@@ -35,7 +35,6 @@ NOTE_TYPES = {
     "hinweis": ("Hinweis", "i-info"),
     "fehler": ("Häufiger Fehler", "i-alert"),
     "vertiefung": ("Vertiefung", "i-layers"),
-    "ueber-ap": ("Über AP hinaus", "i-skip"),
 }
 
 ICONS = """<svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -138,7 +137,8 @@ def plain_text(fragment):
 
 
 MERKSATZ_RE = re.compile(r'<p class="merksatz">(.*?)</p>', re.S)
-NOTE_RE = re.compile(r'<aside class="note" data-typ="([a-z-]+)">', re.S)
+# data-ziel="lfN": Vertiefung auf ein Lernfeld, das noch nicht geschrieben ist (Link folgt später)
+NOTE_RE = re.compile(r'<aside class="note" data-typ="([a-z-]+)"(?: data-ziel="(lf[0-9a-z]+)")?>', re.S)
 H3_RE = re.compile(r"<h3( id=\"([^\"]+)\")?>(.*?)</h3>", re.S)
 
 

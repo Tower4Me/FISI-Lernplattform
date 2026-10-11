@@ -24,6 +24,7 @@
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17h.01"/></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
   <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
@@ -162,6 +163,24 @@
 <aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Vertiefung auf ein Lernfeld, das noch nicht geschrieben ist: ohne Link, mit Markierung für das Prüfprogramm.</p></aside>
 
 <div class="merksatz"><p class="block-label">Merksatz</p><p>Der Schutzbedarf richtet sich nach dem größten möglichen Schaden, nicht nach dem wahrscheinlichsten.</p></div>
+
+<h2>Vorschlag: ohne Kästen</h2>
+<p>Gleiche Inhalte wie oben, aber ohne Flächen: neutrales Symbol, fettes Label, Text in derselben Zeile.</p>
+<div class="variante-b">
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Die Schutzziele sagen, <em>was</em> erreicht werden soll. Welche Maßnahmen zu welchem Ziel passen, folgt in Kapitel 4.5.2.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ein RAID ist doch schon eine Sicherung.“ Nein: Löscht jemand eine Datei oder verschlüsselt Ransomware sie, geschieht das auf allen Platten gleichzeitig.</p></aside>
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Dass ein öffentlicher Schlüssel wirklich zum Absender gehört, bestätigen Zertifikate. Das wird in <a href="#">LF11b</a> ausführlicher behandelt.</p></aside>
+
+<p>Merksatz als ein Satz:</p>
+<div class="merksatz-zeile"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Ein System erbt den höchsten Schutzbedarf seiner Anwendungen.</p></div>
+
+<p>Merksatz in Stichpunkten:</p>
+<div class="merksatz-zeile"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p>
+<ul>
+  <li><strong>Symmetrisch:</strong> ein gemeinsamer Schlüssel, schnell, Schlüssel muss sicher zum Partner.</li>
+  <li><strong>Asymmetrisch:</strong> öffentlicher Schlüssel des Empfängers verschlüsselt, sein privater entschlüsselt; kein Schlüsselaustausch, aber langsamer.</li>
+</ul></div>
+</div>
 
 <h2>Check-Ansichten</h2>
 <div class="check">

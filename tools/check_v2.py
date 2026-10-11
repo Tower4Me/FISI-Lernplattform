@@ -129,6 +129,8 @@ def check_fragment(src, where):
             err(f"{where}: unbekannter Note-Typ {typ}")
         if typ == "vertiefung" and "<a href=" not in body:
             err(f"{where}: Vertiefung ohne Link")
+        if typ == "vertiefung" and re.search(r'<a href="(?!\.\./lf)', body):
+            err(f"{where}: Vertiefung verweist ins selbe Lernfeld (nur auf andere Lernfelder erlaubt)")
     if re.search(r"<(script|style|link)\b", src):
         err(f"{where}: script/style/link gehören nicht ins Fragment")
 

@@ -205,7 +205,6 @@ def header(root):
   <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
   <a class="brand" href="{root}index.html"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
   <div class="header-tools">
-    <a class="header-link" href="{root}../{PRUEFUNG_HREF}">Prüfungssimulator</a>
     <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
     <div class="theme-switch" role="group" aria-label="Farbschema">
       <button type="button" data-theme-value="light" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span class="ts-text">Hell</span></button>

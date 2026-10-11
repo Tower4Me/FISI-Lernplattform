@@ -100,7 +100,10 @@ Nur der Inhalt, ohne `<html>`, Kopf oder Navigation. Bausteine:
 
 Notes und Merksatz bekommen Label und Icon beim Build.
 
-Querverweise: Eine `vertiefung`-Note verlinkt immer auf die Zielseite. Kurze Rückverweise im
+Querverweise: Eine `vertiefung`-Note verweist nur auf ein **anderes** Lernfeld und verlinkt die Zielseite.
+Innerhalb desselben Lernfelds gibt es keine Vertiefungs-Box, höchstens einen Satz im Text
+(„folgt in einem späteren Abschnitt“). Ein Ausblick auf ein späteres Lernfeld ist ein `hinweis`,
+`ueber-ap` nur für Tiefe, die in keiner Prüfung verlangt wird. Kurze Rückverweise im
 Fließtext („siehe Kapitel 4.2.2“) bleiben unverlinkt, damit der Lesefluss nicht von Links zerrissen wird.
 
 ## Check-JSON

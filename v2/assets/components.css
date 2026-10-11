@@ -310,6 +310,9 @@ h3:hover .anchor { color: var(--muted); }
   .switch::after { content: "AP1"; font: 600 12px/1 var(--font-mono); }
   .theme-switch .ts-text { display: none; }
   .page-head h1 { font-size: 28px; }
+  /* Breite Tabellen: Spalten lesbar halten, die Tabelle scrollt seitlich */
+  .vergleich table { font-size: 15px; }
+  .vergleich th, .vergleich td { min-width: 8.5em; padding: 8px 10px; }
 }
 
 /* ---------- Druck: immer hell, Navigation weg, Reiter offen, Checks weg ---------- */

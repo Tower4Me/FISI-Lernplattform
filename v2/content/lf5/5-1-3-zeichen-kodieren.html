@@ -1,0 +1,41 @@
+<p class="lead">Beim Import der alten Kundentabelle stehen plötzlich „MÃ¼ller“ und „GÃ¶rlitz“ in der neuen Software. Die Quelldatei ist nicht kaputt, sie wurde nur mit einer anderen Zeichenkodierung gelesen, als sie geschrieben wurde. Der Import muss mit der richtigen Kodierung wiederholt werden. Wer Daten zwischen Programmen austauscht, muss wissen, wie Text als Bytes gespeichert wird.</p>
+
+<h3>Wozu Kodierung</h3>
+<p>Ein Byte ist nur eine Zahl von 0 bis 255. Welche Zahl welches Zeichen bedeutet, legt eine <strong>Zeichenkodierung</strong> fest. Schreiber und Leser müssen dieselbe Kodierung verwenden, sonst erscheinen falsche Zeichen.</p>
+
+<h3>ASCII</h3>
+<p><strong>ASCII</strong> kodiert 128 Zeichen mit 7 Bit, die Werte 0 bis 127:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Werte</th><th>Inhalt</th></tr></thead>
+    <tbody>
+      <tr><th>0 bis 31</th><td>Steuerzeichen, etwa Tabulator (9) und Zeilenvorschub LF (10), Wagenrücklauf CR (13)</td></tr>
+      <tr><th>32 bis 64</th><td>Leerzeichen, Satzzeichen, Ziffern 0 bis 9 (48 bis 57)</td></tr>
+      <tr><th>65 bis 90</th><td>Großbuchstaben A bis Z (A = 65 = <code>0x41</code>)</td></tr>
+      <tr><th>97 bis 122</th><td>Kleinbuchstaben a bis z, jeweils 32 mehr als der Großbuchstabe</td></tr>
+      <tr><th>91 bis 96, 123 bis 127</th><td>weitere Sonderzeichen wie [ ] { }; 127 ist das Steuerzeichen DEL</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Umlaute, ß oder das €-Zeichen fehlen. 8-Bit-Zeichensätze wie ISO 8859-1 (Latin-1) oder Windows-1252 belegen zusätzlich die Werte 128 bis 255, etwa mit Umlauten und ß. Sie sind nicht einheitlich: Das €-Zeichen gibt es in Windows-1252 (Wert 128), in ISO 8859-1 nicht; andere Länder nutzen ganz andere Tabellen.</p>
+
+<h3>Unicode und UTF-8</h3>
+<p><strong>Unicode</strong> ist ein Verzeichnis, das jedem Zeichen fast aller Schriften der Welt eine eindeutige Nummer gibt, den <strong>Codepoint</strong>, etwa <code>U+0041</code> für A, <code>U+00E4</code> für ä und <code>U+20AC</code> für €. Wie diese Nummern als Bytes gespeichert werden, regelt eine Kodierung:</p>
+<ul>
+  <li><strong>UTF-8:</strong> 1 bis 4 Byte je Zeichen. Die ASCII-Zeichen bleiben 1 Byte und unverändert, Umlaute brauchen 2, das €-Zeichen 3 (LF2, Kapitel 2.4.2). UTF-8 ist der Standard im Web und für Austauschformate.</li>
+  <li><strong>UTF-16:</strong> 2 oder 4 Byte je Zeichen; intern in Windows und manchen Programmiersprachen verbreitet.</li>
+</ul>
+<p>Beispiel: „Müller“ hat 6 Zeichen, belegt in UTF-8 aber 7 Byte, weil ü zwei Byte braucht.</p>
+<p>Liest ein Programm UTF-8-Text als Windows-1252, werden die zwei Bytes eines Umlauts als zwei einzelne Zeichen angezeigt: Aus „ü“ wird „Ã¼“.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die alte Tabelle der Tierarztpraxis wurde als CSV-Datei in UTF-8 gespeichert. Das Importprogramm der neuen Software erwartet aber Windows-1252. Die Auszubildende verwirft den fehlerhaften Import, stellt im Importdialog „UTF-8“ ein, prüft danach stichprobenartig Namen mit Umlauten und dokumentiert die Einstellung für spätere Importe.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Die Ziffer 0 und die Zahl 0 sind dasselbe.“ Nein: Das Zeichen „0“ hat in ASCII den Wert 48. Wer Ziffern aus einem Text als Zahl verwenden will, muss sie umwandeln.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Kodierung</strong> legt fest, welche Zahl welches Zeichen ist; Schreiber und Leser müssen dieselbe verwenden.</li>
+  <li><strong>ASCII:</strong> 7 Bit, 128 Zeichen, keine Umlaute; <strong>Unicode:</strong> Codepoint je Zeichen, gespeichert meist als <strong>UTF-8</strong> (1 bis 4 Byte, ASCII unverändert).</li>
+</ul>

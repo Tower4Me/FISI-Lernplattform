@@ -1,0 +1,38 @@
+<p class="lead">Computer speichern alles als Folgen von Nullen und Einsen. Für Menschen sind lange Bitfolgen aber unlesbar. Deshalb begegnen dir drei Zahlensysteme: dezimal im Alltag, binär im Rechner und hexadezimal als kompakte Schreibweise für Bits, etwa bei MAC- und IPv6-Adressen oder Farbcodes.</p>
+
+<h3>Drei Systeme</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>System</th><th>Basis</th><th>Ziffern</th><th>Stellenwerte (von rechts)</th><th>Schreibweise</th></tr></thead>
+    <tbody>
+      <tr><th>Dezimal</th><td>10</td><td>0 bis 9</td><td>1, 10, 100, 1000 …</td><td>178</td></tr>
+      <tr><th>Binär (Dual)</th><td>2</td><td>0 und 1</td><td>1, 2, 4, 8, 16, 32, 64, 128 …</td><td><code>0b10110010</code></td></tr>
+      <tr><th>Hexadezimal</th><td>16</td><td>0 bis 9, A bis F (A = 10 … F = 15)</td><td>1, 16, 256, 4096 …</td><td><code>0xB2</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<p>In jedem System ergibt sich der Wert, indem du jede Ziffer mit ihrem Stellenwert malnimmst und alles addierst.</p>
+
+<h3>Umrechnen</h3>
+<ul>
+  <li><strong>Binär nach dezimal:</strong> Stellenwerte der Einsen addieren. <code>10110010</code> = 128 + 32 + 16 + 2 = 178.</li>
+  <li><strong>Dezimal nach binär:</strong> Beim größten Stellenwert (128) beginnen: passt er, abziehen und eine 1 setzen, sonst eine 0. 178 − 128 = 50 (1), 64 passt nicht (0), 50 − 32 = 18 (1), 18 − 16 = 2 (1), 8 und 4 passen nicht (0, 0), 2 − 2 = 0 (1), 1 passt nicht (0): <code>10110010</code>. Alternativ teilst du wiederholt durch 2 und liest die Reste von unten nach oben.</li>
+  <li><strong>Binär und hexadezimal:</strong> Vier Bits ergeben genau eine Hex-Ziffer. Teile die Bitfolge von rechts in Vierergruppen: <code>1011 0010</code> = B (11) und 2, also <code>0xB2</code>. Umgekehrt schreibst du jede Hex-Ziffer als vier Bits.</li>
+  <li><strong>Hexadezimal nach dezimal:</strong> <code>0xB2</code> = 11 · 16 + 2 = 178. Umgekehrt teilst du durch 16: 178 ÷ 16 = 11 Rest 2, also B2.</li>
+</ul>
+<p>Weil eine Hex-Ziffer genau vier Bit darstellt, lässt sich jedes Byte mit zwei Hex-Ziffern schreiben. Deshalb erscheinen MAC-Adressen, IPv6-Adressen und Farbangaben wie <code>#1E90FF</code> hexadezimal.</p>
+
+<h3>Negative Zahlen</h3>
+<p>Ganzzahlen mit Vorzeichen werden meist im <strong>Zweierkomplement</strong> gespeichert: Das linke Bit zeigt das Vorzeichen an (1 = negativ). Vorteil: Es gibt nur eine Null, und der Rechner kann negative Zahlen mit demselben Addierwerk verarbeiten. Für eine negative Zahl schreibst du den Betrag binär, drehst alle Bits um und addierst 1. Aus 5 = <code>00000101</code> wird so −5 = <code>11111011</code>. Mit 8 Bit lassen sich damit Werte von −128 bis +127 darstellen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Messgerät im Labor der Tierarztpraxis liefert den Wert <code>0x4A</code>. Der Auszubildende rechnet: 4 · 16 + 10 = 74. Laut Handbuch ist das die Herzfrequenz in Schlägen pro Minute. Binär sind es <code>0100 1010</code>, also 64 + 8 + 2 = 74; beide Wege führen zum selben Ergebnis.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„<code>10</code> ist immer zehn.“ Nein: Ohne Angabe der Basis ist das mehrdeutig. Binär ist <code>10</code> zwei, hexadezimal sechzehn. Deshalb schreibt man Präfixe wie <code>0b</code> und <code>0x</code> oder die Basis als Index.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Systeme:</strong> dezimal (Basis 10), binär (Basis 2), hexadezimal (Basis 16, Ziffern 0–9 und A–F).</li>
+  <li><strong>Umrechnen:</strong> Stellenwerte addieren bzw. abziehen; vier Bit = eine Hex-Ziffer, ein Byte = zwei Hex-Ziffern; negative Ganzzahlen im Zweierkomplement.</li>
+</ul>

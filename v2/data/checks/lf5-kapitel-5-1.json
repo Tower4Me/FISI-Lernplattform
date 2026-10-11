@@ -1,0 +1,125 @@
+{
+  "titel": "Check 5.1",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Information",
+      "frage": "Welche Angabe ist eine Information, also Daten mit Bedeutung im Zusammenhang?",
+      "optionen": [
+        "Gewicht des Hundes Bello: 12,4 kg",
+        "12,4",
+        "Die Zeichen 1, 2, 4 und ein Komma",
+        "Eine Kommazahl mit einer Nachkommastelle"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Erst mit Einheit und Bezug zum Tier bekommt die Zahl eine Bedeutung. Die übrigen Angaben sind Zeichen oder Daten ohne Zusammenhang."
+    },
+    {
+      "typ": "mc",
+      "thema": "Bewegungsdaten",
+      "frage": "Welche dieser Daten einer Tierarztpraxis sind Bewegungsdaten?",
+      "optionen": [
+        "Behandlungen",
+        "Anschrift der Besitzerin",
+        "Tierart",
+        "Geburtsdatum des Tieres"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bewegungsdaten entstehen laufend, etwa bei jeder Behandlung. Anschrift, Tierart und Geburtsdatum sind Stammdaten, die sich selten ändern."
+    },
+    {
+      "typ": "mc",
+      "thema": "Binär nach dezimal",
+      "frage": "Welchen Dezimalwert hat die Binärzahl 11001010?",
+      "optionen": [
+        "202",
+        "194",
+        "218",
+        "83"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "128 + 64 + 8 + 2 = 202."
+    },
+    {
+      "typ": "mc",
+      "thema": "Dezimal nach hexadezimal",
+      "frage": "Wie lautet die Dezimalzahl 200 hexadezimal?",
+      "optionen": [
+        "0xC8",
+        "0x8C",
+        "0xC0",
+        "0xB8"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "200 = 12 · 16 + 8. Die 12 schreibt man als C, also C8."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kodierungsfehler",
+      "frage": "Nach einem Import steht „Ã¼“ statt „ü“ in den Namen. Was ist die wahrscheinlichste Ursache?",
+      "optionen": [
+        "UTF-8-Text wurde mit einer anderen Kodierung gelesen",
+        "Die Datei ist beim Kopieren beschädigt worden",
+        "Die Datei wurde in ASCII statt in UTF-16 gespeichert",
+        "Auf dem Rechner fehlt die passende Schriftart"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "In UTF-8 belegt ü zwei Bytes. Liest ein Programm sie als Windows-1252, zeigt es zwei einzelne Zeichen an."
+    },
+    {
+      "typ": "mc",
+      "thema": "ASCII",
+      "frage": "Der Großbuchstabe A hat in ASCII den Wert 65. Welchen Wert hat der Kleinbuchstabe a?",
+      "optionen": [
+        "97",
+        "66",
+        "33",
+        "98"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Kleinbuchstaben liegen in ASCII genau 32 über den Großbuchstaben: 65 + 32 = 97."
+    },
+    {
+      "typ": "mc",
+      "thema": "Datentyp für Geld",
+      "frage": "Welcher Datentyp eignet sich für Rechnungsbeträge?",
+      "optionen": [
+        "Decimal",
+        "Float",
+        "String",
+        "Boolean"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Gleitkommazahlen runden binär, etwa 0,1 + 0,2 ≠ 0,3. Decimal rechnet mit festen Nachkommastellen dezimal exakt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Wertebereich",
+      "frage": "Welchen Wertebereich hat eine 8-Bit-Ganzzahl mit Vorzeichen im Zweierkomplement?",
+      "optionen": [
+        "−128 bis 127",
+        "0 bis 255",
+        "−127 bis 128",
+        "−256 bis 255"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "8 Bit ergeben 256 Werte. Mit Vorzeichen reichen sie von −128 bis +127."
+    }
+  ]
+}

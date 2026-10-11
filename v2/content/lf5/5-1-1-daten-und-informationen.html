@@ -1,0 +1,52 @@
+<p class="lead">Eine Tierarztpraxis verwaltet ihre Patienten bisher in einer Tabellenkalkulation und auf Karteikarten. Nun soll ein Systemhaus eine Praxissoftware einrichten und an die Abläufe anpassen. Bevor dabei eine Zeile Code entsteht, muss klar sein, welche Daten es gibt, woher sie kommen und wie sie geschützt werden müssen.</p>
+
+<h3>Von Zeichen zu Wissen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Stufe</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th>Zeichen</th><td>einzelne Symbole aus einem Zeichenvorrat</td><td><code>3</code>, <code>8</code>, <code>,</code>, <code>5</code></td></tr>
+      <tr><th>Daten</th><td>Zeichen nach festen Regeln zusammengesetzt, ohne Zusammenhang</td><td><code>38,5</code></td></tr>
+      <tr><th>Information</th><td>Daten mit Bedeutung in einem Zusammenhang</td><td>Körpertemperatur der Katze Mimi: 38,5 °C</td></tr>
+      <tr><th>Wissen</th><td>vernetzte Informationen, aus denen man handeln kann</td><td>38,5 °C ist für eine Katze normal, eine Fieber liegt nicht vor</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Software speichert und verarbeitet Daten. Zur Information werden sie erst durch Beschriftung, Einheit und Zusammenhang, etwa durch ein Feld „Temperatur in °C“ beim richtigen Tier. Deshalb planst du Datenfelder immer mit ihrer Bedeutung.</p>
+
+<h3>Arten von Daten</h3>
+<ul>
+  <li><strong>Strukturierte Daten</strong> haben ein festes Schema, etwa Tabellen mit Spalten für Name, Tierart und Geburtsdatum. Sie lassen sich leicht durchsuchen und auswerten.</li>
+  <li><strong>Unstrukturierte Daten</strong> haben kein festes Schema, etwa Freitext-Befunde, Röntgenbilder oder Sprachnachrichten.</li>
+  <li><strong>Semistrukturierte Daten</strong> tragen ihre Struktur in sich, etwa JSON- oder XML-Dateien (Kapitel 5.2.2).</li>
+  <li><strong>Stammdaten</strong> ändern sich selten: Besitzerin, Anschrift, Tierart. <strong>Bewegungsdaten</strong> entstehen laufend: Termine, Behandlungen, Rechnungen.</li>
+</ul>
+
+<h3>Daten analysieren</h3>
+<p>Bevor du eine Software anpasst, untersuchst du jede Datengruppe nach sechs Gesichtspunkten:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Gesichtspunkt</th><th>Frage</th><th>Beispiel Tierarztpraxis</th></tr></thead>
+    <tbody>
+      <tr><th>Herkunft</th><td>Woher kommen die Daten?</td><td>Eingabe am Empfang, Import aus der alten Tabelle, Messgeräte im Labor</td></tr>
+      <tr><th>Art</th><td>Welche Form und Struktur haben sie?</td><td>Stammdaten, Behandlungen, Bilder, Freitext</td></tr>
+      <tr><th>Verfügbarkeit</th><td>Wer braucht sie wann und wo?</td><td>Empfang und Behandlungsräume während der Sprechzeit, Notdienst auch nachts</td></tr>
+      <tr><th>Datenschutz</th><td>Sind Personen betroffen, wer darf was sehen?</td><td>Name, Anschrift und Telefon der Besitzerinnen und Besitzer sind personenbezogen</td></tr>
+      <tr><th>Datensicherheit</th><td>Wie werden sie vor Verlust und Manipulation geschützt?</td><td>tägliche Sicherung, Zugriff nur mit Anmeldung</td></tr>
+      <tr><th>Speicheranforderung</th><td>Wie viel Platz wird gebraucht, wie lange wird aufbewahrt?</td><td>Röntgenbilder brauchen viel Platz, Behandlungsdaten werden Jahre aufbewahrt</td></tr>
+    </tbody>
+  </table>
+</div>
+<aside class="note" data-typ="vertiefung"><p>Welche Regeln für personenbezogene Daten gelten, wird in <a href="../lf4/4-2-1-datenschutz-dsgvo-bdsg.html">LF4, Kapitel 4.2.1</a> behandelt.</p></aside>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende des Systemhauses sieht sich die alte Tabelle der Praxis an. Im Feld „Bemerkung“ stehen Telefonnummern, Impftermine und Allergien bunt gemischt. Für die neue Software schlägt sie eigene Felder vor: Telefon bei den Besitzerdaten, Impfungen als eigene Liste mit Datum, Allergien als eigenes Feld. Erst so lassen sich etwa fällige Impfungen automatisch finden.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Daten und Informationen sind dasselbe.“ Nein: <code>38,5</code> ist ein Datenwert (Einzahl von Daten); erst mit Einheit und Bezug zum Tier wird es zur Information. Fehlt der Zusammenhang, kann niemand etwas damit anfangen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Zeichen, Daten, Information, Wissen:</strong> Daten werden durch Bedeutung im Zusammenhang zur Information.</li>
+  <li><strong>Daten analysieren</strong> nach Herkunft, Art, Verfügbarkeit, Datenschutz, Datensicherheit und Speicheranforderung; strukturiert oder unstrukturiert, Stamm- oder Bewegungsdaten.</li>
+</ul>

@@ -2511,6 +2511,103 @@
           ]
         }
       ]
+    },
+    {
+      "id": "lf5",
+      "in_arbeit": true,
+      "kapitel": [
+        {
+          "nummer": "5.1",
+          "titel": "Daten und Datentypen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "5.1.1",
+              "titel": "Daten und Informationen",
+              "slug": "daten-und-informationen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Daten nach Herkunft, Art, Verfügbarkeit, Datenschutz, Datensicherheit und Speicheranforderung analysieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "bits-und-bytes",
+                "dsgvo-grundlagen"
+              ],
+              "begriffe": [
+                "daten-information"
+              ]
+            },
+            {
+              "nummer": "5.1.2",
+              "titel": "Zahlensysteme",
+              "slug": "zahlensysteme",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Daten nach Herkunft, Art, Verfügbarkeit, Datenschutz, Datensicherheit und Speicheranforderung analysieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (Hexadezimalschreibweise IPv6)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "zahlensysteme"
+              ],
+              "begriffe": [
+                "zahlensysteme"
+              ]
+            },
+            {
+              "nummer": "5.1.3",
+              "titel": "Zeichen kodieren",
+              "slug": "zeichen-kodieren",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Daten nach Herkunft, Art, Verfügbarkeit, Datenschutz, Datensicherheit und Speicheranforderung analysieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (ASCII-Datei)"
+                ],
+                "extern": [
+                  "Unicode Standard",
+                  "RFC 3629 (UTF-8)"
+                ]
+              },
+              "material": [
+                "zeichensaetze-ascii-unicode"
+              ],
+              "begriffe": [
+                "zeichenkodierung"
+              ]
+            },
+            {
+              "nummer": "5.1.4",
+              "titel": "Datentypen",
+              "slug": "datentypen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Daten nach Herkunft, Art, Verfügbarkeit, Datenschutz, Datensicherheit und Speicheranforderung analysieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2025 (Integervariable)"
+                ],
+                "extern": [
+                  "IEEE 754 (Gleitkomma)"
+                ]
+              },
+              "material": [
+                "variablen-datentypen-operatoren"
+              ],
+              "begriffe": [
+                "datentypen"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

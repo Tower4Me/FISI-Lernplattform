@@ -1365,6 +1365,70 @@
           "tiefe": "Fehlersuche"
         }
       ]
+    },
+    {
+      "begriff": "daten-information",
+      "kernfakten": [
+        "Zeichen → Daten (nach Regeln) → Information (Bedeutung im Zusammenhang) → Wissen (vernetzt, handlungsleitend).",
+        "Strukturiert, semistrukturiert (JSON, XML), unstrukturiert; Stammdaten vs. Bewegungsdaten.",
+        "Analyse nach Herkunft, Art, Verfügbarkeit, Datenschutz, Datensicherheit, Speicheranforderung."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-1-1",
+          "tiefe": "Grundbegriffe, Analyse"
+        }
+      ]
+    },
+    {
+      "begriff": "zahlensysteme",
+      "kernfakten": [
+        "Dezimal Basis 10, binär Basis 2 (0b), hexadezimal Basis 16 (0x, A–F = 10–15).",
+        "Wert = Summe Ziffer × Stellenwert; dez → bin per Abziehen der Stellenwerte oder Division durch 2.",
+        "4 Bit = 1 Hex-Ziffer, 1 Byte = 2 Hex-Ziffern; Zweierkomplement: invertieren + 1, 8 Bit −128..127."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-1-2",
+          "tiefe": "ausführlich"
+        },
+        {
+          "id": "3-4-1",
+          "tiefe": "Oktett binär"
+        },
+        {
+          "id": "3-4-4",
+          "tiefe": "IPv6 hex"
+        }
+      ]
+    },
+    {
+      "begriff": "zeichenkodierung",
+      "kernfakten": [
+        "Kodierung ordnet Zahlen Zeichen zu; Schreiber und Leser müssen übereinstimmen.",
+        "ASCII 7 Bit, 128 Zeichen, A = 65, a = 97, '0' = 48, LF 10, CR 13, DEL 127; 8-Bit-Zeichensätze ISO 8859-1 (ohne €) und Windows-1252 (€ = 128).",
+        "Unicode-Codepoints (U+00E4); UTF-8 1–4 Byte, ASCII unverändert, Umlaut 2, € 3; UTF-16 2/4 Byte; falsche Kodierung: ü → Ã¼."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-1-3",
+          "tiefe": "Kodierung"
+        }
+      ]
+    },
+    {
+      "begriff": "datentypen",
+      "kernfakten": [
+        "Integer, Float/Double, Decimal, String, Char, Boolean, Datum/Zeit.",
+        "n Bit = 2^n Werte; ohne Vorzeichen 0..2^n−1, mit −2^(n−1)..2^(n−1)−1; Integer meist 32 Bit, Double 64 Bit; Überlauf je nach Sprache still oder Fehler.",
+        "Gleitkomma mit Rundungsfehlern (0,1 + 0,2), Geld als Decimal oder Cent; Kennungen aus Ziffern (PLZ, Telefon) als String."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-1-4",
+          "tiefe": "Datentypen"
+        }
+      ]
     }
   ]
 }

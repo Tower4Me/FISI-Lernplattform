@@ -49,17 +49,17 @@
     {
       "typ": "mc",
       "thema": "Merkmal zu Nutzen",
-      "frage": "Welche Formulierung macht aus dem Merkmal „Notdienst rund um die Uhr“ einen Nutzen für den Kunden?",
+      "frage": "Welche Formulierung macht aus dem Merkmal „eigenes Ersatzteillager“ einen Nutzen für den Kunden?",
       "optionen": [
-        "Unser Notdienst ist auch an Wochenenden und Feiertagen rund um die Uhr besetzt.",
-        "Auch nachts werden Ausfälle bei Ihnen schnell behoben.",
-        "Wir haben für Sie zwölf Techniker im Schichtdienst.",
-        "Der Notdienst kostet einen Zuschlag."
+        "Wir haben ein eigenes Ersatzteillager mit über 2.000 Artikeln direkt bei uns im Haus.",
+        "Defekte Geräte bei Ihnen werden ohne lange Wartezeit repariert.",
+        "Wir haben für Sie ein Lager im Gewerbegebiet.",
+        "Das Lager wird zweimal im Jahr inventarisiert."
       ],
       "richtig": [
         1
       ],
-      "erklaerung": "Ein Nutzen beschreibt, was der Kunde davon hat. Die anderen Sätze nennen nur Merkmale oder Kosten."
+      "erklaerung": "Ein Nutzen beschreibt, was der Kunde davon hat: schnelle Reparaturen. Die anderen Sätze nennen nur Merkmale."
     },
     {
       "typ": "mc",
@@ -96,8 +96,8 @@
       "thema": "Feedback beschreibend",
       "frage": "Welche Rückmeldung folgt den Regeln für gutes Feedback?",
       "optionen": [
-        "Deine Folien waren insgesamt ziemlich schlecht und überladen, das solltest du ändern.",
-        "Auf Folie 4 standen sieben Stichpunkte, die konnte ich nicht alle lesen.",
+        "Deine Folien waren insgesamt ziemlich schlecht und überladen, das solltest du beim nächsten Vortrag dringend ändern.",
+        "Bei deinem Diagramm zum Umsatz fehlte mir die Einheit, deshalb habe ich die Zahlen nicht verstanden.",
         "Du solltest auf den Folien viel weniger Text verwenden.",
         "Das hätte ich viel besser gemacht."
       ],
@@ -105,6 +105,21 @@
         1
       ],
       "erklaerung": "Gutes Feedback beschreibt konkret und aus eigener Sicht, was aufgefallen ist. Pauschale Urteile helfen nicht beim Verbessern."
+    },
+    {
+      "typ": "mc",
+      "thema": "Bewertungskriterien",
+      "frage": "Zu welchem Bewertungsbereich gehört die Prüffrage „Gibt es einen roten Faden?“?",
+      "optionen": [
+        "Inhalt",
+        "Aufbau",
+        "Gestaltung",
+        "Vortrag"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Der rote Faden betrifft die Gliederung der Präsentation, also den Aufbau. Gestaltung meint die Folien, Vortrag das Sprechen."
     }
   ]
 }

@@ -192,35 +192,21 @@ h3:hover .anchor { color: var(--muted); }
 .grafik text.g-muted { fill: var(--muted); }
 .grafik text.g-mono { font-family: var(--font-mono); }
 
-/* Notes: getönte Fläche, Label in Mono, kein Seitenstreifen */
-.note { margin: 18px 0; padding: 10px 14px; border-radius: var(--radius-box); background: var(--surface-2); font-size: 15.5px; line-height: 1.55; }
+/* Notes: keine Fläche, neutrales Symbol und fettes Label in der Textzeile */
+.note { margin: 14px 0; }
 .note > :last-child { margin-bottom: 0; }
-.note .note-label { display: flex; align-items: center; gap: 6px; margin: 0 0 2px; font: 600 12px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
-.note .note-label .icon { width: 15px; height: 15px; }
-.note-hinweis { background: var(--info-bg); }
-.note-hinweis .note-label { color: var(--info); }
-.note-fehler { background: var(--bad-bg); }
-.note-fehler .note-label { color: var(--bad); }
-.note-vertiefung { background: var(--ok-bg); }
-.note-vertiefung .note-label { color: var(--ok); }
+.note .note-label { display: inline; margin: 0 4px 0 0; font-weight: 700; color: var(--ink); }
+.note .note-label::after { content: ":"; }
+.note .note-label .icon { width: 18px; height: 18px; margin-right: 6px; vertical-align: -3px; }
+.note .note-label + p { display: inline; }
 
-/* Merksatz */
-.merksatz { margin: 32px 0; padding: 18px 22px; border-radius: var(--radius-box); background: var(--accent-bg); }
-.merksatz .block-label { color: var(--accent-strong); }
-.merksatz p:last-child { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.5; }
-
-/* ---------- Vorschlag Variante B: Notes und Merksatz ohne Fläche (nur Demo-Seite) ---------- */
-.variante-b .note { background: none; border: 0; padding: 0; margin: 14px 0; font-size: inherit; line-height: inherit; }
-.variante-b .note .note-label { display: inline; margin: 0 4px 0 0;
-  font-family: var(--font-sans); font-size: 1em; font-weight: 700; line-height: inherit; letter-spacing: 0; text-transform: none; color: var(--ink); }
-.variante-b .note .note-label::after { content: ":"; }
-.variante-b .note .note-label .icon { width: 18px; height: 18px; margin-right: 6px; vertical-align: -3px; }
-.variante-b .note .note-label + p { display: inline; }
-.merksatz-zeile { margin: 26px 0; padding-top: 14px; border-top: 1px solid var(--rule); }
-.merksatz-zeile .mz-label { display: flex; align-items: center; gap: 6px; margin: 0 0 4px; font-weight: 700; color: var(--ink); }
-.merksatz-zeile .mz-label .icon { width: 18px; height: 18px; }
-.merksatz-zeile p:last-child, .merksatz-zeile li { font-weight: 600; }
-.merksatz-zeile ul { margin: 0; padding-left: 1.3em; }
+/* Merksatz: Trennlinie, Label, halbfetter Satz oder Stichpunkte */
+.merksatz { margin: 26px 0; padding-top: 14px; border-top: 1px solid var(--rule); }
+.merksatz .mz-label { display: flex; align-items: center; gap: 6px; margin: 0 0 4px; font-weight: 700; color: var(--ink); }
+.merksatz .mz-label .icon { width: 18px; height: 18px; }
+.merksatz > p:last-child, .merksatz li { font-weight: 600; }
+.merksatz > p:last-child { margin: 0; }
+.merksatz ul { margin: 0; padding-left: 1.3em; }
 
 /* ---------- Pager ---------- */
 .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--rule); }
@@ -289,8 +275,10 @@ h3:hover .anchor { color: var(--muted); }
 .rb-kapitel { margin: 36px 0 0; }
 .rb-kapitel h2 { font-size: 22px; margin: 0 0 8px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
 .rb-list { list-style: none; margin: 0; padding: 0; }
-.rb-list li { display: grid; grid-template-columns: 4.2em 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.rb-list > li { display: grid; grid-template-columns: 4.2em 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
 .rb-list .num { font-size: 14px; padding-top: 2px; }
+.rb-list ul { list-style: disc; margin: 4px 0 0; padding-left: 1.2em; }
+.rb-list ul li { margin: 2px 0; }
 .rb-list a { color: var(--ink); text-decoration: none; font-weight: 600; display: block; margin-bottom: 2px; }
 .rb-list a:hover { color: var(--accent); }
 .print-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }

@@ -157,7 +157,10 @@
   <p>Für das NAS notiert Mira (aus Kapitel 4.4.4) als wichtigste Bedrohungen Festplattendefekt und Ransomware (Kapitel 4.3); die Risikoanalyse dazu übernimmt der Informationssicherheitsbeauftragte. Sie stellt außerdem fest: Das NAS mit hohem Schutzbedarf wird nur einmal pro Woche gesichert, die Datensicherungsrichtlinie des Betriebs verlangt eine tägliche Sicherung. Sie empfiehlt eine tägliche, automatische Sicherung auf ein zweites Ziel außerhalb des Büros (vermindern). Für das kleine Restrisiko, dass zwischen zwei Sicherungen ein Tag Arbeit verloren geht, holt sie die Zustimmung der Geschäftsführung ein (akzeptieren).</p>
 </div>
 
-<div class="merksatz"><p class="block-label">Merksatz</p><p>Ein Risiko lässt sich vermeiden, vermindern, übertragen oder akzeptieren; ein Restrisiko bleibt, und ob es akzeptiert wird, entscheidet die Leitung.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Vier Strategien:</strong> vermeiden, vermindern, übertragen, akzeptieren.</li>
+  <li><strong>Restrisiko:</strong> bleibt; ob es akzeptiert wird, entscheidet die Leitung.</li>
+</ul></div>
 </section>
 <section class="print-up" id="u-4-5-2"><h2><span class="num">4.5.2</span> Maßnahmen den Schutzzielen zuordnen</h2>
 <p class="lead">Eine Maßnahme ist nur dann sinnvoll, wenn sie das Schutzziel stärkt, das gefährdet ist. Ein Backup hilft nicht gegen neugierige Blicke, und Verschlüsselung hilft nicht, wenn die Festplatte kaputtgeht. Deshalb ordnest du jede Maßnahme den Schutzzielen zu, die sie unterstützt.</p>
@@ -194,7 +197,11 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Wir haben eine Firewall, also sind unsere Daten sicher.“ Eine Firewall begrenzt Zugriffe aus dem Netz. Gegen einen Festplattendefekt, einen gestohlenen Laptop oder eine versehentlich gelöschte Datei hilft sie nicht.</p></aside>
 
-<div class="merksatz"><p class="block-label">Merksatz</p><p>Jede Maßnahme dient bestimmten Schutzzielen: Zugangsschutz und Zugriffsrechte vor allem der Vertraulichkeit und Integrität, Verschlüsselung der Vertraulichkeit, Prüfwerte der Integrität, Sicherung und Redundanz der Verfügbarkeit.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Vertraulichkeit:</strong> Zugangsschutz, Zugriffsrechte, Verschlüsselung.</li>
+  <li><strong>Integrität:</strong> Zugriffsrechte, Hashwerte, Signaturen.</li>
+  <li><strong>Verfügbarkeit:</strong> Datensicherung, Redundanz, USV.</li>
+</ul></div>
 </section>
 <section class="print-up" id="u-4-5-3"><h2><span class="num">4.5.3</span> Anmelden mit Wissen, Besitz und Merkmal</h2>
 <p class="lead">Fast jeder Schutz hängt davon ab, dass das System weiß, wer vor ihm sitzt. Ist die Anmeldung schwach, helfen auch gute Zugriffsrechte wenig: Wer das Passwort kennt, hat alle Rechte der Person.</p>
@@ -236,7 +243,7 @@
   <p>Ein Handwerksbetrieb lässt seine Beschäftigten mit Benutzername und Passwort auf das Webportal des Großhändlers zugreifen. Nachdem ein Passwort per Phishing abgegriffen und eine Bestellung über 3.000 Euro ausgelöst wurde, schaltet der Betrieb MFA mit einer Authenticator-App ein. Ein erbeutetes Passwort reicht jetzt nicht mehr für eine Anmeldung.</p>
 </div>
 
-<div class="merksatz"><p class="block-label">Merksatz</p><p>Authentifizierung beweist die Identität über Wissen, Besitz oder ein Merkmal; Mehr-Faktor-Authentifizierung verlangt mindestens zwei verschiedene dieser Faktoren.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Authentifizierung beweist die Identität über Wissen, Besitz oder ein Merkmal; Mehr-Faktor-Authentifizierung verlangt mindestens zwei verschiedene dieser Faktoren.</p></div>
 </section>
 <section class="print-up" id="u-4-5-4"><h2><span class="num">4.5.4</span> Verschlüsselung als Schutzmaßnahme</h2>
 <p class="lead">Verschlüsselung ist eine der wichtigsten technischen Maßnahmen für die Vertraulichkeit. Sie sorgt dafür, dass Daten für Unbefugte unlesbar sind, selbst wenn sie das Notebook stehlen oder eine Verbindung mitschneiden. In deiner Analyse musst du entscheiden, wo sie nötig ist, und die zwei Grundverfahren unterscheiden können.</p>
@@ -274,7 +281,10 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>Verschlüsselung schützt die Vertraulichkeit, nicht die Verfügbarkeit. Geht der Schlüssel verloren, sind die eigenen Daten verloren. Schlüssel und Wiederherstellungscodes müssen deshalb ebenfalls sicher aufbewahrt werden.</p></aside>
 
-<div class="merksatz"><p class="block-label">Merksatz</p><p>Symmetrisch heißt ein gemeinsamer Schlüssel und schnell; asymmetrisch heißt beim Verschlüsseln von Daten: öffentlicher Schlüssel des Empfängers zum Verschlüsseln, sein privater zum Entschlüsseln, ohne vorherigen Schlüsselaustausch, aber langsamer.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Symmetrisch:</strong> ein gemeinsamer Schlüssel, schnell, der Schlüssel muss sicher zum Partner.</li>
+  <li><strong>Asymmetrisch:</strong> öffentlicher Schlüssel des Empfängers verschlüsselt, sein privater entschlüsselt; kein Schlüsselaustausch, aber langsamer.</li>
+</ul></div>
 </section>
 <section class="print-up" id="u-4-5-5"><h2><span class="num">4.5.5</span> Hashwerte und digitale Signatur</h2>
 <p class="lead">Woran erkennst du, dass eine heruntergeladene Software nicht manipuliert wurde oder dass eine Rechnung wirklich vom Lieferanten kommt? Hashwerte und digitale Signaturen beantworten diese Fragen. Sie schützen Integrität und Authentizität.</p>
@@ -320,7 +330,10 @@
 
 <aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Dass ein öffentlicher Schlüssel wirklich zum Absender gehört, bestätigen Zertifikate. Das wird in LF11b ausführlicher behandelt.</p></aside>
 
-<div class="merksatz"><p class="block-label">Merksatz</p><p>Ein Hashwert zeigt, ob Daten verändert wurden; eine digitale Signatur ist ein mit dem privaten Schlüssel verschlüsselter Hashwert und belegt zusätzlich, von wem die Daten stammen.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Hashwert:</strong> zeigt, ob Daten verändert wurden.</li>
+  <li><strong>Digitale Signatur:</strong> mit dem privaten Schlüssel signierter Hashwert; belegt zusätzlich, von wem die Daten stammen.</li>
+</ul></div>
 </section>
 </div>
 </main>

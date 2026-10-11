@@ -137,7 +137,8 @@ def plain_text(fragment):
     return html.unescape(re.sub(r"\s+", " ", t)).strip()
 
 
-MERKSATZ_RE = re.compile(r'<p class="merksatz">(.*?)</p>', re.S)
+# Merksatz: ein Satz (<p class="merksatz">) oder Stichpunkte (<ul class="merksatz">)
+MERKSATZ_RE = re.compile(r'<(p|ul) class="merksatz">(.*?)</\1>', re.S)
 # data-ziel="lfN": Vertiefung auf ein Lernfeld, das noch nicht geschrieben ist (Link folgt später)
 NOTE_RE = re.compile(r'<aside class="note" data-typ="([a-z-]+)"(?: data-ziel="(lf[0-9a-z]+)")?>', re.S)
 H3_RE = re.compile(r"<h3( id=\"([^\"]+)\")?>(.*?)</h3>", re.S)
@@ -169,8 +170,11 @@ def render_fragment(src, where, prefix=""):
                 f'<svg class="icon" aria-hidden="true"><use href="#{icon}"/></svg>{label}</p>')
 
     out = NOTE_RE.sub(note, out)
-    out = MERKSATZ_RE.sub(lambda m: f'<div class="merksatz"><p class="block-label">Merksatz</p><p>{m.group(1)}</p></div>', out)
-    return out.strip(), merks[0].strip()
+    out = MERKSATZ_RE.sub(lambda m: (
+        '<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p>'
+        f'<{m.group(1)}>{m.group(2)}</{m.group(1)}></div>'), out)
+    tag, inner = merks[0]
+    return out.strip(), f"<{tag}>{inner.strip()}</{tag}>"
 
 
 def read_fragment(u):
@@ -468,7 +472,7 @@ def build():
             for u in k["unterpunkte"]:
                 src = read_fragment(u)
                 frag, merk = render_fragment(src, u["datei"])
-                merks[u["id"]] = f"<p>{merk}</p>"
+                merks[u["id"]] = merk
                 # Druckfassung: mehrere Unterpunkte auf einer Seite, daher ids mit Präfix
                 frags[u["id"]] = render_fragment(src, u["datei"], prefix=f"u{u['id']}-")[0]
                 out[f"{lf['id']}/{u['href']}"] = build_unterpunkt(site, lf, k, u, frag, plain_text(frag))

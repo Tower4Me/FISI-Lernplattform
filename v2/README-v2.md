@@ -97,9 +97,16 @@ Nur der Inhalt, ohne `<html>`, Kopf oder Navigation. Bausteine:
 <aside class="note" data-typ="vertiefung" data-ziel="lf11b">…</aside>  <!-- Ziel-Lernfeld noch nicht geschrieben -->
 
 <p class="merksatz">Genau ein Merksatz pro Unterpunkt.</p>
+<!-- oder als Stichpunkte, wenn ein Vergleich drinsteckt: -->
+<ul class="merksatz"><li><strong>Symmetrisch:</strong> …</li><li><strong>Asymmetrisch:</strong> …</li></ul>
 ```
 
 Notes und Merksatz bekommen Label und Icon beim Build.
+
+Gestaltung (Entscheidung Ben, 2026-10-11): keine Kästen. Notes erscheinen als Textzeile mit
+neutralem Symbol und fettem Label („ⓘ **Hinweis:** …“), ohne Fläche und ohne Signalfarbe. Der Merksatz
+steht am Ende unter einer dünnen Linie, halbfett. Pro Unterpunkt genau ein Merksatz, kein zusätzliches
+TL;DR. Als Satz formulieren; Stichpunkte, wenn mehrere Begriffe gegenübergestellt werden.
 
 Querverweise (Entscheidung Ben, 2026-10-11):
 - `vertiefung`: nur auf ein **anderes** Lernfeld, mit Link auf die Zielseite. Ist das Ziel-Lernfeld noch

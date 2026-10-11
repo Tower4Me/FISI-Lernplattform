@@ -77,17 +77,19 @@
       "erklaerung": "Ein Administratorkonto darf fast alles. Fehlende Rechte der Nutzerin zeigen sich nur, wenn du mit ihrem Konto testest."
     },
     {
-      "typ": "mc",
+      "typ": "mc-multi",
       "thema": "Folgen der Abnahme",
-      "frage": "Welche Folge hat die Abnahme eines Werks durch den Kunden?",
+      "frage": "Welche Folgen hat die Abnahme eines Werks? Wähle alle zutreffenden.",
       "optionen": [
-        "Die Vergütung für das Werk wird zur Zahlung fällig",
-        "Die Verjährungsfrist für Mängel endet",
-        "Das Risiko zufälliger Schäden bleibt beim Systemhaus",
-        "Das Systemhaus muss weiterhin die Mangelfreiheit beweisen"
+        "Die Vergütung wird fällig",
+        "Die Verjährungsfrist für Mängel beginnt",
+        "Das Risiko zufälliger Schäden geht auf den Kunden über",
+        "Die Verjährungsfrist für Mängel endet"
       ],
       "richtig": [
-        0
+        0,
+        1,
+        2
       ],
       "erklaerung": "Mit der Abnahme wird die Vergütung fällig, die Verjährung beginnt, und Risiko und Beweislast gehen auf den Kunden über."
     },

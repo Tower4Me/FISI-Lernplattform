@@ -3,18 +3,18 @@
   "fragen": [
     {
       "typ": "mc",
-      "thema": "Strom über USB",
-      "frage": "Ein USB-3.x-Anschluss liefert 0,9 A bei 5 V. Welche Leistung steht dem Gerät höchstens zur Verfügung?",
+      "thema": "Daisy Chain",
+      "frage": "Welcher Anschluss erlaubt es, mehrere Monitore hintereinander zu verbinden, sofern die Monitore es unterstützen?",
       "optionen": [
-        "4,5 W",
-        "0,9 W",
-        "2,5 W",
-        "45 W"
+        "DisplayPort",
+        "HDMI",
+        "VGA",
+        "USB 2.0"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Leistung ist Spannung mal Stromstärke: 5 V × 0,9 A = 4,5 W."
+      "erklaerung": "DisplayPort kann mehrere Monitore in Reihe verbinden (Daisy Chain). HDMI und VGA können das nicht."
     },
     {
       "typ": "mc",
@@ -54,7 +54,7 @@
         "Ein Modul mit 16 GB",
         "Zwei gleiche 8-GB-Module in den vorgesehenen Steckplätzen",
         "Ein 12-GB- und ein 4-GB-Modul",
-        "Ein 16-GB-Modul im ersten Steckplatz"
+        "Vier 4-GB-Module verschiedener Hersteller"
       ],
       "richtig": [
         1
@@ -67,7 +67,7 @@
       "frage": "Welche Aussage über M.2 stimmt?",
       "optionen": [
         "M.2 ist ein schnelleres Protokoll als NVMe",
-        "M.2 ist eine Bauform, eine M.2-SSD kann über NVMe oder SATA angebunden sein",
+        "M.2 ist eine Bauform, NVMe oder SATA möglich",
         "Eine M.2-SSD funktioniert in jedem M.2-Steckplatz",
         "M.2 bezeichnet die SATA-Geschwindigkeitsstufe 6 Gbit/s"
       ],

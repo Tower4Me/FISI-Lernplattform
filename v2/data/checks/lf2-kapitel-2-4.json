@@ -108,18 +108,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Energiekosten",
-      "frage": "Ein Gerät mit 50 W läuft 2000 Stunden im Jahr. Der Strom kostet 0,30 Euro pro kWh. Wie hoch sind die Energiekosten im Jahr?",
+      "thema": "Strom über USB",
+      "frage": "Ein USB-3.x-Anschluss liefert 0,9 A bei 5 V. Welche Leistung steht dem Gerät höchstens zur Verfügung?",
       "optionen": [
-        "30 Euro",
-        "30.000 Euro",
-        "333,33 Euro",
-        "0,03 Euro"
+        "4,5 W",
+        "0,9 W",
+        "2,5 W",
+        "45 W"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "50 W × 2000 h ÷ 1000 = 100 kWh. 100 kWh × 0,30 Euro = 30 Euro."
+      "erklaerung": "Leistung ist Spannung mal Stromstärke: 5 V × 0,9 A = 4,5 W."
     }
   ]
 }

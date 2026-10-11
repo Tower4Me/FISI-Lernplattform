@@ -256,18 +256,18 @@
     <thead><tr><th>Kennzahl</th><th>Bedeutung</th><th>Für wen wichtig</th></tr></thead>
     <tbody>
       <tr><th>Kerne</th><td>eigenständige Recheneinheiten; mehrere Kerne arbeiten gleichzeitig</td><td>viele Programme parallel, Videoschnitt, virtuelle Maschinen</td></tr>
-      <tr><th>Threads</th><td>Ausführungsstränge eines Programms, die der Prozessor bearbeitet; mit Simultaneous Multithreading (bei Intel: Hyper-Threading) bearbeitet ein Kern gleichzeitig zwei Threads und wird besser ausgelastet. Nicht jeder Kern beherrscht das: Viele Prozessoren kombinieren Leistungs- und Effizienzkerne, im Datenblatt steht dann etwa „14 Kerne, 20 Threads“</td><td>Programme, die Arbeit auf viele Threads verteilen</td></tr>
+      <tr><th>Threads</th><td>Ausführungsstränge eines Programms, die der Prozessor bearbeitet; mit Simultaneous Multithreading (bei Intel: Hyper-Threading) bearbeitet ein Kern gleichzeitig zwei Threads und wird besser ausgelastet. Nicht jeder Kern beherrscht das: Viele Prozessoren kombinieren Leistungs- und Effizienzkerne, im Datenblatt steht dann etwa „14 Kerne, 20 Threads“. Windows zeigt die Threads im Task-Manager als „logische Prozessoren“ an</td><td>Programme, die Arbeit auf viele Threads verteilen</td></tr>
       <tr><th>Taktfrequenz</th><td>Arbeitstakt in Gigahertz (GHz); Basistakt und kurzzeitig höherer Boost-Takt</td><td>Programme, die nur wenige Kerne nutzen</td></tr>
       <tr><th>Cache</th><td>sehr schneller Zwischenspeicher im Prozessor (Stufen L1, L2, L3)</td><td>allgemein: mehr Cache entlastet den langsameren Arbeitsspeicher</td></tr>
       <tr><th>Integrierte Grafik</th><td>Grafikeinheit im Prozessor</td><td>Büro-PCs ohne eigene Grafikkarte</td></tr>
-      <tr><th>Leistungsaufnahme (TDP)</th><td>in Watt; Wärme, die Kühler und Netzteil bewältigen müssen</td><td>leise und sparsame Geräte</td></tr>
+      <tr><th>Leistungsaufnahme (TDP)</th><td>in Watt; Wärme, die der Kühler abführen muss; Anhaltspunkt für den Strombedarf</td><td>leise und sparsame Geräte</td></tr>
     </tbody>
   </table>
 </div>
 <p>Die Gigahertz-Zahl allein sagt wenig: Ein neuerer Prozessor mit weniger Takt kann schneller sein als ein älterer mit mehr Takt. Für einen fairen Vergleich nutzt man unabhängige Leistungstests (Benchmarks).</p>
 
 <h3 id="sockel-und-kompatibilitaet">Sockel und Kompatibilität<a class="anchor" href="#sockel-und-kompatibilitaet" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Prozessor und Mainboard müssen denselben <strong>Sockel</strong> haben, und der Chipsatz muss den Prozessor unterstützen. Die Liste der unterstützten Prozessoren steht beim Hersteller des Mainboards. Oft ist vorher ein BIOS/UEFI-Update nötig, damit das Mainboard einen neueren Prozessor erkennt. Auch der Kühler muss zum Sockel und zur Wärmeleistung passen.</p>
+<p>Prozessor und Mainboard müssen denselben <strong>Sockel</strong> haben, und der Chipsatz muss den Prozessor unterstützen. Die Liste der unterstützten Prozessoren steht beim Hersteller des Mainboards. Oft ist vorher ein Firmware-Update nötig (Kapitel 2.3.4), damit das Mainboard einen neueren Prozessor erkennt. Auch der Kühler muss zum Sockel und zur Wärmeleistung passen.</p>
 
 <h3 id="einen-prozessor-einsetzen">Einen Prozessor einsetzen<a class="anchor" href="#einen-prozessor-einsetzen" aria-hidden="true" tabindex="-1">#</a></h3>
 <ol>

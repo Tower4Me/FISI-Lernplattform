@@ -93,18 +93,33 @@
     },
     {
       "typ": "mc",
-      "thema": "Fat Client",
-      "frage": "Was unterscheidet einen Fat Client von einem Thin Client?",
+      "thema": "Lastenheft",
+      "frage": "Wer erstellt das Lastenheft?",
       "optionen": [
-        "Programme laufen auf dem Gerät selbst",
-        "Er hat keinen eigenen Monitor",
-        "Er nutzt einen Terminalserver im Rechenzentrum",
-        "Er ist kleiner und leiser"
+        "Der Auftraggeber",
+        "Der Auftragnehmer als Antwort auf die Anfrage",
+        "Der Hersteller der Geräte",
+        "Beide gemeinsam bei der Abnahme"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Beim Fat Client, dem normalen PC, laufen Programme lokal. Ein Thin Client zeigt dagegen einen Arbeitsplatz an, der auf einem Server läuft."
+      "erklaerung": "Das Lastenheft beschreibt, was der Auftraggeber will. Der Auftragnehmer antwortet darauf mit dem Pflichtenheft."
+    },
+    {
+      "typ": "mc",
+      "thema": "Pflichtenheft",
+      "frage": "Was beschreibt das Pflichtenheft?",
+      "optionen": [
+        "Wie und womit der Auftragnehmer die Anforderungen umsetzt",
+        "Welche Wünsche der Auftraggeber an das Ergebnis hat",
+        "Welche Mängel bei der Abnahme festgestellt wurden",
+        "Welche Preise die Lieferanten angeboten haben"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Pflichtenheft vom Auftragnehmer beschreibt die Umsetzung. Es ist Grundlage für die Abnahme."
     }
   ]
 }

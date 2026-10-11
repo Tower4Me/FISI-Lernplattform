@@ -271,7 +271,7 @@
       <tr><th>Arbeitsspeicher (RAM)</th><td>hält laufende Programme und Daten</td><td>Kapazität, Typ, Anzahl der Module (Kapitel 2.2.3)</td></tr>
       <tr><th>Massenspeicher</th><td>speichert dauerhaft</td><td>SSD oder HDD, Kapazität, Anschluss (Kapitel 2.2.4)</td></tr>
       <tr><th>Grafik</th><td>erzeugt das Bild</td><td>im Prozessor integriert oder eigene Grafikkarte (Kapitel 2.2.5)</td></tr>
-      <tr><th>Netzteil</th><td>wandelt Netzstrom in die Gleichspannungen für die Bauteile um</td><td>Leistung in Watt, Wirkungsgrad</td></tr>
+      <tr><th>Netzteil</th><td>wandelt Netzstrom in die Gleichspannungen für die Bauteile um</td><td>Leistung in Watt, Wirkungsgrad (Kapitel 2.4.4)</td></tr>
       <tr><th>Gehäuse</th><td>schützt und kühlt</td><td>Größe und passender Formfaktor</td></tr>
     </tbody>
   </table>
@@ -302,18 +302,18 @@
     <thead><tr><th>Kennzahl</th><th>Bedeutung</th><th>Für wen wichtig</th></tr></thead>
     <tbody>
       <tr><th>Kerne</th><td>eigenständige Recheneinheiten; mehrere Kerne arbeiten gleichzeitig</td><td>viele Programme parallel, Videoschnitt, virtuelle Maschinen</td></tr>
-      <tr><th>Threads</th><td>Ausführungsstränge eines Programms, die der Prozessor bearbeitet; mit Simultaneous Multithreading (bei Intel: Hyper-Threading) bearbeitet ein Kern gleichzeitig zwei Threads und wird besser ausgelastet. Nicht jeder Kern beherrscht das: Viele Prozessoren kombinieren Leistungs- und Effizienzkerne, im Datenblatt steht dann etwa „14 Kerne, 20 Threads“</td><td>Programme, die Arbeit auf viele Threads verteilen</td></tr>
+      <tr><th>Threads</th><td>Ausführungsstränge eines Programms, die der Prozessor bearbeitet; mit Simultaneous Multithreading (bei Intel: Hyper-Threading) bearbeitet ein Kern gleichzeitig zwei Threads und wird besser ausgelastet. Nicht jeder Kern beherrscht das: Viele Prozessoren kombinieren Leistungs- und Effizienzkerne, im Datenblatt steht dann etwa „14 Kerne, 20 Threads“. Windows zeigt die Threads im Task-Manager als „logische Prozessoren“ an</td><td>Programme, die Arbeit auf viele Threads verteilen</td></tr>
       <tr><th>Taktfrequenz</th><td>Arbeitstakt in Gigahertz (GHz); Basistakt und kurzzeitig höherer Boost-Takt</td><td>Programme, die nur wenige Kerne nutzen</td></tr>
       <tr><th>Cache</th><td>sehr schneller Zwischenspeicher im Prozessor (Stufen L1, L2, L3)</td><td>allgemein: mehr Cache entlastet den langsameren Arbeitsspeicher</td></tr>
       <tr><th>Integrierte Grafik</th><td>Grafikeinheit im Prozessor</td><td>Büro-PCs ohne eigene Grafikkarte</td></tr>
-      <tr><th>Leistungsaufnahme (TDP)</th><td>in Watt; Wärme, die Kühler und Netzteil bewältigen müssen</td><td>leise und sparsame Geräte</td></tr>
+      <tr><th>Leistungsaufnahme (TDP)</th><td>in Watt; Wärme, die der Kühler abführen muss; Anhaltspunkt für den Strombedarf</td><td>leise und sparsame Geräte</td></tr>
     </tbody>
   </table>
 </div>
 <p>Die Gigahertz-Zahl allein sagt wenig: Ein neuerer Prozessor mit weniger Takt kann schneller sein als ein älterer mit mehr Takt. Für einen fairen Vergleich nutzt man unabhängige Leistungstests (Benchmarks).</p>
 
 <h3 id="u2-2-2-sockel-und-kompatibilitaet">Sockel und Kompatibilität<a class="anchor" href="#u2-2-2-sockel-und-kompatibilitaet" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Prozessor und Mainboard müssen denselben <strong>Sockel</strong> haben, und der Chipsatz muss den Prozessor unterstützen. Die Liste der unterstützten Prozessoren steht beim Hersteller des Mainboards. Oft ist vorher ein BIOS/UEFI-Update nötig, damit das Mainboard einen neueren Prozessor erkennt. Auch der Kühler muss zum Sockel und zur Wärmeleistung passen.</p>
+<p>Prozessor und Mainboard müssen denselben <strong>Sockel</strong> haben, und der Chipsatz muss den Prozessor unterstützen. Die Liste der unterstützten Prozessoren steht beim Hersteller des Mainboards. Oft ist vorher ein Firmware-Update nötig (Kapitel 2.3.4), damit das Mainboard einen neueren Prozessor erkennt. Auch der Kühler muss zum Sockel und zur Wärmeleistung passen.</p>
 
 <h3 id="u2-2-2-einen-prozessor-einsetzen">Einen Prozessor einsetzen<a class="anchor" href="#u2-2-2-einen-prozessor-einsetzen" aria-hidden="true" tabindex="-1">#</a></h3>
 <ol>
@@ -334,7 +334,7 @@
 </ul></div>
 </section>
 <section class="print-up" id="u-2-2-3"><h2><span class="num">2.2.3</span> Arbeitsspeicher</h2>
-<p class="lead">Zu wenig Arbeitsspeicher ist einer der häufigsten Gründe für langsame Büro-PCs. Wer viele Browser-Tabs, Tabellen und Videokonferenzen gleichzeitig nutzt, merkt das sofort. Ausreichend RAM verhindert, dass der Rechner ausbremst; mehr als nötig bringt dagegen kaum etwas.</p>
+<p class="lead">Zu wenig Arbeitsspeicher ist einer der häufigsten Gründe für langsame Büro-PCs. Wer viele Browser-Tabs, Tabellen und Videokonferenzen gleichzeitig nutzt, merkt das sofort. Ausreichend RAM verhindert, dass der Rechner ausgebremst wird; mehr als nötig bringt dagegen kaum etwas.</p>
 
 <h3 id="u2-2-3-was-der-arbeitsspeicher-tut">Was der Arbeitsspeicher tut<a class="anchor" href="#u2-2-3-was-der-arbeitsspeicher-tut" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Der <strong>Arbeitsspeicher</strong> (RAM, Random Access Memory) hält die Programme und Daten, mit denen gerade gearbeitet wird. Er ist viel schneller als SSD oder Festplatte, aber <strong>flüchtig</strong>: Ohne Strom ist der Inhalt weg. Reicht er nicht aus, lagert das Betriebssystem Daten auf den Massenspeicher aus (Auslagerungsdatei), und der Rechner wird spürbar langsamer.</p>
@@ -353,7 +353,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Ein Steuerbüro klagt über langsame PCs mit je einem 8-GB-Modul. Der Auszubildende prüft im Handbuch: DDR5, vier Steckplätze, Dual Channel in den Plätzen A2 und B2; das vorhandene Modul steckt in A2. Er setzt ein zweites, gleiches 8-GB-Modul in B2 ein. Der PC hat jetzt 16 GB im Dual-Channel-Betrieb, und das Ruckeln bei Videokonferenzen ist weg.</p>
+  <p>Ein Steuerbüro klagt über langsame PCs mit je einem 8-GB-Modul. Die Auszubildende prüft im Handbuch: DDR5, vier Steckplätze, Dual Channel in den Plätzen A2 und B2; das vorhandene Modul steckt in A2. Sie setzt ein zweites, gleiches 8-GB-Modul in B2 ein. Der PC hat jetzt 16 GB im Dual-Channel-Betrieb, und das Ruckeln bei Videokonferenzen ist weg.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Arbeitsspeicher speichert meine Dateien.“ Nein: Dateien liegen dauerhaft auf SSD oder Festplatte. Der Arbeitsspeicher hält nur, was gerade geöffnet ist, und verliert beim Ausschalten seinen Inhalt.</p></aside>
@@ -465,7 +465,7 @@
     </tbody>
   </table>
 </div>
-<p>Ein Typ-C-Stecker sagt also nichts über die Geschwindigkeit: Auch hinter Typ C kann sich USB 2.0 verbergen. Über USB-C mit <strong>Power Delivery</strong> lassen sich Notebooks laden, je nach Netzteil und Kabel mit bis zu 100 Watt (ab 60 Watt ist ein dafür ausgelegtes Kabel nötig), nach neuerer Spezifikation bis 240 Watt.</p>
+<p>Ein Typ-C-Stecker sagt also nichts über die Geschwindigkeit: Auch hinter Typ C kann sich USB 2.0 verbergen. Über USB-C mit <strong>Power Delivery</strong> lassen sich Notebooks laden, je nach Netzteil und Kabel mit bis zu 100 Watt (über 60 Watt ist ein dafür ausgelegtes 5-A-Kabel nötig), nach neuerer Spezifikation bis 240 Watt.</p>
 
 <h3 id="u2-2-6-bildanschluesse">Bildanschlüsse<a class="anchor" href="#u2-2-6-bildanschluesse" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -476,10 +476,11 @@
       <tr><th>DisplayPort (DP)</th><td>verbreitet an PCs und Büromonitoren, überträgt ebenfalls Bild und Ton, mehrere Monitore können hintereinander verbunden werden (Daisy Chain, sofern Monitore es unterstützen)</td></tr>
       <tr><th>USB-C mit DisplayPort-Modus</th><td>Bild über USB-C (DP Alt Mode), nicht an jedem USB-C-Anschluss; oft gleichzeitig Strom und Daten: ein Kabel für Notebook und Monitor</td></tr>
       <tr><th>Thunderbolt</th><td>über USB-C-Stecker, 40 Gbit/s (Thunderbolt 5: 80 Gbit/s), erkennbar am Blitz-Symbol; für Dockingstationen</td></tr>
-      <tr><th>VGA, DVI</th><td>ältere Anschlüsse, nur noch an Altgeräten</td></tr>
+      <tr><th>VGA, DVI</th><td>ältere Anschlüsse, nur noch an Altgeräten; VGA überträgt analog, DVI digital (DVI-I auch analog)</td></tr>
     </tbody>
   </table>
 </div>
+<p>HDMI und DisplayPort sind digital und lassen sich mit Adaptern verbinden, etwa DisplayPort auf HDMI. Für ein analoges VGA-Gerät braucht es einen aktiven Wandler.</p>
 
 <h3 id="u2-2-6-strom-aus-der-schnittstelle">Strom aus der Schnittstelle<a class="anchor" href="#u2-2-6-strom-aus-der-schnittstelle" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Kleine Geräte wie Kartenleser oder externe Festplatten beziehen ihren Strom über USB. Ein USB-2.0-Anschluss liefert standardmäßig 0,5 A, USB 3.x 0,9 A, USB-C ohne Power Delivery bis 3 A, jeweils bei 5 Volt. Reicht das nicht, ist ein eigenes Netzteil nötig. Wie man das ausrechnet, folgt in Kapitel 2.4.4.</p>

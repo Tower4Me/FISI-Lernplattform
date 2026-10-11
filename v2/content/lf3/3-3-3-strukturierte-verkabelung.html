@@ -1,0 +1,54 @@
+<p class="lead">Kabel, die kreuz und quer vom Switch direkt zu jedem Schreibtisch laufen, sind nach dem ersten Umzug unbrauchbar. Eine strukturierte Verkabelung trennt das fest verlegte Kabelnetz von den Geräten. Sie ist genormt, auf viele Jahre ausgelegt und lässt sich ändern, ohne Wände aufzustemmen.</p>
+
+<h3>Das Prinzip</h3>
+<p>Die <strong>strukturierte Verkabelung</strong> (Normen EN 50173 und ISO/IEC 11801) baut die Verkabelung eines Geländes in festen Ebenen auf. Jede Ebene endet an einem Verteiler, an dem man umstecken kann.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Ebene</th><th>verbindet</th><th>übliches Medium</th></tr></thead>
+    <tbody>
+      <tr><th>Primärbereich (Gelände)</th><td>Standortverteiler mit den Gebäudeverteilern</td><td>Glasfaser, bis etwa 1500 m</td></tr>
+      <tr><th>Sekundärbereich (Steigbereich)</th><td>Gebäudeverteiler mit den Etagenverteilern</td><td>Glasfaser, bei kurzen Wegen auch Kupfer; bis etwa 500 m</td></tr>
+      <tr><th>Tertiärbereich (Etage)</th><td>Etagenverteiler mit den Anschlussdosen am Arbeitsplatz</td><td>Twisted Pair, höchstens 90 m fest verlegt</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ein kleines Büro hat oft nur den Tertiärbereich: ein Netzwerkschrank, von dem aus alle Dosen versorgt werden.</p>
+
+<h3>Vom Schreibtisch zum Switch</h3>
+<figure class="grafik">
+  <svg viewBox="0 0 640 150" role="img" aria-label="Weg eines Anschlusses: PC, Patchkabel, Anschlussdose, fest verlegtes Kabel bis 90 Meter, Patchfeld, Patchkabel, Switch">
+    <rect class="g-rule" x="380" y="40" width="258" height="80" rx="8" stroke-dasharray="4 4"/>
+    <rect class="g-box" x="10" y="50" width="80" height="40" rx="6"/><text x="50" y="75" text-anchor="middle">PC</text>
+    <rect class="g-box" x="150" y="50" width="90" height="40" rx="6"/><text x="195" y="75" text-anchor="middle">Dose</text>
+    <rect class="g-accent" x="390" y="50" width="100" height="40" rx="6"/><text x="440" y="75" text-anchor="middle">Patchfeld</text>
+    <rect class="g-box" x="550" y="50" width="80" height="40" rx="6"/><text x="590" y="75" text-anchor="middle">Switch</text>
+    <path class="g-line" d="M90 70H150M490 70H550"/>
+    <path class="g-line" d="M240 70H390" stroke-width="3"/>
+    <text class="g-muted" x="120" y="110" text-anchor="middle" font-size="12">Patchkabel</text>
+    <text class="g-muted" x="315" y="110" text-anchor="middle" font-size="12">Verlegekabel, max. 90 m</text>
+    <text class="g-muted" x="520" y="110" text-anchor="middle" font-size="12">Patchkabel</text>
+    <text class="g-muted" x="315" y="30" text-anchor="middle" font-size="12">fest in der Wand</text>
+    <text class="g-muted" x="509" y="138" text-anchor="middle" font-size="12">im Netzwerkschrank</text>
+  </svg>
+  <figcaption>Der Weg eines Anschlusses: Das Verlegekabel bleibt fest, umgesteckt wird nur mit Patchkabeln. Zusammen höchstens 100 m.</figcaption>
+</figure>
+<ul>
+  <li><strong>Anschlussdose:</strong> am Arbeitsplatz, beschriftet, etwa „2.04“ für Raum 2, Dose 4.</li>
+  <li><strong>Verlegekabel:</strong> fest in Kabelkanal oder Wand, endet hinten am Patchfeld.</li>
+  <li><strong>Patchfeld:</strong> Leiste mit nummerierten Buchsen im Netzwerkschrank; jede Buchse gehört zu einer Dose.</li>
+  <li><strong>Patchkabel:</strong> kurze Kabel vom Patchfeld zum Switch und von der Dose zum Gerät. Erst damit ist eine Dose aktiv.</li>
+  <li><strong>Netzwerkschrank:</strong> meist ein 19-Zoll-Schrank: Die Geräte sind einheitlich 19 Zoll (48,26 cm) breit. Die Höhe der Geräte wird in Höheneinheiten angegeben, 1 HE sind 44,45 mm.</li>
+</ul>
+<p>Weil alles nummeriert und dokumentiert ist (Kapitel 3.1.3), reicht bei einem Umzug ein umgestecktes Patchkabel.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Beim Durchsehen des Schranks stellt der Auszubildende fest: Die Patchfeld-Ports 3 und 4 haben eine Dose, sind aber nicht mit dem Switch verbunden; die Ports 5 und 6 sind gesteckt, die Dosen 2.05 und 2.06 aber noch frei. Ein neuer Drucker funktioniert deshalb sofort an Dose 2.05 oder 2.06. Für Dose 2.03 müsste erst ein Patchkabel gesteckt werden; dafür ist am Switch noch ein Port frei.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Plane beim Verlegen Reserve ein: Kabel in die Wand zu bringen ist teuer, ein paar zusätzliche Dosen kosten dabei wenig. Freie Switch-Ports und Platz im Schrank erleichtern spätere Erweiterungen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Strukturierte Verkabelung:</strong> Primär (Gelände), Sekundär (Steigbereich), Tertiär (Etage bis zur Dose).</li>
+  <li><strong>Anschluss:</strong> Dose, Verlegekabel (max. 90 m), Patchfeld, Patchkabel, Switch; aktiv wird eine Dose erst durch das Patchkabel zum Switch.</li>
+</ul>

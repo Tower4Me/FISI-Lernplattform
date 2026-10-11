@@ -1165,6 +1165,57 @@
           "tiefe": "Zuordnung"
         }
       ]
+    },
+    {
+      "begriff": "verkabelung",
+      "kernfakten": [
+        "Twisted Pair: 4 verdrillte Paare (gegen Störungen und Nebensprechen), RJ45 (8P8C); Schirmung X/YTP (U, F, S, SF), nur geerdet wirksam; Verlegekabel starr, Patchkabel Litze.",
+        "Cat 5e 1 Gbit/s (100 MHz), Cat 6 250 MHz (10G bis ca. 55 m), Cat 6A 500 MHz 10 Gbit/s, Cat 7/7A mit RJ45 nur 6A, Cat 8 2000 MHz bis 40 Gbit/s auf 30 m; max. 100 m = 90 m Verlegekabel + 10 m Patch; T568A/B; Auto-MDI-X.",
+        "LWL: Licht, Totalreflexion, EMV-unempfindlich, galvanische Trennung (metallfrei); Singlemode 9 µm OS2 km; Multimode 50 µm OM3/OM4 (türkis, OM4 auch violett), OM5 limettengrün, OM1/2 orange; LC/SC; SFP, Medienkonverter; kein PoE.",
+        "Strukturiert (EN 50173/ISO 11801): Primär Gelände (bis ca. 1500 m), Sekundär Steigbereich (bis ca. 500 m), Tertiär Etage (90 m); Dose, Verlegekabel, Patchfeld, Patchkabel, Switch; 19 Zoll = 48,26 cm, 1 HE = 44,45 mm."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-3-1",
+          "tiefe": "Kupfer"
+        },
+        {
+          "id": "3-3-2",
+          "tiefe": "Glasfaser"
+        },
+        {
+          "id": "3-3-3",
+          "tiefe": "Struktur"
+        }
+      ]
+    },
+    {
+      "begriff": "netzwerkkomponenten",
+      "kernfakten": [
+        "NIC, Switch (managed/unmanaged), Router, Access Point, Firewall; Hub/Repeater veraltet.",
+        "PoE: 802.3af 15,4 W (12,95 W am Gerät), at 30 W (25,5 W), bt 60/90 W (51/71,3 W); PoE-Budget; Gerät muss PoE können, Injektor wenn Switch ohne PoE.",
+        "Energy Efficient Ethernet 802.3az; bedarfsgerecht dimensionieren, Ports/WLAN zeitgesteuert abschalten."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-3-4",
+          "tiefe": "Geräte, PoE"
+        }
+      ]
+    },
+    {
+      "begriff": "mac-adresse",
+      "kernfakten": [
+        "48 Bit hex (6 Paare), OUI 24 Bit + Gerätenummer; Broadcast FF-FF-FF-FF-FF-FF; physische Adresse, Schicht 2, nur im eigenen Netz; änderbar, zufällige MAC im WLAN.",
+        "Rahmen: Ziel-MAC, Quell-MAC, Typ, Daten, FCS.",
+        "Switch lernt Quell-MAC + Port, leitet gezielt, Unbekanntes/Broadcast an alle Ports; jeder Port eigene Kollisionsdomäne, Router trennt Broadcastdomänen; CSMA/CD historisch (Hub), CSMA/CA im WLAN; FCS-Fehler: verwerfen, Wiederholung durch TCP."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-3-5",
+          "tiefe": "MAC, Switch"
+        }
+      ]
     }
   ]
 }

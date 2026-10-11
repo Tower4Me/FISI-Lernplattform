@@ -1,0 +1,46 @@
+<p class="lead">Für einen neuen Netzwerkdrucker und einen WLAN-Zugang braucht die Hausverwaltung vielleicht einen größeren Switch, vielleicht einen Access Point, vielleicht reicht der vorhandene Router. Die Entscheidung hängt davon ab, was jedes Gerät kann. Dabei zählen auch Stromverbrauch und die Frage, ob Geräte ihren Strom übers Netzwerkkabel bekommen.</p>
+
+<h3>Die wichtigsten Geräte</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Gerät</th><th>Aufgabe</th><th>Worauf du achtest</th></tr></thead>
+    <tbody>
+      <tr><th>Netzwerkkarte (NIC)</th><td>verbindet ein Endgerät mit dem Netz, meist auf dem Mainboard</td><td>Geschwindigkeit (1, 2,5 oder 10 Gbit/s), WLAN-Standard</td></tr>
+      <tr><th>Switch</th><td>verbindet Geräte im selben Netz und leitet Rahmen gezielt an den richtigen Port (Kapitel 3.3.5)</td><td>Anzahl und Geschwindigkeit der Ports, Uplink-Ports, PoE, verwaltbar oder nicht</td></tr>
+      <tr><th>Router</th><td>verbindet verschiedene Netze, etwa Büronetz und Internet</td><td>Internetanschluss, Firewall, VPN, oft mit DHCP-Server</td></tr>
+      <tr><th>Access Point (AP)</th><td>bindet Funkgeräte ans kabelgebundene Netz an (Kapitel 3.6)</td><td>WLAN-Standard, Reichweite, Stromversorgung über PoE</td></tr>
+      <tr><th>Firewall</th><td>filtert Datenverkehr zwischen Netzen nach Regeln</td><td>meist im Router enthalten, in größeren Netzen eigenes Gerät</td></tr>
+      <tr><th>Repeater, Hub</th><td>verstärken bzw. verteilen Signale ohne Prüfung</td><td>Hubs sind veraltet und durch Switches ersetzt; Repeater begegnen dir heute vor allem im WLAN (Kapitel 3.6)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Einfache Switches arbeiten sofort nach dem Einstecken (<strong>unmanaged</strong>). <strong>Verwaltbare</strong> Switches (managed) lassen sich über eine Weboberfläche einstellen, zeigen den Zustand jedes Ports und können Netze trennen; das lohnt sich, sobald du Ports überwachen oder Netze trennen willst; günstige verwaltbare Switches gibt es auch für kleine Büros.</p>
+
+<h3>Strom über das Netzwerkkabel: PoE</h3>
+<p>Bei <strong>Power over Ethernet</strong> (PoE) liefert der Switch über das Twisted-Pair-Kabel neben den Daten auch Strom. Access Points an der Decke, IP-Telefone oder Kameras brauchen dann keine eigene Steckdose. Das Gerät muss PoE unterstützen. Kann der Switch kein PoE, speist ein <strong>PoE-Injektor</strong> zwischen Switch und Gerät den Strom ein.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Standard</th><th>Name</th><th>Leistung am Switch-Port</th><th>beim Gerät nutzbar</th></tr></thead>
+    <tbody>
+      <tr><th>IEEE 802.3af</th><td>PoE</td><td>15,4 W</td><td>12,95 W</td></tr>
+      <tr><th>IEEE 802.3at</th><td>PoE+</td><td>30 W</td><td>25,5 W</td></tr>
+      <tr><th>IEEE 802.3bt</th><td>PoE++</td><td>60 W bzw. 90 W</td><td>51 W bzw. 71,3 W</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ein Teil der Leistung geht im Kabel verloren. Außerdem hat jeder PoE-Switch ein <strong>PoE-Budget</strong>: die Leistung, die er für alle Ports zusammen höchstens abgeben kann. Die Summe der Geräte darf es nicht übersteigen.</p>
+
+<h3>Energieeffizienz</h3>
+<p>Netzwerkgeräte laufen rund um die Uhr, also lohnt der Blick auf den Verbrauch (LF2, Kapitel 2.4.5). Switches mit <strong>Energy Efficient Ethernet</strong> (IEEE 802.3az) senken den Verbrauch in Pausen ohne Datenverkehr. Zusätzlich sparst du, wenn du den Switch nach Bedarf statt zu groß wählst und PoE-Ports oder WLAN außerhalb der Bürozeiten zeitgesteuert abschaltest. Schon 20 W Dauerbetrieb ergeben rund 175 kWh im Jahr.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Hausverwaltung braucht künftig sieben Anschlüsse: Router, PC, Notebook-Dose, Drucker, NAS, Access Point und eine Reserve. Das Systemhaus wählt einen verwaltbaren Switch mit acht Gigabit-Ports, davon vier mit PoE+ und einem PoE-Budget von 65 W. Der Access Point an der Decke braucht 13 W, mehr als 802.3af am Gerät liefert; er hängt deshalb an einem PoE+-Port. So bleibt Luft für ein späteres IP-Telefon.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„PoE kommt auch über Glasfaser.“ Nein: PoE braucht Kupferadern. Über einen Lichtwellenleiter fließt kein Strom.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Geräte:</strong> Netzwerkkarte bindet an, Switch verbindet im Netz, Router verbindet Netze, Access Point bindet Funk an, Firewall filtert.</li>
+  <li><strong>PoE:</strong> Strom übers Datenkabel; 802.3af 15,4 W, at 30 W, bt 60 bzw. 90 W am Port; PoE-Budget beachten.</li>
+</ul>

@@ -1,0 +1,46 @@
+<p class="lead">Zwischen zwei Gebäuden, über mehrere Stockwerke oder neben einer großen Maschine stößt Kupfer an Grenzen. Dann kommt Glasfaser zum Einsatz. Für den einzelnen Arbeitsplatz ist sie selten nötig, doch du musst sie erkennen, die Typen unterscheiden und wissen, wie ein Client trotzdem angebunden wird.</p>
+
+<h3>Wie ein Lichtwellenleiter funktioniert</h3>
+<p>Ein <strong>Lichtwellenleiter</strong> (LWL, Glasfaser) überträgt Daten als Lichtimpulse. Das Licht läuft im <strong>Kern</strong> der Faser und wird am umgebenden <strong>Mantelglas</strong> vollständig zurückgeworfen (Totalreflexion), sodass es den Kern nicht verlässt. Eine Schutzbeschichtung schützt die empfindliche Faser.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Kupfer (Twisted Pair)</th><th>Lichtwellenleiter</th></tr></thead>
+    <tbody>
+      <tr><th>Reichweite</th><td>bis 100 m</td><td>hunderte Meter bis viele Kilometer</td></tr>
+      <tr><th>Störungen</th><td>empfindlich gegen elektromagnetische Felder</td><td>unempfindlich, da Licht statt Strom</td></tr>
+      <tr><th>Zwischen Gebäuden</th><td>Gefahr durch Potenzialunterschiede, etwa bei Blitzeinschlag</td><td>keine elektrische Verbindung (bei metallfreiem Kabel), daher sicher</td></tr>
+      <tr><th>Handhabung</th><td>robust, einfach zu konfektionieren</td><td>empfindlich gegen Knicken und Schmutz, Spezialwerkzeug</td></tr>
+      <tr><th>Strom mitliefern (PoE)</th><td>möglich (Kapitel 3.3.4)</td><td>nicht möglich</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Singlemode und Multimode</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Singlemode</th><th>Multimode</th></tr></thead>
+    <tbody>
+      <tr><th>Kerndurchmesser</th><td>etwa 9 µm</td><td>50 µm (selten 62,5 µm)</td></tr>
+      <tr><th>Lichtweg</th><td>ein einziger Weg</td><td>viele Wege, die unterschiedlich lang sind und das Signal verwischen</td></tr>
+      <tr><th>Reichweite</th><td>viele Kilometer</td><td>einige hundert Meter bei 10 Gbit/s</td></tr>
+      <tr><th>Einsatz</th><td>zwischen Standorten, Anbieternetze, Glasfaser-Hausanschluss</td><td>innerhalb von Gebäuden und auf einem Gelände</td></tr>
+      <tr><th>Kennzeichnung</th><td>OS2, Mantel meist gelb</td><td>OM3, OM4 (Mantel meist türkis, OM4 auch violett), OM5 (limettengrün); ältere OM1/OM2 orange</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Verbreitete Stecker sind <strong>LC</strong> (klein, Standard bei aktuellen Geräten) und <strong>SC</strong> (größer, quadratisch). Meist werden zwei Fasern als Paar verlegt: eine zum Senden, eine zum Empfangen.</p>
+
+<h3>Wie ein Client an Glasfaser kommt</h3>
+<p>Endgeräte haben fast immer nur eine Kupferbuchse. Der Übergang geschieht im Netzwerkschrank: Viele Switches haben Steckplätze für <strong>SFP-Module</strong>, in die man je nach Faser das passende Glasfasermodul steckt. Hat der Switch keinen solchen Steckplatz oder steht dort gar keiner, wandelt ein <strong>Medienkonverter</strong> zwischen Kupfer und Glasfaser.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Hausverwaltung mietet ein Büro im Nebengebäude dazu, 140 m entfernt. Kupfer reicht für diese Strecke nicht und wäre zwischen zwei Gebäuden riskant. Das Systemhaus verlegt ein Multimode-Kabel (OM4) und steckt an beiden Enden ein passendes SFP-Modul in den Switch. Im Nebengebäude hängen die Arbeitsplätze wie gewohnt per Kupfer am Switch.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Glasfaser ist Glasfaser.“ Nein: Singlemode- und Multimode-Fasern und die zugehörigen Module passen nicht zueinander. Faser, Modul und Stecker müssen zusammenpassen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>LWL:</strong> Licht statt Strom, große Reichweite, unempfindlich gegen Störungen, keine elektrische Verbindung zwischen Gebäuden.</li>
+  <li><strong>Singlemode</strong> (9 µm, OS2) für Kilometer, <strong>Multimode</strong> (50 µm, OM3 bis OM5) für Gebäude; Anschluss über SFP-Modul oder Medienkonverter.</li>
+</ul>

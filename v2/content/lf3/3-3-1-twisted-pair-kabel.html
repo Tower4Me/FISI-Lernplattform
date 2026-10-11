@@ -1,0 +1,51 @@
+<p class="lead">Fast jeder Arbeitsplatz hängt über ein Kupferkabel mit RJ45-Stecker am Netz. Ob es 1 oder 10 Gbit/s schafft und ob es neben einer Maschine gestört wird, hängt von Kategorie und Schirmung ab. Wer das Datenblatt eines Kabels lesen kann, verlegt das richtige und verschenkt keine Geschwindigkeit.</p>
+
+<h3>Aufbau</h3>
+<p>Ein <strong>Twisted-Pair-Kabel</strong> enthält vier Adernpaare. Die beiden Adern eines Paares sind miteinander verdrillt. Störungen von außen treffen so beide Adern fast gleich; der Empfänger wertet nur den Unterschied zwischen ihnen aus, dadurch heben sich die Störungen weitgehend auf. Die Verdrillung verringert außerdem das Übersprechen zwischen den Paaren (Nebensprechen). Angeschlossen wird es mit dem achtpoligen <strong>RJ45-Stecker</strong> (genauer 8P8C).</p>
+<p>Zusätzlich kann das Kabel geschirmt sein. Die Bezeichnung hat die Form <strong>X/YTP</strong>: X ist die Schirmung des ganzen Kabels, Y die Schirmung jedes Paares. U heißt ungeschirmt, F Folie, S Geflecht, SF Geflecht und Folie. Ein Schirm wirkt nur, wenn er auf der ganzen Strecke durchgehend verbunden und im Schrank geerdet ist.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Bezeichnung</th><th>Gesamtschirm</th><th>Paarschirm</th><th>Einsatz</th></tr></thead>
+    <tbody>
+      <tr><th>U/UTP</th><td>keiner</td><td>keiner</td><td>Büro mit wenig Störungen, günstig</td></tr>
+      <tr><th>F/UTP</th><td>Folie</td><td>keiner</td><td>Büro, etwas störfester</td></tr>
+      <tr><th>S/FTP</th><td>Geflecht</td><td>Folie je Paar</td><td>Verlegekabel in Gebäuden, Industrie, hohe Datenraten</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Kategorien</h3>
+<p>Die <strong>Kategorie</strong> (Cat) gibt an, bis zu welcher Frequenz ein Kabel ausgelegt ist und damit, welche Datenrate es tragen kann. Die Werte gelten für eine Übertragungsstrecke von bis zu 100 m, wenn nichts anderes angegeben ist.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Kategorie</th><th>Frequenz bis</th><th>Datenrate</th><th>Hinweis</th></tr></thead>
+    <tbody>
+      <tr><th>Cat 5e</th><td>100 MHz</td><td>1 Gbit/s, meist auch 2,5 Gbit/s</td><td>Mindeststand für Arbeitsplätze, im Bestand noch häufig</td></tr>
+      <tr><th>Cat 6</th><td>250 MHz</td><td>1 Gbit/s, 10 Gbit/s nur bis etwa 55 m</td><td>verbreitet als Patchkabel</td></tr>
+      <tr><th>Cat 6A</th><td>500 MHz</td><td>10 Gbit/s</td><td>üblicher Standard bei Neuverkabelung</td></tr>
+      <tr><th>Cat 7, 7A</th><td>600 bzw. 1000 MHz</td><td>10 Gbit/s</td><td>meist als Verlegekabel; mit RJ45-Steckern nur so gut wie Cat 6A</td></tr>
+      <tr><th>Cat 8</th><td>2000 MHz</td><td>25 bis 40 Gbit/s, nur bis 30 m</td><td>Rechenzentrum, kurze Wege zwischen Servern und Switches</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Eine Strecke ist nur so gut wie ihr schwächstes Teil: Ein Cat-5e-Patchkabel bremst eine Cat-6A-Verkabelung aus. Die Ethernet-Varianten tragen eigene Namen, etwa <strong>1000BASE-T</strong> für 1 Gbit/s und <strong>10GBASE-T</strong> für 10 Gbit/s über Twisted Pair.</p>
+
+<h3>Länge und Belegung</h3>
+<ul>
+  <li>Eine Kupferstrecke ist höchstens <strong>100 m</strong> lang: bis 90 m fest verlegtes Kabel plus zusammen 10 m Patchkabel an beiden Enden.</li>
+  <li>Verlegekabel haben starre Adern (Draht), Patchkabel flexible Litzen; Patchkabel sind deshalb nicht für die feste Verlegung gedacht.</li>
+  <li>Die Adern werden nach <strong>T568A</strong> oder <strong>T568B</strong> aufgelegt. Beide Belegungen sind gleichwertig, nur die Paare Orange und Grün sind vertauscht. Wichtig ist, in einer Anlage einheitlich zu arbeiten.</li>
+  <li>Ein <strong>Patchkabel</strong> ist an beiden Enden gleich belegt (1:1). Früher brauchte man zwischen zwei gleichartigen Geräten ein gekreuztes Kabel (Crossover); heutige Netzwerkkarten und Switches erkennen das selbst (Auto-MDI-X).</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Hausverwaltung soll im Besprechungsraum eine zweite Dose verlegt werden, 35 m vom Netzwerkschrank entfernt. Das Systemhaus nimmt S/FTP-Verlegekabel der Kategorie 7 und Dosen sowie Patchfeld der Kategorie 6A. So ist die Strecke für 10 Gbit/s vorbereitet, auch wenn das Notebook heute nur 1 Gbit/s nutzt.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Cat 7 ist schneller als Cat 6A.“ Nicht automatisch: Mit RJ45-Steckern und -Dosen gilt für die ganze Strecke nur Cat 6A, also 10 Gbit/s. Die höhere Kategorie des Kabels nützt erst mit passenden Steckverbindern.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Twisted Pair:</strong> vier verdrillte Paare, RJ45; Schirmung X/YTP (U ungeschirmt, F Folie, S Geflecht).</li>
+  <li><strong>Kategorien:</strong> Cat 5e 1 Gbit/s, Cat 6A 10 Gbit/s auf 100 m, Cat 8 bis 40 Gbit/s auf 30 m; höchstens 100 m pro Strecke, das schwächste Teil bestimmt.</li>
+</ul>

@@ -1,0 +1,44 @@
+<p class="lead">Woher weiß ein Switch, an welchem Port der Drucker hängt? Und warum fragt eine Prüfungsaufgabe nach einer „physischen Adresse“? Beides führt zur MAC-Adresse und zu Ethernet, dem Verfahren, mit dem Daten im kabelgebundenen LAN von Gerät zu Gerät kommen.</p>
+
+<h3>Die MAC-Adresse</h3>
+<p>Jede Netzwerkkarte hat eine <strong>MAC-Adresse</strong> (Media Access Control), auch <strong>physische Adresse</strong> genannt. Der Hersteller legt sie fest; sie soll weltweit eindeutig sein.</p>
+<ul>
+  <li><strong>Länge:</strong> 48 Bit, geschrieben als sechs Hexadezimal-Paare, etwa <code>D4-3F-CB-8C-37-8B</code> (Windows) oder <code>d4:3f:cb:8c:37:8b</code> (Linux).</li>
+  <li><strong>Aufbau:</strong> Die ersten 24 Bit kennzeichnen den Hersteller (OUI), die letzten 24 Bit vergibt der Hersteller selbst.</li>
+  <li><strong>Broadcast:</strong> <code>FF-FF-FF-FF-FF-FF</code> richtet sich an alle Geräte im selben Netz.</li>
+</ul>
+<p>Die MAC-Adresse gilt nur im eigenen Netz. Über Router hinweg zählt die IP-Adresse (Kapitel 3.4). Die MAC-Adresse lässt sich per Software ändern; Smartphones und Notebooks verwenden im WLAN oft absichtlich eine zufällige MAC-Adresse, damit sie nicht über verschiedene Netze hinweg verfolgt werden können. Für feste Zuordnungen im Firmennetz, etwa reservierte Adressen per DHCP, schaltest du das im Firmen-WLAN ab.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>MAC-Adresse</th><th>IP-Adresse</th></tr></thead>
+    <tbody>
+      <tr><th>OSI-Schicht</th><td>2</td><td>3</td></tr>
+      <tr><th>Vergabe</th><td>vom Hersteller</td><td>vom Administrator oder automatisch (DHCP)</td></tr>
+      <tr><th>Gültigkeit</th><td>nur im eigenen Netz</td><td>über Netzgrenzen hinweg</td></tr>
+      <tr><th>Länge</th><td>48 Bit</td><td>32 Bit (IPv4), 128 Bit (IPv6)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Der Ethernet-Rahmen</h3>
+<p>Ethernet (IEEE 802.3) verpackt die Daten in einen <strong>Rahmen</strong> (Kapitel 3.2.2) mit Ziel-MAC-Adresse, Quell-MAC-Adresse, einer Typangabe (etwa „IPv4 folgt“), den Daten und am Ende der Prüfsumme <strong>FCS</strong>. Stimmt die Prüfsumme beim Empfänger nicht, wird der Rahmen verworfen; eine neue Übertragung muss eine höhere Schicht wie TCP anstoßen.</p>
+
+<h3>Wie ein Switch lernt</h3>
+<ol>
+  <li>Kommt ein Rahmen an, merkt sich der Switch die <strong>Quell-MAC-Adresse</strong> und den Port in seiner <strong>MAC-Adresstabelle</strong>.</li>
+  <li>Steht die Ziel-MAC-Adresse schon in der Tabelle, schickt er den Rahmen nur an diesen Port.</li>
+  <li>Kennt er die Ziel-MAC-Adresse nicht oder ist es ein Broadcast, schickt er den Rahmen an alle Ports außer dem Eingangsport.</li>
+</ol>
+<p>Weil jeder Port eine eigene Verbindung ist, können Geräte am Switch gleichzeitig senden und empfangen (<strong>Vollduplex</strong>), ohne sich zu stören. Jeder Switch-Port ist damit eine eigene Kollisionsdomäne; Broadcasts erreichen aber weiterhin alle Geräte, erst ein Router trennt Broadcastdomänen. Bei alten Hubs teilten sich alle eine Leitung. Dort regelte CSMA/CD den Zugriff: vor dem Senden lauschen, eine Kollision erkennen und nach zufälliger Wartezeit erneut senden. Im WLAN teilen sich die Geräte das Funkmedium bis heute; dort vermeidet CSMA/CA Kollisionen (Kapitel 3.6.1).</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Geräteliste der Hausverwaltung liest die Auszubildende die MAC-Adresse des neuen Druckers vom Etikett ab: <code>00-1B-A9-4C-22-07</code>. Am verwaltbaren Switch sieht sie in der MAC-Adresstabelle, dass diese Adresse an Port 5 gelernt wurde. Laut Portbelegung (Kapitel 3.1.3) führt Switch-Port 5 zur geplanten Dose, der Drucker hängt also richtig.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Mit der MAC-Adresse finde ich ein Gerät im Internet.“ Nein: MAC-Adressen gelten nur im eigenen Netz und werden an jedem Router durch neue ersetzt. Im Internet zählt die IP-Adresse.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>MAC-Adresse:</strong> physische Adresse, 48 Bit hexadezimal, Herstellerkennung plus Gerätenummer, nur im eigenen Netz gültig; Broadcast FF-FF-FF-FF-FF-FF.</li>
+  <li><strong>Switch:</strong> lernt Quell-MAC und Port, schickt gezielt weiter, Unbekanntes und Broadcasts an alle Ports.</li>
+</ul>

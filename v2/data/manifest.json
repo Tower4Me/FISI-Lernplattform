@@ -1370,6 +1370,126 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "3.3",
+          "titel": "Verkabelung und Komponenten",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "3.3.1",
+              "titel": "Twisted-Pair-Kabel",
+              "slug": "twisted-pair-kabel",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Komponenten des Netzwerkes, Eigenschaften und Standards, Auswahl unter Energieeffizienz",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "ISO/IEC 11801, EN 50173",
+                  "ANSI/TIA-568 (T568A/B)"
+                ]
+              },
+              "material": [
+                "verkabelung-twisted-pair"
+              ],
+              "begriffe": [
+                "verkabelung"
+              ]
+            },
+            {
+              "nummer": "3.3.2",
+              "titel": "Lichtwellenleiter",
+              "slug": "lichtwellenleiter",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Komponenten des Netzwerkes, Eigenschaften und Standards, Auswahl unter Energieeffizienz",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "ISO/IEC 11801 (OM/OS-Klassen)"
+                ]
+              },
+              "material": [
+                "verkabelung-lwl"
+              ],
+              "begriffe": [
+                "verkabelung"
+              ]
+            },
+            {
+              "nummer": "3.3.3",
+              "titel": "Strukturierte Verkabelung",
+              "slug": "strukturierte-verkabelung",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Komponenten des Netzwerkes, Eigenschaften und Standards, Auswahl unter Energieeffizienz",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2025 (Patchfeld und Switch)"
+                ],
+                "extern": [
+                  "EN 50173",
+                  "ISO/IEC 11801"
+                ]
+              },
+              "material": [
+                "strukturierte-verkabelung"
+              ],
+              "begriffe": [
+                "verkabelung"
+              ]
+            },
+            {
+              "nummer": "3.3.4",
+              "titel": "Netzwerkkomponenten",
+              "slug": "netzwerkkomponenten",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Komponenten des Netzwerkes, Eigenschaften und Standards, Auswahl unter Energieeffizienz",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (Switch)"
+                ],
+                "extern": [
+                  "IEEE 802.3af/at/bt",
+                  "IEEE 802.3az"
+                ]
+              },
+              "material": [
+                "netzwerkkomponenten",
+                "netzwerkkarten",
+                "poe"
+              ],
+              "begriffe": [
+                "netzwerkkomponenten"
+              ]
+            },
+            {
+              "nummer": "3.3.5",
+              "titel": "Ethernet und MAC-Adressen",
+              "slug": "ethernet-und-mac-adressen",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Komponenten des Netzwerkes, Eigenschaften und Standards, Auswahl unter Energieeffizienz",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (MAC-Adresse)",
+                  "AP1 Frühjahr 2024 (physische Adresse)"
+                ],
+                "extern": [
+                  "IEEE 802.3"
+                ]
+              },
+              "material": [
+                "mac-llc",
+                "ethernet-zugriffsverfahren"
+              ],
+              "begriffe": [
+                "mac-adresse"
+              ]
+            }
+          ]
         }
       ]
     },

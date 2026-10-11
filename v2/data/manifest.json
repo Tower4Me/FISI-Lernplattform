@@ -515,6 +515,132 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "4.6",
+          "titel": "Sicherheit im eigenen Verantwortungsbereich",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "4.6.1",
+              "titel": "Den Arbeitsplatz absichern",
+              "slug": "den-arbeitsplatz-absichern",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Maßnahmen im eigenen Verantwortungsbereich umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021, Aufgabe 4b",
+                  "AP1 Frühjahr 2023, Aufgabe 3bb bis 3be",
+                  "AP1 Frühjahr 2025, Aufgabe 1ea/eb",
+                  "AP1 Herbst 2025, Aufgabe 3c"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium SYS.2.1 Allgemeiner Client"
+                ]
+              },
+              "material": [
+                "endpoint-security",
+                "betriebssystem-haertung",
+                "berechtigungskonzepte"
+              ],
+              "begriffe": [
+                "haertung"
+              ]
+            },
+            {
+              "nummer": "4.6.2",
+              "titel": "Daten sichern",
+              "slug": "daten-sichern",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021, Aufgabe 4f",
+                  "AP1 Frühjahr 2024, Aufgabe 4c"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium CON.3 Datensicherungskonzept",
+                  "BSI für Bürger: Datensicherung"
+                ]
+              },
+              "material": [
+                "backup-arten"
+              ],
+              "begriffe": [
+                "datensicherung"
+              ]
+            },
+            {
+              "nummer": "4.6.3",
+              "titel": "Räume, Geräte und Strom schützen",
+              "slug": "raeume-geraete-und-strom-schuetzen",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2022 (Zutrittskontrolle)"
+                ],
+                "extern": [
+                  "IEC 62040-3 (USV-Klassen)",
+                  "BSI IT-Grundschutz-Kompendium INF (Infrastruktur)"
+                ]
+              },
+              "material": [
+                "physische-sicherheit",
+                "usv-klassen"
+              ],
+              "begriffe": [
+                "usv"
+              ]
+            },
+            {
+              "nummer": "4.6.4",
+              "titel": "Sicherheitsvorfälle erkennen und melden",
+              "slug": "sicherheitsvorfaelle-erkennen-und-melden",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Verantwortung im IT-Sicherheitsprozess",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6e",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2023, Aufgabe 3ca (Protokollierung)"
+                ],
+                "extern": [
+                  "DSGVO Art. 33, 34",
+                  "BSI IT-Notfallkarte"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "sicherheitsvorfall"
+              ]
+            },
+            {
+              "nummer": "4.6.5",
+              "titel": "Sicherheit als Prozess",
+              "slug": "sicherheit-als-prozess",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Arbeitsablauf reflektieren, Verantwortung im IT-Sicherheitsprozess",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6e",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "BSI-Standard 200-1 (PDCA im ISMS)",
+                  "DSGVO Art. 32 Abs. 1 d"
+                ]
+              },
+              "material": [
+                "sicherheitsstandards-isms",
+                "pdca-prozessorientiertes-qm"
+              ],
+              "begriffe": [
+                "isms",
+                "risiko"
+              ]
+            }
+          ]
         }
       ]
     }

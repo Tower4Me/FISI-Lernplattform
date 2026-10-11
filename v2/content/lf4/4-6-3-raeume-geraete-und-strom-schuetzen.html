@@ -1,0 +1,39 @@
+<p class="lead">Die beste Software hilft nicht, wenn jemand den Server aus dem offenen Abstellraum trägt oder ein Stromausfall die Datenbank mitten im Schreiben abbricht. Physische Maßnahmen schützen Räume, Geräte und die Stromversorgung.</p>
+
+<h3>Räume und Zutritt</h3>
+<ul>
+  <li>Server, Netzwerktechnik und Akten mit hohem Schutzbedarf gehören in abschließbare Räume oder Schränke.</li>
+  <li>Besucher und Handwerker werden angemeldet und in sensiblen Bereichen begleitet.</li>
+  <li>Schlüssel und Zutrittskarten werden ausgegeben, dokumentiert und beim Austritt zurückgenommen.</li>
+  <li><strong>Umgebung:</strong> Technikräume brauchen Schutz vor Feuer (Rauchmelder, geeignete Löscher), Wasser (nicht unter Wasserleitungen, nicht im hochwassergefährdeten Keller) und Hitze (Klimatisierung).</li>
+</ul>
+
+<h3>Geräte schützen</h3>
+<ul>
+  <li><strong>Mobile Geräte:</strong> Notebooks und Smartphones nicht unbeaufsichtigt lassen, nicht sichtbar im Auto liegen lassen, Datenträger verschlüsseln (Kapitel 4.5.4).</li>
+  <li><strong>Entsorgung:</strong> Alte Festplatten, Smartphones und Drucker mit Speicher werden vor der Entsorgung sicher gelöscht oder physisch zerstört. Einfaches Löschen oder Formatieren reicht nicht, die Daten lassen sich oft wiederherstellen.</li>
+</ul>
+
+<h3>Strom: die unterbrechungsfreie Stromversorgung</h3>
+<p>Ein kurzer Stromausfall oder eine Spannungsspitze kann Geräte beschädigen und Daten zerstören, die gerade geschrieben werden. Eine <strong>unterbrechungsfreie Stromversorgung (USV)</strong> überbrückt Ausfälle mit einem Akku. Sie hält Server und Netzwerktechnik für eine begrenzte Zeit am Laufen und meldet dem Server über USB oder Netzwerk, dass er sich geordnet herunterfahren soll, bevor der Akku leer ist. Soll der Betrieb auch bei längeren Ausfällen weiterlaufen, braucht es zusätzlich ein Notstromaggregat.</p>
+<p>Die Norm IEC 62040-3 teilt USV danach ein, wie stark ihr Ausgang vom Stromnetz abhängt: VFD (Voltage and Frequency Dependent), VI (Voltage Independent) und VFI (Voltage and Frequency Independent).</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Klasse</th><th>Typische Bauart</th><th>Eigenschaft</th></tr></thead>
+    <tbody>
+      <tr><th>VFD</th><td>Offline (Standby)</td><td>Gerät hängt am Netz, die USV schaltet erst bei Ausfall um; einfach und günstig, kurze Umschaltzeit</td></tr>
+      <tr><th>VI</th><td>Line-Interactive</td><td>gleicht zusätzlich Spannungsschwankungen aus</td></tr>
+      <tr><th>VFI</th><td>Online (Doppelwandler)</td><td>Netzstrom wird ständig in Gleichstrom und zurück in Wechselstrom umgewandelt, der Akku hängt dazwischen; keine Umschaltzeit, Ausgang unabhängig von Spannung und Frequenz des Netzes; höchster Schutz, höhere Kosten</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Als grobe Orientierung: VFD reicht häufig für Arbeitsplatz-PCs, VI für kleine Server und Netzwerktechnik, VFI für wichtige Server und Rechenzentren.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Planungsbüro stellt seinen Server in die Teeküche, weil dort Platz ist. Bei der Analyse fällt auf: Jeder Besucher kommt hin, über dem Schrank verläuft eine Wasserleitung, und bei jedem kurzen Stromausfall startet der Server neu. Lösung: abschließbarer Serverschrank in einem Nebenraum ohne Wasserleitung und eine USV, die kurze Ausfälle überbrückt und den Server bei längeren sauber herunterfährt.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Eine USV dient vor allem der Verfügbarkeit. Weil Daten nicht mitten im Schreiben abbrechen, schützt sie auch die Integrität.</p></aside>
+
+<p class="merksatz">Physischer Schutz heißt: Zutritt regeln, Geräte gegen Diebstahl, Feuer, Wasser und Hitze sichern, Datenträger sicher entsorgen und die Stromversorgung mit einer USV absichern.</p>

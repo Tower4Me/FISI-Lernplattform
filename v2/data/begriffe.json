@@ -34,7 +34,11 @@
       "begriff": "datensicherung",
       "kernfakten": [
         "Datensicherung (Backup) ist eine Maßnahme: Kopien, um Daten nach Verlust wiederherzustellen.",
-        "Datensicherung dient vor allem der Verfügbarkeit; sie ersetzt keinen Datenschutz."
+        "Datensicherung dient vor allem der Verfügbarkeit; sie ersetzt keinen Datenschutz.",
+        "3-2-1-Regel: drei Kopien, zwei Medienarten, eine außer Haus; mindestens eine Kopie offline bzw. unveränderbar.",
+        "Vollsicherung: alles; differenziell: Änderungen seit letzter Vollsicherung (Restore: Voll + letzte Diff); inkrementell: Änderungen seit letzter Sicherung (Restore: Voll + alle Inkremente).",
+        "RAID ist keine Datensicherung (überbrückt je nach Level Plattenausfälle, nicht RAID 0; schützt nicht vor Löschen oder Verschlüsselung).",
+        "Wiederherstellung regelmäßig testen."
       ],
       "vorkommen": [
         {
@@ -44,6 +48,10 @@
         {
           "id": "4-5-2",
           "tiefe": "als Maßnahme für die Verfügbarkeit"
+        },
+        {
+          "id": "4-6-2",
+          "tiefe": "Sicherungskonzept, 3-2-1, Generationenprinzip, Sicherungsarten"
         }
       ]
     },
@@ -169,6 +177,10 @@
         {
           "id": "4-2-3",
           "tiefe": "Überblick"
+        },
+        {
+          "id": "4-6-5",
+          "tiefe": "PDCA-Zyklus, regelmäßige Überprüfung"
         }
       ]
     },
@@ -214,6 +226,10 @@
         {
           "id": "4-3-2",
           "tiefe": "Arten, Wege, betroffene Schutzziele"
+        },
+        {
+          "id": "4-6-1",
+          "tiefe": "Schutz durch Updates, Härtung, minimale Rechte"
         }
       ]
     },
@@ -250,6 +266,10 @@
         {
           "id": "4-5-1",
           "tiefe": "Risikostrategien, Restrisiko"
+        },
+        {
+          "id": "4-6-5",
+          "tiefe": "relative Sicherheit, Restrisiko"
         }
       ]
     },
@@ -344,6 +364,48 @@
         {
           "id": "4-5-5",
           "tiefe": "Download-Prüfung, Signaturablauf"
+        }
+      ]
+    },
+    {
+      "begriff": "haertung",
+      "kernfakten": [
+        "Härten: Angriffsfläche verkleinern (unnötige Programme/Dienste/Konten entfernen, Ports schließen, Standardpasswörter ändern, Firewall aktiv).",
+        "Prinzip der minimalen Rechte: Alltag mit Standardkonto, Adminrechte nur bei Bedarf mit separatem Konto.",
+        "Updates schließen bekannte Lücken; automatische Updates einschalten."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-6-1",
+          "tiefe": "Arbeitsplatz absichern"
+        }
+      ]
+    },
+    {
+      "begriff": "usv",
+      "kernfakten": [
+        "USV überbrückt Stromausfälle mit Akku für begrenzte Zeit und ermöglicht geordnetes Herunterfahren; längere Ausfälle: Notstromaggregat.",
+        "IEC 62040-3 klassifiziert nach Netzabhängigkeit des Ausgangs: VFD (typisch Offline/Standby, Umschaltzeit), VI (typisch Line-Interactive, gleicht Spannungsschwankungen aus), VFI (typisch Online/Doppelwandler, keine Umschaltzeit, unabhängig von Spannung und Frequenz).",
+        "Dient vor allem der Verfügbarkeit, schützt auch die Integrität."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-6-3",
+          "tiefe": "als physische Maßnahme mit Klassenüberblick"
+        }
+      ]
+    },
+    {
+      "begriff": "sicherheitsvorfall",
+      "kernfakten": [
+        "Reaktion: sofort an festgelegte Stelle melden, Arbeit am Gerät einstellen, Beobachtungen festhalten, Anweisungen der IT folgen.",
+        "DSGVO Art. 33: Meldung an Aufsichtsbehörde unverzüglich und möglichst binnen 72 Stunden nach Kenntnis, außer Risiko unwahrscheinlich (Entscheidung beim Verantwortlichen, DSB berät); Art. 34: Benachrichtigung Betroffener bei hohem Risiko.",
+        "Protokolle (Logs) machen Vorfälle nachvollziehbar."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-6-4",
+          "tiefe": "Erkennen, Melden, Pflichten"
         }
       ]
     }

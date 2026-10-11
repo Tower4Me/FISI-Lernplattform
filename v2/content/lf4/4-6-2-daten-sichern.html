@@ -1,0 +1,41 @@
+<p class="lead">Festplatten gehen kaputt, Dateien werden versehentlich gelöscht, Ransomware verschlüsselt ganze Server. Damit die Daten danach zurückkommen, braucht es eine Sicherungskopie, die funktioniert. Die Datensicherung ist eine der wichtigsten Maßnahmen für die Verfügbarkeit von Daten.</p>
+
+<h3>Was ein Sicherungskonzept regelt</h3>
+<ul>
+  <li><strong>Was</strong> wird gesichert? Daten, Einstellungen, ganze Systeme?</li>
+  <li><strong>Wie oft?</strong> Das richtet sich danach, wie viel Arbeit verloren gehen darf. Wer täglich sichert, verliert im schlimmsten Fall einen Tag.</li>
+  <li><strong>Wohin</strong> und wie lange werden die Sicherungen aufbewahrt?</li>
+  <li><strong>Wer</strong> ist zuständig, und wie wird geprüft, ob die Wiederherstellung klappt?</li>
+</ul>
+
+<h3>Faustregeln für gute Sicherungen</h3>
+<ul>
+  <li><strong>3-2-1-Regel:</strong> mindestens drei Kopien der Daten, auf zwei verschiedenen Arten von Speichermedien, davon eine an einem anderen Ort.</li>
+  <li><strong>Getrennt aufbewahren:</strong> Eine Sicherung, die ständig mit dem Netz verbunden ist, kann Ransomware mit verschlüsseln. Mindestens eine Kopie sollte offline oder vor Änderungen geschützt liegen.</li>
+  <li><strong>Räumlich trennen:</strong> Liegt die Sicherung neben dem Server, verbrennt sie bei einem Feuer mit.</li>
+  <li><strong>Mehrere Stände aufheben:</strong> Beim Generationenprinzip (Großvater-Vater-Sohn) gibt es zum Beispiel tägliche, wöchentliche und monatliche Sicherungen auf wechselnden Medien. So lässt sich auch ein älterer, noch fehlerfreier Stand zurückholen.</li>
+  <li><strong>Verschlüsseln:</strong> Sicherungen enthalten dieselben vertraulichen Daten wie das Original.</li>
+  <li><strong>Wiederherstellung testen:</strong> Eine Sicherung, die sich nicht zurückspielen lässt, ist wertlos.</li>
+</ul>
+
+<h3>Drei Arten der Sicherung</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>Was wird gesichert?</th><th>Zum Wiederherstellen braucht man</th></tr></thead>
+    <tbody>
+      <tr><th>Vollsicherung</th><td>alle ausgewählten Daten</td><td>nur diese eine Sicherung</td></tr>
+      <tr><th>Differenzielle Sicherung</th><td>alles, was sich seit der letzten Vollsicherung geändert hat</td><td>die Vollsicherung und die letzte differenzielle Sicherung</td></tr>
+      <tr><th>Inkrementelle Sicherung</th><td>alles, was sich seit der letzten Sicherung geändert hat, egal ob Voll- oder inkrementelle Sicherung</td><td>die Vollsicherung und alle inkrementellen Sicherungen danach</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Eine Vollsicherung dauert lange und braucht viel Platz. Deshalb kombiniert man sie mit differenziellen oder inkrementellen Sicherungen. Differenzielle Sicherungen werden bis zur nächsten Vollsicherung jeden Tag größer. Inkrementelle Sicherungen sind am schnellsten und kleinsten, die Wiederherstellung ist aber am aufwendigsten. Wie man Sicherungsverfahren für Server plant, ist Thema eines späteren Lernfelds.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Kanzlei sichert ihren Dateiserver einmal pro Woche auf eine USB-Festplatte, die dauerhaft am Server steckt. Bei einer Analyse fallen drei Lücken auf: Fast eine ganze Woche Arbeit kann verloren gehen, die Festplatte würde von Ransomware mit verschlüsselt, und bei einem Brand wäre beides weg. Neu: tägliche Sicherung, wechselnde, verschlüsselte Festplatten, von denen immer eine außer Haus liegt, und einmal im Quartal ein Test der Wiederherstellung.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein RAID ist doch schon eine Sicherung.“ Nein: Ein RAID verteilt Daten über mehrere Festplatten und überbrückt je nach RAID-Level (nicht bei RAID 0) den Ausfall einer Platte. Löscht jemand eine Datei oder verschlüsselt Ransomware sie, geschieht das auf allen Platten gleichzeitig.</p></aside>
+
+<p class="merksatz">Eine gute Datensicherung ist regelmäßig, mehrfach, getrennt aufbewahrt und geprüft; erst eine getestete Wiederherstellung beweist, dass sie funktioniert.</p>

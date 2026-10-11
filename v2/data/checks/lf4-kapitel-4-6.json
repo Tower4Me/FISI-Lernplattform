@@ -1,0 +1,125 @@
+{
+  "titel": "Check 4.6",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Prinzip der minimalen Rechte",
+      "frage": "Warum solltest du für die tägliche Arbeit kein Konto mit Administratorrechten verwenden?",
+      "optionen": [
+        "Weil Schadsoftware sonst mit vollen Rechten läuft",
+        "Weil Administratorkonten keine Sicherheitsupdates erhalten",
+        "Weil sich Administratorkonten langsamer anmelden",
+        "Weil der Virenschutz für Administratoren abgeschaltet ist"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Programme laufen mit den Rechten des angemeldeten Kontos. Mit einem normalen Konto kann Schadsoftware deutlich weniger Schaden anrichten."
+    },
+    {
+      "typ": "mc",
+      "thema": "PDCA-Phase",
+      "frage": "Du spielst testweise eine Datensicherung zurück, um zu sehen, ob sie funktioniert. Zu welcher Phase des PDCA-Zyklus gehört das?",
+      "optionen": [
+        "Plan",
+        "Do",
+        "Check",
+        "Act"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "In der Check-Phase wird kontrolliert, ob die umgesetzten Maßnahmen wirken. Ein Wiederherstellungstest ist genau so eine Kontrolle."
+    },
+    {
+      "typ": "mc",
+      "thema": "Sicherung und Ransomware",
+      "frage": "Die einzige Sicherungsfestplatte steckt dauerhaft am Server. Welches Problem entsteht bei einem Ransomware-Angriff?",
+      "optionen": [
+        "Die Sicherung wird oft mit verschlüsselt",
+        "Die Sicherung wird bei einem Angriff automatisch vom Netz getrennt",
+        "Die Sicherung lässt sich nur noch vom Administrator lesen",
+        "Die Sicherung läuft danach nur noch halb so schnell"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Was ständig erreichbar ist, kann die Schadsoftware mit verschlüsseln. Deshalb sollte mindestens eine Kopie getrennt vom Netz liegen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Inkrementelle Sicherung wiederherstellen",
+      "frage": "Sonntag Vollsicherung, Montag bis Mittwoch je eine inkrementelle Sicherung. Am Donnerstag fällt der Server aus. Was brauchst du für den Stand von Mittwoch?",
+      "optionen": [
+        "Nur die Sicherung vom Mittwoch",
+        "Die Vollsicherung und die Sicherung vom Mittwoch",
+        "Die Vollsicherung und alle drei inkrementellen",
+        "Nur die Vollsicherung vom Sonntag"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Jede inkrementelle Sicherung enthält nur die Änderungen seit der vorherigen Sicherung. Für den Mittwoch brauchst du deshalb die Vollsicherung und alle inkrementellen Sicherungen danach."
+    },
+    {
+      "typ": "mc",
+      "thema": "Aufgabe einer USV",
+      "frage": "Wozu dient eine USV am Server vor allem?",
+      "optionen": [
+        "Stromausfälle überbrücken und geordnet herunterfahren",
+        "Den Server bei einem tagelangen Stromausfall weiterbetreiben",
+        "Schadsoftware im Netzwerk erkennen und automatisch blockieren",
+        "Die Daten auf dem Server mit einem Schlüssel verschlüsseln"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die USV überbrückt Ausfälle mit einem Akku und ermöglicht ein sauberes Herunterfahren. Das schützt vor allem die Verfügbarkeit und auch die Integrität der Daten."
+    },
+    {
+      "typ": "mc",
+      "thema": "Erste Reaktion bei Vorfall",
+      "frage": "Auf deinem Bildschirm erscheint eine Lösegeldforderung, Dateien haben neue Endungen. Was tust du zuerst?",
+      "optionen": [
+        "Den Rechner sofort herunterfahren, damit nichts weiter verschlüsselt wird",
+        "Sofort die festgelegte Stelle informieren",
+        "Die Forderung bezahlen, damit die Arbeit weitergeht",
+        "Die betroffenen Dateien selbst löschen"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Zuerst meldest du den Vorfall an die festgelegte Stelle und arbeitest nicht weiter am Gerät. Alles Weitere geschieht nach Anweisung der IT."
+    },
+    {
+      "typ": "mc",
+      "thema": "Meldefrist DSGVO",
+      "frage": "Bei einem Vorfall sind Kundendaten betroffen, ein Risiko für die Kunden ist wahrscheinlich. Bis wann soll der Betrieb die Aufsichtsbehörde informieren?",
+      "optionen": [
+        "Möglichst innerhalb von 24 Stunden",
+        "Möglichst innerhalb von 72 Stunden",
+        "Möglichst innerhalb von 14 Tagen",
+        "Bis zum Ende des Quartals"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Die DSGVO verlangt eine Meldung unverzüglich und möglichst innerhalb von 72 Stunden, nachdem der Betrieb vom Vorfall erfahren hat."
+    },
+    {
+      "typ": "mc",
+      "thema": "Relative Sicherheit",
+      "frage": "Was ist mit „relativer Sicherheit“ gemeint?",
+      "optionen": [
+        "Ein Sicherheitsniveau, das zum Schutzbedarf passt und bezahlbar ist",
+        "Ein Sicherheitsniveau, das sich an vergleichbaren Betrieben orientiert",
+        "Ein Sicherheitsniveau, das bei hohem Schutzbedarf zusätzlich gilt",
+        "Ein Sicherheitsniveau, das ein externer Prüfer bescheinigt hat"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Absolute Sicherheit gibt es nicht. Ziel ist ein Niveau, das zum Schutzbedarf passt und dessen Kosten vertretbar sind."
+    }
+  ]
+}

@@ -360,7 +360,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Das Büro der Hausverwaltung hat drei Räume. Das Systemhaus hängt einen Wi-Fi-6-Access-Point zentral im Flur an die Decke und versorgt ihn per PoE (Kapitel 3.3.4). Er funkt in 2,4 und 5 GHz. Im Besprechungsraum misst der Auszubildende mit einer App den Empfang: Das 5-GHz-Signal ist stark genug, das Notebook bekommt rund 400 Mbit/s. Ein Repeater ist nicht nötig.</p>
+  <p>Das Büro der Hausverwaltung hat drei Räume. Das Systemhaus hängt einen Wi-Fi-6-Access-Point zentral im Flur an die Decke und versorgt ihn per PoE (Kapitel 3.3.4). Er funkt in 2,4 und 5 GHz. Im Besprechungsraum misst der Auszubildende mit einer App den Empfang: Das 5-GHz-Signal ist stark genug, das Notebook bekommt rund 400 Mbit/s. Eine 2-GiB-Datei vom NAS braucht damit rechnerisch etwa 43 s (Rechenweg: LF2, Kapitel 2.4.3). Ein Repeater ist nicht nötig.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Wi-Fi 7 heißt 46 Gbit/s am Notebook.“ Nein: Das ist ein theoretischer Höchstwert unter Idealbedingungen. Wände, Abstand, andere Geräte und die Fähigkeiten des Clients senken die tatsächliche Rate deutlich.</p></aside>
@@ -368,7 +368,6 @@
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Standards:</strong> 802.11n Wi-Fi 4, ac Wi-Fi 5, ax Wi-Fi 6/6E, be Wi-Fi 7; Datenraten sind theoretische Höchstwerte.</li>
   <li><strong>Bänder:</strong> 2,4 GHz große Reichweite, wenige Kanäle, viele Störungen; 5 und 6 GHz mehr Kanäle und weniger Störungen, aber geringere Reichweite.</li>
-  <li><strong>Funk ist geteilt:</strong> CSMA/CA, je mehr Geräte, desto weniger pro Gerät; Access Points möglichst per Kabel anbinden.</li>
 </ul></div>
 </section>
 <section class="print-up" id="u-3-6-2"><h2><span class="num">3.6.2</span> WLAN absichern</h2>
@@ -409,6 +408,7 @@
   <li><strong>Router und Access Point absichern:</strong> eigenes, starkes Administratorpasswort, Firmware-Updates einspielen, Fernverwaltung aus dem Internet abschalten.</li>
   <li><strong>Kein Ersatz für Verschlüsselung:</strong> Eine versteckte SSID oder ein Filter auf MAC-Adressen hält nur zufällige Mitnutzung ab; beides lässt sich mit einfachen Mitteln umgehen (Kapitel 3.3.5).</li>
 </ul>
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Angriffe auf WLANs und weitere Härtung behandelt LF11b.</p></aside>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>

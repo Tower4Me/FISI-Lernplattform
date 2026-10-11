@@ -312,7 +312,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF3</a></li><li><a href="index.html#k-3-4">3.4 IP-Adressierung</a></li><li aria-current="page">3.4.4</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">3.4.4</span>IPv6-Adressen</h1>
-  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="3-4-4">
 <p class="lead">IPv4 bietet rund 4,3 Milliarden Adressen, viel zu wenig für alle Geräte der Welt. Deshalb gibt es IPv6. Viele Internetanschlüsse arbeiten heute schon damit, und aktuelle Clients haben neben ihrer IPv4- in der Regel auch IPv6-Adressen. Du musst sie lesen, kürzen und einordnen können.</p>
@@ -348,7 +348,7 @@
 <h3 id="wie-ein-geraet-seine-adresse-bekommt">Wie ein Gerät seine Adresse bekommt<a class="anchor" href="#wie-ein-geraet-seine-adresse-bekommt" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Ein IPv6-Gerät erfährt das Präfix meist vom Router und bildet den Interface-Identifier selbst (SLAAC, zustandslose Autokonfiguration); alternativ verteilt ein DHCPv6-Server die Adressen. Für den Interface-Identifier gibt es zwei Wege:</p>
 <ul>
-  <li><strong>Aus der MAC-Adresse (EUI-64):</strong> In die Mitte der 48-Bit-MAC-Adresse wird <code>ff:fe</code> eingefügt, und im ersten Byte wird das siebte Bit von links (Stellenwert 2) umgedreht: aus 00 (00000000) wird 02 (00000010). Aus der MAC <code>00-1B-A9-4C-22-07</code> wird <code>021b:a9ff:fe4c:2207</code>. Erkennbar ist das am <code>ff:fe</code> in der Mitte.</li>
+  <li><strong>Aus der MAC-Adresse (EUI-64):</strong> In die Mitte der 48-Bit-MAC-Adresse wird <code>ff:fe</code> eingefügt, und im ersten Byte wird das siebte Bit von links (Stellenwert 2) umgedreht: aus 00 (00000000) wird 02 (00000010). Aus der MAC des Druckers <code>00-1B-A9-4C-22-07</code> (Kapitel 3.3.5) wird <code>021b:a9ff:fe4c:2207</code>. Erkennbar ist das am <code>ff:fe</code> in der Mitte.</li>
   <li><strong>Zufällig:</strong> Aktuelle Betriebssysteme bilden den Interface-Identifier meist zufällig statt aus der MAC-Adresse. Für Verbindungen ins Internet nutzen sie zusätzlich eine temporäre Adresse, die regelmäßig wechselt, damit das Gerät nicht verfolgt werden kann.</li>
 </ul>
 

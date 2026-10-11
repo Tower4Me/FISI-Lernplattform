@@ -322,8 +322,7 @@
   <li><strong>Ausdehnung:</strong> PAN, LAN (WLAN), MAN, WAN.</li></ul></div></li>
 <li><span class="num">3.1.2</span><div><a href="3-1-2-topologien.html">Topologien</a><ul><li><strong>Physisch</strong> = Kabelverlauf, <strong>logisch</strong> = Datenfluss.</li>
   <li><strong>Stern</strong> ist Standard im LAN: ein Kabelschaden trifft ein Gerät, ein Switch-Ausfall alle. <strong>Bus</strong> und <strong>Ring</strong> (ohne Doppelring) stören bei einem Bruch das ganze Netz, die <strong>Masche</strong> ist ausfallsicher, aber teuer.</li></ul></div></li>
-<li><span class="num">3.1.3</span><div><a href="3-1-3-netzwerkplaene-lesen.html">Netzwerkpläne lesen</a><ul><li><strong>Physischer Plan:</strong> wo liegen Geräte, Dosen und Kabel; <strong>logischer Plan:</strong> wie hängen Geräte und Adressen zusammen.</li>
-  <li><strong>Dokumentation:</strong> Geräteliste, Portbelegung, Adressbereiche; nur aktuell nützt sie.</li></ul></div></li>
+<li><span class="num">3.1.3</span><div><a href="3-1-3-netzwerkplaene-lesen.html">Netzwerkpläne lesen</a><p>Der physische Plan zeigt, wo Geräte, Dosen und Kabel liegen, der logische, wie Geräte und Adressen zusammenhängen; Geräteliste, Portbelegung und Adressbereiche nützen nur, wenn du jede Änderung sofort einträgst.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-3-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 3.1</a></p>
 </section>
@@ -347,7 +346,7 @@
 <li><span class="num">3.3.3</span><div><a href="3-3-3-strukturierte-verkabelung.html">Strukturierte Verkabelung</a><ul><li><strong>Strukturierte Verkabelung:</strong> Primär (Gelände), Sekundär (Steigbereich), Tertiär (Etage bis zur Dose).</li>
   <li><strong>Anschluss:</strong> Dose, Verlegekabel (max. 90 m), Patchfeld, Patchkabel, Switch; aktiv wird eine Dose erst durch das Patchkabel zum Switch.</li></ul></div></li>
 <li><span class="num">3.3.4</span><div><a href="3-3-4-netzwerkkomponenten.html">Netzwerkkomponenten</a><ul><li><strong>Geräte:</strong> Netzwerkkarte bindet an, Switch verbindet im Netz, Router verbindet Netze, Access Point bindet Funk an, Firewall filtert.</li>
-  <li><strong>PoE:</strong> Strom übers Datenkabel; 802.3af 15,4 W, at 30 W, bt 60 bzw. 90 W am Port; PoE-Budget beachten.</li></ul></div></li>
+  <li><strong>PoE:</strong> Strom übers Datenkabel; 802.3af 15,4 W (am Gerät 12,95 W), at/PoE+ 30 W (25,5 W), bt 60 bzw. 90 W am Port; PoE-Budget beachten.</li></ul></div></li>
 <li><span class="num">3.3.5</span><div><a href="3-3-5-ethernet-und-mac-adressen.html">Ethernet und MAC-Adressen</a><ul><li><strong>MAC-Adresse:</strong> physische Adresse, 48 Bit hexadezimal, Herstellerkennung plus Gerätenummer, nur im eigenen Netz gültig; Broadcast FF-FF-FF-FF-FF-FF.</li>
   <li><strong>Switch:</strong> lernt Quell-MAC und Port, schickt gezielt weiter, Unbekanntes und Broadcasts an alle Ports.</li></ul></div></li>
 </ul>
@@ -389,8 +388,7 @@
 <section class="rb-kapitel" id="k-3-6"><h2><span class="num">3.6</span> WLAN</h2>
 <ul class="rb-list">
 <li><span class="num">3.6.1</span><div><a href="3-6-1-wlan-standards-und-frequenzen.html">WLAN-Standards und Frequenzen</a><ul><li><strong>Standards:</strong> 802.11n Wi-Fi 4, ac Wi-Fi 5, ax Wi-Fi 6/6E, be Wi-Fi 7; Datenraten sind theoretische Höchstwerte.</li>
-  <li><strong>Bänder:</strong> 2,4 GHz große Reichweite, wenige Kanäle, viele Störungen; 5 und 6 GHz mehr Kanäle und weniger Störungen, aber geringere Reichweite.</li>
-  <li><strong>Funk ist geteilt:</strong> CSMA/CA, je mehr Geräte, desto weniger pro Gerät; Access Points möglichst per Kabel anbinden.</li></ul></div></li>
+  <li><strong>Bänder:</strong> 2,4 GHz große Reichweite, wenige Kanäle, viele Störungen; 5 und 6 GHz mehr Kanäle und weniger Störungen, aber geringere Reichweite.</li></ul></div></li>
 <li><span class="num">3.6.2</span><div><a href="3-6-2-wlan-absichern.html">WLAN absichern</a><ul><li><strong>Verschlüsselung:</strong> WPA3, sonst WPA2 mit AES; WEP und WPA nicht mehr verwenden.</li>
   <li><strong>Personal</strong> (ein gemeinsames Passwort) für kleine Büros, <strong>Enterprise</strong> (802.1X, RADIUS, eigenes Konto je Person) für größere.</li>
   <li><strong>Zusätzlich:</strong> langes Passwort, Gästenetz, WPS aus, Router-Admin sichern; versteckte SSID und MAC-Filter schützen nicht.</li></ul></div></li>

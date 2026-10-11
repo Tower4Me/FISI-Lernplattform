@@ -356,7 +356,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>In der Hausverwaltung kommt der Mitarbeiter nicht auf das NAS. Die Auszubildende prüft von unten nach oben: Die Link-LED an der Netzwerkkarte leuchtet und blinkt, also ist Schicht 1 in Ordnung. Der PC hat aber die Adresse 169.254.17.3, eine Notadresse, die sich der PC selbst gibt, wenn kein DHCP-Server antwortet (Kapitel 3.4.5). Damit liegt er nicht im Netz 192.168.10.0/24 und erreicht das NAS nicht: Der Fehler zeigt sich auf Schicht 3, die Ursache liegt beim DHCP-Dienst (Schicht 7); tatsächlich war der Router, der die Adressen verteilt, nach einem Stromausfall nicht wieder hochgefahren.</p>
+  <p>In der Hausverwaltung kommt der Mitarbeiter nicht auf das NAS. Die Auszubildende prüft von unten nach oben: Die Link-LED an der Netzwerkkarte leuchtet und blinkt, also ist Schicht 1 in Ordnung. Das Notebook hat aber die Adresse 169.254.17.3, eine Notadresse, die es sich selbst gibt, wenn kein DHCP-Server antwortet (Kapitel 3.4.5). Damit liegt es nicht im Netz 192.168.10.0/24 und erreicht das NAS nicht: Der Fehler zeigt sich auf Schicht 3, die Ursache liegt beim DHCP-Dienst (Schicht 7); tatsächlich war der Router, der die Adressen verteilt, nach einem Stromausfall nicht wieder hochgefahren.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Switch arbeitet auf Schicht 3, weil er Geräte verbindet.“ Nein: Ein normaler Switch leitet anhand der MAC-Adresse weiter und arbeitet auf Schicht 2. Erst der Router entscheidet anhand der IP-Adresse (Schicht 3).</p></aside>

@@ -315,7 +315,7 @@
   <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>3 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="3-4-3">
-<p class="lead">Fast jedes Büro nutzt intern Adressen wie 192.168.x.x, und trotzdem kommen alle ins Internet. Möglich machen das private Adressbereiche, das Standardgateway und die Adressumsetzung im Router. Wer das versteht, kann erklären, warum ein PC zwar den Drucker erreicht, aber nicht das Internet.</p>
+<p class="lead">Fast jedes Büro nutzt intern Adressen wie 192.168.x.x, und trotzdem kommen alle ins Internet. Möglich machen das private Adressbereiche, das Standardgateway und die Adressumsetzung im Router. Damit erklärst du auch, warum ein PC zwar den Drucker erreicht, aber nicht das Internet.</p>
 
 <h3 id="private-und-oeffentliche-adressen">Private und öffentliche Adressen<a class="anchor" href="#private-und-oeffentliche-adressen" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Öffentliche Adressen sind im Internet eindeutig und werden über Anbieter vergeben. Für interne Netze sind drei Bereiche reserviert, die im Internet nicht weitergeleitet werden und die jeder Betrieb frei nutzen darf (RFC 1918):</p>
@@ -341,7 +341,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Der PC am Empfang erreicht den Drucker, aber keine Webseite. In seiner Konfiguration steht: Adresse <code>192.168.10.37</code>, Maske <code>255.255.255.0</code>, Gateway <code>192.168.1.1</code>. Das Gateway liegt nicht im eigenen Netz <code>192.168.10.0/24</code>, also kann der PC es gar nicht erreichen. Nach der Korrektur auf <code>192.168.10.1</code> funktioniert das Internet.</p>
+  <p>Der Auszubildende hat ein Testnotebook von Hand ins Büronetz gestellt. Es erreicht den Drucker, aber keine Webseite. In seiner Konfiguration steht: Adresse <code>192.168.10.37</code>, Maske <code>255.255.255.0</code>, Gateway <code>192.168.1.1</code>. Das Gateway liegt nicht im eigenen Netz <code>192.168.10.0/24</code>, also kann das Notebook es gar nicht erreichen. Nach der Korrektur auf <code>192.168.10.1</code> funktioniert das Internet.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Mit einer privaten Adresse bin ich im Internet unsichtbar und sicher.“ Nur teilweise: NAT verhindert zwar, dass Fremde Verbindungen von außen aufbauen, ist aber keine Firewall. Schadsoftware, die von innen Verbindungen öffnet, hält es nicht auf.</p></aside>

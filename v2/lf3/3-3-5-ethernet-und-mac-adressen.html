@@ -353,7 +353,7 @@
   <p>Für die Geräteliste der Hausverwaltung liest die Auszubildende die MAC-Adresse des neuen Druckers vom Etikett ab: <code>00-1B-A9-4C-22-07</code>. Am verwaltbaren Switch sieht sie in der MAC-Adresstabelle, dass diese Adresse an Port 5 gelernt wurde. Laut Portbelegung (Kapitel 3.1.3) führt Switch-Port 5 zur geplanten Dose, der Drucker hängt also richtig.</p>
 </div>
 
-<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Mit der MAC-Adresse finde ich ein Gerät im Internet.“ Nein: MAC-Adressen gelten nur im eigenen Netz und werden an jedem Router durch neue ersetzt. Im Internet zählt die IP-Adresse.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ein Switch hält Broadcasts von den anderen Geräten fern.“ Nein: Der Switch trennt Kollisionsdomänen, aber keine Broadcastdomänen. Einen Rahmen an FF-FF-FF-FF-FF-FF schickt er an alle Ports; erst ein Router hält ihn auf.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>MAC-Adresse:</strong> physische Adresse, 48 Bit hexadezimal, Herstellerkennung plus Gerätenummer, nur im eigenen Netz gültig; Broadcast FF-FF-FF-FF-FF-FF.</li>

@@ -317,7 +317,7 @@
 </header>
 <div class="content">
 <section class="print-up" id="u-3-4-1"><h2><span class="num">3.4.1</span> IPv4-Adressen und Subnetzmaske</h2>
-<p class="lead">Damit der neue Netzwerkdrucker Aufträge bekommt, braucht er eine Adresse, die zum Büronetz passt. Welche Adressen dazu gehören, sagt die Subnetzmaske. Wer beides lesen kann, vergibt Adressen ohne Raten und erkennt sofort, wenn ein Gerät im falschen Netz steckt.</p>
+<p class="lead">Damit der neue Netzwerkdrucker Aufträge bekommt, braucht er eine Adresse, die zum Büronetz passt. Welche Adressen dazu gehören, sagt die Subnetzmaske. Kannst du beides lesen, vergibst du Adressen ohne Raten und erkennst sofort, wenn ein Gerät im falschen Netz steckt.</p>
 
 <h3 id="u3-4-1-aufbau-einer-ipv4-adresse">Aufbau einer IPv4-Adresse<a class="anchor" href="#u3-4-1-aufbau-einer-ipv4-adresse" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Eine <strong>IPv4-Adresse</strong> ist 32 Bit lang. Man schreibt sie als vier Dezimalzahlen mit Punkten, etwa <code>192.168.10.37</code>. Jede Zahl steht für 8 Bit (ein <strong>Oktett</strong>) und liegt deshalb zwischen 0 und 255.</p>
@@ -366,7 +366,7 @@
 </ul></div>
 </section>
 <section class="print-up" id="u-3-4-2"><h2><span class="num">3.4.2</span> Netz, Broadcast und Hosts berechnen</h2>
-<p class="lead">Welche Adressen darf ich im Netz vergeben, und reicht das Netz für alle Geräte? Dafür berechnest du aus Adresse und Maske die Netzadresse, die Broadcastadresse und die Zahl der nutzbaren Adressen. Diese Rechnung kommt in Prüfungen regelmäßig vor und ist schnell gelernt.</p>
+<p class="lead">Welche Adressen darfst du im Netz vergeben, und reicht das Netz für alle Geräte? Dafür berechnest du aus Adresse und Maske die Netzadresse, die Broadcastadresse und die Zahl der nutzbaren Adressen. Die Rechnung ist schnell gelernt.</p>
 
 <h3 id="u3-4-2-die-drei-werte">Die drei Werte<a class="anchor" href="#u3-4-2-die-drei-werte" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
@@ -404,13 +404,15 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Bei /24 kann ich 256 Geräte anschließen.“ Nein: Netzadresse (.0) und Broadcast (.255) fallen weg, es bleiben 254. Davon braucht meist auch der Router eine.</p></aside>
 
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Ein Netz in mehrere Teilnetze aufteilen (Subnetting) lernst du in LF9.</p></aside>
+
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Netzadresse:</strong> Hostbits 0; <strong>Broadcast:</strong> Hostbits 1; <strong>Hosts:</strong> 2<sup>Hostbits</sup> − 2.</li>
   <li><strong>Blockgröße</strong> = 256 − Maskenoktett; Netzadresse ist das passende Vielfache, Broadcast das nächste Vielfache minus 1.</li>
 </ul></div>
 </section>
 <section class="print-up" id="u-3-4-3"><h2><span class="num">3.4.3</span> Private Adressen, Gateway und NAT</h2>
-<p class="lead">Fast jedes Büro nutzt intern Adressen wie 192.168.x.x, und trotzdem kommen alle ins Internet. Möglich machen das private Adressbereiche, das Standardgateway und die Adressumsetzung im Router. Wer das versteht, kann erklären, warum ein PC zwar den Drucker erreicht, aber nicht das Internet.</p>
+<p class="lead">Fast jedes Büro nutzt intern Adressen wie 192.168.x.x, und trotzdem kommen alle ins Internet. Möglich machen das private Adressbereiche, das Standardgateway und die Adressumsetzung im Router. Damit erklärst du auch, warum ein PC zwar den Drucker erreicht, aber nicht das Internet.</p>
 
 <h3 id="u3-4-3-private-und-oeffentliche-adressen">Private und öffentliche Adressen<a class="anchor" href="#u3-4-3-private-und-oeffentliche-adressen" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Öffentliche Adressen sind im Internet eindeutig und werden über Anbieter vergeben. Für interne Netze sind drei Bereiche reserviert, die im Internet nicht weitergeleitet werden und die jeder Betrieb frei nutzen darf (RFC 1918):</p>
@@ -436,7 +438,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Der PC am Empfang erreicht den Drucker, aber keine Webseite. In seiner Konfiguration steht: Adresse <code>192.168.10.37</code>, Maske <code>255.255.255.0</code>, Gateway <code>192.168.1.1</code>. Das Gateway liegt nicht im eigenen Netz <code>192.168.10.0/24</code>, also kann der PC es gar nicht erreichen. Nach der Korrektur auf <code>192.168.10.1</code> funktioniert das Internet.</p>
+  <p>Der Auszubildende hat ein Testnotebook von Hand ins Büronetz gestellt. Es erreicht den Drucker, aber keine Webseite. In seiner Konfiguration steht: Adresse <code>192.168.10.37</code>, Maske <code>255.255.255.0</code>, Gateway <code>192.168.1.1</code>. Das Gateway liegt nicht im eigenen Netz <code>192.168.10.0/24</code>, also kann das Notebook es gar nicht erreichen. Nach der Korrektur auf <code>192.168.10.1</code> funktioniert das Internet.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Mit einer privaten Adresse bin ich im Internet unsichtbar und sicher.“ Nur teilweise: NAT verhindert zwar, dass Fremde Verbindungen von außen aufbauen, ist aber keine Firewall. Schadsoftware, die von innen Verbindungen öffnet, hält es nicht auf.</p></aside>
@@ -481,7 +483,7 @@
 <h3 id="u3-4-4-wie-ein-geraet-seine-adresse-bekommt">Wie ein Gerät seine Adresse bekommt<a class="anchor" href="#u3-4-4-wie-ein-geraet-seine-adresse-bekommt" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Ein IPv6-Gerät erfährt das Präfix meist vom Router und bildet den Interface-Identifier selbst (SLAAC, zustandslose Autokonfiguration); alternativ verteilt ein DHCPv6-Server die Adressen. Für den Interface-Identifier gibt es zwei Wege:</p>
 <ul>
-  <li><strong>Aus der MAC-Adresse (EUI-64):</strong> In die Mitte der 48-Bit-MAC-Adresse wird <code>ff:fe</code> eingefügt, und im ersten Byte wird das siebte Bit von links (Stellenwert 2) umgedreht: aus 00 (00000000) wird 02 (00000010). Aus der MAC <code>00-1B-A9-4C-22-07</code> wird <code>021b:a9ff:fe4c:2207</code>. Erkennbar ist das am <code>ff:fe</code> in der Mitte.</li>
+  <li><strong>Aus der MAC-Adresse (EUI-64):</strong> In die Mitte der 48-Bit-MAC-Adresse wird <code>ff:fe</code> eingefügt, und im ersten Byte wird das siebte Bit von links (Stellenwert 2) umgedreht: aus 00 (00000000) wird 02 (00000010). Aus der MAC des Druckers <code>00-1B-A9-4C-22-07</code> (Kapitel 3.3.5) wird <code>021b:a9ff:fe4c:2207</code>. Erkennbar ist das am <code>ff:fe</code> in der Mitte.</li>
   <li><strong>Zufällig:</strong> Aktuelle Betriebssysteme bilden den Interface-Identifier meist zufällig statt aus der MAC-Adresse. Für Verbindungen ins Internet nutzen sie zusätzlich eine temporäre Adresse, die regelmäßig wechselt, damit das Gerät nicht verfolgt werden kann.</li>
 </ul>
 

@@ -33,18 +33,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Patchfeld",
-      "frage": "Eine Wanddose ist korrekt verlegt, das Notebook daran bekommt aber keine Verbindung. Was fehlt am wahrscheinlichsten?",
+      "thema": "Schwächstes Glied",
+      "frage": "Verlegt ist Cat-7-Kabel, Dosen und Patchfeld sind Cat 6A. Welche Kategorie erreicht die Strecke?",
       "optionen": [
-        "Ein Patchkabel vom Patchfeld-Port der Dose zum Switch",
-        "Ein zweites Verlegekabel parallel zur Wanddose",
-        "Ein Wechsel von T568A auf T568B in der Dose",
-        "Ein Crossover-Kabel zwischen Notebook und Dose"
+        "Cat 6A",
+        "Cat 7",
+        "Cat 7A",
+        "Cat 8"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Das Verlegekabel endet am Patchfeld. Aktiv wird die Dose erst durch ein Patchkabel vom Patchfeld zum Switch; die Strecke darf zusammen höchstens 100 m lang sein."
+      "erklaerung": "Die Strecke ist nur so gut wie ihr schwächstes Teil. Mit RJ45-Dosen und -Patchfeld gilt Cat 6A, also 10 Gbit/s."
     },
     {
       "typ": "mc",

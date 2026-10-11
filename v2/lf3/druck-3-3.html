@@ -407,7 +407,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Die Hausverwaltung mietet ein Büro im Nebengebäude dazu, 140 m entfernt. Kupfer reicht für diese Strecke nicht und wäre zwischen zwei Gebäuden riskant. Das Systemhaus verlegt ein Multimode-Kabel (OM4) und steckt an beiden Enden ein passendes SFP-Modul in den Switch. Im Nebengebäude hängen die Arbeitsplätze wie gewohnt per Kupfer am Switch.</p>
+  <p>Die Inhaberin fragt, was nötig wäre, wenn sie später ein Büro im Nebengebäude dazumietet, 140 m entfernt. Kupfer reicht für diese Strecke nicht und wäre zwischen zwei Gebäuden riskant. Das Systemhaus würde ein Multimode-Kabel (OM4) verlegen und an beiden Enden ein passendes SFP-Modul in den Switch stecken; ein neuer Switch braucht dafür einen SFP-Steckplatz. Im Nebengebäude hingen die Arbeitsplätze wie gewohnt per Kupfer am Switch.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Glasfaser ist Glasfaser.“ Nein: Singlemode- und Multimode-Fasern und die zugehörigen Module passen nicht zueinander. Faser, Modul und Stecker müssen zusammenpassen.</p></aside>
@@ -463,7 +463,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Beim Durchsehen des Schranks stellt der Auszubildende fest: Die Patchfeld-Ports 3 und 4 haben eine Dose, sind aber nicht mit dem Switch verbunden; die Ports 5 und 6 sind gesteckt, die Dosen 2.05 und 2.06 aber noch frei. Ein neuer Drucker funktioniert deshalb sofort an Dose 2.05 oder 2.06. Für Dose 2.03 müsste erst ein Patchkabel gesteckt werden; dafür ist am Switch noch ein Port frei.</p>
+  <p>Beim Durchsehen des Schranks stellt der Auszubildende fest: Patchfeld-Port 3 hat eine Dose (1.03 im Büro), ist aber nicht mit dem Switch verbunden; Port 5 ist gesteckt, seine Dose 1.05 im Büro aber noch frei. Der neue Drucker funktioniert deshalb sofort an Dose 1.05. Für Dose 1.03 müsste erst ein Patchkabel gesteckt werden; dafür ist am Switch noch ein Port frei.</p>
 </div>
 
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Plane beim Verlegen Reserve ein: Kabel in die Wand zu bringen ist teuer, ein paar zusätzliche Dosen kosten dabei wenig. Freie Switch-Ports und Platz im Schrank erleichtern spätere Erweiterungen.</p></aside>
@@ -486,7 +486,7 @@
       <tr><th>Router</th><td>verbindet verschiedene Netze, etwa Büronetz und Internet</td><td>Internetanschluss, Firewall, VPN, oft mit DHCP-Server</td></tr>
       <tr><th>Access Point (AP)</th><td>bindet Funkgeräte ans kabelgebundene Netz an (Kapitel 3.6)</td><td>WLAN-Standard, Reichweite, Stromversorgung über PoE</td></tr>
       <tr><th>Firewall</th><td>filtert Datenverkehr zwischen Netzen nach Regeln</td><td>meist im Router enthalten, in größeren Netzen eigenes Gerät</td></tr>
-      <tr><th>Repeater, Hub</th><td>verstärken bzw. verteilen Signale ohne Prüfung</td><td>Hubs sind veraltet und durch Switches ersetzt; Repeater begegnen dir heute vor allem im WLAN (Kapitel 3.6)</td></tr>
+      <tr><th>Repeater, Hub</th><td>verstärken bzw. verteilen Signale ohne Prüfung</td><td>Hubs sind veraltet und durch Switches ersetzt; Repeater begegnen dir heute vor allem im WLAN (Kapitel 3.6.1)</td></tr>
     </tbody>
   </table>
 </div>
@@ -518,7 +518,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Geräte:</strong> Netzwerkkarte bindet an, Switch verbindet im Netz, Router verbindet Netze, Access Point bindet Funk an, Firewall filtert.</li>
-  <li><strong>PoE:</strong> Strom übers Datenkabel; 802.3af 15,4 W, at 30 W, bt 60 bzw. 90 W am Port; PoE-Budget beachten.</li>
+  <li><strong>PoE:</strong> Strom übers Datenkabel; 802.3af 15,4 W (am Gerät 12,95 W), at/PoE+ 30 W (25,5 W), bt 60 bzw. 90 W am Port; PoE-Budget beachten.</li>
 </ul></div>
 </section>
 <section class="print-up" id="u-3-3-5"><h2><span class="num">3.3.5</span> Ethernet und MAC-Adressen</h2>
@@ -560,7 +560,7 @@
   <p>Für die Geräteliste der Hausverwaltung liest die Auszubildende die MAC-Adresse des neuen Druckers vom Etikett ab: <code>00-1B-A9-4C-22-07</code>. Am verwaltbaren Switch sieht sie in der MAC-Adresstabelle, dass diese Adresse an Port 5 gelernt wurde. Laut Portbelegung (Kapitel 3.1.3) führt Switch-Port 5 zur geplanten Dose, der Drucker hängt also richtig.</p>
 </div>
 
-<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Mit der MAC-Adresse finde ich ein Gerät im Internet.“ Nein: MAC-Adressen gelten nur im eigenen Netz und werden an jedem Router durch neue ersetzt. Im Internet zählt die IP-Adresse.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ein Switch hält Broadcasts von den anderen Geräten fern.“ Nein: Der Switch trennt Kollisionsdomänen, aber keine Broadcastdomänen. Einen Rahmen an FF-FF-FF-FF-FF-FF schickt er an alle Ports; erst ein Router hält ihn auf.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>MAC-Adresse:</strong> physische Adresse, 48 Bit hexadezimal, Herstellerkennung plus Gerätenummer, nur im eigenen Netz gültig; Broadcast FF-FF-FF-FF-FF-FF.</li>

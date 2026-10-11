@@ -48,18 +48,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Hostanzahl",
-      "frage": "Wie viele Adressen kannst du in einem /27-Netz an Geräte vergeben?",
+      "thema": "Interface-Identifier",
+      "frage": "Der Drucker hat 2001:db8:ab:10::20/64. Welcher Teil ist der Interface-Identifier?",
       "optionen": [
-        "30",
-        "32",
-        "62",
-        "14"
+        "0000:0000:0000:0020",
+        "2001:0db8:00ab:0010",
+        "0010:0000:0000:0020",
+        "00ab:0010:0000:0020"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "/27 lässt 5 Hostbits: 2 hoch 5 = 32, minus Netz- und Broadcastadresse ergibt 30."
+      "erklaerung": "Bei /64 sind die ersten vier Blöcke das Präfix, die letzten vier der Interface-Identifier. Ausgeschrieben steht für :: dreimal 0000."
     },
     {
       "typ": "mc",

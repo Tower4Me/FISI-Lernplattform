@@ -2,19 +2,24 @@
   "titel": "Check 3.7",
   "fragen": [
     {
-      "typ": "mc",
-      "thema": "Name nicht auflösbar",
-      "frage": "ping 192.168.10.10 antwortet, ping auf den Namen des NAS meldet „Ping-Anforderung konnte Host … nicht finden“. Wo liegt der Fehler?",
+      "typ": "mc-multi",
+      "thema": "IPv4-Konfiguration",
+      "frage": "Welche Angaben braucht ein Client mit fester IPv4-Adresse, damit er im Büronetz und im Internet arbeiten kann? Wähle alle zutreffenden.",
       "optionen": [
-        "Bei der Namensauflösung (DNS)",
-        "Beim Patchkabel des Clients",
-        "Bei der Firewall des NAS",
-        "Beim Standardgateway des Clients"
+        "IP-Adresse",
+        "Subnetzmaske",
+        "Standardgateway",
+        "DNS-Server",
+        "MAC-Adresse des Routers",
+        "Portnummer des NAS"
       ],
       "richtig": [
-        0
+        0,
+        1,
+        2,
+        3
       ],
-      "erklaerung": "Die Adresse ist erreichbar, nur der Name lässt sich nicht auflösen. Das ist ein DNS-Problem."
+      "erklaerung": "Adresse, Maske, Gateway und DNS-Server bilden die vollständige Konfiguration. Die MAC-Adresse des Gateways ermittelt der Client per ARP selbst, Ports gehören zu den Diensten."
     },
     {
       "typ": "mc",

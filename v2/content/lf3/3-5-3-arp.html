@@ -4,7 +4,7 @@
 <p><strong>ARP</strong> (Address Resolution Protocol) ermittelt zu einer IPv4-Adresse im eigenen Netz die zugehörige MAC-Adresse.</p>
 <ol>
   <li>Der PC prüft seine <strong>ARP-Tabelle</strong> (ARP-Cache). Steht die Zuordnung dort, nutzt er sie.</li>
-  <li>Sonst schickt er eine <strong>ARP-Anfrage</strong> als Broadcast an alle: „Wer hat 192.168.10.20? Bitte an 192.168.10.37 melden.“</li>
+  <li>Sonst schickt er eine <strong>ARP-Anfrage</strong> als Broadcast an alle: „Wer hat 192.168.10.20? Bitte an 192.168.10.104 melden.“</li>
   <li>Nur der Drucker mit dieser Adresse antwortet, direkt an den PC: „192.168.10.20 ist bei 00-1B-A9-4C-22-07.“</li>
   <li>Der PC trägt die Zuordnung in seine ARP-Tabelle ein. Einträge verfallen nach kurzer Zeit wieder, damit Änderungen auffallen.</li>
 </ol>
@@ -23,7 +23,7 @@
     </tbody>
   </table>
 </div>
-<p>„Dynamisch“ heißt per ARP gelernt; die Broadcastadresse ist fest eingetragen. Windows gruppiert die Tabelle nach Schnittstelle (Zeile <code>Schnittstelle: 192.168.10.37 --- 0x…</code>). Den Befehl übst du in Kapitel 3.7.2.</p>
+<p>„Dynamisch“ heißt per ARP gelernt; die Broadcastadresse ist fest eingetragen. Windows gruppiert die Tabelle nach Schnittstelle (Zeile <code>Schnittstelle: 192.168.10.104 --- 0x…</code>). Den Befehl übst du in Kapitel 3.7.2.</p>
 <p>Bei IPv6 gibt es kein ARP. Diese Aufgabe übernimmt die <strong>Nachbarerkennung</strong> (Neighbor Discovery, Teil von ICMPv6) mit Multicast statt Broadcast.</p>
 
 <div class="beispiel">

@@ -315,7 +315,7 @@
   <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>2 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="3-4-2">
-<p class="lead">Welche Adressen darf ich im Netz vergeben, und reicht das Netz für alle Geräte? Dafür berechnest du aus Adresse und Maske die Netzadresse, die Broadcastadresse und die Zahl der nutzbaren Adressen. Diese Rechnung kommt in Prüfungen regelmäßig vor und ist schnell gelernt.</p>
+<p class="lead">Welche Adressen darfst du im Netz vergeben, und reicht das Netz für alle Geräte? Dafür berechnest du aus Adresse und Maske die Netzadresse, die Broadcastadresse und die Zahl der nutzbaren Adressen. Die Rechnung ist schnell gelernt.</p>
 
 <h3 id="die-drei-werte">Die drei Werte<a class="anchor" href="#die-drei-werte" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
@@ -352,6 +352,8 @@
 <p>Berechne für beide die Netzadresse mit der Maske. Ist sie gleich, erreichen sie sich direkt; sonst brauchen sie einen Router. Mit /26 liegen <code>192.168.10.77</code> und <code>192.168.10.130</code> in verschiedenen Netzen (.64 und .128), mit /24 im selben.</p>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Bei /24 kann ich 256 Geräte anschließen.“ Nein: Netzadresse (.0) und Broadcast (.255) fallen weg, es bleiben 254. Davon braucht meist auch der Router eine.</p></aside>
+
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Ein Netz in mehrere Teilnetze aufteilen (Subnetting) lernst du in LF9.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Netzadresse:</strong> Hostbits 0; <strong>Broadcast:</strong> Hostbits 1; <strong>Hosts:</strong> 2<sup>Hostbits</sup> − 2.</li>

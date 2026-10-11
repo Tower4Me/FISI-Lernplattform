@@ -1,0 +1,126 @@
+{
+  "titel": "Check 4.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Risikostrategie Versicherung",
+      "frage": "Ein Betrieb schließt eine Cyberversicherung ab, die die Kosten eines Angriffs ersetzt. Welche Strategie wendet er an?",
+      "optionen": [
+        "Vermeiden",
+        "Vermindern",
+        "Übertragen",
+        "Akzeptieren"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Die finanziellen Folgen trägt die Versicherung. Wahrscheinlichkeit und Ablauf eines Angriffs ändern sich dadurch nicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Wer akzeptiert das Restrisiko",
+      "frage": "Nach allen Maßnahmen bleibt ein kleines Restrisiko. Wer entscheidet, ob es getragen wird?",
+      "optionen": [
+        "Die Person, die die Analyse erstellt hat",
+        "Die Unternehmensleitung",
+        "Der Hersteller der eingesetzten Software",
+        "Die Datenschutz-Aufsichtsbehörde"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Über das Akzeptieren eines Restrisikos entscheidet die Leitung, weil sie die Verantwortung trägt. Die Entscheidung wird dokumentiert."
+    },
+    {
+      "typ": "mc",
+      "thema": "Maßnahme für Verfügbarkeit",
+      "frage": "Für einen Dateiserver wurde die Verfügbarkeit als „hoch“ festgestellt, Vertraulichkeit und Integrität sind „normal“. Welche Maßnahme passt am besten?",
+      "optionen": [
+        "Verschlüsselung der Serverfestplatten",
+        "Tägliche Datensicherung",
+        "Digitale Signatur aller Dateien",
+        "Strengere Passwortregeln für alle Konten"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Datensicherung stellt verlorene Daten wieder her und stärkt die Verfügbarkeit. Verschlüsselung, Signatur und Passwörter dienen vor allem den anderen Schutzzielen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Echte Mehr-Faktor-Authentifizierung",
+      "frage": "Welche Kombination ist eine echte Mehr-Faktor-Authentifizierung?",
+      "optionen": [
+        "Passwort und Antwort auf eine Sicherheitsfrage",
+        "PIN und Passwort",
+        "Passwort und Code aus einer App",
+        "Benutzername und Passwort"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Passwort ist Wissen, das Smartphone mit der App ist Besitz, also zwei verschiedene Faktoren. Die anderen Paare bestehen nur aus Wissen oder enthalten keinen echten Nachweis."
+    },
+    {
+      "typ": "mc",
+      "thema": "Asymmetrische Verschlüsselung",
+      "frage": "Eine Kundin will dir eine vertrauliche Datei asymmetrisch verschlüsselt schicken. Mit welchem Schlüssel verschlüsselt sie?",
+      "optionen": [
+        "Mit ihrem eigenen privaten Schlüssel",
+        "Mit deinem öffentlichen Schlüssel",
+        "Mit einem Schlüssel, den ihr vorher austauscht",
+        "Mit ihrem eigenen öffentlichen Schlüssel"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Verschlüsselt wird mit dem öffentlichen Schlüssel des Empfängers. Nur dein privater Schlüssel kann die Datei dann wieder entschlüsseln."
+    },
+    {
+      "typ": "mc",
+      "thema": "Grenze des Hashwerts",
+      "frage": "Ein Hersteller zeigt den SHA-256-Wert seines Downloads auf derselben Webseite wie die Datei. Dein selbst berechneter Wert stimmt überein. Was ist damit nicht bewiesen?",
+      "optionen": [
+        "Dass die Datei beim Herunterladen unverändert blieb",
+        "Dass Datei und Wert vom echten Hersteller stammen",
+        "Dass die Datei zum angezeigten Wert passt",
+        "Dass beim Download kein Übertragungsfehler auftrat"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Ein Hashwert zeigt nur, dass die Datei zum angegebenen Wert passt. Hat ein Angreifer Datei und Wert auf der Webseite ausgetauscht, fällt das nicht auf; den Urheber belegt erst eine Signatur."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Was eine Signatur belegt",
+      "frage": "Die Prüfung einer digitalen Signatur ist erfolgreich. Welche zwei Schutzziele sind damit für die Nachricht belegt?",
+      "optionen": [
+        "Integrität",
+        "Authentizität",
+        "Vertraulichkeit",
+        "Verfügbarkeit"
+      ],
+      "richtig": [
+        0,
+        1
+      ],
+      "erklaerung": "Der passende Hashwert zeigt, dass nichts verändert wurde, und die Prüfung mit dem öffentlichen Schlüssel des Absenders zeigt, dass er signiert hat. Verschlüsselt ist die Nachricht dadurch nicht, die Vertraulichkeit schützt die Signatur also nicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Autorisierung",
+      "frage": "Nach der Anmeldung prüft das System, ob du den Ordner „Lohn“ öffnen darfst. Wie heißt dieser Schritt?",
+      "optionen": [
+        "Identifikation",
+        "Authentifizierung",
+        "Autorisierung",
+        "Verschlüsselung"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Autorisierung regelt, was eine angemeldete Person darf. Identifikation und Authentifizierung kommen davor."
+    }
+  ]
+}

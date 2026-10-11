@@ -1,0 +1,35 @@
+<p class="lead">Eine Maßnahme ist nur dann sinnvoll, wenn sie das Schutzziel stärkt, das gefährdet ist. Ein Backup hilft nicht gegen neugierige Blicke, und Verschlüsselung hilft nicht, wenn die Festplatte kaputtgeht. Deshalb ordnest du jede Maßnahme den Schutzzielen zu, die sie unterstützt.</p>
+
+<h3>Welche Maßnahme stärkt welches Ziel?</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Maßnahme</th><th>Vertraulichkeit</th><th>Integrität</th><th>Verfügbarkeit</th><th>Warum</th></tr></thead>
+    <tbody>
+      <tr><th>Persönliche Anmeldung, starke Passwörter</th><td>x</td><td>x</td><td></td><td>Nur Befugte können Daten lesen und ändern; persönliche Konten machen Handlungen zuordenbar (Verbindlichkeit).</td></tr>
+      <tr><th>Zugriffsrechte nach Aufgabe</th><td>x</td><td>x</td><td></td><td>Jeder sieht und ändert nur, was er braucht.</td></tr>
+      <tr><th>Verschlüsselung von Datenträgern und Verbindungen</th><td>x</td><td></td><td></td><td>Ohne Schlüssel bleiben die Daten unlesbar. HTTPS und VPN erkennen zusätzlich Veränderungen unterwegs.</td></tr>
+      <tr><th>Hashwerte, digitale Signaturen</th><td></td><td>x</td><td></td><td>Veränderungen werden erkannt; eine Signatur belegt zusätzlich den Absender (Authentizität).</td></tr>
+      <tr><th>Regelmäßige Datensicherung</th><td></td><td></td><td>x</td><td>Verlorene Daten lassen sich wiederherstellen.</td></tr>
+      <tr><th>USV, redundante Geräte</th><td></td><td></td><td>x</td><td>Betrieb läuft bei Ausfällen weiter.</td></tr>
+      <tr><th>Updates einspielen</th><td>x</td><td>x</td><td>x</td><td>Geschlossene Lücken schützen vor Angriffen auf alle Ziele.</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Manche Maßnahmen wirken auf mehrere Ziele, manche nur auf eines. Für ein Objekt mit hoher Vertraulichkeit, aber normaler Verfügbarkeit suchst du deshalb vor allem Maßnahmen mit Kreuz in der Spalte Vertraulichkeit.</p>
+
+<h3>Arten von Maßnahmen</h3>
+<p>Neben der Einteilung in technisch und organisatorisch (Kapitel 4.2.2) unterscheidet man oft noch zwei weitere Arten:</p>
+<ul>
+  <li><strong>Infrastrukturell (baulich):</strong> abschließbare Räume, Brandschutz, Klimatisierung, geschützte Leitungswege.</li>
+  <li><strong>Personell:</strong> Schulungen, Verpflichtung auf Vertraulichkeit, geregelter Ablauf beim Ein- und Austritt von Beschäftigten.</li>
+</ul>
+<p>Die Arten überschneiden sich: Schulungen zählen je nach Raster zu den organisatorischen oder zu den personellen Maßnahmen. Ein wirksamer Schutz kombiniert mehrere Arten. Fällt eine Maßnahme aus oder wird umgangen, kann die nächste den Schaden noch verhindern oder begrenzen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Tierarztpraxis hat für ihre Patientenkartei die Vertraulichkeit „hoch“ und die Verfügbarkeit „hoch“ festgestellt. Für die Vertraulichkeit wählt sie persönliche Konten, eine automatische Bildschirmsperre am Empfang und eine verschlüsselte Festplatte im Praxis-Notebook. Für die Verfügbarkeit wählt sie eine tägliche Sicherung und eine USV für den Server. Alle Maßnahmen notiert sie mit dem Schutzziel, dem sie dienen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Wir haben eine Firewall, also sind unsere Daten sicher.“ Eine Firewall begrenzt Zugriffe aus dem Netz. Gegen einen Festplattendefekt, einen gestohlenen Laptop oder eine versehentlich gelöschte Datei hilft sie nicht.</p></aside>
+
+<p class="merksatz">Jede Maßnahme dient bestimmten Schutzzielen: Zugangsschutz und Zugriffsrechte vor allem der Vertraulichkeit und Integrität, Verschlüsselung der Vertraulichkeit, Prüfwerte der Integrität, Sicherung und Redundanz der Verfügbarkeit.</p>

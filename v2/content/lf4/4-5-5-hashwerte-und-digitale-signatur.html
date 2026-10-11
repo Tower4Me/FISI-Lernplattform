@@ -1,0 +1,44 @@
+<p class="lead">Woran erkennst du, dass eine heruntergeladene Software nicht manipuliert wurde oder dass eine Rechnung wirklich vom Lieferanten kommt? Hashwerte und digitale Signaturen beantworten diese Fragen. Sie schützen Integrität und Authentizität.</p>
+
+<h3>Hashwerte: der Fingerabdruck einer Datei</h3>
+<p>Eine <strong>Hashfunktion</strong> berechnet aus beliebig großen Daten einen kurzen Prüfwert fester Länge, den <strong>Hashwert</strong>. Wichtige Eigenschaften:</p>
+<ul>
+  <li>Gleiche Daten ergeben den gleichen Hashwert.</li>
+  <li>Schon eine winzige Änderung, etwa ein einziges Zeichen, ergibt einen völlig anderen Hashwert.</li>
+  <li>Aus dem Hashwert lassen sich die ursprünglichen Daten nicht zurückrechnen (Einwegfunktion).</li>
+  <li>Es ist praktisch unmöglich, zwei verschiedene Daten mit demselben Hashwert zu finden.</li>
+</ul>
+<p>Ein verbreitetes Verfahren ist SHA-256. Ältere Verfahren wie MD5 gelten für Sicherheitszwecke als unsicher, weil sich dort gleiche Hashwerte für verschiedene Daten gezielt erzeugen lassen.</p>
+
+<h3>Anwendung: Download prüfen</h3>
+<p>Viele Hersteller veröffentlichen zu ihren Downloads den Hashwert. Nach dem Herunterladen berechnest du den Hashwert der Datei selbst und vergleichst. Stimmen beide überein, ist die Datei unverändert angekommen. Weichen sie ab, wurde sie beschädigt oder manipuliert.</p>
+<aside class="note" data-typ="hinweis"><p>Ein Hashwert allein beweist nicht, <em>wer</em> die Datei erstellt hat. Kann ein Angreifer sowohl die Datei als auch den angezeigten Hashwert auf der Webseite austauschen, fällt die Manipulation nicht auf. Dafür braucht es die digitale Signatur.</p></aside>
+
+<h3>Digitale Signatur: Hashwert plus privater Schlüssel</h3>
+<p>Die digitale Signatur verbindet einen Hashwert mit asymmetrischer Verschlüsselung (Kapitel 4.5.4). Sie läuft so ab:</p>
+<ol>
+  <li>Der Absender berechnet den Hashwert seiner Nachricht.</li>
+  <li>Er verschlüsselt diesen Hashwert mit seinem <strong>privaten</strong> Schlüssel (vereinfacht gesagt; Fachleute sprechen vom Signieren mit dem privaten Schlüssel). Das Ergebnis ist die Signatur, die er mit der Nachricht verschickt.</li>
+  <li>Der Empfänger entschlüsselt die Signatur mit dem <strong>öffentlichen</strong> Schlüssel des Absenders und erhält den ursprünglichen Hashwert.</li>
+  <li>Er berechnet selbst den Hashwert der empfangenen Nachricht und vergleicht beide.</li>
+</ol>
+<p>Stimmen die Werte überein, ist zweierlei bewiesen: Die Nachricht wurde nicht verändert (<strong>Integrität</strong>), und sie stammt vom Inhaber des privaten Schlüssels (<strong>Authentizität</strong>). Weil nur der Absender seinen privaten Schlüssel hat, kann er die Signatur später schwer abstreiten (<strong>Verbindlichkeit</strong>).</p>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Ziel</th><th>Absender nutzt</th><th>Empfänger nutzt</th></tr></thead>
+    <tbody>
+      <tr><th>Verschlüsseln (Vertraulichkeit)</th><td>öffentlichen Schlüssel des Empfängers</td><td>eigenen privaten Schlüssel</td></tr>
+      <tr><th>Signieren (Integrität, Authentizität)</th><td>eigenen privaten Schlüssel</td><td>öffentlichen Schlüssel des Absenders</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Elektrogroßhandel signiert seine Rechnungen digital. Die Buchhaltung eines Kunden prüft die Signatur automatisch. Ändert ein Betrüger in einer abgefangenen Rechnung die Kontonummer, passt der Hashwert nicht mehr zur Signatur, und das Programm warnt.</p>
+</div>
+
+<aside class="note" data-typ="ueber-ap"><p>Damit der Empfänger sicher sein kann, dass ein öffentlicher Schlüssel wirklich zum Absender gehört, bestätigen Zertifizierungsstellen diese Zuordnung mit Zertifikaten. Wie solche Infrastrukturen aufgebaut sind, ist Thema späterer Lernfelder.</p></aside>
+
+<p class="merksatz">Ein Hashwert zeigt, ob Daten verändert wurden; eine digitale Signatur ist ein mit dem privaten Schlüssel verschlüsselter Hashwert und belegt zusätzlich, von wem die Daten stammen.</p>

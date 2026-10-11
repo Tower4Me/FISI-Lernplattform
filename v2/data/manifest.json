@@ -393,6 +393,128 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "4.5",
+          "titel": "Schutzmaßnahmen auswählen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "4.5.1",
+              "titel": "Vom Ergebnis zur Maßnahme",
+              "slug": "vom-ergebnis-zur-massnahme",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Ergebnisse bewerten, mit Leitlinie abgleichen, Maßnahmen empfehlen und umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b, 6d",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "BSI-Standard 200-3, Risikobehandlung"
+                ]
+              },
+              "material": [
+                "schutzbedarfsanalyse"
+              ],
+              "begriffe": [
+                "risikostrategien"
+              ]
+            },
+            {
+              "nummer": "4.5.2",
+              "titel": "Maßnahmen den Schutzzielen zuordnen",
+              "slug": "massnahmen-den-schutzzielen-zuordnen",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Maßnahmen empfehlen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021, Aufgabe 4a",
+                  "AP1 Frühjahr 2024, Aufgabe 4a"
+                ],
+                "extern": []
+              },
+              "material": [
+                "toms",
+                "schutzziele-cia"
+              ],
+              "begriffe": [
+                "schutzziele",
+                "toms"
+              ]
+            },
+            {
+              "nummer": "4.5.3",
+              "titel": "Anmelden mit Wissen, Besitz und Merkmal",
+              "slug": "anmelden-mit-wissen-besitz-und-merkmal",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Maßnahmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021, Aufgabe 4e",
+                  "AP1 Herbst 2025, Aufgabe 3b"
+                ],
+                "extern": [
+                  "BSI für Bürger: Sichere Passwörter, Zwei-Faktor-Authentisierung",
+                  "BSI IT-Grundschutz-Kompendium ORP.4"
+                ]
+              },
+              "material": [
+                "authentifizierung-mfa-aaa"
+              ],
+              "begriffe": [
+                "authentifizierung"
+              ]
+            },
+            {
+              "nummer": "4.5.4",
+              "titel": "Verschlüsselung als Schutzmaßnahme",
+              "slug": "verschluesselung-als-schutzmassnahme",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Maßnahmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2025, Aufgabe 2ba bis 2bc",
+                  "AP1 Frühjahr 2024, Aufgabe 4b (VPN)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "kryptographie-sym-asym",
+                "vpn-grundlagen"
+              ],
+              "begriffe": [
+                "verschluesselung"
+              ]
+            },
+            {
+              "nummer": "4.5.5",
+              "titel": "Hashwerte und digitale Signatur",
+              "slug": "hashwerte-und-digitale-signatur",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Maßnahmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6b",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021, Aufgabe 4a (Hashwert)",
+                  "AP1 Frühjahr 2025, Aufgabe 2da",
+                  "AP1 Herbst 2025, Aufgabe 3h"
+                ],
+                "extern": [
+                  "BSI TR-02102-1 (empfohlene Verfahren)"
+                ]
+              },
+              "material": [
+                "hash-signatur"
+              ],
+              "begriffe": [
+                "hashwert",
+                "verschluesselung",
+                "schutzziele"
+              ]
+            }
+          ]
         }
       ]
     }

@@ -1,0 +1,40 @@
+<p class="lead">Fast jeder Schutz hängt davon ab, dass das System weiß, wer vor ihm sitzt. Ist die Anmeldung schwach, helfen auch gute Zugriffsrechte wenig: Wer das Passwort kennt, hat alle Rechte der Person.</p>
+
+<h3>Drei Schritte, die oft verwechselt werden</h3>
+<dl>
+  <dt>Identifikation</dt><dd>Du sagst, wer du bist, zum Beispiel mit deinem Benutzernamen.</dd>
+  <dt>Authentifizierung</dt><dd>Du beweist, dass du es wirklich bist, zum Beispiel mit dem Passwort.</dd>
+  <dt>Autorisierung</dt><dd>Das System prüft, was du darfst, zum Beispiel Lesezugriff auf den Ordner „Einkauf“. Die Rechte hat vorher eine Administratorin oder ein Administrator vergeben.</dd>
+</dl>
+
+<h3>Drei Arten von Nachweisen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Faktor</th><th>Beispiele</th><th>Vorteil</th><th>Schwäche</th></tr></thead>
+    <tbody>
+      <tr><th>Wissen</th><td>Passwort, PIN</td><td>kein Gerät nötig, überall nutzbar</td><td>kann erraten, ausgespäht oder per Phishing erfragt werden</td></tr>
+      <tr><th>Besitz</th><td>Chipkarte, Smartphone mit Authenticator-App, Hardware-Schlüssel</td><td>Angreifer muss den Gegenstand haben</td><td>kann verloren gehen oder gestohlen werden</td></tr>
+      <tr><th>Merkmal (Biometrie)</th><td>Fingerabdruck, Gesicht</td><td>geht nicht verloren, schnell</td><td>Erkennung kann fehlschlagen, Merkmal lässt sich nicht ändern</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Mehr-Faktor-Authentifizierung</h3>
+<p>Bei der <strong>Mehr-Faktor-Authentifizierung (MFA)</strong> musst du Nachweise aus mindestens <strong>zwei verschiedenen</strong> Faktoren erbringen, etwa Passwort und Code aus einer App. Wer nur das Passwort erbeutet hat, kommt dann nicht weiter. Bei genau zwei Faktoren spricht man auch von Zwei-Faktor-Authentifizierung (2FA).</p>
+<aside class="note" data-typ="fehler"><p>Passwort und PIN zusammen sind keine MFA. Beides ist Wissen, also derselbe Faktor. Ein Angreifer, der dich ausspäht, kann beides erbeuten.</p></aside>
+
+<h3>Gute Passwörter</h3>
+<ul>
+  <li><strong>Länge</strong> bringt am meisten. Mehrere zufällig gewählte Wörter, kein bekanntes Zitat, ergeben ein langes und gut merkbares Passwort.</li>
+  <li><strong>Für jeden Dienst ein eigenes Passwort.</strong> Wird ein Dienst gehackt, sind die anderen nicht betroffen.</li>
+  <li><strong>Keine naheliegenden Begriffe</strong> wie Namen, Geburtsdaten oder „Sommer2026!“, denn Angreifer probieren solche Muster mit Wörterbüchern zuerst.</li>
+  <li>Ein <strong>Passwortmanager</strong> speichert viele lange Passwörter sicher, du merkst dir nur ein starkes Hauptpasswort, am besten zusätzlich mit MFA geschützt.</li>
+  <li>Ändern, wenn der Verdacht besteht, dass jemand das Passwort kennt. Ein erzwungener Wechsel alle paar Wochen wird heute nicht mehr allgemein empfohlen, weil er zu schwachen, nur leicht abgewandelten Passwörtern führt.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Handwerksbetrieb lässt seine Beschäftigten mit Benutzername und Passwort auf das Webportal des Großhändlers zugreifen. Nachdem ein Passwort per Phishing abgegriffen und eine Bestellung über 3.000 Euro ausgelöst wurde, schaltet der Betrieb MFA mit einer Authenticator-App ein. Ein erbeutetes Passwort reicht jetzt nicht mehr für eine Anmeldung.</p>
+</div>
+
+<p class="merksatz">Authentifizierung beweist die Identität über Wissen, Besitz oder ein Merkmal; Mehr-Faktor-Authentifizierung verlangt mindestens zwei verschiedene dieser Faktoren.</p>

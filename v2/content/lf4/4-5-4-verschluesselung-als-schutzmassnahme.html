@@ -1,0 +1,36 @@
+<p class="lead">Verschlüsselung ist eine der wichtigsten technischen Maßnahmen für die Vertraulichkeit. Sie sorgt dafür, dass Daten für Unbefugte unlesbar sind, selbst wenn sie das Notebook stehlen oder eine Verbindung mitschneiden. In deiner Analyse musst du entscheiden, wo sie nötig ist, und die zwei Grundverfahren unterscheiden können.</p>
+
+<h3>Das Prinzip</h3>
+<p>Ein Verschlüsselungsverfahren verwandelt lesbare Daten (Klartext) mit Hilfe eines <strong>Schlüssels</strong> in unlesbare Daten (Geheimtext). Nur wer den passenden Schlüssel hat, kann sie wieder lesbar machen. Die Verfahren selbst sind meist öffentlich bekannt, die Sicherheit liegt im geheimen Schlüssel.</p>
+
+<h3>Symmetrisch und asymmetrisch</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Symmetrische Verschlüsselung</th><th>Asymmetrische Verschlüsselung</th></tr></thead>
+    <tbody>
+      <tr><th>Schlüssel</th><td>Ein gemeinsamer geheimer Schlüssel zum Ver- und Entschlüsseln</td><td>Ein Schlüsselpaar: öffentlicher Schlüssel und privater Schlüssel</td></tr>
+      <tr><th>Ablauf</th><td>Absender und Empfänger nutzen denselben Schlüssel.</td><td>Der Absender verschlüsselt mit dem <em>öffentlichen</em> Schlüssel des Empfängers, nur dessen <em>privater</em> Schlüssel kann entschlüsseln.</td></tr>
+      <tr><th>Vorteil</th><td>schnell, auch für große Datenmengen</td><td>Es muss kein geheimer Schlüssel ausgetauscht werden; der öffentliche Schlüssel muss aber nachweislich zum Empfänger gehören (Kapitel 4.5.5).</td></tr>
+      <tr><th>Nachteil</th><td>Der Schlüssel muss sicher zum Partner gelangen.</td><td>deutlich langsamer, höherer Rechenaufwand</td></tr>
+      <tr><th>Bekanntes Verfahren</th><td>AES</td><td>RSA</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>In der Praxis kombiniert man beide (<strong>hybride Verschlüsselung</strong>): Mit einem asymmetrischen Verfahren vereinbaren beide Seiten sicher einen zufälligen symmetrischen Sitzungsschlüssel, die eigentlichen Daten werden dann schnell symmetrisch verschlüsselt. So arbeitet zum Beispiel HTTPS beim Aufruf einer Webseite.</p>
+
+<h3>Wo Verschlüsselung im Arbeitsbereich hilft</h3>
+<ul>
+  <li><strong>Datenträger:</strong> Festplatten von Notebooks und USB-Sticks verschlüsseln, damit ein Verlust kein Datenleck wird.</li>
+  <li><strong>Verbindungen:</strong> HTTPS für Webanwendungen, VPN für den Zugriff von unterwegs aufs Firmennetz.</li>
+  <li><strong>Sicherungen:</strong> Backups, die außer Haus liegen, verschlüsselt ablegen.</li>
+  <li><strong>E-Mails mit vertraulichem Inhalt:</strong> Ende-zu-Ende verschlüsseln, wenn Inhalte nur der Empfänger lesen darf.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Rechtsanwältin will Schriftsätze per Mail an einen Mandanten schicken. Sie verschlüsselt die Mail mit dem öffentlichen Schlüssel des Mandanten. Unterwegs kann niemand den Inhalt lesen, und nur der Mandant kann sie mit seinem privaten Schlüssel öffnen. Einen geheimen Schlüssel mussten die beiden vorher nicht austauschen; die Anwältin brauchte nur den öffentlichen Schlüssel des Mandanten, etwa aus seinem Zertifikat.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>Verschlüsselung schützt die Vertraulichkeit, nicht die Verfügbarkeit. Geht der Schlüssel verloren, sind die eigenen Daten verloren. Schlüssel und Wiederherstellungscodes müssen deshalb ebenfalls sicher aufbewahrt werden.</p></aside>
+
+<p class="merksatz">Symmetrisch heißt ein gemeinsamer Schlüssel und schnell; asymmetrisch heißt beim Verschlüsseln von Daten: öffentlicher Schlüssel des Empfängers zum Verschlüsseln, sein privater zum Entschlüsseln, ohne vorherigen Schlüsselaustausch, aber langsamer.</p>

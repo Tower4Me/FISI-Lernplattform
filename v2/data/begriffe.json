@@ -40,6 +40,10 @@
         {
           "id": "4-1-1",
           "tiefe": "Abgrenzung als Maßnahme"
+        },
+        {
+          "id": "4-5-2",
+          "tiefe": "als Maßnahme für die Verfügbarkeit"
         }
       ]
     },
@@ -66,6 +70,10 @@
         {
           "id": "4-2-2",
           "tiefe": "Schutzziele als Maßstab in Art. 32 DSGVO"
+        },
+        {
+          "id": "4-5-2",
+          "tiefe": "Maßnahmen den Schutzzielen zuordnen"
         }
       ]
     },
@@ -130,6 +138,10 @@
         {
           "id": "4-2-2",
           "tiefe": "rechtliche Pflicht, Einteilung technisch/organisatorisch, Kontrollen"
+        },
+        {
+          "id": "4-5-2",
+          "tiefe": "Arten von Maßnahmen (zusätzlich infrastrukturell, personell)"
         }
       ]
     },
@@ -234,6 +246,10 @@
         {
           "id": "4-4-1",
           "tiefe": "Abgrenzung: Feststellung ohne Wahrscheinlichkeit"
+        },
+        {
+          "id": "4-5-1",
+          "tiefe": "Risikostrategien, Restrisiko"
         }
       ]
     },
@@ -264,6 +280,70 @@
         {
           "id": "4-4-4",
           "tiefe": "durchgehendes Beispiel mit Dokumentation"
+        }
+      ]
+    },
+    {
+      "begriff": "risikostrategien",
+      "kernfakten": [
+        "Vier Strategien: vermeiden, vermindern, übertragen, akzeptieren.",
+        "Ein Restrisiko bleibt; ob es akzeptiert wird, entscheidet die Leitung, dokumentiert.",
+        "Übertragen betrifft finanzielle Folgen oder den Betrieb; die Verantwortung für personenbezogene Daten bleibt beim eigenen Betrieb."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-5-1",
+          "tiefe": "Umgang mit Risiken nach der Analyse"
+        }
+      ]
+    },
+    {
+      "begriff": "authentifizierung",
+      "kernfakten": [
+        "Identifikation: Identität angeben; Authentifizierung: Identität nachweisen; Autorisierung: Rechte zuweisen.",
+        "Faktoren: Wissen, Besitz, Merkmal (Biometrie).",
+        "MFA: mindestens zwei verschiedene Faktoren; zwei Wissensfaktoren sind keine MFA.",
+        "Passwörter: Länge zählt am meisten, je Dienst eigenes Passwort, Passwortmanager; Wechsel bei Verdacht statt routinemäßig erzwungen."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-5-3",
+          "tiefe": "Faktoren, MFA, Passwortregeln"
+        }
+      ]
+    },
+    {
+      "begriff": "verschluesselung",
+      "kernfakten": [
+        "Verschlüsselung schützt die Vertraulichkeit; Sicherheit liegt im geheimen Schlüssel.",
+        "Symmetrisch: ein gemeinsamer Schlüssel, schnell, Problem Schlüsselaustausch (z. B. AES).",
+        "Asymmetrisch: Schlüsselpaar; Verschlüsseln mit öffentlichem Schlüssel des Empfängers, Entschlüsseln mit dessen privatem; langsamer (z. B. RSA).",
+        "Hybrid: asymmetrisch einen symmetrischen Sitzungsschlüssel vereinbaren, Daten symmetrisch verschlüsseln (z. B. HTTPS/TLS).",
+        "Öffentlicher Schlüssel muss nachweislich zum Empfänger gehören (Zertifikat)."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-5-4",
+          "tiefe": "als Maßnahme, symmetrisch/asymmetrisch/hybrid"
+        },
+        {
+          "id": "4-5-5",
+          "tiefe": "Schlüsselrichtung bei Signatur"
+        }
+      ]
+    },
+    {
+      "begriff": "hashwert",
+      "kernfakten": [
+        "Hashfunktion: Prüfwert fester Länge, gleiche Daten gleicher Wert, kleine Änderung völlig anderer Wert, nicht umkehrbar, praktisch keine Kollisionen findbar.",
+        "SHA-256 verbreitet; MD5 für Sicherheitszwecke unsicher.",
+        "Hashwert allein belegt nicht den Urheber.",
+        "Digitale Signatur: Hashwert mit privatem Schlüssel des Absenders verschlüsselt; Prüfung mit dessen öffentlichem Schlüssel; belegt Integrität und Authentizität (und Verbindlichkeit), nicht Vertraulichkeit."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-5-5",
+          "tiefe": "Download-Prüfung, Signaturablauf"
         }
       ]
     }

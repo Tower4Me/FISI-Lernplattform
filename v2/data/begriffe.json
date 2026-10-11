@@ -1216,6 +1216,53 @@
           "tiefe": "MAC, Switch"
         }
       ]
+    },
+    {
+      "begriff": "ipv4",
+      "kernfakten": [
+        "32 Bit, 4 Oktette 0–255; Stellenwerte 128…1.",
+        "Maske: Einsen Netzanteil, Nullen Hostanteil; CIDR /24 = 255.255.255.0, /25 .128, /26 .192, /27 .224, /28 .240, /30 .252.",
+        "Netzadresse Hostbits 0, Broadcast Hostbits 1, Hosts 2^n − 2; Blockgröße = 256 − Maskenoktett; Netzadresse = Adresse UND Maske.",
+        "Privat: 10/8, 172.16/12, 192.168/16; Loopback 127.0.0.0/8; APIPA 169.254/16 (genutzt .1.0–.254.255, ARP-Prüfung) bei fehlender DHCP-Adresse (Fehlerzeichen, ipconfig /renew).",
+        "Gateway im eigenen Netz für fremde Ziele; Client-Konfiguration: Adresse, Maske, Gateway, DNS; NAT/PAT ersetzt private Absenderadresse, keine Firewall."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-4-1",
+          "tiefe": "Aufbau, Maske"
+        },
+        {
+          "id": "3-4-2",
+          "tiefe": "Berechnung"
+        },
+        {
+          "id": "3-4-3",
+          "tiefe": "privat, Gateway, NAT"
+        },
+        {
+          "id": "3-4-5",
+          "tiefe": "APIPA"
+        }
+      ]
+    },
+    {
+      "begriff": "ipv6",
+      "kernfakten": [
+        "128 Bit, 8 Blöcke à 16 Bit hex; meist /64: Präfix + 64-Bit-Interface-Identifier; keine Maske in Punktschreibweise.",
+        "Kürzen: führende Nullen weg, eine Null-Folge (die längste) durch :: (nur einmal), einzelner Null-Block als 0; Ausschreiben: auf 8 Blöcke à 4 Ziffern auffüllen.",
+        "Arten: Global 2000::/3, Unique Local fd (fc00::/7), Link-Local fe80::/10 (immer vorhanden, nicht geroutet, Zonenkennung %), Loopback ::1, Multicast ff00::/8; kein Broadcast; Doku-Präfix 2001:db8::/32.",
+        "SLAAC (Präfix und Gateway aus Router-Ankündigung, Gateway oft fe80) oder DHCPv6 (ohne Gateway); Interface-ID per EUI-64 (ff:fe einfügen, 7. Bit von links umdrehen) oder zufällig, dazu temporäre Adressen; NAT bei IPv6 meist nicht nötig."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-4-4",
+          "tiefe": "Aufbau, Arten"
+        },
+        {
+          "id": "3-4-5",
+          "tiefe": "Link-Local"
+        }
+      ]
     }
   ]
 }

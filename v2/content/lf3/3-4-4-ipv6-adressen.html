@@ -1,0 +1,49 @@
+<p class="lead">IPv4 bietet rund 4,3 Milliarden Adressen, viel zu wenig für alle Geräte der Welt. Deshalb gibt es IPv6. Viele Internetanschlüsse arbeiten heute schon damit, und aktuelle Clients haben neben ihrer IPv4- in der Regel auch IPv6-Adressen. Du musst sie lesen, kürzen und einordnen können.</p>
+
+<h3>Aufbau</h3>
+<p>Eine <strong>IPv6-Adresse</strong> ist 128 Bit lang. Man schreibt sie als acht Blöcke zu je 16 Bit, jeder Block mit vier Hexadezimalziffern (0 bis 9 und a bis f), getrennt durch Doppelpunkte:</p>
+<p><code>2001:0db8:00ab:0010:0000:0000:0000:0020</code></p>
+<p>Wie bei IPv4 gibt es einen Netzteil und einen Geräteteil. Üblich ist die Präfixlänge <strong>/64</strong>: Die ersten 64 Bit sind das <strong>Präfix</strong> (das Netz), die letzten 64 Bit der <strong>Interface-Identifier</strong> (das Gerät). Eine Subnetzmaske in Punktschreibweise gibt es bei IPv6 nicht.</p>
+
+<h3>Kürzen</h3>
+<ol>
+  <li><strong>Führende Nullen</strong> in jedem Block dürfen wegfallen: <code>0db8</code> wird <code>db8</code>, <code>0000</code> wird <code>0</code>.</li>
+  <li><strong>Eine</strong> zusammenhängende Folge von Null-Blöcken darf durch <code>::</code> ersetzt werden, aber nur einmal pro Adresse, sonst wäre unklar, wie viele Blöcke jeweils fehlen. Gibt es mehrere Null-Folgen, kürzt man die längste. Einen einzelnen Null-Block schreibt man üblicherweise als <code>0</code>; <code>::</code> wäre dort zwar erlaubt, ist aber unüblich.</li>
+</ol>
+<p>Aus dem Beispiel wird <code>2001:db8:ab:10::20</code>. Zum Aufschreiben in voller Länge gehst du rückwärts: Blöcke auf vier Ziffern auffüllen und für <code>::</code> so viele <code>0000</code>-Blöcke einsetzen, bis es acht sind.</p>
+<p>Beispiel: Die Link-Local-Adresse des Druckers <code>fe80::21b:a9ff:fe4c:2207</code> hat fünf Blöcke, also stehen für <code>::</code> drei Null-Blöcke. In voller Länge: <code>fe80:0000:0000:0000:021b:a9ff:fe4c:2207</code>. Die ersten 64 Bit <code>fe80:0000:0000:0000</code> sind das Präfix, die letzten 64 Bit <code>021b:a9ff:fe4c:2207</code> der Interface-Identifier.</p>
+
+<h3>Adressarten</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>Beginnt mit</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th>Global Unicast</th><td>2 oder 3 (2000::/3)</td><td>weltweit eindeutig, im Internet geroutet</td></tr>
+      <tr><th>Unique Local</th><td>fd (fc00::/7)</td><td>privat, nur im eigenen Netz, ähnlich 192.168.x.x</td></tr>
+      <tr><th>Link-Local</th><td>fe80 (fe80::/10)</td><td>nur im eigenen Netzabschnitt, jede IPv6-Schnittstelle hat eine (Kapitel 3.4.5)</td></tr>
+      <tr><th>Loopback</th><td>::1</td><td>das eigene Gerät</td></tr>
+      <tr><th>Multicast</th><td>ff (ff00::/8)</td><td>an eine Gruppe von Geräten; einen Broadcast gibt es bei IPv6 nicht</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Der Bereich <code>2001:db8::/32</code> ist für Dokumentation und Beispiele reserviert und wird deshalb hier verwendet.</p>
+
+<h3>Wie ein Gerät seine Adresse bekommt</h3>
+<p>Ein IPv6-Gerät erfährt das Präfix meist vom Router und bildet den Interface-Identifier selbst (SLAAC, zustandslose Autokonfiguration); alternativ verteilt ein DHCPv6-Server die Adressen. Für den Interface-Identifier gibt es zwei Wege:</p>
+<ul>
+  <li><strong>Aus der MAC-Adresse (EUI-64):</strong> In die Mitte der 48-Bit-MAC-Adresse wird <code>ff:fe</code> eingefügt, und im ersten Byte wird das siebte Bit von links (Stellenwert 2) umgedreht: aus 00 (00000000) wird 02 (00000010). Aus der MAC <code>00-1B-A9-4C-22-07</code> wird <code>021b:a9ff:fe4c:2207</code>. Erkennbar ist das am <code>ff:fe</code> in der Mitte.</li>
+  <li><strong>Zufällig:</strong> Aktuelle Betriebssysteme bilden den Interface-Identifier meist zufällig statt aus der MAC-Adresse. Für Verbindungen ins Internet nutzen sie zusätzlich eine temporäre Adresse, die regelmäßig wechselt, damit das Gerät nicht verfolgt werden kann.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Anbieter der Hausverwaltung vergibt das Präfix <code>2001:db8:ab:10::/64</code>. Der Router hat <code>2001:db8:ab:10::1</code> und ist das Gateway. Bei automatischer Konfiguration lernen die Clients das Gateway aus der Ankündigung des Routers; <code>ipconfig</code> zeigt als Standardgateway dann oft die fe80-Adresse des Routers. DHCPv6 verteilt kein Gateway. Dem NAS gibt die Auszubildende die feste Adresse <code>2001:db8:ab:10::10</code>, dem Drucker <code>2001:db8:ab:10::20</code>; beide mit Präfixlänge 64. Achtung: <code>::10</code> ist hexadezimal (dezimal 16); die Endung ist nur gewählt, damit sie leicht zur IPv4-Adresse .10 passt. Die übrigen Clients bilden ihre Adressen selbst.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„<code>2001:db8::ab::1</code> ist eine gültige Kurzform.“ Nein: <code>::</code> darf nur einmal vorkommen. Sonst lässt sich nicht bestimmen, wie viele Null-Blöcke an jeder Stelle fehlen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>IPv6:</strong> 128 Bit, acht Blöcke à 16 Bit hexadezimal; meist /64 = 64 Bit Präfix plus 64 Bit Interface-Identifier.</li>
+  <li><strong>Kürzen:</strong> führende Nullen weglassen, eine Null-Folge durch <code>::</code> ersetzen (nur einmal).</li>
+  <li><strong>Adressarten:</strong> Global 2000::/3, Unique Local fd, Link-Local fe80, Loopback ::1, Multicast ff; kein Broadcast.</li>
+</ul>

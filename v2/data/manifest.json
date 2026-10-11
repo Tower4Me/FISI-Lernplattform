@@ -1490,6 +1490,133 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "3.4",
+          "titel": "IP-Adressierung",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "3.4.1",
+              "titel": "IPv4-Adressen und Subnetzmaske",
+              "slug": "ipv4-adressen-und-subnetzmaske",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (IPv4-Adresse, Subnetzmaske)"
+                ],
+                "extern": [
+                  "RFC 791",
+                  "RFC 4632 (CIDR)"
+                ]
+              },
+              "material": [
+                "ipv4-subnetting",
+                "zahlensysteme"
+              ],
+              "begriffe": [
+                "ipv4"
+              ]
+            },
+            {
+              "nummer": "3.4.2",
+              "titel": "Netz, Broadcast und Hosts berechnen",
+              "slug": "netz-broadcast-und-hosts-berechnen",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (Netzadresse /24)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "ipv4-subnetting"
+              ],
+              "begriffe": [
+                "ipv4"
+              ]
+            },
+            {
+              "nummer": "3.4.3",
+              "titel": "Private Adressen, Gateway und NAT",
+              "slug": "private-adressen-gateway-und-nat",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2022 (Gateway)"
+                ],
+                "extern": [
+                  "RFC 1918",
+                  "RFC 3022 (NAT)"
+                ]
+              },
+              "material": [
+                "ipv4-subnetting"
+              ],
+              "begriffe": [
+                "ipv4"
+              ]
+            },
+            {
+              "nummer": "3.4.4",
+              "titel": "IPv6-Adressen",
+              "slug": "ipv6-adressen",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (IPv6 128 Bit, Schreibweise, Präfix, Interface-Identifier)",
+                  "AP1 Herbst 2022 (IPv6 mit Präfix und Gateway)"
+                ],
+                "extern": [
+                  "RFC 4291",
+                  "RFC 5952",
+                  "RFC 3849 (Dokumentationspräfix)",
+                  "RFC 4862 (SLAAC)"
+                ]
+              },
+              "material": [
+                "ipv6-grundlagen",
+                "zahlensysteme"
+              ],
+              "begriffe": [
+                "ipv6"
+              ]
+            },
+            {
+              "nummer": "3.4.5",
+              "titel": "Automatische Adressen: APIPA und Link-Local",
+              "slug": "automatische-adressen-apipa-und-link-local",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (link-lokale IPv6)",
+                  "AP1 Frühjahr 2024 (verbindungslokale IPv6)",
+                  "AP1 Herbst 2022 (Link-Local)"
+                ],
+                "extern": [
+                  "RFC 3927"
+                ]
+              },
+              "material": [
+                "apipa",
+                "ipv6-grundlagen"
+              ],
+              "begriffe": [
+                "ipv6",
+                "ipv4"
+              ]
+            }
+          ]
         }
       ]
     },

@@ -1,0 +1,42 @@
+<p class="lead">Welche Adressen darf ich im Netz vergeben, und reicht das Netz für alle Geräte? Dafür berechnest du aus Adresse und Maske die Netzadresse, die Broadcastadresse und die Zahl der nutzbaren Adressen. Diese Rechnung kommt in Prüfungen regelmäßig vor und ist schnell gelernt.</p>
+
+<h3>Die drei Werte</h3>
+<ul>
+  <li><strong>Netzadresse:</strong> alle Hostbits auf 0. Sie bezeichnet das Netz selbst und wird keinem Gerät gegeben.</li>
+  <li><strong>Broadcastadresse:</strong> alle Hostbits auf 1. Ein Paket an sie erreicht alle Geräte im Netz; auch sie bekommt kein Gerät.</li>
+  <li><strong>Nutzbare Adressen (Hosts):</strong> alles dazwischen.</li>
+</ul>
+<p class="formel">Anzahl Hosts = 2<sup>Hostbits</sup> − 2</p>
+<p>Die 2 sind Netz- und Broadcastadresse. Bei /24 sind es 2<sup>8</sup> − 2 = 254 Hosts.</p>
+
+<h3>Rechenweg bei Masken im letzten Oktett</h3>
+<p>Liegt die Grenze mitten im letzten Oktett, hilft die <strong>Blockgröße</strong>: Die Netze beginnen in festen Abständen.</p>
+<p class="formel">Blockgröße = 256 − Wert des Maskenoktetts</p>
+<ol>
+  <li>Blockgröße bestimmen.</li>
+  <li>Das größte Vielfache der Blockgröße suchen, das nicht größer ist als das Adressoktett: Das ist die Netzadresse.</li>
+  <li>Netzadresse plus Blockgröße minus 1 ergibt die Broadcastadresse.</li>
+  <li>Die Adressen dazwischen sind die Hosts.</li>
+</ol>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Gerät hat <code>192.168.10.77/26</code>.</p>
+  <ul>
+    <li>/26 heißt Maske <code>255.255.255.192</code>, also Blockgröße 256 − 192 = 64. Netze beginnen bei 0, 64, 128 und 192.</li>
+    <li>77 liegt zwischen 64 und 128: Netzadresse <code>192.168.10.64</code>.</li>
+    <li>Broadcast: 64 + 64 − 1 = 127, also <code>192.168.10.127</code>.</li>
+    <li>Hosts: <code>192.168.10.65</code> bis <code>192.168.10.126</code>, das sind 2<sup>6</sup> − 2 = 62.</li>
+  </ul>
+</div>
+<p>Dasselbe Ergebnis liefert die binäre Rechnung: Netzadresse = Adresse UND Maske, Bit für Bit. Das letzte Oktett 77 ist <code>01001101</code>, die Maske <code>11000000</code>; UND ergibt <code>01000000</code> = 64.</p>
+
+<h3>Liegen zwei Geräte im selben Netz?</h3>
+<p>Berechne für beide die Netzadresse mit der Maske. Ist sie gleich, erreichen sie sich direkt; sonst brauchen sie einen Router. Mit /26 liegen <code>192.168.10.77</code> und <code>192.168.10.130</code> in verschiedenen Netzen (.64 und .128), mit /24 im selben.</p>
+
+<aside class="note" data-typ="fehler"><p>„Bei /24 kann ich 256 Geräte anschließen.“ Nein: Netzadresse (.0) und Broadcast (.255) fallen weg, es bleiben 254. Davon braucht meist auch der Router eine.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Netzadresse:</strong> Hostbits 0; <strong>Broadcast:</strong> Hostbits 1; <strong>Hosts:</strong> 2<sup>Hostbits</sup> − 2.</li>
+  <li><strong>Blockgröße</strong> = 256 − Maskenoktett; Netzadresse ist das passende Vielfache, Broadcast das nächste Vielfache minus 1.</li>
+</ul>

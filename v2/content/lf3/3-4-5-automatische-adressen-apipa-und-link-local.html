@@ -1,0 +1,31 @@
+<p class="lead">Ein PC zeigt „Keine Internetverbindung“ und in seiner Konfiguration steht eine Adresse, die niemand vergeben hat. Solche selbst gewählten Adressen sind kein Zufall, sondern ein wichtiger Hinweis bei der Fehlersuche. Bei IPv6 gehört eine selbst gebildete Adresse dagegen zum Normalbetrieb.</p>
+
+<h3>APIPA bei IPv4</h3>
+<p>Ist ein Client auf „Adresse automatisch beziehen“ eingestellt und antwortet kein DHCP-Server (Kapitel 3.5.1), gibt sich Windows (ebenso macOS und viele Linux-Systeme) selbst eine Adresse aus dem Bereich <code>169.254.0.0/16</code>; genutzt werden 169.254.1.0 bis 169.254.254.255. Das heißt <strong>APIPA</strong> (Automatic Private IP Addressing); allgemein spricht man von einer link-lokalen IPv4-Adresse.</p>
+<ul>
+  <li>Der Client prüft vorher, ob die gewählte Adresse frei ist (per ARP, Kapitel 3.5.3).</li>
+  <li>Der Client fragt weiter regelmäßig beim DHCP-Server nach; sofort geht es mit <code>ipconfig /renew</code>.</li>
+  <li>Er kann damit nur andere Geräte erreichen, die ebenfalls eine 169.254er-Adresse haben. Ein Gateway fehlt, also gibt es kein Internet.</li>
+  <li>Im Büro ist eine 169.254er-Adresse fast immer ein <strong>Fehlerzeichen</strong>: Der DHCP-Server ist ausgefallen, sein Adressbereich ist voll, oder das Gerät hängt im falschen Netz.</li>
+</ul>
+
+<h3>Link-Local bei IPv6</h3>
+<p>Jede Netzwerkschnittstelle mit IPv6 bildet sich automatisch eine <strong>Link-Local-Adresse</strong> (verbindungslokale Adresse), die mit <code>fe80</code> beginnt, etwa <code>fe80::21b:a9ff:fe4c:2207</code>. Anders als APIPA ist das kein Fehler, sondern immer vorhanden:</p>
+<ul>
+  <li>Geräte im selben Netzabschnitt finden darüber Router und Nachbarn und bekommen so ihr Präfix (Kapitel 3.4.4).</li>
+  <li>Router leiten Link-Local-Adressen nicht weiter; sie gelten nur im eigenen Netzabschnitt.</li>
+  <li>Weil alle Schnittstellen dasselbe Präfix fe80:: nutzen, muss das System wissen, über welche Schnittstelle es senden soll. Windows zeigt dazu hinter der Adresse eine Zonenkennung an, etwa <code>%12</code>.</li>
+</ul>
+<p>Fehlt einem Gerät neben der Link-Local-Adresse eine globale IPv6-Adresse, hat es meist kein Präfix vom Router erhalten, oder das Netz nutzt gar kein IPv6. Reine IPv4-Netze sind im Büro noch häufig und kein Fehler.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Am Notebook der Mitarbeiterin zeigt <code>ipconfig</code> (Kapitel 3.7.2): IPv4-Adresse <code>169.254.83.12</code>, Subnetzmaske <code>255.255.0.0</code>, kein Standardgateway, außerdem eine IPv6-Adresse <code>fe80::…</code>. Die IPv6-Adresse ist normal. Die IPv4-Adresse zeigt aber, dass das Notebook vom DHCP-Server keine Adresse bekommen hat. Die Link-LED leuchtet, die Verbindung zum Switch steht also. Im Router findet der Auszubildende die Ursache: Der DHCP-Bereich ist auf zehn Adressen eingestellt, und alle sind an Diensthandys und Tablets im WLAN vergeben. Er vergrößert den Bereich und führt <code>ipconfig /renew</code> aus; danach bekommt das Notebook eine Adresse aus 192.168.10.0/24.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Eine fe80-Adresse zeigt ein Problem wie 169.254.“ Nein: Die fe80-Adresse hat jedes IPv6-Gerät immer. Ein Warnsignal ist nur die 169.254er-Adresse bei IPv4.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>APIPA:</strong> 169.254.0.0/16, selbst vergeben, wenn kein DHCP-Server antwortet; nur lokale Verbindung, kein Gateway, im Büro ein Fehlerzeichen.</li>
+  <li><strong>IPv6 Link-Local:</strong> fe80::, immer vorhanden, nur im eigenen Netzabschnitt gültig, kein Fehler.</li>
+</ul>

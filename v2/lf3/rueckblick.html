@@ -205,6 +205,16 @@
             <li><a class="up is-check" data-check="lf3-3-3" href="3-3-check.html"><span class="num">3.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="3-4-1-ipv4-adressen-und-subnetzmaske.html"><span class="num">3.4</span><span>IP-Adressierung</span><span class="kap-progress" data-ids="3-4-1 3-4-2 3-4-3 3-4-4 3-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-4-1" href="3-4-1-ipv4-adressen-und-subnetzmaske.html"><span class="num">3.4.1</span><span class="t">IPv4-Adressen und Subnetzmaske</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-2" href="3-4-2-netz-broadcast-und-hosts-berechnen.html"><span class="num">3.4.2</span><span class="t">Netz, Broadcast und Hosts berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-3" href="3-4-3-private-adressen-gateway-und-nat.html"><span class="num">3.4.3</span><span class="t">Private Adressen, Gateway und NAT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-4" href="3-4-4-ipv6-adressen.html"><span class="num">3.4.4</span><span class="t">IPv6-Adressen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-5" href="3-4-5-automatische-adressen-apipa-und-link-local.html"><span class="num">3.4.5</span><span class="t">Automatische Adressen: APIPA und Link-Local</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-4" href="3-4-check.html"><span class="num">3.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">3.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -318,8 +328,25 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-3-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 3.3</a></p>
 </section>
+<section class="rb-kapitel" id="k-3-4"><h2><span class="num">3.4</span> IP-Adressierung</h2>
+<ul class="rb-list">
+<li><span class="num">3.4.1</span><div><a href="3-4-1-ipv4-adressen-und-subnetzmaske.html">IPv4-Adressen und Subnetzmaske</a><ul><li><strong>IPv4-Adresse:</strong> 32 Bit, vier Oktette von 0 bis 255; Stellenwerte 128, 64, 32, 16, 8, 4, 2, 1.</li>
+  <li><strong>Subnetzmaske:</strong> Einsen = Netzanteil, Nullen = Hostanteil; /24 = 255.255.255.0, /26 = 255.255.255.192.</li></ul></div></li>
+<li><span class="num">3.4.2</span><div><a href="3-4-2-netz-broadcast-und-hosts-berechnen.html">Netz, Broadcast und Hosts berechnen</a><ul><li><strong>Netzadresse:</strong> Hostbits 0; <strong>Broadcast:</strong> Hostbits 1; <strong>Hosts:</strong> 2<sup>Hostbits</sup> − 2.</li>
+  <li><strong>Blockgröße</strong> = 256 − Maskenoktett; Netzadresse ist das passende Vielfache, Broadcast das nächste Vielfache minus 1.</li></ul></div></li>
+<li><span class="num">3.4.3</span><div><a href="3-4-3-private-adressen-gateway-und-nat.html">Private Adressen, Gateway und NAT</a><ul><li><strong>Private Bereiche:</strong> 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16; Loopback 127.0.0.1.</li>
+  <li><strong>Standardgateway:</strong> Router im eigenen Netz für alle Ziele außerhalb; Client braucht Adresse, Maske, Gateway, DNS.</li>
+  <li><strong>NAT:</strong> Router ersetzt private Absenderadressen durch seine öffentliche und ordnet Antworten zu.</li></ul></div></li>
+<li><span class="num">3.4.4</span><div><a href="3-4-4-ipv6-adressen.html">IPv6-Adressen</a><ul><li><strong>IPv6:</strong> 128 Bit, acht Blöcke à 16 Bit hexadezimal; meist /64 = 64 Bit Präfix plus 64 Bit Interface-Identifier.</li>
+  <li><strong>Kürzen:</strong> führende Nullen weglassen, eine Null-Folge durch <code>::</code> ersetzen (nur einmal).</li>
+  <li><strong>Adressarten:</strong> Global 2000::/3, Unique Local fd, Link-Local fe80, Loopback ::1, Multicast ff; kein Broadcast.</li></ul></div></li>
+<li><span class="num">3.4.5</span><div><a href="3-4-5-automatische-adressen-apipa-und-link-local.html">Automatische Adressen: APIPA und Link-Local</a><ul><li><strong>APIPA:</strong> 169.254.0.0/16, selbst vergeben, wenn kein DHCP-Server antwortet; nur lokale Verbindung, kein Gateway, im Büro ein Fehlerzeichen.</li>
+  <li><strong>IPv6 Link-Local:</strong> fe80::, immer vorhanden, nur im eigenen Netzabschnitt gültig, kein Fehler.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-3-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 3.4</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="3-3-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">3.3</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="3-4-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">3.4</span>Check</span></a></nav>
 </main>
 </div>
 </body>

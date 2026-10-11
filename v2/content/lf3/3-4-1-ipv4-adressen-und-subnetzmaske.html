@@ -1,0 +1,47 @@
+<p class="lead">Damit der neue Netzwerkdrucker Aufträge bekommt, braucht er eine Adresse, die zum Büronetz passt. Welche Adressen dazu gehören, sagt die Subnetzmaske. Wer beides lesen kann, vergibt Adressen ohne Raten und erkennt sofort, wenn ein Gerät im falschen Netz steckt.</p>
+
+<h3>Aufbau einer IPv4-Adresse</h3>
+<p>Eine <strong>IPv4-Adresse</strong> ist 32 Bit lang. Man schreibt sie als vier Dezimalzahlen mit Punkten, etwa <code>192.168.10.37</code>. Jede Zahl steht für 8 Bit (ein <strong>Oktett</strong>) und liegt deshalb zwischen 0 und 255.</p>
+<p>Für die Berechnungen brauchst du die Binärdarstellung eines Oktetts. Jede der acht Stellen hat einen festen Wert:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Stellenwert</th><th>128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr></thead>
+    <tbody>
+      <tr><th>192</th><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+      <tr><th>37</th><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>192 = 128 + 64, also <code>11000000</code>; 37 = 32 + 4 + 1, also <code>00100101</code>.</p>
+<aside class="note" data-typ="hinweis"><p>Zahlensysteme (binär, hexadezimal) werden in LF5 ausführlich behandelt. Hier genügt das Umrechnen eines Oktetts.</p></aside>
+
+<h3>Netzanteil und Hostanteil</h3>
+<p>Jede IPv4-Adresse besteht aus zwei Teilen: Der <strong>Netzanteil</strong> sagt, zu welchem Netz das Gerät gehört; der <strong>Hostanteil</strong> bezeichnet das Gerät in diesem Netz. Alle Geräte eines Netzes haben denselben Netzanteil und können sich direkt erreichen. Wo die Grenze liegt, legt die <strong>Subnetzmaske</strong> fest: Ihre Einsen markieren den Netzanteil, ihre Nullen den Hostanteil.</p>
+<p>Die Maske schreibt man entweder in Punktschreibweise oder kurz als <strong>Präfixlänge</strong> (CIDR-Schreibweise): die Anzahl der Einsen hinter einem Schrägstrich.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Präfix</th><th>Subnetzmaske</th><th>Oktett mit der Grenze, binär</th><th>Hostbits</th></tr></thead>
+    <tbody>
+      <tr><th>/8</th><td>255.0.0.0</td><td>11111111 (1. Oktett)</td><td>24</td></tr>
+      <tr><th>/16</th><td>255.255.0.0</td><td>11111111 (2. Oktett)</td><td>16</td></tr>
+      <tr><th>/24</th><td>255.255.255.0</td><td>11111111 (3. Oktett)</td><td>8</td></tr>
+      <tr><th>/25</th><td>255.255.255.128</td><td>10000000</td><td>7</td></tr>
+      <tr><th>/26</th><td>255.255.255.192</td><td>11000000</td><td>6</td></tr>
+      <tr><th>/27</th><td>255.255.255.224</td><td>11100000</td><td>5</td></tr>
+      <tr><th>/28</th><td>255.255.255.240</td><td>11110000</td><td>4</td></tr>
+      <tr><th>/30</th><td>255.255.255.252</td><td>11111100</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Büronetz der Hausverwaltung ist <code>192.168.10.0/24</code>. Die ersten 24 Bit (<code>192.168.10</code>) sind der Netzanteil, das letzte Oktett der Hostanteil. Der Drucker bekommt <code>192.168.10.20</code> mit der Maske <code>255.255.255.0</code>. Ein Gerät mit <code>192.168.11.20</code> läge in einem anderen Netz, obwohl die Adresse ähnlich aussieht, und wäre nur über einen Router erreichbar.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Die Maske ist egal, Hauptsache die Adresse stimmt.“ Nein: Mit falscher Maske hält ein Gerät andere Geräte für fremd oder fremde für lokal und schickt Pakete an die falsche Stelle.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>IPv4-Adresse:</strong> 32 Bit, vier Oktette von 0 bis 255; Stellenwerte 128, 64, 32, 16, 8, 4, 2, 1.</li>
+  <li><strong>Subnetzmaske:</strong> Einsen = Netzanteil, Nullen = Hostanteil; /24 = 255.255.255.0, /26 = 255.255.255.192.</li>
+</ul>

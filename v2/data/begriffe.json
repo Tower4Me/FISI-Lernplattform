@@ -1046,6 +1046,62 @@
           "tiefe": "Gewährleistung, Garantie"
         }
       ]
+    },
+    {
+      "begriff": "elektrische-sicherheit",
+      "kernfakten": [
+        "Elektrofachkraft, elektrotechnisch unterwiesene Person, Laie; IT-Fachkraft darf PC-Gehäuse öffnen (Kleinspannung), aber keine Netzteile.",
+        "Schutzklasse I Schutzleiter, II Schutzisolierung (zwei Quadrate), III Schutzkleinspannung (max. 50 V AC/120 V DC); Typenschild entscheidet; FI/RCD schaltet ab 30 mA Fehlerstrom ab, nicht bei Überlast.",
+        "DGUV Vorschrift 3: Prüfung ortsveränderlicher Geräte regelmäßig (Frist per Gefährdungsbeurteilung, Büro bis 2 Jahre üblich) und nach Instandsetzung; Sichtprüfung vor Nutzung.",
+        "Fünf Sicherheitsregeln: freischalten, sichern, Spannungsfreiheit feststellen, erden und kurzschließen, abdecken."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-7-1",
+          "tiefe": "Grundlagen"
+        }
+      ]
+    },
+    {
+      "begriff": "inbetriebnahme",
+      "kernfakten": [
+        "Ablauf: vorbereiten (Checkliste aus Pflichtenheft), aufbauen, einrichten, testen, inventarisieren.",
+        "Testprotokoll: Soll, Ist, Ergebnis (i. O./n. i. O.), Prüfer, Datum; mit Testkonto mit den Rechten der Nutzerin testen, Sicherung per Wiederherstellung prüfen."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-7-2",
+          "tiefe": "Einrichten, Testen"
+        }
+      ]
+    },
+    {
+      "begriff": "abnahme",
+      "kernfakten": [
+        "Einweisung (auch Webinar, Video), Übergabeprotokoll, Unterlagen, Zugangsdaten persönlich/auf getrenntem Weg, Startpasswort ändern.",
+        "Werkvertrag (Erfolg geschuldet; reine Lieferung mit Anschluss meist Kauf mit Montagepflicht): Abnahme § 640, nicht wegen unwesentlicher Mängel verweigern, auch stillschweigend, fiktiv nach Frist; Folgen: Vergütung fällig (§ 641), Verjährung beginnt (§ 634a), Gefahr (§ 644) und Beweislast auf Kunden.",
+        "Bekannter Mangel ohne Vorbehalt: Nacherfüllung, Selbstvornahme, Rücktritt, Minderung verloren, Schadensersatz bleibt; Zurückbehalt i. d. R. doppelte Mängelbeseitigungskosten.",
+        "Kaufvertrag: Abnahme = nur entgegennehmen, Empfang quittieren, Kaufleute prüfen und rügen. Abnahmeprotokoll: Soll-Ist, Mängel mit Frist, Vorbehalt, Unterschriften."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-7-3",
+          "tiefe": "Übergabe, Abnahme"
+        }
+      ]
+    },
+    {
+      "begriff": "auftragsauswertung",
+      "kernfakten": [
+        "Soll-Ist-Vergleich: Kosten (Nachkalkulation mit tatsächlichen Kosten, bei Festpreis Mehrstunden = weniger Gewinn), Zeit, Qualität.",
+        "Kundenzufriedenheit erfragen; Dokumentation ablegen; Lessons Learned; Vorlagen und Kalkulationssätze anpassen (KVP, LF1 1.3.5)."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-7-4",
+          "tiefe": "Auswertung"
+        }
+      ]
     }
   ]
 }

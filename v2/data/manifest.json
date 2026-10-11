@@ -1142,6 +1142,93 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "2.7",
+          "titel": "Inbetriebnahme und Übergabe",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "2.7.1",
+              "titel": "Elektrische Sicherheit",
+              "slug": "elektrische-sicherheit",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz in Betrieb nehmen, Sicherheit beachten, übergeben, Auftrag auswerten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 7",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "DGUV Vorschrift 3",
+                  "DIN EN 61140 (Schutzklassen)",
+                  "DGUV Information zu den fünf Sicherheitsregeln"
+                ]
+              },
+              "material": [
+                "elektrotechnik-grundformeln"
+              ],
+              "begriffe": [
+                "elektrische-sicherheit"
+              ]
+            },
+            {
+              "nummer": "2.7.2",
+              "titel": "Arbeitsplatz einrichten und testen",
+              "slug": "arbeitsplatz-einrichten-und-testen",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz in Betrieb nehmen, Sicherheit beachten, übergeben, Auftrag auswerten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "testprotokoll-arbeitsplatzeinrichtung"
+              ],
+              "begriffe": [
+                "inbetriebnahme"
+              ]
+            },
+            {
+              "nummer": "2.7.3",
+              "titel": "Übergabe und Abnahme",
+              "slug": "uebergabe-und-abnahme",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz in Betrieb nehmen, Sicherheit beachten, übergeben, Auftrag auswerten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021 (Schulung am Arbeitsplatz)"
+                ],
+                "extern": [
+                  "BGB §§ 640, 641, 644, 634a"
+                ]
+              },
+              "material": [
+                "abnahme-abnahmeprotokoll"
+              ],
+              "begriffe": [
+                "abnahme"
+              ]
+            },
+            {
+              "nummer": "2.7.4",
+              "titel": "Auftrag auswerten",
+              "slug": "auftrag-auswerten",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz in Betrieb nehmen, Sicherheit beachten, übergeben, Auftrag auswerten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "qualitaetsplanung-guetesiegel"
+              ],
+              "begriffe": [
+                "auftragsauswertung"
+              ]
+            }
+          ]
         }
       ]
     },

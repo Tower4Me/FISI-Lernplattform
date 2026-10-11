@@ -150,7 +150,7 @@ def check_fragment(src, where, lf_id="", written_lfs=()):
 # --- Quiz-Regeln (AUFTRAG Abschnitt 5) ------------------------------------
 
 ABSOLUT_RE = re.compile(r"\b(immer|niemals|nie|ausschließlich|ausnahmslos|grundsätzlich nie)\b", re.I)
-ABKUERZUNGEN = ["z. B.", "d. h.", "u. a.", "bzw.", "ca.", "Nr.", "usw.", "etc.", "z.B.", "d.h.", "evtl.", "ggf.", "vgl.", "Abs.", "Art."]
+ABKUERZUNGEN = ["i. A.", "i. V.", "ppa.", "e. K.", "z. B.", "d. h.", "u. a.", "bzw.", "ca.", "Nr.", "usw.", "etc.", "z.B.", "d.h.", "evtl.", "ggf.", "vgl.", "Abs.", "Art."]
 STOP = set("""aber alle allem allen aller alles also andere anderen auch auf aus bei beim beide beiden bevor bzw dabei
 damit dann dass dein deine dem den denn der deren des dessen die dies diese diesem diesen dieser dieses doch dort durch
 eine einem einen einer eines etwa etwas fuer für gegen hier immer ihre ihrem ihren ihrer ist jede jedem jeden jeder

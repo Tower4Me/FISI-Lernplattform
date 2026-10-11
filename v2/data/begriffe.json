@@ -1263,6 +1263,66 @@
           "tiefe": "Link-Local"
         }
       ]
+    },
+    {
+      "begriff": "dhcp",
+      "kernfakten": [
+        "Verteilt Adresse, Maske, Gateway, DNS-Server, Lease-Zeit aus Bereich (Pool); feste Geräte außerhalb.",
+        "DORA: Discover (Broadcast), Offer, Request, Acknowledge; Verlängerung bei 50 % per Unicast (Request/Ack), bei 87,5 % per Broadcast; UDP 67 Server / 68 Client; DHCP-Relay; ohne Antwort APIPA.",
+        "Reservierung: MAC → feste IP (zufällige WLAN-MAC abschalten); zweiter unabgestimmter DHCP-Server stört."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-5-1",
+          "tiefe": "DHCP"
+        }
+      ]
+    },
+    {
+      "begriff": "dns",
+      "kernfakten": [
+        "Name → IP-Adresse; hierarchisch (Root, TLD, Second-Level, Host; FQDN mit Punkt), verteilt; Port 53, meist UDP, TCP für große Antworten/Zonentransfer.",
+        "Ablauf: Cache/hosts, eingetragener DNS-Server (Router als Forwarder), Resolver fragt iterativ Root, TLD, zuständigen Server; Client rekursiv; TTL, ipconfig /flushdns.",
+        "A (IPv4), AAAA (IPv6), CNAME (Alias), MX (Mail), PTR (Adresse → Name); Fehlerbild: IP erreichbar, Name nicht."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-5-2",
+          "tiefe": "DNS"
+        }
+      ]
+    },
+    {
+      "begriff": "arp",
+      "kernfakten": [
+        "IPv4 → MAC im eigenen Netz; Anfrage Broadcast, Antwort Unicast; ARP-Cache mit Verfall; arp -a.",
+        "Fremdes Netz: ARP nach Gateway-MAC; IPv6: Neighbor Discovery (ICMPv6, Multicast); doppelte IP sichtbar als wechselnde MAC; ARP-Spoofing möglich."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-5-3",
+          "tiefe": "ARP"
+        }
+      ]
+    },
+    {
+      "begriff": "tcp-udp",
+      "kernfakten": [
+        "Port 0–65535: well-known 0–1023, registered 1024–49151, dynamisch ab 49152 (Linux 32768–60999); Socket = IP + Port (+ Protokoll), Verbindung = zwei Sockets.",
+        "TCP verbindungsorientiert, zuverlässig (Bestätigung, Wiederholung, Reihenfolge), Handschlag SYN, SYN-ACK, ACK, Abbau FIN/ACK; UDP verbindungslos, schnell (DNS, DHCP, VoIP, Videokonferenzen); ping = ICMP ohne Port.",
+        "HTTP 80, HTTPS 443 (HTTP/3 QUIC/UDP), DNS 53, DHCP 67/68, SMTP 25/587/465, IMAP 143/993, POP3 110/995, FTP 20/21, SSH 22, Telnet 23, RDP 3389, SMB 445, NTP 123.",
+        "URL: Schema, Rechnername, Port, Pfad, Parameter."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-5-4",
+          "tiefe": "TCP/UDP, Ports"
+        },
+        {
+          "id": "3-5-5",
+          "tiefe": "Protokolle"
+        }
+      ]
     }
   ]
 }

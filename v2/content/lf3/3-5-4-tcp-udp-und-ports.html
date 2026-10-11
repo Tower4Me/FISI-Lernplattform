@@ -1,0 +1,50 @@
+<p class="lead">Auf einem Server laufen gleichzeitig Webseite, Mail und Dateifreigabe, alle unter derselben IP-Adresse. Woher weiß der Server, welches Programm ein Paket bekommt? Über die Portnummer. Und ob die Daten garantiert ankommen müssen oder schnell sein sollen, entscheidet die Wahl zwischen TCP und UDP.</p>
+
+<h3>Ports</h3>
+<p>Ein <strong>Port</strong> ist eine Nummer von 0 bis 65535, die ein Programm auf einem Rechner kennzeichnet. Die Kombination aus IP-Adresse und Port, etwa <code>192.168.10.10:445</code>, heißt <strong>Socket</strong>; dazu gehört noch das Protokoll TCP oder UDP. Eine Verbindung ist durch zwei Sockets eindeutig bestimmt: den des Clients und den des Servers.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Bereich</th><th>Name</th><th>Verwendung</th></tr></thead>
+    <tbody>
+      <tr><th>0 bis 1023</th><td>Well-known Ports</td><td>Standarddienste wie HTTP (80) oder HTTPS (443)</td></tr>
+      <tr><th>1024 bis 49151</th><td>Registered Ports</td><td>bei der IANA eingetragene Anwendungen, etwa RDP (3389)</td></tr>
+      <tr><th>49152 bis 65535</th><td>Dynamische Ports</td><td>von der IANA für zufällig gewählte Absenderports vorgesehen (Windows nutzt genau diesen Bereich, Linux standardmäßig 32768 bis 60999)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ruft ein Browser eine Webseite auf, geht die Anfrage an Zielport 443 des Servers, vom zufälligen Absenderport des Clients, etwa 51734. Die Antwort kommt an genau diesen Port zurück.</p>
+
+<h3>TCP und UDP</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>TCP (Transmission Control Protocol)</th><th>UDP (User Datagram Protocol)</th></tr></thead>
+    <tbody>
+      <tr><th>Verbindung</th><td>verbindungsorientiert: vorher Verbindungsaufbau</td><td>verbindungslos: einfach senden</td></tr>
+      <tr><th>Zuverlässigkeit</th><td>bestätigt empfangene Daten, wiederholt Verlorenes, bringt die Reihenfolge in Ordnung</td><td>keine Bestätigung, keine Wiederholung</td></tr>
+      <tr><th>Aufwand</th><td>mehr Verwaltung, etwas langsamer</td><td>wenig Verwaltung, schnell</td></tr>
+      <tr><th>Einsatz</th><td>Webseiten, E-Mail, Dateiübertragung, Fernzugriff</td><td>DNS-Anfragen, DHCP, Internettelefonie, Videokonferenzen, Onlinespiele</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei Telefonie und Video ist ein verlorenes Stück weniger schlimm als eine Verzögerung: Ein wiederholtes Datenpaket käme zu spät, um noch zu helfen. Deshalb nutzen sie UDP.</p>
+
+<h3>Der Drei-Wege-Handschlag</h3>
+<p>TCP baut jede Verbindung in drei Schritten auf:</p>
+<ol>
+  <li><strong>SYN:</strong> Der Client bittet um eine Verbindung.</li>
+  <li><strong>SYN-ACK:</strong> Der Server bestätigt und bittet seinerseits um die Verbindung.</li>
+  <li><strong>ACK:</strong> Der Client bestätigt. Jetzt fließen die Daten.</li>
+</ol>
+<p>Abgebaut wird die Verbindung ebenfalls geordnet, mit FIN und ACK in beide Richtungen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Mitarbeiter kann von seinem Notebook nicht mehr auf die Freigabe des NAS zugreifen, obwohl <code>ping 192.168.10.10</code> antwortet. Netzwerk und Adresse sind also in Ordnung. Die Auszubildende prüft die Firewall des NAS: Nach einem Update lässt sie zwar ping durch, sperrt aber eingehende Verbindungen auf den Dateifreigabe-Port 445. Mit einer Regel, die Port 445 für 192.168.10.0/24 freigibt, klappt der Zugriff wieder. ping nutzt ICMP und keinen Port; ein erfolgreicher ping sagt deshalb nichts darüber, ob ein bestimmter Port erreichbar ist.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„UDP ist schlechter als TCP, weil es Daten verlieren kann.“ Nein: UDP ist für andere Zwecke gemacht. Wo Tempo wichtiger ist als Vollständigkeit oder wo kurze Anfragen einfach wiederholt werden können, ist es die bessere Wahl.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Port:</strong> kennzeichnet das Programm; 0–1023 well-known, 1024–49151 registered, ab 49152 dynamisch; IP-Adresse plus Port = Socket.</li>
+  <li><strong>TCP:</strong> verbindungsorientiert und zuverlässig, Handschlag SYN, SYN-ACK, ACK; <strong>UDP:</strong> verbindungslos und schnell.</li>
+</ul>

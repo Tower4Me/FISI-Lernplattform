@@ -1617,6 +1617,130 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "3.5",
+          "titel": "Dienste und Protokolle",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "3.5.1",
+              "titel": "DHCP",
+              "slug": "dhcp",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (DHCP-Server)",
+                  "AP1 Frühjahr 2024 (DHCP)"
+                ],
+                "extern": [
+                  "RFC 2131"
+                ]
+              },
+              "material": [
+                "dhcp-dora"
+              ],
+              "begriffe": [
+                "dhcp"
+              ]
+            },
+            {
+              "nummer": "3.5.2",
+              "titel": "DNS",
+              "slug": "dns",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (DNS)"
+                ],
+                "extern": [
+                  "RFC 1034, 1035"
+                ]
+              },
+              "material": [
+                "dns-grundlagen"
+              ],
+              "begriffe": [
+                "dns"
+              ]
+            },
+            {
+              "nummer": "3.5.3",
+              "titel": "ARP",
+              "slug": "arp",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (ARP-Tabelle)"
+                ],
+                "extern": [
+                  "RFC 826",
+                  "RFC 4861 (Neighbor Discovery)"
+                ]
+              },
+              "material": [
+                "arp"
+              ],
+              "begriffe": [
+                "arp"
+              ]
+            },
+            {
+              "nummer": "3.5.4",
+              "titel": "TCP, UDP und Ports",
+              "slug": "tcp-udp-und-ports",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (TCP/UDP, Ports)",
+                  "AP1 Herbst 2025 (Ports)"
+                ],
+                "extern": [
+                  "RFC 9293 (TCP)",
+                  "RFC 768 (UDP)",
+                  "IANA Port Numbers"
+                ]
+              },
+              "material": [
+                "tcp-udp",
+                "tcp-handshake",
+                "ports"
+              ],
+              "begriffe": [
+                "tcp-udp"
+              ]
+            },
+            {
+              "nummer": "3.5.5",
+              "titel": "Anwendungsprotokolle",
+              "slug": "anwendungsprotokolle",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und in das Netzwerk einbinden, Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "IANA Port Numbers",
+                  "RFC 3986 (URI)"
+                ]
+              },
+              "material": [
+                "anwendungsprotokolle",
+                "url-uri-urn"
+              ],
+              "begriffe": [
+                "tcp-udp"
+              ]
+            }
+          ]
         }
       ]
     },

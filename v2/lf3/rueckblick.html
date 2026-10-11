@@ -215,6 +215,16 @@
             <li><a class="up is-check" data-check="lf3-3-4" href="3-4-check.html"><span class="num">3.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="3-5-1-dhcp.html"><span class="num">3.5</span><span>Dienste und Protokolle</span><span class="kap-progress" data-ids="3-5-1 3-5-2 3-5-3 3-5-4 3-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-5-1" href="3-5-1-dhcp.html"><span class="num">3.5.1</span><span class="t">DHCP</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-2" href="3-5-2-dns.html"><span class="num">3.5.2</span><span class="t">DNS</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-3" href="3-5-3-arp.html"><span class="num">3.5.3</span><span class="t">ARP</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-4" href="3-5-4-tcp-udp-und-ports.html"><span class="num">3.5.4</span><span class="t">TCP, UDP und Ports</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-5" href="3-5-5-anwendungsprotokolle.html"><span class="num">3.5.5</span><span class="t">Anwendungsprotokolle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-5" href="3-5-check.html"><span class="num">3.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">3.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -345,8 +355,24 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-3-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 3.4</a></p>
 </section>
+<section class="rb-kapitel" id="k-3-5"><h2><span class="num">3.5</span> Dienste und Protokolle</h2>
+<ul class="rb-list">
+<li><span class="num">3.5.1</span><div><a href="3-5-1-dhcp.html">DHCP</a><ul><li><strong>DHCP</strong> verteilt Adresse, Maske, Gateway, DNS-Server und Lease-Zeit aus einem Bereich.</li>
+  <li><strong>DORA:</strong> Discover (Broadcast), Offer, Request, Acknowledge; UDP 67/68; feste Zuordnung per Reservierung über die MAC-Adresse.</li></ul></div></li>
+<li><span class="num">3.5.2</span><div><a href="3-5-2-dns.html">DNS</a><ul><li><strong>DNS</strong> löst Namen in IP-Adressen auf; hierarchisch, verteilt, Port 53.</li>
+  <li><strong>Einträge:</strong> A (IPv4), AAAA (IPv6), CNAME (Alias), MX (Mailserver), PTR (Adresse zu Name).</li>
+  <li><strong>Fehlerbild:</strong> IP-Adresse erreichbar, Name nicht, dann liegt es am DNS.</li></ul></div></li>
+<li><span class="num">3.5.3</span><div><a href="3-5-3-arp.html">ARP</a><ul><li><strong>ARP:</strong> IPv4-Adresse zu MAC-Adresse im eigenen Netz; Anfrage per Broadcast, Antwort direkt; Ergebnis im ARP-Cache (<code>arp -a</code>).</li>
+  <li><strong>Fremde Netze:</strong> ARP nach dem Gateway; bei IPv6 übernimmt Neighbor Discovery.</li></ul></div></li>
+<li><span class="num">3.5.4</span><div><a href="3-5-4-tcp-udp-und-ports.html">TCP, UDP und Ports</a><ul><li><strong>Port:</strong> kennzeichnet das Programm; 0–1023 well-known, 1024–49151 registered, ab 49152 dynamisch; IP-Adresse plus Port = Socket.</li>
+  <li><strong>TCP:</strong> verbindungsorientiert und zuverlässig, Handschlag SYN, SYN-ACK, ACK; <strong>UDP:</strong> verbindungslos und schnell.</li></ul></div></li>
+<li><span class="num">3.5.5</span><div><a href="3-5-5-anwendungsprotokolle.html">Anwendungsprotokolle</a><ul><li><strong>Ports:</strong> HTTP 80, HTTPS 443, DNS 53, DHCP 67/68, SMTP 25/587/465, IMAP 143/993, POP3 110/995, FTP 20/21, SSH 22, Telnet 23, RDP 3389, SMB 445, NTP 123.</li>
+  <li><strong>Verschlüsselte Varianten</strong> bevorzugen; <strong>URL:</strong> Protokoll, Rechnername, Port, Pfad, Parameter.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-3-5.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 3.5</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="3-4-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">3.4</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="3-5-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">3.5</span>Check</span></a></nav>
 </main>
 </div>
 </body>

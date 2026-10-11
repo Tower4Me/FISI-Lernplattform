@@ -1,0 +1,39 @@
+<p class="lead">Ein PC kennt die IP-Adresse des Druckers. Um ihm einen Ethernet-Rahmen zu schicken, braucht er aber dessen MAC-Adresse. Diese Lücke schließt ARP. Wenn du verstehst, wie es arbeitet, kannst du die ARP-Tabelle eines Rechners lesen und manche Fehler direkt erkennen.</p>
+
+<h3>Wie ARP arbeitet</h3>
+<p><strong>ARP</strong> (Address Resolution Protocol) ermittelt zu einer IPv4-Adresse im eigenen Netz die zugehörige MAC-Adresse.</p>
+<ol>
+  <li>Der PC prüft seine <strong>ARP-Tabelle</strong> (ARP-Cache). Steht die Zuordnung dort, nutzt er sie.</li>
+  <li>Sonst schickt er eine <strong>ARP-Anfrage</strong> als Broadcast an alle: „Wer hat 192.168.10.20? Bitte an 192.168.10.37 melden.“</li>
+  <li>Nur der Drucker mit dieser Adresse antwortet, direkt an den PC: „192.168.10.20 ist bei 00-1B-A9-4C-22-07.“</li>
+  <li>Der PC trägt die Zuordnung in seine ARP-Tabelle ein. Einträge verfallen nach kurzer Zeit wieder, damit Änderungen auffallen.</li>
+</ol>
+<p>ARP prüft nicht, ob eine Antwort echt ist. Ein Angreifer kann sich deshalb als Gateway ausgeben (ARP-Spoofing) und den Verkehr mitlesen.</p>
+<p>Liegt das Ziel in einem anderen Netz, fragt der PC nicht nach dem Ziel, sondern nach der MAC-Adresse seines <strong>Standardgateways</strong> (Kapitel 3.4.3). Denn der Rahmen geht zuerst an den Router.</p>
+
+<h3>Die ARP-Tabelle ansehen</h3>
+<p>Mit <code>arp -a</code> zeigt Windows die gelernten Zuordnungen:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Internetadresse</th><th>Physische Adresse</th><th>Typ</th></tr></thead>
+    <tbody>
+      <tr><th>192.168.10.1</th><td>d4-3f-cb-11-02-01</td><td>dynamisch</td></tr>
+      <tr><th>192.168.10.20</th><td>00-1b-a9-4c-22-07</td><td>dynamisch</td></tr>
+      <tr><th>192.168.10.255</th><td>ff-ff-ff-ff-ff-ff</td><td>statisch</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>„Dynamisch“ heißt per ARP gelernt; die Broadcastadresse ist fest eingetragen. Windows gruppiert die Tabelle nach Schnittstelle (Zeile <code>Schnittstelle: 192.168.10.37 --- 0x…</code>). Den Befehl übst du in Kapitel 3.7.2.</p>
+<p>Bei IPv6 gibt es kein ARP. Diese Aufgabe übernimmt die <strong>Nachbarerkennung</strong> (Neighbor Discovery, Teil von ICMPv6) mit Multicast statt Broadcast.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Seit dem Einrichten eines alten Druckers aus dem Lager drucken mal die Aufträge, mal nicht. In <code>arp -a</code> sieht die Auszubildende, dass zu <code>192.168.10.20</code> abwechselnd zwei verschiedene MAC-Adressen eingetragen sind. Beide Drucker haben dieselbe feste Adresse. Sie gibt dem alten Drucker die freie feste Adresse <code>192.168.10.21</code> außerhalb des DHCP-Bereichs und trägt sie in die Dokumentation ein.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der PC fragt per ARP nach der MAC-Adresse des Webservers im Internet.“ Nein: ARP funktioniert nur im eigenen Netz. Für fremde Ziele fragt der PC nach der MAC-Adresse seines Gateways.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>ARP:</strong> IPv4-Adresse zu MAC-Adresse im eigenen Netz; Anfrage per Broadcast, Antwort direkt; Ergebnis im ARP-Cache (<code>arp -a</code>).</li>
+  <li><strong>Fremde Netze:</strong> ARP nach dem Gateway; bei IPv6 übernimmt Neighbor Discovery.</li>
+</ul>

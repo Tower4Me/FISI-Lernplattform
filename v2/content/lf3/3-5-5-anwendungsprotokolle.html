@@ -1,0 +1,48 @@
+<p class="lead">Ob eine Firewall-Regel stimmt, ein Mailprogramm richtig eingerichtet ist oder ein Fernzugriff klappt, hängt oft an Protokoll und Port. Die wichtigsten Anwendungsprotokolle und ihre Ports gehören deshalb zum Grundwissen. Du brauchst sie im Alltag beim Einrichten von Clients und in der Prüfung beim Zuordnen.</p>
+
+<h3>Die wichtigsten Protokolle</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Protokoll</th><th>Zweck</th><th>Port</th><th>Transport</th></tr></thead>
+    <tbody>
+      <tr><th>HTTP</th><td>Webseiten, unverschlüsselt</td><td>80</td><td>TCP</td></tr>
+      <tr><th>HTTPS</th><td>Webseiten, mit TLS verschlüsselt</td><td>443</td><td>TCP (HTTP/3 über QUIC auf UDP)</td></tr>
+      <tr><th>DNS</th><td>Namensauflösung (Kapitel 3.5.2)</td><td>53</td><td>meist UDP, auch TCP</td></tr>
+      <tr><th>DHCP</th><td>automatische Adressvergabe (Kapitel 3.5.1)</td><td>67 Server, 68 Client</td><td>UDP</td></tr>
+      <tr><th>SMTP</th><td>E-Mail versenden und zwischen Servern weiterleiten</td><td>25 zwischen Servern; vom Mailprogramm 587 (STARTTLS) oder 465 (TLS von Anfang an)</td><td>TCP</td></tr>
+      <tr><th>IMAP</th><td>E-Mails auf dem Server lesen und verwalten, auf mehreren Geräten gleich</td><td>143, verschlüsselt 993</td><td>TCP</td></tr>
+      <tr><th>POP3</th><td>E-Mails herunterladen, meist danach vom Server löschen</td><td>110, verschlüsselt 995</td><td>TCP</td></tr>
+      <tr><th>FTP</th><td>Dateiübertragung, unverschlüsselt</td><td>21 (Steuerung), 20 (Daten, nur im aktiven Modus; im passiven Modus ein vom Server genannter Port)</td><td>TCP</td></tr>
+      <tr><th>SSH</th><td>verschlüsselter Fernzugriff auf die Kommandozeile, auch Dateiübertragung (SFTP)</td><td>22</td><td>TCP</td></tr>
+      <tr><th>Telnet</th><td>Fernzugriff, unverschlüsselt, veraltet</td><td>23</td><td>TCP</td></tr>
+      <tr><th>RDP</th><td>Fernzugriff auf einen Windows-Desktop</td><td>3389</td><td>TCP, auch UDP</td></tr>
+      <tr><th>SMB</th><td>Datei- und Druckerfreigaben in Windows-Netzen</td><td>445</td><td>TCP</td></tr>
+      <tr><th>NTP</th><td>Uhrzeit abgleichen</td><td>123</td><td>UDP</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wo es eine verschlüsselte Variante gibt, nutzt du sie: HTTPS statt HTTP, SSH oder SFTP statt Telnet oder FTP, IMAP und SMTP mit TLS. Unverschlüsselt übertragene Passwörter kann jeder mitlesen, der den Datenverkehr sieht.</p>
+<p>Alle diese Protokolle arbeiten auf Schicht 7 und nutzen TCP oder UDP (Schicht 4) als Transport (Kapitel 3.2).</p>
+
+<h3>Die URL</h3>
+<p>Im Browser steht vor jeder Adresse das Protokoll. Eine <strong>URL</strong> (Uniform Resource Locator) ist so aufgebaut:</p>
+<p><code>https://www.beispiel.de:443/kontakt/index.html?sprache=de</code></p>
+<ul>
+  <li><code>https</code>: Protokoll (Schema)</li>
+  <li><code>www.beispiel.de</code>: Rechnername, den DNS auflöst</li>
+  <li><code>:443</code>: Port; meist weggelassen, wenn es der Standardport ist</li>
+  <li><code>/kontakt/index.html</code>: Pfad zur Ressource auf dem Server</li>
+  <li><code>?sprache=de</code>: Parameter</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Inhaberin der Hausverwaltung will ihre Mails künftig auf PC und Smartphone gleich sehen: Gelesenes soll überall als gelesen erscheinen. Der Auszubildende richtet deshalb beide Geräte mit IMAP über Port 993 ein, nicht mit POP3. Zum Versenden trägt er SMTP mit Port 587 und Verschlüsselung ein.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Port 443 heißt, die Seite ist sicher.“ Nicht ganz: Port 443 und HTTPS bedeuten, dass die Verbindung verschlüsselt ist. Ob die Seite vertrauenswürdig ist, sagt das nicht; auch Betrüger nutzen HTTPS.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Ports:</strong> HTTP 80, HTTPS 443, DNS 53, DHCP 67/68, SMTP 25/587/465, IMAP 143/993, POP3 110/995, FTP 20/21, SSH 22, Telnet 23, RDP 3389, SMB 445, NTP 123.</li>
+  <li><strong>Verschlüsselte Varianten</strong> bevorzugen; <strong>URL:</strong> Protokoll, Rechnername, Port, Pfad, Parameter.</li>
+</ul>

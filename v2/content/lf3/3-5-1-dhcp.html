@@ -1,0 +1,37 @@
+<p class="lead">Bei zwei Geräten kannst du Adressen noch von Hand eintragen. Sobald Notebooks, Smartphones und Gäste dazukommen, wird das fehleranfällig: doppelte Adressen, falsche Gateways. DHCP verteilt die Konfiguration automatisch und an einer Stelle. Deshalb ist es in fast jedem Netz eingeschaltet, meist im Router.</p>
+
+<h3>Was DHCP verteilt</h3>
+<p>Ein <strong>DHCP-Server</strong> (Dynamic Host Configuration Protocol) gibt einem Client auf Anfrage eine vollständige IPv4-Konfiguration:</p>
+<ul>
+  <li>IP-Adresse und Subnetzmaske</li>
+  <li>Standardgateway</li>
+  <li>DNS-Server (Kapitel 3.5.2)</li>
+  <li>die <strong>Lease-Zeit</strong>: wie lange der Client die Adresse nutzen darf</li>
+</ul>
+<p>Der Server vergibt Adressen aus einem festgelegten <strong>Bereich</strong> (Pool), etwa <code>192.168.10.100</code> bis <code>192.168.10.199</code>. Adressen außerhalb des Bereichs bleiben für Geräte mit fester Adresse frei, etwa Router, NAS und Drucker.</p>
+
+<h3>Ablauf: DORA</h3>
+<p>Ein neuer Client kennt weder seine Adresse noch den Server. Deshalb beginnt er mit einem Broadcast:</p>
+<ol>
+  <li><strong>Discover:</strong> Der Client fragt per Broadcast ins Netz: „Gibt es einen DHCP-Server?“</li>
+  <li><strong>Offer:</strong> Der Server bietet eine freie Adresse samt Konfiguration an.</li>
+  <li><strong>Request:</strong> Der Client fordert die angebotene Adresse an; weil mehrere Server geantwortet haben könnten, ebenfalls per Broadcast.</li>
+  <li><strong>Acknowledge:</strong> Der Server bestätigt, der Client richtet die Adresse ein.</li>
+</ol>
+<p>Nach der Hälfte der Lease-Zeit bittet der Client seinen Server direkt (Unicast), die Lease zu verlängern; dafür reichen Request und Acknowledge. Antwortet der Server nicht, fragt der Client nach 87,5 % der Lease-Zeit per Broadcast jeden DHCP-Server. Läuft die Lease ab, muss er die Adresse aufgeben. DHCP läuft über UDP, der Server lauscht auf Port 67, der Client auf Port 68.</p>
+<p>Weil Discover ein Broadcast ist, erreicht er nur das eigene Netz. Steht der Server in einem anderen Netz, leitet ein <strong>DHCP-Relay</strong> im Router die Anfragen weiter. Antwortet kein DHCP-Server, gibt sich der Client eine 169.254er-Adresse (APIPA, Kapitel 3.4.5).</p>
+
+<h3>Reservierung</h3>
+<p>Soll ein Gerät immer dieselbe Adresse bekommen, aber trotzdem per DHCP eingerichtet werden, legst du im Server eine <strong>Reservierung</strong> an: eine feste Zuordnung von MAC-Adresse zu IP-Adresse. Das ist praktisch für Drucker, deren Adresse sich nicht ändern darf, die aber zentral verwaltet werden sollen. Viele Router erlauben Reservierungen auch außerhalb des Bereichs; bei Windows Server muss die Adresse im Bereich liegen. Nutzt ein Gerät im WLAN eine zufällige MAC-Adresse, greift die Reservierung nicht; diese Funktion schaltest du dafür ab (Kapitel 3.3.5).</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach dem Engpass aus Kapitel 3.4.5 legt die Auszubildende die DHCP-Einstellungen im Router neu fest: Bereich <code>192.168.10.100</code> bis <code>.199</code> (100 Adressen), Gateway und DNS-Server <code>192.168.10.1</code>, Lease-Zeit ein Tag. Router (.1), Access Point (.5), NAS (.10) und Drucker (.20) liegen außerhalb des Bereichs. Für den Drucker legt sie zusätzlich eine Reservierung auf seine MAC-Adresse an, damit er die .20 auch bekommt, wenn jemand ihn auf „automatisch“ zurückstellt.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Zwei DHCP-Server sind doppelt sicher.“ Nicht ohne Abstimmung: Verteilen zwei Server im selben Netz Adressen aus überlappenden Bereichen, entstehen doppelte Adressen. Ein vergessener zweiter DHCP-Server, etwa in einem mitgebrachten WLAN-Router, ist ein typischer Störenfried.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>DHCP</strong> verteilt Adresse, Maske, Gateway, DNS-Server und Lease-Zeit aus einem Bereich.</li>
+  <li><strong>DORA:</strong> Discover (Broadcast), Offer, Request, Acknowledge; UDP 67/68; feste Zuordnung per Reservierung über die MAC-Adresse.</li>
+</ul>

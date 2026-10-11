@@ -1,0 +1,125 @@
+{
+  "titel": "Check 3.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "DORA",
+      "frage": "In welcher Reihenfolge läuft die Adressvergabe per DHCP ab?",
+      "optionen": [
+        "Discover, Offer, Request, Acknowledge",
+        "Request, Offer, Discover, Acknowledge",
+        "Discover, Request, Offer, Acknowledge",
+        "Offer, Discover, Acknowledge, Request"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Client sucht (Discover), der Server bietet an (Offer), der Client fordert an (Request), der Server bestätigt (Acknowledge)."
+    },
+    {
+      "typ": "mc",
+      "thema": "DHCP-Optionen",
+      "frage": "Welche Angabe bekommt ein Client üblicherweise nicht vom DHCP-Server?",
+      "optionen": [
+        "Seine eigene MAC-Adresse",
+        "Das Standardgateway",
+        "Die Adresse des DNS-Servers",
+        "Die Lease-Zeit"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die MAC-Adresse ist in der Netzwerkkarte festgelegt. Der Server verteilt Adresse, Maske, Gateway, DNS-Server und Lease-Zeit."
+    },
+    {
+      "typ": "mc",
+      "thema": "Reservierung",
+      "frage": "Ein Drucker soll per DHCP eingerichtet werden und trotzdem immer dieselbe Adresse bekommen. Was richtest du ein?",
+      "optionen": [
+        "Eine Reservierung für seine MAC-Adresse",
+        "Eine längere Lease-Zeit für den Drucker",
+        "Einen zweiten DHCP-Server im selben Netz",
+        "Eine feste Adresse aus dem DHCP-Bereich direkt am Drucker"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Eine Reservierung ordnet einer MAC-Adresse fest eine IP-Adresse zu. Der Drucker bleibt zentral verwaltet."
+    },
+    {
+      "typ": "mc",
+      "thema": "DNS-Fehler",
+      "frage": "ping 8.8.8.8 funktioniert, ping www.beispiel.de meldet „Host nicht gefunden“. Was ist gestört?",
+      "optionen": [
+        "Die Namensauflösung",
+        "Das Netzwerkkabel",
+        "Das Standardgateway",
+        "Die Netzwerkkarte"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Verbindung ins Internet steht, sonst ginge der Ping auf die IP-Adresse nicht. Nur die Übersetzung des Namens fehlt, also DNS."
+    },
+    {
+      "typ": "mc",
+      "thema": "ARP ins Internet",
+      "frage": "Ein PC im Büronetz will 8.8.8.8 erreichen. Nach welcher MAC-Adresse fragt er per ARP?",
+      "optionen": [
+        "Nach der seines Standardgateways",
+        "Nach der von 8.8.8.8",
+        "Nach der des DNS-Servers beim Anbieter",
+        "Nach der Broadcastadresse des Internets"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "ARP funktioniert nur im eigenen Netz. Pakete an fremde Netze gehen zuerst an den Router, deshalb braucht der PC dessen MAC-Adresse."
+    },
+    {
+      "typ": "mc",
+      "thema": "E-Mail-Protokoll",
+      "frage": "Mails sollen auf PC und Smartphone gleich aussehen: Gelesenes ist überall als gelesen markiert. Welches Protokoll richtest du zum Abrufen ein?",
+      "optionen": [
+        "IMAP",
+        "POP3",
+        "SMTP",
+        "FTP"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "IMAP verwaltet die Mails auf dem Server, alle Geräte sehen denselben Stand. POP3 lädt herunter, SMTP versendet."
+    },
+    {
+      "typ": "mc",
+      "thema": "TCP oder UDP",
+      "frage": "Für welche Anwendung eignet sich UDP besser als TCP?",
+      "optionen": [
+        "Internettelefonie",
+        "Download einer Datei",
+        "Abruf einer Webseite",
+        "Versand einer E-Mail"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei Telefonie zählt geringe Verzögerung; ein wiederholtes Paket käme zu spät. Downloads, Webseiten und Mails müssen vollständig ankommen und nutzen TCP."
+    },
+    {
+      "typ": "mc",
+      "thema": "Port",
+      "frage": "Welcher Dienst nutzt standardmäßig Port 22?",
+      "optionen": [
+        "SSH",
+        "Telnet",
+        "FTP",
+        "SMTP"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "SSH läuft auf Port 22. Telnet nutzt 23, FTP 20 und 21, SMTP 25 oder 587."
+    }
+  ]
+}

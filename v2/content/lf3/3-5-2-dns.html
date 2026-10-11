@@ -1,0 +1,41 @@
+<p class="lead">Menschen merken sich Namen, Rechner arbeiten mit Adressen. Das Domain Name System übersetzt zwischen beiden. Fällt DNS aus, wirkt es, als sei „das Internet weg“, obwohl alle Verbindungen funktionieren. Wer das weiß, findet solche Fehler schnell.</p>
+
+<h3>Wozu DNS dient</h3>
+<p>Das <strong>DNS</strong> (Domain Name System) löst Namen wie <code>www.beispiel.de</code> in IP-Adressen auf. Es ist eine weltweit verteilte Datenbank: Kein Server kennt alle Namen, aber jeder weiß, wen er fragen kann.</p>
+<p>Namen sind hierarchisch aufgebaut und werden von rechts gelesen: <code>de</code> ist die Top-Level-Domain, <code>beispiel</code> die Second-Level-Domain darunter, <code>www</code> ein Rechner oder Dienst in dieser Domain. Ganz rechts steht, meist unsichtbar, die Wurzel (Root) als Punkt. Der vollständige Name <code>www.beispiel.de.</code> heißt FQDN (Fully Qualified Domain Name).</p>
+
+<h3>So läuft eine Auflösung</h3>
+<ol>
+  <li>Der Client schaut in seinen eigenen Zwischenspeicher (Cache) und in die lokale Datei <code>hosts</code> (unter Windows <code>C:\Windows\System32\drivers\etc\hosts</code>).</li>
+  <li>Findet er nichts, fragt er den in seiner Konfiguration eingetragenen <strong>DNS-Server</strong>, im Büro meist den Router.</li>
+  <li>Der Router löst den Namen meist nicht selbst auf, sondern leitet die Anfrage an den DNS-Server des Providers weiter (Forwarder). Dieser fragt, falls nötig, der Reihe nach einen Root-Server, den Server für <code>.de</code> und den Server, der für <code>beispiel.de</code> zuständig ist. Jeder nennt ihm nur den nächsten Ansprechpartner (iterative Abfrage); der Client dagegen erwartet eine fertige Antwort (rekursive Abfrage).</li>
+  <li>Die Antwort geht an den Client zurück und wird für eine im Eintrag festgelegte Zeit (TTL, Time to Live) zwischengespeichert. Deshalb wirken geänderte Einträge nicht sofort; den Cache leerst du mit <code>ipconfig /flushdns</code>.</li>
+</ol>
+<p>DNS nutzt Port 53, für normale Anfragen meist UDP, für große Antworten und die Übertragung ganzer Zonen zwischen Servern TCP.</p>
+
+<h3>Einträge</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Eintrag</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th>A</th><td>Name zu IPv4-Adresse</td><td>www → 203.0.113.10</td></tr>
+      <tr><th>AAAA</th><td>Name zu IPv6-Adresse</td><td>www → 2001:db8::10</td></tr>
+      <tr><th>CNAME</th><td>Name ist ein Alias für einen anderen Namen</td><td>shop → www</td></tr>
+      <tr><th>MX</th><td>zuständiger Mailserver der Domain</td><td>beispiel.de → mail.beispiel.de</td></tr>
+      <tr><th>PTR</th><td>umgekehrt: Adresse zu Name</td><td>203.0.113.10 → www.beispiel.de</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Mitarbeiter meldet: „Keine Webseite geht.“ Der Auszubildende testet: <code>ping 8.8.8.8</code> funktioniert, <code>ping www.beispiel.de</code> meldet „Host nicht gefunden“. Die Verbindung ins Internet steht also, nur die Namensauflösung fehlt. Im Notebook ist als DNS-Server eine alte Adresse von Hand eingetragen. Nach dem Umstellen auf „automatisch beziehen“ bekommt es per DHCP den Router als DNS-Server, und alles läuft.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Wenn Webseiten nicht laden, ist das Internet weg.“ Nicht unbedingt: Klappt der Zugriff über die IP-Adresse, aber nicht über den Namen, liegt der Fehler beim DNS. Prüfen kannst du das mit <code>nslookup</code> (Kapitel 3.7.2).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>DNS</strong> löst Namen in IP-Adressen auf; hierarchisch, verteilt, Port 53.</li>
+  <li><strong>Einträge:</strong> A (IPv4), AAAA (IPv6), CNAME (Alias), MX (Mailserver), PTR (Adresse zu Name).</li>
+  <li><strong>Fehlerbild:</strong> IP-Adresse erreichbar, Name nicht, dann liegt es am DNS.</li>
+</ul>

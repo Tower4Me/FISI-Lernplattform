@@ -1,0 +1,110 @@
+{
+  "titel": "Check 3.1",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Zugangsdaten",
+      "frage": "Was gehört zu den Zugängen in die Netzwerkdokumentation?",
+      "optionen": [
+        "Ein Verweis, wo die Zugangsdaten sicher hinterlegt sind",
+        "Die Passwörter der Geräte direkt im Netzwerkplan",
+        "Die privaten Passwörter der Mitarbeitenden",
+        "Die Seriennummer der Geräte anstelle eines Passworts"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Passwörter gehören nicht in den Plan. Die Dokumentation sagt nur, wo sie sicher abgelegt sind."
+    },
+    {
+      "typ": "mc",
+      "thema": "Netzausdehnung",
+      "frage": "Ein Unternehmen verbindet seine Standorte in Hamburg und München. Welche Netzart ist das?",
+      "optionen": [
+        "WAN",
+        "LAN",
+        "PAN",
+        "WLAN"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Netze über Länder oder große Entfernungen heißen WAN. Ein LAN reicht nur über ein Gebäude oder Gelände."
+    },
+    {
+      "typ": "mc",
+      "thema": "Peer-to-Peer",
+      "frage": "Was ist ein Nachteil eines Peer-to-Peer-Netzes in einem Betrieb mit 15 Arbeitsplätzen?",
+      "optionen": [
+        "Rechte und Freigaben müssen an jedem Gerät einzeln gepflegt werden",
+        "Es braucht einen teuren zentralen Server für alle Dienste",
+        "Die Geräte können untereinander keine Dateien austauschen",
+        "Die Geräte brauchen dafür eine Verbindung über Funk"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Im Peer-to-Peer-Netz gibt es keine zentrale Verwaltung. Ab einigen Arbeitsplätzen wird das unübersichtlich."
+    },
+    {
+      "typ": "mc",
+      "thema": "Ausfall im Stern",
+      "frage": "In einem Netz mit Sterntopologie fällt der zentrale Switch aus. Was passiert?",
+      "optionen": [
+        "Die angeschlossenen Geräte können nicht mehr miteinander kommunizieren",
+        "Betroffen ist das Gerät, das am ersten Port des Switches hängt",
+        "Die Geräte schalten auf eine Busverbindung über die Netzwerkdosen um",
+        "Nichts, weil jedes Gerät mit einem eigenen Kabel am Switch angeschlossen ist"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Im Stern laufen alle Verbindungen über den Switch. Er ist der zentrale Ausfallpunkt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Logische Topologie",
+      "frage": "Ein WLAN hat keine Kabel. Wie ist es logisch aufgebaut?",
+      "optionen": [
+        "Als Stern um den Access Point",
+        "Als Ring zwischen den Notebooks",
+        "Als Bus entlang der Funkwellen",
+        "Als Masche zwischen allen Geräten"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Logisch laufen die Daten im WLAN über den Access Point. Er ist der Mittelpunkt des Sterns."
+    },
+    {
+      "typ": "mc",
+      "thema": "Logischer Plan",
+      "frage": "Welche Angabe gehört in einen logischen, nicht in einen physischen Netzwerkplan?",
+      "optionen": [
+        "IP-Adressen der Geräte",
+        "Raumnummern der Netzwerkdosen",
+        "Verlauf der Kabelkanäle",
+        "Standort des Netzwerkschranks"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der logische Plan zeigt, wie Geräte und Adressen zusammenhängen. Räume, Dosen und Kabelwege stehen im physischen Plan."
+    },
+    {
+      "typ": "mc",
+      "thema": "Patchfeld",
+      "frage": "Ein PC an einer Netzwerkdose meldet „Netzwerkkabel getrennt“, obwohl PC und Anschlusskabel zur Dose in Ordnung sind. Was prüfst du mithilfe der Dokumentation?",
+      "optionen": [
+        "Ob der zugehörige Patchfeld-Port mit dem Switch verbunden ist",
+        "Ob die IP-Adresse des PCs im Bereich liegt, den der DHCP-Server verteilt",
+        "Ob der PC mit seiner MAC-Adresse in der Geräteliste steht",
+        "Ob im logischen Plan für den PC eine feste IP-Adresse eingetragen ist"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "„Kabel getrennt“ heißt: keine physische Verbindung. Die Dose führt nur bis zum Patchfeld; erst ein Patchkabel zum Switch verbindet sie mit dem Netz."
+    }
+  ]
+}

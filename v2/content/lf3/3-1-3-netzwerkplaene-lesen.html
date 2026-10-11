@@ -1,0 +1,50 @@
+<p class="lead">Bevor du einen Client einbindest, musst du wissen, wie das vorhandene Netz aussieht: Wo hängt der Switch, welche Dose führt wohin, welche Adressen sind schon vergeben? Antworten liefert der Netzwerkplan. Fehlt er, wie bei vielen kleinen Kunden, erstellst du ihn als Erstes.</p>
+
+<h3>Zwei Sichten auf dasselbe Netz</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Physischer Plan</th><th>Logischer Plan</th></tr></thead>
+    <tbody>
+      <tr><th>Zeigt</th><td>wo Geräte, Dosen, Kabel und Schränke räumlich liegen</td><td>wie Geräte zusammenhängen und kommunizieren</td></tr>
+      <tr><th>Typische Angaben</th><td>Raumnummern, Dosen- und Patchfeldnummern, Kabeltyp, Kabelwege</td><td>Gerätenamen, IP-Adressen, Netze, Dienste, Verbindung zum Internet</td></tr>
+      <tr><th>Gebraucht für</th><td>Verkabeln, Fehler im Kabelweg finden</td><td>Adressen vergeben, Fehler in der Konfiguration finden</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ein <strong>Patchfeld</strong> ist die Sammelstelle im Netzwerkschrank, an der die Kabel aller Dosen ankommen; von dort führen kurze Patchkabel zum Switch (Kapitel 3.3.3).</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 640 230" role="img" aria-label="Logischer Netzwerkplan: Internet, Router 192.168.10.1, Switch, daran PC, Netzwerkdrucker, NAS und WLAN-Access-Point im Netz 192.168.10.0/24">
+    <rect class="g-box" x="250" y="10" width="140" height="34" rx="17"/><text x="320" y="32" text-anchor="middle">Internet</text>
+    <rect class="g-accent" x="240" y="64" width="160" height="40" rx="6"/><text x="320" y="82" text-anchor="middle">Router</text><text class="g-muted g-mono" x="320" y="98" text-anchor="middle" font-size="12">192.168.10.1</text>
+    <rect class="g-box" x="260" y="124" width="120" height="30" rx="6"/><text x="320" y="144" text-anchor="middle">Switch</text><text class="g-muted g-mono" x="392" y="144" font-size="12">LAN 192.168.10.0/24</text>
+    <path class="g-line" d="M320 44V64M320 104V124M320 154V170M80 170H560M80 170V180M240 170V180M400 170V180M560 170V180"/>
+    <rect class="g-box" x="20" y="180" width="120" height="44" rx="6"/><text x="80" y="198" text-anchor="middle">PC Empfang</text><text class="g-muted g-mono" x="80" y="215" text-anchor="middle" font-size="12">DHCP</text>
+    <rect class="g-box" x="180" y="180" width="120" height="44" rx="6"/><text x="240" y="198" text-anchor="middle">Drucker</text><text class="g-muted g-mono" x="240" y="215" text-anchor="middle" font-size="12">192.168.10.20</text>
+    <rect class="g-box" x="340" y="180" width="120" height="44" rx="6"/><text x="400" y="198" text-anchor="middle">NAS</text><text class="g-muted g-mono" x="400" y="215" text-anchor="middle" font-size="12">192.168.10.10</text>
+    <rect class="g-box" x="500" y="180" width="120" height="44" rx="6"/><text x="560" y="198" text-anchor="middle">WLAN-AP</text><text class="g-muted g-mono" x="560" y="215" text-anchor="middle" font-size="12">192.168.10.5</text>
+  </svg>
+  <figcaption>Logischer Plan des Büros der Hausverwaltung: Geräte mit festen Adressen sind beschriftet, der PC bekommt seine Adresse automatisch (DHCP, Kapitel 3.5.1).</figcaption>
+</figure>
+
+<h3>Netzwerkdokumentation</h3>
+<p>Zu den Plänen gehört eine Liste mit allem, was man zum Betreiben braucht:</p>
+<ul>
+  <li><strong>Geräteliste:</strong> Name, Typ, Standort, IP-Adresse, MAC-Adresse (Kapitel 3.3.5), Seriennummer</li>
+  <li><strong>Portbelegung:</strong> welche Dose auf welchem Patchfeld-Port liegt und mit welchem Switch-Port verbunden ist</li>
+  <li><strong>Adressbereiche:</strong> welche Adressen fest vergeben sind und welche der DHCP-Server verteilt</li>
+  <li><strong>Zugänge:</strong> wo die Zugangsdaten der Geräte sicher hinterlegt sind, nicht die Passwörter selbst im Plan</li>
+</ul>
+<p>Eine Dokumentation hilft nur, wenn sie aktuell ist. Jede Änderung trägst du sofort ein.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der neue Mitarbeiter soll im Besprechungsraum an Dose 2.04 arbeiten, bekommt dort aber keine Verbindung. Im physischen Plan findet die Auszubildende die Dose im Besprechungsraum; ihr Kabel führt zum Patchfeld im Technikraum. Laut Portbelegung führt Dose 2.04 auf Patchfeld-Port 4. Am Patchfeld sieht die Auszubildende: Port 4 ist nicht mit dem Switch verbunden. Sie steckt ein Patchkabel von Port 4 auf einen freien Switch-Port und trägt die Änderung in die Dokumentation ein.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Die Dose in der Wand ist automatisch am Netz.“ Nein: Die Dose führt nur bis zum Patchfeld. Erst ein Patchkabel vom Patchfeld zum Switch schaltet sie frei (Kapitel 3.3.3).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Physischer Plan:</strong> wo liegen Geräte, Dosen und Kabel; <strong>logischer Plan:</strong> wie hängen Geräte und Adressen zusammen.</li>
+  <li><strong>Dokumentation:</strong> Geräteliste, Portbelegung, Adressbereiche; nur aktuell nützt sie.</li>
+</ul>

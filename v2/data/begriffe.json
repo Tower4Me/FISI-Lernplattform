@@ -1102,6 +1102,46 @@
           "tiefe": "Auswertung"
         }
       ]
+    },
+    {
+      "begriff": "netzwerk-grundlagen",
+      "kernfakten": [
+        "Zwecke: Ressourcen teilen, gemeinsam arbeiten, kommunizieren, zentral verwalten.",
+        "Server bietet Dienst, Client nutzt ihn (Rollen, keine Gerätearten); Client-Server zentral verwaltet, Peer-to-Peer gleichberechtigt, nur für sehr kleine Netze.",
+        "PAN, LAN (WLAN), MAN, WAN; Internet größtes WAN."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-1-1",
+          "tiefe": "Grundbegriffe"
+        }
+      ]
+    },
+    {
+      "begriff": "topologie",
+      "kernfakten": [
+        "Physisch = Anordnung von Geräten und Übertragungswegen (Kabel, Funk), logisch = Datenfluss; WLAN logisch Stern um AP.",
+        "Stern Standard (Kabelschaden trifft ein Gerät, Switch = Single Point of Failure); erweiterter Stern/Baum; Bus im LAN veraltet (Feldbus); Ring heute meist Doppelring; Masche ausfallsicher, teuer."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-1-2",
+          "tiefe": "Grundformen"
+        }
+      ]
+    },
+    {
+      "begriff": "netzwerkdokumentation",
+      "kernfakten": [
+        "Physischer Plan: Räume, Dosen, Patchfeld, Kabelwege; logischer Plan: Geräte, IP-Adressen, Netze, Dienste.",
+        "Dokumentation: Geräteliste (Name, IP, MAC, Standort), Portbelegung Dose–Patchfeld–Switch, Adressbereiche (fest/DHCP), Zugangsdaten nur Verweis; aktuell halten."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-1-3",
+          "tiefe": "Pläne, Dokumentation"
+        }
+      ]
     }
   ]
 }

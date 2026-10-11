@@ -1,0 +1,48 @@
+<p class="lead">Wie die Geräte miteinander verbunden sind, entscheidet, was passiert, wenn ein Kabel reißt oder ein Gerät ausfällt. Diese Anordnung heißt Topologie. Moderne Büronetze sind fast immer als Stern oder erweiterter Stern aufgebaut, aber du triffst auch auf andere Formen und musst ihre Schwächen kennen.</p>
+
+<h3>Physisch und logisch</h3>
+<p>Die <strong>physische Topologie</strong> beschreibt, wie Geräte und Übertragungswege (Kabel oder Funk) tatsächlich angeordnet sind. Die <strong>logische Topologie</strong> beschreibt, wie die Daten fließen. Beides kann sich unterscheiden: Im WLAN teilen sich alle Geräte dasselbe Funkmedium, logisch laufen die Daten aber sternförmig über den Access Point.</p>
+
+<h3>Die Grundformen</h3>
+<figure class="grafik">
+  <svg viewBox="0 0 640 200" role="img" aria-label="Vier Topologien: Stern mit zentralem Switch, Bus mit gemeinsamer Leitung, Ring mit geschlossener Kette, Masche mit vielen Querverbindungen">
+    <path class="g-line" d="M80 90L40 50M80 90L120 50M80 90L40 130M80 90L120 130"/>
+    <rect class="g-accent" x="66" y="78" width="28" height="24" rx="4"/>
+    <circle class="g-box" cx="40" cy="50" r="10"/><circle class="g-box" cx="120" cy="50" r="10"/><circle class="g-box" cx="40" cy="130" r="10"/><circle class="g-box" cx="120" cy="130" r="10"/>
+    <text x="80" y="175" text-anchor="middle">Stern</text>
+    <path class="g-line" d="M175 90H305M195 90V60M240 90V120M285 90V60"/>
+    <circle class="g-box" cx="195" cy="50" r="10"/><circle class="g-box" cx="240" cy="130" r="10"/><circle class="g-box" cx="285" cy="50" r="10"/>
+    <text x="240" y="175" text-anchor="middle">Bus</text>
+    <circle class="g-rule" cx="400" cy="90" r="42"/>
+    <circle class="g-box" cx="400" cy="48" r="10"/><circle class="g-box" cx="442" cy="90" r="10"/><circle class="g-box" cx="400" cy="132" r="10"/><circle class="g-box" cx="358" cy="90" r="10"/>
+    <text x="400" y="175" text-anchor="middle">Ring</text>
+    <path class="g-line" d="M520 50L600 50L600 130L520 130Z M520 50L600 130M600 50L520 130"/>
+    <circle class="g-box" cx="520" cy="50" r="10"/><circle class="g-box" cx="600" cy="50" r="10"/><circle class="g-box" cx="520" cy="130" r="10"/><circle class="g-box" cx="600" cy="130" r="10"/>
+    <text x="560" y="175" text-anchor="middle">Masche</text>
+  </svg>
+  <figcaption>Die vier Grundtopologien. Im Stern hängt jedes Gerät mit eigenem Kabel am zentralen Switch (farbig).</figcaption>
+</figure>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Topologie</th><th>Aufbau</th><th>Stärke</th><th>Schwäche</th></tr></thead>
+    <tbody>
+      <tr><th>Stern</th><td>jedes Gerät einzeln an einem zentralen Switch</td><td>ein defektes Kabel betrifft nur ein Gerät; leicht erweiterbar</td><td>fällt der Switch aus, steht das ganze Netz; viel Kabel</td></tr>
+      <tr><th>Erweiterter Stern (Baum)</th><td>mehrere Sterne, deren Switches miteinander verbunden sind</td><td>wächst mit dem Gebäude, Standard in größeren Netzen</td><td>fällt ein zentraler Switch aus, sind alle Geräte dahinter getrennt</td></tr>
+      <tr><th>Bus</th><td>alle Geräte an einer gemeinsamen Leitung</td><td>wenig Kabel</td><td>ein Bruch legt das ganze Segment lahm; im LAN veraltet (früher Koaxialkabel), in Fahrzeugen und Maschinen als Feldbus noch üblich</td></tr>
+      <tr><th>Ring</th><td>jedes Gerät mit zwei Nachbarn, geschlossene Kette</td><td>planbare Übertragung; heute meist als Doppelring in Industrie- und Stadtnetzen</td><td>ohne zweiten Ring stört ein Bruch das ganze Netz</td></tr>
+      <tr><th>Masche (vermascht)</th><td>Geräte über mehrere Wege verbunden, voll oder teilweise</td><td>sehr ausfallsicher, Daten finden einen anderen Weg</td><td>aufwendig und teuer; typisch zwischen Routern und im Internet</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Hausverwaltung bekommt einen Stern: PC, Netzwerkdrucker, NAS, der WLAN-Access-Point und eine Netzwerkdose im Besprechungsraum hängen mit je einem Kabel am Switch. Als ein Bürostuhl das Druckerkabel beschädigt, druckt niemand mehr, aber alle anderen arbeiten weiter. Weil der Switch der zentrale Punkt ist, kommt er an einen geschützten Platz und an die unterbrechungsfreie Stromversorgung.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Im Stern kann nichts das ganze Netz lahmlegen.“ Doch: der zentrale Switch. Er ist die Schwachstelle der Sterntopologie (Single Point of Failure).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Physisch</strong> = Kabelverlauf, <strong>logisch</strong> = Datenfluss.</li>
+  <li><strong>Stern</strong> ist Standard im LAN: ein Kabelschaden trifft ein Gerät, ein Switch-Ausfall alle. <strong>Bus</strong> und <strong>Ring</strong> (ohne Doppelring) stören bei einem Bruch das ganze Netz, die <strong>Masche</strong> ist ausfallsicher, aber teuer.</li>
+</ul>

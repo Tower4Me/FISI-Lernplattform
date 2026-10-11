@@ -1,0 +1,57 @@
+<p class="lead">Das OSI-Modell ist das Referenzmodell zum Einordnen, das TCP/IP-Modell beschreibt, wie das Internet tatsächlich arbeitet. Beide hängen eng zusammen. Wer versteht, wie eine Nachricht auf dem Weg nach unten Schicht für Schicht verpackt wird, kann später auch Mitschnitte und Fehlermeldungen deuten.</p>
+
+<h3>Das TCP/IP-Modell</h3>
+<p>Das <strong>TCP/IP-Modell</strong> ist nach seinen wichtigsten Protokollen benannt und fasst die sieben OSI-Schichten zu vier zusammen:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>TCP/IP-Schicht</th><th>entspricht OSI</th><th>Beispiele</th></tr></thead>
+    <tbody>
+      <tr><th>Anwendung</th><td>5 bis 7</td><td>HTTP(S), DNS, DHCP, SMTP, SSH</td></tr>
+      <tr><th>Transport</th><td>4</td><td>TCP, UDP</td></tr>
+      <tr><th>Internet</th><td>3</td><td>IPv4, IPv6, ICMP</td></tr>
+      <tr><th>Netzzugang</th><td>1 und 2</td><td>Ethernet, WLAN</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Manche Lehrbücher teilen den Netzzugang in Sicherung und Bitübertragung und kommen so auf fünf Schichten. Das ändert nichts am Prinzip.</p>
+
+<h3>Kapselung</h3>
+<p>Beim Senden reicht jede Schicht ihre Daten nach unten weiter. Die nächste Schicht packt sie in einen eigenen Umschlag, den <strong>Header</strong> (Kopfteil), in dem ihre Steuerangaben stehen. Ethernet hängt zusätzlich hinten einen <strong>Trailer</strong> mit Prüfsumme (FCS) an. Das Ganze heißt <strong>Kapselung</strong>. Beim Empfänger läuft es umgekehrt: Jede Schicht liest ihren Header, entfernt ihn und gibt den Rest nach oben (Entkapselung).</p>
+<figure class="grafik">
+  <svg viewBox="0 0 640 200" role="img" aria-label="Kapselung: Anwendungsdaten, davor TCP-Header ergibt Segment, davor IP-Header ergibt Paket, davor Ethernet-Header und danach Prüfsumme ergibt Rahmen">
+    <rect class="g-accent" x="330" y="14" width="200" height="30" rx="4"/><text x="430" y="34" text-anchor="middle">Daten</text>
+    <text class="g-muted" x="20" y="34" font-size="13">Daten</text>
+    <rect class="g-box" x="250" y="58" width="80" height="30" rx="4"/><text x="290" y="78" text-anchor="middle" font-size="13">TCP</text>
+    <rect class="g-accent" x="330" y="58" width="200" height="30" rx="4"/><text x="430" y="78" text-anchor="middle">Daten</text>
+    <text class="g-muted" x="20" y="78" font-size="13">Segment</text>
+    <rect class="g-box" x="170" y="102" width="80" height="30" rx="4"/><text x="210" y="122" text-anchor="middle" font-size="13">IP</text>
+    <rect class="g-box" x="250" y="102" width="80" height="30" rx="4"/><text x="290" y="122" text-anchor="middle" font-size="13">TCP</text>
+    <rect class="g-accent" x="330" y="102" width="200" height="30" rx="4"/><text x="430" y="122" text-anchor="middle">Daten</text>
+    <text class="g-muted" x="20" y="122" font-size="13">Paket</text>
+    <rect class="g-box" x="90" y="146" width="80" height="30" rx="4"/><text x="130" y="166" text-anchor="middle" font-size="13">Ethernet</text>
+    <rect class="g-box" x="170" y="146" width="80" height="30" rx="4"/><text x="210" y="166" text-anchor="middle" font-size="13">IP</text>
+    <rect class="g-box" x="250" y="146" width="80" height="30" rx="4"/><text x="290" y="166" text-anchor="middle" font-size="13">TCP</text>
+    <rect class="g-accent" x="330" y="146" width="200" height="30" rx="4"/><text x="430" y="166" text-anchor="middle">Daten</text>
+    <rect class="g-box" x="530" y="146" width="60" height="30" rx="4"/><text x="560" y="166" text-anchor="middle" font-size="13">FCS</text>
+    <text class="g-muted" x="20" y="166" font-size="13">Rahmen</text>
+  </svg>
+  <figcaption>Von oben nach unten: Anwendung, Transport (Segment), Internet (Paket), Netzzugang (Rahmen). Jede Schicht setzt ihren Header davor. Ethernet hängt zusätzlich eine Prüfsumme (FCS) an, mit der der Empfänger Übertragungsfehler erkennt.</figcaption>
+</figure>
+<p>Was in den Headern steht, zeigt, wofür die Schicht zuständig ist:</p>
+<ul>
+  <li><strong>TCP- oder UDP-Header:</strong> Quell- und Zielport, also für welches Programm die Daten bestimmt sind (Kapitel 3.5.4)</li>
+  <li><strong>IP-Header:</strong> Quell- und Ziel-IP-Adresse, also welcher Rechner gemeint ist, auch hinter Routern in anderen Netzen</li>
+  <li><strong>Ethernet-Header:</strong> Quell- und Ziel-MAC-Adresse, also welches Gerät im selben Netz die Daten als Nächstes bekommt</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Mitarbeiter der Hausverwaltung öffnet von seinem Notebook eine Webseite. Der Browser erzeugt die Anfrage (Anwendung). TCP setzt den Zielport 443 davor, IP die Adresse des Webservers. Weil der Server nicht im eigenen Netz steht, trägt das Notebook in den Ethernet-Header die MAC-Adresse des Routers ein. Der Router packt den Rahmen aus, liest die Ziel-IP und packt das Paket für die nächste Strecke neu ein. Die MAC-Adressen wechseln von Strecke zu Strecke, die Ziel-IP-Adresse bleibt bis zum Webserver gleich. Nur die private Absenderadresse ersetzt der Internetrouter durch seine öffentliche Adresse (NAT, Kapitel 3.4.3). Innerhalb des Firmennetzes ohne NAT bleiben beide IP-Adressen gleich.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Die MAC-Adresse des Webservers steht im Paket.“ Nein: MAC-Adressen gelten nur im eigenen Netz. Das Notebook schickt den Rahmen an den Router; die MAC-Adresse des Webservers kennt es gar nicht.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>TCP/IP-Modell:</strong> Anwendung (OSI 5 bis 7), Transport (4), Internet (3), Netzzugang (1 und 2).</li>
+  <li><strong>Kapselung:</strong> Jede Schicht setzt ihren Header davor (Port, IP-Adresse, MAC-Adresse), Ethernet hängt die Prüfsumme FCS an; IP-Adressen bleiben bis zum Ziel gleich (außer bei NAT), MAC-Adressen wechseln je Strecke.</li>
+</ul>

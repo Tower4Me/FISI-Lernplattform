@@ -1142,6 +1142,29 @@
           "tiefe": "Pläne, Dokumentation"
         }
       ]
+    },
+    {
+      "begriff": "schichtenmodelle",
+      "kernfakten": [
+        "OSI: 7 Anwendung, 6 Darstellung, 5 Sitzung, 4 Transport (Port, Segment), 3 Vermittlung (IP, Paket), 2 Sicherung (MAC, Rahmen), 1 Bitübertragung (Bit); 1–4 transport-, 5–7 anwendungsorientiert.",
+        "TCP/IP: Anwendung (5–7), Transport (4), Internet (3), Netzzugang (1–2).",
+        "Kapselung: Header je Schicht, Ethernet zusätzlich Trailer mit FCS; Ziel-IP bleibt, MAC wechselt je Strecke; NAT ersetzt private Absenderadresse.",
+        "Geräte: Hub/Kabel 1, Switch/AP/NIC 2, Router/Layer-3-Switch 3, Paketfilter 3–4, Inhaltsprüfung bis 7; DHCP, DNS, HTTP Schicht 7 (in UDP/TCP verpackt); ARP meist Schicht 2 (2/3)."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-2-1",
+          "tiefe": "OSI"
+        },
+        {
+          "id": "3-2-2",
+          "tiefe": "TCP/IP, Kapselung"
+        },
+        {
+          "id": "3-2-3",
+          "tiefe": "Zuordnung"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,42 @@
+<p class="lead">„Auf welcher Schicht arbeitet ein Switch?“ und „Welche Adresse gehört zu Schicht 3?“ sind typische Prüfungsfragen. Im Betrieb hilft dir die Zuordnung, Geräte richtig auszuwählen und Fehler einzugrenzen: Ein Router kann Netze trennen, ein einfacher Switch nicht.</p>
+
+<h3>Geräte</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>OSI-Schicht</th><th>Gerät</th><th>Arbeitet mit</th></tr></thead>
+    <tbody>
+      <tr><th>1</th><td>Kabel, Stecker, Repeater, Hub, Medienkonverter</td><td>Signalen; ein Hub gibt jedes Signal an alle Anschlüsse weiter</td></tr>
+      <tr><th>2</th><td>Switch, Bridge, Netzwerkkarte, WLAN-Access-Point</td><td>MAC-Adressen; der Switch leitet Rahmen gezielt an den passenden Anschluss</td></tr>
+      <tr><th>3</th><td>Router, Layer-3-Switch (Switch mit eingebauter Routing-Funktion)</td><td>IP-Adressen; der Router verbindet verschiedene Netze</td></tr>
+      <tr><th>3 bis 7</th><td>Firewall (Paketfilter: IP-Adressen und Ports, Schicht 3 und 4; Inhaltsprüfung bis Schicht 7), Proxy, Server-Dienste</td><td>Ports und Inhalten</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Viele Geräte vereinen mehrere Funktionen. Der typische Internetrouter im Büro enthält Router, Switch, WLAN-Access-Point, DHCP-Server und Firewall in einem Gehäuse.</p>
+
+<h3>Protokolle und Adressen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>OSI-Schicht</th><th>Protokolle</th><th>Adresse</th></tr></thead>
+    <tbody>
+      <tr><th>7 Anwendung</th><td>HTTP, HTTPS, DNS, DHCP, SMTP, IMAP, FTP, SSH</td><td>Namen wie www.beispiel.de</td></tr>
+      <tr><th>4 Transport</th><td>TCP, UDP</td><td>Port, z. B. 443</td></tr>
+      <tr><th>3 Vermittlung</th><td>IPv4, IPv6, ICMP (ping)</td><td>IP-Adresse, auch die verbindungslokale IPv6-Adresse (beginnt mit fe80::, Kapitel 3.4.5)</td></tr>
+      <tr><th>2 Sicherung</th><td>Ethernet, WLAN (IEEE 802.11)</td><td>MAC-Adresse (physische Adresse)</td></tr>
+      <tr><th>1 Bitübertragung</th><td>Übertragungsverfahren für Kabel, Glasfaser, Funk</td><td>keine</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>ARP</strong> (Kapitel 3.5.3) ermittelt zu einer IP-Adresse die MAC-Adresse und verbindet so Schicht 3 und Schicht 2. Es wird meist der Schicht 2 zugeordnet, manche Quellen nennen „zwischen 2 und 3“.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Hausverwaltung möchte das WLAN für Gäste vom Büronetz trennen. Ein zusätzlicher einfacher Switch hilft nicht, denn er arbeitet auf Schicht 2 und verbindet alles zu einem Netz. Nötig ist eine Trennung auf Schicht 3: Viele Büro-Router bieten dafür ein eigenes Gästenetz mit eigenem Adressbereich an.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„DHCP vergibt IP-Adressen, also gehört es zu Schicht 3.“ Nein: DHCP ist ein Anwendungsprotokoll; seine Nachrichten werden selbst in UDP und IP verpackt, also liegt es über Schicht 4. Die IP-Adresse, die der DHCP-Server verteilt, wird auf Schicht 3 benutzt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Geräte:</strong> Hub und Kabel Schicht 1, Switch und Access Point Schicht 2, Router Schicht 3.</li>
+  <li><strong>Adressen:</strong> MAC Schicht 2, IP Schicht 3, Port Schicht 4; DHCP, DNS, HTTP sind Anwendungsprotokolle (Schicht 7).</li>
+</ul>

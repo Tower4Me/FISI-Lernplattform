@@ -1,0 +1,48 @@
+<p class="lead">Wenn der Drucker nicht druckt, kann es am Kabel liegen, an einer falschen Adresse oder am Druckdienst. Damit du nicht wahllos suchst, teilt man die Netzwerkkommunikation in Schichten mit klaren Aufgaben. Das bekannteste Modell dafür ist das OSI-Modell: Es gibt Fachleuten eine gemeinsame Sprache und dir eine Reihenfolge für die Fehlersuche.</p>
+
+<h3>Wozu ein Schichtenmodell</h3>
+<p>Jede Schicht löst eine Teilaufgabe und nutzt dafür nur die Dienste der Schicht darunter. Dadurch können Hersteller Bauteile unabhängig voneinander entwickeln: Eine Netzwerkkarte muss nicht wissen, ob gerade eine Webseite oder eine E-Mail übertragen wird. Das <strong>OSI-Modell</strong> (Open Systems Interconnection) ist ein Referenzmodell der ISO mit sieben Schichten. In der Praxis arbeitet das Internet nach dem einfacheren TCP/IP-Modell (Kapitel 3.2.2), doch die OSI-Nummern sind die übliche Sprache: „ein Problem auf Schicht 1“ heißt „irgendwas mit Kabel oder Funk“.</p>
+
+<h3>Die sieben Schichten</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Nr.</th><th>Schicht</th><th>Aufgabe</th><th>Dateneinheit</th><th>Adresse, Protokolle, Geräte</th></tr></thead>
+    <tbody>
+      <tr><th>7</th><td>Anwendung (Application)</td><td>Schnittstelle zu den Netzwerkdiensten der Programme</td><td rowspan="3">Daten</td><td>HTTP, DNS, DHCP, SMTP</td></tr>
+      <tr><th>6</th><td>Darstellung (Presentation)</td><td>Daten in ein gemeinsames Format bringen, etwa Zeichensatz, Kompression, Verschlüsselung</td><td>Zeichenkodierung, TLS (Zuordnung uneinheitlich, oft 5 oder 6)</td></tr>
+      <tr><th>5</th><td>Sitzung (Session)</td><td>Verbindung zwischen Anwendungen aufbauen, halten, beenden</td><td>Anmeldesitzung</td></tr>
+      <tr><th>4</th><td>Transport</td><td>Daten Ende-zu-Ende zum richtigen Programm bringen, bei Bedarf zuverlässig</td><td>Segment</td><td>Port; TCP, UDP</td></tr>
+      <tr><th>3</th><td>Vermittlung (Network)</td><td>Pakete über Netzgrenzen zum Zielrechner leiten</td><td>Paket</td><td>IP-Adresse; IPv4, IPv6; Router</td></tr>
+      <tr><th>2</th><td>Sicherung (Data Link)</td><td>Daten im selben Netz von Gerät zu Gerät übertragen, Übertragungsfehler erkennen</td><td>Rahmen (Frame)</td><td>MAC-Adresse; Ethernet, WLAN; Switch</td></tr>
+      <tr><th>1</th><td>Bitübertragung (Physical)</td><td>Bits als Signale übertragen: Strom, Licht, Funk</td><td>Bit</td><td>Kabel, Stecker, Hub</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Eine Eselsbrücke von oben nach unten: „<strong>A</strong>lle <strong>d</strong>eutschen <strong>S</strong>tudenten <strong>t</strong>rinken <strong>v</strong>erschiedene <strong>S</strong>orten <strong>B</strong>ier“ für Anwendung, Darstellung, Sitzung, Transport, Vermittlung, Sicherung, Bitübertragung.</p>
+<p>Die Schichten 1 bis 4 heißen <strong>transportorientiert</strong>, sie bringen die Daten ans Ziel. Die Schichten 5 bis 7 heißen <strong>anwendungsorientiert</strong>, sie bereiten die Daten für das Programm auf.</p>
+
+<h3>Fehler den Schichten zuordnen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schicht</th><th>Typischer Fehler</th></tr></thead>
+    <tbody>
+      <tr><th>1</th><td>Kabel abgezogen oder defekt, Link-LED aus</td></tr>
+      <tr><th>2</th><td>Netzwerkkarte defekt, Switch-Port gesperrt</td></tr>
+      <tr><th>3</th><td>falsche IP-Adresse, Subnetzmaske oder falsches Gateway</td></tr>
+      <tr><th>4</th><td>Port durch eine Firewall gesperrt, Segmente gehen verloren</td></tr>
+      <tr><th>7</th><td>Dienst falsch eingerichtet oder abgestürzt, etwa DNS-Server antwortet nicht</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>In der Hausverwaltung kommt der Mitarbeiter nicht auf das NAS. Die Auszubildende prüft von unten nach oben: Die Link-LED an der Netzwerkkarte leuchtet und blinkt, also ist Schicht 1 in Ordnung. Der PC hat aber die Adresse 169.254.17.3, eine Notadresse, die sich der PC selbst gibt, wenn kein DHCP-Server antwortet (Kapitel 3.4.5). Damit liegt er nicht im Netz 192.168.10.0/24 und erreicht das NAS nicht: Der Fehler zeigt sich auf Schicht 3, die Ursache liegt beim DHCP-Dienst (Schicht 7); tatsächlich war der Router, der die Adressen verteilt, nach einem Stromausfall nicht wieder hochgefahren.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Switch arbeitet auf Schicht 3, weil er Geräte verbindet.“ Nein: Ein normaler Switch leitet anhand der MAC-Adresse weiter und arbeitet auf Schicht 2. Erst der Router entscheidet anhand der IP-Adresse (Schicht 3).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>OSI-Modell:</strong> 7 Anwendung, 6 Darstellung, 5 Sitzung, 4 Transport (Ports, Segment), 3 Vermittlung (IP, Paket), 2 Sicherung (MAC, Rahmen), 1 Bitübertragung (Signale, Bit).</li>
+  <li><strong>Fehlersuche</strong> geht Schicht für Schicht, meist von unten nach oben.</li>
+</ul>

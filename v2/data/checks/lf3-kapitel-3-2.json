@@ -1,0 +1,126 @@
+{
+  "titel": "Check 3.2",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Switch",
+      "frage": "Auf welcher OSI-Schicht arbeitet ein einfacher Switch?",
+      "optionen": [
+        "Schicht 2, Sicherung",
+        "Schicht 1, Bitübertragung",
+        "Schicht 3, Vermittlung",
+        "Schicht 4, Transport"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Switch leitet Rahmen anhand der MAC-Adresse weiter. MAC-Adressen gehören zur Sicherungsschicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Fehler zuordnen",
+      "frage": "Ein PC hat eine falsche Subnetzmaske. Auf welcher OSI-Schicht liegt der Fehler?",
+      "optionen": [
+        "Vermittlung",
+        "Sicherung",
+        "Transport",
+        "Bitübertragung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Subnetzmaske und IP-Adresse gehören zur Vermittlungsschicht (Schicht 3)."
+    },
+    {
+      "typ": "mc",
+      "thema": "DHCP",
+      "frage": "Welcher OSI-Schicht wird DHCP zugeordnet?",
+      "optionen": [
+        "Anwendung",
+        "Vermittlung",
+        "Transport",
+        "Sicherung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "DHCP ist ein Anwendungsprotokoll: Seine Nachrichten werden selbst in UDP und IP verpackt. Die verteilte IP-Adresse wird auf Schicht 3 benutzt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Fehlersuche",
+      "frage": "Die Link-LED der Netzwerkkarte leuchtet und blinkt, trotzdem erreicht der PC den Server nicht. Was folgt daraus?",
+      "optionen": [
+        "Die physische Verbindung steht, der Fehler liegt oberhalb von Schicht 1",
+        "Das Patchkabel zwischen Dose und PC ist vermutlich defekt",
+        "Die Netzwerkkarte hat keine Verbindung zum Switch",
+        "Der Switch hat keinen Strom und muss neu gestartet werden"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Eine leuchtende und blinkende Link-LED zeigt eine funktionierende physische Verbindung mit Datenverkehr. Der Fehler liegt also oberhalb von Schicht 1."
+    },
+    {
+      "typ": "mc",
+      "thema": "TCP/IP-Modell",
+      "frage": "Welche Schicht des TCP/IP-Modells entspricht den OSI-Schichten 1 und 2?",
+      "optionen": [
+        "Netzzugang",
+        "Internet",
+        "Transport",
+        "Anwendung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Netzzugangsschicht fasst Bitübertragung und Sicherung zusammen. Die Internetschicht entspricht OSI-Schicht 3."
+    },
+    {
+      "typ": "mc",
+      "thema": "IP-Header",
+      "frage": "Welche Angabe steht im Header der Internetschicht?",
+      "optionen": [
+        "Ziel-IP-Adresse",
+        "Zielport",
+        "Ziel-MAC-Adresse",
+        "Prüfsumme des Rahmens (FCS)"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der IP-Header enthält Quell- und Ziel-IP-Adresse. Ports stehen im TCP- oder UDP-Header, MAC-Adressen und FCS im Ethernet-Rahmen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kapselung",
+      "frage": "Ein Paket läuft innerhalb eines Firmennetzes ohne Adressumsetzung über zwei Router zu einem Server. Was bleibt auf dem ganzen Weg gleich?",
+      "optionen": [
+        "Quell- und Ziel-IP-Adresse",
+        "Quell- und Ziel-MAC-Adresse",
+        "Der komplette Ethernet-Header",
+        "Die Prüfsumme am Ende des Rahmens"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Jeder Router packt den Rahmen aus und für die nächste Strecke neu ein; dabei wechseln die MAC-Adressen. Die IP-Adressen bleiben gleich."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Schicht 2",
+      "frage": "Welche Begriffe ordnest du der OSI-Schicht 2 zu? Wähle alle zutreffenden.",
+      "optionen": [
+        "MAC-Adresse",
+        "Switch",
+        "Verbindungslokale IPv6-Adresse",
+        "DHCP"
+      ],
+      "richtig": [
+        0,
+        1
+      ],
+      "erklaerung": "MAC-Adresse und Switch gehören zur Sicherungsschicht. Die verbindungslokale IPv6-Adresse ist eine IP-Adresse (Schicht 3), DHCP ein Anwendungsprotokoll."
+    }
+  ]
+}

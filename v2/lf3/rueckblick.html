@@ -187,6 +187,14 @@
             <li><a class="up is-check" data-check="lf3-3-1" href="3-1-check.html"><span class="num">3.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="3-2-1-das-osi-modell.html"><span class="num">3.2</span><span>Schichtenmodelle</span><span class="kap-progress" data-ids="3-2-1 3-2-2 3-2-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-2-1" href="3-2-1-das-osi-modell.html"><span class="num">3.2.1</span><span class="t">Das OSI-Modell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-2-2" href="3-2-2-das-tcp-ip-modell-und-kapselung.html"><span class="num">3.2.2</span><span class="t">Das TCP/IP-Modell und Kapselung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-2-3" href="3-2-3-geraete-und-protokolle-zuordnen.html"><span class="num">3.2.3</span><span class="t">Geräte und Protokolle zuordnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-2" href="3-2-check.html"><span class="num">3.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">3.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -274,8 +282,19 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-3-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 3.1</a></p>
 </section>
+<section class="rb-kapitel" id="k-3-2"><h2><span class="num">3.2</span> Schichtenmodelle</h2>
+<ul class="rb-list">
+<li><span class="num">3.2.1</span><div><a href="3-2-1-das-osi-modell.html">Das OSI-Modell</a><ul><li><strong>OSI-Modell:</strong> 7 Anwendung, 6 Darstellung, 5 Sitzung, 4 Transport (Ports, Segment), 3 Vermittlung (IP, Paket), 2 Sicherung (MAC, Rahmen), 1 Bitübertragung (Signale, Bit).</li>
+  <li><strong>Fehlersuche</strong> geht Schicht für Schicht, meist von unten nach oben.</li></ul></div></li>
+<li><span class="num">3.2.2</span><div><a href="3-2-2-das-tcp-ip-modell-und-kapselung.html">Das TCP/IP-Modell und Kapselung</a><ul><li><strong>TCP/IP-Modell:</strong> Anwendung (OSI 5 bis 7), Transport (4), Internet (3), Netzzugang (1 und 2).</li>
+  <li><strong>Kapselung:</strong> Jede Schicht setzt ihren Header davor (Port, IP-Adresse, MAC-Adresse), Ethernet hängt die Prüfsumme FCS an; IP-Adressen bleiben bis zum Ziel gleich (außer bei NAT), MAC-Adressen wechseln je Strecke.</li></ul></div></li>
+<li><span class="num">3.2.3</span><div><a href="3-2-3-geraete-und-protokolle-zuordnen.html">Geräte und Protokolle zuordnen</a><ul><li><strong>Geräte:</strong> Hub und Kabel Schicht 1, Switch und Access Point Schicht 2, Router Schicht 3.</li>
+  <li><strong>Adressen:</strong> MAC Schicht 2, IP Schicht 3, Port Schicht 4; DHCP, DNS, HTTP sind Anwendungsprotokolle (Schicht 7).</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-3-2.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 3.2</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="3-1-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">3.1</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="3-2-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">3.2</span>Check</span></a></nav>
 </main>
 </div>
 </body>

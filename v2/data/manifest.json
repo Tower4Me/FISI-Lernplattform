@@ -1299,6 +1299,77 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "3.2",
+          "titel": "Schichtenmodelle",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "3.2.1",
+              "titel": "Das OSI-Modell",
+              "slug": "das-osi-modell",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Strukturen und Komponenten des Netzwerkes, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (OSI-Schichten, Adressen, Fehler, Link-LED)"
+                ],
+                "extern": [
+                  "ISO/IEC 7498-1"
+                ]
+              },
+              "material": [
+                "iso-osi-tcp-ip"
+              ],
+              "begriffe": [
+                "schichtenmodelle"
+              ]
+            },
+            {
+              "nummer": "3.2.2",
+              "titel": "Das TCP/IP-Modell und Kapselung",
+              "slug": "das-tcp-ip-modell-und-kapselung",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Strukturen und Komponenten des Netzwerkes, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "RFC 1122"
+                ]
+              },
+              "material": [
+                "iso-osi-tcp-ip",
+                "header-uebersicht"
+              ],
+              "begriffe": [
+                "schichtenmodelle"
+              ]
+            },
+            {
+              "nummer": "3.2.3",
+              "titel": "Geräte und Protokolle zuordnen",
+              "slug": "geraete-und-protokolle-zuordnen",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Strukturen und Komponenten des Netzwerkes, Eigenschaften und Standards",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3 und Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (Begriffe den OSI-Schichten zuordnen)",
+                  "AP1 Herbst 2025 (OSI)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "netzwerkkomponenten"
+              ],
+              "begriffe": [
+                "schichtenmodelle"
+              ]
+            }
+          ]
         }
       ]
     },

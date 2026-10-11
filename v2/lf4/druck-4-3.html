@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>4.3 Bedrohungen erkennen und gewichten (Druck) – FISI Lernplattform</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/app.js" defer></script>
+<script src="../assets/tabs.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+</svg>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="site-header">
+  <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
+  <a class="brand" href="../index.html"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
+  <div class="header-tools">
+    <a class="header-link" href="../../module/pruefung/simulation-ap1.html">Prüfungssimulator</a>
+    <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
+    <div class="theme-switch" role="group" aria-label="Farbschema">
+      <button type="button" data-theme-value="light" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span class="ts-text">Hell</span></button>
+      <button type="button" data-theme-value="dark" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span class="ts-text">Dunkel</span></button>
+      <button type="button" data-theme-value="system" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-auto"/></svg><span class="ts-text">System</span></button>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidenav" id="nav" aria-label="Lernfelder">
+  <ul class="nav-lf">
+    <li class="lf is-open" data-stufe="AP1" aria-current="true"><button class="lf-head" type="button" aria-expanded="true"><span class="num">LF4</span><span>Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="4-1-1-warum-informationssicherheit.html"><span class="num">4.1</span><span>Grundlagen der Informationssicherheit</span><span class="kap-progress" data-ids="4-1-1 4-1-2 4-1-3 4-1-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-1-1" href="4-1-1-warum-informationssicherheit.html"><span class="num">4.1.1</span><span class="t">Warum Informationssicherheit?</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-2" href="4-1-2-die-drei-schutzziele.html"><span class="num">4.1.2</span><span class="t">Die drei Schutzziele</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-3" href="4-1-3-authentizitaet-und-verbindlichkeit.html"><span class="num">4.1.3</span><span class="t">Authentizität und Verbindlichkeit</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-4" href="4-1-4-informationswerte-im-arbeitsbereich.html"><span class="num">4.1.4</span><span class="t">Informationswerte im eigenen Arbeitsbereich</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-1" href="4-1-check.html"><span class="num">4.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="4-2-1-datenschutz-dsgvo-bdsg.html"><span class="num">4.2</span><span>Rechtliche und betriebliche Vorgaben</span><span class="kap-progress" data-ids="4-2-1 4-2-2 4-2-3 4-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-2-1" href="4-2-1-datenschutz-dsgvo-bdsg.html"><span class="num">4.2.1</span><span class="t">Datenschutz: DSGVO und BDSG</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-2" href="4-2-2-technische-und-organisatorische-massnahmen.html"><span class="num">4.2.2</span><span class="t">Technische und organisatorische Maßnahmen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-3" href="4-2-3-sicherheitsleitlinie-und-isms.html"><span class="num">4.2.3</span><span class="t">Sicherheitsleitlinie und ISMS</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-4" href="4-2-4-zustaendigkeiten-und-eigene-pflichten.html"><span class="num">4.2.4</span><span class="t">Zuständigkeiten und eigene Pflichten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-2" href="4-2-check.html"><span class="num">4.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap is-open"><a class="kap-head" href="4-3-1-gefaehrdungen-im-ueberblick.html"><span class="num">4.3</span><span>Bedrohungen erkennen und gewichten</span><span class="kap-progress" data-ids="4-3-1 4-3-2 4-3-3 4-3-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-3-1" href="4-3-1-gefaehrdungen-im-ueberblick.html"><span class="num">4.3.1</span><span class="t">Gefährdungen im Überblick</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-2" href="4-3-2-schadsoftware.html"><span class="num">4.3.2</span><span class="t">Schadsoftware</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-3" href="4-3-3-social-engineering-und-phishing.html"><span class="num">4.3.3</span><span class="t">Social Engineering und Phishing</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-4" href="4-3-4-bedrohungen-gewichten.html"><span class="num">4.3.4</span><span class="t">Bedrohungen gewichten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-3" href="4-3-check.html"><span class="num">4.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html"><span class="num">4.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="nav-extra"><a href="../../module/pruefung/simulation-ap1.html"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Prüfungssimulator</a></div>
+</nav>
+<main class="page" id="inhalt">
+<nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF4</a></li><li><a href="index.html#k-4-3">4.3 Bedrohungen erkennen und gewichten</a></li><li aria-current="page">Druckfassung</li></ol></nav>
+<header class="page-head">
+  <h1><span class="num">4.3</span>Bedrohungen erkennen und gewichten</h1>
+  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>LF4: Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen</span></p>
+  <p class="no-print" style="margin-top:16px"><button class="btn btn-primary" type="button" onclick="window.print()"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Drucken</button></p>
+</header>
+<div class="content">
+<section class="print-up" id="u-4-3-1"><h2><span class="num">4.3.1</span> Gefährdungen im Überblick</h2>
+<p class="lead">Nicht jeder Schaden kommt von Angreifern. Auch ein Wasserrohrbruch, eine defekte Festplatte oder ein versehentlich gelöschter Ordner können großen Schaden anrichten. Wer Bedrohungen erfassen soll, braucht deshalb einen breiten Blick und ein Raster, das hilft, nichts zu vergessen.</p>
+
+<h3 id="u4-3-1-bedrohung-schwachstelle-gefaehrdung">Bedrohung, Schwachstelle, Gefährdung<a class="anchor" href="#u4-3-1-bedrohung-schwachstelle-gefaehrdung" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Drei Begriffe hängen eng zusammen:</p>
+<dl>
+  <dt>Bedrohung</dt><dd>Ein Umstand oder Ereignis, das Schaden anrichten kann, zum Beispiel ein Brand oder ein Angreifer, der Passwörter errät.</dd>
+  <dt>Schwachstelle</dt><dd>Eine Lücke, durch die eine Bedrohung wirken kann, zum Beispiel ein Serverraum ohne Rauchmelder oder ein schwaches Passwort.</dd>
+  <dt>Gefährdung</dt><dd>Eine Bedrohung, die auf ein bestimmtes Objekt treffen kann, weil dort eine passende Schwachstelle besteht.</dd>
+</dl>
+<p>Für einen Server im abgeschlossenen Rechenzentrum ergibt sich aus der Bedrohung Einbruch kaum eine Gefährdung. Steht derselbe Server unverschlossen im Flur, entsteht eine echte Gefährdung. Deshalb schaust du bei der Analyse immer auf Bedrohung und Schwachstelle zusammen.</p>
+
+<h3 id="u4-3-1-ein-raster-mit-fuenf-ursachen">Ein Raster mit fünf Ursachen<a class="anchor" href="#u4-3-1-ein-raster-mit-fuenf-ursachen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Die früheren IT-Grundschutz-Kataloge des BSI ordneten Gefährdungen nach ihrer Ursache. Das Raster ist bis heute nützlich, um beim Aufnehmen nichts zu übersehen:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Ursache</th><th>Beispiele</th></tr></thead>
+    <tbody>
+      <tr><th>Höhere Gewalt</th><td>Feuer, Wasser, Blitzeinschlag, Sturm</td></tr>
+      <tr><th>Technisches Versagen</th><td>Festplattendefekt, Ausfall der Stromversorgung, Fehler in einer Software</td></tr>
+      <tr><th>Menschliche Fehlhandlungen</th><td>Datei versehentlich gelöscht, Mail an den falschen Empfänger, falsche Einstellung</td></tr>
+      <tr><th>Organisatorische Mängel</th><td>keine Vertretungsregel, Backups nie getestet, unklare Zuständigkeiten</td></tr>
+      <tr><th>Vorsätzliche Handlungen</th><td>Schadsoftware, Phishing, Diebstahl eines Notebooks, Sabotage</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Das aktuelle IT-Grundschutz-Kompendium führt stattdessen eine Liste sogenannter elementarer Gefährdungen. Für deine Analyse im eigenen Arbeitsbereich reicht das Raster oben als Gedankenstütze.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Lager eines Getränkehändlers steht der PC für die Warenausgabe direkt neben dem Rolltor. Beim Durchgehen des Rasters fallen auf: Im Winter wird es dort feucht und kalt (höhere Gewalt, technisches Versagen), Fahrer nutzen den PC zwischendurch zum Surfen, weil es niemand regelt (organisatorischer Mangel), und können sich dabei Schadsoftware einfangen. Der PC steht am offenen Rolltor und könnte gestohlen werden (vorsätzliche Handlung). Niemand weiß, wer bei einem Ausfall zuständig ist (organisatorischer Mangel).</p>
+</div>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Bei uns ist nichts zu holen, uns greift keiner an.“ Viele Angriffe sind nicht gezielt, sondern automatisiert und treffen jeden, der eine Lücke hat. Und viele Schäden entstehen ganz ohne Angreifer, durch Technik, Unachtsamkeit oder fehlende Regeln.</p></aside>
+
+<div class="merksatz"><p class="block-label">Merksatz</p><p>Eine Gefährdung entsteht, wenn eine Bedrohung auf eine Schwachstelle trifft; prüfe höhere Gewalt, Technik, Menschen, Organisation und Vorsatz.</p></div>
+</section>
+<section class="print-up" id="u-4-3-2"><h2><span class="num">4.3.2</span> Schadsoftware</h2>
+<p class="lead">Schadsoftware ist eine der häufigsten Bedrohungen für jeden Arbeitsplatz. Um sie in deiner Analyse richtig einzuordnen, musst du wissen, wie die wichtigsten Arten funktionieren, wie sie auf den Rechner kommen und welche Schutzziele sie treffen.</p>
+
+<h3 id="u4-3-2-die-wichtigsten-arten">Die wichtigsten Arten<a class="anchor" href="#u4-3-2-die-wichtigsten-arten" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Schadsoftware (englisch Malware) ist der Oberbegriff für Programme, die gebaut wurden, um Schaden anzurichten, Daten auszuspähen oder Rechner zu missbrauchen. Die Arten unterscheiden sich vor allem darin, wie sie sich verbreiten und was sie tun.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>Merkmal</th><th>Trifft vor allem</th></tr></thead>
+    <tbody>
+      <tr><th>Virus</th><td>Hängt sich an Programme oder Dokumente und wird aktiv, wenn diese geöffnet oder ausgeführt werden. Verbreitet sich, indem er weitere Dateien befällt.</td><td>Integrität, Verfügbarkeit</td></tr>
+      <tr><th>Wurm</th><td>Eigenständiges Programm, das sich selbst über Netzwerke weiterverbreitet, oft über Sicherheitslücken, ohne dass jemand etwas öffnen muss. Manche Würmer verschicken sich auch selbst per Mail.</td><td>Verfügbarkeit</td></tr>
+      <tr><th>Trojaner</th><td>Tarnt sich als nützliches Programm und führt im Hintergrund Schadfunktionen aus, etwa eine Hintertür für Angreifer. Verbreitet sich nicht selbst.</td><td>Vertraulichkeit, Integrität</td></tr>
+      <tr><th>Ransomware (Erpressungstrojaner)</th><td>Verschlüsselt Daten und verlangt Lösegeld für die Entschlüsselung, oft verbunden mit Datendiebstahl.</td><td>Verfügbarkeit, Vertraulichkeit</td></tr>
+      <tr><th>Spyware, Keylogger</th><td>Späht Daten oder Tastatureingaben aus, zum Beispiel Passwörter, und schickt sie an Dritte.</td><td>Vertraulichkeit</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>In der Praxis sind die Grenzen fließend. Ein Trojaner kann Ransomware nachladen, ein Wurm kann eine Hintertür öffnen. Für die Analyse zählt vor allem, welche Schutzziele betroffen sind.</p>
+
+<h3 id="u4-3-2-wie-schadsoftware-auf-den-rechner-kommt">Wie Schadsoftware auf den Rechner kommt<a class="anchor" href="#u4-3-2-wie-schadsoftware-auf-den-rechner-kommt" aria-hidden="true" tabindex="-1">#</a></h3>
+<ul>
+  <li><strong>Mailanhänge und Links</strong>, die zum Öffnen einer Datei oder zum Download verleiten,</li>
+  <li><strong>Downloads</strong> aus unsicheren Quellen, etwa „kostenlose“ Vollversionen,</li>
+  <li><strong>Wechseldatenträger</strong> wie gefundene oder fremde USB-Sticks,</li>
+  <li><strong>Sicherheitslücken</strong> in Betriebssystem oder Programmen, für die Updates fehlen.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>In einer Zahnarztpraxis kommt eine Mail mit dem Betreff „Ihre Rechnung Nr. 4471“ und einem Office-Dokument im Anhang. Die Empfangskraft öffnet es und klickt auf „Inhalt aktivieren“. Ein Makro im Dokument lädt einen Trojaner nach, der wiederum Ransomware nachlädt. Diese verschlüsselt über Nacht die Freigaben auf dem Praxisserver. Am Morgen kann niemand Termine oder Befunde öffnen.</p>
+</div>
+
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Virenschutzprogramme heißen aus Gewohnheit so, richten sich aber gegen alle Arten von Schadsoftware, nicht nur gegen Viren. Sie sind eine wichtige Maßnahme, verhindern aber nicht jede Infektion. Updates, eingeschränkte Rechte und vorsichtiges Verhalten gehören dazu. Diese Maßnahmen folgen in späteren Kapiteln.</p></aside>
+
+<div class="merksatz"><p class="block-label">Merksatz</p><p>Viren befallen Dateien, Würmer verbreiten sich selbst übers Netz, Trojaner tarnen sich als nützliche Programme und Ransomware erpresst über verschlüsselte Daten.</p></div>
+</section>
+<section class="print-up" id="u-4-3-3"><h2><span class="num">4.3.3</span> Social Engineering und Phishing</h2>
+<p class="lead">Die beste Technik nützt wenig, wenn jemand freiwillig sein Passwort verrät. Social Engineering greift nicht die Technik an, sondern Menschen: ihre Hilfsbereitschaft, ihren Respekt vor Vorgesetzten, ihre Neugier oder ihren Zeitdruck.</p>
+
+<h3 id="u4-3-3-was-social-engineering-ist">Was Social Engineering ist<a class="anchor" href="#u4-3-3-was-social-engineering-ist" aria-hidden="true" tabindex="-1">#</a></h3>
+<p><strong>Social Engineering</strong> bedeutet, Menschen so zu beeinflussen, dass sie etwas tun, was sie sonst nicht tun würden: vertrauliche Informationen preisgeben, eine Zahlung auslösen, einen Anhang öffnen oder eine Tür aufhalten. Angreifer nutzen dafür typische Hebel:</p>
+<ul>
+  <li><strong>Autorität:</strong> „Hier spricht der Geschäftsführer.“</li>
+  <li><strong>Zeitdruck:</strong> „Ihr Konto wird in zwei Stunden gesperrt.“</li>
+  <li><strong>Hilfsbereitschaft:</strong> „Ich bin neu und komme nicht ins System, können Sie kurz …?“</li>
+  <li><strong>Neugier oder Angst:</strong> „Anbei die Gehaltsliste“, „Mahnung, letzte Frist“.</li>
+</ul>
+
+<h3 id="u4-3-3-haeufige-formen">Häufige Formen<a class="anchor" href="#u4-3-3-haeufige-formen" aria-hidden="true" tabindex="-1">#</a></h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Form</th><th>So läuft es ab</th></tr></thead>
+    <tbody>
+      <tr><th>Phishing</th><td>Gefälschte Mails oder Webseiten, die wie echte aussehen und Zugangsdaten abgreifen oder Schadsoftware verteilen.</td></tr>
+      <tr><th>Spear-Phishing</th><td>Phishing, das gezielt auf eine Person oder Firma zugeschnitten ist, mit echten Namen und passenden Details.</td></tr>
+      <tr><th>CEO-Fraud</th><td>Angebliche Anweisung der Chefin oder des Chefs, dringend und vertraulich Geld zu überweisen.</td></tr>
+      <tr><th>Anruf (Vishing, Voice-Phishing)</th><td>Ein falscher „IT-Support“ ruft an und bittet um das Passwort oder um die Installation eines Fernwartungsprogramms.</td></tr>
+      <tr><th>Tailgating</th><td>Jemand geht hinter einer berechtigten Person durch eine gesicherte Tür, oft mit vollen Händen.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 id="u4-3-3-woran-du-phishing-erkennst">Woran du Phishing erkennst<a class="anchor" href="#u4-3-3-woran-du-phishing-erkennst" aria-hidden="true" tabindex="-1">#</a></h3>
+<ul>
+  <li>Der Absender passt nicht: Die Adresse weicht ab, auch wenn der angezeigte Name stimmt. Umgekehrt beweist eine richtige Adresse nichts, denn Absender lassen sich fälschen.</li>
+  <li>Das Linkziel passt nicht: Fährst du mit der Maus über den Link (am Smartphone: Link lange gedrückt halten), zeigt er auf eine fremde Adresse.</li>
+  <li>Die Mail erzeugt Druck oder verlangt etwas Ungewöhnliches, etwa Passwort, TAN oder eine Zahlung auf ein neues Konto.</li>
+  <li>Anrede, Sprache oder Gestaltung wirken anders als sonst. Gute Fälschungen sind allerdings oft fehlerfrei, korrekte Sprache beweist also nichts.</li>
+  <li>Im Zweifel fragst du nach, aber über einen Weg, den du selbst kennst, etwa die bekannte Telefonnummer oder persönlich, nicht über Kontaktdaten oder Links aus der Mail.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Auszubildender in einem Autohaus bekommt einen Anruf: „Hier ist der Microsoft-Support, auf Ihrem Rechner wurde ein Virus gefunden. Bitte installieren Sie dieses Programm, damit wir helfen können.“ Seriöse Hersteller rufen nicht unaufgefordert an. Richtig ist: auflegen, nichts installieren, den Anruf der eigenen IT melden.</p>
+</div>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Nur unvorsichtige Leute fallen darauf herein.“ Gezielte Angriffe sind oft gut gemacht und nutzen Stresssituationen. Wichtiger als Schuld ist, einen Fehler sofort zu melden: Je früher die IT Bescheid weiß, desto kleiner bleibt der Schaden.</p></aside>
+
+<div class="merksatz"><p class="block-label">Merksatz</p><p>Social Engineering manipuliert Menschen über Autorität, Zeitdruck, Hilfsbereitschaft oder Neugier; bei ungewöhnlichen Anfragen prüfst du Absender und Linkziel und fragst über einen bekannten Weg nach.</p></div>
+</section>
+<section class="print-up" id="u-4-3-4"><h2><span class="num">4.3.4</span> Bedrohungen gewichten</h2>
+<p class="lead">Du hast eine Liste von Bedrohungen gesammelt. Nicht alle sind gleich wichtig, und Zeit und Geld für Maßnahmen sind begrenzt. Deshalb gewichtest du: Was droht häufig, was richtet großen Schaden an, und womit fängst du an?</p>
+
+<h3 id="u4-3-4-zwei-fragen-pro-bedrohung">Zwei Fragen pro Bedrohung<a class="anchor" href="#u4-3-4-zwei-fragen-pro-bedrohung" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Für jede Bedrohung stellst du zwei Fragen:</p>
+<ol>
+  <li>Wie <strong>wahrscheinlich</strong> ist es, dass sie eintritt? (Eintrittswahrscheinlichkeit)</li>
+  <li>Wie <strong>groß</strong> wäre der Schaden, wenn sie eintritt? (Schadenshöhe)</li>
+</ol>
+<p>Aus beidem zusammen ergibt sich das <strong>Risiko</strong>. Als Faustformel gilt:</p>
+<p><code>Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe</code></p>
+<p>Ein seltenes Ereignis mit sehr großem Schaden kann deshalb genauso wichtig sein wie ein häufiges mit kleinem Schaden.</p>
+
+<h3 id="u4-3-4-eine-einfache-risikomatrix">Eine einfache Risikomatrix<a class="anchor" href="#u4-3-4-eine-einfache-risikomatrix" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Im Betrieb fehlen meist genaue Zahlen. Dann bewertest du beide Größen in Stufen, etwa gering, mittel und hoch, und liest das Risiko aus einer Matrix ab.</p>
+<div class="vergleich">
+  <table>
+    <caption>Risiko je nach Wahrscheinlichkeit (Zeilen) und Schaden (Spalten)</caption>
+    <thead><tr><th>Wahrscheinlichkeit</th><th>Schaden gering</th><th>Schaden mittel</th><th>Schaden hoch</th></tr></thead>
+    <tbody>
+      <tr><th>hoch</th><td>mittel</td><td>hoch</td><td>hoch</td></tr>
+      <tr><th>mittel</th><td>gering</td><td>mittel</td><td>hoch</td></tr>
+      <tr><th>gering</th><td>gering</td><td>gering</td><td>mittel</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die genauen Stufen und Grenzen legt jeder Betrieb selbst fest, oft in einer Richtlinie zum Umgang mit Risiken, die die Leitung vorgibt. Wichtig ist, dass alle nach denselben Regeln bewerten.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Büro einer Fahrschule werden drei Bedrohungen bewertet:</p>
+  <ul>
+    <li>Phishing-Mail an das gemeinsame Postfach: Wahrscheinlichkeit hoch, Schaden mittel, also Risiko <strong>hoch</strong>.</li>
+    <li>Festplattendefekt im Büro-PC ohne aktuelle Sicherung: Wahrscheinlichkeit mittel, Schaden hoch, also Risiko <strong>hoch</strong>.</li>
+    <li>Diebstahl des Beamers aus dem Schulungsraum: Wahrscheinlichkeit gering, Schaden gering, also Risiko <strong>gering</strong>.</li>
+  </ul>
+  <p>Zuerst kümmert sich die Fahrschule um Datensicherung und Schulung gegen Phishing, der Beamer kann warten.</p>
+</div>
+
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Die Schutzbedarfsfeststellung im nächsten Kapitel fragt nur nach der Höhe des möglichen Schadens, nicht nach der Wahrscheinlichkeit. Beides zusammen brauchst du, wenn du entscheidest, welche Bedrohung du zuerst angehst. Diese einfache Gewichtung ersetzt nicht die Risikoanalyse nach BSI-Standard 200-3, die nach der Schutzbedarfsfeststellung vor allem bei hohem Schutzbedarf folgt.</p></aside>
+
+<aside class="note note-ueber-ap"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-skip"/></svg>Über AP hinaus</p><p>Rechnet man mit Geldbeträgen und Wahrscheinlichkeiten pro Jahr, erhält man den erwarteten Schaden pro Jahr. Ausführliche Risikoanalysen nach BSI-Standard 200-3 sind Thema späterer Lernfelder.</p></aside>
+
+<div class="merksatz"><p class="block-label">Merksatz</p><p>Risiko ergibt sich aus Eintrittswahrscheinlichkeit und Schadenshöhe; mit einer Risikomatrix legst du fest, welche Bedrohungen du zuerst angehst.</p></div>
+</section>
+</div>
+</main>
+</div>
+</body>
+</html>

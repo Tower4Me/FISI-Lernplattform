@@ -79,6 +79,10 @@
         {
           "id": "4-1-2",
           "tiefe": "Beispiel für Vorfall mit mehreren verletzten Schutzzielen"
+        },
+        {
+          "id": "4-3-2",
+          "tiefe": "Einordnung als Schadsoftware-Art"
         }
       ]
     },
@@ -163,6 +167,65 @@
         {
           "id": "4-2-4",
           "tiefe": "Pflicht und Rolle"
+        }
+      ]
+    },
+    {
+      "begriff": "gefaehrdung",
+      "kernfakten": [
+        "Bedrohung: Umstand oder Ereignis, das Schaden verursachen kann.",
+        "Schwachstelle: Lücke, über die eine Bedrohung wirken kann.",
+        "Gefährdung (BSI): Bedrohung, die über eine Schwachstelle konkret auf ein Objekt einwirken kann.",
+        "Ursachenraster (frühere IT-Grundschutz-Kataloge G1-G5): höhere Gewalt, organisatorische Mängel, menschliche Fehlhandlungen, technisches Versagen (u. a. Ausfall der Stromversorgung), vorsätzliche Handlungen. Aktuelles Kompendium: elementare Gefährdungen."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-3-1",
+          "tiefe": "Begriffe und Raster zum Aufnehmen"
+        }
+      ]
+    },
+    {
+      "begriff": "schadsoftware",
+      "kernfakten": [
+        "Virus: befällt Dateien/Programme, aktiv beim Öffnen, verbreitet sich durch Befall weiterer Dateien.",
+        "Wurm: eigenständiges Programm, verbreitet sich selbst über Netzwerke, oft über Sicherheitslücken; manche auch per Mail.",
+        "Trojaner: als nützliches Programm getarnt, führt verdeckt Schadfunktionen aus (z. B. Hintertür); verbreitet sich nicht selbst.",
+        "Spyware/Keylogger: spähen Daten bzw. Tastatureingaben aus.",
+        "Verbreitungswege: Mailanhänge/Links, unsichere Downloads, Wechseldatenträger, ungepatchte Lücken."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-3-2",
+          "tiefe": "Arten, Wege, betroffene Schutzziele"
+        }
+      ]
+    },
+    {
+      "begriff": "social-engineering",
+      "kernfakten": [
+        "Social Engineering manipuliert Menschen statt Technik; Hebel u. a. Autorität, Zeitdruck, Hilfsbereitschaft, Neugier/Angst.",
+        "Phishing: gefälschte Mails/Webseiten zum Abgreifen von Zugangsdaten oder Verteilen von Schadsoftware; Spear-Phishing gezielt.",
+        "Erkennen: abweichende Absenderadresse, abweichendes Linkziel, Druck, ungewöhnliche Forderungen; Rückfrage über bekannten Kanal."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-3-3",
+          "tiefe": "Formen und Erkennungsmerkmale"
+        }
+      ]
+    },
+    {
+      "begriff": "risiko",
+      "kernfakten": [
+        "Risiko ergibt sich aus Eintrittswahrscheinlichkeit und Schadenshöhe (Faustformel Produkt).",
+        "Qualitative Bewertung über Risikomatrix mit betrieblich festgelegten Stufen.",
+        "Schutzbedarfsfeststellung bewertet nur die Schadensauswirkung, nicht die Wahrscheinlichkeit."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-3-4",
+          "tiefe": "Gewichtung von Bedrohungen, einfache Matrix"
         }
       ]
     }

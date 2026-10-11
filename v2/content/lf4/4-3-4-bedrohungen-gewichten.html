@@ -1,0 +1,43 @@
+<p class="lead">Du hast eine Liste von Bedrohungen gesammelt. Nicht alle sind gleich wichtig, und Zeit und Geld für Maßnahmen sind begrenzt. Deshalb gewichtest du: Was droht häufig, was richtet großen Schaden an, und womit fängst du an?</p>
+
+<h3>Zwei Fragen pro Bedrohung</h3>
+<p>Für jede Bedrohung stellst du zwei Fragen:</p>
+<ol>
+  <li>Wie <strong>wahrscheinlich</strong> ist es, dass sie eintritt? (Eintrittswahrscheinlichkeit)</li>
+  <li>Wie <strong>groß</strong> wäre der Schaden, wenn sie eintritt? (Schadenshöhe)</li>
+</ol>
+<p>Aus beidem zusammen ergibt sich das <strong>Risiko</strong>. Als Faustformel gilt:</p>
+<p><code>Risiko = Eintrittswahrscheinlichkeit × Schadenshöhe</code></p>
+<p>Ein seltenes Ereignis mit sehr großem Schaden kann deshalb genauso wichtig sein wie ein häufiges mit kleinem Schaden.</p>
+
+<h3>Eine einfache Risikomatrix</h3>
+<p>Im Betrieb fehlen meist genaue Zahlen. Dann bewertest du beide Größen in Stufen, etwa gering, mittel und hoch, und liest das Risiko aus einer Matrix ab.</p>
+<div class="vergleich">
+  <table>
+    <caption>Risiko je nach Wahrscheinlichkeit (Zeilen) und Schaden (Spalten)</caption>
+    <thead><tr><th>Wahrscheinlichkeit</th><th>Schaden gering</th><th>Schaden mittel</th><th>Schaden hoch</th></tr></thead>
+    <tbody>
+      <tr><th>hoch</th><td>mittel</td><td>hoch</td><td>hoch</td></tr>
+      <tr><th>mittel</th><td>gering</td><td>mittel</td><td>hoch</td></tr>
+      <tr><th>gering</th><td>gering</td><td>gering</td><td>mittel</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die genauen Stufen und Grenzen legt jeder Betrieb selbst fest, oft in einer Richtlinie zum Umgang mit Risiken, die die Leitung vorgibt. Wichtig ist, dass alle nach denselben Regeln bewerten.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Büro einer Fahrschule werden drei Bedrohungen bewertet:</p>
+  <ul>
+    <li>Phishing-Mail an das gemeinsame Postfach: Wahrscheinlichkeit hoch, Schaden mittel, also Risiko <strong>hoch</strong>.</li>
+    <li>Festplattendefekt im Büro-PC ohne aktuelle Sicherung: Wahrscheinlichkeit mittel, Schaden hoch, also Risiko <strong>hoch</strong>.</li>
+    <li>Diebstahl des Beamers aus dem Schulungsraum: Wahrscheinlichkeit gering, Schaden gering, also Risiko <strong>gering</strong>.</li>
+  </ul>
+  <p>Zuerst kümmert sich die Fahrschule um Datensicherung und Schulung gegen Phishing, der Beamer kann warten.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Die Schutzbedarfsfeststellung im nächsten Kapitel fragt nur nach der Höhe des möglichen Schadens, nicht nach der Wahrscheinlichkeit. Beides zusammen brauchst du, wenn du entscheidest, welche Bedrohung du zuerst angehst. Diese einfache Gewichtung ersetzt nicht die Risikoanalyse nach BSI-Standard 200-3, die nach der Schutzbedarfsfeststellung vor allem bei hohem Schutzbedarf folgt.</p></aside>
+
+<aside class="note" data-typ="ueber-ap"><p>Rechnet man mit Geldbeträgen und Wahrscheinlichkeiten pro Jahr, erhält man den erwarteten Schaden pro Jahr. Ausführliche Risikoanalysen nach BSI-Standard 200-3 sind Thema späterer Lernfelder.</p></aside>
+
+<p class="merksatz">Risiko ergibt sich aus Eintrittswahrscheinlichkeit und Schadenshöhe; mit einer Risikomatrix legst du fest, welche Bedrohungen du zuerst angehst.</p>

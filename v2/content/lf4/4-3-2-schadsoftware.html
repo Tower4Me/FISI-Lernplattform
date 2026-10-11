@@ -1,0 +1,34 @@
+<p class="lead">Schadsoftware ist eine der häufigsten Bedrohungen für jeden Arbeitsplatz. Um sie in deiner Analyse richtig einzuordnen, musst du wissen, wie die wichtigsten Arten funktionieren, wie sie auf den Rechner kommen und welche Schutzziele sie treffen.</p>
+
+<h3>Die wichtigsten Arten</h3>
+<p>Schadsoftware (englisch Malware) ist der Oberbegriff für Programme, die gebaut wurden, um Schaden anzurichten, Daten auszuspähen oder Rechner zu missbrauchen. Die Arten unterscheiden sich vor allem darin, wie sie sich verbreiten und was sie tun.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>Merkmal</th><th>Trifft vor allem</th></tr></thead>
+    <tbody>
+      <tr><th>Virus</th><td>Hängt sich an Programme oder Dokumente und wird aktiv, wenn diese geöffnet oder ausgeführt werden. Verbreitet sich, indem er weitere Dateien befällt.</td><td>Integrität, Verfügbarkeit</td></tr>
+      <tr><th>Wurm</th><td>Eigenständiges Programm, das sich selbst über Netzwerke weiterverbreitet, oft über Sicherheitslücken, ohne dass jemand etwas öffnen muss. Manche Würmer verschicken sich auch selbst per Mail.</td><td>Verfügbarkeit</td></tr>
+      <tr><th>Trojaner</th><td>Tarnt sich als nützliches Programm und führt im Hintergrund Schadfunktionen aus, etwa eine Hintertür für Angreifer. Verbreitet sich nicht selbst.</td><td>Vertraulichkeit, Integrität</td></tr>
+      <tr><th>Ransomware (Erpressungstrojaner)</th><td>Verschlüsselt Daten und verlangt Lösegeld für die Entschlüsselung, oft verbunden mit Datendiebstahl.</td><td>Verfügbarkeit, Vertraulichkeit</td></tr>
+      <tr><th>Spyware, Keylogger</th><td>Späht Daten oder Tastatureingaben aus, zum Beispiel Passwörter, und schickt sie an Dritte.</td><td>Vertraulichkeit</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>In der Praxis sind die Grenzen fließend. Ein Trojaner kann Ransomware nachladen, ein Wurm kann eine Hintertür öffnen. Für die Analyse zählt vor allem, welche Schutzziele betroffen sind.</p>
+
+<h3>Wie Schadsoftware auf den Rechner kommt</h3>
+<ul>
+  <li><strong>Mailanhänge und Links</strong>, die zum Öffnen einer Datei oder zum Download verleiten,</li>
+  <li><strong>Downloads</strong> aus unsicheren Quellen, etwa „kostenlose“ Vollversionen,</li>
+  <li><strong>Wechseldatenträger</strong> wie gefundene oder fremde USB-Sticks,</li>
+  <li><strong>Sicherheitslücken</strong> in Betriebssystem oder Programmen, für die Updates fehlen.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>In einer Zahnarztpraxis kommt eine Mail mit dem Betreff „Ihre Rechnung Nr. 4471“ und einem Office-Dokument im Anhang. Die Empfangskraft öffnet es und klickt auf „Inhalt aktivieren“. Ein Makro im Dokument lädt einen Trojaner nach, der wiederum Ransomware nachlädt. Diese verschlüsselt über Nacht die Freigaben auf dem Praxisserver. Am Morgen kann niemand Termine oder Befunde öffnen.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Virenschutzprogramme heißen aus Gewohnheit so, richten sich aber gegen alle Arten von Schadsoftware, nicht nur gegen Viren. Sie sind eine wichtige Maßnahme, verhindern aber nicht jede Infektion. Updates, eingeschränkte Rechte und vorsichtiges Verhalten gehören dazu. Diese Maßnahmen folgen in späteren Kapiteln.</p></aside>
+
+<p class="merksatz">Viren befallen Dateien, Würmer verbreiten sich selbst übers Netz, Trojaner tarnen sich als nützliche Programme und Ransomware erpresst über verschlüsselte Daten.</p>

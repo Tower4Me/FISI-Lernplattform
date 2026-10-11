@@ -205,6 +205,102 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "4.3",
+          "titel": "Bedrohungen erkennen und gewichten",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "4.3.1",
+              "titel": "Gefährdungen im Überblick",
+              "slug": "gefaehrdungen-im-ueberblick",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Bedrohungsfaktoren aufnehmen und dokumentieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6c",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (Ausfall Internetzugang)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium, Glossar (Bedrohung, Schwachstelle, Gefährdung)",
+                  "BSI IT-Grundschutz-Kataloge, Gliederung G1 bis G5 (ältere Fassung)"
+                ]
+              },
+              "material": [
+                "angriffsmethoden",
+                "physische-sicherheit"
+              ],
+              "begriffe": [
+                "gefaehrdung"
+              ]
+            },
+            {
+              "nummer": "4.3.2",
+              "titel": "Schadsoftware",
+              "slug": "schadsoftware",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Bedrohungsfaktoren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6c",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024, Aufgabe 4d"
+                ],
+                "extern": [
+                  "BSI für Bürger: Schadprogramme"
+                ]
+              },
+              "material": [
+                "schadsoftware-typen"
+              ],
+              "begriffe": [
+                "schadsoftware",
+                "ransomware"
+              ]
+            },
+            {
+              "nummer": "4.3.3",
+              "titel": "Social Engineering und Phishing",
+              "slug": "social-engineering-und-phishing",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Bedrohungsfaktoren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6c",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2025, Aufgabe 3b (Phishing)"
+                ],
+                "extern": [
+                  "BSI: Social Engineering, Phishing"
+                ]
+              },
+              "material": [
+                "angriffsmethoden"
+              ],
+              "begriffe": [
+                "social-engineering"
+              ]
+            },
+            {
+              "nummer": "4.3.4",
+              "titel": "Bedrohungen gewichten",
+              "slug": "bedrohungen-gewichten",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Gewichtung möglicher Bedrohungen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6c",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "BSI-Standard 200-3 (Risikomatrix, Grundprinzip)"
+                ]
+              },
+              "material": [
+                "schutzbedarfsanalyse"
+              ],
+              "begriffe": [
+                "risiko"
+              ]
+            }
+          ]
         }
       ]
     }

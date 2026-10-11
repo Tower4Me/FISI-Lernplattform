@@ -1,0 +1,112 @@
+{
+  "titel": "Check 4.3",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Gefährdung = Bedrohung + Schwachstelle",
+      "frage": "Ein Server steht unverschlossen in einem Flur, durch den auch Besucher gehen. Was beschreibt der offene Standort in der Analyse?",
+      "optionen": [
+        "Eine Bedrohung",
+        "Eine Schwachstelle",
+        "Ein Schutzziel",
+        "Ein Risiko"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Der offene Standort ist eine Lücke, durch die eine Bedrohung wie Diebstahl wirken kann. Zusammen mit der Bedrohung ergibt sich die Gefährdung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Ursache einer Gefährdung einordnen",
+      "frage": "Im Betrieb wurden die Datensicherungen seit Jahren nie zurückgespielt, und niemand ist dafür zuständig. Zu welcher Ursache gehört das?",
+      "optionen": [
+        "Höhere Gewalt",
+        "Technisches Versagen",
+        "Organisatorische Mängel",
+        "Vorsätzliche Handlungen"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Fehlende Tests und unklare Zuständigkeiten sind Mängel in Regeln und Abläufen. Das sind organisatorische Mängel."
+    },
+    {
+      "typ": "mc",
+      "thema": "Wurm",
+      "frage": "Eine Schadsoftware verbreitet sich über eine Sicherheitslücke von Rechner zu Rechner im Netzwerk, ohne dass jemand eine Datei öffnet. Um welche Art handelt es sich?",
+      "optionen": [
+        "Trojaner",
+        "Wurm",
+        "Virus",
+        "Keylogger"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Würmer verbreiten sich selbstständig über das Netzwerk. Ein Virus braucht dagegen eine befallene Datei, die geöffnet wird."
+    },
+    {
+      "typ": "mc",
+      "thema": "Trojaner",
+      "frage": "Ein Mitarbeiter installiert ein angeblich kostenloses PDF-Werkzeug. Es funktioniert, öffnet aber unbemerkt eine Hintertür für Angreifer. Wie nennt man diese Art Schadsoftware?",
+      "optionen": [
+        "Wurm",
+        "Ransomware",
+        "Trojaner",
+        "Spyware"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Ein Trojaner tarnt sich als nützliches Programm und führt im Hintergrund Schadfunktionen aus. Die Hintertür ist eine typische solche Funktion."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Merkmale von Phishing",
+      "frage": "Welche zwei Merkmale sprechen bei einer Mail für einen Phishing-Versuch?",
+      "optionen": [
+        "Der Link führt beim Überfahren mit der Maus auf eine fremde Adresse",
+        "Die Mail setzt eine kurze Frist und droht mit Kontosperrung",
+        "Die Mail kommt von einer bekannten Adresse zu einem erwarteten Termin",
+        "Die Mail enthält eine Signatur mit Telefonnummer und Anschrift"
+      ],
+      "richtig": [
+        0,
+        1
+      ],
+      "erklaerung": "Abweichende Linkziele und künstlicher Zeitdruck sind typische Warnzeichen. Bekannte Absender und Signaturen sind kein Warnzeichen, beweisen aber auch keine Echtheit, denn Absender lassen sich fälschen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Risiko mit der Matrix",
+      "frage": "Eine Bedrohung hat eine geringe Eintrittswahrscheinlichkeit, würde aber einen hohen Schaden anrichten. Welches Risiko ergibt die Matrix aus dem Text?",
+      "optionen": [
+        "Gering",
+        "Mittel",
+        "Hoch, weil der Schaden entscheidet",
+        "Gering, weil es selten eintritt"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "In der Matrix ergibt geringe Wahrscheinlichkeit mit hohem Schaden ein mittleres Risiko. Seltene, aber schwere Ereignisse dürfen deshalb nicht übergangen werden."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Hebel des Social Engineering",
+      "frage": "Ein Anrufer gibt sich als Geschäftsführerin aus und verlangt, sofort eine Zahlung freizugeben, weil sonst ein wichtiger Auftrag platzt. Welche zwei Hebel nutzt er?",
+      "optionen": [
+        "Autorität",
+        "Zeitdruck",
+        "Hilfsbereitschaft",
+        "Neugier"
+      ],
+      "richtig": [
+        0,
+        1
+      ],
+      "erklaerung": "Die angebliche Geschäftsführerin nutzt Autorität, die drohende Frist erzeugt Zeitdruck. Beides soll verhindern, dass jemand in Ruhe nachfragt."
+    }
+  ]
+}

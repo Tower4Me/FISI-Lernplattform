@@ -106,7 +106,7 @@ def check_structure(site):
                 if not p.exists():
                     err(f"Fragment fehlt: v2/{u['datei']}")
                     continue
-                check_fragment(p.read_text(encoding="utf-8"), f"v2/{u['datei']}", lf["id"], {x["id"] for x in site})
+                check_fragment(p.read_text(encoding="utf-8"), f"v2/{u['datei']}", lf["id"], {x["id"] for x in site if not x.get("in_arbeit")})
                 if not (V2 / lf["id"] / u["href"]).exists():
                     err(f"Seite fehlt (Build ausführen): v2/{lf['id']}/{u['href']}")
             if "check" in k:

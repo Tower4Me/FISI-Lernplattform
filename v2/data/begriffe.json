@@ -687,6 +687,38 @@
           "tiefe": "Präsentationsfeedback"
         }
       ]
+    },
+    {
+      "begriff": "anforderungen",
+      "kernfakten": [
+        "Funktionale Anforderungen: was ein System können muss; nichtfunktionale: wie gut/unter welchen Bedingungen (Leistung, Lautstärke, Energiebedarf). Budget und Termin sind Rahmenbedingungen.",
+        "Lastenheft: Auftraggeber, was und wofür; Pflichtenheft: Auftragnehmer, wie und womit, Grundlage der Abnahme.",
+        "Pflichtenheft wird vom Auftraggeber geprüft und genehmigt; Begriffe nach DIN 69901-5."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-1-1",
+          "tiefe": "Bedarfsermittlung"
+        },
+        {
+          "id": "2-1-2",
+          "tiefe": "Lasten- und Pflichtenheft"
+        }
+      ]
+    },
+    {
+      "begriff": "geraeteklassen",
+      "kernfakten": [
+        "Desktop, Mini-PC, Notebook, Workstation, Thin Client; Fat Client führt Programme lokal aus, Thin Client nutzt Server/Terminalserver/VDI.",
+        "Thin Client: zentral verwaltet, sparsam, aber abhängig von Netzwerk und Server.",
+        "Workstation: oft ECC-RAM, Profi-Grafik; Thin Client günstig in der Anschaffung, aber Server/Lizenzen nötig."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-1-3",
+          "tiefe": "Auswahl nach Anforderungen"
+        }
+      ]
     }
   ]
 }

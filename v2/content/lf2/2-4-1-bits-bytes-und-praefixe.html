@@ -1,0 +1,43 @@
+<p class="lead">Ein Kunde kauft eine „2-TB-Festplatte“, und Windows zeigt nur etwa 1,8 TB an. Ist die Platte defekt? Nein: Hersteller und Betriebssystem zählen mit verschiedenen Präfixen. Wer Speicher plant oder Übertragungszeiten berechnet, muss beide Zählweisen sicher auseinanderhalten.</p>
+
+<h3>Bit und Byte</h3>
+<p>Ein <strong>Bit</strong> ist die kleinste Informationseinheit und kennt nur zwei Zustände: 0 oder 1. Acht Bit bilden ein <strong>Byte</strong>. Mit n Bit lassen sich 2<sup>n</sup> verschiedene Werte darstellen, mit einem Byte also 2<sup>8</sup> = 256 Werte (0 bis 255).</p>
+<p>Das Bit kürzt man mit kleinem <strong>b</strong> ab oder schreibt es aus (Mbit/s), das Byte mit großem <strong>B</strong>. 100 Mbit/s und 100 MB/s unterscheiden sich also um den Faktor 8.</p>
+
+<h3>Zwei Arten von Präfixen</h3>
+<p>Für große Mengen gibt es Vorsilben. <strong>Dezimalpräfixe</strong> rechnen mit dem Faktor 1000, wie bei Kilometer oder Kilogramm. <strong>Binärpräfixe</strong> rechnen mit dem Faktor 1024 (2<sup>10</sup>), weil Speicher binär organisiert ist. Man erkennt sie am „i“ im Kürzel.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Dezimal</th><th>Wert</th><th>Binär</th><th>Wert</th></tr></thead>
+    <tbody>
+      <tr><th>Kilobyte (kB)</th><td>1000 Byte</td><th>Kibibyte (KiB)</th><td>1024 Byte</td></tr>
+      <tr><th>Megabyte (MB)</th><td>1000 kB</td><th>Mebibyte (MiB)</th><td>1024 KiB</td></tr>
+      <tr><th>Gigabyte (GB)</th><td>1000 MB</td><th>Gibibyte (GiB)</th><td>1024 MiB</td></tr>
+      <tr><th>Terabyte (TB)</th><td>1000 GB</td><th>Tebibyte (TiB)</th><td>1024 GiB</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wer wo welche Präfixe nutzt:</p>
+<ul>
+  <li><strong>Datenraten</strong> (Netzwerk, Internet, Schnittstellen) werden dezimal angegeben: 1 Mbit/s = 1.000.000 Bit/s.</li>
+  <li><strong>Hersteller von Festplatten und SSDs</strong> geben die Kapazität dezimal an.</li>
+  <li><strong>Arbeitsspeicher</strong> wird binär gebaut: Ein Modul mit „8 GB“ hat 8 GiB.</li>
+  <li><strong>Windows</strong> rechnet mit 1024, schreibt aber „KB, MB, GB“. Deshalb wirkt die Platte kleiner.</li>
+</ul>
+<p>Rechne in Aufgaben zu Speichergrößen mit den Binärpräfixen KiB, MiB, GiB und TiB, sofern die Aufgabe nichts anderes vorgibt. Schreibe das Kürzel dann auch mit „i“.</p>
+
+<h3>Umrechnen</h3>
+<p>Innerhalb eines Systems teilst du schrittweise: binär durch 1024 (Byte, KiB, MiB …), dezimal durch 1000 (Byte, kB, MB …). Zwischen den Systemen gehst du über die Byte-Zahl:</p>
+<p class="formel">Wert in KiB = Wert in kB × 1000 ÷ 1024</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die „2-TB-Festplatte“ hat 2 × 1000<sup>4</sup> = 2.000.000.000.000 Byte. Geteilt durch 1024<sup>4</sup> (= 1.099.511.627.776) ergibt das rund 1,82 TiB. Windows zeigt dafür etwa „1,8 TB“ an. Es fehlt kein Byte, nur die Zählweise ist anders.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„1 KB sind 1024 Byte.“ Nach Norm nicht: 1 kB (kleines k) sind 1000 Byte. 1024 Byte heißen korrekt 1 KiB; „KB“ für 1024 Byte ist umgangssprachlich, Windows verwendet es aber so.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>1 Byte = 8 Bit</strong>; n Bit ergeben 2<sup>n</sup> Werte.</li>
+  <li><strong>Dezimal</strong> (kB, MB, GB): Faktor 1000, für Datenraten und Herstellerangaben; <strong>binär</strong> (KiB, MiB, GiB): Faktor 1024, für Speichergrößen.</li>
+</ul>

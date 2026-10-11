@@ -1,0 +1,43 @@
+<p class="lead">Reicht ein Stromkreis für zwölf PCs im Schulungsraum? Welches Netzteil braucht der neue Rechner? Liefert der USB-Anschluss genug für die externe Festplatte? Für alle drei Fragen brauchst du dieselbe Formel und ein Gefühl für die drei Größen dahinter.</p>
+
+<h3>Drei Größen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Größe</th><th>Zeichen</th><th>Einheit</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th>Spannung</th><td>U</td><td>Volt (V)</td><td>der „Druck“, der den Strom treibt; Steckdose 230 V, USB 5 V</td></tr>
+      <tr><th>Stromstärke</th><td>I</td><td>Ampere (A)</td><td>wie viel Strom fließt</td></tr>
+      <tr><th>Leistung</th><td>P</td><td>Watt (W)</td><td>wie viel Energie ein Gerät pro Sekunde umsetzt</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="formel">P = U × I</p>
+<p>Umgestellt: I = P ÷ U und U = P ÷ I. Der Widerstand R in Ohm (Ω) hängt über das ohmsche Gesetz damit zusammen: R = U ÷ I. Für die Planung von Arbeitsplätzen brauchst du vor allem die Leistungsformel.</p>
+
+<h3>Wie viel verträgt ein Stromkreis?</h3>
+<p>Ein Stromkreis im Büro ist meist mit 16 A abgesichert. Bei 230 V ergibt das höchstens 230 V × 16 A = 3680 W für alle Geräte an diesem Stromkreis zusammen. Steckdosenleisten haben eine eigene Grenze, die auf dem Gehäuse steht, oft 3500 W. Wird die Grenze der Leiste überschritten, kann sie überhitzen (Brandgefahr), ohne dass die Sicherung auslöst. Erst wenn alle Geräte am Stromkreis zusammen mehr als 16 A ziehen, löst der Leitungsschutzschalter aus. Steckdosenleisten steckst du deshalb nicht hintereinander.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Schulungsraum sollen an einem Stromkreis 12 PCs mit je 150 W, 12 Monitore mit je 25 W und ein Beamer mit 300 W laufen. Zusammen sind das 12 × 150 + 12 × 25 + 300 = 2400 W. Das liegt unter 3680 W. Die Stromstärke beträgt 2400 W ÷ 230 V ≈ 10,4 A. Es bleiben rechnerisch 1280 W. Ein Laserdrucker, der beim Aufheizen kurz über 1000 W zieht, käme nahe an die Grenze; er bekommt deshalb einen eigenen Stromkreis.</p>
+</div>
+
+<h3>Netzteil und Wirkungsgrad</h3>
+<p>Das Netzteil wandelt die 230 V aus der Steckdose in die niedrigen Gleichspannungen für die Bauteile um. Dabei geht ein Teil der Energie als Wärme verloren. Wie viel ankommt, gibt der <strong>Wirkungsgrad</strong> η (eta) an:</p>
+<p class="formel">η = abgegebene Leistung ÷ aufgenommene Leistung</p>
+<p>Umgestellt: aufgenommene Leistung = abgegebene Leistung ÷ η. Das Siegel <strong>80 PLUS</strong> garantiert mindestens 80 Prozent Wirkungsgrad; die Stufen Bronze, Silber, Gold, Platin und Titan stehen für immer höhere Werte.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Bauteile eines PCs brauchen zusammen 180 W. Das Netzteil hat einen Wirkungsgrad von 90 Prozent. Aus der Steckdose zieht der PC 180 W ÷ 0,9 = 200 W; 20 W werden zu Wärme.</p>
+</div>
+<p>Bei der Wahl des Netzteils addierst du die Leistung der großen Verbraucher (Prozessor und Grafikkarte laut Datenblatt) und gibst eine Reserve für die übrigen Bauteile dazu. Ein viel zu großes Netzteil arbeitet im unteren Lastbereich weniger effizient. Die Angabe auf dem Netzteil (z. B. 500 W) ist die höchste <strong>abgegebene</strong> Leistung. Für die Auswahl vergleichst du sie mit dem Bedarf der Bauteile; durch η teilst du nur, wenn die Leistung aus der Steckdose gefragt ist.</p>
+
+<h3>Strom über USB</h3>
+<p>Die Formel gilt auch für Schnittstellen (Kapitel 2.2.6): Ein USB-3.x-Anschluss liefert 0,9 A bei 5 V, also 5 V × 0,9 A = 4,5 W. Braucht eine externe Festplatte 6 W, reicht ein einzelner Anschluss nicht. Abhilfe schafft USB-C mit bis zu 3 A (15 W) oder ein eigenes Netzteil.</p>
+
+<aside class="note" data-typ="fehler"><p>„Das Netzteil hat 500 W, also verbraucht der PC 500 W.“ Nein: Die Angabe auf dem Netzteil ist die Höchstleistung. Der PC nimmt nur auf, was die Bauteile gerade brauchen, im Büroalltag oft deutlich weniger.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>P = U × I:</strong> Leistung in Watt = Spannung in Volt × Stromstärke in Ampere.</li>
+  <li><strong>Wirkungsgrad:</strong> aufgenommene Leistung = abgegebene Leistung ÷ η.</li>
+  <li><strong>Grenzen:</strong> Stromkreis mit 16 A bei 230 V höchstens 3680 W; Steckdosenleiste laut Aufdruck.</li>
+</ul>

@@ -786,6 +786,123 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "2.4",
+          "titel": "Mit Kenngrößen rechnen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "2.4.1",
+              "titel": "Bits, Bytes und Präfixe",
+              "slug": "bits-bytes-und-praefixe",
+              "quellen": {
+                "rahmenlehrplan": "LF2: informationstechnische Kenngrößen ermitteln, Energiebedarf und Kosten berechnen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2022 (KiB/GiB/TiB)",
+                  "AP1 Herbst 2025 (kB in KiB)"
+                ],
+                "extern": [
+                  "IEC 80000-13 (Binärpräfixe)"
+                ]
+              },
+              "material": [
+                "bits-und-bytes"
+              ],
+              "begriffe": [
+                "praefixe"
+              ]
+            },
+            {
+              "nummer": "2.4.2",
+              "titel": "Speicherbedarf berechnen",
+              "slug": "speicherbedarf-berechnen",
+              "quellen": {
+                "rahmenlehrplan": "LF2: informationstechnische Kenngrößen ermitteln, Energiebedarf und Kosten berechnen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2022 (Scan-Archiv)",
+                  "AP1 Frühjahr 2024 (Speicher in KiB)",
+                  "AP1 Herbst 2025 (Speicherbedarf)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "bits-und-bytes"
+              ],
+              "begriffe": [
+                "praefixe"
+              ]
+            },
+            {
+              "nummer": "2.4.3",
+              "titel": "Übertragungsdauer berechnen",
+              "slug": "uebertragungsdauer-berechnen",
+              "quellen": {
+                "rahmenlehrplan": "LF2: informationstechnische Kenngrößen ermitteln, Energiebedarf und Kosten berechnen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (Übertragungsdauer)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "datenmengen-uebertragung"
+              ],
+              "begriffe": [
+                "uebertragungsdauer"
+              ]
+            },
+            {
+              "nummer": "2.4.4",
+              "titel": "Spannung, Strom und Leistung",
+              "slug": "spannung-strom-und-leistung",
+              "quellen": {
+                "rahmenlehrplan": "LF2: informationstechnische Kenngrößen ermitteln, Energiebedarf und Kosten berechnen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021 (Belastbarkeit Steckdose)",
+                  "AP1 Herbst 2025 (P = U · I bei USB)"
+                ],
+                "extern": [
+                  "80 PLUS (CLEAResult)"
+                ]
+              },
+              "material": [
+                "elektrotechnik-grundformeln"
+              ],
+              "begriffe": [
+                "elektrische-leistung"
+              ]
+            },
+            {
+              "nummer": "2.4.5",
+              "titel": "Energiekosten berechnen",
+              "slug": "energiekosten-berechnen",
+              "quellen": {
+                "rahmenlehrplan": "LF2: informationstechnische Kenngrößen ermitteln, Energiebedarf und Kosten berechnen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021 (Energiekostenvergleich)",
+                  "AP1 Frühjahr 2023 (Energieverbrauch)",
+                  "AP1 Frühjahr 2024 (Netzteil und Energiekosten)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "elektrotechnik-grundformeln"
+              ],
+              "begriffe": [
+                "energiekosten"
+              ]
+            }
+          ]
         }
       ]
     },

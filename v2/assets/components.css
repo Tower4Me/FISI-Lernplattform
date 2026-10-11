@@ -154,6 +154,9 @@ h3:hover .anchor { color: var(--muted); }
 .beispiel { margin: 26px 0; padding: 16px 0 4px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .beispiel .block-label { color: var(--accent); }
 
+/* Formel: hervorgehobene Rechenregel, eine Zeile */
+.formel { margin: 18px 0; padding: 10px 14px; background: var(--surface-2); border-radius: 6px; font-weight: 600; }
+
 /* Vergleich */
 .vergleich { margin: 24px 0; overflow-x: auto; }
 .vergleich table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.5; }
@@ -328,7 +331,7 @@ h3:hover .anchor { color: var(--muted); }
   .page > * { max-width: none; }
   .reiter-panel[hidden] { display: block !important; }
   .reiter-panel + .reiter-panel { margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--rule); }
-  .note, .merksatz, .grafik, .beispiel, .vergleich, figure { break-inside: avoid; }
+  .note, .merksatz, .grafik, .beispiel, .vergleich, .formel, figure { break-inside: avoid; }
   .content h2, .content h3 { break-after: avoid; }
   .print-up { break-before: page; }
   .print-up:first-of-type { break-before: auto; }

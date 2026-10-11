@@ -86,6 +86,8 @@ Nur der Inhalt, ohne `<html>`, Kopf oder Navigation. Bausteine:
 
 <div class="vergleich"><table>…</table></div>
 
+<p class="formel">Leistung = Spannung × Stromstärke</p>   <!-- Rechenregel, eine Zeile -->
+
 <div class="reiter" data-reiter>
   <div class="reiter-panel" data-label="Variante A">…</div>
   <div class="reiter-panel" data-label="Variante B">…</div>

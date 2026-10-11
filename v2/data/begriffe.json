@@ -832,6 +832,68 @@
           "tiefe": "BIOS/UEFI, Einrichtungsablauf"
         }
       ]
+    },
+    {
+      "begriff": "praefixe",
+      "kernfakten": [
+        "1 Byte = 8 Bit; n Bit = 2^n Werte (1 Byte: 256).",
+        "Dezimal kB/MB/GB/TB Faktor 1000 (Datenraten, Herstellerangaben Massenspeicher); binär KiB/MiB/GiB/TiB Faktor 1024 (Speichergrößen, RAM; in Aufgaben verwenden).",
+        "kB in KiB: × 1000 ÷ 1024; 2 TB ≈ 1,82 TiB.",
+        "Bild: Breite × Höhe × Farbtiefe ÷ 8 = Byte; Hochrechnung Element × Anzahl × Tage × Jahre, am Ende aufrunden."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-4-1",
+          "tiefe": "Präfixe"
+        },
+        {
+          "id": "2-4-2",
+          "tiefe": "Speicherbedarf"
+        }
+      ]
+    },
+    {
+      "begriff": "uebertragungsdauer",
+      "kernfakten": [
+        "t = Datenmenge in Bit ÷ Datenrate in Bit/s; Datenmenge binär × 8, Datenrate dezimal.",
+        "Durchsatz < Bandbreite (Overhead, geteilte Leitung, WLAN); Upload oft langsamer (asymmetrisch).",
+        "Umgestellt: Datenrate = Datenmenge ÷ Zeit."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-4-3",
+          "tiefe": "Berechnung"
+        }
+      ]
+    },
+    {
+      "begriff": "elektrische-leistung",
+      "kernfakten": [
+        "P = U × I (W = V × A); R = U ÷ I.",
+        "Stromkreis 16 A bei 230 V: max. 3680 W; Steckdosenleiste laut Aufdruck (oft 3500 W), Überlast = Überhitzung ohne Auslösen.",
+        "Wirkungsgrad η = P_ab ÷ P_zu; P_zu = P_ab ÷ η; Netzteilangabe = max. abgegebene Leistung; 80 PLUS mindestens 80 %, Stufen Bronze bis Titan.",
+        "USB 3.x: 5 V × 0,9 A = 4,5 W."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-4-4",
+          "tiefe": "Formeln, Netzteil"
+        }
+      ]
+    },
+    {
+      "begriff": "energiekosten",
+      "kernfakten": [
+        "E in kWh = P in W × h ÷ 1000; Kosten = kWh × Preis.",
+        "Arbeitstage (ca. 220–250) vs. 365 Tage; Dauerbetrieb 8760 h.",
+        "Genauer: Nennleistung × Auslastung = abgegeben, ÷ η = aus der Steckdose; Standby; Geld auf Cent runden."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-4-5",
+          "tiefe": "Berechnung"
+        }
+      ]
     }
   ]
 }

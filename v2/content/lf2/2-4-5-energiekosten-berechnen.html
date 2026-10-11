@@ -1,0 +1,43 @@
+<p class="lead">Ein sparsamer PC kostet beim Kauf vielleicht etwas mehr, spart aber jedes Jahr Strom. Über mehrere Jahre und viele Arbeitsplätze kommt dabei schnell ein dreistelliger Betrag zusammen. Mit einer Energiekostenrechnung machst du das für den Kunden sichtbar.</p>
+
+<h3>Von der Leistung zur Energie</h3>
+<p>Die Leistung sagt, wie viel ein Gerät in einem Moment braucht. Die <strong>Energie</strong> ist Leistung mal Zeit. Stromanbieter rechnen in Kilowattstunden (kWh) ab: Ein Gerät mit 1000 W, das eine Stunde läuft, verbraucht 1 kWh.</p>
+<p class="formel">Energie in kWh = Leistung in W × Betriebsstunden ÷ 1000</p>
+<p class="formel">Energiekosten = Energie in kWh × Preis pro kWh</p>
+<p>Die Betriebsstunden ergeben sich aus Stunden pro Tag mal Tage pro Jahr. Achte darauf, ob die Aufgabe Arbeitstage (etwa 220 bis 250) oder Kalendertage (365) meint. Ein Server, der rund um die Uhr läuft, kommt auf 24 × 365 = 8760 Stunden.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Büro tauscht 30 alte PCs mit je 110 W gegen neue mit je 60 W. Die PCs laufen 8 Stunden an 220 Arbeitstagen. Der Strompreis beträgt 0,35 Euro pro kWh.</p>
+  <ul>
+    <li>Betriebsstunden: 8 h × 220 = 1760 h</li>
+    <li>alter PC: 110 W × 1760 h ÷ 1000 = 193,6 kWh, also 67,76 Euro im Jahr</li>
+    <li>neuer PC: 60 W × 1760 h ÷ 1000 = 105,6 kWh, also 36,96 Euro im Jahr</li>
+    <li>Ersparnis: 30,80 Euro pro PC, bei 30 PCs 924 Euro im Jahr</li>
+  </ul>
+</div>
+
+<h3>Was die Rechnung genauer macht</h3>
+<ul>
+  <li><strong>Wirkungsgrad:</strong> Ist nur die Leistung der Bauteile bekannt, teilst du durch den Wirkungsgrad des Netzteils (Kapitel 2.4.4), um die Leistung aus der Steckdose zu erhalten.</li>
+  <li><strong>Auslastung:</strong> Ein Gerät läuft selten dauernd unter Volllast. Nennt die Aufgabe eine durchschnittliche Auslastung, etwa 50 Prozent, multiplizierst du die Leistung mit diesem Faktor. Ist die Nennleistung des Netzteils angegeben, ergibt Nennleistung × Auslastung die abgegebene Leistung; danach teilst du durch den Wirkungsgrad.</li>
+  <li><strong>Bereitschaft (Standby):</strong> Auch ausgeschaltete Geräte ziehen oft noch ein bis zwei Watt. Über die vielen Stunden außerhalb der Arbeitszeit kommt dabei einiges zusammen. Eine schaltbare Steckdosenleiste verhindert das. Beispiel: 1 W Standby über 8760 − 1760 = 7000 h ergibt 7 kWh, also 2,45 Euro pro PC und Jahr.</li>
+  <li><strong>Runden:</strong> Geldbeträge rundest du auf Cent.</li>
+</ul>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Server läuft rund um die Uhr. Seine Bauteile brauchen unter Volllast 300 W, im Schnitt sind sie zu 60 Prozent ausgelastet. Das Netzteil hat einen Wirkungsgrad von 90 Prozent. Der Strom kostet 0,35 Euro pro kWh.</p>
+  <ul>
+    <li>abgegebene Leistung: 300 W × 0,6 = 180 W</li>
+    <li>aus der Steckdose: 180 W ÷ 0,9 = 200 W</li>
+    <li>Energie: 200 W × 8760 h ÷ 1000 = 1752 kWh</li>
+    <li>Kosten: 1752 kWh × 0,35 Euro = 613,20 Euro im Jahr</li>
+  </ul>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Watt und Kilowattstunden sind dasselbe.“ Nein: Watt ist die Leistung in einem Moment, Kilowattstunden sind die Energie über eine Zeit. Bezahlt werden Kilowattstunden.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Energie in kWh</strong> = Watt × Stunden ÷ 1000; <strong>Kosten</strong> = kWh × Preis.</li>
+  <li><strong>Genauer</strong> wird es mit Wirkungsgrad, Auslastung und Standby; bei vielen Geräten lohnt sich sparsame Hardware.</li>
+</ul>

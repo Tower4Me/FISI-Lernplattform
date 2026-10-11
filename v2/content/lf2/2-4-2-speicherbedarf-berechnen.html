@@ -1,0 +1,45 @@
+<p class="lead">Wie groß muss die Festplatte für das Scan-Archiv sein, und reicht sie für zehn Jahre? Solche Fragen beantwortest du mit einer Hochrechnung: erst die Größe eines Elements, dann die Menge pro Tag, dann über die gesamte Laufzeit.</p>
+
+<h3>Größe eines Bildes</h3>
+<p>Ein unkomprimiertes Bild besteht aus Bildpunkten (Pixeln). Jeder Pixel braucht so viele Bit, wie die <strong>Farbtiefe</strong> angibt. Bei Echtfarben sind das 24 Bit, je 8 Bit für Rot, Grün und Blau.</p>
+<p class="formel">Speicherbedarf in Byte = Breite × Höhe × Farbtiefe in Bit ÷ 8</p>
+<p>Danach teilst du durch 1024 für KiB und noch einmal durch 1024 für MiB.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Bildschirmfoto in Full HD (1920 × 1080) mit 24 Bit Farbtiefe:</p>
+  <ul>
+    <li>1920 × 1080 × 24 Bit = 49.766.400 Bit</li>
+    <li>49.766.400 Bit ÷ 8 = 6.220.800 Byte</li>
+    <li>6.220.800 Byte ÷ 1024 = 6075 KiB</li>
+    <li>6075 KiB ÷ 1024 ≈ 5,93 MiB</li>
+  </ul>
+</div>
+<p>Bei Text rechnest du mit der Zahl der Zeichen. In ASCII belegt ein Zeichen ein Byte. In UTF-8 belegen die ASCII-Zeichen ebenfalls ein Byte, Umlaute zwei, das €-Zeichen drei und Emojis vier Byte.</p>
+
+<h3>Hochrechnen über die Zeit</h3>
+<ol>
+  <li>Größe eines Elements bestimmen (ein Scan, ein Bild, ein Datensatz).</li>
+  <li>Mit der Anzahl pro Tag malnehmen.</li>
+  <li>Mit der Zahl der Tage (Arbeitstage oder Kalendertage, je nach Aufgabe) und Jahre malnehmen.</li>
+  <li>Kompression oder Reserve berücksichtigen, wenn die Aufgabe sie nennt.</li>
+  <li>In die gefragte Einheit umrechnen und erst am Ende runden. Bei Speicherplatz rundest du auf, sonst reicht er nicht.</li>
+</ol>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Arztpraxis scannt an 250 Arbeitstagen im Jahr je 300 Dokumente mit durchschnittlich 250 KiB. Die Scans müssen zehn Jahre aufbewahrt werden.</p>
+  <ul>
+    <li>pro Tag: 300 × 250 KiB = 75.000 KiB</li>
+    <li>pro Jahr: 75.000 KiB × 250 = 18.750.000 KiB</li>
+    <li>zehn Jahre: 18.750.000 KiB × 10 = 187.500.000 KiB</li>
+    <li>in GiB: 187.500.000 ÷ 1024 ÷ 1024 ≈ 178,8 GiB</li>
+  </ul>
+  <p>Mit einer Reserve von 20 Prozent sind etwa 215 GiB nötig. Eine SSD mit 256 GB hätte nur rund 238 GiB. Das reicht knapp, lässt aber kaum Platz für Betriebssystem und weitere Daten. Du empfiehlst deshalb eine SSD mit 512 GB (rund 477 GiB).</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ich runde jeden Zwischenschritt.“ Besser nicht: Rundungsfehler wachsen beim Hochrechnen mit. Rechne mit vollen Werten weiter und runde nur das Ergebnis.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Bild:</strong> Breite × Höhe × Farbtiefe ÷ 8 = Byte, dann durch 1024 je Stufe.</li>
+  <li><strong>Hochrechnung:</strong> Element × Anzahl pro Tag × Tage × Jahre, Reserve dazu, am Ende aufrunden.</li>
+</ul>

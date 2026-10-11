@@ -1,0 +1,45 @@
+<p class="lead">Wie lange dauert das Hochladen der Datensicherung in die Cloud, und schafft die Leitung das über Nacht? Kunden wollen solche Fragen vor dem Kauf beantwortet haben. Die Rechnung ist einfach, wenn du Datenmenge und Datenrate in dieselbe Einheit bringst.</p>
+
+<h3>Die Formel</h3>
+<p class="formel">Übertragungsdauer in s = Datenmenge in Bit ÷ Datenrate in Bit/s</p>
+<p>Die Stolperstelle sind die Einheiten (Kapitel 2.4.1): Die <strong>Datenmenge</strong> steht meist in Byte mit Binärpräfix (MiB, GiB), die <strong>Datenrate</strong> in Bit pro Sekunde mit Dezimalpräfix (Mbit/s). Deshalb rechnest du in drei Schritten:</p>
+<ol>
+  <li>Datenmenge in Byte umrechnen (bei GiB: × 1024 × 1024 × 1024) und mit 8 malnehmen, um Bit zu erhalten.</li>
+  <li>Datenrate in Bit/s umrechnen (kbit/s × 1000, Mbit/s × 1.000.000, Gbit/s × 1.000.000.000; steht sie in MB/s, erst × 8).</li>
+  <li>Teilen und das Ergebnis in Minuten oder Stunden umrechnen. Eine gesuchte Datenrate rundest du auf.</li>
+</ol>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Installationsabbild mit 4 GiB wird über eine Leitung mit 100 Mbit/s geladen.</p>
+  <ul>
+    <li>Datenmenge: 4 × 1024 × 1024 × 1024 Byte = 4.294.967.296 Byte; × 8 = 34.359.738.368 Bit</li>
+    <li>Datenrate: 100 Mbit/s = 100.000.000 Bit/s</li>
+    <li>Dauer: 34.359.738.368 ÷ 100.000.000 ≈ 343,6 s, also etwa 5 Minuten 44 Sekunden</li>
+  </ul>
+</div>
+
+<h3>Theorie und Praxis</h3>
+<p>Die Rechnung liefert die kürzeste mögliche Dauer. In der Praxis kommt weniger an: Jedes Datenpaket trägt Verwaltungsangaben (Overhead), andere Geräte nutzen dieselbe Leitung, und im WLAN stören Wände und Nachbarnetze. Was tatsächlich ankommt, heißt <strong>Durchsatz</strong>. Nennt die Aufgabe einen Durchsatz oder einen Abschlag, rechnest du damit.</p>
+<p>Viele Internetanschlüsse sind außerdem <strong>asymmetrisch</strong>: Der Upload ist deutlich langsamer als der Download. Für eine Sicherung in die Cloud zählt der Upload.</p>
+
+<h3>Umgekehrt rechnen</h3>
+<p>Oft ist die Zeit vorgegeben und die nötige Datenrate gesucht. Dann stellst du die Formel um:</p>
+<p class="formel">Datenrate in Bit/s = Datenmenge in Bit ÷ Übertragungsdauer in s</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine nächtliche Sicherung mit 50 GiB soll in höchstens 2 Stunden in die Cloud geladen sein.</p>
+  <ul>
+    <li>Datenmenge: 50 × 1024<sup>3</sup> × 8 = 429.496.729.600 Bit</li>
+    <li>Zeit: 2 h = 7200 s</li>
+    <li>Datenrate: 429.496.729.600 ÷ 7200 ≈ 59.652.324 Bit/s, also rund 60 Mbit/s</li>
+  </ul>
+  <p>Der Anschluss des Kunden hat 50 Mbit/s im Upload. Das reicht nicht, selbst bevor Overhead abgezogen ist.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„100 Mbit/s, also 100 MB pro Sekunde.“ Nein: Bit und Byte unterscheiden sich um den Faktor 8. 100 Mbit/s sind höchstens 12,5 MB/s.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Dauer = Datenmenge in Bit ÷ Datenrate in Bit/s</strong>; Datenmenge in Bit (bei GiB × 1024³, bei GB × 1000³, dann × 8), Datenrate dezimal (× 1000).</li>
+  <li><strong>In der Praxis</strong> dauert es länger: Overhead, geteilte Leitung, langsamer Upload.</li>
+</ul>

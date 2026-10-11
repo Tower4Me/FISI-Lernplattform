@@ -973,6 +973,79 @@
           "tiefe": "Verfahren"
         }
       ]
+    },
+    {
+      "begriff": "bezugskalkulation",
+      "kernfakten": [
+        "Anfrage unverbindlich; Angebot nennt Preis, Rabatt (auch Naturalrabatt), Skonto, Liefer- (frei Haus/ab Werk; ohne Vereinbarung zahlt Käufer Versand) und Zahlungsbedingungen, Lieferzeit, Bindungsfrist.",
+        "LEP − Rabatt (vom LEP) = ZEP − Skonto (vom ZEP) = BEP + Bezugskosten = Bezugspreis.",
+        "Vergleich über Bezugspreis, dazu qualitative Kriterien (NWA) und TCO."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-6-1",
+          "tiefe": "Bezugskalkulation"
+        }
+      ]
+    },
+    {
+      "begriff": "handelskalkulation",
+      "kernfakten": [
+        "Bezugspreis + Handlungskosten = Selbstkosten + Gewinn = Barverkaufspreis.",
+        "Zielverkaufspreis = BVP ÷ (1 − Skonto); Listenverkaufspreis = ZVP ÷ (1 − Rabatt); dann + 19 % USt.",
+        "Kalkulationsfaktor = LVP ÷ Bezugspreis; Kalkulationszuschlag = (LVP − BP) ÷ BP × 100."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-6-2",
+          "tiefe": "Verkaufskalkulation"
+        }
+      ]
+    },
+    {
+      "begriff": "kaufvertrag",
+      "kernfakten": [
+        "Antrag + Annahme (zwei übereinstimmende Willenserklärungen); Werbung/Shop = Aufforderung zum Antrag; Anfrage unverbindlich.",
+        "Angebot bindet (§ 145), außer „freibleibend“; Annahmefrist § 147 (Anwesende sofort, sonst übliche Antwortzeit), Bindungsfrist; verspätete/geänderte Annahme = neuer Antrag (§ 150).",
+        "Bestellung ohne Angebot = Antrag, Lieferung/Auftragsbestätigung = Annahme.",
+        "§ 433: Verkäufer übergeben, Eigentum, mangelfrei; Käufer zahlen, abnehmen. Nötig nur Ware und Preis, Rest gesetzlich. Eigentum mit Einigung und Übergabe; Eigentumsvorbehalt. Werklieferungsvertrag § 650 = grundsätzlich Kaufrecht; Werkvertrag § 631 Erfolg; Dienstvertrag § 611 Tätigkeit; Miete § 535; Leasing nicht eigens geregelt."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-6-3",
+          "tiefe": "Zustandekommen, Vertragsarten"
+        }
+      ]
+    },
+    {
+      "begriff": "vertragsstoerungen",
+      "kernfakten": [
+        "Lieferverzug, mangelhafte Lieferung (Verkäufer); Annahmeverzug, Zahlungsverzug (Käufer).",
+        "Verzug § 286: fällig, Mahnung (entbehrlich bei Kalendertermin), Vertretenmüssen (vermutet); Rechte: Lieferung + Verzugsschaden; nach Nachfrist Rücktritt (ohne Verschulden), Schadensersatz statt Leistung (mit Verschulden); Fixkauf: Rücktritt ohne Nachfrist.",
+        "§ 377 HGB: beidseitiger Handelskauf (Kaufleute; GmbH/AG immer, Freiberufler nicht), unverzüglich prüfen und rügen, sonst genehmigt; versteckte Mängel nach Entdeckung; nicht für Privatkunden.",
+        "Annahmeverzug: einlagern, Selbsthilfeverkauf, Haftung nur Vorsatz/grobe Fahrlässigkeit. Zahlungsverzug spätestens 30 Tage nach Fälligkeit und Rechnung (Verbraucher nur mit Hinweis); Zinsen 5 bzw. 9 Prozentpunkte über Basiszins, B2B 40 € Pauschale."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-6-4",
+          "tiefe": "Störungen"
+        }
+      ]
+    },
+    {
+      "begriff": "gewaehrleistung",
+      "kernfakten": [
+        "Sachmangel § 434: subjektive und objektive Anforderungen (seit 2022 beides), auch Falsch-, Zuweniglieferung, Montage; Rechtsmangel § 435.",
+        "Gegenüber Verkäufer: Nacherfüllung zuerst (Käufer wählt), dann Rücktritt (nicht bei unerheblichem Mangel) oder Minderung, Schadensersatz bei Verschulden.",
+        "Verjährung 2 Jahre ab Lieferung (§ 438); Beweislastumkehr 1 Jahr bei Verbrauchsgüterkauf (§ 477); B2C nicht einschränkbar, nur gebraucht Verjährung auf 1 Jahr; B2B vertraglich einschränkbar.",
+        "Garantie § 443 freiwillig, meist Hersteller, zusätzlich; Kulanz freiwillig."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-6-5",
+          "tiefe": "Gewährleistung, Garantie"
+        }
+      ]
     }
   ]
 }

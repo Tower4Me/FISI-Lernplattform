@@ -1,0 +1,55 @@
+<p class="lead">Ein Systemhaus kauft Notebooks ein und verkauft sie an Kunden weiter. Der Verkaufspreis muss alle eigenen Kosten decken, einen Gewinn bringen und trotzdem Platz für den Rabatt und den Skonto lassen, die der Kunde erwartet. Die Handelskalkulation rechnet das vom Bezugspreis aus durch.</p>
+
+<h3>Das Schema</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schritt</th><th>Rechnung</th></tr></thead>
+    <tbody>
+      <tr><th>Bezugspreis</th><td>aus der Bezugskalkulation (Kapitel 2.6.1)</td></tr>
+      <tr><th>+ Handlungskosten</th><td>Prozent vom Bezugspreis: Anteil an Miete, Gehältern, Verwaltung</td></tr>
+      <tr><th>= Selbstkostenpreis</th><td>alle Kosten bis zum Verkauf</td></tr>
+      <tr><th>+ Gewinn</th><td>Prozent vom Selbstkostenpreis</td></tr>
+      <tr><th>= Barverkaufspreis</th><td>was beim Systemhaus ankommen soll</td></tr>
+      <tr><th>+ Kundenskonto</th><td>Prozent vom Zielverkaufspreis</td></tr>
+      <tr><th>= Zielverkaufspreis</th><td></td></tr>
+      <tr><th>+ Kundenrabatt</th><td>Prozent vom Listenverkaufspreis</td></tr>
+      <tr><th>= Listenverkaufspreis (netto)</th><td>Angebotspreis ohne Umsatzsteuer</td></tr>
+      <tr><th>+ Umsatzsteuer</th><td>19 % vom Listenverkaufspreis</td></tr>
+      <tr><th>= Listenverkaufspreis (brutto)</th><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Die Stolperstelle: Skonto und Rabatt</h3>
+<p>Der Kunde zieht Rabatt und Skonto später vom höheren Preis ab. Deshalb beziehen sie sich auf den Preis, den du erst suchst. Du darfst sie nicht einfach auf den bekannten Preis aufschlagen, sondern teilst:</p>
+<p class="formel">Zielverkaufspreis = Barverkaufspreis ÷ (1 − Skontosatz)</p>
+<p class="formel">Listenverkaufspreis = Zielverkaufspreis ÷ (1 − Rabattsatz)</p>
+<p>Bei 2 % Skonto teilst du also durch 0,98, bei 5 % Rabatt durch 0,95.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Notebook von Lieferant A hat einen Bezugspreis von 1.073,40 €. Das Systemhaus rechnet mit 25 % Handlungskosten und 10 % Gewinn und gewährt seinen Kunden 2 % Skonto und 5 % Rabatt.</p>
+  <ul>
+    <li>Handlungskosten: 25 % von 1.073,40 € = 268,35 €; Selbstkostenpreis 1.341,75 €</li>
+    <li>Gewinn: 10 % von 1.341,75 € = 134,18 €; Barverkaufspreis 1.475,93 €</li>
+    <li>Zielverkaufspreis: 1.475,93 € ÷ 0,98 = 1.506,05 € (Skonto 30,12 €)</li>
+    <li>Listenverkaufspreis netto: 1.506,05 € ÷ 0,95 = 1.585,32 € (Rabatt 79,27 €)</li>
+    <li>Umsatzsteuer 19 %: 301,21 €; Listenverkaufspreis brutto 1.886,53 €</li>
+  </ul>
+  <p>Probe: 5 % Rabatt von 1.585,32 € sind 79,27 €, es bleiben 1.506,05 €. Davon 2 % Skonto sind 30,12 €, es bleiben 1.475,93 €: genau der Barverkaufspreis.</p>
+</div>
+
+<h3>Abkürzungen für die Praxis</h3>
+<p>Wer oft kalkuliert, fasst alle Zuschläge zu einer Zahl zusammen:</p>
+<ul>
+  <li><strong>Kalkulationsfaktor</strong> = Listenverkaufspreis netto ÷ Bezugspreis, im Beispiel 1.585,32 ÷ 1.073,40 ≈ 1,4769. Bei gleichen Zuschlagssätzen ergibt jeder Bezugspreis mal diesem Faktor den Listenverkaufspreis netto; mit dem gerundeten Faktor 1,48 weicht das Ergebnis um einige Euro ab.</li>
+  <li><strong>Kalkulationszuschlag</strong> = (Listenverkaufspreis netto − Bezugspreis) ÷ Bezugspreis × 100, im Beispiel rund 47,7 %.</li>
+</ul>
+<p>Im Geschäft mit Unternehmen werden Preise meist netto angegeben, weil die meisten Unternehmen sich die Umsatzsteuer als Vorsteuer vom Finanzamt erstatten lassen können. Privatkunden bekommen Bruttopreise.</p>
+
+<aside class="note" data-typ="fehler"><p>„2 % Skonto schlage ich einfach mit 1,02 auf.“ Nein: Der Kunde zieht 2 % vom höheren Preis ab, nicht vom niedrigeren. Mit 1,02 käme beim Systemhaus etwas weniger an als geplant. Richtig ist das Teilen durch 0,98.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Vorwärts:</strong> Bezugspreis + Handlungskosten = Selbstkosten + Gewinn = Barverkaufspreis.</li>
+  <li><strong>Skonto und Rabatt</strong> rechnest du zurück: ÷ (1 − Satz); danach Umsatzsteuer.</li>
+</ul>

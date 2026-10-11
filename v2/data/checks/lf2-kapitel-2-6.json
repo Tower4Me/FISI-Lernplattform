@@ -1,0 +1,125 @@
+{
+  "titel": "Check 2.6",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Bezugskalkulation",
+      "frage": "Listeneinkaufspreis 500 €, 10 % Rabatt, 2 % Skonto, 10 € Versand. Wie hoch ist der Bezugspreis?",
+      "optionen": [
+        "451,00 €",
+        "450,00 €",
+        "441,00 €",
+        "460,00 €"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "500 € − 50 € Rabatt = 450 €; davon 2 % Skonto = 9 €, bleiben 441 €. Mit 10 € Versand ergibt das 451 €."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rückrechnung Skonto",
+      "frage": "Der Barverkaufspreis beträgt 980 €. Der Kunde darf 2 % Skonto abziehen. Wie hoch ist der Zielverkaufspreis?",
+      "optionen": [
+        "1.000,00 €",
+        "999,60 €",
+        "960,40 €",
+        "982,00 €"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Skonto bezieht sich auf den Zielverkaufspreis. 980 € ÷ 0,98 = 1.000 €."
+    },
+    {
+      "typ": "mc",
+      "thema": "Verspätete Annahme",
+      "frage": "Ein Händler schickt ein Angebot mit Bindungsfrist bis 10. Mai. Der Kunde bestellt am 14. Mai zu genau diesen Bedingungen. Was gilt?",
+      "optionen": [
+        "Die Bestellung ist ein neuer Antrag, den der Händler annehmen kann",
+        "Der Kaufvertrag ist mit dem Eingang der Bestellung zustande gekommen",
+        "Der Händler muss liefern, weil sein Angebot ihn weiterhin bindet",
+        "Der Vertrag kommt zustande, sobald der Kunde den Preis überweist"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Nach Ablauf der Bindungsfrist ist der Händler nicht mehr gebunden. Eine verspätete Annahme gilt als neuer Antrag."
+    },
+    {
+      "typ": "mc",
+      "thema": "Vertragsart",
+      "frage": "Ein Systemhaus baut einen PC nach den Wünschen des Kunden aus Einzelteilen zusammen und liefert ihn. Welche Vertragsart liegt vor?",
+      "optionen": [
+        "Werklieferungsvertrag nach § 650 BGB",
+        "Dienstvertrag über die Montagearbeit des Systemhauses",
+        "Mietvertrag über die Bauteile",
+        "Werkvertrag nach § 631 BGB"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Eine bewegliche Sache wird erst hergestellt und dann geliefert. Das ist ein Werklieferungsvertrag (§ 650 BGB), auf den das Kaufrecht angewendet wird."
+    },
+    {
+      "typ": "mc",
+      "thema": "Mahnung",
+      "frage": "Im Vertrag steht „Lieferung so bald wie möglich“. Die Ware kommt nicht. Was ist nötig, damit der Lieferant in Verzug gerät?",
+      "optionen": [
+        "Eine Mahnung nach Fälligkeit",
+        "Eine Mängelrüge wegen der fehlenden Lieferung",
+        "Ein sofortiger Rücktritt vom Vertrag",
+        "Eine neue Bestellung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ohne Termin nach dem Kalender kommt der Lieferant erst durch eine Mahnung in Verzug. Rücktritt ist erst nach erfolgloser Nachfrist möglich."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rügepflicht",
+      "frage": "Ein Systemhaus kauft beim Großhändler 20 Monitore. Ein Kratzer ist beim Auspacken sofort sichtbar, wird aber erst nach sechs Wochen gemeldet. Was gilt?",
+      "optionen": [
+        "Die Ware gilt als genehmigt, weil nicht unverzüglich gerügt wurde",
+        "Die Rüge ist rechtzeitig, weil die Gewährleistung zwei Jahre dauert",
+        "Der Großhändler muss ersetzen, weil der Mangel schon bei Lieferung bestand",
+        "Das Systemhaus kann frei wählen, ob es rügt oder zurücktritt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Unter Kaufleuten muss ein erkennbarer Mangel unverzüglich gerügt werden (§ 377 HGB). Sonst gilt die Ware als genehmigt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Nacherfüllung",
+      "frage": "Ein bei einem Händler gekaufter Monitor ist bei Lieferung defekt. Was kann der Käufer zuerst verlangen?",
+      "optionen": [
+        "Nacherfüllung: Reparatur oder neue Ware",
+        "Minderung des Kaufpreises",
+        "Rücktritt vom Kaufvertrag ohne Fristsetzung",
+        "Schadensersatz vom Hersteller"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Nacherfüllung hat Vorrang. Erst wenn sie scheitert, kommen Rücktritt, Minderung und Schadensersatz in Frage."
+    },
+    {
+      "typ": "mc",
+      "thema": "Garantie",
+      "frage": "Ein Notebook fällt nach 30 Monaten aus. Es hat 3 Jahre Herstellergarantie. Was gilt?",
+      "optionen": [
+        "Der Kunde wendet sich an den Hersteller, die Gewährleistung ist abgelaufen",
+        "Der Händler muss es im Rahmen der Gewährleistung reparieren",
+        "Es gibt keine Ansprüche mehr, weil zwei Jahre vorbei sind",
+        "Der Händler muss beweisen, dass der Fehler bei der Übergabe noch nicht vorhanden war"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Gewährleistung gegenüber dem Händler verjährt nach zwei Jahren. Die freiwillige Herstellergarantie läuft drei Jahre und gilt noch."
+    }
+  ]
+}

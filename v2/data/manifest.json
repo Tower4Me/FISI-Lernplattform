@@ -101,6 +101,110 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "4.2",
+          "titel": "Rechtliche und betriebliche Vorgaben",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "4.2.1",
+              "titel": "Datenschutz: DSGVO und BDSG",
+              "slug": "datenschutz-dsgvo-bdsg",
+              "quellen": {
+                "rahmenlehrplan": "LF4: rechtliche Regelungen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6a",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021, Aufgabe 4d",
+                  "AP1 Frühjahr 2025, Aufgabe 2a",
+                  "AP1 Herbst 2025, Aufgabe 3a"
+                ],
+                "extern": [
+                  "DSGVO Art. 4, 5, 6, 9, 83"
+                ]
+              },
+              "material": [
+                "dsgvo-grundlagen",
+                "betroffenenrechte",
+                "persoenlichkeitsrechte"
+              ],
+              "begriffe": [
+                "datenschutz",
+                "personenbezogene-daten"
+              ]
+            },
+            {
+              "nummer": "4.2.2",
+              "titel": "Technische und organisatorische Maßnahmen",
+              "slug": "technische-und-organisatorische-massnahmen",
+              "quellen": {
+                "rahmenlehrplan": "LF4: rechtliche Regelungen, Maßnahmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6a",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024, Aufgabe 4a",
+                  "AP1 Herbst 2022 (Zutrittskontrolle)"
+                ],
+                "extern": [
+                  "DSGVO Art. 32",
+                  "BDSG a. F., Anlage zu § 9 (Kontrollen)"
+                ]
+              },
+              "material": [
+                "toms"
+              ],
+              "begriffe": [
+                "toms"
+              ]
+            },
+            {
+              "nummer": "4.2.3",
+              "titel": "Sicherheitsleitlinie und ISMS",
+              "slug": "sicherheitsleitlinie-und-isms",
+              "quellen": {
+                "rahmenlehrplan": "LF4: bestehende Sicherheitsleitlinie, betriebliche Vorgaben",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6a",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2023, Aufgabe 3ba (Aufgaben des BSI)"
+                ],
+                "extern": [
+                  "BSI-Standard 200-1 (ISMS, Leitlinie)",
+                  "BSI-Standard 200-2 (Vorgehensweisen)",
+                  "BSIG § 3"
+                ]
+              },
+              "material": [
+                "sicherheitsstandards-isms"
+              ],
+              "begriffe": [
+                "sicherheitsleitlinie",
+                "isms"
+              ]
+            },
+            {
+              "nummer": "4.2.4",
+              "titel": "Zuständigkeiten und eigene Pflichten",
+              "slug": "zustaendigkeiten-und-eigene-pflichten",
+              "quellen": {
+                "rahmenlehrplan": "LF4: Verantwortung im IT-Sicherheitsprozess",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 6a",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "DSGVO Art. 37 bis 39",
+                  "BDSG § 38 (geprüft auf gesetze-im-internet.de)"
+                ]
+              },
+              "material": [
+                "normen-compliance"
+              ],
+              "begriffe": [
+                "datenschutzbeauftragter"
+              ]
+            }
+          ]
         }
       ]
     }

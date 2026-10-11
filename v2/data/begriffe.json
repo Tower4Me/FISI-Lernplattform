@@ -1323,6 +1323,25 @@
           "tiefe": "Protokolle"
         }
       ]
+    },
+    {
+      "begriff": "wlan",
+      "kernfakten": [
+        "IEEE 802.11: n = Wi-Fi 4 (600 Mbit/s), ac = Wi-Fi 5 (6,9 Gbit/s), ax = Wi-Fi 6/6E (9,6 Gbit/s, OFDMA, 6E auch 6 GHz), be = Wi-Fi 7 (ca. 46 Gbit/s); theoretische Werte.",
+        "2,4 GHz: Reichweite, EU 13 Kanäle, 3–4 überlappungsfrei (1, 6, 11 bzw. 1, 5, 9, 13), Störungen; 5 GHz mehr Kanäle, DFS; 6 GHz in der EU nur unterer Teil, nur 6E/7; Band Steering.",
+        "SSID, Access Point (Infrastruktur) vs. Ad-hoc; geteiltes Medium mit CSMA/CA; Roaming, Mesh, Repeater halbiert meist Datenrate.",
+        "WEP und WPA (TKIP) unsicher, WPA2-AES, WPA3 (SAE, Übergangsmodus, 6 GHz nur WPA3); Personal (PSK) vs. Enterprise (802.1X, EAP, RADIUS, Schlüssel je Person); Gästenetz, WPS aus, Admin-Passwörter, Passwort ≥ 20 Zeichen; versteckte SSID/MAC-Filter kein Schutz."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-6-1",
+          "tiefe": "Standards"
+        },
+        {
+          "id": "3-6-2",
+          "tiefe": "Sicherheit"
+        }
+      ]
     }
   ]
 }

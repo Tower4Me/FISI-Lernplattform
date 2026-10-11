@@ -225,6 +225,13 @@
             <li><a class="up is-check" data-check="lf3-3-5" href="3-5-check.html"><span class="num">3.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="3-6-1-wlan-standards-und-frequenzen.html"><span class="num">3.6</span><span>WLAN</span><span class="kap-progress" data-ids="3-6-1 3-6-2">0/2</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-6-1" href="3-6-1-wlan-standards-und-frequenzen.html"><span class="num">3.6.1</span><span class="t">WLAN-Standards und Frequenzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-6-2" href="3-6-2-wlan-absichern.html"><span class="num">3.6.2</span><span class="t">WLAN absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-6" href="3-6-check.html"><span class="num">3.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html"><span class="num">3.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -322,7 +329,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Notebook der Mitarbeiterin zeigt <code>ipconfig</code> (Kapitel 3.7.2): IPv4-Adresse <code>169.254.83.12</code>, Subnetzmaske <code>255.255.0.0</code>, kein Standardgateway, außerdem eine IPv6-Adresse <code>fe80::…</code>. Die IPv6-Adresse ist normal. Die IPv4-Adresse zeigt aber, dass das Notebook vom DHCP-Server keine Adresse bekommen hat. Die Link-LED leuchtet, die Verbindung zum Switch steht also. Im Router findet der Auszubildende die Ursache: Der DHCP-Bereich ist auf zehn Adressen eingestellt, und alle sind an Diensthandys und Tablets im WLAN vergeben. Er vergrößert den Bereich und führt <code>ipconfig /renew</code> aus; danach bekommt das Notebook eine Adresse aus 192.168.10.0/24.</p>
+  <p>Am Notebook des Mitarbeiters zeigt <code>ipconfig</code> (Kapitel 3.7.2): IPv4-Adresse <code>169.254.83.12</code>, Subnetzmaske <code>255.255.0.0</code>, kein Standardgateway, außerdem eine IPv6-Adresse <code>fe80::…</code>. Die IPv6-Adresse ist normal. Die IPv4-Adresse zeigt aber, dass das Notebook vom DHCP-Server keine Adresse bekommen hat. Die Link-LED leuchtet, die Verbindung zum Switch steht also. Im Router findet der Auszubildende die Ursache: Der DHCP-Bereich ist auf zehn Adressen eingestellt, und alle sind an Diensthandys und Tablets im WLAN vergeben. Er vergrößert den Bereich und führt <code>ipconfig /renew</code> aus; danach bekommt das Notebook eine Adresse aus 192.168.10.0/24.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Eine fe80-Adresse zeigt ein Problem wie 169.254.“ Nein: Die fe80-Adresse hat jedes IPv6-Gerät immer. Ein Warnsignal ist nur die 169.254er-Adresse bei IPv4.</p></aside>

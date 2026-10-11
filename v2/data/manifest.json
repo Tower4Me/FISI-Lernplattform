@@ -1741,6 +1741,59 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "3.6",
+          "titel": "WLAN",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "3.6.1",
+              "titel": "WLAN-Standards und Frequenzen",
+              "slug": "wlan-standards-und-frequenzen",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Komponenten und Standards, betriebliche Sicherheitsvorgaben beachten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 6",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2025 (WLAN)"
+                ],
+                "extern": [
+                  "IEEE 802.11",
+                  "Wi-Fi Alliance (Wi-Fi 4 bis 7)"
+                ]
+              },
+              "material": [
+                "wlan-grundlagen"
+              ],
+              "begriffe": [
+                "wlan"
+              ]
+            },
+            {
+              "nummer": "3.6.2",
+              "titel": "WLAN absichern",
+              "slug": "wlan-absichern",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Komponenten und Standards, betriebliche Sicherheitsvorgaben beachten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 6",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (WPA-PSK vs. WPA-Enterprise/RADIUS)"
+                ],
+                "extern": [
+                  "IEEE 802.1X",
+                  "BSI IT-Grundschutz NET.2.1 WLAN-Betrieb"
+                ]
+              },
+              "material": [
+                "wlan-grundlagen"
+              ],
+              "begriffe": [
+                "wlan"
+              ]
+            }
+          ]
         }
       ]
     },

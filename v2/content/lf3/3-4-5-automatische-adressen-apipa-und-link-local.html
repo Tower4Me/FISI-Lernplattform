@@ -20,7 +20,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Notebook der Mitarbeiterin zeigt <code>ipconfig</code> (Kapitel 3.7.2): IPv4-Adresse <code>169.254.83.12</code>, Subnetzmaske <code>255.255.0.0</code>, kein Standardgateway, außerdem eine IPv6-Adresse <code>fe80::…</code>. Die IPv6-Adresse ist normal. Die IPv4-Adresse zeigt aber, dass das Notebook vom DHCP-Server keine Adresse bekommen hat. Die Link-LED leuchtet, die Verbindung zum Switch steht also. Im Router findet der Auszubildende die Ursache: Der DHCP-Bereich ist auf zehn Adressen eingestellt, und alle sind an Diensthandys und Tablets im WLAN vergeben. Er vergrößert den Bereich und führt <code>ipconfig /renew</code> aus; danach bekommt das Notebook eine Adresse aus 192.168.10.0/24.</p>
+  <p>Am Notebook des Mitarbeiters zeigt <code>ipconfig</code> (Kapitel 3.7.2): IPv4-Adresse <code>169.254.83.12</code>, Subnetzmaske <code>255.255.0.0</code>, kein Standardgateway, außerdem eine IPv6-Adresse <code>fe80::…</code>. Die IPv6-Adresse ist normal. Die IPv4-Adresse zeigt aber, dass das Notebook vom DHCP-Server keine Adresse bekommen hat. Die Link-LED leuchtet, die Verbindung zum Switch steht also. Im Router findet der Auszubildende die Ursache: Der DHCP-Bereich ist auf zehn Adressen eingestellt, und alle sind an Diensthandys und Tablets im WLAN vergeben. Er vergrößert den Bereich und führt <code>ipconfig /renew</code> aus; danach bekommt das Notebook eine Adresse aus 192.168.10.0/24.</p>
 </div>
 
 <aside class="note" data-typ="fehler"><p>„Eine fe80-Adresse zeigt ein Problem wie 169.254.“ Nein: Die fe80-Adresse hat jedes IPv6-Gerät immer. Ein Warnsignal ist nur die 169.254er-Adresse bei IPv4.</p></aside>

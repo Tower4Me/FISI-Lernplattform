@@ -1,0 +1,50 @@
+<p class="lead">Funk endet nicht an der Bürowand. Wer vor dem Haus parkt, empfängt das WLAN der Hausverwaltung genauso wie das Notebook am Schreibtisch. Deshalb müssen Verschlüsselung und Anmeldung stimmen; ein offenes oder schlecht gesichertes WLAN öffnet das ganze Büronetz.</p>
+
+<h3>Verschlüsselungsverfahren</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Verfahren</th><th>Bewertung</th></tr></thead>
+    <tbody>
+      <tr><th>WEP</th><td>unsicher, in Minuten zu knacken; nicht mehr verwenden</td></tr>
+      <tr><th>WPA</th><td>Übergangslösung mit TKIP, inzwischen unsicher; nicht mehr verwenden</td></tr>
+      <tr><th>WPA2</th><td>mit AES-Verschlüsselung lange Standard; bei starkem Passwort weiterhin vertretbar</td></tr>
+      <tr><th>WPA3</th><td>aktueller Standard; ein mitgeschnittener Verbindungsaufbau reicht nicht mehr, um das Passwort offline durchzuprobieren (SAE, Simultaneous Authentication of Equals)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wo alle Geräte es beherrschen, wählst du WPA3. Für ältere Geräte gibt es einen Übergangsmodus WPA2/WPA3. Dann bleibt der WPA2-Teil so angreifbar wie bisher, das Passwort muss also trotzdem stark sein. Im 6-GHz-Band ist nur WPA3 erlaubt.</p>
+
+<h3>Personal oder Enterprise</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Personal (PSK, Pre-Shared Key)</th><th>Enterprise (IEEE 802.1X)</th></tr></thead>
+    <tbody>
+      <tr><th>Anmeldung</th><td>ein gemeinsames Passwort für alle</td><td>jede Person mit eigenem Konto oder Zertifikat; ein RADIUS-Server prüft die Anmeldung (Verfahren: EAP)</td></tr>
+      <tr><th>Vorteil</th><td>einfach einzurichten</td><td>Zugang einzeln sperrbar, nachvollziehbar, wer angemeldet war; eigener Schlüssel je Person; Anbindung an die vorhandene Benutzerverwaltung möglich</td></tr>
+      <tr><th>Nachteil</th><td>verlässt jemand den Betrieb, muss das Passwort überall geändert werden; je mehr Personen es kennen, desto eher wird es weitergegeben</td><td>aufwendiger, braucht RADIUS-Server und Verwaltung</td></tr>
+      <tr><th>Einsatz</th><td>kleine Büros mit wenigen Personen</td><td>mittlere und große Unternehmen, vor allem mit häufigem Personalwechsel oder vorhandener Benutzerverwaltung</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Weitere Maßnahmen</h3>
+<ul>
+  <li><strong>Langes Passwort:</strong> bei Personal mindestens 20 Zeichen (Empfehlung des BSI), zufällig erzeugt, keine Namen oder einzelnen Wörter aus dem Wörterbuch.</li>
+  <li><strong>Gästenetz:</strong> Gäste bekommen ein eigenes WLAN, getrennt vom Büronetz (Kapitel 3.2.3), mit eigenem Passwort, das regelmäßig wechselt.</li>
+  <li><strong>WPS abschalten:</strong> Das Verbinden per Knopfdruck oder PIN ist bequem, aber vor allem die PIN-Variante lässt sich durch Ausprobieren knacken.</li>
+  <li><strong>Router und Access Point absichern:</strong> eigenes, starkes Administratorpasswort, Firmware-Updates einspielen, Fernverwaltung aus dem Internet abschalten.</li>
+  <li><strong>Kein Ersatz für Verschlüsselung:</strong> Eine versteckte SSID oder ein Filter auf MAC-Adressen hält nur zufällige Mitnutzung ab; beides lässt sich mit einfachen Mitteln umgehen (Kapitel 3.3.5).</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Access Point der Hausverwaltung erhält zwei Netze: „HV-Buero“ mit WPA3-Personal und einem 24-stelligen Zufallspasswort für Inhaberin und Mitarbeiter, und „HV-Gast“ mit eigenem Passwort; dieses Netz führt in das Gästenetz des Routers mit eigenem Adressbereich (Kapitel 3.2.3) und von dort nur ins Internet. WPS ist aus, die Admin-Passwörter von Access Point und Router sind geändert. Weil nur zwei Personen das Büro-WLAN nutzen, lohnt sich Enterprise mit RADIUS-Server hier nicht; bei Personalwechsel wird das Passwort neu gesetzt.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Mein WLAN ist sicher, weil der Name versteckt ist.“ Nein: Die SSID wird bei jeder Verbindung trotzdem übertragen und ist mit einfachen Werkzeugen sichtbar. Schutz bietet nur die Verschlüsselung mit starkem Passwort.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Verschlüsselung:</strong> WPA3, sonst WPA2 mit AES; WEP und WPA nicht mehr verwenden.</li>
+  <li><strong>Personal</strong> (ein gemeinsames Passwort) für kleine Büros, <strong>Enterprise</strong> (802.1X, RADIUS, eigenes Konto je Person) für größere.</li>
+  <li><strong>Zusätzlich:</strong> langes Passwort, Gästenetz, WPS aus, Router-Admin sichern; versteckte SSID und MAC-Filter schützen nicht.</li>
+</ul>

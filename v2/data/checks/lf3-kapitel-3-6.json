@@ -1,0 +1,125 @@
+{
+  "titel": "Check 3.6",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Frequenzband",
+      "frage": "Welches Frequenzband dringt am besten durch Wände und hat die größte Reichweite?",
+      "optionen": [
+        "2,4 GHz",
+        "5 GHz",
+        "6 GHz",
+        "Alle drei gleich"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Niedrigere Frequenzen durchdringen Wände besser. Dafür hat 2,4 GHz wenige Kanäle und viele Störungen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Wi-Fi-Name",
+      "frage": "Welcher IEEE-Standard verbirgt sich hinter Wi-Fi 6?",
+      "optionen": [
+        "802.11ax",
+        "802.11ac",
+        "802.11n",
+        "802.11be"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Wi-Fi 6 ist 802.11ax. Wi-Fi 4 ist 802.11n, Wi-Fi 5 802.11ac, Wi-Fi 7 802.11be."
+    },
+    {
+      "typ": "mc",
+      "thema": "Geteiltes Medium",
+      "frage": "Warum sinkt die Datenrate je Gerät, wenn mehr Geräte im selben WLAN arbeiten?",
+      "optionen": [
+        "Alle teilen sich denselben Funkkanal",
+        "Der Access Point drosselt neue Geräte absichtlich",
+        "Jedes Gerät belegt einen eigenen Frequenzkanal",
+        "Die Verschlüsselung wird mit jedem Gerät aufwendiger"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Funk ist ein geteiltes Medium. Mit CSMA/CA wechseln sich die Geräte ab, die verfügbare Zeit verteilt sich auf alle."
+    },
+    {
+      "typ": "mc",
+      "thema": "Enterprise",
+      "frage": "Ein Unternehmen mit 200 Beschäftigten will WLAN-Zugänge einzeln sperren können. Was richtest du ein?",
+      "optionen": [
+        "WPA3-Enterprise mit RADIUS-Server",
+        "WPA3-Personal mit langem Passwort",
+        "WPA2-Personal mit versteckter SSID",
+        "WPA3-Personal, Passwort bei jedem Austritt ändern"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei Enterprise meldet sich jede Person mit eigenem Konto an, das ein RADIUS-Server prüft. So lässt sich ein Zugang einzeln sperren."
+    },
+    {
+      "typ": "mc",
+      "thema": "Verschlüsselung",
+      "frage": "Welches Verfahren setzt du zur WLAN-Verschlüsselung nicht mehr ein?",
+      "optionen": [
+        "WEP",
+        "WPA3",
+        "WPA2 mit AES",
+        "WPA2/WPA3-Übergangsmodus"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "WEP lässt sich in kurzer Zeit knacken. WPA3 ist aktuell, WPA2 mit AES bei starkem Passwort noch vertretbar."
+    },
+    {
+      "typ": "mc",
+      "thema": "Gästenetz",
+      "frage": "Besucher sollen ins Internet, aber nicht auf NAS und Drucker zugreifen. Was richtest du ein?",
+      "optionen": [
+        "Ein eigenes Gästenetz, getrennt vom Büronetz",
+        "Das Büro-WLAN mit versteckter SSID",
+        "Einen Repeater nur für die Besucher",
+        "Ein zweites Passwort für das Büro-WLAN"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Gästenetz hat einen eigenen Adressbereich und führt nur ins Internet. Die anderen Lösungen bringen Besucher ins Büronetz."
+    },
+    {
+      "typ": "mc",
+      "thema": "Repeater",
+      "frage": "Was ist ein typischer Nachteil eines einfachen WLAN-Repeaters?",
+      "optionen": [
+        "Er halbiert meist die nutzbare Datenrate",
+        "Er braucht ein eigenes Netzwerkkabel zum Switch",
+        "Er setzt beim Access Point WPA3 voraus",
+        "Er vergibt eigene Adressen aus einem zweiten Netz"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein einfacher Repeater empfängt und sendet meist auf demselben Kanal, die Funkzeit teilt sich. Besser sind per Kabel angebundene Access Points."
+    },
+    {
+      "typ": "mc",
+      "thema": "Personal im kleinen Büro",
+      "frage": "Die Hausverwaltung hat zwei Beschäftigte. Welche WLAN-Anmeldung ist angemessen?",
+      "optionen": [
+        "WPA3-Personal mit langem Zufallspasswort",
+        "WPA3-Enterprise mit RADIUS-Server",
+        "WPA2-Personal mit versteckter SSID",
+        "WEP mit MAC-Filter"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei wenigen Personen lohnt sich der Aufwand für einen RADIUS-Server nicht. Ein langes Zufallspasswort mit WPA3 genügt."
+    }
+  ]
+}

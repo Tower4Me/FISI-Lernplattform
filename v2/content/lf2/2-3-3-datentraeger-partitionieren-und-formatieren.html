@@ -1,0 +1,48 @@
+<p class="lead">Eine neue SSD ist leer und für das Betriebssystem zunächst unbrauchbar. Erst wenn sie in Bereiche aufgeteilt und mit einem Dateisystem versehen ist, lassen sich Dateien darauf speichern. Die Wahl von Partitionstabelle und Dateisystem entscheidet, wie groß der Datenträger sein darf und welche Geräte ihn lesen können.</p>
+
+<h3>Partitionieren</h3>
+<p>Beim <strong>Partitionieren</strong> teilst du einen Datenträger in getrennte Bereiche (<strong>Partitionen</strong>). Jede Partition verhält sich wie ein eigenes Laufwerk, unter Windows mit eigenem Laufwerksbuchstaben. So lassen sich etwa System und Daten trennen. Wo die Partitionen liegen, steht in der <strong>Partitionstabelle</strong>.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>MBR (Master Boot Record)</th><th>GPT (GUID Partition Table)</th></tr></thead>
+    <tbody>
+      <tr><th>Alter</th><td>älterer Standard</td><td>aktueller Standard</td></tr>
+      <tr><th>Größe des Datenträgers</th><td>höchstens 2 TiB nutzbar</td><td>weit über 2 TiB</td></tr>
+      <tr><th>Anzahl der Partitionen</th><td>4 primäre (oder 3 primäre und eine erweiterte mit weiteren logischen)</td><td>unter Windows bis 128</td></tr>
+      <tr><th>Starten</th><td>Windows startet davon nur im BIOS-Modus</td><td>Windows startet davon nur mit UEFI (Kapitel 2.3.4)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Für neue Rechner ist GPT die Regel. Ein Datenträger über 2 TiB muss GPT bekommen, sonst bleibt der Rest ungenutzt.</p>
+
+<h3>Formatieren</h3>
+<p>Beim <strong>Formatieren</strong> legst du auf einer Partition ein <strong>Dateisystem</strong> an. Es verwaltet, wo welche Datei liegt, und oft auch, wer sie lesen darf.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Dateisystem</th><th>Merkmale</th><th>Typischer Einsatz</th></tr></thead>
+    <tbody>
+      <tr><th>NTFS</th><td>Zugriffsrechte, Journaling, Verschlüsselung; macOS kann es ohne Zusatzsoftware nur lesen, aktuelle Linux-Systeme lesen und schreiben es</td><td>Windows-Systemlaufwerk</td></tr>
+      <tr><th>FAT32</th><td>von fast allen Geräten lesbar, aber keine Datei größer als 4 GB, keine Zugriffsrechte</td><td>kleine USB-Sticks, Geräte wie Kameras</td></tr>
+      <tr><th>exFAT</th><td>von Windows, macOS und aktuellen Linux-Systemen lesbar und beschreibbar, ohne 4-GB-Grenze; keine Zugriffsrechte, kein Journaling; manche älteren Geräte lesen es nicht</td><td>große USB-Sticks, SD-Karten</td></tr>
+      <tr><th>ext4</th><td>Zugriffsrechte, Journaling; Windows kann es ohne Zusatzsoftware nicht lesen</td><td>Linux-Systemlaufwerk</td></tr>
+      <tr><th>APFS</th><td>für SSDs optimiert, Snapshots; Windows kann es ohne Zusatzsoftware nicht lesen</td><td>macOS</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>Journaling</strong> heißt: Das Dateisystem protokolliert geplante Änderungen, bevor es sie ausführt. Fällt der Strom aus, kann es danach schnell einen sauberen Zustand herstellen. Das schützt die Ordnung des Dateisystems, nicht unbedingt den Inhalt einer Datei, die gerade geschrieben wurde.</p>
+<p>Windows bietet zwei Arten der Formatierung an: Die <strong>Schnellformatierung</strong> legt nur die Verwaltungsdaten des Dateisystems neu an, die alten Daten bleiben zunächst stehen. Die <strong>vollständige Formatierung</strong> prüft zusätzlich jeden Bereich auf Fehler und überschreibt ihn dabei mit Nullen; sie dauert entsprechend lange.</p>
+<p>Werkzeuge unter Windows sind die grafische <strong>Datenträgerverwaltung</strong> und das Kommandozeilenprogramm <strong>diskpart</strong>.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Architekturbüro will Baupläne und Videos (bis 8 GB) auf einem 128-GB-USB-Stick zwischen Windows-PCs und einem Mac austauschen. Der Auszubildende formatiert den Stick mit exFAT: FAT32 scheitert an den großen Dateien, NTFS kann der Mac nicht beschreiben.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Nach dem Formatieren sind die Daten weg.“ Nein: Nach einer Schnellformatierung lassen sich die alten Daten auf Festplatten und USB-Sticks meist wiederherstellen. Formatieren ersetzt kein sicheres Löschen; Datenträger, die den Betrieb verlassen, werden sicher gelöscht oder zerstört.</p></aside>
+<aside class="note" data-typ="vertiefung"><p>Dass alte Datenträger vor der Entsorgung sicher gelöscht oder zerstört werden, gehört zum Schutz von Geräten in <a href="../lf4/4-6-3-raeume-geraete-und-strom-schuetzen.html">LF4, Kapitel 4.6.3</a>.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Partitionieren</strong> teilt den Datenträger auf, <strong>Formatieren</strong> legt darauf ein Dateisystem an.</li>
+  <li><strong>MBR:</strong> bis 2 TiB, 4 primäre Partitionen, BIOS; <strong>GPT:</strong> über 2 TiB, viele Partitionen, UEFI.</li>
+  <li><strong>NTFS</strong> für Windows, <strong>ext4</strong> für Linux, <strong>exFAT</strong> zum Austausch großer Dateien, <strong>FAT32</strong> nur bis 4 GB pro Datei.</li>
+</ul>

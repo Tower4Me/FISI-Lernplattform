@@ -1,0 +1,125 @@
+{
+  "titel": "Check 2.3",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Schichtenmodell",
+      "frage": "Welche Schicht liegt im Schichtenmodell direkt zwischen Hardware und Betriebssystemkern?",
+      "optionen": [
+        "Firmware (BIOS/UEFI)",
+        "Anwendungsprogramme",
+        "Benutzeroberfläche",
+        "Systemprogramme und Dienste"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Firmware sitzt direkt auf der Hardware und startet das Betriebssystem. Systemprogramme und Anwendungen liegen über dem Kern."
+    },
+    {
+      "typ": "mc",
+      "thema": "Bootreihenfolge",
+      "frage": "Ein PC soll vom Installationsstick starten, lädt aber immer das alte System von der SSD. Was prüfst du zuerst?",
+      "optionen": [
+        "Die Bootreihenfolge in der Firmware",
+        "Die Partitionstabelle des USB-Sticks",
+        "Die Lizenz des alten Betriebssystems",
+        "Den Treiber für den USB-Anschluss"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Firmware startet vom ersten Gerät der Bootreihenfolge, das ein Startprogramm hat. Steht die SSD vorn, wird der Stick übergangen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zugriffslizenzen",
+      "frage": "Ein Betrieb hat 20 Beschäftigte im Schichtbetrieb, die sich 8 Rechner teilen. Alle greifen auf einen Server zu. Welche Zugriffslizenzen sind am günstigsten, wenn jede CAL gleich viel kostet?",
+      "optionen": [
+        "8 Device-CALs",
+        "20 User-CALs",
+        "8 User-CALs",
+        "20 Device-CALs"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Teilen sich mehr Personen weniger Geräte, ist die Lizenz je Gerät günstiger. 8 User-CALs würden nur 8 der 20 Personen abdecken."
+    },
+    {
+      "typ": "mc",
+      "thema": "Open-Source-Lizenz",
+      "frage": "Ein Betrieb verändert ein Programm unter der GPL und gibt es an Kunden weiter. Was muss er beachten?",
+      "optionen": [
+        "Er muss den geänderten Quellcode ebenfalls unter der GPL offenlegen",
+        "Er muss für jede weitergegebene Kopie eine Gebühr an den Urheber zahlen",
+        "Er darf die geänderte Fassung nur im eigenen Betrieb einsetzen",
+        "Er muss lediglich einen Hinweis auf den ursprünglichen Urheber ergänzen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die GPL ist eine Copyleft-Lizenz: Weitergegebene Änderungen müssen unter derselben Lizenz offengelegt werden. Nur einen Hinweis zu erhalten genügt bei freizügigen Lizenzen wie MIT."
+    },
+    {
+      "typ": "mc",
+      "thema": "Dateisystem wählen",
+      "frage": "Eine Kamera speichert Videos mit 10 GB auf einer SD-Karte, die danach an Windows-PCs und Macs gelesen wird. Welches Dateisystem passt?",
+      "optionen": [
+        "exFAT",
+        "FAT32",
+        "NTFS",
+        "ext4"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "FAT32 erlaubt keine Dateien über 4 GB, NTFS kann der Mac nicht beschreiben und ext4 kann Windows ohne Zusatzsoftware nicht lesen. exFAT hat keine 4-GB-Grenze und ist breit lesbar."
+    },
+    {
+      "typ": "mc",
+      "thema": "MBR und GPT",
+      "frage": "Eine neue 4-TB-Festplatte wird eingerichtet. Welche Partitionstabelle wählst du?",
+      "optionen": [
+        "GPT, weil MBR höchstens 2 TiB nutzen kann",
+        "MBR, weil ältere Rechner es besser unterstützen",
+        "GPT, weil MBR keine NTFS-Partitionen erlaubt",
+        "MBR, weil GPT für Festplatten weniger geeignet ist"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Mit MBR bliebe alles über 2 TiB ungenutzt. GPT unterstützt große Datenträger und viele Partitionen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Secure Boot",
+      "frage": "Wozu dient Secure Boot im UEFI?",
+      "optionen": [
+        "Es startet nur Bootloader mit gültiger Signatur",
+        "Es verschlüsselt die Daten auf der Systemplatte",
+        "Es prüft beim Einschalten Prozessor und Speicher",
+        "Es sperrt das Einstellungsmenü mit einem Passwort"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Secure Boot prüft die Signatur des Startprogramms und verhindert so, dass sich Schadsoftware vor dem Betriebssystem einnistet. Die Hardwareprüfung beim Einschalten ist der POST."
+    },
+    {
+      "typ": "mc",
+      "thema": "Schnellformatierung",
+      "frage": "Ein Kunde bekommt seinen alten USB-Stick nach einer Schnellformatierung zurück. Was gilt?",
+      "optionen": [
+        "Die alten Daten lassen sich meist noch wiederherstellen",
+        "Die alten Daten wurden mit Nullen überschrieben",
+        "Der Stick hat jetzt kein Dateisystem mehr",
+        "Nur Dateien über 4 GB wurden entfernt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Schnellformatierung legt nur die Verwaltungsdaten neu an. Für sicheres Löschen reicht sie nicht."
+    }
+  ]
+}

@@ -771,6 +771,67 @@
           "tiefe": "Arbeitsplatzanschlüsse"
         }
       ]
+    },
+    {
+      "begriff": "betriebssystem",
+      "kernfakten": [
+        "Aufgaben: Prozess-, Speicher-, Geräte- (Treiber), Datei-, Benutzerverwaltung, Oberfläche.",
+        "Schichtenmodell von unten: Hardware, Firmware, Betriebssystemkern mit Treibern, Systemprogramme/Dienste, Anwendungen, Benutzer.",
+        "Kernel greift im laufenden Betrieb mit den Treibern direkt auf Hardware zu (Firmware vor allem beim Start); Anwendungen über Systemaufrufe; Treiber sind betriebssystemspezifisch.",
+        "Windows Büro, Linux Server/Cloud (Distributionen), macOS nur Apple; Auswahl nach benötigter Software.",
+        "64 Bit Standard, 32 Bit max. ca. 4 GB RAM; Client- vs. Server-Betriebssysteme."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-3-1",
+          "tiefe": "Aufgaben, Schichtenmodell"
+        }
+      ]
+    },
+    {
+      "begriff": "softwarelizenzen",
+      "kernfakten": [
+        "Systemsoftware vs. Anwendungssoftware; Standard-, Branchen-, Individualsoftware; Customizing.",
+        "Software urheberrechtlich geschützt (§ 69a UrhG); Lizenz = Nutzungsrecht, nicht Urheberrecht.",
+        "Modelle: Einzelplatz, Volumen, OEM (an Gerät gebunden), Abo, CAL (Device günstiger bei geteilten Geräten, User bei mehreren Geräten je Person), Netzwerk/Floating, Shareware, Freeware (oft nur privat), Open Source.",
+        "GPL Copyleft: weitergegebene Änderungen offenlegen; MIT: nur Lizenzhinweis erhalten."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-3-2",
+          "tiefe": "Arten, Lizenzmodelle"
+        }
+      ]
+    },
+    {
+      "begriff": "dateisysteme",
+      "kernfakten": [
+        "Partitionieren teilt auf, Formatieren legt Dateisystem an.",
+        "MBR: bis 2 TiB, 4 primäre Partitionen, BIOS; GPT: über 2 TiB, Windows bis 128 Partitionen, UEFI.",
+        "NTFS (Windows, Rechte, Journaling; macOS nur lesen, aktuelles Linux lesen/schreiben), FAT32 (max. 4 GB je Datei), exFAT (ohne 4-GB-Grenze, breit lesbar), ext4 (Linux), APFS (macOS).",
+        "Schnellformatierung erneuert nur Verwaltungsdaten, löscht nicht sicher; vollständige prüft und überschreibt mit Nullen."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-3-3",
+          "tiefe": "MBR/GPT, Dateisysteme"
+        }
+      ]
+    },
+    {
+      "begriff": "firmware",
+      "kernfakten": [
+        "Start: POST, Bootreihenfolge, Bootloader, Betriebssystemkern.",
+        "UEFI löst BIOS ab: GPT, grafisch, Secure Boot (nur signierte Bootloader), schneller; CSM für BIOS-Modus fehlt bei vielen neuen Rechnern.",
+        "Windows 11 u. a.: UEFI mit Secure-Boot-Fähigkeit, TPM 2.0 (Chip oder in CPU, im UEFI aktivieren), unterstützter 64-Bit-Prozessor.",
+        "Einrichtung: Firmware, Installation (ISO-Abbild), Treiber, Updates, Anwendungen."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-3-4",
+          "tiefe": "BIOS/UEFI, Einrichtungsablauf"
+        }
+      ]
     }
   ]
 }

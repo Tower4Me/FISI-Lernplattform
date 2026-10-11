@@ -1,0 +1,57 @@
+<p class="lead">Ohne Betriebssystem ist ein PC nur Hardware, die niemand bedienen kann. Das Betriebssystem verwaltet Prozessor, Speicher und Geräte und stellt den Programmen eine einheitliche Grundlage bereit. Welches Betriebssystem passt, hängt von der Software ab, die der Kunde nutzen muss.</p>
+
+<h3>Wozu ein Betriebssystem da ist</h3>
+<p>Programme sollen nicht selbst wissen müssen, welche Festplatte oder welcher Drucker eingebaut ist. Das <strong>Betriebssystem</strong> übernimmt das und verteilt die Hardware fair auf alle laufenden Programme. Seine wichtigsten Aufgaben:</p>
+<ul>
+  <li><strong>Prozessverwaltung:</strong> teilt die Rechenzeit des Prozessors auf die laufenden Programme (Prozesse) auf. So laufen viele Programme scheinbar gleichzeitig (Multitasking).</li>
+  <li><strong>Speicherverwaltung:</strong> weist jedem Programm Arbeitsspeicher zu und schützt die Bereiche voreinander.</li>
+  <li><strong>Geräteverwaltung:</strong> spricht die Hardware über <strong>Treiber</strong> an, kleine Programme, die das Betriebssystem mit einem bestimmten Gerät verbinden.</li>
+  <li><strong>Dateiverwaltung:</strong> organisiert Dateien und Ordner auf den Datenträgern.</li>
+  <li><strong>Benutzerverwaltung:</strong> regelt Anmeldung und Zugriffsrechte.</li>
+  <li><strong>Benutzeroberfläche:</strong> grafisch (Fenster, Maus) oder als Kommandozeile.</li>
+</ul>
+
+<h3>Das Schichtenmodell</h3>
+<p>Ein Rechner lässt sich als Stapel von Schichten beschreiben. Jede Schicht nutzt vor allem die Dienste der Schicht darunter und bietet der Schicht darüber eigene Dienste an. Dadurch läuft ein Programm auf unterschiedlicher Hardware derselben Prozessorarchitektur (etwa x86 oder ARM), solange das Betriebssystem dazwischen passt.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 640 290" role="img" aria-label="Schichtenmodell von unten nach oben: Hardware, Firmware, Betriebssystemkern mit Treibern, Systemprogramme und Dienste, Anwendungsprogramme, Benutzer">
+    <rect class="g-box" x="120" y="10" width="400" height="40" rx="6"/><text x="320" y="35" text-anchor="middle">Benutzer</text>
+    <rect class="g-box" x="120" y="56" width="400" height="40" rx="6"/><text x="320" y="81" text-anchor="middle">Anwendungsprogramme</text>
+    <rect class="g-box" x="120" y="102" width="400" height="40" rx="6"/><text x="320" y="127" text-anchor="middle">Systemprogramme und Dienste</text>
+    <rect class="g-accent" x="120" y="148" width="400" height="40" rx="6"/><text x="320" y="173" text-anchor="middle">Betriebssystemkern mit Treibern</text>
+    <rect class="g-box" x="120" y="194" width="400" height="40" rx="6"/><text x="320" y="219" text-anchor="middle">Firmware (BIOS/UEFI)</text>
+    <rect class="g-box" x="120" y="240" width="400" height="40" rx="6"/><text x="320" y="265" text-anchor="middle">Hardware</text>
+    <path class="g-rule" d="M540 102V188M532 102H540M532 188H540"/>
+    <text class="g-muted" x="550" y="150" font-size="13">Betriebs-</text>
+    <text class="g-muted" x="550" y="166" font-size="13">system</text>
+  </svg>
+  <figcaption>Schichtenmodell: Jede Schicht baut auf der darunterliegenden auf. Betriebssystemkern, Treiber und Systemprogramme bilden zusammen das Betriebssystem.</figcaption>
+</figure>
+<p>Der <strong>Kernel</strong> (Betriebssystemkern) ist der innerste Teil des Betriebssystems. Im laufenden Betrieb greift nur er zusammen mit den Treibern direkt auf die Hardware zu; die Firmware arbeitet vor allem beim Start. Anwendungen wie Textverarbeitung oder Browser bitten den Kernel über festgelegte Schnittstellen (Systemaufrufe) um Speicher oder Dateizugriff, statt die Hardware selbst anzusprechen.</p>
+
+<h3>Verbreitete Betriebssysteme</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Windows</th><th>Linux</th><th>macOS</th></tr></thead>
+    <tbody>
+      <tr><th>Lizenz</th><td>kostenpflichtig, Quellcode nicht offen</td><td>meist kostenlos, Quellcode offen (Open Source)</td><td>mit Apple-Geräten ohne Aufpreis, nur auf Apple-Hardware erlaubt, Quellcode nicht offen</td></tr>
+      <tr><th>Typischer Einsatz</th><td>die meisten Büroarbeitsplätze</td><td>Server, Cloud, Entwicklung, eingebettete Geräte</td><td>Grafik, Medien, Entwicklung</td></tr>
+      <tr><th>Software</th><td>größte Auswahl an Büro- und Branchensoftware</td><td>viel freie Software, Branchensoftware oft nicht verfügbar</td><td>gute Auswahl, manche Branchensoftware fehlt</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Linux gibt es in vielen Zusammenstellungen (<strong>Distributionen</strong>), etwa Ubuntu oder Debian. Auf Smartphones und Tablets laufen Android und iOS.</p>
+<p>Aktuelle Betriebssysteme sind 64-Bit-Systeme; ein 32-Bit-System kann höchstens etwa 4 GB Arbeitsspeicher nutzen. Neben Client-Betriebssystemen für Arbeitsplätze gibt es Server-Betriebssysteme wie Windows Server oder Linux-Serverdistributionen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Physiotherapiepraxis nutzt eine Praxissoftware, die der Hersteller nur für Windows anbietet. Damit steht die Wahl fest: Die drei neuen Empfangsrechner bekommen Windows, obwohl Linux keine Lizenzkosten hätte. Für den kleinen Server, der nur Dateien bereitstellt, schlägt der Auszubildende dagegen Linux vor.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Treiber gehört zum Gerät, das Betriebssystem ist egal.“ Nein: Treiber sind für ein bestimmtes Betriebssystem geschrieben. Ein Drucker ohne Treiber für das eingesetzte Betriebssystem bleibt unbrauchbar.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Betriebssystem:</strong> verwaltet Prozesse, Speicher, Geräte, Dateien und Benutzer und ist die Grundlage für alle Anwendungen.</li>
+  <li><strong>Schichtenmodell:</strong> Hardware, Firmware, Betriebssystem, Anwendungen, Benutzer; jede Schicht nutzt vor allem die darunter.</li>
+  <li><strong>Auswahl:</strong> Das Betriebssystem richtet sich nach der Software, die der Kunde braucht.</li>
+</ul>

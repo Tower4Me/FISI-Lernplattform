@@ -1,0 +1,57 @@
+<p class="lead">Bevor das Betriebssystem startet, arbeitet schon ein kleines Programm auf dem Mainboard: die Firmware. Sie prüft die Hardware und entscheidet, von welchem Datenträger gestartet wird. Wer einen Rechner einrichtet oder einen Startfehler sucht, muss wissen, was dort passiert und welche Einstellungen es gibt.</p>
+
+<h3>Was die Firmware tut</h3>
+<p>Die <strong>Firmware</strong> ist in einem Flash-Speicher auf dem Mainboard abgelegt und lässt sich aktualisieren. Beim Einschalten läuft der Start in festen Schritten ab:</p>
+<ol>
+  <li><strong>Selbsttest (POST, Power-On Self-Test):</strong> Die Firmware prüft, ob Prozessor, Arbeitsspeicher und Grafik grundsätzlich funktionieren. Schlägt der Test fehl, meldet sie den Fehler über Pieptöne oder Leuchtcodes, die im Handbuch erklärt sind.</li>
+  <li><strong>Startgerät suchen:</strong> Die Firmware geht die eingestellte <strong>Bootreihenfolge</strong> durch, zum Beispiel erst USB-Stick, dann SSD.</li>
+  <li><strong>Bootloader laden:</strong> Vom Startgerät lädt sie ein kleines Startprogramm.</li>
+  <li><strong>Betriebssystem starten:</strong> Der Bootloader lädt den Betriebssystemkern, der dann übernimmt.</li>
+</ol>
+
+<h3>BIOS und UEFI</h3>
+<p>Das <strong>BIOS</strong> (Basic Input/Output System) ist die ältere Firmware. Heute haben neue Rechner <strong>UEFI</strong> (Unified Extensible Firmware Interface). Umgangssprachlich heißt das Einstellungsmenü trotzdem oft noch „BIOS“.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>BIOS</th><th>UEFI</th></tr></thead>
+    <tbody>
+      <tr><th>Partitionstabelle</th><td>MBR, Datenträger bis 2 TiB</td><td>GPT, auch über 2 TiB</td></tr>
+      <tr><th>Bedienung</th><td>Textmenü, nur Tastatur</td><td>oft grafisch, mit Maus</td></tr>
+      <tr><th>Sicherheit</th><td>keine Prüfung der Startprogramme</td><td><strong>Secure Boot:</strong> startet nur signierte Bootloader</td></tr>
+      <tr><th>Start</th><td>langsamer</td><td>schneller</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>Secure Boot</strong> soll verhindern, dass Schadsoftware sich vor dem Betriebssystem einnistet. Ältere UEFI-Systeme können Betriebssysteme noch im BIOS-Modus starten (Kompatibilitätsmodus, CSM); Secure Boot ist dann aus. Bei vielen neuen Rechnern fehlt dieser Modus ganz.</p>
+<p>Windows 11 setzt unter anderem UEFI mit Secure-Boot-Fähigkeit, ein <strong>TPM 2.0</strong> und einen unterstützten 64-Bit-Prozessor voraus. Das TPM (Trusted Platform Module) speichert Schlüssel geschützt, etwa für die Laufwerksverschlüsselung. Es ist ein eigener Chip oder in den Prozessor integriert und muss im UEFI eingeschaltet sein.</p>
+
+<h3>Wichtige Einstellungen</h3>
+<ul>
+  <li><strong>Bootreihenfolge</strong> ändern, etwa um von einem Installationsstick zu starten.</li>
+  <li><strong>Passwort</strong> für das Einstellungsmenü setzen, damit niemand die Bootreihenfolge ändert und von einem fremden Stick startet.</li>
+  <li><strong>Firmware-Update</strong> einspielen, etwa für neue Prozessoren oder Sicherheitskorrekturen. Während des Updates darf der Strom nicht ausfallen.</li>
+</ul>
+
+<h3>Einen Arbeitsplatz einrichten: die Reihenfolge</h3>
+<ol>
+  <li>Bei gebrauchten Geräten klären, ob Daten gesichert werden müssen.</li>
+  <li>Firmware prüfen: aktuelle Version, Bootreihenfolge, Secure Boot, Passwort.</li>
+  <li>Vom Installationsmedium starten, meist ein USB-Stick mit dem Abbild (ISO-Datei) des Betriebssystems.</li>
+  <li>Datenträger partitionieren und formatieren (Kapitel 2.3.3), Betriebssystem installieren.</li>
+  <li>Treiber installieren, danach alle Updates einspielen.</li>
+  <li>Anwendungen mit gültigen Lizenzen installieren und einrichten.</li>
+</ol>
+<p>In größeren Betrieben werden Rechner nicht einzeln eingerichtet, sondern über das Netzwerk mit einem vorbereiteten Abbild ausgestattet.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Auszubildender soll einen gebrauchten PC neu aufsetzen und vom Installationsstick starten, doch der PC startet immer wieder das alte System auf der SSD. Im UEFI-Menü sieht er: Die SSD steht in der Bootreihenfolge an erster Stelle. Die alten Daten hat er vorher mit dem Kunden geklärt und gesichert. Er wählt den Stick einmalig über das Startmenü der Firmware aus, installiert das System und setzt danach ein Passwort für das UEFI-Menü.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Firmware-Update macht man nebenbei.“ Nein: Bricht es ab, startet der Rechner unter Umständen gar nicht mehr. Führe es nur mit stabiler Stromversorgung und genau nach Herstelleranleitung durch.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Start:</strong> Selbsttest (POST), Bootreihenfolge, Bootloader, Betriebssystem.</li>
+  <li><strong>UEFI</strong> löst das BIOS ab: GPT, grafische Oberfläche, Secure Boot, schnellerer Start.</li>
+  <li><strong>Einrichten:</strong> Firmware, Installation, Treiber, Updates, Anwendungen.</li>
+</ul>

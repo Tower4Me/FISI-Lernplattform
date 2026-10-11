@@ -690,6 +690,102 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "2.3",
+          "titel": "Software einrichten",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "2.3.1",
+              "titel": "Betriebssystem und Schichtenmodell",
+              "slug": "betriebssystem-und-schichtenmodell",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz einrichten, Betriebssystem und Anwendungssoftware installieren und konfigurieren, Lizenzmodelle",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2023 (Schichtenmodell)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "windows-vs-linux",
+                "multitasking-prozesse"
+              ],
+              "begriffe": [
+                "betriebssystem"
+              ]
+            },
+            {
+              "nummer": "2.3.2",
+              "titel": "Software und Lizenzen",
+              "slug": "software-und-lizenzen",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz einrichten, Betriebssystem und Anwendungssoftware installieren und konfigurieren, Lizenzmodelle",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (Lizenzkosten)"
+                ],
+                "extern": [
+                  "UrhG § 69a"
+                ]
+              },
+              "material": [
+                "software-klassifikation",
+                "branchensoftware",
+                "urheberrecht-lizenzen"
+              ],
+              "begriffe": [
+                "softwarelizenzen"
+              ]
+            },
+            {
+              "nummer": "2.3.3",
+              "titel": "Datenträger partitionieren und formatieren",
+              "slug": "datentraeger-partitionieren-und-formatieren",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz einrichten, Betriebssystem und Anwendungssoftware installieren und konfigurieren, Lizenzmodelle",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "UEFI-Spezifikation (GPT)"
+                ]
+              },
+              "material": [
+                "partitionierung-formatierung",
+                "dateisysteme-grundlagen",
+                "dateisysteme-vergleich"
+              ],
+              "begriffe": [
+                "dateisysteme"
+              ]
+            },
+            {
+              "nummer": "2.3.4",
+              "titel": "Firmware: BIOS und UEFI",
+              "slug": "firmware-bios-und-uefi",
+              "quellen": {
+                "rahmenlehrplan": "LF2: Arbeitsplatz einrichten, Betriebssystem und Anwendungssoftware installieren und konfigurieren, Lizenzmodelle",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "UEFI-Spezifikation",
+                  "Microsoft: Systemanforderungen Windows 11"
+                ]
+              },
+              "material": [
+                "bios-uefi-boot",
+                "deployment-formate"
+              ],
+              "begriffe": [
+                "firmware"
+              ]
+            }
+          ]
         }
       ]
     },

@@ -1,6 +1,79 @@
 {
   "lernfelder": [
     {
+      "id": "lf1",
+      "in_arbeit": true,
+      "kapitel": [
+        {
+          "nummer": "1.1",
+          "titel": "Das Unternehmen und seine Ziele",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "1.1.1",
+              "titel": "Unternehmen im Wirtschaftsgeschehen",
+              "slug": "unternehmen-im-wirtschaftsgeschehen",
+              "quellen": {
+                "rahmenlehrplan": "LF1: Unternehmen als System, Wertschöpfung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Statistisches Bundesamt: Erwerbstätige nach Wirtschaftsbereichen"
+                ]
+              },
+              "material": [
+                "wirtschaftssektoren-grundfunktionen"
+              ],
+              "begriffe": [
+                "wirtschaftssektoren"
+              ]
+            },
+            {
+              "nummer": "1.1.2",
+              "titel": "Leitbild und Unternehmensziele",
+              "slug": "leitbild-und-unternehmensziele",
+              "quellen": {
+                "rahmenlehrplan": "LF1: ökonomische, ökologische und soziale Zielsetzungen, Unternehmensleitbild",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "smart-ziele"
+              ],
+              "begriffe": [
+                "unternehmensziele"
+              ]
+            },
+            {
+              "nummer": "1.1.3",
+              "titel": "Zielkonflikte und Nachhaltigkeit",
+              "slug": "zielkonflikte-und-nachhaltigkeit",
+              "quellen": {
+                "rahmenlehrplan": "LF1: Zielsetzungen des Unternehmens",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Brundtland-Bericht 1987 (Definition nachhaltige Entwicklung)"
+                ]
+              },
+              "material": [
+                "wandel-maerkte-nachhaltige-entwicklung",
+                "green-it"
+              ],
+              "begriffe": [
+                "unternehmensziele",
+                "nachhaltigkeit"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "lf4",
       "kapitel": [
         {

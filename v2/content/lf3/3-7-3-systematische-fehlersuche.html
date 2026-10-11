@@ -1,0 +1,32 @@
+<p class="lead">„Das Internet geht nicht“ beschreibt ein Symptom, keine Ursache. Wer wahllos Einstellungen ändert, verschlimmert es oft. Systematisch vorzugehen heißt: von unten nach oben prüfen, jede Stufe ausschließen und das Ergebnis festhalten. So findest du den Fehler schneller und kannst später zeigen, was du geprüft hast.</p>
+
+<h3>Von unten nach oben</h3>
+<p>Die Reihenfolge folgt dem Schichtenmodell (Kapitel 3.2): Erst wenn eine untere Stufe in Ordnung ist, lohnt sich die nächste.</p>
+<ol>
+  <li><strong>Physisch:</strong> Kabel gesteckt? Link-LED aus: keine Verbindung (Kabel, Port, Gegenstelle); leuchtet: Verbindung steht; blinkt: Daten fließen. Im WLAN mit „HV-Buero“ verbunden, nicht mit dem Gästenetz? Steckt das Patchkabel am Switch (Kapitel 3.3.3)?</li>
+  <li><strong>Eigene Konfiguration:</strong> <code>ipconfig</code>: Gibt es eine gültige Adresse im richtigen Netz? Eine 169.254er-Adresse deutet auf ein DHCP-Problem (Kapitel 3.4.5).</li>
+  <li><strong>Eigener Netzwerkstapel:</strong> <code>ping 127.0.0.1</code>. Scheitert das, ist die Netzwerksoftware des Rechners selbst defekt. Netzwerkkarte und Kabel prüft dieser Test nicht.</li>
+  <li><strong>Lokales Netz:</strong> <code>ping</code> auf das Standardgateway. Klappt das nicht, liegt der Fehler zwischen Client und Router: Kabel, Switch, falsches Netz.</li>
+  <li><strong>Außerhalb:</strong> <code>ping</code> auf eine bekannte öffentliche IP-Adresse. Scheitert nur das, liegt es am Internetzugang oder am Router.</li>
+  <li><strong>Namensauflösung:</strong> <code>nslookup</code> oder <code>ping</code> auf einen Namen. Geht die IP-Adresse, aber nicht der Name, ist DNS gestört (Kapitel 3.5.2).</li>
+  <li><strong>Dienst:</strong> Erreicht der Client das Ziel, aber nicht die Anwendung, prüfst du den Port (Kapitel 3.7.2), Firewall und Dienst auf dem Server.</li>
+</ol>
+<p>Ändere jeweils nur eine Sache und teste danach erneut. Sonst weißt du am Ende nicht, was geholfen hat.</p>
+
+<h3>Prüfen und protokollieren</h3>
+<p>Nach dem Einbinden eines Clients prüfst du jede Anforderung aus dem Kundengespräch und hältst das Ergebnis in einem Prüfprotokoll fest: Prüfpunkt, Soll, Ist, Ergebnis, Datum, prüfende Person (in LF2, Kapitel 2.7.2, als Testprotokoll eingeführt); getestet wird mit den Rechten der Nutzerin oder des Nutzers, nicht als Administrator. Typische Prüfpunkte sind Adresse und Gateway, Erreichbarkeit von Drucker und NAS, Internet und Namensauflösung, VPN-Zugang von außen und die Sicherheitseinstellungen.</p>
+
+<h3>Das Ergebnis bewerten</h3>
+<p>Zum Abschluss lohnt ein Blick zurück: Was hat gut funktioniert, was dauerte zu lange, was machst du beim nächsten Client anders? Dazu gehören Kosten und Umwelt: Deine Arbeitszeit ist der größte Kostenpunkt, eine Checkliste für die Einrichtung spart sie beim nächsten Gerät. Energiesparoptionen am Notebook senken den Verbrauch, und der VPN-Zugang erspart Fahrten ins Büro. Ein ersetztes Altgerät wird sicher gelöscht und fachgerecht entsorgt oder weiterverwendet. Solche Punkte gehören in die Übergabe an den Kunden.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Inhaberin meldet: „An meinem PC geht kein Internet.“ Die Auszubildende prüft der Reihe nach: Link-LED an. <code>ipconfig</code> zeigt <code>192.168.10.104</code>, Maske <code>255.255.255.0</code>, Gateway <code>192.168.10.1</code>. <code>ping 192.168.10.1</code> klappt (damit ist auch der eigene Netzwerkstapel in Ordnung, der Loopback-Test entfällt), <code>ping 9.9.9.9</code> dagegen nicht. Das lokale Netz ist also in Ordnung, der Weg nach draußen fehlt. Auch das Notebook des Mitarbeiters kommt nicht ins Internet. Die Statusseite des Routers zeigt: keine Verbindung zum Anbieter. Die Auszubildende meldet die Störung beim Anbieter, statt am PC etwas zu ändern; im Protokoll notiert sie Fehlerbild, Prüfschritte und Ursache.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ich starte erst mal alles neu.“ Ein Neustart kann helfen, verwischt aber die Spuren: Danach weißt du nicht, woran es lag, und der Fehler kommt oft wieder. Erst prüfen und notieren, dann gezielt handeln.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Fehlersuche von unten nach oben:</strong> Kabel und Link, eigene Konfiguration, Loopback, Gateway, externe IP, Name, Dienst; immer nur eine Änderung zur Zeit.</li>
+  <li><strong>Prüfprotokoll:</strong> Soll, Ist, Ergebnis je Prüfpunkt; zum Schluss Ablauf, Kosten und Energie bewerten.</li>
+</ul>

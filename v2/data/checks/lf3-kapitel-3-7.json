@@ -1,0 +1,125 @@
+{
+  "titel": "Check 3.7",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Name nicht auflösbar",
+      "frage": "ping 192.168.10.10 antwortet, ping auf den Namen des NAS meldet „Ping-Anforderung konnte Host … nicht finden“. Wo liegt der Fehler?",
+      "optionen": [
+        "Bei der Namensauflösung (DNS)",
+        "Beim Patchkabel des Clients",
+        "Bei der Firewall des NAS",
+        "Beim Standardgateway des Clients"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Adresse ist erreichbar, nur der Name lässt sich nicht auflösen. Das ist ein DNS-Problem."
+    },
+    {
+      "typ": "mc",
+      "thema": "Netzwerkprofil",
+      "frage": "Was steuert unter Windows die Wahl des Netzwerkprofils „privat“ oder „öffentlich“?",
+      "optionen": [
+        "Welche Verbindungen die Firewall zulässt, etwa ob andere das Gerät finden",
+        "Ob der Client seine Adresse automatisch per DHCP oder fest eingestellt bekommt",
+        "Welches WLAN-Frequenzband das Notebook verwendet",
+        "Ob der Rechner in eine Domäne aufgenommen wird"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Profil legt fest, wie streng die Firewall ist. In fremden Netzen wählst du „öffentlich“."
+    },
+    {
+      "typ": "mc",
+      "thema": "Netzwerkbefehl",
+      "frage": "Mit welchem Befehl siehst du unter Windows neben der IP-Adresse auch MAC-Adresse und DHCP-Server?",
+      "optionen": [
+        "ipconfig /all",
+        "ping -t",
+        "tracert",
+        "nslookup"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "ipconfig zeigt die Grundkonfiguration, mit /all auch MAC-Adresse, DHCP- und DNS-Server und Lease-Zeit."
+    },
+    {
+      "typ": "mc",
+      "thema": "tracert",
+      "frage": "Wozu nutzt du tracert?",
+      "optionen": [
+        "Um die Router auf dem Weg zum Ziel zu sehen",
+        "Um eine neue Adresse vom DHCP-Server zu holen",
+        "Um einen Namen in eine IP-Adresse aufzulösen",
+        "Um die MAC-Adressen der Nachbarn anzuzeigen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "tracert listet die Zwischenstationen bis zum Ziel. Kommt ab einer Station keine Antwort mehr, liegt das Problem meist dort oder dahinter."
+    },
+    {
+      "typ": "mc",
+      "thema": "ping-Ausgabe",
+      "frage": "ping auf das NAS meldet „Zeitüberschreitung der Anforderung“, das Netzlaufwerk Z: funktioniert aber. Was ist die wahrscheinlichste Erklärung?",
+      "optionen": [
+        "Die Firewall des NAS lässt ping nicht durch",
+        "Das Notebook hat keine gültige IP-Adresse aus dem Büronetz",
+        "Der Switch ist ausgefallen",
+        "Der DNS-Server ist gestört"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Funktioniert der Dienst, ist das Gerät erreichbar. Viele Geräte lassen ICMP-Anfragen in der Grundeinstellung nicht durch."
+    },
+    {
+      "typ": "mc",
+      "thema": "Reihenfolge",
+      "frage": "Ein PC hat eine gültige Adresse, erreicht aber das Internet nicht. Was prüfst du als Nächstes?",
+      "optionen": [
+        "Ob das Standardgateway per ping erreichbar ist",
+        "Ob der DNS-Server einen Namen auflöst",
+        "Ob der Webserver der aufgerufenen Seite auf Port 443 lauscht",
+        "Ob der Browser die neueste Version hat"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Von unten nach oben: Nach der eigenen Konfiguration und dem Loopback-Test kommt das lokale Netz, also das Gateway. Erst danach Internet, DNS und Dienste."
+    },
+    {
+      "typ": "mc",
+      "thema": "Gateway ok, extern nicht",
+      "frage": "ping auf das Gateway klappt, ping auf 9.9.9.9 nicht. Wo liegt der Fehler am wahrscheinlichsten?",
+      "optionen": [
+        "Beim Internetzugang oder im Router",
+        "Beim Patchkabel des PCs",
+        "Bei der falsch eingestellten Subnetzmaske des PCs",
+        "Beim DNS-Server"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das lokale Netz bis zum Router funktioniert. Der Weg hinaus fehlt; DNS spielt bei einem ping auf eine IP-Adresse keine Rolle."
+    },
+    {
+      "typ": "mc",
+      "thema": "ARP-Tabelle",
+      "frage": "Mit welchem Befehl zeigst du unter Windows, welche MAC-Adresse zu welcher IP-Adresse im eigenen Netz gehört?",
+      "optionen": [
+        "arp -a",
+        "getmac",
+        "ipconfig /all",
+        "netstat -an"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "arp -a zeigt die ARP-Tabelle mit den Zuordnungen von IP- zu MAC-Adressen. getmac zeigt nur die MAC-Adressen der eigenen Adapter."
+    }
+  ]
+}

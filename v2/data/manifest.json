@@ -1794,6 +1794,79 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "3.7",
+          "titel": "Clients einbinden und prüfen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "3.7.1",
+              "titel": "Einen Client konfigurieren",
+              "slug": "einen-client-konfigurieren",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und einbinden, Funktion systematisch prüfen und protokollieren, Arbeitsprozess reflektieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (IPv4-Konfiguration)"
+                ],
+                "extern": [
+                  "BIBB Lernsituation Netzwerkdrucker Hausverwaltung (Struktur)"
+                ]
+              },
+              "material": [
+                "windows-vs-linux"
+              ],
+              "begriffe": [
+                "client-einbinden"
+              ]
+            },
+            {
+              "nummer": "3.7.2",
+              "titel": "Netzwerkbefehle",
+              "slug": "netzwerkbefehle",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und einbinden, Funktion systematisch prüfen und protokollieren, Arbeitsprozess reflektieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (ping, tracert, ARP-Tabelle)",
+                  "AP1 Herbst 2021 (ping)",
+                  "AP1 Herbst 2022 (ping)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "netzwerk-diagnose",
+                "windows-konsole"
+              ],
+              "begriffe": [
+                "client-einbinden"
+              ]
+            },
+            {
+              "nummer": "3.7.3",
+              "titel": "Systematische Fehlersuche",
+              "slug": "systematische-fehlersuche",
+              "quellen": {
+                "rahmenlehrplan": "LF3: Clients konfigurieren und einbinden, Funktion systematisch prüfen und protokollieren, Arbeitsprozess reflektieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (Link-LED, Schichten)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "netzwerk-diagnose",
+                "datenmengen-uebertragung"
+              ],
+              "begriffe": [
+                "client-einbinden"
+              ]
+            }
+          ]
         }
       ]
     },

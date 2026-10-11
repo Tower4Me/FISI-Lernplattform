@@ -1,0 +1,40 @@
+<p class="lead">Ob ein Client richtig eingebunden ist, zeigt dir die Kommandozeile schneller als jedes Einstellungsfenster. Eine Handvoll Befehle reicht, um Konfiguration, Erreichbarkeit, Weg und Namensauflösung zu prüfen. Sie gehören zum Werkzeugkasten jeder IT-Fachkraft und tauchen in Prüfungen regelmäßig auf.</p>
+
+<h3>Die wichtigsten Befehle unter Windows</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Befehl</th><th>Zeigt oder tut</th><th>Linux-Gegenstück</th></tr></thead>
+    <tbody>
+      <tr><th><code>ipconfig</code></th><td>Adresse, Maske, Gateway je Adapter; mit <code>/all</code> zusätzlich MAC-Adresse, DHCP- und DNS-Server, Lease-Zeit</td><td><code>ip addr</code>, Gateway: <code>ip route</code></td></tr>
+      <tr><th><code>ipconfig /release</code>, <code>/renew</code></th><td>gibt die DHCP-Adresse zurück bzw. fordert eine neue an</td><td>je nach System, etwa <code>dhclient</code></td></tr>
+      <tr><th><code>ipconfig /flushdns</code></th><td>leert den DNS-Zwischenspeicher</td><td>je nach System, etwa <code>resolvectl flush-caches</code></td></tr>
+      <tr><th><code>ping</code> Ziel</th><td>schickt ICMP-Echo-Anfragen und zeigt Antwortzeit und Verluste; <code>-t</code> pingt dauerhaft, <code>-4</code>/<code>-6</code> wählt IPv4 oder IPv6; Windows sendet ohne Option vier Anfragen, Linux pingt bis Strg+C (Anzahl mit <code>-c</code>)</td><td><code>ping</code></td></tr>
+      <tr><th><code>tracert</code> Ziel</th><td>zeigt die Router auf dem Weg zum Ziel; einzelne Sternchen (*) sind normal, wenn ein Router nicht antwortet. Kommt ab einer Station nichts mehr, liegt das Problem meist dort oder dahinter</td><td><code>traceroute</code></td></tr>
+      <tr><th><code>nslookup</code> Name</th><td>fragt den DNS-Server, zu welcher Adresse ein Name gehört, und zeigt, welcher Server antwortet</td><td><code>nslookup</code>, <code>dig</code></td></tr>
+      <tr><th><code>arp -a</code></th><td>zeigt die ARP-Tabelle: welche IP-Adresse zu welcher MAC-Adresse gehört (Kapitel 3.5.3)</td><td><code>ip neigh</code></td></tr>
+      <tr><th><code>getmac</code></th><td>zeigt die MAC-Adressen der eigenen Adapter</td><td><code>ip link</code></td></tr>
+      <tr><th><code>netstat -an</code></th><td>listet offene Verbindungen und lauschende Ports</td><td><code>ss -tuan</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<p>In der PowerShell prüft <code>Test-NetConnection 192.168.10.10 -Port 445</code>, ob ein bestimmter Port erreichbar ist. Das ergänzt <code>ping</code>, denn ping nutzt keinen Port (Kapitel 3.5.4).</p>
+
+<h3>Ausgaben lesen</h3>
+<ul>
+  <li><strong>Antwort von 192.168.10.20: Bytes=32 Zeit&lt;1ms TTL=…</strong>: Ziel erreichbar; im kabelgebundenen LAN meist unter 1 ms, im WLAN einige Millisekunden.</li>
+  <li><strong>Zeitüberschreitung der Anforderung</strong>: keine Antwort. Das Ziel ist aus, nicht erreichbar oder eine Firewall blockiert ping.</li>
+  <li><strong>Zielhost nicht erreichbar</strong>: Wer die Meldung schickt, steht hinter „Antwort von“. Ist es die eigene Adresse, antwortet im eigenen Netz niemand auf die ARP-Anfrage (Gerät aus, falsche Adresse) oder es fehlt ein Weg, etwa wegen eines fehlenden oder falschen Gateways. Ist es ein Router, kennt dieser keinen Weg weiter.</li>
+  <li><strong>Ping-Anforderung konnte Host „…“ nicht finden</strong>: Der Name lässt sich nicht auflösen, ein DNS-Problem oder ein Tippfehler (Kapitel 3.5.2). <code>nslookup</code> meldet dann etwa „Non-existent domain“.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach dem Einrichten des Notebooks prüft der Auszubildende: <code>ipconfig /all</code> zeigt <code>192.168.10.112</code>, Maske <code>255.255.255.0</code>, Gateway und DNS-Server <code>192.168.10.1</code>, Lease vom DHCP-Server <code>192.168.10.1</code>. <code>ping 192.168.10.20</code> erreicht den Drucker, <code>Test-NetConnection 192.168.10.10 -Port 445</code> meldet <code>TcpTestSucceeded : True</code>, Port 445 des NAS ist also erreichbar, <code>nslookup www.beispiel.de</code> liefert eine Adresse. Alle Ergebnisse trägt er ins Prüfprotokoll ein.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ping geht nicht, also ist das Gerät aus.“ Nicht unbedingt: Viele Geräte antworten nicht auf ping, und die Windows-Firewall lässt ping in der Grundeinstellung nicht durch, solange die Datei- und Druckerfreigabe aus ist. Prüfe dann einen Dienst, etwa mit <code>Test-NetConnection</code> auf den passenden Port.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Konfiguration:</strong> <code>ipconfig /all</code>; neue DHCP-Adresse mit <code>/renew</code>, DNS-Cache leeren mit <code>/flushdns</code>.</li>
+  <li><strong>Erreichbarkeit und Weg:</strong> <code>ping</code>, <code>tracert</code>; Ports mit <code>Test-NetConnection</code>; Namen mit <code>nslookup</code>; Nachbarn mit <code>arp -a</code>.</li>
+</ul>

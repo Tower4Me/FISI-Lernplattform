@@ -1,0 +1,42 @@
+<p class="lead">Jetzt kommt alles zusammen: Das neue Notebook des Mitarbeiters soll im Büro ins Netz, auf das NAS zugreifen, drucken und von zu Hause aus sicher arbeiten. Mit einem Plan aus dem Kundengespräch und den Grundlagen aus diesem Lernfeld gelingt das zügig und ohne Rätselraten.</p>
+
+<h3>Vorher klären</h3>
+<p>Aus dem Gespräch mit dem Kunden und der Netzwerkdokumentation (Kapitel 3.1.3) ergibt sich, was der Client braucht:</p>
+<ul>
+  <li>Welche Dienste soll er nutzen? Dateien auf dem NAS, Drucker, Internet, E-Mail, Zugriff von unterwegs.</li>
+  <li>Wie wird er angebunden? Kabel, WLAN oder beides; welche Dose, welches WLAN.</li>
+  <li>Welche Adresse bekommt er? Clients in der Regel automatisch per DHCP; feste Adressen nur für Geräte, die andere finden müssen, etwa Server, Drucker und Netzwerkgeräte.</li>
+  <li>Welche Sicherheitsvorgaben gelten? Etwa Firewall an, nur verschlüsselte Verbindungen, kein Administratorkonto für die tägliche Arbeit.</li>
+</ul>
+
+<h3>Die Einstellungen unter Windows</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Einstellung</th><th>Wo und was</th></tr></thead>
+    <tbody>
+      <tr><th>IP-Konfiguration</th><td>Einstellungen › Netzwerk und Internet › Ethernet bzw. WLAN › Eigenschaften, bei „IP-Zuweisung“ auf „Bearbeiten“: „Automatisch (DHCP)“ oder „Manuell“ mit Adresse, Präfix bzw. Maske, Gateway und DNS-Server (Kapitel 3.4.3)</td></tr>
+      <tr><th>Gerätename</th><td>eindeutig und sprechend, etwa „HV-NB-02“; doppelte Namen stören die Namensauflösung im Netz</td></tr>
+      <tr><th>Netzwerkprofil</th><td>„privat“ im eigenen Büronetz, „öffentlich“ in fremden Netzen; das Profil steuert, was die Firewall erlaubt, etwa ob andere das Gerät finden; im Domänennetz setzt Windows automatisch ein drittes Profil „Domäne“</td></tr>
+      <tr><th>Arbeitsgruppe oder Domäne</th><td>Kleine Büros nutzen eine Arbeitsgruppe: Jeder Rechner hat seine eigenen Konten. Größere Netze haben eine Domäne mit zentraler Benutzerverwaltung; dann wird der Client „in die Domäne aufgenommen“. Das geht nur mit Windows Pro oder Enterprise, nicht mit Home.</td></tr>
+      <tr><th>Netzlaufwerk</th><td>Freigabe des NAS unter einem Laufwerksbuchstaben verbinden, etwa <code>\\192.168.10.10\akten</code> als Laufwerk Z: (Explorer › Dieser PC › „Netzlaufwerk verbinden“, „Verbindung bei Anmeldung wiederherstellen“); in der Arbeitsgruppe meldest du dich dabei mit dem Konto an, das die Person auf dem NAS hat</td></tr>
+      <tr><th>Netzwerkdrucker</th><td>Einstellungen › Bluetooth und Geräte › Drucker und Scanner › „Gerät hinzufügen“, notfalls „Manuell hinzufügen“ über IP-Adresse oder Namen; findet Windows keinen passenden Treiber, installierst du den des Herstellers</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wird ein Gerät fest eingestellt, prüfst du vorher in der Dokumentation, dass die Adresse frei ist und außerhalb des DHCP-Bereichs liegt, oder legst im Router eine Reservierung an (Kapitel 3.5.1). Danach trägst du die Adresse in die Dokumentation ein.</p>
+
+<h3>Zugriff von unterwegs</h3>
+<p>Für die Arbeit von zu Hause richtest du einen <strong>VPN-Zugang</strong> ein: eine verschlüsselte Verbindung über das Internet ins Büronetz, als säße das Notebook im Büro. Viele Büro-Router bieten das an: Im Router legst du für jede Person einen eigenen VPN-Zugang an, den Client richtest du nach der Anleitung des Herstellers ein und testest den Zugang einmal von außen, etwa über das Smartphone als Hotspot.</p>
+<aside class="note" data-typ="vertiefung" data-ziel="lf9"><p>Wie VPN-Verbindungen technisch aufgebaut sind, lernst du in LF9.</p></aside>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Auszubildende richtet das Notebook ein: Name „HV-NB-02“, Arbeitsgruppe „HAUSVERWALTUNG“, Adresse automatisch per DHCP, im Büro-WLAN „HV-Buero“ mit Profil „privat“. Er verbindet die Freigabe <code>\\192.168.10.10\akten</code> mit dem NAS-Konto des Mitarbeiters als Laufwerk Z:, fügt den Drucker über <code>192.168.10.20</code> hinzu und importiert die Konfigurationsdatei, die der Router für den VPN-Zugang des Mitarbeiters erzeugt hat. Für den Mitarbeiter legt er ein normales Benutzerkonto an; das Administratorkonto bleibt beim Systemhaus.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Feste IP-Adressen sind sicherer, also bekommen alle eine.“ Nein: Feste Adressen an Clients machen Arbeit und führen leicht zu doppelten Adressen. Sicherheit kommt von Firewall, Updates und Anmeldung, nicht von der Art der Adressvergabe.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Vorher klären:</strong> Dienste, Anbindung, Adressvergabe, Sicherheitsvorgaben; Grundlage sind Kundengespräch und Dokumentation.</li>
+  <li><strong>Client einrichten:</strong> DHCP oder feste Adresse, eindeutiger Name, Netzwerkprofil, Arbeitsgruppe oder Domäne, Netzlaufwerk, Drucker, VPN nach Anleitung; Änderungen dokumentieren.</li>
+</ul>

@@ -1342,6 +1342,29 @@
           "tiefe": "Sicherheit"
         }
       ]
+    },
+    {
+      "begriff": "client-einbinden",
+      "kernfakten": [
+        "Vorher klären: Dienste, Anbindung, Adressvergabe (Clients DHCP, feste Adressen für Server/Drucker/Netzgeräte außerhalb Pool), Sicherheitsvorgaben.",
+        "Windows 11: Einstellungen › Netzwerk und Internet › Ethernet/WLAN › IP-Zuweisung; eindeutiger Gerätename; Netzwerkprofil privat/öffentlich/Domäne (Firewall); Arbeitsgruppe vs. Domäne (nur Pro/Enterprise); Netzlaufwerk \\\\server\\freigabe mit NAS-Konto; Drucker über Einstellungen oder IP; VPN-Zugang je Person (Technik LF9).",
+        "Befehle: ipconfig (/all, /release, /renew, /flushdns), ping (-t, -4/-6; Windows 4 Anfragen), tracert (* normal), nslookup, arp -a, getmac, netstat -an, Test-NetConnection -Port; Linux ip addr/ip route, traceroute, dig, ip neigh, ss -tuan; Meldungen: Zeitüberschreitung, Zielhost nicht erreichbar, Host nicht finden.",
+        "Fehlersuche von unten: Link-LED, ipconfig (APIPA?), 127.0.0.1 (prüft nur Stack), Gateway, externe IP, Name, Dienst/Port; eine Änderung zur Zeit; Testprotokoll; Kosten (Arbeitszeit, Checkliste) und Umwelt bewerten."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-7-1",
+          "tiefe": "Konfiguration"
+        },
+        {
+          "id": "3-7-2",
+          "tiefe": "Befehle"
+        },
+        {
+          "id": "3-7-3",
+          "tiefe": "Fehlersuche"
+        }
+      ]
     }
   ]
 }

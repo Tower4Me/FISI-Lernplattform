@@ -121,10 +121,12 @@
 <section class="print-up" id="u-4-4-1"><h2><span class="num">4.4.1</span> Ablauf der Schutzbedarfsfeststellung</h2>
 <p class="lead">Die Schutzbedarfsfeststellung beantwortet eine Frage: Wie schlimm wäre es, wenn Vertraulichkeit, Integrität oder Verfügbarkeit verloren gingen? Das Ergebnis entscheidet, wo Standardschutz reicht und wo mehr nötig ist. Damit die Antwort nachvollziehbar wird, gehst du in festen Schritten vor.</p>
 
+<p>Zur Einordnung der Begriffe: Die <strong>Schutzbedarfsanalyse</strong> (so heißt sie im Rahmenlehrplan) umfasst Bestandsaufnahme, Bedrohungen, Feststellung und Maßnahmen. Die <strong>Schutzbedarfsfeststellung</strong> ist darin der Bewertungsschritt.</p>
+
 <h3 id="u4-4-1-die-schritte-im-ueberblick">Die Schritte im Überblick<a class="anchor" href="#u4-4-1-die-schritte-im-ueberblick" aria-hidden="true" tabindex="-1">#</a></h3>
 <p><strong>Voraussetzung ist die Bestandsaufnahme</strong> (beim BSI: Strukturanalyse): Abläufe, Informationen, Anwendungen, IT-Systeme, Räume und Verbindungen sind erfasst (Kapitel 4.1.4). Dann folgt die Feststellung selbst:</p>
 <ol>
-  <li><strong>Kategorien festlegen:</strong> Klären, was im Betrieb „normal“, „hoch“ und „sehr hoch“ bedeutet. Diese Abgrenzung ist oft schon vorgegeben, etwa in der Sicherheitsleitlinie oder einer Richtlinie.</li>
+  <li><strong>Kategorien festlegen:</strong> Klären, was im Betrieb „normal“, „hoch“ und „sehr hoch“ bedeutet. Diese Abgrenzung ist oft schon vorgegeben, etwa in einer Richtlinie, die die Sicherheitsleitlinie konkretisiert.</li>
   <li><strong>Abläufe und Anwendungen bewerten:</strong> Für jeden Ablauf und jede Anwendung den Schutzbedarf je Schutzziel bestimmen und begründen.</li>
   <li><strong>Auf IT-Systeme, Räume und Verbindungen übertragen:</strong> Deren Schutzbedarf ergibt sich aus dem, was darauf läuft oder darin steht (Kapitel 4.4.3).</li>
   <li><strong>Dokumentieren:</strong> Alle Ergebnisse mit Begründung festhalten, damit andere sie prüfen und später anpassen können.</li>
@@ -132,7 +134,7 @@
 
 <h3 id="u4-4-1-die-leitfrage-was-waere-wenn">Die Leitfrage: Was wäre, wenn …?<a class="anchor" href="#u4-4-1-die-leitfrage-was-waere-wenn" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Für jede Anwendung und jedes Schutzziel stellst du dir vor, das Ziel wäre verletzt: „Was wäre, wenn die Kundendaten öffentlich würden?“, „Was wäre, wenn die Preise darin falsch wären?“, „Was wäre, wenn das Programm zwei Tage ausfiele?“ Dabei denkst du an einen realistischen schlimmsten Fall, nicht an den Durchschnitt.</p>
-<p>Wie wahrscheinlich der Fall ist, spielt hier noch keine Rolle. Es geht nur um die <strong>Folgen</strong>. Die Wahrscheinlichkeit kommt erst bei der Gewichtung und Auswahl von Maßnahmen dazu (Kapitel 4.3.4).</p>
+<p>Wie wahrscheinlich der Fall ist, spielt hier noch keine Rolle. Es geht nur um die <strong>Folgen</strong>. Die Wahrscheinlichkeit hast du schon beim Gewichten der Bedrohungen betrachtet (Kapitel 4.3.4); hier bleibt sie außen vor. Beides kommt bei der Auswahl der Maßnahmen wieder zusammen.</p>
 
 <h3 id="u4-4-1-wer-mitreden-sollte">Wer mitreden sollte<a class="anchor" href="#u4-4-1-wer-mitreden-sollte" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Wie schlimm ein Ausfall oder ein Datenleck ist, wissen die Menschen am besten, die mit den Daten arbeiten. Die IT kennt die Technik, aber nicht unbedingt die Folgen im Ablauf. Deshalb führst du die Feststellung im Gespräch mit den Fachleuten deines Bereichs durch: mit dem Lager, der Buchhaltung, der Leitung des Empfangs.</p>
@@ -228,7 +230,7 @@
 <p class="lead">Jetzt setzt du alles zusammen. An einem durchgehenden Beispiel siehst du, wie eine Schutzbedarfsfeststellung für einen kleinen Arbeitsbereich aussieht und wie du sie so dokumentierst, dass andere sie nachvollziehen können.</p>
 
 <h3 id="u4-4-4-ausgangslage">Ausgangslage<a class="anchor" href="#u4-4-4-ausgangslage" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Mira macht ihre Ausbildung bei einem Hausmeisterdienst mit 30 Beschäftigten. Sie soll den Schutzbedarf für das Kundenbüro feststellen. Die Sicherheitsleitlinie legt fest: „hoch“ gilt ab einem möglichen Schaden von 5.000 Euro, wenn die Arbeit ohne die Anwendung schon nach einem Arbeitstag nicht mehr weitergehen kann oder wenn personenbezogene Daten vieler Kunden betroffen wären. „Sehr hoch“ gilt, wenn der Betrieb gefährdet wäre oder Menschen zu Schaden kommen könnten.</p>
+<p>Mira macht ihre Ausbildung bei einem Hausmeisterdienst mit 30 Beschäftigten. Sie soll den Schutzbedarf für das Kundenbüro feststellen. Die Richtlinie zur Schutzbedarfsfeststellung, die die Leitung auf Grundlage der Sicherheitsleitlinie erlassen hat, legt fest: „hoch“ gilt ab einem möglichen Schaden von 5.000 Euro, wenn die Arbeit ohne die Anwendung schon nach einem Arbeitstag nicht mehr weitergehen kann oder wenn personenbezogene Daten vieler Kunden betroffen wären. „Sehr hoch“ gilt, wenn der Betrieb gefährdet wäre oder Menschen zu Schaden kommen könnten.</p>
 <p>Bei der Bestandsaufnahme findet sie den zentralen Ablauf „Einsätze planen und Teams einteilen“. Er nutzt drei Anwendungen, zwei Büro-PCs, ein NAS, den Büroraum, das Büronetz zwischen PCs und NAS und den Internetanschluss.</p>
 
 <h3 id="u4-4-4-anwendungen-bewerten">Anwendungen bewerten<a class="anchor" href="#u4-4-4-anwendungen-bewerten" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -259,7 +261,7 @@
 </div>
 
 <h3 id="u4-4-4-ergebnis-dokumentieren">Ergebnis dokumentieren<a class="anchor" href="#u4-4-4-ergebnis-dokumentieren" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Mira fasst zusammen: Kein Objekt hat „sehr hoch“. NAS, Büronetz und Büroraum sind in allen drei Schutzzielen „hoch“, die Büro-PCs bei Vertraulichkeit und Integrität. Für diese Objekte reichen Standardmaßnahmen allein nicht, hier folgt eine zusätzliche Risikoanalyse (Kapitel 4.2.3). Die Dokumentation enthält Datum, Bearbeiterin, beteiligte Personen und die Tabellen mit Begründungen.</p>
+<p>Mira fasst zusammen: Kein Objekt hat „sehr hoch“. NAS, Büronetz und Büroraum sind in allen drei Schutzzielen „hoch“, die Büro-PCs bei Vertraulichkeit und Integrität. Ob Standardmaßnahmen für diese Objekte ausreichen, klärt eine zusätzliche Risikoanalyse (Kapitel 4.2.3). Die Dokumentation enthält Datum, Bearbeiterin, beteiligte Personen und die Tabellen mit Begründungen.</p>
 
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Prüfungsaufgaben verlangen oft genau diese Tabellenform: Anwendung, Schutzziel, Stufe und Begründung in einem Satz. Übe, die Begründung als konkrete Folge zu formulieren, etwa „Falsche Daten führen zu falschen Rechnungen“.</p></aside>
 
@@ -268,7 +270,7 @@
   <p>Eine Kollegin fragt, warum die Büro-PCs bei der Vertraulichkeit „hoch“ sind, obwohl keine Daten darauf gespeichert werden. Mira zeigt auf die Tabelle: Über die PCs wird die Auftragsverwaltung mit den Alarmcodes bedient. Wer einen PC übernimmt, sieht dieselben Daten.</p>
 </div>
 
-<div class="merksatz"><p class="block-label">Merksatz</p><p>Eine dokumentierte Schutzbedarfsfeststellung nennt für jede Anwendung und jedes Objekt die Stufe je Schutzziel mit Begründung; Objekte mit hohem oder sehr hohem Schutzbedarf brauchen eine zusätzliche Risikoanalyse.</p></div>
+<div class="merksatz"><p class="block-label">Merksatz</p><p>Eine dokumentierte Schutzbedarfsfeststellung nennt für jede Anwendung und jedes Objekt die Stufe je Schutzziel mit Begründung; bei Objekten mit hohem oder sehr hohem Schutzbedarf klärt eine zusätzliche Risikoanalyse, ob Standardmaßnahmen reichen.</p></div>
 </section>
 </div>
 </main>

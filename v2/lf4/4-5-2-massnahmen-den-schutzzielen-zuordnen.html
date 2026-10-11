@@ -126,15 +126,15 @@
     <tbody>
       <tr><th>Persönliche Anmeldung, starke Passwörter</th><td>x</td><td>x</td><td></td><td>Nur Befugte können Daten lesen und ändern; persönliche Konten machen Handlungen zuordenbar (Verbindlichkeit).</td></tr>
       <tr><th>Zugriffsrechte nach Aufgabe</th><td>x</td><td>x</td><td></td><td>Jeder sieht und ändert nur, was er braucht.</td></tr>
-      <tr><th>Verschlüsselung von Datenträgern und Verbindungen</th><td>x</td><td></td><td></td><td>Ohne Schlüssel bleiben die Daten unlesbar. HTTPS und VPN erkennen zusätzlich Veränderungen unterwegs.</td></tr>
+      <tr><th>Verschlüsselung von Datenträgern und Verbindungen</th><td>x</td><td>(x)</td><td></td><td>Ohne Schlüssel bleiben die Daten unlesbar. Integrität nur bei HTTPS und VPN: Sie erkennen Veränderungen unterwegs.</td></tr>
       <tr><th>Hashwerte, digitale Signaturen</th><td></td><td>x</td><td></td><td>Veränderungen werden erkannt; eine Signatur belegt zusätzlich den Absender (Authentizität).</td></tr>
       <tr><th>Regelmäßige Datensicherung</th><td></td><td></td><td>x</td><td>Verlorene Daten lassen sich wiederherstellen.</td></tr>
-      <tr><th>USV, redundante Geräte</th><td></td><td></td><td>x</td><td>Betrieb läuft bei Ausfällen weiter.</td></tr>
+      <tr><th>USV, redundante Geräte</th><td></td><td>(x)</td><td>x</td><td>Betrieb läuft bei Ausfällen weiter; eine USV verhindert abgebrochene Schreibvorgänge (Integrität).</td></tr>
       <tr><th>Updates einspielen</th><td>x</td><td>x</td><td>x</td><td>Geschlossene Lücken schützen vor Angriffen auf alle Ziele.</td></tr>
     </tbody>
   </table>
 </div>
-<p>Manche Maßnahmen wirken auf mehrere Ziele, manche nur auf eines. Für ein Objekt mit hoher Vertraulichkeit, aber normaler Verfügbarkeit suchst du deshalb vor allem Maßnahmen mit Kreuz in der Spalte Vertraulichkeit.</p>
+<p>Manche Maßnahmen wirken auf mehrere Ziele, manche nur auf eines. Für ein Objekt mit hoher Vertraulichkeit, aber normaler Verfügbarkeit suchst du deshalb vor allem Maßnahmen mit Kreuz in der Spalte Vertraulichkeit. Ein Kreuz in Klammern bedeutet: wirkt dort nur mit Einschränkung.</p>
 
 <h3 id="arten-von-massnahmen">Arten von Maßnahmen<a class="anchor" href="#arten-von-massnahmen" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Neben der Einteilung in technisch und organisatorisch (Kapitel 4.2.2) unterscheidet man oft noch zwei weitere Arten:</p>

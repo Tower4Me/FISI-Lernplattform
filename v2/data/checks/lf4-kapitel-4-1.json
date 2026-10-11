@@ -24,7 +24,7 @@
         "Die Menschen, um die es in den Daten geht",
         "Die IT-Systeme des Betriebs vor Angriffen",
         "Kopien wichtiger Dateien für den Notfall",
-        "Betriebsgeheimnisse vor der Konkurrenz"
+        "Betriebsgeheimnisse wie Preise und Rezepturen vor der Konkurrenz"
       ],
       "richtig": [
         0
@@ -33,8 +33,8 @@
     },
     {
       "typ": "mc",
-      "thema": "Gefälschte Mail mit neuer Bankverbindung",
-      "frage": "Die Buchhaltung erhält eine Mail, scheinbar vom Stammlieferanten, mit einer neuen Kontonummer. Die Mail wurde unterwegs weder verändert noch mitgelesen, stammt aber von Betrügern. Welches Schutzziel ist hier das Problem?",
+      "thema": "Gefälschte Bestellung",
+      "frage": "Ein Onlineshop erhält per Mail eine große Bestellung, scheinbar von einem Stammkunden. Die Mail kam unverändert und ungelesen an, wurde aber von einem Betrüger verschickt. Welches Schutzziel ist hier das Problem?",
       "optionen": [
         "Authentizität",
         "Verfügbarkeit",
@@ -44,7 +44,7 @@
       "richtig": [
         0
       ],
-      "erklaerung": "Die Mail wurde weder mitgelesen noch verändert. Sie stammt nur nicht vom angegebenen Absender, also fehlt die Authentizität."
+      "erklaerung": "Die Mail wurde weder verändert noch mitgelesen. Sie stammt nur nicht vom angegebenen Absender, also fehlt die Authentizität."
     },
     {
       "typ": "mc-multi",

@@ -100,6 +100,9 @@ Nur der Inhalt, ohne `<html>`, Kopf oder Navigation. Bausteine:
 
 Notes und Merksatz bekommen Label und Icon beim Build.
 
+Querverweise: Eine `vertiefung`-Note verlinkt immer auf die Zielseite. Kurze Rückverweise im
+Fließtext („siehe Kapitel 4.2.2“) bleiben unverlinkt, damit der Lesefluss nicht von Links zerrissen wird.
+
 ## Check-JSON
 
 ```json

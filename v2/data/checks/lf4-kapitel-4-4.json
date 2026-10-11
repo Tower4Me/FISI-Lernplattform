@@ -34,7 +34,7 @@
     {
       "typ": "mc",
       "thema": "Höchstes Szenario bestimmt die Stufe",
-      "frage": "Für die Vertraulichkeit einer Anwendung ergeben die Schadensszenarien: finanziell normal, Außenwirkung normal, Verstoß gegen die DSGVO hoch. Welcher Schutzbedarf gilt für die Vertraulichkeit?",
+      "frage": "Für die Integrität einer Lagerverwaltung ergeben die Schadensszenarien: finanzielle Auswirkungen hoch, Aufgabenerfüllung normal, Außenwirkung normal. Welcher Schutzbedarf gilt für die Integrität?",
       "optionen": [
         "normal",
         "hoch",
@@ -44,12 +44,12 @@
       "richtig": [
         1
       ],
-      "erklaerung": "Das schlimmste Szenario bestimmt die Stufe. Hier ist das der drohende DSGVO-Verstoß mit „hoch“."
+      "erklaerung": "Das schlimmste Szenario bestimmt die Stufe. Hier sind das die finanziellen Auswirkungen mit „hoch“."
     },
     {
       "typ": "mc",
       "thema": "Maximumprinzip",
-      "frage": "Auf einem Server laufen eine Anwendung mit Integrität „sehr hoch“ und drei Anwendungen mit Integrität „normal“. Welchen Integritätsbedarf hat der Server nach dem Maximumprinzip?",
+      "frage": "Auf einem Mailserver laufen drei Anwendungen mit Vertraulichkeit „normal“, „hoch“ und „normal“. Welche Vertraulichkeit hat der Server nach dem Maximumprinzip?",
       "optionen": [
         "normal",
         "hoch",
@@ -57,9 +57,9 @@
         "je nach Anwendung verschieden"
       ],
       "richtig": [
-        2
+        1
       ],
-      "erklaerung": "Nach dem Maximumprinzip übernimmt das System den höchsten Wert der Anwendungen. Ein Angriff auf den Server trifft auch die wichtigste Anwendung."
+      "erklaerung": "Nach dem Maximumprinzip übernimmt das System den höchsten Wert der Anwendungen, die darauf laufen. Das ist hier „hoch“."
     },
     {
       "typ": "mc",
@@ -94,7 +94,7 @@
     {
       "typ": "mc",
       "thema": "Stufe aus Leitlinien-Schwelle",
-      "frage": "Die Leitlinie legt fest: „hoch“ ab 5.000 Euro möglichem Schaden. Fehler in einer Preisliste könnten sich über viele Angebote auf etwa 7.000 Euro summieren. Welcher Schutzbedarf gilt für die Integrität der Preisliste?",
+      "frage": "Die Richtlinie des Betriebs legt fest: „hoch“ ab 5.000 Euro möglichem Schaden, „sehr hoch“ ab 50.000 Euro. Fehler in einer Preisliste könnten sich über viele Angebote auf etwa 7.000 Euro summieren. Welcher Schutzbedarf gilt für die Integrität der Preisliste?",
       "optionen": [
         "normal",
         "hoch",
@@ -104,22 +104,22 @@
       "richtig": [
         1
       ],
-      "erklaerung": "Der mögliche Schaden liegt über der Schwelle für „hoch“, aber der Betrieb ist nicht gefährdet. Deshalb ist die Integrität „hoch“."
+      "erklaerung": "Der mögliche Schaden liegt über der Schwelle für „hoch“, aber unter der für „sehr hoch“. Deshalb ist die Integrität „hoch“."
     },
     {
       "typ": "mc",
-      "thema": "Vererbung auf Räume",
-      "frage": "Ein Raum enthält einen Server mit Vertraulichkeit „hoch“ und zwei PCs mit Vertraulichkeit „normal“. Welche Vertraulichkeit hat der Raum?",
+      "thema": "Verbindung erbt Schutzbedarf",
+      "frage": "Über eine Leitung laufen die Daten einer Anwendung mit Vertraulichkeit „hoch“ und einer mit „normal“. Welche Vertraulichkeit hat die Leitung?",
       "optionen": [
         "normal",
         "hoch",
         "sehr hoch",
-        "zwischen normal und hoch"
+        "keine, Leitungen haben keinen Schutzbedarf"
       ],
       "richtig": [
         1
       ],
-      "erklaerung": "Ein Raum erbt den Schutzbedarf der Systeme darin nach dem Maximumprinzip. Der höchste Wert ist „hoch“."
+      "erklaerung": "Eine Verbindung erbt den Schutzbedarf der Daten, die über sie laufen. Nach dem Maximumprinzip ist das hier „hoch“."
     }
   ]
 }

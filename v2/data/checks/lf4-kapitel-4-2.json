@@ -2,19 +2,20 @@
   "titel": "Check 4.2",
   "fragen": [
     {
-      "typ": "mc",
+      "typ": "mc-multi",
       "thema": "Besonders geschützte Daten",
-      "frage": "Welche dieser Angaben ist ein Gesundheitsdatum und damit nach Art. 9 DSGVO besonders geschützt?",
+      "frage": "Welche zwei Angaben gehören nach Art. 9 DSGVO zu den besonders geschützten Daten?",
       "optionen": [
-        "Allergie gegen Penizillin",
-        "Kontonummer eines Mitglieds",
-        "Private Handynummer einer Kundin",
-        "Kfz-Kennzeichen eines Besuchers"
+        "Gewerkschaftszugehörigkeit einer Mitarbeiterin",
+        "Allergie eines Kunden gegen Penizillin",
+        "Gehaltshöhe eines Mitarbeiters",
+        "Kontonummer eines Mitglieds"
       ],
       "richtig": [
-        0
+        0,
+        1
       ],
-      "erklaerung": "Eine Allergie ist eine Angabe zur Gesundheit. Die anderen Angaben sind personenbezogen, gehören aber nicht zu den besonderen Kategorien."
+      "erklaerung": "Gewerkschaftszugehörigkeit und Gesundheitsangaben wie eine Allergie zählen zu den besonderen Kategorien. Gehalt und Kontonummer sind personenbezogen, aber nicht besonders geschützt."
     },
     {
       "typ": "mc",
@@ -105,7 +106,7 @@
       "richtig": [
         0
       ],
-      "erklaerung": "Standardmaßnahmen sind für normalen Schutzbedarf gedacht. Bei hohem oder sehr hohem Schutzbedarf und wenn kein passender Baustein existiert, wird zusätzlich geprüft, ob sie reichen."
+      "erklaerung": "Standardmaßnahmen sind für normalen Schutzbedarf gedacht. Bei hohem oder sehr hohem Schutzbedarf oder wenn kein passender Baustein existiert, wird zusätzlich geprüft, ob sie reichen."
     }
   ]
 }

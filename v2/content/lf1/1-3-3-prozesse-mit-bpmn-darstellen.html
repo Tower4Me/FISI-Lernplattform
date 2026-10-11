@@ -1,0 +1,67 @@
+<p class="lead">Wenn Vertrieb, Technik und Buchhaltung über einen Ablauf reden, meint oft jeder etwas anderes. Ein Diagramm in einer festen Notation schafft ein gemeinsames Bild. BPMN ist dafür der internationale Standard.</p>
+
+<h3>Was BPMN ist</h3>
+<p><strong>BPMN</strong> (Business Process Model and Notation) ist eine genormte grafische Sprache für Geschäftsprozesse. Die aktuelle Version 2.0 stammt von der Object Management Group (OMG). Fachabteilung und IT können dasselbe Diagramm lesen, ohne sich auf eigene Symbole einigen zu müssen.</p>
+
+<h3>Die wichtigsten Symbole</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Element</th><th>Darstellung</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th>Startereignis</th><td>Kreis mit dünnem Rand</td><td>löst den Prozess aus</td></tr>
+      <tr><th>Endereignis</th><td>Kreis mit dickem Rand</td><td>beendet einen Pfad des Prozesses</td></tr>
+      <tr><th>Aktivität (Task)</th><td>Rechteck mit abgerundeten Ecken</td><td>ein Arbeitsschritt, benannt mit Substantiv und Verb, z. B. „Ticket anlegen“</td></tr>
+      <tr><th>Exklusives Gateway</th><td>Raute mit X (oder leer)</td><td>Entscheidung: genau ein Pfad wird weiter durchlaufen</td></tr>
+      <tr><th>Paralleles Gateway</th><td>Raute mit +</td><td>Verzweigung: alle Pfade werden gestartet und laufen unabhängig voneinander; Zusammenführung: wartet, bis alle angekommen sind</td></tr>
+      <tr><th>Sequenzfluss</th><td>durchgezogener Pfeil</td><td>Reihenfolge der Schritte</td></tr>
+      <tr><th>Pool und Lanes</th><td>großes Rechteck mit Bahnen</td><td>Pool: ein Beteiligter, z. B. ein Unternehmen; Lanes: Rollen oder Abteilungen darin</td></tr>
+      <tr><th>Nachrichtenfluss</th><td>gestrichelte Linie mit kleinem leeren Kreis am Anfang und offener Pfeilspitze</td><td>Kommunikation zwischen verschiedenen Pools, z. B. Kunde und Betrieb</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wichtige Regel: Der Sequenzfluss bleibt innerhalb eines Pools. Zwischen zwei Pools gibt es nur Nachrichtenfluss.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 780 260" role="img" aria-label="BPMN-Diagramm: Störung bearbeiten im Pool Systemhaus mit den Lanes Hotline und Technik">
+    <defs><marker id="pfeil-bpmn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <rect class="g-rule" x="10" y="10" width="760" height="240" rx="4"/>
+    <path class="g-rule" d="M35 10V250M80 10V250M35 130H770"/>
+    <text x="27" y="130" text-anchor="middle" class="g-muted" font-size="13" transform="rotate(-90 27 130)">Systemhaus</text>
+    <text x="58" y="74" text-anchor="middle" class="g-muted" font-size="12" transform="rotate(-90 58 70)">Hotline</text>
+    <text x="58" y="194" text-anchor="middle" class="g-muted" font-size="12" transform="rotate(-90 58 190)">Technik</text>
+    <circle class="g-line" cx="110" cy="70" r="14" stroke-width="1.5"/>
+    <text x="110" y="106" text-anchor="middle" class="g-muted" font-size="12">Störung gemeldet</text>
+    <rect class="g-box" x="140" y="45" width="110" height="50" rx="8"/>
+    <text x="195" y="75" text-anchor="middle">Ticket anlegen</text>
+    <rect class="g-box" x="268" y="45" width="132" height="50" rx="8"/>
+    <text x="334" y="75" text-anchor="middle">Störung analysieren</text>
+    <path class="g-box" d="M440 44L466 70L440 96L414 70Z"/>
+    <path class="g-line" d="M432 62L448 78M448 62L432 78" stroke-width="2"/>
+    <text x="440" y="34" text-anchor="middle" class="g-muted" font-size="12">Fernwartung möglich?</text>
+    <rect class="g-box" x="495" y="45" width="150" height="50" rx="8"/>
+    <text x="570" y="75" text-anchor="middle">Per Fernwartung lösen</text>
+    <rect class="g-box" x="495" y="165" width="150" height="50" rx="8"/>
+    <text x="570" y="195" text-anchor="middle">Vor Ort reparieren</text>
+    <path class="g-box" d="M690 44L716 70L690 96L664 70Z"/>
+    <path class="g-line" d="M682 62L698 78M698 62L682 78" stroke-width="2"/>
+    <circle class="g-line" cx="748" cy="70" r="14" stroke-width="4"/>
+    <text x="716" y="106" text-anchor="middle" class="g-muted" font-size="12">Störung behoben</text>
+    <g class="g-line" stroke-width="1.5" marker-end="url(#pfeil-bpmn)">
+      <path d="M124 70H138"/><path d="M250 70H266"/><path d="M400 70H412"/><path d="M466 70H493"/>
+      <path d="M440 96V190H493"/><path d="M645 70H662"/><path d="M645 190H690V98"/><path d="M716 70H732"/>
+    </g>
+    <text x="479" y="62" text-anchor="middle" font-size="12">ja</text>
+    <text x="456" y="150" font-size="12">nein</text>
+  </svg>
+  <figcaption>Prozess „Störung bearbeiten“: Pool „Systemhaus“ mit den Lanes Hotline und Technik; ein exklusives Gateway verzweigt, ein zweites führt wieder zusammen.</figcaption>
+</figure>
+
+<h3>So liest du das Diagramm</h3>
+<p>Der Prozess startet, wenn eine Störung gemeldet wird. Die Hotline legt ein Ticket an und analysiert die Störung. Am Gateway geht es je nach Ergebnis weiter: Lässt sich die Störung per Fernwartung lösen, erledigt das die Hotline, sonst repariert die Technik vor Ort. Beide Pfade laufen am zweiten Gateway wieder zusammen, danach ist die Störung behoben. An den Lanes siehst du sofort, wer welchen Schritt verantwortet.</p>
+
+<aside class="note" data-typ="fehler"><p>Eine Raute ist keine Aktivität. Das Gateway selbst prüft nichts, es leitet nur weiter. Die Beschriftung („Fernwartung möglich?“) nennt nur die Frage. Geprüft und entschieden wird in der Aktivität davor, hier „Störung analysieren“.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Ereignis:</strong> Kreis (Start dünn, Ende dick); <strong>Aktivität:</strong> abgerundetes Rechteck; <strong>Gateway:</strong> Raute.</li>
+  <li><strong>Pool und Lanes</strong> zeigen, wer einen Schritt ausführt; der Sequenzfluss zeigt die Reihenfolge.</li>
+</ul>

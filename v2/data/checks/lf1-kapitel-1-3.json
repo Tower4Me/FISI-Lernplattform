@@ -1,0 +1,125 @@
+{
+  "titel": "Check 1.3",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Primäre Aktivität",
+      "frage": "Welche Tätigkeit eines Systemhauses ist nach Porter eine primäre Aktivität?",
+      "optionen": [
+        "Die Buchhaltung erstellt den Jahresabschluss für das Finanzamt",
+        "Ein Techniker richtet beim Kunden einen Server ein",
+        "Die Personalabteilung plant Schulungen",
+        "Der Einkauf verhandelt Rahmenverträge"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Das Einrichten beim Kunden ist Leistungserstellung und schafft direkt Wert für den Kunden. Buchhaltung, Personal und Einkauf sind unterstützende Aktivitäten."
+    },
+    {
+      "typ": "mc",
+      "thema": "Prozessart",
+      "frage": "Zu welcher Prozessart gehört die Personalverwaltung in einem IT-Dienstleister?",
+      "optionen": [
+        "Kernprozess",
+        "Unterstützungsprozess",
+        "Managementprozess",
+        "Teilprozess"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Die Personalverwaltung stellt Mittel für die Kernprozesse bereit, schafft aber nicht direkt die Leistung für den Kunden. Sie ist ein Unterstützungsprozess."
+    },
+    {
+      "typ": "mc",
+      "thema": "BPMN Symbol",
+      "frage": "Wie wird in BPMN das Ende eines Prozesses dargestellt?",
+      "optionen": [
+        "Als Raute mit X",
+        "Als Kreis mit dickem Rand",
+        "Als Sechseck",
+        "Als gestrichelter Pfeil zwischen zwei Pools"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Endereignisse sind Kreise mit dickem Rand, Startereignisse haben einen dünnen Rand. Die Raute ist ein Gateway, das Sechseck gehört zur EPK."
+    },
+    {
+      "typ": "mc",
+      "thema": "Exklusives Gateway",
+      "frage": "In einem BPMN-Diagramm folgt auf die Aktivität „Antrag prüfen“ eine Raute mit X und zwei ausgehenden Pfeilen „genehmigt“ und „abgelehnt“. Was bedeutet das?",
+      "optionen": [
+        "Beide Pfade laufen gleichzeitig",
+        "Genau einer der beiden Pfade wird durchlaufen",
+        "Der Prozess endet an dieser Stelle",
+        "Die Raute führt die Prüfung des Antrags selbst durch"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Ein exklusives Gateway leitet in genau einen Pfad weiter. Die Prüfung selbst steckt in der Aktivität davor."
+    },
+    {
+      "typ": "mc",
+      "thema": "Nachrichtenfluss",
+      "frage": "Kunde und Systemhaus sind in einem BPMN-Diagramm zwei getrennte Pools. Womit wird dargestellt, dass der Kunde eine Bestellung an das Systemhaus schickt?",
+      "optionen": [
+        "Mit einem Sequenzfluss",
+        "Mit einem Nachrichtenfluss",
+        "Mit einer zusätzlichen Lane",
+        "Mit einem parallelen Gateway"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Zwischen verschiedenen Pools gibt es nur Nachrichtenfluss, gestrichelt dargestellt. Der Sequenzfluss bleibt innerhalb eines Pools."
+    },
+    {
+      "typ": "mc",
+      "thema": "EPK-Regel",
+      "frage": "Welche Folge ist in einer EPK erlaubt?",
+      "optionen": [
+        "Ereignis, Funktion, Ereignis",
+        "Funktion, Funktion, Ereignis",
+        "Ereignis, XOR-Verzweigung, zwei Funktionen",
+        "Ereignis, Ereignis, Funktion"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "In der EPK wechseln sich Ereignisse und Funktionen ab. Nach einem Ereignis darf nicht mit XOR verzweigt werden, weil ein Ereignis nichts entscheidet."
+    },
+    {
+      "typ": "mc",
+      "thema": "EPK Ereignis formulieren",
+      "frage": "Welche Beschriftung passt zu einem Ereignis in einer EPK?",
+      "optionen": [
+        "Rechnung schreiben",
+        "Rechnung ist erstellt",
+        "Rechnung prüfen und versenden",
+        "Buchhaltung"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Ereignisse beschreiben einen eingetretenen Zustand und stehen im Partizip. „Rechnung schreiben“ wäre eine Funktion, „Buchhaltung“ eine Organisationseinheit."
+    },
+    {
+      "typ": "mc",
+      "thema": "Schwachstelle Medienbruch",
+      "frage": "Im Lager werden Bestellungen auf Papier notiert und später ins System abgetippt. Wie nennt man diese Schwachstelle?",
+      "optionen": [
+        "Ein Medienbruch",
+        "Unklare Zuständigkeit",
+        "Fehlende Freigabe durch die Leitung",
+        "Zu viele beteiligte Abteilungen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Werden Daten von einem Medium in ein anderes übertragen, spricht man von einem Medienbruch. Er kostet Zeit und erzeugt Tippfehler."
+    }
+  ]
+}

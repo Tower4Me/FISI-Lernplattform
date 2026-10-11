@@ -1,0 +1,54 @@
+<p class="lead">Neben BPMN begegnet dir in Betrieben und Prüfungen eine ältere Notation: die ereignisgesteuerte Prozesskette, kurz EPK. Sie ist im deutschsprachigen Raum verbreitet, etwa in der Dokumentation von ERP-Systemen. Ihr Grundgedanke ist einfach: Jede Tätigkeit wird von einem Ereignis ausgelöst und führt zu einem neuen Ereignis.</p>
+
+<h3>Die Symbole</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Element</th><th>Darstellung</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th>Ereignis</th><td>Sechseck</td><td>ein eingetretener Zustand, passiv, z. B. „Bestellung ist eingegangen“</td></tr>
+      <tr><th>Funktion</th><td>Rechteck mit abgerundeten Ecken</td><td>eine Tätigkeit, aktiv, z. B. „Bestellung prüfen“</td></tr>
+      <tr><th>Konnektoren</th><td>Kreis mit XOR, ∧ (UND) oder ∨ (ODER)</td><td>verzweigen oder führen zusammen: XOR genau ein Pfad, UND alle Pfade, ODER mindestens einer</td></tr>
+      <tr><th>Kontrollfluss</th><td>Pfeil</td><td>Reihenfolge</td></tr>
+      <tr><th>Organisationseinheit</th><td>Ellipse mit senkrechtem Strich (erweiterte EPK)</td><td>wer die Funktion ausführt</td></tr>
+      <tr><th>Informationsobjekt</th><td>Rechteck (erweiterte EPK)</td><td>welche Daten oder Dokumente gebraucht oder erzeugt werden</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Die wichtigsten Regeln</h3>
+<ul>
+  <li>Ereignisse und Funktionen <strong>wechseln sich ab</strong>. Zwei Funktionen oder zwei Ereignisse folgen nie direkt aufeinander.</li>
+  <li>Eine EPK <strong>beginnt und endet mit mindestens einem Ereignis</strong>.</li>
+  <li>Ereignisse und Funktionen haben <strong>genau einen Ein- und einen Ausgang</strong>; verzweigt wird nur über Konnektoren.</li>
+  <li>Nach einem Ereignis darf <strong>nicht mit XOR oder ODER verzweigt</strong> werden, denn ein Ereignis kann nichts entscheiden. Die Entscheidung trifft die Funktion davor.</li>
+</ul>
+
+<figure class="grafik">
+  <svg viewBox="0 0 520 410" role="img" aria-label="EPK: Bestellung prüfen, Verzweigung mit XOR in Ware vorrätig und Ware nicht vorrätig">
+    <defs><marker id="pfeil-epk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <path class="g-accent" d="M185 20H335L350 40L335 60H185L170 40Z"/><text x="260" y="45" text-anchor="middle">Bestellung eingegangen</text>
+    <rect class="g-box" x="180" y="90" width="160" height="40" rx="10"/><text x="260" y="115" text-anchor="middle">Bestellung prüfen</text>
+    <circle class="g-box" cx="260" cy="170" r="17"/><text x="260" y="174" text-anchor="middle" font-size="11" class="g-mono">XOR</text>
+    <path class="g-accent" d="M65 210H215L230 230L215 250H65L50 230Z"/><text x="140" y="235" text-anchor="middle">Ware vorrätig</text>
+    <path class="g-accent" d="M305 210H455L470 230L455 250H305L290 230Z"/><text x="380" y="235" text-anchor="middle">Ware nicht vorrätig</text>
+    <rect class="g-box" x="60" y="280" width="160" height="40" rx="10"/><text x="140" y="305" text-anchor="middle">Ware versenden</text>
+    <rect class="g-box" x="300" y="280" width="160" height="40" rx="10"/><text x="380" y="305" text-anchor="middle">Kunden informieren</text>
+    <path class="g-accent" d="M65 350H215L230 370L215 390H65L50 370Z"/><text x="140" y="375" text-anchor="middle">Ware versendet</text>
+    <path class="g-accent" d="M305 350H455L470 370L455 390H305L290 370Z"/><text x="380" y="375" text-anchor="middle">Kunde informiert</text>
+    <g class="g-line" stroke-width="1.5" marker-end="url(#pfeil-epk)">
+      <path d="M260 60V88"/><path d="M260 130V151"/><path d="M243 172H140V208"/><path d="M277 172H380V208"/>
+      <path d="M140 250V278"/><path d="M380 250V278"/><path d="M140 320V348"/><path d="M380 320V348"/>
+    </g>
+  </svg>
+  <figcaption>EPK: Die Funktion „Bestellung prüfen“ entscheidet, der XOR-Konnektor verzweigt in genau einen der beiden Pfade. Ereignisse sind hervorgehoben, Funktionen grau.</figcaption>
+</figure>
+
+<h3>EPK oder BPMN?</h3>
+<p>Beide stellen dasselbe dar: Abläufe mit Entscheidungen. Die EPK betont den Wechsel von Zustand und Tätigkeit und ist im deutschsprachigen Raum verbreitet. BPMN ist international genormt, zeigt Zuständigkeiten über Pools und Lanes direkt und lässt sich, technisch ergänzt, von Workflow-Systemen ausführen. Welche Notation du nutzt, gibt meist der Betrieb oder die Aufgabe vor.</p>
+
+<aside class="note" data-typ="fehler"><p>Ereignisse sind Zustände, keine Tätigkeiten. Formuliere sie im Partizip („Bestellung ist eingegangen“, „Ware versendet“), Funktionen dagegen als Tätigkeit („Ware versenden“).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>EPK:</strong> Ereignis (Sechseck) und Funktion (abgerundetes Rechteck) wechseln sich ab, Anfang und Ende sind Ereignisse.</li>
+  <li><strong>Konnektoren:</strong> XOR genau ein Pfad, UND alle, ODER mindestens einer; nach einem Ereignis nicht mit XOR oder ODER verzweigen.</li>
+</ul>

@@ -504,6 +504,56 @@
           "tiefe": "Phasen und AIDA"
         }
       ]
+    },
+    {
+      "begriff": "wertschoepfungskette",
+      "kernfakten": [
+        "Wertschöpfung: Wert, den ein Betrieb zu eingekauften Vorleistungen hinzufügt.",
+        "Porter: primäre Aktivitäten (Eingangslogistik, Leistungserstellung, Ausgangslogistik, Marketing/Vertrieb, Kundendienst) und unterstützende (Infrastruktur, Personal, Technologieentwicklung, Beschaffung)."
+      ],
+      "vorkommen": [
+        {
+          "id": "1-3-1",
+          "tiefe": "Modell und Einordnung der eigenen Arbeit"
+        }
+      ]
+    },
+    {
+      "begriff": "geschaeftsprozess",
+      "kernfakten": [
+        "Geschäftsprozess: durch Ereignis ausgelöste Folge von Tätigkeiten mit Ergebnis für einen (internen oder externen) Kunden.",
+        "Kern-, Unterstützungs-, Managementprozesse.",
+        "Verbesserung: Anlass, Ist, Schwachstellen (z. B. Medienbruch), Soll, Umsetzung, Wirkung prüfen.",
+        "Laufende Verbesserung: kontinuierlicher Verbesserungsprozess (KVP)."
+      ],
+      "vorkommen": [
+        {
+          "id": "1-3-2",
+          "tiefe": "Begriff und Arten"
+        },
+        {
+          "id": "1-3-5",
+          "tiefe": "Verbesserung, Outsourcing"
+        }
+      ]
+    },
+    {
+      "begriff": "prozessnotation",
+      "kernfakten": [
+        "BPMN 2.0 (OMG): Start-/Endereignis Kreis dünn/dick, Aktivität abgerundetes Rechteck, Gateway Raute (X exklusiv, + parallel), Sequenzfluss durchgezogen, Nachrichtenfluss gestrichelt zwischen Pools, Pool/Lanes für Beteiligte.",
+        "EPK: Ereignis Sechseck, Funktion abgerundetes Rechteck, abwechselnd, Start und Ende Ereignis; Konnektoren XOR/UND/ODER; nach Ereignis keine XOR/ODER-Verzweigung.",
+        "BPMN: Sequenzfluss nur innerhalb eines Pools, zwischen Pools Nachrichtenfluss. EPK: Ereignisse und Funktionen je genau ein Ein-/Ausgang, Verzweigung nur über Konnektoren; Organisationseinheit Ellipse mit senkrechtem Strich."
+      ],
+      "vorkommen": [
+        {
+          "id": "1-3-3",
+          "tiefe": "BPMN"
+        },
+        {
+          "id": "1-3-4",
+          "tiefe": "EPK"
+        }
+      ]
     }
   ]
 }

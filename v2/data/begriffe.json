@@ -97,6 +97,10 @@
         {
           "id": "4-1-4",
           "tiefe": "Bestandsaufnahme im eigenen Arbeitsbereich"
+        },
+        {
+          "id": "4-4-4",
+          "tiefe": "Bestandsaufnahme im durchgehenden Beispiel"
         }
       ]
     },
@@ -226,6 +230,40 @@
         {
           "id": "4-3-4",
           "tiefe": "Gewichtung von Bedrohungen, einfache Matrix"
+        },
+        {
+          "id": "4-4-1",
+          "tiefe": "Abgrenzung: Feststellung ohne Wahrscheinlichkeit"
+        }
+      ]
+    },
+    {
+      "begriff": "schutzbedarfsfeststellung",
+      "kernfakten": [
+        "Bewertet je Grundwert die Folgen (realistischer Worst Case), nicht die Eintrittswahrscheinlichkeit.",
+        "Kategorien nach IT-Grundschutz: normal (begrenzt, überschaubar), hoch (beträchtlich), sehr hoch (existenzbedrohend, katastrophal); betriebsspezifisch konkretisiert.",
+        "Sechs Schadensszenarien (BSI 200-2): Verstoß gegen Gesetze/Vorschriften/Verträge; Beeinträchtigung des informationellen Selbstbestimmungsrechts; Beeinträchtigung der persönlichen Unversehrtheit; Beeinträchtigung der Aufgabenerfüllung; negative Innen- oder Außenwirkung; finanzielle Auswirkungen.",
+        "Das schlimmste Szenario bestimmt die Stufe je Grundwert.",
+        "Reihenfolge: Geschäftsprozesse/Anwendungen, dann IT-Systeme, Räume, Kommunikationsverbindungen.",
+        "Maximumprinzip: höchster Schutzbedarf der abhängigen Anwendungen; Kumulationseffekt: höher durch Summe vieler Schäden; Verteilungseffekt: niedriger bei redundanter Verteilung (vor allem Verfügbarkeit).",
+        "Jede Einstufung wird begründet und dokumentiert."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-4-1",
+          "tiefe": "Ablauf"
+        },
+        {
+          "id": "4-4-2",
+          "tiefe": "Kategorien und Szenarien"
+        },
+        {
+          "id": "4-4-3",
+          "tiefe": "Vererbung"
+        },
+        {
+          "id": "4-4-4",
+          "tiefe": "durchgehendes Beispiel mit Dokumentation"
         }
       ]
     }

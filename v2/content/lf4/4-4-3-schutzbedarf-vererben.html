@@ -1,0 +1,31 @@
+<p class="lead">Du hast den Schutzbedarf der Anwendungen bestimmt. Aber Maßnahmen setzt du an Geräten, Räumen und Leitungen um. Also musst du den Schutzbedarf von den Anwendungen auf die Technik übertragen. Dafür gibt es drei Regeln.</p>
+
+<h3>Maximumprinzip: Das Wichtigste zählt</h3>
+<p>Laufen auf einem IT-System mehrere Anwendungen, bekommt das System je Schutzziel den <strong>höchsten</strong> Schutzbedarf der Anwendungen, die darauf laufen. Das ist das <strong>Maximumprinzip</strong>. Ein Server mit einer Anwendung „sehr hoch“ und fünf Anwendungen „normal“ ist bei diesem Schutzziel „sehr hoch“, denn ein Angriff auf den Server trifft auch die wichtigste Anwendung.</p>
+<p>Genauso erbt ein Raum den Schutzbedarf der Systeme, die darin stehen, und eine Verbindung den Schutzbedarf der Daten, die über sie laufen.</p>
+
+<h3>Kumulationseffekt: Viele Kleine ergeben etwas Großes</h3>
+<p>Manchmal ist das Ganze schlimmer als jeder Teil. Laufen auf einem Server viele Anwendungen mit normalem Verfügbarkeitsbedarf, legt sein Ausfall alle gleichzeitig lahm. Der Gesamtschaden kann dann beträchtlich sein. Der Server bekommt in diesem Fall einen <strong>höheren</strong> Schutzbedarf als jede einzelne Anwendung. Das nennt man <strong>Kumulationseffekt</strong>.</p>
+
+<h3>Verteilungseffekt: Redundanz entlastet</h3>
+<p>Umgekehrt kann eine Anwendung mit hohem Verfügbarkeitsbedarf auf mehrere Systeme verteilt sein, etwa auf zwei Server, die sich gegenseitig vertreten. Fällt einer aus, übernimmt der andere. Für das <strong>einzelne</strong> System genügt dann ein niedrigerer Schutzbedarf bei der Verfügbarkeit. Das ist der <strong>Verteilungseffekt</strong>. Er betrifft vor allem die Verfügbarkeit: Vertrauliche Daten bleiben vertraulich, egal auf wie vielen Servern sie liegen.</p>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Regel</th><th>Wirkung auf das System</th><th>Typischer Fall</th></tr></thead>
+    <tbody>
+      <tr><th>Maximumprinzip</th><td>übernimmt den höchsten Wert</td><td>Standardfall</td></tr>
+      <tr><th>Kumulationseffekt</th><td>liegt höher als jeder Einzelwert</td><td>viele Anwendungen auf einem System</td></tr>
+      <tr><th>Verteilungseffekt</th><td>liegt niedriger als der Wert der Anwendung</td><td>Anwendung redundant auf mehreren Systemen</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Architekturbüro hat ein NAS, auf dem Projektpläne (Verfügbarkeit normal), Rechnungen (normal), Angebote (normal) und die Zeiterfassung (normal) liegen. Einzeln ist jeder Ausfall verkraftbar. Fällt aber das NAS aus, steht das ganze Büro still, kurz vor einer Abgabefrist. Wegen des Kumulationseffekts stuft das Büro die Verfügbarkeit des NAS als „hoch“ ein.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>Der Durchschnitt zählt nicht. Bei einem System mit „sehr hoch“, „normal“ und „normal“ ist das Ergebnis nicht „hoch“, sondern nach dem Maximumprinzip „sehr hoch“.</p></aside>
+
+<p class="merksatz">Ein System erbt den höchsten Schutzbedarf seiner Anwendungen (Maximumprinzip); viele Anwendungen können ihn erhöhen (Kumulation), Redundanz kann ihn bei der Verfügbarkeit senken (Verteilung).</p>

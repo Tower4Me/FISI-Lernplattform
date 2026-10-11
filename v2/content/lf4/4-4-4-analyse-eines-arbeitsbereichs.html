@@ -1,0 +1,44 @@
+<p class="lead">Jetzt setzt du alles zusammen. An einem durchgehenden Beispiel siehst du, wie eine Schutzbedarfsfeststellung für einen kleinen Arbeitsbereich aussieht und wie du sie so dokumentierst, dass andere sie nachvollziehen können.</p>
+
+<h3>Ausgangslage</h3>
+<p>Mira macht ihre Ausbildung bei einem Hausmeisterdienst mit 30 Beschäftigten. Sie soll den Schutzbedarf für das Kundenbüro feststellen. Die Sicherheitsleitlinie legt fest: „hoch“ gilt ab einem möglichen Schaden von 5.000 Euro, wenn die Arbeit ohne die Anwendung schon nach einem Arbeitstag nicht mehr weitergehen kann oder wenn personenbezogene Daten vieler Kunden betroffen wären. „Sehr hoch“ gilt, wenn der Betrieb gefährdet wäre oder Menschen zu Schaden kommen könnten.</p>
+<p>Bei der Bestandsaufnahme findet sie den zentralen Ablauf „Einsätze planen und Teams einteilen“. Er nutzt drei Anwendungen, zwei Büro-PCs, ein NAS, den Büroraum, das Büronetz zwischen PCs und NAS und den Internetanschluss.</p>
+
+<h3>Anwendungen bewerten</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Anwendung</th><th>Vertraulichkeit</th><th>Integrität</th><th>Verfügbarkeit</th></tr></thead>
+    <tbody>
+      <tr><th>Auftragsverwaltung (Kunden, Objekte, Einsätze)</th><td>hoch: Adressen, Schlüssellisten und Alarmcodes vieler Kunden; kein „sehr hoch“, weil Schlösser und Codes kurzfristig getauscht werden können</td><td>hoch: falsche Einsatzorte oder Alarmcodes in vielen Aufträgen führen zu Fehlfahrten, Fehlalarmen und Nacharbeit, der Schaden liegt schnell über 5.000 Euro</td><td>hoch: ohne sie lassen sich die Teams schon am nächsten Morgen nicht mehr einteilen</td></tr>
+      <tr><th>E-Mail</th><td>normal: überwiegend allgemeine Absprachen</td><td>normal: Fehler fallen im Gespräch auf</td><td>normal: Telefon als Ausweichweg</td></tr>
+      <tr><th>Preisliste (Tabelle)</th><td>normal: wird Kunden ohnehin gezeigt</td><td>hoch: falsche Preise in vielen Angeboten summieren sich über 5.000 Euro</td><td>normal: Ausdruck liegt vor</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Jede Zelle enthält eine Stufe <em>und</em> eine kurze Begründung. Ohne Begründung kann niemand prüfen, ob die Einstufung stimmt.</p>
+
+<h3>Auf die Technik übertragen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Objekt</th><th>Vertraulichkeit / Integrität / Verfügbarkeit</th><th>Begründung</th></tr></thead>
+    <tbody>
+      <tr><th>NAS</th><td>hoch / hoch / hoch</td><td>speichert Auftragsverwaltung und Preisliste; Maximumprinzip</td></tr>
+      <tr><th>Büro-PC (je PC)</th><td>hoch / hoch / normal</td><td>Zugriff auf die Auftragsverwaltung; Verfügbarkeit normal, weil der andere PC einspringen kann (Verteilungseffekt)</td></tr>
+      <tr><th>Büronetz (PCs zum NAS)</th><td>hoch / hoch / hoch</td><td>überträgt die Daten der Auftragsverwaltung; Maximumprinzip</td></tr>
+      <tr><th>Büroraum</th><td>hoch / hoch / hoch</td><td>enthält NAS und PCs; Maximumprinzip</td></tr>
+      <tr><th>Internetanschluss</th><td>normal / normal / normal</td><td>Auftragsverwaltung läuft lokal; E-Mail hat einen Ausweichweg</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Ergebnis dokumentieren</h3>
+<p>Mira fasst zusammen: Kein Objekt hat „sehr hoch“. NAS, Büronetz und Büroraum sind in allen drei Schutzzielen „hoch“, die Büro-PCs bei Vertraulichkeit und Integrität. Für diese Objekte reichen Standardmaßnahmen allein nicht, hier folgt eine zusätzliche Risikoanalyse (Kapitel 4.2.3). Die Dokumentation enthält Datum, Bearbeiterin, beteiligte Personen und die Tabellen mit Begründungen.</p>
+
+<aside class="note" data-typ="hinweis"><p>Prüfungsaufgaben verlangen oft genau diese Tabellenform: Anwendung, Schutzziel, Stufe und Begründung in einem Satz. Übe, die Begründung als konkrete Folge zu formulieren, etwa „Falsche Daten führen zu falschen Rechnungen“.</p></aside>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Kollegin fragt, warum die Büro-PCs bei der Vertraulichkeit „hoch“ sind, obwohl keine Daten darauf gespeichert werden. Mira zeigt auf die Tabelle: Über die PCs wird die Auftragsverwaltung mit den Alarmcodes bedient. Wer einen PC übernimmt, sieht dieselben Daten.</p>
+</div>
+
+<p class="merksatz">Eine dokumentierte Schutzbedarfsfeststellung nennt für jede Anwendung und jedes Objekt die Stufe je Schutzziel mit Begründung; Objekte mit hohem oder sehr hohem Schutzbedarf brauchen eine zusätzliche Risikoanalyse.</p>

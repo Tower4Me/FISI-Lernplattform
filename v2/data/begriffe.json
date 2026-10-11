@@ -894,6 +894,85 @@
           "tiefe": "Berechnung"
         }
       ]
+    },
+    {
+      "begriff": "produktvergleich",
+      "kernfakten": [
+        "Muss-Kriterien (K.-o.) zuerst prüfen, dann Wunsch-Kriterien vergleichen.",
+        "„Bis zu“-Werte sind Höchstwerte unter Testbedingungen; Einheiten angleichen; fehlende Angaben (Garantie, Ersatzteile, Updates) ergänzen.",
+        "Herstellerangaben durch unabhängige Tests ergänzen, Quelle und Datum festhalten."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-5-1",
+          "tiefe": "Datenblätter"
+        }
+      ]
+    },
+    {
+      "begriff": "kennzeichen",
+      "kernfakten": [
+        "CE: Pflicht in der EU (Sicherheit, EMV, RoHS), Herstellererklärung, kein Gütesiegel; GS: freiwillig (ProdSG), unabhängig geprüft.",
+        "Durchgestrichene Mülltonne: getrennte Entsorgung.",
+        "EU-Energielabel A–G (Monitore; seit Juni 2025 auch Smartphones/Tablets; nicht für PCs/Notebooks); Energy Star (Strom, US, EU-Abkommen 2018 ausgelaufen); Blauer Engel (DE, umfassend); TCO Certified (Umwelt, Ergonomie, soziale Herstellung); 80 PLUS (Netzteile); alle außer Energielabel freiwillig.",
+        "Normen DIN/EN/ISO/IEC freiwillig, verbindlich durch Gesetz oder Vertrag; DIN EN ISO = international, europäisch übernommen, deutsch veröffentlicht."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-5-2",
+          "tiefe": "Zeichen, Normen"
+        }
+      ]
+    },
+    {
+      "begriff": "ergonomie",
+      "kernfakten": [
+        "ArbStättV Anhang Nr. 6, ASR A3.4 und A6; Gefährdungsbeurteilung durch Arbeitgeber; ArbMedVV: Angebotsvorsorge Augen, Bildschirmbrille falls nötig.",
+        "Oberkante auf/unter Augenhöhe, 50–80 cm, Blick parallel zum Fenster, Tastatur getrennt, verstellbare Möbel, mind. 500 lx, Pausen/Tätigkeitswechsel.",
+        "Software-Ergonomie DIN EN ISO 9241-110 (Dialoggrundsätze); Barrierefreiheit: Braillezeile, Vergrößerung, Sprache, angepasste Eingabegeräte."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-5-3",
+          "tiefe": "Arbeitsplatz"
+        },
+        {
+          "id": "2-2-5",
+          "tiefe": "Monitorwahl"
+        }
+      ]
+    },
+    {
+      "begriff": "green-it",
+      "kernfakten": [
+        "Lebenszyklus: Herstellung (bei Mobilgeräten großer CO2-Anteil), Nutzung, Entsorgung.",
+        "Hebel: passend dimensionieren, sparsam, reparierbar, lange nutzen, Refurbished, Energiesparfunktionen.",
+        "Weiterverkaufen/spenden vor Recycling; ElektroG: kommunale Sammelstellen, Händler ab 400 m² (Kleingeräte bis 25 cm ohne Kauf); vorher Daten sicher löschen (LF4 4.6.3), Akkus entnehmen."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-5-4",
+          "tiefe": "Green IT"
+        },
+        {
+          "id": "1-1-3",
+          "tiefe": "Nachhaltigkeit als Unternehmensziel"
+        }
+      ]
+    },
+    {
+      "begriff": "nutzwertanalyse",
+      "kernfakten": [
+        "K.-o.-Kriterien zuerst; Kriterien gewichten (Summe 100 %), Punkte je Kriterium, Punkte × Gewicht, Summe = Nutzwert, höchster gewinnt.",
+        "Skalen 1–4, 1–5, 1–10; Messwerte vorher in Punkte übersetzen; Gewichtung als Punkte (Summe 100) ändert Rangfolge nicht; umgekehrte Skalen beachten.",
+        "Gewichte vorher mit Kunden abstimmen, Punkte begründen."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-5-5",
+          "tiefe": "Verfahren"
+        }
+      ]
     }
   ]
 }

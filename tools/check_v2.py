@@ -86,7 +86,8 @@ def check_structure(site):
     seen_nums, seen_slugs = set(), set()
     for lf in site:
         n = len(lf["kapitel"])
-        if not 3 <= n <= 7:
+        # "in_arbeit": Lernfeld wird kapitelweise geschrieben, Mindestzahl noch nicht erreicht
+        if not (3 <= n <= 7 or (lf.get("in_arbeit") and n <= 7)):
             err(f"{lf['id']}: {n} Kapitel, erlaubt 3 bis 7")
         for k in lf["kapitel"]:
             if not k["unterpunkte"]:

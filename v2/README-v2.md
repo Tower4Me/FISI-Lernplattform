@@ -68,6 +68,9 @@ Abgeleitet vom Build (nicht im Manifest pflegen):
 | Rückblick | `v2/<lf-id>/rueckblick.html` |
 | Druckseite je Kapitel | `v2/<lf-id>/druck-<x>-<y>.html` |
 
+`"in_arbeit": true` am Lernfeld erlaubt weniger als 3 Kapitel, solange das Lernfeld
+kapitelweise entsteht. Vor dem Abschluss des Lernfelds entfernen.
+
 Pflichtfelder je Unterpunkt: `nummer`, `titel`, `slug`. `quellen`, `material`,
 `begriffe` sind Listen bzw. Objekte und dürfen leer sein.
 

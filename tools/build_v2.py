@@ -76,6 +76,7 @@ def load_site():
         if lf_m["id"] not in stamm:
             raise BuildError(f"Lernfeld {lf_m['id']} fehlt in lernfelder.json")
         lf = dict(stamm[lf_m["id"]])
+        lf["in_arbeit"] = bool(lf_m.get("in_arbeit"))
         lf["kapitel"] = []
         for k_m in lf_m["kapitel"]:
             k = {"nummer": k_m["nummer"], "titel": k_m["titel"], "id": num_id(k_m["nummer"]), "unterpunkte": []}

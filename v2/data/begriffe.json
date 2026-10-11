@@ -1,3 +1,92 @@
 {
-  "begriffe": []
+  "begriffe": [
+    {
+      "begriff": "informationssicherheit",
+      "kernfakten": [
+        "Informationssicherheit schützt Informationen in jeder Form (digital, Papier, Wissen von Personen).",
+        "IT-Sicherheit ist der Teil der Informationssicherheit, der IT-gestützte Informationen und IT-Systeme betrifft."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-1-1",
+          "tiefe": "Begriffsklärung, Abgrenzung zu IT-Sicherheit, Datenschutz, Datensicherung"
+        }
+      ]
+    },
+    {
+      "begriff": "datenschutz",
+      "kernfakten": [
+        "Datenschutz schützt Personen und ihr Recht auf informationelle Selbstbestimmung, nicht die Daten an sich.",
+        "Rechtsgrundlagen in Deutschland: DSGVO und ergänzend BDSG."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-1-1",
+          "tiefe": "Abgrenzung zur Informationssicherheit"
+        }
+      ]
+    },
+    {
+      "begriff": "datensicherung",
+      "kernfakten": [
+        "Datensicherung (Backup) ist eine Maßnahme: Kopien, um Daten nach Verlust wiederherzustellen.",
+        "Datensicherung dient vor allem der Verfügbarkeit; sie ersetzt keinen Datenschutz."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-1-1",
+          "tiefe": "Abgrenzung als Maßnahme"
+        }
+      ]
+    },
+    {
+      "begriff": "schutzziele",
+      "kernfakten": [
+        "Die drei Grundwerte (BSI) sind Vertraulichkeit, Integrität, Verfügbarkeit (englisch CIA).",
+        "Vertraulichkeit: nur Befugte haben Zugriff auf die Information.",
+        "Integrität: Daten sind korrekt und vollständig; unbefugte oder versehentliche Änderungen werden erkannt bzw. verhindert.",
+        "Verfügbarkeit: Informationen und Systeme stehen zur Verfügung, wenn sie gebraucht werden.",
+        "Authentizität: Echtheit von Urheber bzw. Kommunikationspartner.",
+        "Verbindlichkeit: Handlung ist einer Person zuordenbar und nicht abstreitbar (oft gleichbedeutend mit Nichtabstreitbarkeit; BSI fasst darunter Authentizität und Nichtabstreitbarkeit).",
+        "Die Schutzbedarfsfeststellung nach IT-Grundschutz bewertet standardmäßig die drei Grundwerte, jeden getrennt."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-1-2",
+          "tiefe": "Definition der drei Grundwerte mit Beispielen"
+        },
+        {
+          "id": "4-1-3",
+          "tiefe": "Authentizität und Verbindlichkeit als erweiterte Ziele"
+        }
+      ]
+    },
+    {
+      "begriff": "ransomware",
+      "kernfakten": [
+        "Ransomware (Erpressungstrojaner) verschlüsselt Daten und fordert Lösegeld; das verletzt die Verfügbarkeit.",
+        "Häufig werden Daten vorher abgezogen und mit Veröffentlichung gedroht; das verletzt zusätzlich die Vertraulichkeit."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-1-2",
+          "tiefe": "Beispiel für Vorfall mit mehreren verletzten Schutzzielen"
+        }
+      ]
+    },
+    {
+      "begriff": "strukturanalyse",
+      "kernfakten": [
+        "Strukturanalyse (BSI): Bestandsaufnahme der Zielobjekte vor der Schutzbedarfsfeststellung.",
+        "Reihenfolge: Geschäftsprozesse und Informationen, Anwendungen, IT-Systeme, Räume, Kommunikationsverbindungen.",
+        "Gleichartige Objekte dürfen zu Gruppen zusammengefasst werden."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-1-4",
+          "tiefe": "Bestandsaufnahme im eigenen Arbeitsbereich"
+        }
+      ]
+    }
+  ]
 }

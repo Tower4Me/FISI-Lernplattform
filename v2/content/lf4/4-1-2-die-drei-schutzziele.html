@@ -1,0 +1,34 @@
+<p class="lead">Wenn du sagen willst, wie wichtig eine Information ist, brauchst du einen Maßstab. Die drei Schutzziele Vertraulichkeit, Integrität und Verfügbarkeit sind dieser Maßstab. Die Schutzbedarfsfeststellung nach BSI bewertet sie einzeln.</p>
+
+<h3>Was die drei Ziele bedeuten</h3>
+<p>Das BSI nennt sie auch die drei <strong>Grundwerte</strong> der Informationssicherheit. Im Englischen heißen sie Confidentiality, Integrity und Availability, daher die Abkürzung <strong>CIA</strong>.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schutzziel</th><th>Leitfrage</th><th>Verletzt, wenn …</th></tr></thead>
+    <tbody>
+      <tr><th>Vertraulichkeit</th><td>Können nur Befugte die Information lesen?</td><td>ein Unbefugter Kundendaten einsieht oder eine Mail mitliest</td></tr>
+      <tr><th>Integrität</th><td>Ist die Information vollständig und korrekt, und werden unbefugte Änderungen verhindert oder erkannt?</td><td>ein Betrag in einer Rechnung unbemerkt geändert wird</td></tr>
+      <tr><th>Verfügbarkeit</th><td>Ist die Information da, wenn sie gebraucht wird?</td><td>der Server ausfällt und niemand an die Aufträge kommt</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Ein Vorfall, mehrere Ziele</h3>
+<p>Viele Vorfälle treffen mehr als ein Schutzziel. Ein Erpressungstrojaner verschlüsselt Dateien, sodass niemand mehr damit arbeiten kann: Das verletzt die Verfügbarkeit. Häufig kopieren die Angreifer die Daten vorher und drohen mit Veröffentlichung: Das verletzt zusätzlich die Vertraulichkeit.</p>
+<p>Umgekehrt kann eine Information bei einem Ziel sehr wichtig sein und bei einem anderen kaum. Eine Preisliste im Schaufenster ist nicht vertraulich, muss aber stimmen. Deshalb bewertest du jedes Schutzziel getrennt und fasst sie nicht zu einem Gesamturteil zusammen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Fahrradladen führt seine Reparaturaufträge in einer Werkstattsoftware.</p>
+  <ul>
+    <li><strong>Vertraulichkeit:</strong> Die Aufträge enthalten Namen und Telefonnummern. Kunden am Tresen sollen sie nicht auf dem Bildschirm mitlesen können.</li>
+    <li><strong>Integrität:</strong> Ändert jemand versehentlich den vereinbarten Preis, gibt es Streit an der Kasse.</li>
+    <li><strong>Verfügbarkeit:</strong> Ist die Software am Samstagvormittag nicht erreichbar, weiß niemand, welches Rad fertig ist.</li>
+  </ul>
+</div>
+
+<aside class="note" data-typ="fehler"><p>Integrität heißt nicht, dass Daten nie geändert werden dürfen. Berechtigte Änderungen sind normal. Integrität bedeutet, dass nur Befugte ändern und dass unbefugte oder versehentliche Änderungen erkannt werden.</p></aside>
+
+<aside class="note" data-typ="hinweis"><p>Die Schutzziele beschreiben, <em>was</em> erreicht werden soll, nicht <em>wie</em>. Verschlüsselung, Backups oder Zugriffsrechte sind Maßnahmen, die einem oder mehreren Zielen dienen. Wie man Maßnahmen den Zielen zuordnet, folgt in einem späteren Kapitel.</p></aside>
+
+<p class="merksatz">Vertraulichkeit: nur Befugte lesen. Integrität: Daten sind korrekt, unbefugte Änderungen werden verhindert oder fallen auf. Verfügbarkeit: Daten sind da, wenn man sie braucht.</p>

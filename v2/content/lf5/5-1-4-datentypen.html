@@ -1,4 +1,4 @@
-<p class="lead">Ist eine Postleitzahl eine Zahl? Rechnen will damit niemand, und bei „01067“ ginge die führende Null verloren. Jedes Datenfeld braucht einen passenden Datentyp. Er bestimmt, welche Werte erlaubt sind, wie viel Speicher sie brauchen und was man damit tun kann.</p>
+<p class="lead">Ist eine Postleitzahl eine Zahl? Rechnen will damit niemand, und bei „01067“ ginge die führende Null verloren. Jedes Datenfeld braucht einen passenden Datentyp. Er bestimmt, welche Werte erlaubt sind, wie viel Speicher sie brauchen und was du damit tun kannst.</p>
 
 <h3>Die wichtigsten Datentypen</h3>
 <div class="vergleich">
@@ -8,14 +8,14 @@
       <tr><th>Integer (Ganzzahl)</th><td>ganze Zahlen</td><td>Anzahl Impfungen: 3</td><td>Wertebereich hängt von der Bitzahl ab</td></tr>
       <tr><th>Float, Double (Gleitkommazahl)</th><td>Kommazahlen</td><td>Gewicht: 4.35</td><td>kleine Rundungsfehler möglich</td></tr>
       <tr><th>Decimal (Festkommazahl)</th><td>Kommazahlen mit fester Zahl an Nachkommastellen, dezimal exakt</td><td>Rechnungsbetrag: 89.90</td><td>für Geldbeträge</td></tr>
-      <tr><th>String (Zeichenkette)</th><td>Text</td><td>Name: "Mimi"</td><td>auch für Ziffernfolgen, mit denen man nicht rechnet</td></tr>
+      <tr><th>String (Zeichenkette)</th><td>Text</td><td>Name: "Mimi"</td><td>auch für Ziffernfolgen, mit denen nicht gerechnet wird</td></tr>
       <tr><th>Char (Zeichen)</th><td>ein einzelnes Zeichen</td><td>Geschlecht: 'w'</td><td>in manchen Sprachen eigener Typ</td></tr>
       <tr><th>Boolean (Wahrheitswert)</th><td>wahr oder falsch</td><td>kastriert: true</td><td>1 Bit Information, gespeichert meist als 1 Byte</td></tr>
       <tr><th>Datum, Zeit</th><td>Zeitpunkte</td><td>Geburtsdatum: 2021-05-14</td><td>erlaubt Rechnen mit Tagen und Alter</td></tr>
     </tbody>
   </table>
 </div>
-<p>Typische Größen: Integer 32 Bit (4 Byte), Double 64 Bit (8 Byte), Char 1 Byte (ASCII) oder 2 Byte (UTF-16), String je nach Länge und Kodierung (Kapitel 5.1.3). Im Programmcode schreibt man Kommazahlen mit Punkt: <code>4.35</code>.</p>
+<p>Typische Größen: Integer 32 Bit (4 Byte), Double 64 Bit (8 Byte), Char 1 Byte (ASCII) oder 2 Byte (UTF-16), String je nach Länge und Kodierung (Kapitel 5.1.3). Im Programmcode schreibst du Kommazahlen mit Punkt: <code>4.35</code>.</p>
 
 <h3>Wertebereiche</h3>
 <p>Ganzzahlen werden mit einer festen Bitzahl gespeichert. Mit n Bit gibt es 2<sup>n</sup> Werte (LF2, Kapitel 2.4.1), ohne Vorzeichen 0 bis 2<sup>n</sup> − 1, mit Vorzeichen −2<sup>n−1</sup> bis 2<sup>n−1</sup> − 1 (Zweierkomplement, Kapitel 5.1.2):</p>
@@ -30,7 +30,7 @@
   </table>
 </div>
 <p>Wird der Bereich überschritten, kommt es zum <strong>Überlauf</strong>: Bei 8 Bit mit Vorzeichen springt der Wert etwa von 127 auf −128. Je nach Programmiersprache läuft der Wert so still über oder das Programm meldet einen Fehler; beides muss beim Entwurf bedacht werden.</p>
-<p>Gleitkommazahlen (Float, Double; Norm IEEE 754) werden binär genähert. Deshalb ergibt 0,1 + 0,2 im Rechner nicht exakt 0,3. Für Geld nutzt man deshalb Festkommazahlen oder rechnet in Cent mit Ganzzahlen.</p>
+<p>Gleitkommazahlen (Float, Double; Norm IEEE 754) werden binär genähert. Deshalb ergibt 0,1 + 0,2 im Rechner nicht exakt 0,3. Für Geld nimmst du daher Festkommazahlen oder rechnest in Cent mit Ganzzahlen.</p>
 
 <h3>Den richtigen Typ wählen</h3>
 <ul>

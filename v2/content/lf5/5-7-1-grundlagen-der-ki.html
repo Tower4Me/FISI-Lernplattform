@@ -1,14 +1,14 @@
 <p class="lead">Die Inhaberin der Tierarztpraxis hat gelesen, dass KI Laborwerte prüfen und Behandlungsnotizen schreiben kann. Bevor das Systemhaus so etwas empfiehlt, muss klar sein, wie solche Systeme zu ihren Ergebnissen kommen und wo ihre Grenzen liegen.</p>
 
 <h3>Was KI ist</h3>
-<p><strong>Künstliche Intelligenz (KI)</strong> ist der Oberbegriff für Systeme, die Aufgaben lösen, für die man sonst menschliche Intelligenz braucht: Muster erkennen, etwas einordnen, Werte vorhersagen, Sprache verstehen oder erzeugen. Man unterscheidet:</p>
+<p><strong>Künstliche Intelligenz (KI)</strong> ist der Oberbegriff für Systeme, die Aufgaben lösen, für die sonst menschliche Intelligenz nötig ist: Muster erkennen, etwas einordnen, Werte vorhersagen, Sprache verstehen oder erzeugen. Unterschieden werden:</p>
 <ul>
   <li><strong>Schwache KI</strong> ist auf eine bestimmte Aufgabe spezialisiert, etwa Spracherkennung oder Bilderkennung. Alle heute eingesetzten Systeme gehören dazu, auch Sprachmodelle.</li>
   <li><strong>Starke KI</strong> wäre eine allgemeine Intelligenz, die wie ein Mensch beliebige Aufgaben versteht und löst. Sie gibt es bisher nicht.</li>
 </ul>
 
 <h3>Regeln oder Lernen aus Daten</h3>
-<p>Ein <strong>regelbasiertes System</strong> arbeitet mit Regeln, die Fachleute vorher festlegen: „WENN Blutzucker über Grenzwert, DANN Warnung“. Das ist nachvollziehbar, aber jede Regel muss jemand pflegen. Beim <strong>maschinellen Lernen</strong> (Machine Learning, ML) leitet das Programm die Zusammenhänge selbst aus vielen Beispieldaten ab, etwa um einen Bruch auf einem Röntgenbild zu erkennen.</p>
+<p>Ein <strong>regelbasiertes System</strong> arbeitet mit Regeln, die Fachleute vorher festlegen: <code>IF blutzucker &gt; grenzwert THEN OUTPUT "Warnung"</code>. Das ist nachvollziehbar, aber jede Regel muss jemand pflegen. Beim <strong>maschinellen Lernen</strong> (Machine Learning, ML) leitet das Programm die Zusammenhänge selbst aus vielen Beispieldaten ab, etwa um einen Bruch auf einem Röntgenbild zu erkennen.</p>
 
 <h3>Training und Anwendung</h3>
 <p>Im <strong>Training</strong> verarbeitet ein Lernverfahren die <strong>Trainingsdaten</strong> und passt dabei ein <strong>Modell</strong> an. In der <strong>Anwendung (Inferenz)</strong> bekommt das fertige Modell neue Daten und liefert ein Ergebnis, meist mit einer Wahrscheinlichkeit („Fraktur zu 87 %“). In der Anwendung lernt es meist nicht weiter.</p>
@@ -49,7 +49,7 @@
 </div>
 
 <h3>Überanpassung erkennen</h3>
-<p>Ein Modell kann die Trainingsdaten samt ihrer Zufälligkeiten auswendig lernen, statt allgemeine Muster zu finden. Diese <strong>Überanpassung (Overfitting)</strong> zeigt sich daran, dass es im Training sehr gut abschneidet, bei neuen Daten aber deutlich schlechter. Deshalb teilt man die Daten auf: Mit den <strong>Trainingsdaten</strong> wird gelernt, mit den zurückgehaltenen <strong>Testdaten</strong>, die das Modell nie gesehen hat, wird geprüft. Eine übliche Aufteilung ist etwa 80 zu 20.</p>
+<p>Ein Modell kann die Trainingsdaten samt ihrer Zufälligkeiten auswendig lernen, statt allgemeine Muster zu finden. Diese <strong>Überanpassung (Overfitting)</strong> zeigt sich daran, dass es im Training sehr gut abschneidet, bei neuen Daten aber deutlich schlechter. Deshalb teilst du die Daten auf: Mit den <strong>Trainingsdaten</strong> wird gelernt, mit den zurückgehaltenen <strong>Testdaten</strong>, die das Modell nie gesehen hat, wird geprüft. Eine übliche Aufteilung ist etwa 80 zu 20.</p>
 
 <h3>Neuronale Netze und generative KI</h3>
 <p>Ein <strong>künstliches neuronales Netz</strong> besteht aus vielen einfachen, in Schichten verknüpften Recheneinheiten; im Training werden die Gewichte ihrer Verbindungen angepasst. <strong>Deep Learning</strong> nutzt Netze mit vielen Schichten und ist die Grundlage heutiger Bild- und Spracherkennung. KI umfasst also maschinelles Lernen, und Deep Learning ist ein Teil des maschinellen Lernens.</p>

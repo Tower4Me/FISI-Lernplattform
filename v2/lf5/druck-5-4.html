@@ -386,7 +386,7 @@
 
 <h3 id="u5-4-1-algorithmus-quellcode-programm">Algorithmus, Quellcode, Programm<a class="anchor" href="#u5-4-1-algorithmus-quellcode-programm" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Ein <strong>Algorithmus</strong> ist eine eindeutige Folge von Schritten, die ein Problem löst. Er ist endlich beschrieben, jeder Schritt ist ausführbar, und er kommt nach endlich vielen Schritten zu einem Ergebnis. Ein Kochrezept ist ein Algorithmus für Menschen; „Addiere alle Positionen der Rechnung“ ist einer für den Computer.</p>
-<p>Schreibt man den Algorithmus in einer Programmiersprache auf, entsteht <strong>Quellcode</strong>: lesbarer Text mit festen Regeln (Syntax). Der Prozessor versteht nur Maschinencode. Deshalb muss der Quellcode übersetzt oder von einem Programm ausgeführt werden, das ihn versteht.</p>
+<p>Schreibst du den Algorithmus in einer Programmiersprache auf, entsteht <strong>Quellcode</strong>: lesbarer Text mit festen Regeln (Syntax). Der Prozessor versteht nur Maschinencode. Deshalb muss der Quellcode übersetzt oder von einem Programm ausgeführt werden, das ihn versteht.</p>
 
 <h3 id="u5-4-1-compiler-und-interpreter">Compiler und Interpreter<a class="anchor" href="#u5-4-1-compiler-und-interpreter" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -407,7 +407,7 @@
 <ul>
   <li><strong>Auszeichnungssprache</strong> (Markup): HTML legt fest, was auf einer Webseite Überschrift, Absatz oder Link ist. XML strukturiert Daten (Kapitel 5.2.2).</li>
   <li><strong>Stylesheet-Sprache</strong>: CSS beschreibt, wie die Elemente aussehen, also Farben, Schriften, Abstände.</li>
-  <li><strong>Abfragesprache</strong>: SQL beschreibt, welche Daten man aus einer Datenbank haben möchte, nicht wie sie gesucht werden.</li>
+  <li><strong>Abfragesprache</strong>: SQL beschreibt, welche Daten aus einer Datenbank gewünscht sind, nicht wie sie gesucht werden.</li>
 </ul>
 <p>HTML und CSS sind also keine Programmiersprachen. JavaScript dagegen ist eine; es läuft im Browser und macht eine Seite interaktiv.</p>
 
@@ -419,7 +419,7 @@
 </div>
 
 <h3 id="u5-4-1-programmierparadigmen">Programmierparadigmen<a class="anchor" href="#u5-4-1-programmierparadigmen" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Ein Paradigma ist ein Denkstil beim Programmieren. <strong>Imperativ</strong> bzw. prozedural beschreibt man Schritt für Schritt, wie etwas passiert, gegliedert in Funktionen. <strong>Objektorientiert</strong> bündelt man Daten und die passenden Funktionen in Objekten, etwa ein Objekt „Tier“. <strong>Deklarativ</strong> beschreibt man nur das gewünschte Ergebnis, wie bei SQL. Viele Sprachen wie Python oder Java erlauben mehrere Stile. Die folgenden Kapitel arbeiten imperativ.</p>
+<p>Ein Paradigma ist ein Denkstil beim Programmieren. <strong>Imperativ</strong> bzw. prozedural beschreibst du Schritt für Schritt, wie etwas passiert, gegliedert in Funktionen. <strong>Objektorientiert</strong> bündelst du Daten und die passenden Funktionen in Objekten. Den Bauplan liefert eine <strong>Klasse</strong>, etwa „Tier“ mit den <strong>Attributen</strong> name und gewicht und der <strong>Methode</strong> gewichtErfassen(); Mimi und Bello sind zwei <strong>Objekte</strong> (Instanzen) dieser Klasse. <strong>Kapselung</strong> heißt, dass andere Programmteile die Attribute nur über Methoden ändern; durch <strong>Vererbung</strong> übernimmt eine Klasse „Hund“ alles von „Tier“ und ergänzt Eigenes. <strong>Deklarativ</strong> beschreibst du nur das gewünschte Ergebnis, wie bei SQL. Viele Sprachen wie Python oder Java erlauben mehrere Stile. Die folgenden Kapitel arbeiten imperativ.</p>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Wer eine Webseite in HTML schreibt, programmiert.“ HTML beschreibt nur Struktur und Inhalt; es steuert keine Abläufe mit Verzweigungen oder Schleifen. Programmiert wird erst mit einer Sprache wie JavaScript oder PHP.</p></aside>
 
@@ -443,7 +443,7 @@
       <tr><th>Schleifen</th><td><code>FOR i ← 0 TO n - 1 … END FOR</code>, <code>WHILE … DO … END WHILE</code>, <code>DO … WHILE …</code></td></tr>
       <tr><th>Funktion</th><td><code>FUNCTION name(parameter) … RETURN wert … END FUNCTION</code></td></tr>
       <tr><th>Datenstrukturen</th><td><code>werte ← [4, 7, 2]</code>, Zugriff <code>werte[0]</code>; <code>tier ← {"name": "Mimi"}</code>, Zugriff <code>tier["name"]</code></td></tr>
-      <tr><th>Sonstiges</th><td><code>TRUE</code>, <code>FALSE</code>, <code>LENGTH(liste)</code> für die Anzahl der Elemente, <code>// Kommentar</code></td></tr>
+      <tr><th>Sonstiges</th><td><code>TRUE</code>, <code>FALSE</code>, <code>LENGTH(liste)</code> für die Anzahl der Elemente (bei Text: der Zeichen), <code>+</code> verbindet auch Texte, <code>// Kommentar</code></td></tr>
     </tbody>
   </table>
 </div>
@@ -485,7 +485,7 @@ OUTPUT "Rechnungsbetrag: ", brutto</code></pre>
 <p class="lead">Ein Programm, das Zeile für Zeile durchläuft, kann noch nicht viel. Die Impferinnerung der Praxis muss entscheiden, ob eine Impfung fällig ist, und die Rechnung muss jede Position einmal anfassen, egal wie viele es sind. Dafür gibt es Verzweigungen und Schleifen.</p>
 
 <h3 id="u5-4-3-verzweigungen">Verzweigungen<a class="anchor" href="#u5-4-3-verzweigungen" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Eine <strong>Verzweigung</strong> führt Anweisungen nur aus, wenn eine Bedingung wahr ist. Die einseitige Form hat nur einen <code>THEN</code>-Teil, die zweiseitige zusätzlich einen <code>ELSE</code>-Teil für den Fall „falsch“. Gibt es mehr als zwei Fälle, hängt man weitere Bedingungen mit <code>ELSE IF</code> an (<strong>kaskadiert</strong>): Geprüft wird von oben nach unten, ausgeführt wird nur der erste Zweig, dessen Bedingung zutrifft.</p>
+<p>Eine <strong>Verzweigung</strong> führt Anweisungen nur aus, wenn eine Bedingung wahr ist. Die einseitige Form hat nur einen <code>THEN</code>-Teil, die zweiseitige zusätzlich einen <code>ELSE</code>-Teil für den Fall „falsch“. Gibt es mehr als zwei Fälle, hängst du weitere Bedingungen mit <code>ELSE IF</code> an (<strong>kaskadiert</strong>): Geprüft wird von oben nach unten, ausgeführt wird nur der erste Zweig, dessen Bedingung zutrifft.</p>
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Eine Impfung soll in diesem Beispiel nach 365 Tagen aufgefrischt werden. Die Software zeigt einen Status abhängig von den Tagen seit der letzten Impfung:</p>
@@ -499,7 +499,7 @@ END IF</code></pre>
   <p>Bei 350 Tagen ist die erste Bedingung falsch, die zweite wahr: Status „bald fällig“. Bei 400 Tagen greift schon der erste Zweig („überfällig“), bei 120 Tagen keiner der beiden, also „aktuell“.</p>
 </div>
 <p>Die Reihenfolge der Bedingungen zählt. Stünde <code>tage &gt; 335</code> oben, bekäme ein Tier mit 400 Tagen den Status „bald fällig“, denn 400 ist auch größer als 335, und der Zweig „überfällig“ würde nie erreicht.</p>
-<p>Steht eine Verzweigung innerhalb einer anderen, heißt sie <strong>verschachtelt</strong>, etwa: <code>IF tierart == "Hund" THEN IF gewicht &gt; 20 THEN …</code>. Oft lässt sich das mit <code>AND</code> zu einer Bedingung zusammenfassen. Vergleicht man eine Variable mit vielen festen Werten, bieten viele Sprachen eine <strong>Mehrfachauswahl</strong> (<code>switch</code>, <code>CASE</code>): Zum Wert „Hund“, „Katze“ oder „Vogel“ gibt es je einen Zweig, für alle anderen einen Standardzweig.</p>
+<p>Steht eine Verzweigung innerhalb einer anderen, heißt sie <strong>verschachtelt</strong>, etwa: <code>IF tierart == "Hund" THEN IF gewicht &gt; 20 THEN …</code>. Oft lässt sich das mit <code>AND</code> zu einer Bedingung zusammenfassen. Vergleichst du eine Variable mit vielen festen Werten, bieten viele Sprachen eine <strong>Mehrfachauswahl</strong> (<code>switch</code>, <code>CASE</code>): Zum Wert „Hund“, „Katze“ oder „Vogel“ gibt es je einen Zweig, für alle anderen einen Standardzweig.</p>
 
 <h3 id="u5-4-3-schleifen">Schleifen<a class="anchor" href="#u5-4-3-schleifen" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -536,25 +536,25 @@ OUTPUT monate</code></pre>
 </ul></div>
 </section>
 <section class="print-up" id="u-5-4-4"><h2><span class="num">5.4.4</span> Datenstrukturen und Funktionen</h2>
-<p class="lead">Die Praxis hat nicht ein Tier, sondern hunderte. Für jedes eine eigene Variable anzulegen, ginge nicht. Datenstrukturen fassen viele Werte unter einem Namen zusammen, Funktionen fassen Abläufe zusammen, die man immer wieder braucht.</p>
+<p class="lead">Die Praxis hat nicht ein Tier, sondern hunderte. Für jedes eine eigene Variable anzulegen, ginge nicht. Datenstrukturen fassen viele Werte unter einem Namen zusammen, Funktionen fassen Abläufe zusammen, die immer wieder gebraucht werden.</p>
 
 <h3 id="u5-4-4-array-und-liste">Array und Liste<a class="anchor" href="#u5-4-4-array-und-liste" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Ein <strong>Array</strong> speichert eine feste Anzahl von Werten hintereinander unter einem Namen. Jeder Wert hat eine Position, den <strong>Index</strong>. In den meisten Sprachen (C, Java, Python, JavaScript) und auf dieser Plattform wird ab 0 gezählt: Bei n Elementen läuft der Index von 0 bis n − 1. Legt eine Aufgabe einen anderen Startindex fest, gilt die Aufgabe. Eine <strong>Liste</strong> ist dasselbe Prinzip, kann aber zur Laufzeit wachsen und schrumpfen; in vielen Sprachen wie Python heißt das, was man umgangssprachlich Array nennt, Liste.</p>
-<pre><code>gewichte ← [4.3, 12.4, 3.8]
-OUTPUT gewichte[0]          // 4.3
+<p>Ein <strong>Array</strong> speichert eine feste Anzahl von Werten hintereinander unter einem Namen. Jeder Wert hat eine Position, den <strong>Index</strong>. In den meisten Sprachen (C, Java, Python, JavaScript) und auf dieser Plattform wird ab 0 gezählt: Bei n Elementen läuft der Index von 0 bis n − 1. Legt eine Aufgabe einen anderen Startindex fest, gilt die Aufgabe. Eine <strong>Liste</strong> ist dasselbe Prinzip, kann aber zur Laufzeit wachsen und schrumpfen; in vielen Sprachen wie Python heißt das, was umgangssprachlich Array heißt, Liste.</p>
+<pre><code>gewichte ← [4.35, 12.4, 3.8]
+OUTPUT gewichte[0]          // 4.35
 OUTPUT gewichte[2]          // 3.8
 OUTPUT LENGTH(gewichte)     // 3</code></pre>
 <p>Ein Zugriff auf <code>gewichte[3]</code> wäre ein Fehler: Das dritte Element hat den Index 2, ein Element mit Index 3 gibt es nicht.</p>
 
 <h3 id="u5-4-4-dictionary">Dictionary<a class="anchor" href="#u5-4-4-dictionary" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Ein <strong>Dictionary</strong> (auch Map oder assoziatives Array) speichert Paare aus <strong>Schlüssel und Wert</strong>. Man greift nicht über eine Position zu, sondern über den Schlüssel. Das passt zu einem Datensatz mit benannten Feldern, ähnlich einem JSON-Objekt (Kapitel 5.2.2).</p>
+<p>Ein <strong>Dictionary</strong> (auch Map oder assoziatives Array) speichert Paare aus <strong>Schlüssel und Wert</strong>. Du greifst nicht über eine Position zu, sondern über den Schlüssel. Das passt zu einem Datensatz mit benannten Feldern, ähnlich einem JSON-Objekt (Kapitel 5.2.2).</p>
 <pre><code>tier ← {"name": "Bello", "art": "Hund", "gewicht": 12.4}
 OUTPUT tier["art"]          // Hund</code></pre>
 
 <h3 id="u5-4-4-array-aus-dictionaries">Array aus Dictionaries<a class="anchor" href="#u5-4-4-array-aus-dictionaries" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Kombiniert ergibt das eine Tabelle im Speicher: ein Array, dessen Elemente Dictionaries sind. Ein Element steht für eine Zeile, die Schlüssel für die Spalten. Zugegriffen wird in zwei Schritten: erst der Index, dann der Schlüssel.</p>
 <pre><code>tiere ← [
-    {"name": "Mimi",  "art": "Katze",         "gewicht": 4.3},
+    {"name": "Mimi",  "art": "Katze",         "gewicht": 4.35},
     {"name": "Bello", "art": "Hund",          "gewicht": 12.4},
     {"name": "Luna",  "art": "Katze",         "gewicht": 3.8},
     {"name": "Kiki",  "art": "Wellensittich", "gewicht": 0.04}
@@ -562,7 +562,7 @@ OUTPUT tier["art"]          // Hund</code></pre>
 OUTPUT tiere[1]["name"]     // Bello</code></pre>
 
 <h3 id="u5-4-4-funktionen">Funktionen<a class="anchor" href="#u5-4-4-funktionen" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Eine <strong>Funktion</strong> ist ein benannter Programmteil, der eine Aufgabe erledigt. Sie bekommt Werte über <strong>Parameter</strong> und liefert mit <code>RETURN</code> einen <strong>Rückgabewert</strong> an die aufrufende Stelle. <code>RETURN</code> beendet die Funktion sofort. Einmal geschrieben, lässt sie sich mit beliebigen Werten aufrufen. Einen Programmteil ohne Rückgabewert nennt man oft Prozedur.</p>
+<p>Eine <strong>Funktion</strong> ist ein benannter Programmteil, der eine Aufgabe erledigt. Sie bekommt Werte über <strong>Parameter</strong> und liefert mit <code>RETURN</code> einen <strong>Rückgabewert</strong> an die aufrufende Stelle. <code>RETURN</code> beendet die Funktion sofort. Einmal geschrieben, lässt sie sich mit beliebigen Werten aufrufen. Einen Programmteil ohne Rückgabewert heißt oft Prozedur.</p>
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Die Praxis möchte wissen, wie viele Tiere einer Art sie betreut:</p>
@@ -595,7 +595,7 @@ OUTPUT x      // Call by Value: 5, Call by Reference: 6</code></pre>
 </ul></div>
 </section>
 <section class="print-up" id="u-5-4-5"><h2><span class="num">5.4.5</span> Schreibtischtest und Fehlersuche</h2>
-<p class="lead">Die neue Rechnungsfunktion der Praxissoftware läuft ohne Fehlermeldung, aber jede Rechnung lautet auf 0,00 €. Solche Fehler findet kein Compiler. Man findet sie, indem man den Ablauf mit konkreten Werten nachvollzieht: auf Papier mit einem Schreibtischtest oder am Rechner mit einem Debugger.</p>
+<p class="lead">Die neue Rechnungsfunktion der Praxissoftware läuft ohne Fehlermeldung, aber jede Rechnung lautet auf 0,00 €. Solche Fehler findet kein Compiler. Du findest sie, indem du den Ablauf mit konkreten Werten nachvollziehst: auf Papier mit einem Schreibtischtest oder am Rechner mit einem Debugger.</p>
 
 <h3 id="u5-4-5-der-schreibtischtest">Der Schreibtischtest<a class="anchor" href="#u5-4-5-der-schreibtischtest" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Beim <strong>Schreibtischtest</strong> führst du einen Algorithmus von Hand aus, ohne Computer. Du wählst Testwerte und notierst in einer <strong>Trace-Tabelle</strong> nach jedem Schritt den aktuellen Wert jeder Variablen. Eine Zeile pro Schritt oder Schleifendurchlauf, eine Spalte pro Variable, bei Bedarf weitere Spalten für Zwischenergebnisse. So siehst du genau, wo ein Wert anders wird als erwartet.</p>
@@ -631,7 +631,7 @@ END FUNCTION</code></pre>
 <h3 id="u5-4-5-drei-arten-von-fehlern">Drei Arten von Fehlern<a class="anchor" href="#u5-4-5-drei-arten-von-fehlern" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
   <table>
-    <thead><tr><th>Fehler</th><th>Was passiert</th><th>Beispiel</th><th>Wie man ihn findet</th></tr></thead>
+    <thead><tr><th>Fehler</th><th>Was passiert</th><th>Beispiel</th><th>So findest du ihn</th></tr></thead>
     <tbody>
       <tr><th>Syntaxfehler</th><td>Code verletzt die Regeln der Sprache; er lässt sich nicht übersetzen bzw. nicht starten</td><td>fehlende Klammer, falsch geschriebenes Schlüsselwort</td><td>Compiler oder Interpreter meldet ihn mit Zeilennummer</td></tr>
       <tr><th>Laufzeitfehler</th><td>Programm startet, bricht aber bei einer bestimmten Anweisung ab</td><td>Division durch 0, Zugriff auf einen Index, den es nicht gibt</td><td>Fehlermeldung beim Ausführen, oft nur bei bestimmten Daten</td></tr>
@@ -650,12 +650,12 @@ END FUNCTION</code></pre>
 <p>Ein <strong>Debugger</strong> ist ein Werkzeug der Entwicklungsumgebung, das ein Programm kontrolliert ausführt. Grundbegriffe:</p>
 <ul>
   <li><strong>Haltepunkt</strong> (Breakpoint): Markierung an einer Zeile; dort hält das Programm an.</li>
-  <li><strong>Einzelschritt</strong> (Step): Das Programm führt nur die nächste Anweisung aus und hält wieder an. Man kann dabei in eine aufgerufene Funktion hineinspringen oder sie in einem Schritt ausführen.</li>
+  <li><strong>Einzelschritt</strong> (Step): Das Programm führt nur die nächste Anweisung aus und hält wieder an. Du kannst dabei in eine aufgerufene Funktion hineinspringen oder sie in einem Schritt ausführen.</li>
   <li><strong>Variablen beobachten</strong> (Watch): Die aktuellen Werte werden angezeigt, wie in einer Trace-Tabelle, die der Rechner selbst führt.</li>
 </ul>
-<p>Für die Rechnungsfunktion setzt man einen Haltepunkt auf die Zeile in der Schleife und beobachtet <code>summe</code>. Bleibt sie nach jedem Einzelschritt bei 0, ist die fehlerhafte Zeile gefunden.</p>
+<p>Für die Rechnungsfunktion setzt du einen Haltepunkt auf die Zeile in der Schleife und beobachtet <code>summe</code>. Bleibt sie nach jedem Einzelschritt bei 0, ist die fehlerhafte Zeile gefunden.</p>
 
-<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Keine Fehlermeldung, also stimmt das Programm.“ Logikfehler erzeugen keine Meldung. Erst der Vergleich mit einem vorher von Hand berechneten Sollwert zeigt, ob das Ergebnis richtig ist. Wie man solche Testfälle plant, folgt in Kapitel 5.6.1.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Keine Fehlermeldung, also stimmt das Programm.“ Logikfehler erzeugen keine Meldung. Erst der Vergleich mit einem vorher von Hand berechneten Sollwert zeigt, ob das Ergebnis richtig ist. Wie du solche Testfälle planst, folgt in Kapitel 5.6.1.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Schreibtischtest:</strong> Algorithmus mit Testwerten von Hand ausführen und jeden Variablenwert Schritt für Schritt in einer Trace-Tabelle notieren.</li>

@@ -49,7 +49,7 @@
     {
       "typ": "mc",
       "thema": "Überdeckung",
-      "frage": "Gegeben: IF menge > 3 THEN rabatt ← 10 END IF. Getestet wird einmal mit menge = 5. Welche Aussage trifft zu?",
+      "frage": "Gegeben: IF menge > 3 THEN rabatt ← 10 END IF. Getestet wird einmal mit dem Wert 5 für menge. Welche Aussage trifft zu?",
       "optionen": [
         "Anweisungsüberdeckung erreicht, Zweigüberdeckung nicht",
         "Zweigüberdeckung erreicht, Anweisungsüberdeckung nicht",
@@ -59,7 +59,7 @@
       "richtig": [
         0
       ],
-      "erklaerung": "Mit menge = 5 wird jede Anweisung ausgeführt. Der Fall, dass die Bedingung falsch ist, wurde aber nie durchlaufen; dafür fehlt ein Test mit menge ≤ 3."
+      "erklaerung": "Mit dem Wert 5 wird jede Anweisung ausgeführt. Der Fall, dass die Bedingung falsch ist, wurde aber nie durchlaufen; dafür fehlt ein Test mit einem Wert bis 3."
     },
     {
       "typ": "mc",
@@ -79,7 +79,7 @@
     {
       "typ": "mc",
       "thema": "Nach einer Änderung",
-      "frage": "Nach einer Korrektur an der Gebührenberechnung lässt das Team alle bisher bestandenen Testfälle automatisch noch einmal laufen. Wie heißt dieser Test?",
+      "frage": "Nach einer Änderung an der Rechnungsfunktion lässt das Team auch die schon bestandenen Testfälle der unveränderten Gebührenberechnung erneut laufen. Wie heißt dieser Test?",
       "optionen": [
         "Regressionstest",
         "Abnahmetest",
@@ -94,7 +94,7 @@
     {
       "typ": "mc",
       "thema": "Dialoggestaltung",
-      "frage": "Gibt man in der Maske ein ungültiges Geburtsdatum ein, erscheint die Meldung direkt am Feld und alle übrigen Eingaben bleiben erhalten. Welcher Grundsatz nach ISO 9241-110 ist damit umgesetzt?",
+      "frage": "In der Maske „Tier anlegen“ gibst du als Geburtsdatum den 31.02.2024 ein. Die Software markiert nur dieses Feld mit einem Hinweis, deine übrigen Angaben bleiben stehen. Welcher Grundsatz nach ISO 9241-110 ist damit umgesetzt?",
       "optionen": [
         "Robustheit gegen Benutzungsfehler",
         "Erwartungskonformität",

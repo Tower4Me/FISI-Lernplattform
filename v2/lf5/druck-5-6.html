@@ -390,7 +390,7 @@
   <table>
     <thead><tr><th>Bestandteil</th><th>Bedeutung</th></tr></thead>
     <tbody>
-      <tr><th>ID</th><td>eindeutige Nummer, etwa T03, damit man sich im Protokoll und bei Fehlermeldungen darauf beziehen kann</td></tr>
+      <tr><th>ID</th><td>eindeutige Nummer, etwa T03, damit sich Protokoll und Fehlermeldungen darauf beziehen können</td></tr>
       <tr><th>Vorbedingung</th><td>Zustand vor dem Test, etwa „Maske ‚Behandlung erfassen‘ geöffnet, Tier ausgewählt“</td></tr>
       <tr><th>Eingabe</th><td>die konkreten Testdaten</td></tr>
       <tr><th>erwartetes Ergebnis</th><td>Sollwert, vorher aus der Anforderung abgeleitet, nicht aus dem Programm abgelesen</td></tr>
@@ -408,7 +408,7 @@
     <thead><tr><th>Klasse</th><th>Bereich</th><th>Sollverhalten</th><th>Vertreter</th></tr></thead>
     <tbody>
       <tr><th>ungültig 1</th><td>gewicht ≤ 0</td><td>Fehlermeldung</td><td>−2</td></tr>
-      <tr><th>gültig 1</th><td>0 &lt; gewicht ≤ 10</td><td>30 €</td><td>4,3</td></tr>
+      <tr><th>gültig 1</th><td>0 &lt; gewicht ≤ 10</td><td>30 €</td><td>4,35</td></tr>
       <tr><th>gültig 2</th><td>10 &lt; gewicht ≤ 30</td><td>45 €</td><td>12,4</td></tr>
       <tr><th>gültig 3</th><td>30 &lt; gewicht ≤ 120</td><td>60 €</td><td>45</td></tr>
       <tr><th>ungültig 2</th><td>gewicht &gt; 120</td><td>Fehlermeldung</td><td>150</td></tr>
@@ -429,7 +429,7 @@
     <table>
       <thead><tr><th>ID</th><th>Eingabe</th><th>erwartet</th><th>tatsächlich</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><th>T01</th><td>4,3</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
+        <tr><th>T01</th><td>4,35</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
         <tr><th>T02</th><td>10</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
         <tr><th>T03</th><td>30</td><td>45 €</td><td>60 €</td><td>fehlgeschlagen</td></tr>
         <tr><th>T04</th><td>30,01</td><td>60 €</td><td>60 €</td><td>bestanden</td></tr>
@@ -471,7 +471,7 @@
 IF alter &gt; 10 THEN
     gebuehr ← gebuehr + 5    // Zuschlag für ältere Tiere
 END IF</code></pre>
-  <p>Ein Test mit <code>alter = 12</code> führt alle Anweisungen aus: 100 % Anweisungsüberdeckung. Der Fall „Bedingung falsch“ wurde aber nie durchlaufen. Für die Zweigüberdeckung braucht es einen zweiten Test, etwa mit <code>alter = 4</code>.</p>
+  <p>Ein Test mit dem Alter 12 führt alle Anweisungen aus: 100 % Anweisungsüberdeckung. Der Fall „Bedingung falsch“ wurde aber nie durchlaufen. Für die Zweigüberdeckung braucht es einen zweiten Test, etwa mit dem Alter 4.</p>
 </div>
 
 <h3 id="u5-6-2-statisch-und-dynamisch">Statisch und dynamisch<a class="anchor" href="#u5-6-2-statisch-und-dynamisch" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -560,12 +560,12 @@ END IF</code></pre>
     <thead><tr><th>Grundsatz</th><th>Bedeutung</th><th>Maske „Behandlung erfassen“</th></tr></thead>
     <tbody>
       <tr><th>Aufgabenangemessenheit</th><td>unterstützt die Aufgabe ohne unnötige Schritte</td><td>Datum ist mit heute vorbelegt, Felder in der Reihenfolge des Ablaufs</td></tr>
-      <tr><th>Selbstbeschreibungsfähigkeit</th><td>man erkennt jederzeit, wo man ist und was möglich ist</td><td>eindeutige Feldbeschriftungen, Einheit „kg“ am Gewichtsfeld</td></tr>
+      <tr><th>Selbstbeschreibungsfähigkeit</th><td>Nutzer erkennen jederzeit, wo sie sind und was möglich ist</td><td>eindeutige Feldbeschriftungen, Einheit „kg“ am Gewichtsfeld</td></tr>
       <tr><th>Erwartungskonformität</th><td>verhält sich wie gewohnt und einheitlich</td><td>Speichern-Schaltfläche in jeder Maske an derselben Stelle</td></tr>
       <tr><th>Erlernbarkeit</th><td>unterstützt das Kennenlernen der Bedienung</td><td>Hilfetexte und Beispiele direkt am Feld</td></tr>
       <tr><th>Steuerbarkeit</th><td>Nutzer bestimmen Ablauf und Tempo</td><td>Eingabe abbrechen, zurückgehen, Aktion rückgängig machen</td></tr>
       <tr><th>Robustheit gegen Benutzungsfehler</th><td>Fehler werden verhindert oder lassen sich leicht beheben</td><td>bei Gewicht „0“ eine Meldung direkt am Feld, Eingaben bleiben erhalten</td></tr>
-      <tr><th>Benutzerbindung</th><td>Bedienung ist motivierend und angenehm, sodass man sie gern nutzt</td><td>ruhige, übersichtliche Gestaltung ohne unnötige Hinweisfenster</td></tr>
+      <tr><th>Benutzerbindung</th><td>Bedienung ist motivierend und angenehm, sodass Nutzer sie gern verwenden</td><td>ruhige, übersichtliche Gestaltung ohne unnötige Hinweisfenster</td></tr>
     </tbody>
   </table>
 </div>

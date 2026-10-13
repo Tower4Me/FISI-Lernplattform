@@ -388,7 +388,7 @@
   <table>
     <thead><tr><th>Bestandteil</th><th>Bedeutung</th></tr></thead>
     <tbody>
-      <tr><th>ID</th><td>eindeutige Nummer, etwa T03, damit man sich im Protokoll und bei Fehlermeldungen darauf beziehen kann</td></tr>
+      <tr><th>ID</th><td>eindeutige Nummer, etwa T03, damit sich Protokoll und Fehlermeldungen darauf beziehen können</td></tr>
       <tr><th>Vorbedingung</th><td>Zustand vor dem Test, etwa „Maske ‚Behandlung erfassen‘ geöffnet, Tier ausgewählt“</td></tr>
       <tr><th>Eingabe</th><td>die konkreten Testdaten</td></tr>
       <tr><th>erwartetes Ergebnis</th><td>Sollwert, vorher aus der Anforderung abgeleitet, nicht aus dem Programm abgelesen</td></tr>
@@ -406,7 +406,7 @@
     <thead><tr><th>Klasse</th><th>Bereich</th><th>Sollverhalten</th><th>Vertreter</th></tr></thead>
     <tbody>
       <tr><th>ungültig 1</th><td>gewicht ≤ 0</td><td>Fehlermeldung</td><td>−2</td></tr>
-      <tr><th>gültig 1</th><td>0 &lt; gewicht ≤ 10</td><td>30 €</td><td>4,3</td></tr>
+      <tr><th>gültig 1</th><td>0 &lt; gewicht ≤ 10</td><td>30 €</td><td>4,35</td></tr>
       <tr><th>gültig 2</th><td>10 &lt; gewicht ≤ 30</td><td>45 €</td><td>12,4</td></tr>
       <tr><th>gültig 3</th><td>30 &lt; gewicht ≤ 120</td><td>60 €</td><td>45</td></tr>
       <tr><th>ungültig 2</th><td>gewicht &gt; 120</td><td>Fehlermeldung</td><td>150</td></tr>
@@ -427,7 +427,7 @@
     <table>
       <thead><tr><th>ID</th><th>Eingabe</th><th>erwartet</th><th>tatsächlich</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><th>T01</th><td>4,3</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
+        <tr><th>T01</th><td>4,35</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
         <tr><th>T02</th><td>10</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
         <tr><th>T03</th><td>30</td><td>45 €</td><td>60 €</td><td>fehlgeschlagen</td></tr>
         <tr><th>T04</th><td>30,01</td><td>60 €</td><td>60 €</td><td>bestanden</td></tr>

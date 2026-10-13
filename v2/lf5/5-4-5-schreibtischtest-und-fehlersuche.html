@@ -380,7 +380,7 @@
   <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>3 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="5-4-5">
-<p class="lead">Die neue Rechnungsfunktion der Praxissoftware läuft ohne Fehlermeldung, aber jede Rechnung lautet auf 0,00 €. Solche Fehler findet kein Compiler. Man findet sie, indem man den Ablauf mit konkreten Werten nachvollzieht: auf Papier mit einem Schreibtischtest oder am Rechner mit einem Debugger.</p>
+<p class="lead">Die neue Rechnungsfunktion der Praxissoftware läuft ohne Fehlermeldung, aber jede Rechnung lautet auf 0,00 €. Solche Fehler findet kein Compiler. Du findest sie, indem du den Ablauf mit konkreten Werten nachvollziehst: auf Papier mit einem Schreibtischtest oder am Rechner mit einem Debugger.</p>
 
 <h3 id="der-schreibtischtest">Der Schreibtischtest<a class="anchor" href="#der-schreibtischtest" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Beim <strong>Schreibtischtest</strong> führst du einen Algorithmus von Hand aus, ohne Computer. Du wählst Testwerte und notierst in einer <strong>Trace-Tabelle</strong> nach jedem Schritt den aktuellen Wert jeder Variablen. Eine Zeile pro Schritt oder Schleifendurchlauf, eine Spalte pro Variable, bei Bedarf weitere Spalten für Zwischenergebnisse. So siehst du genau, wo ein Wert anders wird als erwartet.</p>
@@ -416,7 +416,7 @@ END FUNCTION</code></pre>
 <h3 id="drei-arten-von-fehlern">Drei Arten von Fehlern<a class="anchor" href="#drei-arten-von-fehlern" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
   <table>
-    <thead><tr><th>Fehler</th><th>Was passiert</th><th>Beispiel</th><th>Wie man ihn findet</th></tr></thead>
+    <thead><tr><th>Fehler</th><th>Was passiert</th><th>Beispiel</th><th>So findest du ihn</th></tr></thead>
     <tbody>
       <tr><th>Syntaxfehler</th><td>Code verletzt die Regeln der Sprache; er lässt sich nicht übersetzen bzw. nicht starten</td><td>fehlende Klammer, falsch geschriebenes Schlüsselwort</td><td>Compiler oder Interpreter meldet ihn mit Zeilennummer</td></tr>
       <tr><th>Laufzeitfehler</th><td>Programm startet, bricht aber bei einer bestimmten Anweisung ab</td><td>Division durch 0, Zugriff auf einen Index, den es nicht gibt</td><td>Fehlermeldung beim Ausführen, oft nur bei bestimmten Daten</td></tr>
@@ -435,12 +435,12 @@ END FUNCTION</code></pre>
 <p>Ein <strong>Debugger</strong> ist ein Werkzeug der Entwicklungsumgebung, das ein Programm kontrolliert ausführt. Grundbegriffe:</p>
 <ul>
   <li><strong>Haltepunkt</strong> (Breakpoint): Markierung an einer Zeile; dort hält das Programm an.</li>
-  <li><strong>Einzelschritt</strong> (Step): Das Programm führt nur die nächste Anweisung aus und hält wieder an. Man kann dabei in eine aufgerufene Funktion hineinspringen oder sie in einem Schritt ausführen.</li>
+  <li><strong>Einzelschritt</strong> (Step): Das Programm führt nur die nächste Anweisung aus und hält wieder an. Du kannst dabei in eine aufgerufene Funktion hineinspringen oder sie in einem Schritt ausführen.</li>
   <li><strong>Variablen beobachten</strong> (Watch): Die aktuellen Werte werden angezeigt, wie in einer Trace-Tabelle, die der Rechner selbst führt.</li>
 </ul>
-<p>Für die Rechnungsfunktion setzt man einen Haltepunkt auf die Zeile in der Schleife und beobachtet <code>summe</code>. Bleibt sie nach jedem Einzelschritt bei 0, ist die fehlerhafte Zeile gefunden.</p>
+<p>Für die Rechnungsfunktion setzt du einen Haltepunkt auf die Zeile in der Schleife und beobachtet <code>summe</code>. Bleibt sie nach jedem Einzelschritt bei 0, ist die fehlerhafte Zeile gefunden.</p>
 
-<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Keine Fehlermeldung, also stimmt das Programm.“ Logikfehler erzeugen keine Meldung. Erst der Vergleich mit einem vorher von Hand berechneten Sollwert zeigt, ob das Ergebnis richtig ist. Wie man solche Testfälle plant, folgt in Kapitel 5.6.1.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Keine Fehlermeldung, also stimmt das Programm.“ Logikfehler erzeugen keine Meldung. Erst der Vergleich mit einem vorher von Hand berechneten Sollwert zeigt, ob das Ergebnis richtig ist. Wie du solche Testfälle planst, folgt in Kapitel 5.6.1.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Schreibtischtest:</strong> Algorithmus mit Testwerten von Hand ausführen und jeden Variablenwert Schritt für Schritt in einer Trace-Tabelle notieren.</li>

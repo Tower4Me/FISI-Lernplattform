@@ -13,7 +13,7 @@
     </tbody>
   </table>
 </div>
-<p>Eine n:m-Beziehung lässt sich nicht mit einem einzelnen Fremdschlüssel abbilden: Ein Tier müsste sonst in einer Spalte mehrere Impfstoffe speichern, In einem Feld steht aber nur ein Wert. Eine Liste wie „3, 5, 7“ ließe sich kaum durchsuchen oder auf gültige Verweise prüfen.</p>
+<p>Eine n:m-Beziehung lässt sich nicht mit einem einzelnen Fremdschlüssel abbilden: Ein Tier müsste sonst in einer Spalte mehrere Impfstoffe speichern; in einem Feld steht aber nur ein Wert. Eine Liste wie „3, 5, 7“ ließe sich kaum durchsuchen oder auf gültige Verweise prüfen.</p>
 
 <h3>Das Beispiel der Tierarztpraxis</h3>
 <p>Aus dem ER-Modell in Kapitel 5.3.2 (mit 1:n zwischen Besitzer und Tier) entstehen vier Tabellen, ergänzt um Attribute, die im Auszug des ER-Modells fehlen. PK steht für Primärschlüssel, FK für Fremdschlüssel:</p>
@@ -23,7 +23,7 @@
   <li><strong>Impfstoff</strong> (<u>impfstoff_id</u> PK, bezeichnung, hersteller)</li>
   <li><strong>Impfung</strong> (<u>tier_id</u> FK → Tier, <u>impfstoff_id</u> FK → Impfstoff, <u>datum</u>, charge; PK: tier_id + impfstoff_id + datum)</li>
 </ul>
-<p>Die Zwischentabelle Impfung bekommt einen Namen aus der Fachsprache. Ihr Primärschlüssel besteht hier aus drei Spalten, denn dasselbe Tier kann denselben Impfstoff an verschiedenen Tagen erhalten. Alternativ gibt man ihr eine eigene Nummer <code>impfung_id</code>.</p>
+<p>Die Zwischentabelle Impfung bekommt einen Namen aus der Fachsprache. Ihr Primärschlüssel besteht hier aus drei Spalten, denn dasselbe Tier kann denselben Impfstoff an verschiedenen Tagen erhalten. Alternativ bekommt sie eine eigene Nummer <code>impfung_id</code>.</p>
 <div class="vergleich">
   <table>
     <caption>Tabelle Impfung (Ausschnitt)</caption>

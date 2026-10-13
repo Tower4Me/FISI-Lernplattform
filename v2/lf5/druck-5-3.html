@@ -426,14 +426,14 @@
   <li><strong>Löschanomalie:</strong> Wird das letzte Tier gelöscht, verschwinden auch die Daten der Besitzerin.</li>
 </ul>
 <p>Getrennte Tabellen, die über Schlüssel verknüpft sind, speichern jede Angabe nur einmal. Wer die Daten braucht, fügt sie bei der Abfrage wieder zusammen.</p>
-<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie man Tabellen schrittweise in Normalformen bringt und mit SQL abfragt, wird in LF8 behandelt.</p></aside>
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du Tabellen schrittweise in Normalformen bringt und mit SQL abfragt, wird in LF8 behandelt.</p></aside>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Frau Weber zieht von Leipzig nach Markkleeberg. In der Datenbank ändert die Auszubildende einen einzigen Datensatz in der Tabelle Besitzer. Mimi und Bello verweisen über <code>besitzer_id</code> = 1 automatisch auf die neue Anschrift.</p>
 </div>
 
-<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Name ist doch eindeutig genug als Primärschlüssel.“ Nein: Namen wiederholen sich und können sich ändern. Ein Primärschlüssel muss eindeutig und stabil sein; deshalb nimmt man meist eine eigene Nummer.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Name ist doch eindeutig genug als Primärschlüssel.“ Nein: Namen wiederholen sich und können sich ändern. Ein Primärschlüssel muss eindeutig und stabil sein; deshalb nimmst du meist eine eigene Nummer.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Relationale Datenbank:</strong> Tabellen mit Datensätzen (Zeilen) und Attributen (Spalten), verwaltet von einem DBMS.</li>
@@ -514,7 +514,7 @@
     </tbody>
   </table>
 </div>
-<p>Eine n:m-Beziehung lässt sich nicht mit einem einzelnen Fremdschlüssel abbilden: Ein Tier müsste sonst in einer Spalte mehrere Impfstoffe speichern, In einem Feld steht aber nur ein Wert. Eine Liste wie „3, 5, 7“ ließe sich kaum durchsuchen oder auf gültige Verweise prüfen.</p>
+<p>Eine n:m-Beziehung lässt sich nicht mit einem einzelnen Fremdschlüssel abbilden: Ein Tier müsste sonst in einer Spalte mehrere Impfstoffe speichern; in einem Feld steht aber nur ein Wert. Eine Liste wie „3, 5, 7“ ließe sich kaum durchsuchen oder auf gültige Verweise prüfen.</p>
 
 <h3 id="u5-3-3-das-beispiel-der-tierarztpraxis">Das Beispiel der Tierarztpraxis<a class="anchor" href="#u5-3-3-das-beispiel-der-tierarztpraxis" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Aus dem ER-Modell in Kapitel 5.3.2 (mit 1:n zwischen Besitzer und Tier) entstehen vier Tabellen, ergänzt um Attribute, die im Auszug des ER-Modells fehlen. PK steht für Primärschlüssel, FK für Fremdschlüssel:</p>
@@ -524,7 +524,7 @@
   <li><strong>Impfstoff</strong> (<u>impfstoff_id</u> PK, bezeichnung, hersteller)</li>
   <li><strong>Impfung</strong> (<u>tier_id</u> FK → Tier, <u>impfstoff_id</u> FK → Impfstoff, <u>datum</u>, charge; PK: tier_id + impfstoff_id + datum)</li>
 </ul>
-<p>Die Zwischentabelle Impfung bekommt einen Namen aus der Fachsprache. Ihr Primärschlüssel besteht hier aus drei Spalten, denn dasselbe Tier kann denselben Impfstoff an verschiedenen Tagen erhalten. Alternativ gibt man ihr eine eigene Nummer <code>impfung_id</code>.</p>
+<p>Die Zwischentabelle Impfung bekommt einen Namen aus der Fachsprache. Ihr Primärschlüssel besteht hier aus drei Spalten, denn dasselbe Tier kann denselben Impfstoff an verschiedenen Tagen erhalten. Alternativ bekommt sie eine eigene Nummer <code>impfung_id</code>.</p>
 <div class="vergleich">
   <table>
     <caption>Tabelle Impfung (Ausschnitt)</caption>

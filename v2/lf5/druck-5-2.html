@@ -399,7 +399,7 @@
 <p>Auch eine Zahl kann so oder so gespeichert sein: Als Text braucht 1250 vier Zeichen, also 4 Byte in ASCII. Binär als 16-Bit-Ganzzahl braucht sie 2 Byte. Dafür ist die Textform für Menschen lesbar und von jedem Programm verarbeitbar.</p>
 <p>Moderne Office-Dateien wie <code>.docx</code> sind übrigens ZIP-Archive mit XML-Dateien darin: Der Inhalt ist größtenteils Text (Bilder liegen binär darin), die Datei als Ganzes ist binär. Deshalb beginnt sie wie jedes ZIP-Archiv mit den Zeichen <code>PK</code>.</p>
 
-<h3 id="u5-2-1-woran-man-ein-format-erkennt">Woran man ein Format erkennt<a class="anchor" href="#u5-2-1-woran-man-ein-format-erkennt" aria-hidden="true" tabindex="-1">#</a></h3>
+<h3 id="u5-2-1-woran-du-ein-format-erkennst">Woran du ein Format erkennst<a class="anchor" href="#u5-2-1-woran-du-ein-format-erkennst" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
   <li><strong>Dateiendung:</strong> ein Hinweis, aber leicht änderbar und nicht verbindlich.</li>
   <li><strong>Dateisignatur:</strong> Viele Binärformate beginnen mit festen Bytes, etwa PDF mit <code>%PDF</code>, PNG mit den Bytes <code>89 50 4E 47</code> (hexadezimal, Kapitel 5.1.2). Programme erkennen das Format daran auch bei falscher Endung.</li>
@@ -440,7 +440,7 @@ Bello;Hund;2018-11-02;12,4</code></pre>
    "impfungen": ["Katzenschnupfen", "Tollwut"]},
   {"tiername": "Bello", "tierart": "Hund",
    "geburtsdatum": "2018-11-02", "gewicht_kg": 12.4,
-   "impfungen": []}
+   "impfungen": ["Tollwut"]}
 ]</code></pre>
 <p><strong>JSON</strong> (JavaScript Object Notation): Objekte in geschweiften Klammern mit Paaren aus Schlüssel und Wert, Listen in eckigen Klammern. Kennt Zahlen, Text, Wahrheitswerte und <code>null</code>; Daten lassen sich verschachteln. Zahlen stehen in JSON immer mit Dezimalpunkt (4.35). Einen eigenen Datumstyp gibt es nicht; ein Datum steht als Text, am besten nach ISO 8601.</p>
   </div>

@@ -1,7 +1,7 @@
 <p class="lead">Ein Programm, das Zeile für Zeile durchläuft, kann noch nicht viel. Die Impferinnerung der Praxis muss entscheiden, ob eine Impfung fällig ist, und die Rechnung muss jede Position einmal anfassen, egal wie viele es sind. Dafür gibt es Verzweigungen und Schleifen.</p>
 
 <h3>Verzweigungen</h3>
-<p>Eine <strong>Verzweigung</strong> führt Anweisungen nur aus, wenn eine Bedingung wahr ist. Die einseitige Form hat nur einen <code>THEN</code>-Teil, die zweiseitige zusätzlich einen <code>ELSE</code>-Teil für den Fall „falsch“. Gibt es mehr als zwei Fälle, hängt man weitere Bedingungen mit <code>ELSE IF</code> an (<strong>kaskadiert</strong>): Geprüft wird von oben nach unten, ausgeführt wird nur der erste Zweig, dessen Bedingung zutrifft.</p>
+<p>Eine <strong>Verzweigung</strong> führt Anweisungen nur aus, wenn eine Bedingung wahr ist. Die einseitige Form hat nur einen <code>THEN</code>-Teil, die zweiseitige zusätzlich einen <code>ELSE</code>-Teil für den Fall „falsch“. Gibt es mehr als zwei Fälle, hängst du weitere Bedingungen mit <code>ELSE IF</code> an (<strong>kaskadiert</strong>): Geprüft wird von oben nach unten, ausgeführt wird nur der erste Zweig, dessen Bedingung zutrifft.</p>
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Eine Impfung soll in diesem Beispiel nach 365 Tagen aufgefrischt werden. Die Software zeigt einen Status abhängig von den Tagen seit der letzten Impfung:</p>
@@ -15,7 +15,7 @@ END IF</code></pre>
   <p>Bei 350 Tagen ist die erste Bedingung falsch, die zweite wahr: Status „bald fällig“. Bei 400 Tagen greift schon der erste Zweig („überfällig“), bei 120 Tagen keiner der beiden, also „aktuell“.</p>
 </div>
 <p>Die Reihenfolge der Bedingungen zählt. Stünde <code>tage &gt; 335</code> oben, bekäme ein Tier mit 400 Tagen den Status „bald fällig“, denn 400 ist auch größer als 335, und der Zweig „überfällig“ würde nie erreicht.</p>
-<p>Steht eine Verzweigung innerhalb einer anderen, heißt sie <strong>verschachtelt</strong>, etwa: <code>IF tierart == "Hund" THEN IF gewicht &gt; 20 THEN …</code>. Oft lässt sich das mit <code>AND</code> zu einer Bedingung zusammenfassen. Vergleicht man eine Variable mit vielen festen Werten, bieten viele Sprachen eine <strong>Mehrfachauswahl</strong> (<code>switch</code>, <code>CASE</code>): Zum Wert „Hund“, „Katze“ oder „Vogel“ gibt es je einen Zweig, für alle anderen einen Standardzweig.</p>
+<p>Steht eine Verzweigung innerhalb einer anderen, heißt sie <strong>verschachtelt</strong>, etwa: <code>IF tierart == "Hund" THEN IF gewicht &gt; 20 THEN …</code>. Oft lässt sich das mit <code>AND</code> zu einer Bedingung zusammenfassen. Vergleichst du eine Variable mit vielen festen Werten, bieten viele Sprachen eine <strong>Mehrfachauswahl</strong> (<code>switch</code>, <code>CASE</code>): Zum Wert „Hund“, „Katze“ oder „Vogel“ gibt es je einen Zweig, für alle anderen einen Standardzweig.</p>
 
 <h3>Schleifen</h3>
 <div class="vergleich">

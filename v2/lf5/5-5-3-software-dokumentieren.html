@@ -383,7 +383,7 @@
 <p class="lead">Ein halbes Jahr nach der Einführung meldet die Praxis, dass bei einigen übernommenen Telefonnummern die Vorwahl fehlt. Wer das Importskript geschrieben hat, ist im Urlaub. Ob der Fehler schnell gefunden wird, hängt jetzt an der Dokumentation: Was sollte das Skript tun, wie ist es aufgebaut, was wurde wann geändert?</p>
 
 <h3 id="wozu-dokumentieren">Wozu dokumentieren?<a class="anchor" href="#wozu-dokumentieren" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Dokumentation hält Wissen fest, das sonst nur in einzelnen Köpfen steckt. Sie macht Software bedienbar, wartbar und prüfbar: Anwender finden nach, wie eine Funktion funktioniert; Kollegen können Fehler beheben und erweitern, ohne alles neu zu verstehen; Auftraggeber und Auftragnehmer können zeigen, was vereinbart und was geliefert wurde. Dokumentation entsteht am besten während der Arbeit, nicht erst am Projektende.</p>
+<p>Dokumentation hält Wissen fest, das sonst nur in einzelnen Köpfen steckt. Sie macht Software bedienbar, wartbar und prüfbar: Anwender schlagen nach, wie sie eine Funktion bedienen; Kollegen können Fehler beheben und erweitern, ohne alles neu zu verstehen; Auftraggeber und Auftragnehmer können zeigen, was vereinbart und was geliefert wurde. Dokumentation entsteht am besten während der Arbeit, nicht erst am Projektende.</p>
 
 <h3 id="arten-der-dokumentation">Arten der Dokumentation<a class="anchor" href="#arten-der-dokumentation" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -406,11 +406,11 @@ zaehler ← zaehler + 1    // zaehler um 1 erhöhen
 
 // besser: begründet eine Entscheidung
 // Altsystem speichert Nummern ohne Vorwahl;
-// die Praxis liegt im Ortsnetz 0761, deshalb ergänzen
-// LENGTH zählt hier die Zeichen, + hängt Texte aneinander
+// die Praxis liegt im Ortsnetz 0341, deshalb ergänzen
 IF LENGTH(telefon) &lt; 8 THEN
-    telefon ← "0761" + telefon
+    telefon ← "0341" + telefon
 END IF</code></pre>
+<p>Hier zählt <code>LENGTH</code> die Zeichen eines Textes, und <code>+</code> hängt zwei Texte aneinander.</p>
 
 <h3 id="aenderungen-nachvollziehen">Änderungen nachvollziehen<a class="anchor" href="#aenderungen-nachvollziehen" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Software wird nach der Übergabe weiter geändert. Ein <strong>Änderungsprotokoll</strong> (Changelog) hält je Version fest, was neu ist, was geändert und was behoben wurde. Eine <strong>Versionsverwaltung</strong> wie Git speichert jeden Stand des Quellcodes mit Datum, Autor und einer kurzen Beschreibung. So lässt sich nachvollziehen, wann eine Zeile geändert wurde, und ein älterer Stand lässt sich wiederherstellen.</p>
@@ -425,7 +425,7 @@ END IF</code></pre>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Zurück zu den Nummern ohne Vorwahl. Im Changelog steht bei Version 1.2: „Import: Nummern ohne Vorwahl werden um 0761 ergänzt.“ In der Versionsverwaltung findet die Kollegin die zugehörige Änderung, der Kommentar im Code erklärt die Regel. Damit ist die Ursache klar: Nummern mit Leerzeichen sind länger als 7 Zeichen und wurden deshalb nicht erkannt. Ohne diese Dokumentation hätte sie das Skript erst vollständig nachvollziehen müssen.</p>
+  <p>Zurück zu den Nummern ohne Vorwahl. Im Changelog steht bei Version 1.2: „Import: Nummern ohne Vorwahl werden um 0341 ergänzt.“ In der Versionsverwaltung findet die Kollegin die zugehörige Änderung, der Kommentar im Code erklärt die Regel. Damit ist die Ursache klar: Nummern mit Leerzeichen sind länger als 7 Zeichen und wurden deshalb nicht erkannt. Ohne diese Dokumentation hätte sie das Skript erst vollständig nachvollziehen müssen.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Code ist die Dokumentation.“ Gut lesbarer Code ersetzt Kommentare an vielen Stellen, aber nicht die Benutzerdokumentation und nicht die Begründung, warum eine Anforderung so umgesetzt wurde.</p></aside>

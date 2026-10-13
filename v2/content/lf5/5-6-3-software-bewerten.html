@@ -1,0 +1,59 @@
+<p class="lead">Richtig rechnen allein reicht nicht. Die Rechnung stimmt, aber der Empfang braucht pro Behandlung zwölf Klicks, und eine Mitarbeiterin mit Sehschwäche kann die blassgraue Schrift kaum lesen.</p>
+
+<h3>Eignung gegen die Anforderungen prüfen</h3>
+<p>Maßstab ist das Pflichtenheft. Für jede Anforderung wird im Soll-Ist-Vergleich festgehalten, ob sie erfüllt ist, wie im Abnahmeprotokoll (LF2, Kapitel 2.7.3). Das gilt für funktionale Anforderungen (was die Software können muss) und nichtfunktionale (wie gut, etwa „Eine Behandlung ist in höchstens einer Minute erfasst“). Damit sich nichtfunktionale Anforderungen prüfen lassen, müssen sie messbar formuliert sein; „schnell und benutzerfreundlich“ lässt sich weder bestätigen noch widerlegen.</p>
+
+<h3>Qualitätsmerkmale nach ISO/IEC 25010</h3>
+<p>Die Norm <strong>ISO/IEC 25010</strong> beschreibt ein Qualitätsmodell für Softwareprodukte. Die Fassung von 2023 nennt neun Merkmale. Sie dienen beim Formulieren und Bewerten als Checkliste. Eine Auswahl:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Merkmal</th><th>Frage</th><th>Praxissoftware</th></tr></thead>
+    <tbody>
+      <tr><th>Funktionale Eignung</th><td>Sind die nötigen Funktionen vorhanden und liefern sie korrekte Ergebnisse?</td><td>Gebühren werden richtig berechnet</td></tr>
+      <tr><th>Leistungseffizienz</th><td>Wie schnell reagiert sie, wie viele Ressourcen braucht sie?</td><td>Patientensuche zeigt Treffer in unter einer Sekunde</td></tr>
+      <tr><th>Interaktionsfähigkeit (Fassung 2011: Benutzbarkeit)</th><td>Können die Nutzer ihre Aufgaben gut erledigen und die Bedienung leicht lernen?</td><td>Empfang findet sich ohne Schulung zurecht</td></tr>
+      <tr><th>Zuverlässigkeit</th><td>Läuft sie stabil, ist sie verfügbar, erholt sie sich nach Fehlern?</td><td>kein Datenverlust bei Netzausfall</td></tr>
+      <tr><th>Informationssicherheit (Security)</th><td>Sind Daten vor unbefugtem Zugriff und Verändern geschützt?</td><td>Rollen und Rechte, Protokollierung (LF4)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Dialoge ergonomisch gestalten</h3>
+<p>Für die Gestaltung von Bildschirmmasken gilt die <strong>DIN EN ISO 9241-110</strong> (LF2, Kapitel 2.5.3). Die Fassung von 2020 nennt sieben Interaktionsprinzipien (Grundsätze):</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Grundsatz</th><th>Bedeutung</th><th>Maske „Behandlung erfassen“</th></tr></thead>
+    <tbody>
+      <tr><th>Aufgabenangemessenheit</th><td>unterstützt die Aufgabe ohne unnötige Schritte</td><td>Datum ist mit heute vorbelegt, Felder in der Reihenfolge des Ablaufs</td></tr>
+      <tr><th>Selbstbeschreibungsfähigkeit</th><td>man erkennt jederzeit, wo man ist und was möglich ist</td><td>eindeutige Feldbeschriftungen, Einheit „kg“ am Gewichtsfeld</td></tr>
+      <tr><th>Erwartungskonformität</th><td>verhält sich wie gewohnt und einheitlich</td><td>Speichern-Schaltfläche in jeder Maske an derselben Stelle</td></tr>
+      <tr><th>Erlernbarkeit</th><td>unterstützt das Kennenlernen der Bedienung</td><td>Hilfetexte und Beispiele direkt am Feld</td></tr>
+      <tr><th>Steuerbarkeit</th><td>Nutzer bestimmen Ablauf und Tempo</td><td>Eingabe abbrechen, zurückgehen, Aktion rückgängig machen</td></tr>
+      <tr><th>Robustheit gegen Benutzungsfehler</th><td>Fehler werden verhindert oder lassen sich leicht beheben</td><td>bei Gewicht „0“ eine Meldung direkt am Feld, Eingaben bleiben erhalten</td></tr>
+      <tr><th>Benutzerbindung</th><td>Bedienung ist motivierend und angenehm, sodass man sie gern nutzt</td><td>ruhige, übersichtliche Gestaltung ohne unnötige Hinweisfenster</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Barrierefreiheit</h3>
+<p>Barrierefreie Software können auch Menschen mit Einschränkungen bedienen, etwa mit einem Screenreader, der den Bildschirminhalt vorliest. International maßgeblich sind die <strong>WCAG</strong> mit den Stufen A, AA und AAA. In Deutschland verpflichtet die <strong>BITV 2.0</strong> (Barrierefreie-Informationstechnik-Verordnung) öffentliche Stellen des Bundes; seit Juni 2025 gilt für bestimmte Produkte und Dienstleistungen der Privatwirtschaft zusätzlich das Barrierefreiheitsstärkungsgesetz. Grundregeln:</p>
+<ul>
+  <li><strong>Kontrast:</strong> Text muss sich deutlich vom Hintergrund abheben; WCAG-Stufe AA verlangt für normalen Text mindestens 4,5 : 1, für großen Text 3 : 1.</li>
+  <li><strong>Nicht nur Farbe:</strong> Ein Pflichtfeld oder Fehler wird zusätzlich durch Text oder Symbol gekennzeichnet.</li>
+  <li><strong>Tastaturbedienung:</strong> Alle Funktionen sind ohne Maus erreichbar, die Tab-Reihenfolge ist logisch.</li>
+  <li><strong>Alternativtext und Beschriftungen:</strong> Bilder und Symbole haben einen beschreibenden Text, jedes Eingabefeld eine damit verknüpfte Beschriftung, damit ein Screenreader sie vorlesen kann.</li>
+</ul>
+
+<h3>Den Prozess bewerten</h3>
+<p>Zum Abschluss wird auch das Vorgehen bewertet: Zeitplan (Kapitel 5.5.2), Teststufe, in der Fehler auffielen, Klarheit der Anforderungen. Die Ergebnisse werden als <strong>Lessons Learned</strong> in Vorlagen und Checklisten übernommen, wie bei der Auftragsauswertung (LF2, Kapitel 2.7.4); in Scrum geschieht das in der Retrospektive (Kapitel 5.5.1).</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Abschlussgespräch zeigt sich: Der Fehler an der 30-kg-Grenze fiel erst auf, als die geplanten Testfälle liefen; die ersten Tests des Entwicklers hatten nur typische Werte und keine Grenzwerte geprüft. Außerdem fehlte im Pflichtenheft eine Vorgabe zur Bedienzeit, sodass die zwölf Klicks erst im Abnahmetest auffielen. Das Systemhaus ergänzt seine Testvorlage um eine Spalte „Grenzwerte“ und seine Pflichtenheft-Vorlage um messbare Anforderungen zur Bedienung.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Barrierefreiheit betrifft nur blinde Menschen.“ Sie hilft auch bei Sehschwäche oder Farbfehlsichtigkeit.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Eignung:</strong> Soll-Ist-Vergleich mit dem Pflichtenheft, funktional und nichtfunktional; Qualitätsmerkmale nach ISO/IEC 25010 als Checkliste; danach das Vorgehen auswerten (Lessons Learned).</li>
+  <li><strong>Ergonomie:</strong> ISO 9241-110 mit sieben Grundsätzen von Aufgabenangemessenheit bis Benutzerbindung; Barrierefreiheit nach WCAG: Kontrast, nicht nur Farbe, Tastatur, Alternativtext.</li>
+</ul>

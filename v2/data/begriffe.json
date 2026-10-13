@@ -707,6 +707,10 @@
         {
           "id": "5-5-3",
           "tiefe": "Rückverweis als Teil der Projektdokumentation"
+        },
+        {
+          "id": "5-6-3",
+          "tiefe": "Soll-Ist-Vergleich, nichtfunktionale Anforderungen messbar formulieren"
         }
       ]
     },
@@ -933,7 +937,7 @@
       "kernfakten": [
         "ArbStättV Anhang Nr. 6, ASR A3.4 und A6; Gefährdungsbeurteilung durch Arbeitgeber; ArbMedVV: Angebotsvorsorge Augen, Bildschirmbrille falls nötig.",
         "Oberkante auf/unter Augenhöhe, 50–80 cm, Blick parallel zum Fenster, Tastatur getrennt, verstellbare Möbel, mind. 500 lx, Pausen/Tätigkeitswechsel.",
-        "Software-Ergonomie DIN EN ISO 9241-110 (Dialoggrundsätze); Barrierefreiheit: Braillezeile, Vergrößerung, Sprache, angepasste Eingabegeräte."
+        "Software-Ergonomie DIN EN ISO 9241-110:2020, sieben Grundsätze: Aufgabenangemessenheit, Selbstbeschreibungsfähigkeit, Erwartungskonformität, Erlernbarkeit, Steuerbarkeit, Robustheit gegen Benutzungsfehler, Benutzerbindung; Barrierefreiheit: Braillezeile, Vergrößerung, Sprache, angepasste Eingabegeräte."
       ],
       "vorkommen": [
         {
@@ -943,6 +947,10 @@
         {
           "id": "2-2-5",
           "tiefe": "Monitorwahl"
+        },
+        {
+          "id": "5-6-3",
+          "tiefe": "Dialoggestaltung einer Maske, sieben Grundsätze mit Beispielen; Barrierefreiheit der Software (WCAG, BITV 2.0)"
         }
       ]
     },
@@ -1076,6 +1084,10 @@
         {
           "id": "2-7-2",
           "tiefe": "Einrichten, Testen"
+        },
+        {
+          "id": "5-6-1",
+          "tiefe": "Testprotokoll je Testfall (Rückverweis)"
         }
       ]
     },
@@ -1104,6 +1116,10 @@
         {
           "id": "2-7-4",
           "tiefe": "Auswertung"
+        },
+        {
+          "id": "5-6-3",
+          "tiefe": "Prozess evaluieren, Lessons Learned im Softwareprojekt"
         }
       ]
     },
@@ -1543,6 +1559,10 @@
         {
           "id": "5-5-1",
           "tiefe": "Grundlagen und Auswahl"
+        },
+        {
+          "id": "5-6-2",
+          "tiefe": "V-Modell: Entwurfsphasen und zugehörige Teststufen"
         }
       ]
     },
@@ -1573,6 +1593,40 @@
         {
           "id": "5-5-3",
           "tiefe": "Arten und Zweck, UML nur genannt"
+        }
+      ]
+    },
+    {
+      "begriff": "softwaretest",
+      "kernfakten": [
+        "Testfall: ID, Vorbedingung, Eingabe, erwartetes Ergebnis (vor dem Test aus der Anforderung), tatsächliches Ergebnis, Status (bestanden/fehlgeschlagen); Testprotokoll mit Version, Tester, Datum.",
+        "Äquivalenzklassen gültig/ungültig, je Klasse ein Vertreter; Grenzwertanalyse testet Werte auf und direkt neben jeder Grenze.",
+        "Black-Box: von außen gegen Anforderungen; White-Box: mit Code, Anweisungsüberdeckung (jede Anweisung) schwächer als Zweigüberdeckung (jeder Zweig, auch leeres ELSE).",
+        "Statisch ohne Ausführen (Review, Schreibtischtest), dynamisch mit Ausführen.",
+        "Teststufen: Komponenten-/Modul-/Unittest, Integrationstest (Schnittstellen), Systemtest (gegen Pflichtenheft, Testumgebung), Abnahmetest (Auftraggeber); V-Modell: Anforderungsdefinition–Abnahmetest, Systementwurf–Systemtest, Architekturentwurf–Integrationstest, Komponentenentwurf–Komponententest.",
+        "Regressionstest: bestandene Tests nach Änderung wiederholen, möglichst automatisiert."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-6-1",
+          "tiefe": "Testfälle, Äquivalenzklassen, Grenzwerte, Testprotokoll"
+        },
+        {
+          "id": "5-6-2",
+          "tiefe": "Verfahren, Stufen, V-Modell, Regressionstest"
+        }
+      ]
+    },
+    {
+      "begriff": "softwarequalitaet",
+      "kernfakten": [
+        "ISO/IEC 25010:2023: neun Produktqualitätsmerkmale, u. a. funktionale Eignung, Leistungseffizienz, Kompatibilität, Interaktionsfähigkeit (2011: Benutzbarkeit/Usability), Zuverlässigkeit, Sicherheit, Wartbarkeit, Flexibilität (2011: Übertragbarkeit/Portability), neu Safety.",
+        "Barrierefreiheit: WCAG Stufen A/AA/AAA, AA-Kontrast 4,5:1 normaler, 3:1 großer Text; BITV 2.0 für öffentliche Stellen des Bundes; BFSG seit 28.06.2025 für bestimmte Produkte/Dienstleistungen; nicht nur Farbe, Tastaturbedienung, Alternativtext, verknüpfte Beschriftungen."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-6-3",
+          "tiefe": "Eignung beurteilen, Auswahl der Merkmale, Barrierefreiheit"
         }
       ]
     }

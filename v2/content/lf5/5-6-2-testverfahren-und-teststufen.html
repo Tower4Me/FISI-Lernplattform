@@ -1,0 +1,81 @@
+<p class="lead">Testfälle allein sagen noch nicht, wann, von wem und mit welchem Blick getestet wird. Ein Fehler in einer einzelnen Funktion fällt am besten früh beim Entwickler auf, ein falsch verstandener Arbeitsablauf erst, wenn die Praxis selbst mit der Software arbeitet. Testverfahren und Teststufen ordnen das.</p>
+
+<h3>Black-Box und White-Box</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Black-Box-Test</th><th>White-Box-Test</th></tr></thead>
+    <tbody>
+      <tr><th>Blick</th><td>von außen: nur Eingaben und Ausgaben, der Code ist unbekannt oder egal</td><td>von innen: mit Kenntnis des Quellcodes</td></tr>
+      <tr><th>Testfälle aus</th><td>Anforderungen, etwa mit Äquivalenzklassen und Grenzwerten (Kapitel 5.6.1)</td><td>Programmstruktur: Welche Anweisungen und Zweige gibt es?</td></tr>
+      <tr><th>findet z. B.</th><td>fehlende oder falsch umgesetzte Funktionen</td><td>Code, der nie ausgeführt wird, Fehler in selten durchlaufenen Zweigen</td></tr>
+      <tr><th>typisch durch</th><td>Tester, Fachabteilung, Kunde</td><td>Entwickler</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wie gründlich ein White-Box-Test ist, misst die <strong>Überdeckung</strong>. Die <strong>Anweisungsüberdeckung</strong> verlangt, dass jede Anweisung mindestens einmal ausgeführt wird. Die strengere <strong>Zweigüberdeckung</strong> verlangt, dass jeder Zweig mindestens einmal durchlaufen wird, auch ein leerer <code>ELSE</code>-Fall.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+<pre><code>gebuehr ← grundgebuehr
+IF alter &gt; 10 THEN
+    gebuehr ← gebuehr + 5    // Zuschlag für ältere Tiere
+END IF</code></pre>
+  <p>Ein Test mit <code>alter = 12</code> führt alle Anweisungen aus: 100 % Anweisungsüberdeckung. Der Fall „Bedingung falsch“ wurde aber nie durchlaufen. Für die Zweigüberdeckung braucht es einen zweiten Test, etwa mit <code>alter = 4</code>.</p>
+</div>
+
+<h3>Statisch und dynamisch</h3>
+<p>Beim <strong>dynamischen Test</strong> wird das Programm ausgeführt und das Ergebnis mit dem Sollwert verglichen. Beim <strong>statischen Test</strong> wird es nicht ausgeführt, sondern geprüft, wie es geschrieben ist: im <strong>Review</strong> lesen Kollegen Code oder Dokumente und suchen nach Fehlern und Unklarheiten, beim <strong>Schreibtischtest</strong> wird der Ablauf von Hand nachvollzogen (Kapitel 5.4.5). Statische Tests sind schon möglich, bevor ein Programm lauffähig ist, und finden Fehler, die sich später teuer auswirken würden, etwa eine missverständliche Anforderung.</p>
+
+<h3>Teststufen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Stufe</th><th>Was wird geprüft?</th><th>Beispiel Praxissoftware</th></tr></thead>
+    <tbody>
+      <tr><th>Komponententest (Modultest, Unittest)</th><td>einzelne Funktion oder Komponente für sich, meist vom Entwickler, oft automatisiert</td><td>Funktion zur Gebührenberechnung mit den Testfällen aus Kapitel 5.6.1</td></tr>
+      <tr><th>Integrationstest</th><td>Zusammenspiel mehrerer Komponenten, vor allem ihre Schnittstellen</td><td>Erfassungsmaske speichert die Behandlung, die Rechnung übernimmt die Gebühr</td></tr>
+      <tr><th>Systemtest</th><td>das ganze System gegen die Anforderungen im Pflichtenheft, in einer Testumgebung, die dem echten Betrieb möglichst gleicht</td><td>vollständiger Ablauf vom Termin bis zur Rechnung mit Testdaten</td></tr>
+      <tr><th>Abnahmetest</th><td>der Auftraggeber prüft, ob die Software vertragsgemäß und für seine Arbeit geeignet ist</td><td>Empfang und Tierärztin arbeiten typische Fälle durch; Grundlage der Abnahme (LF2, Kapitel 2.7.3)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Das V-Modell</h3>
+<p>Das <strong>V-Modell</strong> erweitert den Wasserfall (Kapitel 5.5.1): Der linke Ast zerlegt die Aufgabe von der Anforderung bis zur einzelnen Komponente, unten wird programmiert, der rechte Ast setzt die Teile wieder zusammen und testet auf jeder Stufe. Jede Teststufe prüft gegen das Ergebnis der Entwurfsphase, die ihr gegenüberliegt. Die Testfälle einer Stufe können deshalb schon geschrieben werden, wenn die passende Entwurfsphase abgeschlossen ist.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 760 340" role="img" aria-label="V-Modell. Linker Ast absteigend: Anforderungsdefinition, Systementwurf, Architekturentwurf, Komponentenentwurf. Unten Implementierung. Rechter Ast aufsteigend: Komponententest, Integrationstest, Systemtest, Abnahmetest. Gestrichelte Linien verbinden Anforderungsdefinition mit Abnahmetest, Systementwurf mit Systemtest, Architekturentwurf mit Integrationstest und Komponentenentwurf mit Komponententest.">
+    <path class="g-rule" stroke-dasharray="5 4" d="M220 42H540M260 107H500M300 172H460M340 237H420"/>
+    <text x="380" y="36" text-anchor="middle" font-size="11" class="g-muted">prüft gegen</text>
+    <rect class="g-box" x="20" y="20" width="200" height="44" rx="2"/>
+    <text x="120" y="47" text-anchor="middle" font-size="13">Anforderungsdefinition</text>
+    <rect class="g-box" x="60" y="85" width="200" height="44" rx="2"/>
+    <text x="160" y="112" text-anchor="middle" font-size="13">Systementwurf</text>
+    <rect class="g-box" x="100" y="150" width="200" height="44" rx="2"/>
+    <text x="200" y="177" text-anchor="middle" font-size="13">Architekturentwurf</text>
+    <rect class="g-box" x="140" y="215" width="200" height="44" rx="2"/>
+    <text x="240" y="242" text-anchor="middle" font-size="13">Komponentenentwurf</text>
+    <rect class="g-accent" x="280" y="280" width="200" height="44" rx="2"/>
+    <text x="380" y="307" text-anchor="middle" font-size="13">Implementierung</text>
+    <rect class="g-box" x="420" y="215" width="200" height="44" rx="2"/>
+    <text x="520" y="242" text-anchor="middle" font-size="13">Komponententest</text>
+    <rect class="g-box" x="460" y="150" width="200" height="44" rx="2"/>
+    <text x="560" y="177" text-anchor="middle" font-size="13">Integrationstest</text>
+    <rect class="g-box" x="500" y="85" width="200" height="44" rx="2"/>
+    <text x="600" y="112" text-anchor="middle" font-size="13">Systemtest</text>
+    <rect class="g-box" x="540" y="20" width="200" height="44" rx="2"/>
+    <text x="640" y="47" text-anchor="middle" font-size="13">Abnahmetest</text>
+  </svg>
+  <figcaption>V-Modell: links Entwurf von grob nach fein, rechts Teststufen von fein nach grob; jede Teststufe prüft gegen die gegenüberliegende Phase.</figcaption>
+</figure>
+
+<h3>Regressionstest</h3>
+<p>Jede Änderung kann etwas kaputt machen, das vorher funktioniert hat. Ein <strong>Regressionstest</strong> wiederholt nach einer Änderung bereits bestandene Tests, um solche Nebenwirkungen zu finden. Weil das bei jeder neuen Version anfällt, lohnt es sich, diese Tests zu automatisieren.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach der Korrektur von <code>&gt;=</code> zu <code>&gt;</code> besteht T03 aus Kapitel 5.6.1. Im Regressionstest laufen aber alle Testfälle der Gebührenberechnung erneut, dazu der Integrationstest mit der Rechnung. So fällt auf, falls die Korrektur an anderer Stelle etwas verändert hat.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Systemtest ist bestanden, also ist der Abnahmetest überflüssig.“ Der Systemtest prüft gegen das Pflichtenheft, aus Sicht des Auftragnehmers. Im Abnahmetest prüft der Kunde, ob die Software in seinem Alltag passt, und dabei fallen oft Missverständnisse in den Anforderungen auf.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Verfahren:</strong> Black-Box testet von außen gegen die Anforderungen, White-Box mit Blick in den Code (Anweisungs-, Zweigüberdeckung); statisch ohne Ausführen (Review, Schreibtischtest), dynamisch mit Ausführen.</li>
+  <li><strong>Stufen:</strong> Komponenten-, Integrations-, System-, Abnahmetest; im V-Modell prüft jede Stufe gegen die gegenüberliegende Entwurfsphase, Regressionstests wiederholen Tests nach Änderungen.</li>
+</ul>

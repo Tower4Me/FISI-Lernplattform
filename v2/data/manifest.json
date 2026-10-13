@@ -2957,6 +2957,80 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "5.6",
+          "titel": "Testen und bewerten",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "5.6.1",
+              "titel": "Testfälle entwickeln",
+              "slug": "testfaelle-entwickeln",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen (Testfälle entwickeln)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Werte der Testfälle und Grenzwerte mit Python nachgerechnet"
+                ]
+              },
+              "material": [
+                "testverfahren-black-white-box"
+              ],
+              "begriffe": [
+                "softwaretest"
+              ]
+            },
+            {
+              "nummer": "5.6.2",
+              "titel": "Testverfahren und Teststufen",
+              "slug": "testverfahren-und-teststufen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen (testen)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "V-Modell und Teststufen nach gängiger Lehrbuchdarstellung (ISTQB-Begriffe Komponenten-, Integrations-, System-, Abnahmetest)"
+                ]
+              },
+              "material": [
+                "testverfahren-black-white-box"
+              ],
+              "begriffe": [
+                "softwaretest",
+                "vorgehensmodelle"
+              ]
+            },
+            {
+              "nummer": "5.6.3",
+              "titel": "Software bewerten",
+              "slug": "software-bewerten",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Eignung der Anwendung beurteilen, Prozess evaluieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "ISO/IEC 25010:2023 (neun Produktqualitätsmerkmale, Interaktionsfähigkeit ersetzt Usability, Flexibilität ersetzt Portability)",
+                  "DIN EN ISO 9241-110:2020 (sieben Interaktionsgrundsätze, geprüft über de.wikipedia.org/wiki/EN_ISO_9241)",
+                  "WCAG 2.x Kontrast Stufe AA 4,5:1 bzw. 3:1, BITV 2.0, BFSG ab 28.06.2025"
+                ]
+              },
+              "material": [
+                "barrierefreiheit-software",
+                "bildschirmausgabemasken"
+              ],
+              "begriffe": [
+                "softwarequalitaet",
+                "ergonomie",
+                "anforderungen",
+                "auftragsauswertung"
+              ]
+            }
+          ]
         }
       ]
     }

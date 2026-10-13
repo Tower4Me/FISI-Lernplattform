@@ -1,0 +1,66 @@
+<p class="lead">Die Praxissoftware soll die Grundgebühr einer Behandlung aus dem Gewicht des Tieres berechnen. Ob das stimmt, zeigt erst ein Test mit vorher festgelegten Sollwerten (Kapitel 5.4.5). Alle denkbaren Gewichte durchzuprobieren ist unmöglich. Testfälle wählen deshalb wenige Werte so aus, dass sie möglichst viele Fehler aufdecken, und halten fest, was herauskommen muss.</p>
+
+<h3>Aufbau eines Testfalls</h3>
+<p>Ein <strong>Testfall</strong> beschreibt eine einzelne, wiederholbare Prüfung. Er wird geplant, bevor getestet wird, am besten schon beim Erstellen der Anforderungen. Typische Bestandteile:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Bestandteil</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th>ID</th><td>eindeutige Nummer, etwa T03, damit man sich im Protokoll und bei Fehlermeldungen darauf beziehen kann</td></tr>
+      <tr><th>Vorbedingung</th><td>Zustand vor dem Test, etwa „Maske ‚Behandlung erfassen‘ geöffnet, Tier ausgewählt“</td></tr>
+      <tr><th>Eingabe</th><td>die konkreten Testdaten</td></tr>
+      <tr><th>erwartetes Ergebnis</th><td>Sollwert, vorher aus der Anforderung abgeleitet, nicht aus dem Programm abgelesen</td></tr>
+      <tr><th>tatsächliches Ergebnis</th><td>Istwert, beim Testen eingetragen</td></tr>
+      <tr><th>Status</th><td>bestanden, wenn Soll und Ist übereinstimmen, sonst fehlgeschlagen</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Äquivalenzklassen</h3>
+<p>Die Anforderung lautet: Das Gewicht wird in kg eingegeben, es muss größer als 0 und höchstens 120 sein. Bis 10 kg beträgt die Grundgebühr 30 €, über 10 bis 30 kg 45 €, über 30 kg 60 €. Im Programm ist das eine Verzweigung wie in Kapitel 5.4.3: <code>IF gewicht &gt; 30 THEN … ELSE IF gewicht &gt; 10 THEN … ELSE …</code>.</p>
+<p>Eine <strong>Äquivalenzklasse</strong> fasst Eingaben zusammen, die das Programm gleich behandeln soll. Testest du einen Wert aus der Klasse, steht er stellvertretend für alle anderen. <strong>Gültige</strong> Klassen enthalten erlaubte Eingaben, <strong>ungültige</strong> solche, die das Programm abweisen muss.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Klasse</th><th>Bereich</th><th>Sollverhalten</th><th>Vertreter</th></tr></thead>
+    <tbody>
+      <tr><th>ungültig 1</th><td>gewicht ≤ 0</td><td>Fehlermeldung</td><td>−2</td></tr>
+      <tr><th>gültig 1</th><td>0 &lt; gewicht ≤ 10</td><td>30 €</td><td>4,3</td></tr>
+      <tr><th>gültig 2</th><td>10 &lt; gewicht ≤ 30</td><td>45 €</td><td>12,4</td></tr>
+      <tr><th>gültig 3</th><td>30 &lt; gewicht ≤ 120</td><td>60 €</td><td>45</td></tr>
+      <tr><th>ungültig 2</th><td>gewicht &gt; 120</td><td>Fehlermeldung</td><td>150</td></tr>
+      <tr><th>ungültig 3</th><td>keine Zahl, leeres Feld</td><td>Fehlermeldung</td><td>„abc“</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Grenzwertanalyse</h3>
+<p>Fehler stecken besonders oft an den Rändern der Klassen: <code>&gt;=</code> statt <code>&gt;</code>, ein Bereich um eins verschoben. Die <strong>Grenzwertanalyse</strong> testet deshalb gezielt die Werte direkt auf und neben jeder Grenze. Bei zwei Nachkommastellen sind das hier 0 und 0,01, 10 und 10,01, 30 und 30,01 sowie 120 und 120,01. Äquivalenzklassen und Grenzwerte werden zusammen eingesetzt: je Klasse ein Vertreter, dazu die Grenzwerte.</p>
+
+<h3>Das Testprotokoll</h3>
+<p>Das <strong>Testprotokoll</strong> dokumentiert die Durchführung: welche Version getestet wurde, von wem, wann, und für jeden Testfall Soll, Ist und Status. Es ist dasselbe Prinzip wie beim Testprotokoll für einen Arbeitsplatz (LF2, Kapitel 2.7.2), nur je Testfall statt je Prüfpunkt. Ein fehlgeschlagener Testfall wird als Fehler gemeldet, behoben und danach erneut getestet.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Auszug aus dem Protokoll für Version 1.3 der Gebührenberechnung, Vorbedingung jeweils: Funktion zur Gebührenberechnung einzeln aufrufbar.</p>
+  <div class="vergleich">
+    <table>
+      <thead><tr><th>ID</th><th>Eingabe</th><th>erwartet</th><th>tatsächlich</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><th>T01</th><td>4,3</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
+        <tr><th>T02</th><td>10</td><td>30 €</td><td>30 €</td><td>bestanden</td></tr>
+        <tr><th>T03</th><td>30</td><td>45 €</td><td>60 €</td><td>fehlgeschlagen</td></tr>
+        <tr><th>T04</th><td>30,01</td><td>60 €</td><td>60 €</td><td>bestanden</td></tr>
+        <tr><th>T05</th><td>45</td><td>60 €</td><td>60 €</td><td>bestanden</td></tr>
+        <tr><th>T06</th><td>0</td><td>Fehlermeldung</td><td>Fehlermeldung</td><td>bestanden</td></tr>
+        <tr><th>T07</th><td>„abc“</td><td>Fehlermeldung</td><td>Fehlermeldung</td><td>bestanden</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Ursache für T03: Im Code steht <code>gewicht &gt;= 30</code> statt <code>gewicht &gt; 30</code>. Der Vertreter 45 hätte das nicht gezeigt, erst der Grenzwert 30 deckt den Fehler auf.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Das erwartete Ergebnis trage ich nach dem Test ein.“ Dann prüft der Test nichts mehr, denn du übernimmst unbemerkt den Istwert. Der Sollwert kommt aus der Anforderung und steht fest, bevor das Programm läuft.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Testfall:</strong> ID, Vorbedingung, Eingabe, erwartetes und tatsächliches Ergebnis, Status; der Sollwert steht vor dem Test fest.</li>
+  <li><strong>Äquivalenzklassen und Grenzwerte:</strong> je gültiger und ungültiger Klasse ein Vertreter, dazu die Werte direkt auf und neben jeder Grenze.</li>
+</ul>

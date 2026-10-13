@@ -1465,6 +1465,30 @@
           "tiefe": "Auswahl"
         }
       ]
+    },
+    {
+      "begriff": "datenbankmodell",
+      "kernfakten": [
+        "DBMS (MariaDB, PostgreSQL, SQL Server): Mehrbenutzer, Regeln, Rechte, Wiederherstellung; Tabelle (Relation), Datensatz (Zeile), Attribut (Spalte).",
+        "PK eindeutig, nicht leer, stabil (oft laufende Nummer); FK verweist auf PK einer anderen Tabelle; referenzielle Integrität.",
+        "Redundanz → Änderungs-, Einfüge-, Löschanomalie; aufteilen in verknüpfte Tabellen (Normalformen, SQL in LF8).",
+        "ER-Modell (Chen): Entitätstyp Rechteck, Attribut Ellipse (Schlüssel unterstrichen), Beziehung Raute (auch mit Attributen); Krähenfuß-Notation; Kardinalität 1:1, 1:n, n:m, in beide Richtungen fragen.",
+        "Umsetzung: Entitätstyp → Tabelle, 1:n → FK auf n-Seite, n:m → Zwischentabelle mit zwei FK (+ Beziehungsattribute), 1:1 → eindeutiger FK oder zusammenlegen."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-3-1",
+          "tiefe": "Grundlagen"
+        },
+        {
+          "id": "5-3-2",
+          "tiefe": "ER-Modell"
+        },
+        {
+          "id": "5-3-3",
+          "tiefe": "Umsetzung"
+        }
+      ]
     }
   ]
 }

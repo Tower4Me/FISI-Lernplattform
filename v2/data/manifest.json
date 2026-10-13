@@ -2701,6 +2701,76 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "5.3",
+          "titel": "Datenbanken modellieren",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "5.3.1",
+              "titel": "Relationale Datenbanken",
+              "slug": "relationale-datenbanken",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Speicherlösungen, Anpassung einer Anwendung zur Verwaltung der Datenbestände planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2025 (Primär- und Fremdschlüssel, Verknüpfung)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "db-grundlagen"
+              ],
+              "begriffe": [
+                "datenbankmodell"
+              ]
+            },
+            {
+              "nummer": "5.3.2",
+              "titel": "Das ER-Modell",
+              "slug": "das-er-modell",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Speicherlösungen, Anpassung einer Anwendung zur Verwaltung der Datenbestände planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2022 (ER-Modell)",
+                  "AP1 Herbst 2025 (ER-Modell, Kardinalitäten)"
+                ],
+                "extern": [
+                  "P. Chen 1976 (ER-Modell)"
+                ]
+              },
+              "material": [
+                "er-modell-kardinalitaeten"
+              ],
+              "begriffe": [
+                "datenbankmodell"
+              ]
+            },
+            {
+              "nummer": "5.3.3",
+              "titel": "Vom ER-Modell zu Tabellen",
+              "slug": "vom-er-modell-zu-tabellen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Speicherlösungen, Anpassung einer Anwendung zur Verwaltung der Datenbestände planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2025 (Zwischentabelle bei n:m)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "er-modell-kardinalitaeten"
+              ],
+              "begriffe": [
+                "datenbankmodell"
+              ]
+            }
+          ]
         }
       ]
     }

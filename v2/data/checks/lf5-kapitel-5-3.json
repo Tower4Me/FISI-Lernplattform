@@ -1,0 +1,125 @@
+{
+  "titel": "Check 5.3",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Primärschlüssel",
+      "frage": "Welche Aufgabe hat ein Primärschlüssel?",
+      "optionen": [
+        "Er kennzeichnet jeden Datensatz einer Tabelle eindeutig",
+        "Er verweist auf einen Datensatz in einer anderen Tabelle",
+        "Er verschlüsselt die Datensätze vor unbefugtem Lesen",
+        "Er legt fest, in welcher Reihenfolge Datensätze angezeigt werden"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Über den Primärschlüssel lässt sich jeder Datensatz eindeutig ansprechen. Auf andere Tabellen verweist der Fremdschlüssel."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zweck der Verknüpfung",
+      "frage": "Warum speichert die Tabelle Tier nur die besitzer_id und nicht Name und Ort der Besitzerin?",
+      "optionen": [
+        "Jede Besitzerangabe steht so nur einmal",
+        "Weil Zahlen schneller zu tippen sind als Namen",
+        "Damit Unbefugte den Namen nicht lesen können",
+        "Weil eine Tabelle höchstens vier Spalten haben darf"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Fremdschlüssel verknüpft das Tier mit genau einem Besitzer-Datensatz. Eine Änderung der Anschrift ist dann an einer Stelle erledigt, Widersprüche entstehen nicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Anomalien",
+      "frage": "In einer Gesamttabelle entfernt die Praxis den einzigen Hund von Herrn Krause. Danach sind auch Name und Telefonnummer von Herrn Krause nicht mehr vorhanden. Wie heißt dieses Problem?",
+      "optionen": [
+        "Löschanomalie",
+        "Einfügeanomalie",
+        "Änderungsanomalie",
+        "Abfrageanomalie"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Beim Löschen gehen Daten verloren, die eigentlich erhalten bleiben sollten. Getrennte Tabellen verhindern das."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kardinalität",
+      "frage": "Eine Tierärztin behandelt viele Tiere, und ein Tier wird im Lauf der Zeit von mehreren Tierärztinnen behandelt. Welche Kardinalität hat die Beziehung?",
+      "optionen": [
+        "n:m",
+        "1:n",
+        "1:1",
+        "n:1"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "In beide Richtungen sind mehrere Partner möglich. Das ist eine n:m-Beziehung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Fremdschlüssel bei 1:n",
+      "frage": "Besitzer und Tier stehen in einer 1:n-Beziehung. Wo steht der Fremdschlüssel?",
+      "optionen": [
+        "In der Tabelle Tier",
+        "In der Tabelle Besitzer",
+        "In einer eigenen Zwischentabelle",
+        "In beiden Tabellen gleichzeitig"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Fremdschlüssel kommt auf die n-Seite. Jedes Tier speichert die Nummer seiner Besitzerin."
+    },
+    {
+      "typ": "mc",
+      "thema": "n:m umsetzen",
+      "frage": "Wie setzt du eine n:m-Beziehung in Tabellen um?",
+      "optionen": [
+        "Mit einer Zwischentabelle, die zwei Fremdschlüssel enthält",
+        "Mit einem Fremdschlüssel in einer der beiden Tabellen",
+        "Mit mehreren Werten in einem Feld, durch Komma getrennt",
+        "Indem beide Tabellen zu einer zusammengelegt werden"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Zwischentabelle verweist auf beide Seiten. Jede Zeile steht für eine Verbindung, etwa eine einzelne Impfung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Beziehungsattribut",
+      "frage": "Ein Tier erhält mehrmals denselben Impfstoff. In welcher Tabelle speicherst du das Impfdatum?",
+      "optionen": [
+        "In der Zwischentabelle Impfung",
+        "In der Tabelle Tier, beim jeweiligen Tier",
+        "In der Tabelle Impfstoff",
+        "In der Tabelle Besitzer"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Datum beschreibt eine einzelne Verbindung zwischen Tier und Impfstoff. Es gehört deshalb zur Beziehung, also in die Zwischentabelle."
+    },
+    {
+      "typ": "mc",
+      "thema": "Referenzielle Integrität",
+      "frage": "Was verhindert referenzielle Integrität?",
+      "optionen": [
+        "Dass ein Fremdschlüssel auf einen nicht vorhandenen Datensatz zeigt",
+        "Dass zwei Personen gleichzeitig dieselbe Tabelle lesen oder ändern können",
+        "Dass Datensätze ohne Primärschlüssel sortiert werden",
+        "Dass eine Tabelle mehr als einen Fremdschlüssel enthält"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das DBMS prüft, dass jeder Fremdschlüssel auf einen existierenden Datensatz verweist. So entstehen keine verwaisten Verweise."
+    }
+  ]
+}

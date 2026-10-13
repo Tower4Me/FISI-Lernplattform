@@ -1,0 +1,57 @@
+<p class="lead">In der alten Tabelle der Tierarztpraxis steht die Anschrift einer Besitzerin bei jedem ihrer Tiere. Zieht sie um, wird die Adresse an einer Stelle geändert und an den anderen vergessen. Eine relationale Datenbank verhindert solche Widersprüche, indem jede Angabe nur einmal gespeichert und über Schlüssel verknüpft wird.</p>
+
+<h3>Datenbank und Datenbanksystem</h3>
+<p>Eine <strong>Datenbank</strong> ist eine geordnete, dauerhaft gespeicherte Sammlung zusammengehöriger Daten. Verwaltet wird sie von einem <strong>Datenbankmanagementsystem</strong> (DBMS), etwa MariaDB, PostgreSQL oder Microsoft SQL Server. Das DBMS sorgt dafür, dass mehrere Personen gleichzeitig arbeiten können, dass Regeln eingehalten werden, dass nur Berechtigte zugreifen und dass die Daten nach einem Absturz wieder in einem stimmigen Zustand sind.</p>
+
+<h3>Tabellen, Datensätze, Attribute</h3>
+<p>In einer <strong>relationalen Datenbank</strong> liegen die Daten in Tabellen (Relationen). Jede Zeile ist ein <strong>Datensatz</strong>, jede Spalte ein <strong>Attribut</strong> mit festem Datentyp (Kapitel 5.1.4).</p>
+<div class="vergleich">
+  <table>
+    <caption>Tabelle Besitzer</caption>
+    <thead><tr><th>besitzer_id</th><th>name</th><th>ort</th><th>telefon</th></tr></thead>
+    <tbody>
+      <tr><th>1</th><td>Weber</td><td>Leipzig</td><td>0341 1234567</td></tr>
+      <tr><th>2</th><td>Yilmaz</td><td>Halle</td><td>0345 7654321</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="vergleich">
+  <table>
+    <caption>Tabelle Tier</caption>
+    <thead><tr><th>tier_id</th><th>name</th><th>tierart</th><th>besitzer_id</th></tr></thead>
+    <tbody>
+      <tr><th>10</th><td>Mimi</td><td>Katze</td><td>1</td></tr>
+      <tr><th>11</th><td>Bello</td><td>Hund</td><td>1</td></tr>
+      <tr><th>12</th><td>Fips</td><td>Kaninchen</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Schlüssel</h3>
+<ul>
+  <li><strong>Primärschlüssel</strong> (PK): ein Attribut oder eine Kombination, die jeden Datensatz einer Tabelle eindeutig kennzeichnet, hier <code>besitzer_id</code> und <code>tier_id</code>. Er darf nicht leer sein und sich nicht wiederholen. Oft ist es eine fortlaufende Nummer ohne weitere Bedeutung.</li>
+  <li><strong>Fremdschlüssel</strong> (FK): ein Attribut, das auf den Primärschlüssel einer anderen Tabelle verweist, hier <code>besitzer_id</code> in der Tabelle Tier. Er verknüpft die Tabellen: Mimi und Bello gehören zu Weber.</li>
+</ul>
+<p>Das DBMS kann prüfen, dass jeder Fremdschlüssel auf einen vorhandenen Datensatz zeigt (<strong>referenzielle Integrität</strong>). Dann lässt sich kein Tier mit einer Besitzernummer anlegen, die es nicht gibt, und eine Besitzerin, auf die noch Tiere verweisen, nicht einfach löschen.</p>
+
+<h3>Warum aufteilen</h3>
+<p>Stünde alles in einer einzigen Tabelle, würden die Besitzerdaten für jedes Tier wiederholt. Diese <strong>Redundanz</strong> kostet Platz und führt zu <strong>Anomalien</strong>:</p>
+<ul>
+  <li><strong>Änderungsanomalie:</strong> Die Adresse wird nur an einer von mehreren Stellen geändert, die Daten widersprechen sich.</li>
+  <li><strong>Einfügeanomalie:</strong> Eine neue Besitzerin lässt sich erst speichern, wenn sie ein Tier hat.</li>
+  <li><strong>Löschanomalie:</strong> Wird das letzte Tier gelöscht, verschwinden auch die Daten der Besitzerin.</li>
+</ul>
+<p>Getrennte Tabellen, die über Schlüssel verknüpft sind, speichern jede Angabe nur einmal. Wer die Daten braucht, fügt sie bei der Abfrage wieder zusammen.</p>
+<aside class="note" data-typ="vertiefung" data-ziel="lf8"><p>Wie man Tabellen schrittweise in Normalformen bringt und mit SQL abfragt, wird in LF8 behandelt.</p></aside>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Frau Weber zieht von Leipzig nach Markkleeberg. In der Datenbank ändert die Auszubildende einen einzigen Datensatz in der Tabelle Besitzer. Mimi und Bello verweisen über <code>besitzer_id</code> = 1 automatisch auf die neue Anschrift.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Name ist doch eindeutig genug als Primärschlüssel.“ Nein: Namen wiederholen sich und können sich ändern. Ein Primärschlüssel muss eindeutig und stabil sein; deshalb nimmt man meist eine eigene Nummer.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Relationale Datenbank:</strong> Tabellen mit Datensätzen (Zeilen) und Attributen (Spalten), verwaltet von einem DBMS.</li>
+  <li><strong>Primärschlüssel</strong> kennzeichnet jeden Datensatz eindeutig, <strong>Fremdschlüssel</strong> verweist auf den Primärschlüssel einer anderen Tabelle; Aufteilen vermeidet Redundanz und Anomalien.</li>
+</ul>

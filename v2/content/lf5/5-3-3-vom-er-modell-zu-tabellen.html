@@ -1,0 +1,50 @@
+<p class="lead">Das ER-Modell steht, jetzt braucht die Datenbank Tabellen. Die Umsetzung folgt wenigen festen Regeln. Mit ihnen kannst du aus jedem einfachen ER-Modell die Tabellen ableiten und erkennen, wo Fremdschlüssel hingehören und wann eine Zwischentabelle nötig ist.</p>
+
+<h3>Die Regeln</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Im ER-Modell</th><th>In den Tabellen</th></tr></thead>
+    <tbody>
+      <tr><th>Entitätstyp</th><td>eigene Tabelle, das Schlüsselattribut wird Primärschlüssel</td></tr>
+      <tr><th>Attribut</th><td>Spalte mit passendem Datentyp</td></tr>
+      <tr><th>1:n-Beziehung</th><td>Fremdschlüssel auf der n-Seite, der auf den Primärschlüssel der 1-Seite zeigt</td></tr>
+      <tr><th>n:m-Beziehung</th><td>eigene <strong>Zwischentabelle</strong> mit zwei Fremdschlüsseln, je einer zu jeder Seite; beide zusammen bilden meist den Primärschlüssel; Attribute der Beziehung kommen hierher</td></tr>
+      <tr><th>1:1-Beziehung</th><td>Fremdschlüssel auf einer der beiden Seiten, der nur einmal vorkommen darf; oft lassen sich beide Tabellen auch zusammenlegen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Eine n:m-Beziehung lässt sich nicht mit einem einzelnen Fremdschlüssel abbilden: Ein Tier müsste sonst in einer Spalte mehrere Impfstoffe speichern, In einem Feld steht aber nur ein Wert. Eine Liste wie „3, 5, 7“ ließe sich kaum durchsuchen oder auf gültige Verweise prüfen.</p>
+
+<h3>Das Beispiel der Tierarztpraxis</h3>
+<p>Aus dem ER-Modell in Kapitel 5.3.2 (mit 1:n zwischen Besitzer und Tier) entstehen vier Tabellen, ergänzt um Attribute, die im Auszug des ER-Modells fehlen. PK steht für Primärschlüssel, FK für Fremdschlüssel:</p>
+<ul>
+  <li><strong>Besitzer</strong> (<u>besitzer_id</u> PK, name, ort, telefon)</li>
+  <li><strong>Tier</strong> (<u>tier_id</u> PK, name, tierart, geburtsdatum, besitzer_id FK → Besitzer)</li>
+  <li><strong>Impfstoff</strong> (<u>impfstoff_id</u> PK, bezeichnung, hersteller)</li>
+  <li><strong>Impfung</strong> (<u>tier_id</u> FK → Tier, <u>impfstoff_id</u> FK → Impfstoff, <u>datum</u>, charge; PK: tier_id + impfstoff_id + datum)</li>
+</ul>
+<p>Die Zwischentabelle Impfung bekommt einen Namen aus der Fachsprache. Ihr Primärschlüssel besteht hier aus drei Spalten, denn dasselbe Tier kann denselben Impfstoff an verschiedenen Tagen erhalten. Alternativ gibt man ihr eine eigene Nummer <code>impfung_id</code>.</p>
+<div class="vergleich">
+  <table>
+    <caption>Tabelle Impfung (Ausschnitt)</caption>
+    <thead><tr><th>tier_id</th><th>impfstoff_id</th><th>datum</th><th>charge</th></tr></thead>
+    <tbody>
+      <tr><th>10</th><td>3</td><td>2025-04-02</td><td>K4711</td></tr>
+      <tr><th>10</th><td>5</td><td>2025-04-02</td><td>T0815</td></tr>
+      <tr><th>11</th><td>3</td><td>2025-06-20</td><td>K4720</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Mimi (10) hat am selben Tag zwei verschiedene Impfstoffe bekommen, Impfstoff 3 wurde Mimi und Bello gegeben. Genau das ist n:m.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Praxis möchte nun auch Behandlungen erfassen. Die Auszubildende prüft: Ein Tier hat viele Behandlungen, eine Behandlung gehört zu genau einem Tier, also 1:n. Sie legt eine Tabelle Behandlung mit eigenem Primärschlüssel <code>behandlung_id</code>, Datum, Befund und dem Fremdschlüssel <code>tier_id</code> an. Eine Zwischentabelle braucht es hier nicht.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Bei 1:n kommt der Fremdschlüssel auf die 1-Seite.“ Nein: Er kommt auf die n-Seite. Jedes Tier trägt die Nummer seiner Besitzerin, nicht die Besitzerin eine Liste ihrer Tiere.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Umsetzung:</strong> Entitätstyp wird Tabelle, Attribut wird Spalte, Schlüsselattribut wird Primärschlüssel.</li>
+  <li><strong>Beziehungen:</strong> 1:n mit Fremdschlüssel auf der n-Seite; n:m mit Zwischentabelle aus zwei Fremdschlüsseln plus Beziehungsattributen.</li>
+</ul>

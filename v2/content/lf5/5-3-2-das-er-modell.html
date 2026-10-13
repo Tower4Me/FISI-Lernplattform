@@ -1,0 +1,56 @@
+<p class="lead">Bevor Tabellen angelegt werden, klärt das Systemhaus mit der Praxis: Welche Dinge sollen gespeichert werden, was gehört zu ihnen, und wie hängen sie zusammen? Das Ergebnis ist ein Entity-Relationship-Modell. Es ist leicht zu zeichnen, auch für Laien verständlich und die Vorlage für die Tabellen (Kapitel 5.3.3).</p>
+
+<h3>Bausteine</h3>
+<ul>
+  <li><strong>Entität:</strong> ein Gegenstand oder Vorgang der realen Welt, über den Daten gespeichert werden, etwa ein bestimmtes Tier oder eine Behandlung. Gleichartige Entitäten bilden einen <strong>Entitätstyp</strong> („Tier“). Im Diagramm: Rechteck.</li>
+  <li><strong>Attribut:</strong> eine Eigenschaft, etwa Name oder Geburtsdatum. Im Diagramm: Ellipse; das Schlüsselattribut wird unterstrichen.</li>
+  <li><strong>Beziehung:</strong> wie Entitätstypen zusammenhängen, etwa „Besitzer besitzt Tier“. Im Diagramm: Raute. Auch eine Beziehung kann Attribute haben.</li>
+</ul>
+<p>Diese Darstellung heißt <strong>Chen-Notation</strong>. Daneben ist die Krähenfuß-Notation verbreitet: Dort ist die Beziehung nur eine Linie, und die Kardinalität steht als Symbol an den Linienenden.</p>
+
+<h3>Kardinalitäten</h3>
+<p>Die <strong>Kardinalität</strong> gibt an, mit wie vielen Entitäten der anderen Seite eine Entität verbunden sein kann.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Kardinalität</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th>1:1</th><td>eins zu eins</td><td>Tier – Mikrochip (jedes Tier höchstens ein Chip, jeder Chip in einem Tier)</td></tr>
+      <tr><th>1:n</th><td>eins zu vielen</td><td>Besitzer – Tier (eine Besitzerin hat mehrere Tiere, jedes Tier eine Besitzerin)</td></tr>
+      <tr><th>n:m</th><td>viele zu vielen</td><td>Tier – Impfstoff (ein Tier bekommt mehrere Impfstoffe, ein Impfstoff wird vielen Tieren gegeben)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Zahlen geben an, wie viele höchstens möglich sind. Zur Bestimmung stellst du die Frage in beide Richtungen: „Wie viele Tiere kann eine Besitzerin haben?“ – viele. „Wie viele Besitzer hat ein Tier?“ – in diesem Modell eine. Also 1:n.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 640 230" role="img" aria-label="ER-Diagramm in Chen-Notation: Besitzer 1 zu n besitzt Tier, Tier n zu m erhält Impfstoff, die Beziehung erhält hat das Attribut Datum">
+    <rect class="g-box" x="10" y="90" width="110" height="44" rx="2"/><text x="65" y="117" text-anchor="middle">Besitzer</text>
+    <path class="g-box" d="M200 112 L245 87 L290 112 L245 137 Z"/><text x="245" y="117" text-anchor="middle" font-size="13">besitzt</text>
+    <rect class="g-accent" x="330" y="90" width="90" height="44" rx="2"/><text x="375" y="117" text-anchor="middle">Tier</text>
+    <path class="g-box" d="M450 112 L490 87 L530 112 L490 137 Z"/><text x="490" y="117" text-anchor="middle" font-size="13">erhält</text>
+    <rect class="g-box" x="550" y="90" width="85" height="44" rx="2"/><text x="592" y="117" text-anchor="middle" font-size="13">Impfstoff</text>
+    <path class="g-line" d="M120 112H200M290 112H330M420 112H450M530 112H550"/>
+    <text x="150" y="104" text-anchor="middle" font-size="13">1</text><text x="315" y="104" text-anchor="middle" font-size="13">n</text>
+    <text x="435" y="104" text-anchor="middle" font-size="13">n</text><text x="540" y="104" text-anchor="middle" font-size="13">m</text>
+    <ellipse class="g-box" cx="65" cy="30" rx="50" ry="17"/><text x="65" y="35" text-anchor="middle" font-size="12" text-decoration="underline">besitzer_id</text>
+    <ellipse class="g-box" cx="65" cy="195" rx="40" ry="17"/><text x="65" y="200" text-anchor="middle" font-size="12">name</text>
+    <ellipse class="g-box" cx="375" cy="30" rx="40" ry="17"/><text x="375" y="35" text-anchor="middle" font-size="12" text-decoration="underline">tier_id</text>
+    <ellipse class="g-box" cx="375" cy="195" rx="40" ry="17"/><text x="375" y="200" text-anchor="middle" font-size="12">name</text>
+    <ellipse class="g-box" cx="490" cy="195" rx="40" ry="17"/><text x="490" y="200" text-anchor="middle" font-size="12">datum</text>
+    <ellipse class="g-box" cx="592" cy="30" rx="44" ry="17"/><text x="592" y="35" text-anchor="middle" font-size="12" text-decoration="underline">impfstoff_id</text>
+    <path class="g-line" d="M65 47V90M65 134V178M375 47V90M375 134V178M490 137V178M592 47V90"/>
+  </svg>
+  <figcaption>Lies so: Die Zahl steht an dem Entitätstyp, von dem es so viele geben kann. Eine Besitzerin besitzt n Tiere, ein Tier hat eine Besitzerin. ER-Modell der Tierarztpraxis (Chen-Notation, Auszug): Schlüsselattribute unterstrichen. Das Datum gehört zur Beziehung „erhält“, denn es beschreibt eine bestimmte Impfung, nicht das Tier oder den Impfstoff allein.</figcaption>
+</figure>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Gespräch fragt der Auszubildende die Inhaberin: „Kann ein Tier mehreren Personen gehören, etwa einem Paar?“ Die Inhaberin entscheidet: Gespeichert wird nur eine Hauptansprechperson je Tier, es bleibt also bei 1:n. Hätte sie beide speichern wollen, wäre daraus eine n:m-Beziehung geworden. Eine solche Frage im Modell zu klären ist viel günstiger, als später eine fertige Datenbank umzubauen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Das Impfdatum ist ein Attribut des Tieres.“ Nein: Ein Tier wird mehrmals geimpft, jedes Mal mit eigenem Datum. Das Datum gehört zur einzelnen Impfung, also zur Beziehung zwischen Tier und Impfstoff.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>ER-Modell:</strong> Entitätstypen (Rechteck), Attribute (Ellipse, Schlüssel unterstrichen), Beziehungen (Raute), auch mit eigenen Attributen.</li>
+  <li><strong>Kardinalitäten</strong> 1:1, 1:n, n:m; bestimmt durch die Frage in beide Richtungen.</li>
+</ul>

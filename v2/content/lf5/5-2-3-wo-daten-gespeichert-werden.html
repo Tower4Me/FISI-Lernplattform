@@ -1,0 +1,36 @@
+<p class="lead">Bisher liegt die Patiententabelle der Tierarztpraxis auf einem PC am Empfang. Fällt er aus, steht die Praxis still, und in den Behandlungsräumen sieht niemand die Daten. Wo Daten gespeichert werden, entscheidet über Verfügbarkeit, Schutz und Kosten. Deshalb wählst du die Speicherlösung nach den Anforderungen aus der Datenanalyse (Kapitel 5.1.1).</p>
+
+<h3>Speicherlösungen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Lösung</th><th>Stärken</th><th>Schwächen</th><th>Passt für</th></tr></thead>
+    <tbody>
+      <tr><th>Datei auf dem eigenen Rechner</th><td>einfach, keine laufenden Kosten</td><td>nur an einem Gerät, Ausfall trifft alle, keine gleichzeitige Bearbeitung</td><td>Einzelplatz, private Daten</td></tr>
+      <tr><th>Datei auf einem Netzlaufwerk (NAS, Server)</th><td>von mehreren Arbeitsplätzen erreichbar, zentral sicherbar</td><td>gleichzeitiges Bearbeiten derselben Datei führt zu Konflikten</td><td>Dokumente, Bilder, Austauschdateien</td></tr>
+      <tr><th>Datenbank</th><td>viele gleichzeitig, Daten bleiben stimmig, schnelles Suchen und Auswerten, Rechte pro Feld oder Tabelle</td><td>braucht Datenbanksystem und Pflege</td><td>strukturierte Daten in Mehrbenutzer-Anwendungen (Kapitel 5.3)</td></tr>
+      <tr><th>Cloud-Dienst</th><td>von überall erreichbar, Betrieb und Hardware beim Anbieter, wächst mit</td><td>abhängig von Internet und Anbieter, laufende Kosten, Datenschutz vertraglich regeln</td><td>verteilte Teams, Software als Dienst (SaaS)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Worauf du bei der Auswahl achtest</h3>
+<ul>
+  <li><strong>Mehrbenutzerzugriff:</strong> Arbeiten mehrere Personen gleichzeitig mit denselben Daten, ist eine Datenbank fast immer besser als eine gemeinsame Datei.</li>
+  <li><strong>Verfügbarkeit:</strong> Wie lange darf ein Ausfall dauern? Daraus folgen Sicherung, Ersatzgeräte oder ein Cloud-Dienst mit vertraglich zugesicherter Verfügbarkeit (Service Level Agreement, SLA).</li>
+  <li><strong>Datenschutz:</strong> Wo stehen die Server, wer hat Zugriff? Verarbeitet ein Cloud-Dienst personenbezogene Daten, etwa die der Tierhalterinnen und Tierhalter, braucht es einen Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO); ein Standort in der EU erleichtert die Prüfung.</li>
+  <li><strong>Datensicherheit:</strong> Zugriffsrechte und Verschlüsselung schützen die Daten, und jede Lösung braucht eine Datensicherung, auch die Cloud. Löscht jemand Daten oder verschlüsselt Schadsoftware sie, wird die Änderung sonst sofort auf alle Geräte übertragen.</li>
+  <li><strong>Speicheranforderung und Kosten:</strong> Menge heute und in einigen Jahren (LF2, Kapitel 2.4.2), Kauf gegenüber laufender Miete.</li>
+</ul>
+<aside class="note" data-typ="vertiefung"><p>Wie Datensicherungen geplant werden, wird in <a href="../lf4/4-6-2-daten-sichern.html">LF4, Kapitel 4.6.2</a> behandelt.</p></aside>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Tierarztpraxis empfiehlt das Systemhaus eine Praxissoftware mit Datenbank auf einem kleinen Server im Praxisnetz: Empfang und beide Behandlungsräume arbeiten gleichzeitig, auch wenn das Internet ausfällt. Röntgenbilder liegen als Dateien auf dem NAS, verknüpft mit dem Patienten. Gesichert wird täglich verschlüsselt auf ein zweites Gerät und wöchentlich außer Haus. Eine reine Cloud-Lösung lehnt die Inhaberin ab, weil der Internetanschluss der Praxis oft gestört ist.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„In der Cloud brauche ich keine Datensicherung.“ Nein: Der Anbieter schützt vor seinen Hardwareausfällen, aber nicht vor versehentlichem Löschen, Schadsoftware oder einem gekündigten Konto. Eine eigene Sicherung bleibt nötig.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Speicherlösungen:</strong> lokale Datei, Netzlaufwerk, Datenbank, Cloud; Mehrbenutzer-Anwendungen mit strukturierten Daten brauchen eine Datenbank.</li>
+  <li><strong>Auswahl</strong> nach Mehrbenutzerzugriff, Verfügbarkeit, Datenschutz, Datensicherheit, Speichermenge und Kosten; gesichert wird immer.</li>
+</ul>

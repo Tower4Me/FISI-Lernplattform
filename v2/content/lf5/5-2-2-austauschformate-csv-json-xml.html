@@ -1,0 +1,58 @@
+<p class="lead">Die Praxissoftware soll Termine an eine Online-Terminbuchung melden und Impfdaten aus der alten Tabelle übernehmen. Damit zwei Programme Daten austauschen können, brauchen sie ein gemeinsames Format. Drei Textformate decken die meisten Fälle ab: CSV, JSON und XML.</p>
+
+<h3>Tierdaten in drei Formaten</h3>
+<div class="reiter" data-reiter>
+  <div class="reiter-panel" data-label="CSV">
+<pre><code>tiername;tierart;geburtsdatum;gewicht_kg
+Mimi;Katze;2021-05-14;4,35
+Bello;Hund;2018-11-02;12,4</code></pre>
+<p><strong>CSV</strong> (Comma-Separated Values): eine Zeile pro Datensatz, Werte durch ein Trennzeichen getrennt. In Deutschland ist das Semikolon üblich, weil das Komma als Dezimalzeichen dient. Die erste Zeile enthält oft die Spaltennamen. Enthält ein Wert selbst das Trennzeichen oder einen Zeilenumbruch, steht er in doppelten Anführungszeichen, etwa <code>"Mimi; die Kleine"</code>. Der Standard RFC 4180 sieht eigentlich das Komma vor.</p>
+  </div>
+  <div class="reiter-panel" data-label="JSON">
+<pre><code>[
+  {"tiername": "Mimi", "tierart": "Katze",
+   "geburtsdatum": "2021-05-14", "gewicht_kg": 4.35,
+   "impfungen": ["Katzenschnupfen", "Tollwut"]},
+  {"tiername": "Bello", "tierart": "Hund",
+   "geburtsdatum": "2018-11-02", "gewicht_kg": 12.4,
+   "impfungen": []}
+]</code></pre>
+<p><strong>JSON</strong> (JavaScript Object Notation): Objekte in geschweiften Klammern mit Paaren aus Schlüssel und Wert, Listen in eckigen Klammern. Kennt Zahlen, Text, Wahrheitswerte und <code>null</code>; Daten lassen sich verschachteln. Zahlen stehen in JSON immer mit Dezimalpunkt (4.35). Einen eigenen Datumstyp gibt es nicht; ein Datum steht als Text, am besten nach ISO 8601.</p>
+  </div>
+  <div class="reiter-panel" data-label="XML">
+<pre><code>&lt;tiere&gt;
+  &lt;tier art="Katze"&gt;
+    &lt;name&gt;Mimi&lt;/name&gt;
+    &lt;geburtsdatum&gt;2021-05-14&lt;/geburtsdatum&gt;
+    &lt;gewicht einheit="kg"&gt;4.35&lt;/gewicht&gt;
+  &lt;/tier&gt;
+&lt;/tiere&gt;</code></pre>
+<p><strong>XML</strong> (Extensible Markup Language): Daten zwischen öffnenden und schließenden Tags, zusätzliche Angaben als Attribute. Ein Schema kann genau festlegen, welche Elemente erlaubt sind.</p>
+  </div>
+</div>
+
+<h3>Vergleich</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>CSV</th><th>JSON</th><th>XML</th></tr></thead>
+    <tbody>
+      <tr><th>Struktur</th><td>flache Tabelle</td><td>verschachtelt</td><td>verschachtelt, mit Attributen</td></tr>
+      <tr><th>Datentypen</th><td>keine, alles Text</td><td>Zahl, Text, Wahrheitswert, null, Liste, Objekt</td><td>alles Text, Typen über ein Schema</td></tr>
+      <tr><th>Größe</th><td>sehr kompakt</td><td>kompakt</td><td>ausführlich durch Tags</td></tr>
+      <tr><th>Typischer Einsatz</th><td>Tabellenexport, Import in Tabellenkalkulation</td><td>Web-Schnittstellen (APIs), Konfiguration</td><td>Dokumente, Behörden- und Branchenstandards, Office-Dateien</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Alle drei sind Textformate. JSON und XML sind standardmäßig UTF-8; CSV-Dateien aus Excel sind oft noch Windows-1252 (Kapitel 5.1.3). Für einen reibungslosen Austausch müssen beide Seiten auch Details abstimmen: Trennzeichen, Dezimalzeichen, Datumsformat (am sichersten <code>JJJJ-MM-TT</code> nach ISO 8601) und Zeichenkodierung.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Online-Terminbuchung erwartet Termine als JSON über eine Web-Schnittstelle. Die Impfliste aus der alten Tabelle übernimmt die Auszubildende dagegen per CSV-Import: Sie speichert die Tabelle als CSV mit Semikolon und UTF-8, ordnet im Importdialog die Spalten den Feldern der Praxissoftware zu und prüft danach zehn zufällige Tiere.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„CSV ist immer mit Komma getrennt.“ Nein: Trotz des Namens nutzen deutsche Programme meist das Semikolon. Stimmt das Trennzeichen nicht, landet beim Import eine ganze Zeile in einer einzigen Spalte.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>CSV:</strong> flache Tabelle, Trennzeichen, kein Datentyp; <strong>JSON:</strong> Schlüssel-Wert-Paare und Listen, verschachtelt, Standard bei Web-Schnittstellen; <strong>XML:</strong> Tags und Attribute, ausführlich, Aufbau per Schema genau festlegbar.</li>
+  <li><strong>Austausch abstimmen:</strong> Trennzeichen, Dezimalzeichen, Datumsformat, Zeichenkodierung.</li>
+</ul>

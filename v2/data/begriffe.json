@@ -1429,6 +1429,42 @@
           "tiefe": "Datentypen"
         }
       ]
+    },
+    {
+      "begriff": "datenformate",
+      "kernfakten": [
+        "Textdatei: Zeichen in Kodierung, Editor; Binärdatei: beliebige Bytes, Programm nötig, kompakter; .docx = ZIP mit XML.",
+        "Format erkennen: Endung (unverbindlich), Signatur (%PDF, PNG 89 50 4E 47), MIME-Typ; umwandeln per Export/Import/Konverter, nicht umbenennen.",
+        "CSV flach (DE Semikolon), JSON Objekte/Listen (APIs), XML Tags/Attribute/Schema; Trennzeichen, Dezimalzeichen, ISO 8601, UTF-8 abstimmen.",
+        "Kompression verlustfrei (ZIP, PNG, FLAC) vs. verlustbehaftet (JPEG, MP3, H.264), Rate 10:1 = 90 % gespart; Prüfen: Parität (1 Bit erkennbar, keine Korrektur), Prüfziffer (EAN Gewichte 1/3, IBAN 2 Prüfziffern), CRC, Hash (gegen Manipulation nur mit vertrauenswürdigem Vergleichswert); Base64 +1/3."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-2-1",
+          "tiefe": "Text/Binär"
+        },
+        {
+          "id": "5-2-2",
+          "tiefe": "Austauschformate"
+        },
+        {
+          "id": "5-2-4",
+          "tiefe": "Kompression, Prüfung"
+        }
+      ]
+    },
+    {
+      "begriff": "speicherloesungen",
+      "kernfakten": [
+        "Lokale Datei, Netzlaufwerk, Datenbank (Mehrbenutzer, konsistent), Cloud/SaaS.",
+        "Auswahl nach Mehrbenutzerzugriff, Verfügbarkeit, Datenschutz (AV-Vertrag, Standort), Datensicherheit (immer sichern, auch Cloud), Menge, Kosten."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-2-3",
+          "tiefe": "Auswahl"
+        }
+      ]
     }
   ]
 }

@@ -2606,6 +2606,101 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "5.2",
+          "titel": "Datenformate und Speicherung",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "5.2.1",
+              "titel": "Text- und Binärdateien",
+              "slug": "text-und-binaerdateien",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Datenformate und Speicherlösungen berücksichtigen, Datenschutz, Datensicherheit und Speicheranforderung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (ASCII-Datei vs. Binärdatei, Formate konvertieren)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "bild-videoformate",
+                "mime-base64"
+              ],
+              "begriffe": [
+                "datenformate"
+              ]
+            },
+            {
+              "nummer": "5.2.2",
+              "titel": "Austauschformate: CSV, JSON, XML",
+              "slug": "austauschformate-csv-json-xml",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Datenformate und Speicherlösungen berücksichtigen, Datenschutz, Datensicherheit und Speicheranforderung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "RFC 4180 (CSV)",
+                  "RFC 8259 (JSON)",
+                  "W3C XML 1.0",
+                  "ISO 8601"
+                ]
+              },
+              "material": [
+                "mime-base64"
+              ],
+              "begriffe": [
+                "datenformate"
+              ]
+            },
+            {
+              "nummer": "5.2.3",
+              "titel": "Wo Daten gespeichert werden",
+              "slug": "wo-daten-gespeichert-werden",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Datenformate und Speicherlösungen berücksichtigen, Datenschutz, Datensicherheit und Speicheranforderung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "DSGVO Art. 28 (Auftragsverarbeitung)"
+                ]
+              },
+              "material": [
+                "dsgvo-grundlagen",
+                "db-grundlagen"
+              ],
+              "begriffe": [
+                "speicherloesungen"
+              ]
+            },
+            {
+              "nummer": "5.2.4",
+              "titel": "Daten komprimieren und prüfen",
+              "slug": "daten-komprimieren-und-pruefen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Datenformate und Speicherlösungen berücksichtigen, Datenschutz, Datensicherheit und Speicheranforderung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021 (Prüfziffernverfahren)",
+                  "AP1 Frühjahr 2025 (Hashwert)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "kompression",
+                "pruefziffern-paritaet",
+                "bild-videoformate"
+              ],
+              "begriffe": [
+                "datenformate"
+              ]
+            }
+          ]
         }
       ]
     }

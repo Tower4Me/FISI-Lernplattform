@@ -1,0 +1,43 @@
+<p class="lead">Röntgenbilder füllen schnell jede Festplatte, und beim Übertragen soll kein Bit verloren gehen. Kompression spart Platz und Übertragungszeit, Prüfverfahren zeigen, ob Daten unverändert angekommen sind. Beides steckt in fast jedem Dateiformat und jeder Übertragung.</p>
+
+<h3>Kompression</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Verlustfrei</th><th>Verlustbehaftet</th></tr></thead>
+    <tbody>
+      <tr><th>Prinzip</th><td>Wiederholungen und Muster kürzer schreiben; beim Entpacken entsteht exakt das Original</td><td>Details weglassen, die Menschen kaum wahrnehmen; das Original lässt sich nicht wiederherstellen</td></tr>
+      <tr><th>Beispiele</th><td>ZIP, 7z, PNG, FLAC</td><td>JPEG, MP3, AAC, H.264/H.265 für Video</td></tr>
+      <tr><th>Einsatz</th><td>Programme, Dokumente, Datenbanken, in der Regel medizinische Bilder zur Diagnose</td><td>Fotos, Musik, Videos für Anzeige und Versand</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wie stark komprimiert wird, beschreibt die <strong>Kompressionsrate</strong>: etwa „10 : 1“, wenn eine Datei auf ein Zehntel schrumpft, also 90 % Platz spart (aus 50 MB werden 5 MB). Text komprimiert sich gut; bereits komprimierte Dateien wie JPEG oder MP4 werden durch ein ZIP-Archiv kaum kleiner.</p>
+
+<h3>Daten prüfen</h3>
+<p>Bei Speicherung und Übertragung können einzelne Bits kippen, oder Daten werden absichtlich verändert. Prüfverfahren hängen deshalb einen aus den Daten berechneten Wert an. Der Empfänger rechnet nach und vergleicht.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Verfahren</th><th>Funktionsweise</th><th>Einsatz</th></tr></thead>
+    <tbody>
+      <tr><th>Paritätsbit</th><td>ein zusätzliches Bit macht die Zahl der Einsen gerade (oder ungerade); erkennt ein gekipptes Bit, aber nicht zwei; korrigieren kann es nicht</td><td>einfache serielle Übertragungen, früher Speicherbausteine</td></tr>
+      <tr><th>Prüfziffer</th><td>eine aus den übrigen Ziffern berechnete Ziffer erkennt die meisten Tippfehler und Zahlendreher</td><td>IBAN, EAN-Strichcode, ISBN</td></tr>
+      <tr><th>Prüfsumme (CRC)</th><td>ein aus allen Bytes berechneter Wert erkennt zufällige Übertragungsfehler</td><td>Ethernet-Rahmen (FCS), ZIP-Dateien, Datenträger</td></tr>
+      <tr><th>Hashwert</th><td>ein „Fingerabdruck“ der Daten; mit einem Vergleichswert aus vertrauenswürdiger Quelle fallen auch absichtliche Änderungen auf</td><td>Downloads prüfen, Integrität nachweisen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Beispiel EAN-13: Die ersten 12 Ziffern 4 0 0 6 3 8 1 3 3 3 9 3 werden abwechselnd mal 1 und mal 3 genommen und addiert: 89. Die Prüfziffer ergänzt auf den nächsten Zehner: 90 − 89 = 1. Die vollständige Nummer lautet 4006381333931. Die IBAN hat dagegen zwei Prüfziffern (Stelle 3 und 4).</p>
+<p>Paritätsbit, Prüfziffer und CRC erkennen Fehler, schützen aber nicht vor Manipulation: Wer Daten absichtlich ändert, kann den Prüfwert einfach neu berechnen.</p>
+<aside class="note" data-typ="vertiefung"><p>Wie Hashwerte und digitale Signaturen gegen Manipulation schützen, wird in <a href="../lf4/4-5-5-hashwerte-und-digitale-signatur.html">LF4, Kapitel 4.5.5</a> behandelt.</p></aside>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für das Bildarchiv der Praxis prüft der Auszubildende die Formate: Diagnostische Röntgenbilder bleiben verlustfrei gespeichert, damit keine Details für die Befundung verloren gehen. Für die Erinnerungsfotos auf der Praxis-Website reicht JPEG mit deutlich kleineren Dateien. Beim Herunterladen eines Updates der Praxissoftware vergleicht er den Hashwert mit der Angabe des Herstellers.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein JPEG-Bild wird noch einmal kleiner, wenn ich es zippe.“ Kaum: JPEG ist bereits komprimiert. Ein ZIP-Archiv spart dann fast nichts; bei Text oder Tabellen dagegen viel.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Kompression:</strong> verlustfrei (ZIP, PNG) stellt das Original wieder her, verlustbehaftet (JPEG, MP3, H.264) lässt Details weg.</li>
+  <li><strong>Prüfen:</strong> Paritätsbit, Prüfziffer und CRC erkennen Fehler; gegen absichtliche Änderung helfen Hashwerte aus vertrauenswürdiger Quelle und digitale Signaturen.</li>
+</ul>

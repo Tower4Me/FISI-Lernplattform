@@ -1,0 +1,63 @@
+<p class="lead">Die Anpassung der Praxissoftware ist mehr als Programmieren: Anforderungen klären, Datenbank ändern, Altdaten übernehmen, testen, schulen. Ein Vorgehensmodell legt fest, in welcher Reihenfolge das geschieht, wer wofür zuständig ist und wann der Kunde Ergebnisse sieht. Welches Modell passt, hängt vor allem davon ab, wie genau die Anforderungen am Anfang feststehen.</p>
+
+<h3>Sequenziell: das Wasserfallmodell</h3>
+<p>Im <strong>Wasserfallmodell</strong> laufen die Phasen nacheinander ab. Jede Phase endet mit einem Ergebnis, etwa einem Dokument, und die nächste baut darauf auf:</p>
+<ol>
+  <li><strong>Anforderungsanalyse:</strong> Was soll die Software können?</li>
+  <li><strong>Entwurf:</strong> Wie wird es umgesetzt, etwa Datenmodell und Oberfläche?</li>
+  <li><strong>Umsetzung:</strong> Programmieren und Einrichten.</li>
+  <li><strong>Test:</strong> Erfüllt das Ergebnis die Anforderungen?</li>
+  <li><strong>Einführung und Betrieb:</strong> Übergabe, Schulung, Wartung.</li>
+</ol>
+<p>Das Modell ist gut planbar: Termine, Kosten und Zwischenergebnisse lassen sich früh festlegen. Der Nachteil: Der Kunde sieht die fertige Software erst spät. Stellt sich im Test heraus, dass eine Anforderung falsch verstanden wurde, ist die Korrektur teuer, weil frühere Phasen wieder aufgerollt werden müssen. Eine Erweiterung ist das <strong>V-Modell</strong>, das jeder Entwurfsphase eine passende Teststufe gegenüberstellt (Kapitel 5.6.2).</p>
+
+<h3>Agil: Scrum</h3>
+<p>Agile Vorgehensmodelle arbeiten <strong>iterativ und inkrementell</strong>: In kurzen Zyklen entsteht jeweils ein nutzbares Stück Software, der Kunde gibt Rückmeldung, und die Planung wird angepasst. Das bekannteste agile Rahmenwerk ist <strong>Scrum</strong>.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Bestandteil</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th rowspan="3">Rollen</th><td>Product Owner</td><td>verantwortet das Produkt, pflegt und priorisiert das Product Backlog</td></tr>
+      <tr><td>Scrum Master</td><td>sorgt dafür, dass Scrum verstanden und gelebt wird, räumt Hindernisse aus dem Weg</td></tr>
+      <tr><td>Entwicklungsteam (im Scrum Guide 2020: Developers)</td><td>setzt die Arbeit im Sprint um und ist selbstmanagend</td></tr>
+      <tr><th rowspan="3">Artefakte</th><td>Product Backlog</td><td>geordnete Liste aller Anforderungen an das Produkt, wird laufend angepasst</td></tr>
+      <tr><td>Sprint Backlog</td><td>das Sprint-Ziel, die dafür ausgewählten Einträge und der Plan zur Umsetzung</td></tr>
+      <tr><td>Inkrement</td><td>fertiges, nutzbares Ergebnis, das die vereinbarte Definition of Done erfüllt; spätestens im Sprint Review gezeigt</td></tr>
+      <tr><th rowspan="5">Ereignisse</th><td>Sprint</td><td>fester Zeitraum von höchstens einem Monat, oft zwei Wochen</td></tr>
+      <tr><td>Sprint Planning</td><td>zu Beginn: Was wird in diesem Sprint umgesetzt?</td></tr>
+      <tr><td>Daily Scrum</td><td>tägliches Treffen der Developers, höchstens 15 Minuten, zur Abstimmung auf das Sprint-Ziel</td></tr>
+      <tr><td>Sprint Review</td><td>am Ende: Das Inkrement wird dem Kunden gezeigt, das Backlog angepasst</td></tr>
+      <tr><td>Sprint Retrospektive</td><td>danach: Das Team prüft seine Zusammenarbeit und beschließt Verbesserungen</td></tr>
+    </tbody>
+  </table>
+</div>
+<aside class="note" data-typ="fehler"><p>„Review und Retrospektive sind dasselbe.“ Im Review geht es um das Produkt, zusammen mit dem Kunden. In der Retrospektive geht es um die Arbeitsweise des Teams.</p></aside>
+
+<h3>Agil: Kanban</h3>
+<p><strong>Kanban</strong> kommt ohne feste Zyklen aus. Die Arbeit wird auf einem <strong>Kanban-Board</strong> sichtbar gemacht: Spalten für die Stationen eines Ablaufs (etwa „Offen“, „In Arbeit“, „Test“, „Erledigt“), Karten für die einzelnen Aufgaben. Die Karten wandern von links nach rechts. Wer Kapazität frei hat, zieht sich die nächste Karte (Pull-Prinzip). Ein <strong>WIP-Limit</strong> (Work in Progress) legt fest, wie viele Karten höchstens gleichzeitig in einer Spalte liegen dürfen. Ist die Spalte voll, wird erst eine Aufgabe fertiggestellt, bevor eine neue beginnt. So fallen Engpässe auf, und es bleiben weniger halbfertige Aufgaben liegen.</p>
+
+<h3>Welches Modell wann?</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Wasserfall</th><th>Scrum</th><th>Kanban</th></tr></thead>
+    <tbody>
+      <tr><th>Ablauf</th><td>Phasen nacheinander</td><td>Sprints mit festem Takt</td><td>fortlaufender Fluss</td></tr>
+      <tr><th>Anforderungen</th><td>am Anfang vollständig festgelegt</td><td>dürfen sich zwischen Sprints ändern</td><td>neue Aufgaben jederzeit</td></tr>
+      <tr><th>Ergebnis für den Kunden</th><td>am Ende</td><td>nach jedem Sprint</td><td>sobald eine Aufgabe fertig ist</td></tr>
+      <tr><th>passt gut bei</th><td>klarem Auftrag, Festpreis, festen Vorgaben</td><td>unklaren oder sich ändernden Anforderungen</td><td>laufend eintreffenden Aufgaben, etwa im Support</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus hat drei Aufträge der Tierarztpraxis. Die Anpassung der Datenbank und der Import der Altdaten sind im Pflichtenheft genau beschrieben, mit Festpreis und Termin: Hier wird nach Phasen geplant. Für eine neue Online-Terminbuchung weiß die Praxis noch nicht genau, was sie braucht: Das Team arbeitet in zweiwöchigen Sprints und zeigt der Praxis nach jedem Sprint den aktuellen Stand. Die Störungsmeldungen der Praxis bearbeitet der Support auf einem Kanban-Board mit WIP-Limit 3 für „In Arbeit“.</p>
+</div>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf12b"><p>Wie Projekte geplant, gesteuert und abgeschlossen werden, wird in LF12b ausführlicher behandelt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Wasserfall:</strong> Phasen nacheinander, gut planbar bei festen Anforderungen, Ergebnis erst am Ende.</li>
+  <li><strong>Scrum:</strong> Sprints mit Product Owner, Scrum Master und Entwicklungsteam; Product Backlog, Sprint Backlog, Inkrement; Planning, Daily, Review, Retrospektive.</li>
+  <li><strong>Kanban:</strong> Board mit Spalten und WIP-Limit, fortlaufender Fluss ohne feste Zyklen.</li>
+</ul>

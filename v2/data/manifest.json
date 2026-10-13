@@ -2887,6 +2887,76 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "5.5",
+          "titel": "Im Projekt vorgehen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "5.5.1",
+              "titel": "Vorgehensmodelle",
+              "slug": "vorgehensmodelle",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen (Vorgehen wählen, im Team umsetzen)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Scrum Guide 2020 (Rollen, Artefakte, Ereignisse, Sprint höchstens ein Monat, Daily Scrum 15 Minuten)"
+                ]
+              },
+              "material": [
+                "wasserfall-vs-agil",
+                "kanban-scrum-board"
+              ],
+              "begriffe": [
+                "vorgehensmodelle"
+              ]
+            },
+            {
+              "nummer": "5.5.2",
+              "titel": "Zeitplanung mit Netzplan und Gantt-Diagramm",
+              "slug": "zeitplanung-mit-netzplan-und-gantt-diagramm",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen (Anpassung planen)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2025 (Netzplan mit kritischem Pfad)"
+                ],
+                "extern": [
+                  "Werte des Beispiels mit Python nachgerechnet"
+                ]
+              },
+              "material": [
+                "netzplan",
+                "gantt-diagramm"
+              ],
+              "begriffe": [
+                "netzplan"
+              ]
+            },
+            {
+              "nummer": "5.5.3",
+              "titel": "Software dokumentieren",
+              "slug": "software-dokumentieren",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen (Softwaredokumentation)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "uml-diagramme"
+              ],
+              "begriffe": [
+                "softwaredokumentation",
+                "anforderungen"
+              ]
+            }
+          ]
         }
       ]
     }

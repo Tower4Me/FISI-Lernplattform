@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>5.5 Im Projekt vorgehen (Druck) – FISI Lernplattform</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/app.js" defer></script>
+<script src="../assets/tabs.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
+  <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+</svg>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="site-header">
+  <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
+  <a class="brand" href="../index.html"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
+  <div class="header-tools">
+    <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
+    <div class="theme-switch" role="group" aria-label="Farbschema">
+      <button type="button" data-theme-value="light" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span class="ts-text">Hell</span></button>
+      <button type="button" data-theme-value="dark" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span class="ts-text">Dunkel</span></button>
+      <button type="button" data-theme-value="system" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-auto"/></svg><span class="ts-text">System</span></button>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidenav" id="nav" aria-label="Lernfelder">
+  <ul class="nav-lf">
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF1</span><span>Das Unternehmen und die eigene Rolle im Betrieb beschreiben</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf1/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-1-1-unternehmen-im-wirtschaftsgeschehen.html"><span class="num">1.1</span><span>Das Unternehmen und seine Ziele</span><span class="kap-progress" data-ids="1-1-1 1-1-2 1-1-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-1-1" href="../lf1/1-1-1-unternehmen-im-wirtschaftsgeschehen.html"><span class="num">1.1.1</span><span class="t">Unternehmen im Wirtschaftsgeschehen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-1-2" href="../lf1/1-1-2-leitbild-und-unternehmensziele.html"><span class="num">1.1.2</span><span class="t">Leitbild und Unternehmensziele</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-1-3" href="../lf1/1-1-3-zielkonflikte-und-nachhaltigkeit.html"><span class="num">1.1.3</span><span class="t">Zielkonflikte und Nachhaltigkeit</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-1" href="../lf1/1-1-check.html"><span class="num">1.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-2-1-marktformen.html"><span class="num">1.2</span><span>Markt und Kunden</span><span class="kap-progress" data-ids="1-2-1 1-2-2 1-2-3 1-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-2-1" href="../lf1/1-2-1-marktformen.html"><span class="num">1.2.1</span><span class="t">Marktformen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-2-2" href="../lf1/1-2-2-kaeufermarkt-und-verkaeufermarkt.html"><span class="num">1.2.2</span><span class="t">Käufermarkt und Verkäufermarkt</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-2-3" href="../lf1/1-2-3-kunden-und-zielgruppen.html"><span class="num">1.2.3</span><span class="t">Kunden und Zielgruppen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-2-4" href="../lf1/1-2-4-leistungen-am-markt-platzieren.html"><span class="num">1.2.4</span><span class="t">Leistungen am Markt platzieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-2" href="../lf1/1-2-check.html"><span class="num">1.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-3-1-die-wertschoepfungskette.html"><span class="num">1.3</span><span>Wertschöpfung und Geschäftsprozesse</span><span class="kap-progress" data-ids="1-3-1 1-3-2 1-3-3 1-3-4 1-3-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-3-1" href="../lf1/1-3-1-die-wertschoepfungskette.html"><span class="num">1.3.1</span><span class="t">Die Wertschöpfungskette</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-2" href="../lf1/1-3-2-geschaeftsprozesse.html"><span class="num">1.3.2</span><span class="t">Geschäftsprozesse</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-3" href="../lf1/1-3-3-prozesse-mit-bpmn-darstellen.html"><span class="num">1.3.3</span><span class="t">Prozesse mit BPMN darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-4" href="../lf1/1-3-4-prozesse-mit-der-epk-darstellen.html"><span class="num">1.3.4</span><span class="t">Prozesse mit der EPK darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-5" href="../lf1/1-3-5-prozesse-verbessern.html"><span class="num">1.3.5</span><span class="t">Prozesse verbessern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-3" href="../lf1/1-3-check.html"><span class="num">1.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-4-1-aufbauorganisation-und-organigramm.html"><span class="num">1.4</span><span>Organisation und Rechtsform</span><span class="kap-progress" data-ids="1-4-1 1-4-2 1-4-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-4-1" href="../lf1/1-4-1-aufbauorganisation-und-organigramm.html"><span class="num">1.4.1</span><span class="t">Aufbauorganisation und Organigramm</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-4-2" href="../lf1/1-4-2-rechtsformen.html"><span class="num">1.4.2</span><span class="t">Rechtsformen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-4-3" href="../lf1/1-4-3-vollmachten.html"><span class="num">1.4.3</span><span class="t">Vollmachten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-4" href="../lf1/1-4-check.html"><span class="num">1.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-5-1-ausbildung-im-dualen-system.html"><span class="num">1.5</span><span>Die eigene Rolle im Betrieb</span><span class="kap-progress" data-ids="1-5-1 1-5-2 1-5-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-5-1" href="../lf1/1-5-1-ausbildung-im-dualen-system.html"><span class="num">1.5.1</span><span class="t">Ausbildung im dualen System</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-5-2" href="../lf1/1-5-2-im-team-arbeiten.html"><span class="num">1.5.2</span><span class="t">Im Team arbeiten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-5-3" href="../lf1/1-5-3-fort-und-weiterbildung.html"><span class="num">1.5.3</span><span class="t">Fort- und Weiterbildung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-5" href="../lf1/1-5-check.html"><span class="num">1.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-6-1-eine-praesentation-planen.html"><span class="num">1.6</span><span>Das Unternehmen präsentieren</span><span class="kap-progress" data-ids="1-6-1 1-6-2 1-6-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-6-1" href="../lf1/1-6-1-eine-praesentation-planen.html"><span class="num">1.6.1</span><span class="t">Eine Präsentation planen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-6-2" href="../lf1/1-6-2-folien-und-medien-gestalten.html"><span class="num">1.6.2</span><span class="t">Folien und Medien gestalten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-6-3" href="../lf1/1-6-3-qualitaet-pruefen-und-feedback-geben.html"><span class="num">1.6.3</span><span class="t">Qualität prüfen und Feedback geben</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-6" href="../lf1/1-6-check.html"><span class="num">1.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf1/rueckblick.html"><span class="num">1.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF2</span><span>Arbeitsplätze nach Kundenwunsch ausstatten</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf2/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-1-1-bedarf-im-kundengespraech-ermitteln.html"><span class="num">2.1</span><span>Kundenwunsch und Anforderungen</span><span class="kap-progress" data-ids="2-1-1 2-1-2 2-1-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-1-1" href="../lf2/2-1-1-bedarf-im-kundengespraech-ermitteln.html"><span class="num">2.1.1</span><span class="t">Bedarf im Kundengespräch ermitteln</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-1-2" href="../lf2/2-1-2-lastenheft-und-pflichtenheft.html"><span class="num">2.1.2</span><span class="t">Lastenheft und Pflichtenheft</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-1-3" href="../lf2/2-1-3-arbeitsplatztypen-und-geraeteklassen.html"><span class="num">2.1.3</span><span class="t">Arbeitsplatztypen und Geräteklassen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-1" href="../lf2/2-1-check.html"><span class="num">2.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-2-1-aufbau-eines-pcs.html"><span class="num">2.2</span><span>Hardware eines Arbeitsplatzrechners</span><span class="kap-progress" data-ids="2-2-1 2-2-2 2-2-3 2-2-4 2-2-5 2-2-6 2-2-7">0/7</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-2-1" href="../lf2/2-2-1-aufbau-eines-pcs.html"><span class="num">2.2.1</span><span class="t">Aufbau eines PCs</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-2" href="../lf2/2-2-2-prozessor.html"><span class="num">2.2.2</span><span class="t">Prozessor</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-3" href="../lf2/2-2-3-arbeitsspeicher.html"><span class="num">2.2.3</span><span class="t">Arbeitsspeicher</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-4" href="../lf2/2-2-4-massenspeicher.html"><span class="num">2.2.4</span><span class="t">Massenspeicher</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-5" href="../lf2/2-2-5-grafik-und-monitore.html"><span class="num">2.2.5</span><span class="t">Grafik und Monitore</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-6" href="../lf2/2-2-6-schnittstellen.html"><span class="num">2.2.6</span><span class="t">Schnittstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-7" href="../lf2/2-2-7-drucker-und-peripherie.html"><span class="num">2.2.7</span><span class="t">Drucker und Peripherie</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-2" href="../lf2/2-2-check.html"><span class="num">2.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-3-1-betriebssystem-und-schichtenmodell.html"><span class="num">2.3</span><span>Software einrichten</span><span class="kap-progress" data-ids="2-3-1 2-3-2 2-3-3 2-3-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-3-1" href="../lf2/2-3-1-betriebssystem-und-schichtenmodell.html"><span class="num">2.3.1</span><span class="t">Betriebssystem und Schichtenmodell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-3-2" href="../lf2/2-3-2-software-und-lizenzen.html"><span class="num">2.3.2</span><span class="t">Software und Lizenzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-3-3" href="../lf2/2-3-3-datentraeger-partitionieren-und-formatieren.html"><span class="num">2.3.3</span><span class="t">Datenträger partitionieren und formatieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-3-4" href="../lf2/2-3-4-firmware-bios-und-uefi.html"><span class="num">2.3.4</span><span class="t">Firmware: BIOS und UEFI</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-3" href="../lf2/2-3-check.html"><span class="num">2.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-4-1-bits-bytes-und-praefixe.html"><span class="num">2.4</span><span>Mit Kenngrößen rechnen</span><span class="kap-progress" data-ids="2-4-1 2-4-2 2-4-3 2-4-4 2-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-4-1" href="../lf2/2-4-1-bits-bytes-und-praefixe.html"><span class="num">2.4.1</span><span class="t">Bits, Bytes und Präfixe</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-2" href="../lf2/2-4-2-speicherbedarf-berechnen.html"><span class="num">2.4.2</span><span class="t">Speicherbedarf berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-3" href="../lf2/2-4-3-uebertragungsdauer-berechnen.html"><span class="num">2.4.3</span><span class="t">Übertragungsdauer berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-4" href="../lf2/2-4-4-spannung-strom-und-leistung.html"><span class="num">2.4.4</span><span class="t">Spannung, Strom und Leistung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-5" href="../lf2/2-4-5-energiekosten-berechnen.html"><span class="num">2.4.5</span><span class="t">Energiekosten berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-4" href="../lf2/2-4-check.html"><span class="num">2.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-5-1-datenblaetter-lesen.html"><span class="num">2.5</span><span>Produkte vergleichen und auswählen</span><span class="kap-progress" data-ids="2-5-1 2-5-2 2-5-3 2-5-4 2-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-5-1" href="../lf2/2-5-1-datenblaetter-lesen.html"><span class="num">2.5.1</span><span class="t">Datenblätter lesen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-2" href="../lf2/2-5-2-kennzeichen-und-normen.html"><span class="num">2.5.2</span><span class="t">Kennzeichen und Normen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-3" href="../lf2/2-5-3-ergonomie-am-bildschirmarbeitsplatz.html"><span class="num">2.5.3</span><span class="t">Ergonomie am Bildschirmarbeitsplatz</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-4" href="../lf2/2-5-4-nachhaltigkeit-und-green-it.html"><span class="num">2.5.4</span><span class="t">Nachhaltigkeit und Green IT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-5" href="../lf2/2-5-5-nutzwertanalyse.html"><span class="num">2.5.5</span><span class="t">Nutzwertanalyse</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-5" href="../lf2/2-5-check.html"><span class="num">2.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-6-1-angebote-vergleichen.html"><span class="num">2.6</span><span>Angebot und Beschaffung</span><span class="kap-progress" data-ids="2-6-1 2-6-2 2-6-3 2-6-4 2-6-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-6-1" href="../lf2/2-6-1-angebote-vergleichen.html"><span class="num">2.6.1</span><span class="t">Angebote vergleichen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-2" href="../lf2/2-6-2-verkaufspreis-kalkulieren.html"><span class="num">2.6.2</span><span class="t">Verkaufspreis kalkulieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-3" href="../lf2/2-6-3-der-kaufvertrag.html"><span class="num">2.6.3</span><span class="t">Der Kaufvertrag</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-4" href="../lf2/2-6-4-stoerungen-bei-der-lieferung.html"><span class="num">2.6.4</span><span class="t">Störungen bei der Lieferung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-5" href="../lf2/2-6-5-gewaehrleistung-und-garantie.html"><span class="num">2.6.5</span><span class="t">Gewährleistung und Garantie</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-6" href="../lf2/2-6-check.html"><span class="num">2.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-7-1-elektrische-sicherheit.html"><span class="num">2.7</span><span>Inbetriebnahme und Übergabe</span><span class="kap-progress" data-ids="2-7-1 2-7-2 2-7-3 2-7-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-7-1" href="../lf2/2-7-1-elektrische-sicherheit.html"><span class="num">2.7.1</span><span class="t">Elektrische Sicherheit</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-7-2" href="../lf2/2-7-2-arbeitsplatz-einrichten-und-testen.html"><span class="num">2.7.2</span><span class="t">Arbeitsplatz einrichten und testen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-7-3" href="../lf2/2-7-3-uebergabe-und-abnahme.html"><span class="num">2.7.3</span><span class="t">Übergabe und Abnahme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-7-4" href="../lf2/2-7-4-auftrag-auswerten.html"><span class="num">2.7.4</span><span class="t">Auftrag auswerten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-7" href="../lf2/2-7-check.html"><span class="num">2.7</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf2/rueckblick.html"><span class="num">2.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF3</span><span>Clients in Netzwerke einbinden</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf3/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-1-1-wozu-netzwerke.html"><span class="num">3.1</span><span>Netzwerke im Überblick</span><span class="kap-progress" data-ids="3-1-1 3-1-2 3-1-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-1-1" href="../lf3/3-1-1-wozu-netzwerke.html"><span class="num">3.1.1</span><span class="t">Wozu Netzwerke</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-1-2" href="../lf3/3-1-2-topologien.html"><span class="num">3.1.2</span><span class="t">Topologien</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-1-3" href="../lf3/3-1-3-netzwerkplaene-lesen.html"><span class="num">3.1.3</span><span class="t">Netzwerkpläne lesen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-1" href="../lf3/3-1-check.html"><span class="num">3.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-2-1-das-osi-modell.html"><span class="num">3.2</span><span>Schichtenmodelle</span><span class="kap-progress" data-ids="3-2-1 3-2-2 3-2-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-2-1" href="../lf3/3-2-1-das-osi-modell.html"><span class="num">3.2.1</span><span class="t">Das OSI-Modell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-2-2" href="../lf3/3-2-2-das-tcp-ip-modell-und-kapselung.html"><span class="num">3.2.2</span><span class="t">Das TCP/IP-Modell und Kapselung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-2-3" href="../lf3/3-2-3-geraete-und-protokolle-zuordnen.html"><span class="num">3.2.3</span><span class="t">Geräte und Protokolle zuordnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-2" href="../lf3/3-2-check.html"><span class="num">3.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-3-1-twisted-pair-kabel.html"><span class="num">3.3</span><span>Verkabelung und Komponenten</span><span class="kap-progress" data-ids="3-3-1 3-3-2 3-3-3 3-3-4 3-3-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-3-1" href="../lf3/3-3-1-twisted-pair-kabel.html"><span class="num">3.3.1</span><span class="t">Twisted-Pair-Kabel</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-2" href="../lf3/3-3-2-lichtwellenleiter.html"><span class="num">3.3.2</span><span class="t">Lichtwellenleiter</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-3" href="../lf3/3-3-3-strukturierte-verkabelung.html"><span class="num">3.3.3</span><span class="t">Strukturierte Verkabelung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-4" href="../lf3/3-3-4-netzwerkkomponenten.html"><span class="num">3.3.4</span><span class="t">Netzwerkkomponenten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-5" href="../lf3/3-3-5-ethernet-und-mac-adressen.html"><span class="num">3.3.5</span><span class="t">Ethernet und MAC-Adressen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-3" href="../lf3/3-3-check.html"><span class="num">3.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-4-1-ipv4-adressen-und-subnetzmaske.html"><span class="num">3.4</span><span>IP-Adressierung</span><span class="kap-progress" data-ids="3-4-1 3-4-2 3-4-3 3-4-4 3-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-4-1" href="../lf3/3-4-1-ipv4-adressen-und-subnetzmaske.html"><span class="num">3.4.1</span><span class="t">IPv4-Adressen und Subnetzmaske</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-2" href="../lf3/3-4-2-netz-broadcast-und-hosts-berechnen.html"><span class="num">3.4.2</span><span class="t">Netz, Broadcast und Hosts berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-3" href="../lf3/3-4-3-private-adressen-gateway-und-nat.html"><span class="num">3.4.3</span><span class="t">Private Adressen, Gateway und NAT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-4" href="../lf3/3-4-4-ipv6-adressen.html"><span class="num">3.4.4</span><span class="t">IPv6-Adressen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-5" href="../lf3/3-4-5-automatische-adressen-apipa-und-link-local.html"><span class="num">3.4.5</span><span class="t">Automatische Adressen: APIPA und Link-Local</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-4" href="../lf3/3-4-check.html"><span class="num">3.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-5-1-dhcp.html"><span class="num">3.5</span><span>Dienste und Protokolle</span><span class="kap-progress" data-ids="3-5-1 3-5-2 3-5-3 3-5-4 3-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-5-1" href="../lf3/3-5-1-dhcp.html"><span class="num">3.5.1</span><span class="t">DHCP</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-2" href="../lf3/3-5-2-dns.html"><span class="num">3.5.2</span><span class="t">DNS</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-3" href="../lf3/3-5-3-arp.html"><span class="num">3.5.3</span><span class="t">ARP</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-4" href="../lf3/3-5-4-tcp-udp-und-ports.html"><span class="num">3.5.4</span><span class="t">TCP, UDP und Ports</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-5" href="../lf3/3-5-5-anwendungsprotokolle.html"><span class="num">3.5.5</span><span class="t">Anwendungsprotokolle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-5" href="../lf3/3-5-check.html"><span class="num">3.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-6-1-wlan-standards-und-frequenzen.html"><span class="num">3.6</span><span>WLAN</span><span class="kap-progress" data-ids="3-6-1 3-6-2">0/2</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-6-1" href="../lf3/3-6-1-wlan-standards-und-frequenzen.html"><span class="num">3.6.1</span><span class="t">WLAN-Standards und Frequenzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-6-2" href="../lf3/3-6-2-wlan-absichern.html"><span class="num">3.6.2</span><span class="t">WLAN absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-6" href="../lf3/3-6-check.html"><span class="num">3.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-7-1-einen-client-konfigurieren.html"><span class="num">3.7</span><span>Clients einbinden und prüfen</span><span class="kap-progress" data-ids="3-7-1 3-7-2 3-7-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-7-1" href="../lf3/3-7-1-einen-client-konfigurieren.html"><span class="num">3.7.1</span><span class="t">Einen Client konfigurieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-7-2" href="../lf3/3-7-2-netzwerkbefehle.html"><span class="num">3.7.2</span><span class="t">Netzwerkbefehle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-7-3" href="../lf3/3-7-3-systematische-fehlersuche.html"><span class="num">3.7.3</span><span class="t">Systematische Fehlersuche</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-7" href="../lf3/3-7-check.html"><span class="num">3.7</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf3/rueckblick.html"><span class="num">3.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF4</span><span>Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf4/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-1-1-warum-informationssicherheit.html"><span class="num">4.1</span><span>Grundlagen der Informationssicherheit</span><span class="kap-progress" data-ids="4-1-1 4-1-2 4-1-3 4-1-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-1-1" href="../lf4/4-1-1-warum-informationssicherheit.html"><span class="num">4.1.1</span><span class="t">Warum Informationssicherheit?</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-2" href="../lf4/4-1-2-die-drei-schutzziele.html"><span class="num">4.1.2</span><span class="t">Die drei Schutzziele</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-3" href="../lf4/4-1-3-authentizitaet-und-verbindlichkeit.html"><span class="num">4.1.3</span><span class="t">Authentizität und Verbindlichkeit</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-4" href="../lf4/4-1-4-informationswerte-im-arbeitsbereich.html"><span class="num">4.1.4</span><span class="t">Informationswerte im eigenen Arbeitsbereich</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-1" href="../lf4/4-1-check.html"><span class="num">4.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-2-1-datenschutz-dsgvo-bdsg.html"><span class="num">4.2</span><span>Rechtliche und betriebliche Vorgaben</span><span class="kap-progress" data-ids="4-2-1 4-2-2 4-2-3 4-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-2-1" href="../lf4/4-2-1-datenschutz-dsgvo-bdsg.html"><span class="num">4.2.1</span><span class="t">Datenschutz: DSGVO und BDSG</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-2" href="../lf4/4-2-2-technische-und-organisatorische-massnahmen.html"><span class="num">4.2.2</span><span class="t">Technische und organisatorische Maßnahmen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-3" href="../lf4/4-2-3-sicherheitsleitlinie-und-isms.html"><span class="num">4.2.3</span><span class="t">Sicherheitsleitlinie und ISMS</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-4" href="../lf4/4-2-4-zustaendigkeiten-und-eigene-pflichten.html"><span class="num">4.2.4</span><span class="t">Zuständigkeiten und eigene Pflichten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-2" href="../lf4/4-2-check.html"><span class="num">4.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-3-1-gefaehrdungen-im-ueberblick.html"><span class="num">4.3</span><span>Bedrohungen erkennen und gewichten</span><span class="kap-progress" data-ids="4-3-1 4-3-2 4-3-3 4-3-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-3-1" href="../lf4/4-3-1-gefaehrdungen-im-ueberblick.html"><span class="num">4.3.1</span><span class="t">Gefährdungen im Überblick</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-2" href="../lf4/4-3-2-schadsoftware.html"><span class="num">4.3.2</span><span class="t">Schadsoftware</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-3" href="../lf4/4-3-3-social-engineering-und-phishing.html"><span class="num">4.3.3</span><span class="t">Social Engineering und Phishing</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-4" href="../lf4/4-3-4-bedrohungen-gewichten.html"><span class="num">4.3.4</span><span class="t">Bedrohungen gewichten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-3" href="../lf4/4-3-check.html"><span class="num">4.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-4-1-ablauf-der-schutzbedarfsfeststellung.html"><span class="num">4.4</span><span>Schutzbedarf feststellen</span><span class="kap-progress" data-ids="4-4-1 4-4-2 4-4-3 4-4-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-4-1" href="../lf4/4-4-1-ablauf-der-schutzbedarfsfeststellung.html"><span class="num">4.4.1</span><span class="t">Ablauf der Schutzbedarfsfeststellung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-4-2" href="../lf4/4-4-2-schadensszenarien-und-schutzbedarfskategorien.html"><span class="num">4.4.2</span><span class="t">Schadensszenarien und Schutzbedarfskategorien</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-4-3" href="../lf4/4-4-3-schutzbedarf-vererben.html"><span class="num">4.4.3</span><span class="t">Schutzbedarf vererben</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-4-4" href="../lf4/4-4-4-analyse-eines-arbeitsbereichs.html"><span class="num">4.4.4</span><span class="t">Analyse eines Arbeitsbereichs</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-4" href="../lf4/4-4-check.html"><span class="num">4.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-5-1-vom-ergebnis-zur-massnahme.html"><span class="num">4.5</span><span>Schutzmaßnahmen auswählen</span><span class="kap-progress" data-ids="4-5-1 4-5-2 4-5-3 4-5-4 4-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-5-1" href="../lf4/4-5-1-vom-ergebnis-zur-massnahme.html"><span class="num">4.5.1</span><span class="t">Vom Ergebnis zur Maßnahme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-2" href="../lf4/4-5-2-massnahmen-den-schutzzielen-zuordnen.html"><span class="num">4.5.2</span><span class="t">Maßnahmen den Schutzzielen zuordnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-3" href="../lf4/4-5-3-anmelden-mit-wissen-besitz-und-merkmal.html"><span class="num">4.5.3</span><span class="t">Anmelden mit Wissen, Besitz und Merkmal</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-4" href="../lf4/4-5-4-verschluesselung-als-schutzmassnahme.html"><span class="num">4.5.4</span><span class="t">Verschlüsselung als Schutzmaßnahme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-5" href="../lf4/4-5-5-hashwerte-und-digitale-signatur.html"><span class="num">4.5.5</span><span class="t">Hashwerte und digitale Signatur</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-5" href="../lf4/4-5-check.html"><span class="num">4.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-6-1-den-arbeitsplatz-absichern.html"><span class="num">4.6</span><span>Sicherheit im eigenen Verantwortungsbereich</span><span class="kap-progress" data-ids="4-6-1 4-6-2 4-6-3 4-6-4 4-6-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-6-1" href="../lf4/4-6-1-den-arbeitsplatz-absichern.html"><span class="num">4.6.1</span><span class="t">Den Arbeitsplatz absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-2" href="../lf4/4-6-2-daten-sichern.html"><span class="num">4.6.2</span><span class="t">Daten sichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-3" href="../lf4/4-6-3-raeume-geraete-und-strom-schuetzen.html"><span class="num">4.6.3</span><span class="t">Räume, Geräte und Strom schützen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-4" href="../lf4/4-6-4-sicherheitsvorfaelle-erkennen-und-melden.html"><span class="num">4.6.4</span><span class="t">Sicherheitsvorfälle erkennen und melden</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-5" href="../lf4/4-6-5-sicherheit-als-prozess.html"><span class="num">4.6.5</span><span class="t">Sicherheit als Prozess</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-6" href="../lf4/4-6-check.html"><span class="num">4.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf4/rueckblick.html"><span class="num">4.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf is-open" data-stufe="AP1" aria-current="true"><button class="lf-head" type="button" aria-expanded="true"><span class="num">LF5</span><span>Software zur Verwaltung von Daten anpassen</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="5-1-1-daten-und-informationen.html"><span class="num">5.1</span><span>Daten und Datentypen</span><span class="kap-progress" data-ids="5-1-1 5-1-2 5-1-3 5-1-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-1-1" href="5-1-1-daten-und-informationen.html"><span class="num">5.1.1</span><span class="t">Daten und Informationen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-1-2" href="5-1-2-zahlensysteme.html"><span class="num">5.1.2</span><span class="t">Zahlensysteme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-1-3" href="5-1-3-zeichen-kodieren.html"><span class="num">5.1.3</span><span class="t">Zeichen kodieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-1-4" href="5-1-4-datentypen.html"><span class="num">5.1.4</span><span class="t">Datentypen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-1" href="5-1-check.html"><span class="num">5.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="5-2-1-text-und-binaerdateien.html"><span class="num">5.2</span><span>Datenformate und Speicherung</span><span class="kap-progress" data-ids="5-2-1 5-2-2 5-2-3 5-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-2-1" href="5-2-1-text-und-binaerdateien.html"><span class="num">5.2.1</span><span class="t">Text- und Binärdateien</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-2-2" href="5-2-2-austauschformate-csv-json-xml.html"><span class="num">5.2.2</span><span class="t">Austauschformate: CSV, JSON, XML</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-2-3" href="5-2-3-wo-daten-gespeichert-werden.html"><span class="num">5.2.3</span><span class="t">Wo Daten gespeichert werden</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-2-4" href="5-2-4-daten-komprimieren-und-pruefen.html"><span class="num">5.2.4</span><span class="t">Daten komprimieren und prüfen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-2" href="5-2-check.html"><span class="num">5.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="5-3-1-relationale-datenbanken.html"><span class="num">5.3</span><span>Datenbanken modellieren</span><span class="kap-progress" data-ids="5-3-1 5-3-2 5-3-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-3-1" href="5-3-1-relationale-datenbanken.html"><span class="num">5.3.1</span><span class="t">Relationale Datenbanken</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-3-2" href="5-3-2-das-er-modell.html"><span class="num">5.3.2</span><span class="t">Das ER-Modell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-3-3" href="5-3-3-vom-er-modell-zu-tabellen.html"><span class="num">5.3.3</span><span class="t">Vom ER-Modell zu Tabellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-3" href="5-3-check.html"><span class="num">5.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="5-4-1-programme-und-sprachen.html"><span class="num">5.4</span><span>Algorithmen und Programme</span><span class="kap-progress" data-ids="5-4-1 5-4-2 5-4-3 5-4-4 5-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-4-1" href="5-4-1-programme-und-sprachen.html"><span class="num">5.4.1</span><span class="t">Programme und Sprachen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-2" href="5-4-2-pseudocode-variablen-und-operatoren.html"><span class="num">5.4.2</span><span class="t">Pseudocode, Variablen und Operatoren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-3" href="5-4-3-verzweigungen-und-schleifen.html"><span class="num">5.4.3</span><span class="t">Verzweigungen und Schleifen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-4" href="5-4-4-datenstrukturen-und-funktionen.html"><span class="num">5.4.4</span><span class="t">Datenstrukturen und Funktionen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-5" href="5-4-5-schreibtischtest-und-fehlersuche.html"><span class="num">5.4.5</span><span class="t">Schreibtischtest und Fehlersuche</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-4" href="5-4-check.html"><span class="num">5.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap is-open"><a class="kap-head" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-5-1" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5.1</span><span class="t">Vorgehensmodelle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-2" href="5-5-2-zeitplanung-mit-netzplan-und-gantt-diagramm.html"><span class="num">5.5.2</span><span class="t">Zeitplanung mit Netzplan und Gantt-Diagramm</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-3" href="5-5-3-software-dokumentieren.html"><span class="num">5.5.3</span><span class="t">Software dokumentieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-5" href="5-5-check.html"><span class="num">5.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html"><span class="num">5.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="nav-extra"><a href="../../module/pruefung/simulation-ap1.html"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Prüfungssimulator</a></div>
+</nav>
+<main class="page" id="inhalt">
+<nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF5</a></li><li><a href="index.html#k-5-5">5.5 Im Projekt vorgehen</a></li><li aria-current="page">Druckfassung</li></ol></nav>
+<header class="page-head">
+  <h1><span class="num">5.5</span>Im Projekt vorgehen</h1>
+  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>LF5: Software zur Verwaltung von Daten anpassen</span></p>
+  <p class="no-print" style="margin-top:16px"><button class="btn btn-primary" type="button" onclick="window.print()"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Drucken</button></p>
+</header>
+<div class="content">
+<section class="print-up" id="u-5-5-1"><h2><span class="num">5.5.1</span> Vorgehensmodelle</h2>
+<p class="lead">Die Anpassung der Praxissoftware ist mehr als Programmieren: Anforderungen klären, Datenbank ändern, Altdaten übernehmen, testen, schulen. Ein Vorgehensmodell legt fest, in welcher Reihenfolge das geschieht, wer wofür zuständig ist und wann der Kunde Ergebnisse sieht. Welches Modell passt, hängt vor allem davon ab, wie genau die Anforderungen am Anfang feststehen.</p>
+
+<h3 id="u5-5-1-sequenziell-das-wasserfallmodell">Sequenziell: das Wasserfallmodell<a class="anchor" href="#u5-5-1-sequenziell-das-wasserfallmodell" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Im <strong>Wasserfallmodell</strong> laufen die Phasen nacheinander ab. Jede Phase endet mit einem Ergebnis, etwa einem Dokument, und die nächste baut darauf auf:</p>
+<ol>
+  <li><strong>Anforderungsanalyse:</strong> Was soll die Software können?</li>
+  <li><strong>Entwurf:</strong> Wie wird es umgesetzt, etwa Datenmodell und Oberfläche?</li>
+  <li><strong>Umsetzung:</strong> Programmieren und Einrichten.</li>
+  <li><strong>Test:</strong> Erfüllt das Ergebnis die Anforderungen?</li>
+  <li><strong>Einführung und Betrieb:</strong> Übergabe, Schulung, Wartung.</li>
+</ol>
+<p>Das Modell ist gut planbar: Termine, Kosten und Zwischenergebnisse lassen sich früh festlegen. Der Nachteil: Der Kunde sieht die fertige Software erst spät. Stellt sich im Test heraus, dass eine Anforderung falsch verstanden wurde, ist die Korrektur teuer, weil frühere Phasen wieder aufgerollt werden müssen. Eine Erweiterung ist das <strong>V-Modell</strong>, das jeder Entwurfsphase eine passende Teststufe gegenüberstellt (Kapitel 5.6.2).</p>
+
+<h3 id="u5-5-1-agil-scrum">Agil: Scrum<a class="anchor" href="#u5-5-1-agil-scrum" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Agile Vorgehensmodelle arbeiten <strong>iterativ und inkrementell</strong>: In kurzen Zyklen entsteht jeweils ein nutzbares Stück Software, der Kunde gibt Rückmeldung, und die Planung wird angepasst. Das bekannteste agile Rahmenwerk ist <strong>Scrum</strong>.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Bestandteil</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th rowspan="3">Rollen</th><td>Product Owner</td><td>verantwortet das Produkt, pflegt und priorisiert das Product Backlog</td></tr>
+      <tr><td>Scrum Master</td><td>sorgt dafür, dass Scrum verstanden und gelebt wird, räumt Hindernisse aus dem Weg</td></tr>
+      <tr><td>Entwicklungsteam (im Scrum Guide 2020: Developers)</td><td>setzt die Arbeit im Sprint um und ist selbstmanagend</td></tr>
+      <tr><th rowspan="3">Artefakte</th><td>Product Backlog</td><td>geordnete Liste aller Anforderungen an das Produkt, wird laufend angepasst</td></tr>
+      <tr><td>Sprint Backlog</td><td>das Sprint-Ziel, die dafür ausgewählten Einträge und der Plan zur Umsetzung</td></tr>
+      <tr><td>Inkrement</td><td>fertiges, nutzbares Ergebnis, das die vereinbarte Definition of Done erfüllt; spätestens im Sprint Review gezeigt</td></tr>
+      <tr><th rowspan="5">Ereignisse</th><td>Sprint</td><td>fester Zeitraum von höchstens einem Monat, oft zwei Wochen</td></tr>
+      <tr><td>Sprint Planning</td><td>zu Beginn: Was wird in diesem Sprint umgesetzt?</td></tr>
+      <tr><td>Daily Scrum</td><td>tägliches Treffen der Developers, höchstens 15 Minuten, zur Abstimmung auf das Sprint-Ziel</td></tr>
+      <tr><td>Sprint Review</td><td>am Ende: Das Inkrement wird dem Kunden gezeigt, das Backlog angepasst</td></tr>
+      <tr><td>Sprint Retrospektive</td><td>danach: Das Team prüft seine Zusammenarbeit und beschließt Verbesserungen</td></tr>
+    </tbody>
+  </table>
+</div>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Review und Retrospektive sind dasselbe.“ Im Review geht es um das Produkt, zusammen mit dem Kunden. In der Retrospektive geht es um die Arbeitsweise des Teams.</p></aside>
+
+<h3 id="u5-5-1-agil-kanban">Agil: Kanban<a class="anchor" href="#u5-5-1-agil-kanban" aria-hidden="true" tabindex="-1">#</a></h3>
+<p><strong>Kanban</strong> kommt ohne feste Zyklen aus. Die Arbeit wird auf einem <strong>Kanban-Board</strong> sichtbar gemacht: Spalten für die Stationen eines Ablaufs (etwa „Offen“, „In Arbeit“, „Test“, „Erledigt“), Karten für die einzelnen Aufgaben. Die Karten wandern von links nach rechts. Wer Kapazität frei hat, zieht sich die nächste Karte (Pull-Prinzip). Ein <strong>WIP-Limit</strong> (Work in Progress) legt fest, wie viele Karten höchstens gleichzeitig in einer Spalte liegen dürfen. Ist die Spalte voll, wird erst eine Aufgabe fertiggestellt, bevor eine neue beginnt. So fallen Engpässe auf, und es bleiben weniger halbfertige Aufgaben liegen.</p>
+
+<h3 id="u5-5-1-welches-modell-wann">Welches Modell wann?<a class="anchor" href="#u5-5-1-welches-modell-wann" aria-hidden="true" tabindex="-1">#</a></h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Wasserfall</th><th>Scrum</th><th>Kanban</th></tr></thead>
+    <tbody>
+      <tr><th>Ablauf</th><td>Phasen nacheinander</td><td>Sprints mit festem Takt</td><td>fortlaufender Fluss</td></tr>
+      <tr><th>Anforderungen</th><td>am Anfang vollständig festgelegt</td><td>dürfen sich zwischen Sprints ändern</td><td>neue Aufgaben jederzeit</td></tr>
+      <tr><th>Ergebnis für den Kunden</th><td>am Ende</td><td>nach jedem Sprint</td><td>sobald eine Aufgabe fertig ist</td></tr>
+      <tr><th>passt gut bei</th><td>klarem Auftrag, Festpreis, festen Vorgaben</td><td>unklaren oder sich ändernden Anforderungen</td><td>laufend eintreffenden Aufgaben, etwa im Support</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus hat drei Aufträge der Tierarztpraxis. Die Anpassung der Datenbank und der Import der Altdaten sind im Pflichtenheft genau beschrieben, mit Festpreis und Termin: Hier wird nach Phasen geplant. Für eine neue Online-Terminbuchung weiß die Praxis noch nicht genau, was sie braucht: Das Team arbeitet in zweiwöchigen Sprints und zeigt der Praxis nach jedem Sprint den aktuellen Stand. Die Störungsmeldungen der Praxis bearbeitet der Support auf einem Kanban-Board mit WIP-Limit 3 für „In Arbeit“.</p>
+</div>
+
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie Projekte geplant, gesteuert und abgeschlossen werden, wird in LF12b ausführlicher behandelt.</p></aside>
+
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Wasserfall:</strong> Phasen nacheinander, gut planbar bei festen Anforderungen, Ergebnis erst am Ende.</li>
+  <li><strong>Scrum:</strong> Sprints mit Product Owner, Scrum Master und Entwicklungsteam; Product Backlog, Sprint Backlog, Inkrement; Planning, Daily, Review, Retrospektive.</li>
+  <li><strong>Kanban:</strong> Board mit Spalten und WIP-Limit, fortlaufender Fluss ohne feste Zyklen.</li>
+</ul></div>
+</section>
+<section class="print-up" id="u-5-5-2"><h2><span class="num">5.5.2</span> Zeitplanung mit Netzplan und Gantt-Diagramm</h2>
+<p class="lead">Die Praxis will wissen, ab wann sie mit der angepassten Software arbeiten kann. Dafür zerlegt das Systemhaus das Projekt in Vorgänge, legt fest, was wovon abhängt, und rechnet daraus den frühesten Endtermin.</p>
+
+<h3 id="u5-5-2-vorgaenge-dauer-vorgaenger">Vorgänge, Dauer, Vorgänger<a class="anchor" href="#u5-5-2-vorgaenge-dauer-vorgaenger" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Ein <strong>Vorgang</strong> ist eine Tätigkeit mit einer Dauer. Ein Vorgänger muss fertig sein, bevor der Vorgang beginnen kann. Für die Softwareanpassung (Dauer in Arbeitstagen):</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Nr.</th><th>Vorgang</th><th>Dauer</th><th>Vorgänger</th></tr></thead>
+    <tbody>
+      <tr><th>A</th><td>Anforderungen aufnehmen</td><td>3</td><td>–</td></tr>
+      <tr><th>B</th><td>Datenbank anpassen</td><td>5</td><td>A</td></tr>
+      <tr><th>C</th><td>Importskript schreiben</td><td>4</td><td>A</td></tr>
+      <tr><th>D</th><td>Altdaten importieren</td><td>2</td><td>B, C</td></tr>
+      <tr><th>E</th><td>Testen</td><td>3</td><td>D</td></tr>
+      <tr><th>F</th><td>Schulungsunterlagen erstellen</td><td>3</td><td>A</td></tr>
+      <tr><th>G</th><td>Unterlagen abstimmen</td><td>1</td><td>F</td></tr>
+      <tr><th>H</th><td>Schulung durchführen</td><td>2</td><td>E, G</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Konvention in diesem Kapitel: Das Projekt beginnt zum Zeitpunkt 0. Ein Zeitpunkt bezeichnet das Ende eines Tages: FAZ 3 heißt, der Vorgang beginnt nach Tag 3, also am 4. Tag.</p>
+
+<h3 id="u5-5-2-vorwaertsrechnung-frueheste-zeitpunkte">Vorwärtsrechnung: früheste Zeitpunkte<a class="anchor" href="#u5-5-2-vorwaertsrechnung-frueheste-zeitpunkte" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Von vorne nach hinten werden <strong>FAZ</strong> (frühester Anfangszeitpunkt) und <strong>FEZ</strong> (frühester Endzeitpunkt) bestimmt:</p>
+<p class="formel">FEZ = FAZ + Dauer</p>
+<p>Der erste Vorgang hat FAZ 0. Jeder andere Vorgang kann erst anfangen, wenn alle Vorgänger fertig sind: Sein FAZ ist der <strong>größte</strong> FEZ seiner Vorgänger. Für D: B endet bei 8, C bei 7, also FAZ 8. Der größte FEZ im ganzen Netz ist das Projektende, hier 15.</p>
+
+<h3 id="u5-5-2-rueckwaertsrechnung-spaeteste-zeitpunkte">Rückwärtsrechnung: späteste Zeitpunkte<a class="anchor" href="#u5-5-2-rueckwaertsrechnung-spaeteste-zeitpunkte" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Von hinten nach vorne werden <strong>SEZ</strong> (spätester Endzeitpunkt) und <strong>SAZ</strong> (spätester Anfangszeitpunkt) bestimmt. Der letzte Vorgang bekommt als SEZ das Projektende.</p>
+<p class="formel">SAZ = SEZ − Dauer</p>
+<p>Hat ein Vorgang mehrere Nachfolger, ist sein SEZ der <strong>kleinste</strong> SAZ der Nachfolger, denn er darf keinen davon aufhalten. Für A: B muss spätestens bei 3 beginnen, C bei 4, F bei 9, also SEZ 3.</p>
+
+<h3 id="u5-5-2-puffer-und-kritischer-pfad">Puffer und kritischer Pfad<a class="anchor" href="#u5-5-2-puffer-und-kritischer-pfad" aria-hidden="true" tabindex="-1">#</a></h3>
+<p class="formel">Gesamtpuffer GP = SAZ − FAZ (= SEZ − FEZ)</p>
+<p>Der <strong>Gesamtpuffer</strong> sagt, um wie viel sich ein Vorgang verschieben darf, ohne das Projektende zu gefährden. Er gehört oft mehreren Vorgängen gemeinsam: Verbraucht ein Vorgang ihn, fehlt er seinen Nachfolgern.</p>
+<p class="formel">Freier Puffer FP = kleinster FAZ der Nachfolger − FEZ</p>
+<p>Der <strong>freie Puffer</strong> sagt, um wie viel sich ein Vorgang verschieben darf, ohne dass irgendein Nachfolger später als zu seinem FAZ beginnen kann. Er ist nie größer als der Gesamtpuffer.</p>
+<p>Alle Vorgänge mit GP 0 bilden den <strong>kritischen Pfad</strong>, hier A – B – D – E – H. Er ist der längste Weg durch den Netzplan und bestimmt die Projektdauer: Jeder Tag Verzug auf diesem Pfad verschiebt das Ende um einen Tag.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 920 360" role="img" aria-label="Netzplan der Softwareanpassung mit acht Vorgängen. Kritischer Pfad A, B, D, E, H mit Gesamtpuffer 0, Projektdauer 15 Tage. C hat 1 Tag Gesamtpuffer, F 6 Tage Gesamtpuffer und 0 Tage freien Puffer, G 6 Tage Gesamt- und freien Puffer.">
+    <defs><marker id="pfeil-netz" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <text x="10" y="20" font-size="12" class="g-muted">Aufbau eines Knotens</text>
+    <g><rect class="g-box" x="10" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M10 52H160M10 74H160M10 96H160M60 30V52M110 30V52M60 52V74M60 74V96M110 74V96M60 96V118M110 96V118"/>
+    <text x="35" y="46" text-anchor="middle" font-size="11" class="g-muted">FAZ</text>
+    <text x="135" y="46" text-anchor="middle" font-size="11" class="g-muted">FEZ</text>
+    <text x="35" y="68" text-anchor="middle" font-size="11" class="g-muted" font-weight="600">Nr.</text>
+    <text x="110" y="68" text-anchor="middle" font-size="11" class="g-muted">Vorgang</text>
+    <text x="35" y="90" text-anchor="middle" font-size="11" class="g-muted">Dauer</text>
+    <text x="85" y="90" text-anchor="middle" font-size="11" class="g-muted">GP</text>
+    <text x="135" y="90" text-anchor="middle" font-size="11" class="g-muted">FP</text>
+    <text x="35" y="112" text-anchor="middle" font-size="11" class="g-muted">SAZ</text>
+    <text x="135" y="112" text-anchor="middle" font-size="11" class="g-muted">SEZ</text>
+    </g>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M160 189L198 74"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M160 189L198 189"/>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M350 74L388 74"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M350 189L388 74"/>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M540 74L578 74"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M160 189L198 304"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M350 304L388 304"/>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M730 74L768 189"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M540 304L768 189"/>
+    <g><rect class="g-accent" x="10" y="145" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M10 167H160M10 189H160M10 211H160M60 145V167M110 145V167M60 167V189M60 189V211M110 189V211M60 211V233M110 211V233"/>
+    <text x="35" y="161" text-anchor="middle" font-size="12">0</text>
+    <text x="135" y="161" text-anchor="middle" font-size="12">3</text>
+    <text x="35" y="183" text-anchor="middle" font-size="12" font-weight="600">A</text>
+    <text x="110" y="183" text-anchor="middle" font-size="12">Anforderungen</text>
+    <text x="35" y="205" text-anchor="middle" font-size="12">3</text>
+    <text x="85" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="135" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="35" y="227" text-anchor="middle" font-size="12">0</text>
+    <text x="135" y="227" text-anchor="middle" font-size="12">3</text>
+    </g>
+    <g><rect class="g-accent" x="200" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M200 52H350M200 74H350M200 96H350M250 30V52M300 30V52M250 52V74M250 74V96M300 74V96M250 96V118M300 96V118"/>
+    <text x="225" y="46" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="46" text-anchor="middle" font-size="12">8</text>
+    <text x="225" y="68" text-anchor="middle" font-size="12" font-weight="600">B</text>
+    <text x="300" y="68" text-anchor="middle" font-size="12">DB anpassen</text>
+    <text x="225" y="90" text-anchor="middle" font-size="12">5</text>
+    <text x="275" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="325" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="225" y="112" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="112" text-anchor="middle" font-size="12">8</text>
+    </g>
+    <g><rect class="g-box" x="200" y="145" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M200 167H350M200 189H350M200 211H350M250 145V167M300 145V167M250 167V189M250 189V211M300 189V211M250 211V233M300 211V233"/>
+    <text x="225" y="161" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="161" text-anchor="middle" font-size="12">7</text>
+    <text x="225" y="183" text-anchor="middle" font-size="12" font-weight="600">C</text>
+    <text x="300" y="183" text-anchor="middle" font-size="12">Importskript</text>
+    <text x="225" y="205" text-anchor="middle" font-size="12">4</text>
+    <text x="275" y="205" text-anchor="middle" font-size="12">1</text>
+    <text x="325" y="205" text-anchor="middle" font-size="12">1</text>
+    <text x="225" y="227" text-anchor="middle" font-size="12">4</text>
+    <text x="325" y="227" text-anchor="middle" font-size="12">8</text>
+    </g>
+    <g><rect class="g-accent" x="390" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M390 52H540M390 74H540M390 96H540M440 30V52M490 30V52M440 52V74M440 74V96M490 74V96M440 96V118M490 96V118"/>
+    <text x="415" y="46" text-anchor="middle" font-size="12">8</text>
+    <text x="515" y="46" text-anchor="middle" font-size="12">10</text>
+    <text x="415" y="68" text-anchor="middle" font-size="12" font-weight="600">D</text>
+    <text x="490" y="68" text-anchor="middle" font-size="12">Import</text>
+    <text x="415" y="90" text-anchor="middle" font-size="12">2</text>
+    <text x="465" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="515" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="415" y="112" text-anchor="middle" font-size="12">8</text>
+    <text x="515" y="112" text-anchor="middle" font-size="12">10</text>
+    </g>
+    <g><rect class="g-accent" x="580" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M580 52H730M580 74H730M580 96H730M630 30V52M680 30V52M630 52V74M630 74V96M680 74V96M630 96V118M680 96V118"/>
+    <text x="605" y="46" text-anchor="middle" font-size="12">10</text>
+    <text x="705" y="46" text-anchor="middle" font-size="12">13</text>
+    <text x="605" y="68" text-anchor="middle" font-size="12" font-weight="600">E</text>
+    <text x="680" y="68" text-anchor="middle" font-size="12">Testen</text>
+    <text x="605" y="90" text-anchor="middle" font-size="12">3</text>
+    <text x="655" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="705" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="605" y="112" text-anchor="middle" font-size="12">10</text>
+    <text x="705" y="112" text-anchor="middle" font-size="12">13</text>
+    </g>
+    <g><rect class="g-box" x="200" y="260" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M200 282H350M200 304H350M200 326H350M250 260V282M300 260V282M250 282V304M250 304V326M300 304V326M250 326V348M300 326V348"/>
+    <text x="225" y="276" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="276" text-anchor="middle" font-size="12">6</text>
+    <text x="225" y="298" text-anchor="middle" font-size="12" font-weight="600">F</text>
+    <text x="300" y="298" text-anchor="middle" font-size="12">Unterlagen</text>
+    <text x="225" y="320" text-anchor="middle" font-size="12">3</text>
+    <text x="275" y="320" text-anchor="middle" font-size="12">6</text>
+    <text x="325" y="320" text-anchor="middle" font-size="12">0</text>
+    <text x="225" y="342" text-anchor="middle" font-size="12">9</text>
+    <text x="325" y="342" text-anchor="middle" font-size="12">12</text>
+    </g>
+    <g><rect class="g-box" x="390" y="260" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M390 282H540M390 304H540M390 326H540M440 260V282M490 260V282M440 282V304M440 304V326M490 304V326M440 326V348M490 326V348"/>
+    <text x="415" y="276" text-anchor="middle" font-size="12">6</text>
+    <text x="515" y="276" text-anchor="middle" font-size="12">7</text>
+    <text x="415" y="298" text-anchor="middle" font-size="12" font-weight="600">G</text>
+    <text x="490" y="298" text-anchor="middle" font-size="12">Abstimmen</text>
+    <text x="415" y="320" text-anchor="middle" font-size="12">1</text>
+    <text x="465" y="320" text-anchor="middle" font-size="12">6</text>
+    <text x="515" y="320" text-anchor="middle" font-size="12">6</text>
+    <text x="415" y="342" text-anchor="middle" font-size="12">12</text>
+    <text x="515" y="342" text-anchor="middle" font-size="12">13</text>
+    </g>
+    <g><rect class="g-accent" x="770" y="145" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M770 167H920M770 189H920M770 211H920M820 145V167M870 145V167M820 167V189M820 189V211M870 189V211M820 211V233M870 211V233"/>
+    <text x="795" y="161" text-anchor="middle" font-size="12">13</text>
+    <text x="895" y="161" text-anchor="middle" font-size="12">15</text>
+    <text x="795" y="183" text-anchor="middle" font-size="12" font-weight="600">H</text>
+    <text x="870" y="183" text-anchor="middle" font-size="12">Schulung</text>
+    <text x="795" y="205" text-anchor="middle" font-size="12">2</text>
+    <text x="845" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="895" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="795" y="227" text-anchor="middle" font-size="12">13</text>
+    <text x="895" y="227" text-anchor="middle" font-size="12">15</text>
+    </g>
+    </svg>
+  <figcaption>Netzplan als Vorgangsknotennetz. Hervorgehoben: kritischer Pfad mit GP 0, dicke Pfeile. Die Anordnung der Felder im Knoten unterscheidet sich je nach Lehrbuch; in einer Prüfung gilt das vorgegebene Schema.</figcaption>
+</figure>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>F (Schulungsunterlagen) hat GP 9 − 3 = 6, aber FP 6 − 6 = 0: Verspätet sich F um einen Tag, kann G nicht mehr zu seinem FAZ 6 beginnen. Das Projektende ist trotzdem nicht in Gefahr, solange F und G zusammen nicht mehr als 6 Tage verlieren. G hat GP 6 und FP 13 − 7 = 6, denn H beginnt frühestens bei 13.</p>
+</div>
+
+<h3 id="u5-5-2-das-gantt-diagramm">Das Gantt-Diagramm<a class="anchor" href="#u5-5-2-das-gantt-diagramm" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Ein <strong>Gantt-Diagramm</strong> (Balkendiagramm) zeigt dieselben Vorgänge als Balken auf einer Zeitachse. Die Länge des Balkens entspricht der Dauer. Ein <strong>Meilenstein</strong> ist ein Ereignis ohne Dauer, das einen wichtigen Zwischenstand markiert, etwa „Go-Live“; er wird meist als Raute gezeichnet. Wer die Balken nach FAZ einträgt, kann den freien Puffer als gestrichelten Bereich anhängen.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 820 312" role="img" aria-label="Gantt-Diagramm der Softwareanpassung über 15 Arbeitstage: Balken je Vorgang, kritische Vorgänge hervorgehoben, Puffer gestrichelt, Meilenstein Go-Live am Ende von Tag 15.">
+    <text x="230" y="20" text-anchor="middle" font-size="12" class="g-muted">1</text>
+    <text x="270" y="20" text-anchor="middle" font-size="12" class="g-muted">2</text>
+    <text x="310" y="20" text-anchor="middle" font-size="12" class="g-muted">3</text>
+    <text x="350" y="20" text-anchor="middle" font-size="12" class="g-muted">4</text>
+    <text x="390" y="20" text-anchor="middle" font-size="12" class="g-muted">5</text>
+    <text x="430" y="20" text-anchor="middle" font-size="12" class="g-muted">6</text>
+    <text x="470" y="20" text-anchor="middle" font-size="12" class="g-muted">7</text>
+    <text x="510" y="20" text-anchor="middle" font-size="12" class="g-muted">8</text>
+    <text x="550" y="20" text-anchor="middle" font-size="12" class="g-muted">9</text>
+    <text x="590" y="20" text-anchor="middle" font-size="12" class="g-muted">10</text>
+    <text x="630" y="20" text-anchor="middle" font-size="12" class="g-muted">11</text>
+    <text x="670" y="20" text-anchor="middle" font-size="12" class="g-muted">12</text>
+    <text x="710" y="20" text-anchor="middle" font-size="12" class="g-muted">13</text>
+    <text x="750" y="20" text-anchor="middle" font-size="12" class="g-muted">14</text>
+    <text x="790" y="20" text-anchor="middle" font-size="12" class="g-muted">15</text>
+    <path class="g-rule" d="M210 28V278M250 28V278M290 28V278M330 28V278M370 28V278M410 28V278M450 28V278M490 28V278M530 28V278M570 28V278M610 28V278M650 28V278M690 28V278M730 28V278M770 28V278M810 28V278"/>
+    <text x="8" y="51" font-size="13">A Anforderungen aufnehmen</text>
+    <rect class="g-accent" x="210" y="38" width="120" height="16" rx="2"/>
+    <text x="8" y="77" font-size="13">B Datenbank anpassen</text>
+    <rect class="g-accent" x="330" y="64" width="200" height="16" rx="2"/>
+    <text x="8" y="103" font-size="13">C Importskript schreiben</text>
+    <rect class="g-info" x="330" y="90" width="160" height="16" rx="2"/>
+    <rect class="g-line" stroke-dasharray="4 3" x="490" y="90" width="40" height="16" rx="2"/>
+    <text x="8" y="129" font-size="13">D Altdaten importieren</text>
+    <rect class="g-accent" x="530" y="116" width="80" height="16" rx="2"/>
+    <text x="8" y="155" font-size="13">E Testen</text>
+    <rect class="g-accent" x="610" y="142" width="120" height="16" rx="2"/>
+    <text x="8" y="181" font-size="13">F Schulungsunterlagen erstellen</text>
+    <rect class="g-info" x="330" y="168" width="120" height="16" rx="2"/>
+    <text x="8" y="207" font-size="13">G Unterlagen abstimmen</text>
+    <rect class="g-info" x="450" y="194" width="40" height="16" rx="2"/>
+    <rect class="g-line" stroke-dasharray="4 3" x="490" y="194" width="240" height="16" rx="2"/>
+    <text x="8" y="233" font-size="13">H Schulung durchführen</text>
+    <rect class="g-accent" x="730" y="220" width="80" height="16" rx="2"/>
+    <text x="8" y="259" font-size="13">Meilenstein Go-Live</text>
+    <path class="g-accent" d="M810 245L819 254L810 263L801 254Z"/>
+    <rect class="g-accent" x="210" y="290" width="30" height="12" rx="2"/><text x="248" y="301" font-size="12">kritischer Vorgang</text>
+    <rect class="g-info" x="380" y="290" width="30" height="12" rx="2"/><text x="418" y="301" font-size="12">Vorgang mit Puffer</text>
+    <rect class="g-line" stroke-dasharray="4 3" x="560" y="290" width="30" height="12" rx="2"/><text x="598" y="301" font-size="12">freier Puffer</text>
+    </svg>
+  <figcaption>Gantt-Diagramm der Softwareanpassung, Balken ab FAZ. B beginnt bei FAZ 3, also am 4. Tag, und endet nach Tag 8. Gestrichelt ist der freie Puffer; die 6 Tage Gesamtpuffer von F liegen hinter G, weil F und G sie sich teilen.</figcaption>
+</figure>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Netzplan</th><th>Gantt-Diagramm</th></tr></thead>
+    <tbody>
+      <tr><th>zeigt vor allem</th><td>Abhängigkeiten, Puffer, kritischen Pfad</td><td>wann welcher Vorgang läuft</td></tr>
+      <tr><th>Stärke</th><td>Auswirkung einer Verzögerung berechenbar</td><td>auf einen Blick lesbar, auch für den Kunden</td></tr>
+      <tr><th>Schwäche</th><td>für Laien schwer zu lesen</td><td>Abhängigkeiten nur mit zusätzlichen Pfeilen sichtbar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Manche Lehrbücher und Aufgaben zählen ab 1 und rechnen FEZ = FAZ + Dauer − 1; der Nachfolger beginnt dann bei FEZ + 1. Dort meint FAZ den ersten und FEZ den letzten Arbeitstag eines Vorgangs. Die Puffer und der kritische Pfad bleiben gleich; nur der freie Puffer wird dort als kleinster FAZ der Nachfolger − FEZ − 1 berechnet. Wichtig ist, innerhalb einer Rechnung bei einer Konvention zu bleiben.</p></aside>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der kritische Pfad ist der Weg mit den meisten Vorgängen.“ Entscheidend ist die Summe der Dauern: Der kritische Pfad ist der längste Weg, und auf ihm haben alle Vorgänge GP 0.</p></aside>
+
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie Projekte mit Projektstrukturplan, Ressourcen und Kosten geplant und gesteuert werden, wird in LF12b behandelt.</p></aside>
+
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Vorwärts:</strong> FEZ = FAZ + Dauer, FAZ = größter FEZ der Vorgänger. <strong>Rückwärts:</strong> SAZ = SEZ − Dauer, SEZ = kleinster SAZ der Nachfolger.</li>
+  <li><strong>Puffer:</strong> GP = SAZ − FAZ; FP = kleinster FAZ der Nachfolger − FEZ. Kritischer Pfad: alle Vorgänge mit GP 0.</li>
+</ul></div>
+</section>
+<section class="print-up" id="u-5-5-3"><h2><span class="num">5.5.3</span> Software dokumentieren</h2>
+<p class="lead">Ein halbes Jahr nach der Einführung meldet die Praxis, dass bei einigen übernommenen Telefonnummern die Vorwahl fehlt. Wer das Importskript geschrieben hat, ist im Urlaub. Ob der Fehler schnell gefunden wird, hängt jetzt an der Dokumentation: Was sollte das Skript tun, wie ist es aufgebaut, was wurde wann geändert?</p>
+
+<h3 id="u5-5-3-wozu-dokumentieren">Wozu dokumentieren?<a class="anchor" href="#u5-5-3-wozu-dokumentieren" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Dokumentation hält Wissen fest, das sonst nur in einzelnen Köpfen steckt. Sie macht Software bedienbar, wartbar und prüfbar: Anwender finden nach, wie eine Funktion funktioniert; Kollegen können Fehler beheben und erweitern, ohne alles neu zu verstehen; Auftraggeber und Auftragnehmer können zeigen, was vereinbart und was geliefert wurde. Dokumentation entsteht am besten während der Arbeit, nicht erst am Projektende.</p>
+
+<h3 id="u5-5-3-arten-der-dokumentation">Arten der Dokumentation<a class="anchor" href="#u5-5-3-arten-der-dokumentation" aria-hidden="true" tabindex="-1">#</a></h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>für wen</th><th>Inhalt</th><th>im Projekt Tierarztpraxis</th></tr></thead>
+    <tbody>
+      <tr><th>Anforderungs- und Projektdokumentation</th><td>Auftraggeber, Projektteam</td><td>Anforderungen, Vereinbarungen, Planung, Protokolle, Abnahme</td><td>Pflichtenheft, Netzplan, Besprechungsprotokolle, Abnahmeprotokoll</td></tr>
+      <tr><th>Benutzerdokumentation (Anwenderdokumentation)</th><td>Personen, die die Software bedienen</td><td>Bedienung Schritt für Schritt, Beispiele, Hilfe bei Fehlermeldungen</td><td>Kurzanleitung „Neues Tier anlegen“ für den Empfang</td></tr>
+      <tr><th>Entwicklerdokumentation (technische Dokumentation)</th><td>Entwickler, Administratoren</td><td>Aufbau, Datenmodell, Schnittstellen, Installation, Konfiguration</td><td>ER-Modell, Tabellenbeschreibung, Aufruf des Importskripts</td></tr>
+      <tr><th>Kommentare im Code</th><td>wer den Code liest und ändert</td><td>Zweck und Begründung an der Stelle, wo es nötig ist</td><td>Hinweis, warum alte Telefonnummern umformatiert werden</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Was der Kunde wünscht und was der Auftragnehmer zusagt, steht in Lastenheft und Pflichtenheft (LF2, Kapitel 2.1.2). Sie sind der Ausgangspunkt der Projektdokumentation; das Pflichtenheft ist die Grundlage, an der Tests und Abnahme gemessen werden.</p>
+
+<h3 id="u5-5-3-kommentare-im-code">Kommentare im Code<a class="anchor" href="#u5-5-3-kommentare-im-code" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Ein guter Kommentar erklärt, <em>warum</em> etwas so gelöst ist. <em>Was</em> passiert, sollte der Code selbst durch sprechende Namen zeigen.</p>
+<pre><code>// schlecht: wiederholt nur den Code
+zaehler ← zaehler + 1    // zaehler um 1 erhöhen
+
+// besser: begründet eine Entscheidung
+// Altsystem speichert Nummern ohne Vorwahl;
+// die Praxis liegt im Ortsnetz 0761, deshalb ergänzen
+// LENGTH zählt hier die Zeichen, + hängt Texte aneinander
+IF LENGTH(telefon) &lt; 8 THEN
+    telefon ← "0761" + telefon
+END IF</code></pre>
+
+<h3 id="u5-5-3-aenderungen-nachvollziehen">Änderungen nachvollziehen<a class="anchor" href="#u5-5-3-aenderungen-nachvollziehen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Software wird nach der Übergabe weiter geändert. Ein <strong>Änderungsprotokoll</strong> (Changelog) hält je Version fest, was neu ist, was geändert und was behoben wurde. Eine <strong>Versionsverwaltung</strong> wie Git speichert jeden Stand des Quellcodes mit Datum, Autor und einer kurzen Beschreibung. So lässt sich nachvollziehen, wann eine Zeile geändert wurde, und ein älterer Stand lässt sich wiederherstellen.</p>
+
+<h3 id="u5-5-3-modelle-mit-uml">Modelle mit UML<a class="anchor" href="#u5-5-3-modelle-mit-uml" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Für die technische Dokumentation werden Abläufe und Strukturen oft grafisch dargestellt. Die <strong>UML</strong> (Unified Modeling Language) ist eine genormte Sammlung solcher Diagramme. Drei davon begegnen dir häufig:</p>
+<ul>
+  <li><strong>Anwendungsfalldiagramm</strong> (Use-Case-Diagramm): Wer nutzt das System wofür? Etwa Empfang „Termin vergeben“, Tierärztin „Behandlung erfassen“.</li>
+  <li><strong>Klassendiagramm:</strong> Aus welchen Klassen (Bauplänen für Objekte wie „Tier“) mit welchen Daten (Attributen) und Funktionen (Methoden) besteht die Software, und wie hängen sie zusammen?</li>
+  <li><strong>Aktivitätsdiagramm:</strong> In welcher Reihenfolge laufen die Schritte eines Ablaufs, mit Verzweigungen?</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Zurück zu den Nummern ohne Vorwahl. Im Changelog steht bei Version 1.2: „Import: Nummern ohne Vorwahl werden um 0761 ergänzt.“ In der Versionsverwaltung findet die Kollegin die zugehörige Änderung, der Kommentar im Code erklärt die Regel. Damit ist die Ursache klar: Nummern mit Leerzeichen sind länger als 7 Zeichen und wurden deshalb nicht erkannt. Ohne diese Dokumentation hätte sie das Skript erst vollständig nachvollziehen müssen.</p>
+</div>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Code ist die Dokumentation.“ Gut lesbarer Code ersetzt Kommentare an vielen Stellen, aber nicht die Benutzerdokumentation und nicht die Begründung, warum eine Anforderung so umgesetzt wurde.</p></aside>
+
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Software wird für unterschiedliche Leser dokumentiert: Projektdokumentation für Auftraggeber und Team, Benutzerdokumentation für Anwender, Entwicklerdokumentation und Kommentare für alle, die die Software warten und ändern.</p></div>
+</section>
+</div>
+</main>
+</div>
+</body>
+</html>

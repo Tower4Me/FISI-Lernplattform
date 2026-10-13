@@ -703,6 +703,10 @@
         {
           "id": "2-1-2",
           "tiefe": "Lasten- und Pflichtenheft"
+        },
+        {
+          "id": "5-5-3",
+          "tiefe": "Rückverweis als Teil der Projektdokumentation"
         }
       ]
     },
@@ -1524,6 +1528,51 @@
         {
           "id": "5-4-5",
           "tiefe": "Schreibtischtest, Fehlerarten"
+        }
+      ]
+    },
+    {
+      "begriff": "vorgehensmodelle",
+      "kernfakten": [
+        "Wasserfall: Phasen nacheinander (Anforderungsanalyse, Entwurf, Umsetzung, Test, Einführung/Betrieb), gut planbar bei festen Anforderungen, Ergebnis spät sichtbar.",
+        "Scrum: Rollen Product Owner, Scrum Master, Entwicklungsteam (Scrum Guide 2020: Developers); Artefakte Product Backlog, Sprint Backlog, Inkrement; Ereignisse Sprint (höchstens ein Monat), Sprint Planning, Daily Scrum (höchstens 15 Minuten), Sprint Review (Produkt, mit Kunde), Retrospektive (Zusammenarbeit des Teams).",
+        "Kanban: Board mit Spalten und Karten, WIP-Limit begrenzt gleichzeitige Aufgaben je Spalte, fortlaufender Fluss ohne feste Zyklen.",
+        "V-Modell: stellt jeder Entwurfsphase eine Teststufe gegenüber."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-5-1",
+          "tiefe": "Grundlagen und Auswahl"
+        }
+      ]
+    },
+    {
+      "begriff": "netzplan",
+      "kernfakten": [
+        "Konvention der Plattform: Projektstart 0, FEZ = FAZ + Dauer, FAZ = größter FEZ der Vorgänger; Zeitpunkt = Ende eines Tages.",
+        "SAZ = SEZ − Dauer, SEZ = kleinster SAZ der Nachfolger, SEZ des letzten Vorgangs = Projektende.",
+        "GP = SAZ − FAZ = SEZ − FEZ; FP = kleinster FAZ der Nachfolger − FEZ; FP ≤ GP.",
+        "Kritischer Pfad: alle Vorgänge mit GP 0, längster Weg, bestimmt die Projektdauer.",
+        "Gantt-Diagramm: Balken auf Zeitachse, Meilenstein = Ereignis ohne Dauer (Raute)."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-5-2",
+          "tiefe": "Vorwärts-/Rückwärtsrechnung, GP, FP, kritischer Pfad, Gantt"
+        }
+      ]
+    },
+    {
+      "begriff": "softwaredokumentation",
+      "kernfakten": [
+        "Arten: Anforderungs-/Projektdokumentation, Benutzer-/Anwenderdokumentation, Entwickler-/technische Dokumentation, Kommentare im Code.",
+        "Kommentare erklären das Warum; Änderungsprotokoll (Changelog) und Versionsverwaltung machen Änderungen nachvollziehbar.",
+        "UML-Diagramme in LF5 nur genannt: Anwendungsfall-, Klassen-, Aktivitätsdiagramm."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-5-3",
+          "tiefe": "Arten und Zweck, UML nur genannt"
         }
       ]
     }

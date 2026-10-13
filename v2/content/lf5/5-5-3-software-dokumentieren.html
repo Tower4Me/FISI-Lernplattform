@@ -1,0 +1,51 @@
+<p class="lead">Ein halbes Jahr nach der Einführung meldet die Praxis, dass bei einigen übernommenen Telefonnummern die Vorwahl fehlt. Wer das Importskript geschrieben hat, ist im Urlaub. Ob der Fehler schnell gefunden wird, hängt jetzt an der Dokumentation: Was sollte das Skript tun, wie ist es aufgebaut, was wurde wann geändert?</p>
+
+<h3>Wozu dokumentieren?</h3>
+<p>Dokumentation hält Wissen fest, das sonst nur in einzelnen Köpfen steckt. Sie macht Software bedienbar, wartbar und prüfbar: Anwender finden nach, wie eine Funktion funktioniert; Kollegen können Fehler beheben und erweitern, ohne alles neu zu verstehen; Auftraggeber und Auftragnehmer können zeigen, was vereinbart und was geliefert wurde. Dokumentation entsteht am besten während der Arbeit, nicht erst am Projektende.</p>
+
+<h3>Arten der Dokumentation</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>für wen</th><th>Inhalt</th><th>im Projekt Tierarztpraxis</th></tr></thead>
+    <tbody>
+      <tr><th>Anforderungs- und Projektdokumentation</th><td>Auftraggeber, Projektteam</td><td>Anforderungen, Vereinbarungen, Planung, Protokolle, Abnahme</td><td>Pflichtenheft, Netzplan, Besprechungsprotokolle, Abnahmeprotokoll</td></tr>
+      <tr><th>Benutzerdokumentation (Anwenderdokumentation)</th><td>Personen, die die Software bedienen</td><td>Bedienung Schritt für Schritt, Beispiele, Hilfe bei Fehlermeldungen</td><td>Kurzanleitung „Neues Tier anlegen“ für den Empfang</td></tr>
+      <tr><th>Entwicklerdokumentation (technische Dokumentation)</th><td>Entwickler, Administratoren</td><td>Aufbau, Datenmodell, Schnittstellen, Installation, Konfiguration</td><td>ER-Modell, Tabellenbeschreibung, Aufruf des Importskripts</td></tr>
+      <tr><th>Kommentare im Code</th><td>wer den Code liest und ändert</td><td>Zweck und Begründung an der Stelle, wo es nötig ist</td><td>Hinweis, warum alte Telefonnummern umformatiert werden</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Was der Kunde wünscht und was der Auftragnehmer zusagt, steht in Lastenheft und Pflichtenheft (LF2, Kapitel 2.1.2). Sie sind der Ausgangspunkt der Projektdokumentation; das Pflichtenheft ist die Grundlage, an der Tests und Abnahme gemessen werden.</p>
+
+<h3>Kommentare im Code</h3>
+<p>Ein guter Kommentar erklärt, <em>warum</em> etwas so gelöst ist. <em>Was</em> passiert, sollte der Code selbst durch sprechende Namen zeigen.</p>
+<pre><code>// schlecht: wiederholt nur den Code
+zaehler ← zaehler + 1    // zaehler um 1 erhöhen
+
+// besser: begründet eine Entscheidung
+// Altsystem speichert Nummern ohne Vorwahl;
+// die Praxis liegt im Ortsnetz 0761, deshalb ergänzen
+// LENGTH zählt hier die Zeichen, + hängt Texte aneinander
+IF LENGTH(telefon) &lt; 8 THEN
+    telefon ← "0761" + telefon
+END IF</code></pre>
+
+<h3>Änderungen nachvollziehen</h3>
+<p>Software wird nach der Übergabe weiter geändert. Ein <strong>Änderungsprotokoll</strong> (Changelog) hält je Version fest, was neu ist, was geändert und was behoben wurde. Eine <strong>Versionsverwaltung</strong> wie Git speichert jeden Stand des Quellcodes mit Datum, Autor und einer kurzen Beschreibung. So lässt sich nachvollziehen, wann eine Zeile geändert wurde, und ein älterer Stand lässt sich wiederherstellen.</p>
+
+<h3>Modelle mit UML</h3>
+<p>Für die technische Dokumentation werden Abläufe und Strukturen oft grafisch dargestellt. Die <strong>UML</strong> (Unified Modeling Language) ist eine genormte Sammlung solcher Diagramme. Drei davon begegnen dir häufig:</p>
+<ul>
+  <li><strong>Anwendungsfalldiagramm</strong> (Use-Case-Diagramm): Wer nutzt das System wofür? Etwa Empfang „Termin vergeben“, Tierärztin „Behandlung erfassen“.</li>
+  <li><strong>Klassendiagramm:</strong> Aus welchen Klassen (Bauplänen für Objekte wie „Tier“) mit welchen Daten (Attributen) und Funktionen (Methoden) besteht die Software, und wie hängen sie zusammen?</li>
+  <li><strong>Aktivitätsdiagramm:</strong> In welcher Reihenfolge laufen die Schritte eines Ablaufs, mit Verzweigungen?</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Zurück zu den Nummern ohne Vorwahl. Im Changelog steht bei Version 1.2: „Import: Nummern ohne Vorwahl werden um 0761 ergänzt.“ In der Versionsverwaltung findet die Kollegin die zugehörige Änderung, der Kommentar im Code erklärt die Regel. Damit ist die Ursache klar: Nummern mit Leerzeichen sind länger als 7 Zeichen und wurden deshalb nicht erkannt. Ohne diese Dokumentation hätte sie das Skript erst vollständig nachvollziehen müssen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Code ist die Dokumentation.“ Gut lesbarer Code ersetzt Kommentare an vielen Stellen, aber nicht die Benutzerdokumentation und nicht die Begründung, warum eine Anforderung so umgesetzt wurde.</p></aside>
+
+<p class="merksatz">Software wird für unterschiedliche Leser dokumentiert: Projektdokumentation für Auftraggeber und Team, Benutzerdokumentation für Anwender, Entwicklerdokumentation und Kommentare für alle, die die Software warten und ändern.</p>

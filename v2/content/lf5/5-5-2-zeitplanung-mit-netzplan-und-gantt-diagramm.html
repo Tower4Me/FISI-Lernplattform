@@ -1,0 +1,237 @@
+<p class="lead">Die Praxis will wissen, ab wann sie mit der angepassten Software arbeiten kann. Dafür zerlegt das Systemhaus das Projekt in Vorgänge, legt fest, was wovon abhängt, und rechnet daraus den frühesten Endtermin.</p>
+
+<h3>Vorgänge, Dauer, Vorgänger</h3>
+<p>Ein <strong>Vorgang</strong> ist eine Tätigkeit mit einer Dauer. Ein Vorgänger muss fertig sein, bevor der Vorgang beginnen kann. Für die Softwareanpassung (Dauer in Arbeitstagen):</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Nr.</th><th>Vorgang</th><th>Dauer</th><th>Vorgänger</th></tr></thead>
+    <tbody>
+      <tr><th>A</th><td>Anforderungen aufnehmen</td><td>3</td><td>–</td></tr>
+      <tr><th>B</th><td>Datenbank anpassen</td><td>5</td><td>A</td></tr>
+      <tr><th>C</th><td>Importskript schreiben</td><td>4</td><td>A</td></tr>
+      <tr><th>D</th><td>Altdaten importieren</td><td>2</td><td>B, C</td></tr>
+      <tr><th>E</th><td>Testen</td><td>3</td><td>D</td></tr>
+      <tr><th>F</th><td>Schulungsunterlagen erstellen</td><td>3</td><td>A</td></tr>
+      <tr><th>G</th><td>Unterlagen abstimmen</td><td>1</td><td>F</td></tr>
+      <tr><th>H</th><td>Schulung durchführen</td><td>2</td><td>E, G</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Konvention in diesem Kapitel: Das Projekt beginnt zum Zeitpunkt 0. Ein Zeitpunkt bezeichnet das Ende eines Tages: FAZ 3 heißt, der Vorgang beginnt nach Tag 3, also am 4. Tag.</p>
+
+<h3>Vorwärtsrechnung: früheste Zeitpunkte</h3>
+<p>Von vorne nach hinten werden <strong>FAZ</strong> (frühester Anfangszeitpunkt) und <strong>FEZ</strong> (frühester Endzeitpunkt) bestimmt:</p>
+<p class="formel">FEZ = FAZ + Dauer</p>
+<p>Der erste Vorgang hat FAZ 0. Jeder andere Vorgang kann erst anfangen, wenn alle Vorgänger fertig sind: Sein FAZ ist der <strong>größte</strong> FEZ seiner Vorgänger. Für D: B endet bei 8, C bei 7, also FAZ 8. Der größte FEZ im ganzen Netz ist das Projektende, hier 15.</p>
+
+<h3>Rückwärtsrechnung: späteste Zeitpunkte</h3>
+<p>Von hinten nach vorne werden <strong>SEZ</strong> (spätester Endzeitpunkt) und <strong>SAZ</strong> (spätester Anfangszeitpunkt) bestimmt. Der letzte Vorgang bekommt als SEZ das Projektende.</p>
+<p class="formel">SAZ = SEZ − Dauer</p>
+<p>Hat ein Vorgang mehrere Nachfolger, ist sein SEZ der <strong>kleinste</strong> SAZ der Nachfolger, denn er darf keinen davon aufhalten. Für A: B muss spätestens bei 3 beginnen, C bei 4, F bei 9, also SEZ 3.</p>
+
+<h3>Puffer und kritischer Pfad</h3>
+<p class="formel">Gesamtpuffer GP = SAZ − FAZ (= SEZ − FEZ)</p>
+<p>Der <strong>Gesamtpuffer</strong> sagt, um wie viel sich ein Vorgang verschieben darf, ohne das Projektende zu gefährden. Er gehört oft mehreren Vorgängen gemeinsam: Verbraucht ein Vorgang ihn, fehlt er seinen Nachfolgern.</p>
+<p class="formel">Freier Puffer FP = kleinster FAZ der Nachfolger − FEZ</p>
+<p>Der <strong>freie Puffer</strong> sagt, um wie viel sich ein Vorgang verschieben darf, ohne dass irgendein Nachfolger später als zu seinem FAZ beginnen kann. Er ist nie größer als der Gesamtpuffer.</p>
+<p>Alle Vorgänge mit GP 0 bilden den <strong>kritischen Pfad</strong>, hier A – B – D – E – H. Er ist der längste Weg durch den Netzplan und bestimmt die Projektdauer: Jeder Tag Verzug auf diesem Pfad verschiebt das Ende um einen Tag.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 920 360" role="img" aria-label="Netzplan der Softwareanpassung mit acht Vorgängen. Kritischer Pfad A, B, D, E, H mit Gesamtpuffer 0, Projektdauer 15 Tage. C hat 1 Tag Gesamtpuffer, F 6 Tage Gesamtpuffer und 0 Tage freien Puffer, G 6 Tage Gesamt- und freien Puffer.">
+    <defs><marker id="pfeil-netz" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <text x="10" y="20" font-size="12" class="g-muted">Aufbau eines Knotens</text>
+    <g><rect class="g-box" x="10" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M10 52H160M10 74H160M10 96H160M60 30V52M110 30V52M60 52V74M60 74V96M110 74V96M60 96V118M110 96V118"/>
+    <text x="35" y="46" text-anchor="middle" font-size="11" class="g-muted">FAZ</text>
+    <text x="135" y="46" text-anchor="middle" font-size="11" class="g-muted">FEZ</text>
+    <text x="35" y="68" text-anchor="middle" font-size="11" class="g-muted" font-weight="600">Nr.</text>
+    <text x="110" y="68" text-anchor="middle" font-size="11" class="g-muted">Vorgang</text>
+    <text x="35" y="90" text-anchor="middle" font-size="11" class="g-muted">Dauer</text>
+    <text x="85" y="90" text-anchor="middle" font-size="11" class="g-muted">GP</text>
+    <text x="135" y="90" text-anchor="middle" font-size="11" class="g-muted">FP</text>
+    <text x="35" y="112" text-anchor="middle" font-size="11" class="g-muted">SAZ</text>
+    <text x="135" y="112" text-anchor="middle" font-size="11" class="g-muted">SEZ</text>
+    </g>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M160 189L198 74"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M160 189L198 189"/>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M350 74L388 74"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M350 189L388 74"/>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M540 74L578 74"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M160 189L198 304"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M350 304L388 304"/>
+    <path class="g-line" stroke-width="2.5" marker-end="url(#pfeil-netz)" d="M730 74L768 189"/>
+    <path class="g-line" stroke-width="1.2" marker-end="url(#pfeil-netz)" d="M540 304L768 189"/>
+    <g><rect class="g-accent" x="10" y="145" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M10 167H160M10 189H160M10 211H160M60 145V167M110 145V167M60 167V189M60 189V211M110 189V211M60 211V233M110 211V233"/>
+    <text x="35" y="161" text-anchor="middle" font-size="12">0</text>
+    <text x="135" y="161" text-anchor="middle" font-size="12">3</text>
+    <text x="35" y="183" text-anchor="middle" font-size="12" font-weight="600">A</text>
+    <text x="110" y="183" text-anchor="middle" font-size="12">Anforderungen</text>
+    <text x="35" y="205" text-anchor="middle" font-size="12">3</text>
+    <text x="85" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="135" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="35" y="227" text-anchor="middle" font-size="12">0</text>
+    <text x="135" y="227" text-anchor="middle" font-size="12">3</text>
+    </g>
+    <g><rect class="g-accent" x="200" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M200 52H350M200 74H350M200 96H350M250 30V52M300 30V52M250 52V74M250 74V96M300 74V96M250 96V118M300 96V118"/>
+    <text x="225" y="46" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="46" text-anchor="middle" font-size="12">8</text>
+    <text x="225" y="68" text-anchor="middle" font-size="12" font-weight="600">B</text>
+    <text x="300" y="68" text-anchor="middle" font-size="12">DB anpassen</text>
+    <text x="225" y="90" text-anchor="middle" font-size="12">5</text>
+    <text x="275" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="325" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="225" y="112" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="112" text-anchor="middle" font-size="12">8</text>
+    </g>
+    <g><rect class="g-box" x="200" y="145" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M200 167H350M200 189H350M200 211H350M250 145V167M300 145V167M250 167V189M250 189V211M300 189V211M250 211V233M300 211V233"/>
+    <text x="225" y="161" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="161" text-anchor="middle" font-size="12">7</text>
+    <text x="225" y="183" text-anchor="middle" font-size="12" font-weight="600">C</text>
+    <text x="300" y="183" text-anchor="middle" font-size="12">Importskript</text>
+    <text x="225" y="205" text-anchor="middle" font-size="12">4</text>
+    <text x="275" y="205" text-anchor="middle" font-size="12">1</text>
+    <text x="325" y="205" text-anchor="middle" font-size="12">1</text>
+    <text x="225" y="227" text-anchor="middle" font-size="12">4</text>
+    <text x="325" y="227" text-anchor="middle" font-size="12">8</text>
+    </g>
+    <g><rect class="g-accent" x="390" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M390 52H540M390 74H540M390 96H540M440 30V52M490 30V52M440 52V74M440 74V96M490 74V96M440 96V118M490 96V118"/>
+    <text x="415" y="46" text-anchor="middle" font-size="12">8</text>
+    <text x="515" y="46" text-anchor="middle" font-size="12">10</text>
+    <text x="415" y="68" text-anchor="middle" font-size="12" font-weight="600">D</text>
+    <text x="490" y="68" text-anchor="middle" font-size="12">Import</text>
+    <text x="415" y="90" text-anchor="middle" font-size="12">2</text>
+    <text x="465" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="515" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="415" y="112" text-anchor="middle" font-size="12">8</text>
+    <text x="515" y="112" text-anchor="middle" font-size="12">10</text>
+    </g>
+    <g><rect class="g-accent" x="580" y="30" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M580 52H730M580 74H730M580 96H730M630 30V52M680 30V52M630 52V74M630 74V96M680 74V96M630 96V118M680 96V118"/>
+    <text x="605" y="46" text-anchor="middle" font-size="12">10</text>
+    <text x="705" y="46" text-anchor="middle" font-size="12">13</text>
+    <text x="605" y="68" text-anchor="middle" font-size="12" font-weight="600">E</text>
+    <text x="680" y="68" text-anchor="middle" font-size="12">Testen</text>
+    <text x="605" y="90" text-anchor="middle" font-size="12">3</text>
+    <text x="655" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="705" y="90" text-anchor="middle" font-size="12">0</text>
+    <text x="605" y="112" text-anchor="middle" font-size="12">10</text>
+    <text x="705" y="112" text-anchor="middle" font-size="12">13</text>
+    </g>
+    <g><rect class="g-box" x="200" y="260" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M200 282H350M200 304H350M200 326H350M250 260V282M300 260V282M250 282V304M250 304V326M300 304V326M250 326V348M300 326V348"/>
+    <text x="225" y="276" text-anchor="middle" font-size="12">3</text>
+    <text x="325" y="276" text-anchor="middle" font-size="12">6</text>
+    <text x="225" y="298" text-anchor="middle" font-size="12" font-weight="600">F</text>
+    <text x="300" y="298" text-anchor="middle" font-size="12">Unterlagen</text>
+    <text x="225" y="320" text-anchor="middle" font-size="12">3</text>
+    <text x="275" y="320" text-anchor="middle" font-size="12">6</text>
+    <text x="325" y="320" text-anchor="middle" font-size="12">0</text>
+    <text x="225" y="342" text-anchor="middle" font-size="12">9</text>
+    <text x="325" y="342" text-anchor="middle" font-size="12">12</text>
+    </g>
+    <g><rect class="g-box" x="390" y="260" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M390 282H540M390 304H540M390 326H540M440 260V282M490 260V282M440 282V304M440 304V326M490 304V326M440 326V348M490 326V348"/>
+    <text x="415" y="276" text-anchor="middle" font-size="12">6</text>
+    <text x="515" y="276" text-anchor="middle" font-size="12">7</text>
+    <text x="415" y="298" text-anchor="middle" font-size="12" font-weight="600">G</text>
+    <text x="490" y="298" text-anchor="middle" font-size="12">Abstimmen</text>
+    <text x="415" y="320" text-anchor="middle" font-size="12">1</text>
+    <text x="465" y="320" text-anchor="middle" font-size="12">6</text>
+    <text x="515" y="320" text-anchor="middle" font-size="12">6</text>
+    <text x="415" y="342" text-anchor="middle" font-size="12">12</text>
+    <text x="515" y="342" text-anchor="middle" font-size="12">13</text>
+    </g>
+    <g><rect class="g-accent" x="770" y="145" width="150" height="88" rx="2"/>
+    <path class="g-rule" d="M770 167H920M770 189H920M770 211H920M820 145V167M870 145V167M820 167V189M820 189V211M870 189V211M820 211V233M870 211V233"/>
+    <text x="795" y="161" text-anchor="middle" font-size="12">13</text>
+    <text x="895" y="161" text-anchor="middle" font-size="12">15</text>
+    <text x="795" y="183" text-anchor="middle" font-size="12" font-weight="600">H</text>
+    <text x="870" y="183" text-anchor="middle" font-size="12">Schulung</text>
+    <text x="795" y="205" text-anchor="middle" font-size="12">2</text>
+    <text x="845" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="895" y="205" text-anchor="middle" font-size="12">0</text>
+    <text x="795" y="227" text-anchor="middle" font-size="12">13</text>
+    <text x="895" y="227" text-anchor="middle" font-size="12">15</text>
+    </g>
+    </svg>
+  <figcaption>Netzplan als Vorgangsknotennetz. Hervorgehoben: kritischer Pfad mit GP 0, dicke Pfeile. Die Anordnung der Felder im Knoten unterscheidet sich je nach Lehrbuch; in einer Prüfung gilt das vorgegebene Schema.</figcaption>
+</figure>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>F (Schulungsunterlagen) hat GP 9 − 3 = 6, aber FP 6 − 6 = 0: Verspätet sich F um einen Tag, kann G nicht mehr zu seinem FAZ 6 beginnen. Das Projektende ist trotzdem nicht in Gefahr, solange F und G zusammen nicht mehr als 6 Tage verlieren. G hat GP 6 und FP 13 − 7 = 6, denn H beginnt frühestens bei 13.</p>
+</div>
+
+<h3>Das Gantt-Diagramm</h3>
+<p>Ein <strong>Gantt-Diagramm</strong> (Balkendiagramm) zeigt dieselben Vorgänge als Balken auf einer Zeitachse. Die Länge des Balkens entspricht der Dauer. Ein <strong>Meilenstein</strong> ist ein Ereignis ohne Dauer, das einen wichtigen Zwischenstand markiert, etwa „Go-Live“; er wird meist als Raute gezeichnet. Wer die Balken nach FAZ einträgt, kann den freien Puffer als gestrichelten Bereich anhängen.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 820 312" role="img" aria-label="Gantt-Diagramm der Softwareanpassung über 15 Arbeitstage: Balken je Vorgang, kritische Vorgänge hervorgehoben, Puffer gestrichelt, Meilenstein Go-Live am Ende von Tag 15.">
+    <text x="230" y="20" text-anchor="middle" font-size="12" class="g-muted">1</text>
+    <text x="270" y="20" text-anchor="middle" font-size="12" class="g-muted">2</text>
+    <text x="310" y="20" text-anchor="middle" font-size="12" class="g-muted">3</text>
+    <text x="350" y="20" text-anchor="middle" font-size="12" class="g-muted">4</text>
+    <text x="390" y="20" text-anchor="middle" font-size="12" class="g-muted">5</text>
+    <text x="430" y="20" text-anchor="middle" font-size="12" class="g-muted">6</text>
+    <text x="470" y="20" text-anchor="middle" font-size="12" class="g-muted">7</text>
+    <text x="510" y="20" text-anchor="middle" font-size="12" class="g-muted">8</text>
+    <text x="550" y="20" text-anchor="middle" font-size="12" class="g-muted">9</text>
+    <text x="590" y="20" text-anchor="middle" font-size="12" class="g-muted">10</text>
+    <text x="630" y="20" text-anchor="middle" font-size="12" class="g-muted">11</text>
+    <text x="670" y="20" text-anchor="middle" font-size="12" class="g-muted">12</text>
+    <text x="710" y="20" text-anchor="middle" font-size="12" class="g-muted">13</text>
+    <text x="750" y="20" text-anchor="middle" font-size="12" class="g-muted">14</text>
+    <text x="790" y="20" text-anchor="middle" font-size="12" class="g-muted">15</text>
+    <path class="g-rule" d="M210 28V278M250 28V278M290 28V278M330 28V278M370 28V278M410 28V278M450 28V278M490 28V278M530 28V278M570 28V278M610 28V278M650 28V278M690 28V278M730 28V278M770 28V278M810 28V278"/>
+    <text x="8" y="51" font-size="13">A Anforderungen aufnehmen</text>
+    <rect class="g-accent" x="210" y="38" width="120" height="16" rx="2"/>
+    <text x="8" y="77" font-size="13">B Datenbank anpassen</text>
+    <rect class="g-accent" x="330" y="64" width="200" height="16" rx="2"/>
+    <text x="8" y="103" font-size="13">C Importskript schreiben</text>
+    <rect class="g-info" x="330" y="90" width="160" height="16" rx="2"/>
+    <rect class="g-line" stroke-dasharray="4 3" x="490" y="90" width="40" height="16" rx="2"/>
+    <text x="8" y="129" font-size="13">D Altdaten importieren</text>
+    <rect class="g-accent" x="530" y="116" width="80" height="16" rx="2"/>
+    <text x="8" y="155" font-size="13">E Testen</text>
+    <rect class="g-accent" x="610" y="142" width="120" height="16" rx="2"/>
+    <text x="8" y="181" font-size="13">F Schulungsunterlagen erstellen</text>
+    <rect class="g-info" x="330" y="168" width="120" height="16" rx="2"/>
+    <text x="8" y="207" font-size="13">G Unterlagen abstimmen</text>
+    <rect class="g-info" x="450" y="194" width="40" height="16" rx="2"/>
+    <rect class="g-line" stroke-dasharray="4 3" x="490" y="194" width="240" height="16" rx="2"/>
+    <text x="8" y="233" font-size="13">H Schulung durchführen</text>
+    <rect class="g-accent" x="730" y="220" width="80" height="16" rx="2"/>
+    <text x="8" y="259" font-size="13">Meilenstein Go-Live</text>
+    <path class="g-accent" d="M810 245L819 254L810 263L801 254Z"/>
+    <rect class="g-accent" x="210" y="290" width="30" height="12" rx="2"/><text x="248" y="301" font-size="12">kritischer Vorgang</text>
+    <rect class="g-info" x="380" y="290" width="30" height="12" rx="2"/><text x="418" y="301" font-size="12">Vorgang mit Puffer</text>
+    <rect class="g-line" stroke-dasharray="4 3" x="560" y="290" width="30" height="12" rx="2"/><text x="598" y="301" font-size="12">freier Puffer</text>
+    </svg>
+  <figcaption>Gantt-Diagramm der Softwareanpassung, Balken ab FAZ. B beginnt bei FAZ 3, also am 4. Tag, und endet nach Tag 8. Gestrichelt ist der freie Puffer; die 6 Tage Gesamtpuffer von F liegen hinter G, weil F und G sie sich teilen.</figcaption>
+</figure>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Netzplan</th><th>Gantt-Diagramm</th></tr></thead>
+    <tbody>
+      <tr><th>zeigt vor allem</th><td>Abhängigkeiten, Puffer, kritischen Pfad</td><td>wann welcher Vorgang läuft</td></tr>
+      <tr><th>Stärke</th><td>Auswirkung einer Verzögerung berechenbar</td><td>auf einen Blick lesbar, auch für den Kunden</td></tr>
+      <tr><th>Schwäche</th><td>für Laien schwer zu lesen</td><td>Abhängigkeiten nur mit zusätzlichen Pfeilen sichtbar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Manche Lehrbücher und Aufgaben zählen ab 1 und rechnen FEZ = FAZ + Dauer − 1; der Nachfolger beginnt dann bei FEZ + 1. Dort meint FAZ den ersten und FEZ den letzten Arbeitstag eines Vorgangs. Die Puffer und der kritische Pfad bleiben gleich; nur der freie Puffer wird dort als kleinster FAZ der Nachfolger − FEZ − 1 berechnet. Wichtig ist, innerhalb einer Rechnung bei einer Konvention zu bleiben.</p></aside>
+
+<aside class="note" data-typ="fehler"><p>„Der kritische Pfad ist der Weg mit den meisten Vorgängen.“ Entscheidend ist die Summe der Dauern: Der kritische Pfad ist der längste Weg, und auf ihm haben alle Vorgänge GP 0.</p></aside>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf12b"><p>Wie Projekte mit Projektstrukturplan, Ressourcen und Kosten geplant und gesteuert werden, wird in LF12b behandelt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Vorwärts:</strong> FEZ = FAZ + Dauer, FAZ = größter FEZ der Vorgänger. <strong>Rückwärts:</strong> SAZ = SEZ − Dauer, SEZ = kleinster SAZ der Nachfolger.</li>
+  <li><strong>Puffer:</strong> GP = SAZ − FAZ; FP = kleinster FAZ der Nachfolger − FEZ. Kritischer Pfad: alle Vorgänge mit GP 0.</li>
+</ul>

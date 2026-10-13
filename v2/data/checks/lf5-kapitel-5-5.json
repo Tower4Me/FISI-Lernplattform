@@ -1,0 +1,125 @@
+{
+  "titel": "Check 5.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Rollen in Scrum",
+      "frage": "Wer legt in Scrum fest, in welcher Reihenfolge die Anforderungen an das Produkt umgesetzt werden?",
+      "optionen": [
+        "Product Owner",
+        "Scrum Master",
+        "Entwicklungsteam",
+        "Die Geschäftsführung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Product Owner pflegt und priorisiert das Product Backlog. Der Scrum Master kümmert sich um den Prozess und räumt Hindernisse aus dem Weg."
+    },
+    {
+      "typ": "mc",
+      "thema": "Ereignisse in Scrum",
+      "frage": "Nach der Vorstellung des Ergebnisses trifft sich das Team ohne Kunden und bespricht, wie die Abstimmung untereinander im nächsten Zyklus besser laufen kann. Wie heißt dieses Ereignis?",
+      "optionen": [
+        "Retrospektive",
+        "Sprint Review",
+        "Daily Scrum",
+        "Sprint Planning"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "In der Retrospektive geht es um die Arbeitsweise des Teams. Im Sprint Review wird dagegen das Inkrement mit dem Kunden besprochen."
+    },
+    {
+      "typ": "mc",
+      "thema": "WIP-Limit",
+      "frage": "Auf dem Kanban-Board eines Support-Teams hat die Spalte „In Arbeit“ ein WIP-Limit von 3. Dort liegen bereits drei Karten, eine weitere Aufgabe kommt herein. Wie geht das Team vor?",
+      "optionen": [
+        "Erst eine laufende Aufgabe abschließen, dann die neue beginnen",
+        "Die neue Aufgabe trotzdem beginnen, das Limit ist nur eine Empfehlung",
+        "Das Limit für diesen Tag auf 4 anheben und die Aufgabe sofort beginnen",
+        "Die neue Aufgabe bis zum nächsten Sprint im Sprint Backlog ablegen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das WIP-Limit begrenzt die Zahl gleichzeitig laufender Aufgaben. Erst wenn eine Karte weiterwandert, darf eine neue in die Spalte."
+    },
+    {
+      "typ": "mc",
+      "thema": "Vorgehen auswählen",
+      "frage": "Eine Hundeschule möchte eine App, weiß aber noch nicht genau, welche Funktionen sie braucht, und will Zwischenstände früh ausprobieren. Welches Vorgehen passt am besten?",
+      "optionen": [
+        "Scrum mit kurzen Sprints und einem Review am Ende jedes Sprints",
+        "Wasserfallmodell mit vollständigem Pflichtenheft vor dem Entwurf",
+        "Wasserfallmodell, weil sich Termine und Kosten früh festlegen lassen",
+        "V-Modell, weil jeder Entwurfsphase eine Teststufe zugeordnet ist"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei unklaren, sich ändernden Anforderungen passt ein agiles Vorgehen. Nach jedem Sprint sieht der Kunde ein nutzbares Ergebnis und kann die Planung beeinflussen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Vorwärtsrechnung",
+      "frage": "Der Vorgang „Daten übertragen“ hat zwei Vorgänger. Der erste hat FEZ 6, der zweite FEZ 9. Welchen FAZ hat „Daten übertragen“?",
+      "optionen": [
+        "9",
+        "6",
+        "15",
+        "10"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Vorgang kann erst beginnen, wenn alle Vorgänger fertig sind. Deshalb ist sein FAZ der größte FEZ der Vorgänger."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kritischer Pfad",
+      "frage": "Ein Projekt hat diese Vorgänge: Vorgang 1 (2 Tage, kein Vorgänger), Vorgang 2 (4 Tage, nach 1), Vorgang 3 (1 Tag, nach 1), Vorgang 4 (2 Tage, nach 3), Vorgang 5 (2 Tage, nach 2 und 4). Projektstart 0, FEZ = FAZ + Dauer. Welche Vorgänge bilden den kritischen Pfad?",
+      "optionen": [
+        "1 – 2 – 5",
+        "1 – 3 – 4 – 5",
+        "1 – 2 – 4 – 5",
+        "2 – 4 – 5"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Über 1, 2 und 5 dauert das Projekt 8 Tage, das ist der längste Weg. Der längste Weg ist kritisch, seine Vorgänge haben Gesamtpuffer 0."
+    },
+    {
+      "typ": "mc",
+      "thema": "Freier Puffer",
+      "frage": "Ein Projekt hat diese Vorgänge: Vorgang 1 (2 Tage, kein Vorgänger), Vorgang 2 (4 Tage, nach 1), Vorgang 3 (1 Tag, nach 1), Vorgang 4 (2 Tage, nach 3), Vorgang 5 (2 Tage, nach 2 und 4). Projektstart 0, FEZ = FAZ + Dauer. Wie groß sind Gesamtpuffer (GP) und freier Puffer (FP) von Vorgang 3?",
+      "optionen": [
+        "GP 1, FP 0",
+        "GP 0, FP 0",
+        "GP 1, FP 1",
+        "GP 2, FP 1"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Vorgang 3 hat FAZ 2 und FEZ 3; rückwärts ergibt sich SAZ 3, also GP 1. Sein Nachfolger 4 beginnt frühestens bei 3, deshalb ist FP = 3 − 3 = 0."
+    },
+    {
+      "typ": "mc",
+      "thema": "Arten der Dokumentation",
+      "frage": "Für das Personal einer Zahnarztpraxis entsteht eine bebilderte Anleitung, wie ein neuer Patient im Programm angelegt wird. Zu welcher Art Dokumentation gehört sie?",
+      "optionen": [
+        "Benutzerdokumentation",
+        "Entwicklerdokumentation",
+        "Projektdokumentation",
+        "Änderungsprotokoll"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Sie richtet sich an Personen, die die Software bedienen. Entwicklerdokumentation beschreibt dagegen Aufbau, Datenmodell und Installation."
+    }
+  ]
+}

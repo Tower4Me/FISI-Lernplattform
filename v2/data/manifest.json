@@ -3031,6 +3031,68 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "5.7",
+          "titel": "Künstliche Intelligenz",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "5.7.1",
+              "titel": "Grundlagen der KI",
+              "slug": "grundlagen-der-ki",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Informationen mittels Daten abbilden, Daten nach Herkunft und Art analysieren (Daten als Grundlage von KI; KI-Grundlagen laut AUFTRAG neu im AP1-Katalog)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2023 (KI-Chatbot)",
+                  "AP1 Frühjahr 2025 (KI im Ablauf eines Betriebs)",
+                  "AP1 Herbst 2025 (KI zur Rechnungsprüfung)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: schwache/starke KI, überwachtes/unüberwachtes/bestärkendes Lernen, Overfitting, Trainings-/Testdaten"
+                ]
+              },
+              "material": [
+                "ki-grundlagen"
+              ],
+              "begriffe": [
+                "kuenstliche-intelligenz",
+                "daten-information"
+              ]
+            },
+            {
+              "nummer": "5.7.2",
+              "titel": "KI im Betrieb einsetzen",
+              "slug": "ki-im-betrieb-einsetzen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Daten nach Datenschutz und Datensicherheit analysieren; Eignung einer Anwendung beurteilen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2023 (Vor- und Nachteile KI-Chatbot)",
+                  "AP1 Frühjahr 2025 (KI im Ablauf einer Kanzlei)",
+                  "AP1 Herbst 2025 (KI zur Rechnungsprüfung)"
+                ],
+                "extern": [
+                  "Verordnung (EU) 2024/1689 (KI-Verordnung): Risikostufen, Inkrafttreten 1. August 2024, Verbote und KI-Kompetenz (Art. 4) ab 2. Februar 2025, geprüft über digital-strategy.ec.europa.eu/de/policies/regulatory-framework-ai (Stand Oktober 2026)",
+                  "Änderungsverordnung (EU) 2026/1744 (KI-Omnibus, ABl. L 2026/1744, in Kraft 27. Juli 2026): verschiebt Hochrisiko-Fristen (Anhang III auf 2. Dezember 2027, Anhang I auf 2. August 2028), Art. 4 bleibt Pflicht für Anbieter und Betreiber ohne vorgeschriebenes Mindestniveau, geprüft über digital-strategy.ec.europa.eu/de/policies/regulatory-framework-ai und digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers (Stand Oktober 2026)",
+                  "DSGVO Art. 9 (Gesundheitsdaten natürlicher Personen), Art. 28 (Auftragsverarbeitung)"
+                ]
+              },
+              "material": [
+                "ki-grundlagen",
+                "dsgvo-grundlagen"
+              ],
+              "begriffe": [
+                "kuenstliche-intelligenz",
+                "ki-verordnung",
+                "personenbezogene-daten",
+                "speicherloesungen"
+              ]
+            }
+          ]
         }
       ]
     }

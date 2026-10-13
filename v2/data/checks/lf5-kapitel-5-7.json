@@ -1,0 +1,125 @@
+{
+  "titel": "Check 5.7",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Lernarten",
+      "frage": "Ein Modell soll auf Ultraschallbildern Blasensteine erkennen. Dafür liegen 4000 Bilder vor, bei denen Fachleute jeweils vermerkt haben, ob ein Stein zu sehen ist. Welche Lernart passt?",
+      "optionen": [
+        "Überwachtes Lernen",
+        "Unüberwachtes Lernen",
+        "Bestärkendes Lernen",
+        "Regelbasiertes System"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Zu jedem Bild ist die richtige Antwort bekannt, die Daten sind also gelabelt. Das Modell ordnet einer von zwei Kategorien zu, es handelt sich um eine Klassifikation."
+    },
+    {
+      "typ": "mc",
+      "thema": "Clustering",
+      "frage": "Ein Händler für Tierbedarf möchte seine Kundschaft anhand der Einkäufe in Gruppen einteilen, ohne vorher festzulegen, welche Gruppen es geben soll. Welches Verfahren eignet sich?",
+      "optionen": [
+        "Clustering beim unüberwachten Lernen",
+        "Regression beim überwachten Lernen",
+        "Klassifikation beim überwachten Lernen",
+        "Belohnung beim bestärkenden Lernen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ohne vorgegebene Kategorien gibt es keine Labels. Clustering sucht selbst nach Ähnlichkeiten und bildet daraus Gruppen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Überanpassung",
+      "frage": "Ein Modell erkennt Hautpilz auf den Trainingsbildern zu 98 % richtig, auf zurückgehaltenen Bildern nur zu 64 %. Was ist die wahrscheinlichste Ursache?",
+      "optionen": [
+        "Es hat Trainingsbilder samt Zufälligkeiten auswendig gelernt",
+        "Die zurückgehaltenen Bilder hätten ins Training gehört",
+        "Bei der Inferenz lernt das Modell mit jedem Bild falsch weiter",
+        "Bildmodelle schneiden mit Testdaten meist schlechter ab als Textmodelle"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Sehr gute Werte im Training und deutlich schlechtere bei neuen Daten sind das typische Zeichen für Überanpassung (Overfitting). Genau dafür hält man Testdaten zurück."
+    },
+    {
+      "typ": "mc",
+      "thema": "Halluzination",
+      "frage": "Ein Sprachmodell nennt auf Nachfrage eine Fachzeitschrift samt Seitenzahl als Beleg. Die Quelle existiert nicht. Wie kommt das zustande?",
+      "optionen": [
+        "Es wählt wahrscheinliche Fortsetzungen, ohne Fakten zu prüfen",
+        "Die Fachzeitschrift wurde nach dem Training aus allen Datenbanken entfernt",
+        "Das Modell verschleiert absichtlich Quellen, um Urheberrechte zu schützen",
+        "Die Anfrage war zu kurz, deshalb hat das Modell den Text zufällig gewählt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Sprachmodell erzeugt plausible Wortfolgen. Eine überzeugend klingende, aber erfundene Angabe heißt Halluzination und muss vor der Verwendung geprüft werden."
+    },
+    {
+      "typ": "mc",
+      "thema": "Datenqualität",
+      "frage": "Ein Modell zur Gewichtsprognose von Welpen wurde fast nur mit Daten großer Hunderassen trainiert. Bei kleinen Rassen liegt es oft daneben. Was beschreibt das Problem?",
+      "optionen": [
+        "Die Trainingsdaten sind einseitig, das Modell ist verzerrt (Bias)",
+        "Das Modell ist eine starke KI und verallgemeinert zu weit",
+        "Regression liefert bei Tieren keine brauchbaren Zahlenwerte",
+        "Das Modell lernt bestärkend und bekam zu wenig Belohnung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Sind Fälle in den Trainingsdaten unterrepräsentiert, übernimmt das Modell diese Verzerrung. Nach dem Prinzip „garbage in, garbage out“ bestimmen die Daten die Qualität der Ergebnisse."
+    },
+    {
+      "typ": "mc",
+      "thema": "Datenschutz",
+      "frage": "Ein Mitarbeiter will eine Liste mit Namen und Telefonnummern von Tierhaltern in einen frei zugänglichen KI-Chatdienst kopieren, um sie sortieren zu lassen. Wie bewertest du das?",
+      "optionen": [
+        "Unzulässig ohne freigegebenen Dienst und Vertrag zur Auftragsverarbeitung",
+        "Zulässig, weil Namen und Telefonnummern keine besonderen Gesundheitsdaten sind",
+        "Zulässig, sofern der Chatdienst die Liste nach dem Sortieren ausgibt",
+        "Unbedenklich, weil Tierhalterdaten nicht unter die DSGVO fallen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Namen und Telefonnummern sind personenbezogen. Verarbeitet ein externer Dienst sie im Auftrag, braucht es einen Vertrag nach Art. 28 DSGVO und eine Freigabe im Betrieb."
+    },
+    {
+      "typ": "mc",
+      "thema": "Risikostufen",
+      "frage": "Ein Fahrradhändler setzt auf seiner Website einen KI-Assistenten ein, der Fragen zu Lieferzeiten beantwortet. In welche Stufe der KI-Verordnung fällt das?",
+      "optionen": [
+        "Begrenztes Risiko mit Transparenzpflichten",
+        "Unannehmbares Risiko mit Verbot des Einsatzes",
+        "Hohes Risiko mit Pflicht zum Risikomanagement",
+        "Minimales Risiko ohne jede besondere Vorgabe"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Chatbots gehören zur Stufe mit begrenztem Risiko. Wer mit dem Assistenten schreibt, muss erkennen können, dass er mit einer KI kommuniziert."
+    },
+    {
+      "typ": "mc",
+      "thema": "KI-Kompetenz",
+      "frage": "Eine Steuerkanzlei mit zwölf Beschäftigten nutzt ein gekauftes KI-Werkzeug, um Belege auszulesen. Was verlangt Art. 4 der KI-Verordnung von ihr?",
+      "optionen": [
+        "Maßnahmen, um die KI-Kompetenz des Personals zu fördern",
+        "Nichts, da die Pflicht für die Entwickler von KI-Systemen gilt",
+        "Eine Zulassung des Werkzeugs durch die nationale Aufsichtsbehörde",
+        "Eine Einwilligung der Mandanten in die Belegverarbeitung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Seit dem 2. Februar 2025 müssen auch Betriebe, die KI einsetzen, Maßnahmen ergreifen, um die KI-Kompetenz ihrer Beschäftigten zu fördern. Eine Mindestgröße gibt es dafür nicht."
+    }
+  ]
+}

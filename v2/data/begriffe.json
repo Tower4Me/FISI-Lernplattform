@@ -134,6 +134,10 @@
         {
           "id": "4-2-1",
           "tiefe": "Grundlagen für die Schutzbedarfsanalyse"
+        },
+        {
+          "id": "5-7-2",
+          "tiefe": "Eingaben in Cloud-KI; Tierdaten keine Gesundheitsdaten nach Art. 9"
         }
       ]
     },
@@ -1487,6 +1491,10 @@
         {
           "id": "5-2-3",
           "tiefe": "Auswahl"
+        },
+        {
+          "id": "5-7-2",
+          "tiefe": "Rückverweis AV-Vertrag bei Cloud-KI"
         }
       ]
     },
@@ -1627,6 +1635,42 @@
         {
           "id": "5-6-3",
           "tiefe": "Eignung beurteilen, Auswahl der Merkmale, Barrierefreiheit"
+        }
+      ]
+    },
+    {
+      "begriff": "kuenstliche-intelligenz",
+      "kernfakten": [
+        "Schwache KI ist auf eine Aufgabe spezialisiert (alle heutigen Systeme); starke KI (allgemeine Intelligenz) gibt es bisher nicht.",
+        "KI ⊃ maschinelles Lernen ⊃ Deep Learning (neuronale Netze mit vielen Schichten).",
+        "Training: aus Trainingsdaten entsteht ein Modell; Anwendung (Inferenz): Modell liefert für neue Daten ein Ergebnis, meist mit Wahrscheinlichkeit.",
+        "Überwacht (gelabelte Daten; Klassifikation = Kategorie, Regression = Zahlenwert), unüberwacht (Clustering), bestärkend (Belohnung).",
+        "Overfitting: gut auf Trainingsdaten, schlecht auf neuen Daten; Prüfung mit getrennten Testdaten.",
+        "LLM erzeugt Text als wahrscheinliche Fortsetzung, ohne Fakten nachzuschlagen; Halluzination = überzeugend, aber falsch.",
+        "Garbage in, garbage out; einseitige Trainingsdaten führen zu Bias."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-7-1",
+          "tiefe": "Grundlagen, Lernarten, Overfitting, LLM, Datenqualität"
+        },
+        {
+          "id": "5-7-2",
+          "tiefe": "Einsatzfelder, Vor- und Nachteile, menschliche Kontrolle"
+        }
+      ]
+    },
+    {
+      "begriff": "ki-verordnung",
+      "kernfakten": [
+        "Verordnung (EU) 2024/1689 (AI Act), in Kraft seit 1. August 2024, gilt schrittweise.",
+        "Risikobasiert: unannehmbar (verboten, z. B. Social Scoring), hoch (strenge Pflichten, z. B. Bewerbervorauswahl), begrenzt (Transparenz, z. B. Chatbots), minimal (keine besonderen Pflichten, z. B. Spamfilter).",
+        "Die ersten Verbote und die KI-Kompetenz (Art. 4) gelten seit 2. Februar 2025; Anbieter und Betreiber (einsetzende Betriebe) müssen Maßnahmen ergreifen, um die KI-Kompetenz ihrer Beschäftigten zu fördern (kein vorgeschriebenes Mindestniveau)."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-7-2",
+          "tiefe": "Überblick Risikostufen, KI-Kompetenz"
         }
       ]
     }

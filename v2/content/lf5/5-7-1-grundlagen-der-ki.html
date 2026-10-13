@@ -1,0 +1,70 @@
+<p class="lead">Die Inhaberin der Tierarztpraxis hat gelesen, dass KI Laborwerte prüfen und Behandlungsnotizen schreiben kann. Bevor das Systemhaus so etwas empfiehlt, muss klar sein, wie solche Systeme zu ihren Ergebnissen kommen und wo ihre Grenzen liegen.</p>
+
+<h3>Was KI ist</h3>
+<p><strong>Künstliche Intelligenz (KI)</strong> ist der Oberbegriff für Systeme, die Aufgaben lösen, für die man sonst menschliche Intelligenz braucht: Muster erkennen, etwas einordnen, Werte vorhersagen, Sprache verstehen oder erzeugen. Man unterscheidet:</p>
+<ul>
+  <li><strong>Schwache KI</strong> ist auf eine bestimmte Aufgabe spezialisiert, etwa Spracherkennung oder Bilderkennung. Alle heute eingesetzten Systeme gehören dazu, auch Sprachmodelle.</li>
+  <li><strong>Starke KI</strong> wäre eine allgemeine Intelligenz, die wie ein Mensch beliebige Aufgaben versteht und löst. Sie gibt es bisher nicht.</li>
+</ul>
+
+<h3>Regeln oder Lernen aus Daten</h3>
+<p>Ein <strong>regelbasiertes System</strong> arbeitet mit Regeln, die Fachleute vorher festlegen: „WENN Blutzucker über Grenzwert, DANN Warnung“. Das ist nachvollziehbar, aber jede Regel muss jemand pflegen. Beim <strong>maschinellen Lernen</strong> (Machine Learning, ML) leitet das Programm die Zusammenhänge selbst aus vielen Beispieldaten ab, etwa um einen Bruch auf einem Röntgenbild zu erkennen.</p>
+
+<h3>Training und Anwendung</h3>
+<p>Im <strong>Training</strong> verarbeitet ein Lernverfahren die <strong>Trainingsdaten</strong> und passt dabei ein <strong>Modell</strong> an. In der <strong>Anwendung (Inferenz)</strong> bekommt das fertige Modell neue Daten und liefert ein Ergebnis, meist mit einer Wahrscheinlichkeit („Fraktur zu 87 %“). In der Anwendung lernt es meist nicht weiter.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 760 200" role="img" aria-label="Oben Training: Trainingsdaten gehen in das Training, daraus entsteht das Modell. Unten Anwendung: neue Daten gehen in das Modell, es liefert ein Ergebnis mit Wahrscheinlichkeit.">
+    <defs><marker id="pfeil-ki" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <text x="20" y="24" font-size="12" class="g-muted">Training</text>
+    <rect class="g-box" x="20" y="36" width="180" height="48" rx="2"/>
+    <text x="110" y="65" text-anchor="middle">Trainingsdaten</text>
+    <rect class="g-box" x="290" y="36" width="180" height="48" rx="2"/>
+    <text x="380" y="65" text-anchor="middle">Training</text>
+    <rect class="g-accent" x="560" y="36" width="180" height="48" rx="2"/>
+    <text x="650" y="65" text-anchor="middle">Modell</text>
+    <text x="20" y="124" font-size="12" class="g-muted">Anwendung (Inferenz)</text>
+    <rect class="g-box" x="20" y="136" width="180" height="48" rx="2"/>
+    <text x="110" y="165" text-anchor="middle">neue Daten</text>
+    <rect class="g-accent" x="290" y="136" width="180" height="48" rx="2"/>
+    <text x="380" y="165" text-anchor="middle">Modell</text>
+    <rect class="g-box" x="560" y="136" width="180" height="48" rx="2"/>
+    <text x="650" y="165" text-anchor="middle">Ergebnis mit %</text>
+    <g class="g-line" stroke-width="1.5" marker-end="url(#pfeil-ki)">
+      <path d="M200 60H288"/><path d="M470 60H558"/><path d="M200 160H288"/><path d="M470 160H558"/>
+    </g>
+  </svg>
+  <figcaption>Training und Anwendung (Inferenz)</figcaption>
+</figure>
+
+<h3>Lernarten</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Lernart</th><th>Wie gelernt wird</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th>Überwachtes Lernen</th><td>mit gelabelten Daten: Zu jeder Eingabe ist die richtige Antwort bekannt. <strong>Klassifikation</strong> ordnet einer Kategorie zu, <strong>Regression</strong> sagt einen Zahlenwert voraus.</td><td>Röntgenbilder mit Befund „Fraktur“ oder „keine Fraktur“ (Klassifikation); Dauer eines Termins vorhersagen (Regression)</td></tr>
+      <tr><th>Unüberwachtes Lernen</th><td>ohne Labels; das Verfahren sucht selbst Ähnlichkeiten und bildet Gruppen (<strong>Clustering</strong>)</td><td>Kundschaft nach Besuchsverhalten gruppieren</td></tr>
+      <tr><th>Bestärkendes Lernen</th><td>ein Agent probiert Aktionen aus, erhält dafür Belohnung oder Bestrafung und lernt so eine Strategie</td><td>Spielprogramme, Roboter, die Greifbewegungen lernen</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Überanpassung erkennen</h3>
+<p>Ein Modell kann die Trainingsdaten samt ihrer Zufälligkeiten auswendig lernen, statt allgemeine Muster zu finden. Diese <strong>Überanpassung (Overfitting)</strong> zeigt sich daran, dass es im Training sehr gut abschneidet, bei neuen Daten aber deutlich schlechter. Deshalb teilt man die Daten auf: Mit den <strong>Trainingsdaten</strong> wird gelernt, mit den zurückgehaltenen <strong>Testdaten</strong>, die das Modell nie gesehen hat, wird geprüft. Eine übliche Aufteilung ist etwa 80 zu 20.</p>
+
+<h3>Neuronale Netze und generative KI</h3>
+<p>Ein <strong>künstliches neuronales Netz</strong> besteht aus vielen einfachen, in Schichten verknüpften Recheneinheiten; im Training werden die Gewichte ihrer Verbindungen angepasst. <strong>Deep Learning</strong> nutzt Netze mit vielen Schichten und ist die Grundlage heutiger Bild- und Spracherkennung. KI umfasst also maschinelles Lernen, und Deep Learning ist ein Teil des maschinellen Lernens.</p>
+<p><strong>Generative KI</strong> erzeugt neue Inhalte wie Text, Bilder oder Code. Ein <strong>großes Sprachmodell (Large Language Model, LLM)</strong> ist mit sehr großen Textmengen trainiert und erzeugt Text Stück für Stück als wahrscheinliche Fortsetzung. Von sich aus schlägt es dabei keine geprüften Fakten nach. Deshalb kann es <strong>halluzinieren</strong>: Es formuliert überzeugend, aber falsch, etwa mit erfundenen Quellen.</p>
+
+<h3>Ohne gute Daten keine gute KI</h3>
+<p>Ein Modell kann nur so gut sein wie seine Trainingsdaten: <strong>„garbage in, garbage out“</strong>. Fehlerhafte, veraltete oder unvollständige Daten führen zu falschen Ergebnissen. Sind bestimmte Fälle über- oder unterrepräsentiert, übernimmt das Modell diese <strong>Verzerrung (Bias)</strong> und benachteiligt einzelne Gruppen. Die Datenanalyse nach Herkunft und Art (Kapitel 5.1.1) ist deshalb auch für KI die Grundlage: Woher stammen die Trainingsdaten, und sind sie vollständig, aktuell und ausgewogen?</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein angebotenes Modell, das auffällige Laborwerte markiert, wurde fast nur mit Werten von Hunden trainiert. Bei Katzen, deren Normbereiche teilweise anders liegen, meldet es deshalb unpassende Warnungen oder übersieht Auffälligkeiten. Das Systemhaus fragt deshalb vorab, mit welchen Tierarten trainiert und getestet wurde.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Das Modell trifft im Training 99 % der Fälle, also ist es zuverlässig.“ Aussagekräftig sind erst die Testdaten.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Maschinelles Lernen:</strong> Ein Modell wird mit Trainingsdaten trainiert und dann auf neue Daten angewendet (Inferenz); überwacht mit Labels, unüberwacht durch Clustering, bestärkend über Belohnung.</li>
+  <li><strong>Grenzen:</strong> Überanpassung mit getrennten Testdaten aufdecken; Sprachmodelle können halluzinieren; einseitige Daten führen zu Bias.</li>
+</ul>

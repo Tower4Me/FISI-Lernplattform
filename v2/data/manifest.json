@@ -2771,6 +2771,122 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "5.4",
+          "titel": "Algorithmen und Programme",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "5.4.1",
+              "titel": "Programme und Sprachen",
+              "slug": "programme-und-sprachen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2025 (Programmiersprachen, statische und dynamische Webseite)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "programmierparadigmen",
+                "compiler-interpreter-debugging",
+                "html-css-grundlagen",
+                "dynamische-statische-webseiten"
+              ],
+              "begriffe": [
+                "programmierung"
+              ]
+            },
+            {
+              "nummer": "5.4.2",
+              "titel": "Pseudocode, Variablen und Operatoren",
+              "slug": "pseudocode-variablen-und-operatoren",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2025 (Pseudocode erläutern)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "pseudocode",
+                "variablen-datentypen-operatoren"
+              ],
+              "begriffe": [
+                "programmierung",
+                "datentypen"
+              ]
+            },
+            {
+              "nummer": "5.4.3",
+              "titel": "Verzweigungen und Schleifen",
+              "slug": "verzweigungen-und-schleifen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2025 (Verzweigungen auswerten)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "verzweigungen-if-else",
+                "schleifen",
+                "verschachtelung-kaskadierung"
+              ],
+              "begriffe": [
+                "programmierung"
+              ]
+            },
+            {
+              "nummer": "5.4.4",
+              "titel": "Datenstrukturen und Funktionen",
+              "slug": "datenstrukturen-und-funktionen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2025 (Rückgabewerte einer Funktion)",
+                  "AP1 Herbst 2025 (Array aus Dictionaries)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "variablen-datentypen-operatoren"
+              ],
+              "begriffe": [
+                "programmierung"
+              ]
+            },
+            {
+              "nummer": "5.4.5",
+              "titel": "Schreibtischtest und Fehlersuche",
+              "slug": "schreibtischtest-und-fehlersuche",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2025 (Schreibtischtest, Logikfehler in Schleife)"
+                ],
+                "extern": []
+              },
+              "material": [
+                "compiler-interpreter-debugging",
+                "schleifen"
+              ],
+              "begriffe": [
+                "programmierung"
+              ]
+            }
+          ]
         }
       ]
     }

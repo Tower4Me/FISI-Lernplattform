@@ -1,0 +1,45 @@
+<p class="lead">Die Tierarztpraxis möchte, dass ihre Software Rechnungen selbst addiert und an fällige Impfungen erinnert. Dazu muss jemand dem Computer genau sagen, was in welcher Reihenfolge zu tun ist. Das ist ein Algorithmus. In einer Programmiersprache aufgeschrieben, wird daraus ein Programm.</p>
+
+<h3>Algorithmus, Quellcode, Programm</h3>
+<p>Ein <strong>Algorithmus</strong> ist eine eindeutige Folge von Schritten, die ein Problem löst. Er ist endlich beschrieben, jeder Schritt ist ausführbar, und er kommt nach endlich vielen Schritten zu einem Ergebnis. Ein Kochrezept ist ein Algorithmus für Menschen; „Addiere alle Positionen der Rechnung“ ist einer für den Computer.</p>
+<p>Schreibt man den Algorithmus in einer Programmiersprache auf, entsteht <strong>Quellcode</strong>: lesbarer Text mit festen Regeln (Syntax). Der Prozessor versteht nur Maschinencode. Deshalb muss der Quellcode übersetzt oder von einem Programm ausgeführt werden, das ihn versteht.</p>
+
+<h3>Compiler und Interpreter</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Compiler</th><th>Interpreter</th></tr></thead>
+    <tbody>
+      <tr><th>Arbeitsweise</th><td>übersetzt den ganzen Quellcode vorab in eine ausführbare Datei</td><td>liest den Quellcode beim Ausführen und führt ihn Anweisung für Anweisung aus</td></tr>
+      <tr><th>Fehler im Code</th><td>Syntaxfehler werden beim Übersetzen gemeldet, das Programm entsteht erst danach</td><td>viele Fehler fallen erst auf, wenn die Stelle ausgeführt wird</td></tr>
+      <tr><th>Ausführung</th><td>schnell, Quellcode wird nicht mitgeliefert; die Datei läuft nur auf der Plattform, für die übersetzt wurde</td><td>langsamer, Interpreter muss auf dem Zielrechner vorhanden sein</td></tr>
+      <tr><th>Beispiele</th><td>C, C++, Go</td><td>Python, PHP, JavaScript (klassisch)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Viele Sprachen mischen beide Wege: Java und C# übersetzen in einen Zwischencode (Bytecode), den eine Laufzeitumgebung auf dem Zielrechner ausführt und dabei teils weiter übersetzt.</p>
+
+<h3>Programmiersprache oder nicht?</h3>
+<p>Eine <strong>Programmiersprache</strong> kann Abläufe steuern: Werte in Variablen speichern, rechnen, verzweigen und wiederholen. Andere Sprachen in der IT beschreiben nur etwas:</p>
+<ul>
+  <li><strong>Auszeichnungssprache</strong> (Markup): HTML legt fest, was auf einer Webseite Überschrift, Absatz oder Link ist. XML strukturiert Daten (Kapitel 5.2.2).</li>
+  <li><strong>Stylesheet-Sprache</strong>: CSS beschreibt, wie die Elemente aussehen, also Farben, Schriften, Abstände.</li>
+  <li><strong>Abfragesprache</strong>: SQL beschreibt, welche Daten man aus einer Datenbank haben möchte, nicht wie sie gesucht werden.</li>
+</ul>
+<p>HTML und CSS sind also keine Programmiersprachen. JavaScript dagegen ist eine; es läuft im Browser und macht eine Seite interaktiv.</p>
+
+<h3>Statische und dynamische Webseiten</h3>
+<p>Eine <strong>statische</strong> Webseite liegt als fertige Datei auf dem Webserver und wird bei jedem Aufruf gleich ausgeliefert. Eine <strong>dynamische</strong> Webseite wird bei jedem Aufruf ganz oder teilweise neu erzeugt, meist von einem Programm auf dem Server mit Daten aus einer Datenbank, oder im Browser per JavaScript. Statische Seiten sind schnell und bieten wenig Angriffsfläche; dynamische zeigen aktuelle und persönliche Inhalte, brauchen aber eine Laufzeitumgebung und mehr Pflege.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Seite mit Öffnungszeiten und Anfahrt der Praxis ändert sich selten und ist für alle Besucher gleich: statisch genügt. Die Online-Terminbuchung muss freie Termine aus der Datenbank lesen und Buchungen speichern: Sie ist dynamisch.</p>
+</div>
+
+<h3>Programmierparadigmen</h3>
+<p>Ein Paradigma ist ein Denkstil beim Programmieren. <strong>Imperativ</strong> bzw. prozedural beschreibt man Schritt für Schritt, wie etwas passiert, gegliedert in Funktionen. <strong>Objektorientiert</strong> bündelt man Daten und die passenden Funktionen in Objekten, etwa ein Objekt „Tier“. <strong>Deklarativ</strong> beschreibt man nur das gewünschte Ergebnis, wie bei SQL. Viele Sprachen wie Python oder Java erlauben mehrere Stile. Die folgenden Kapitel arbeiten imperativ.</p>
+
+<aside class="note" data-typ="fehler"><p>„Wer eine Webseite in HTML schreibt, programmiert.“ HTML beschreibt nur Struktur und Inhalt; es steuert keine Abläufe mit Verzweigungen oder Schleifen. Programmiert wird erst mit einer Sprache wie JavaScript oder PHP.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Übersetzung:</strong> Ein Compiler übersetzt den Quellcode vorab ganz, ein Interpreter führt ihn beim Ausführen Anweisung für Anweisung aus.</li>
+  <li><strong>Sprachen:</strong> HTML (Auszeichnung) und CSS (Gestaltung) sind keine Programmiersprachen; sie beschreiben Struktur und Aussehen, steuern aber keine Abläufe mit Verzweigungen oder Schleifen.</li>
+</ul>

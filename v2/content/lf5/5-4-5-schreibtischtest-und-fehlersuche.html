@@ -1,0 +1,66 @@
+<p class="lead">Die neue Rechnungsfunktion der Praxissoftware läuft ohne Fehlermeldung, aber jede Rechnung lautet auf 0,00 €. Solche Fehler findet kein Compiler. Man findet sie, indem man den Ablauf mit konkreten Werten nachvollzieht: auf Papier mit einem Schreibtischtest oder am Rechner mit einem Debugger.</p>
+
+<h3>Der Schreibtischtest</h3>
+<p>Beim <strong>Schreibtischtest</strong> führst du einen Algorithmus von Hand aus, ohne Computer. Du wählst Testwerte und notierst in einer <strong>Trace-Tabelle</strong> nach jedem Schritt den aktuellen Wert jeder Variablen. Eine Zeile pro Schritt oder Schleifendurchlauf, eine Spalte pro Variable, bei Bedarf weitere Spalten für Zwischenergebnisse. So siehst du genau, wo ein Wert anders wird als erwartet.</p>
+<p>Die Rechnungssumme wird aus Behandlungspositionen berechnet, einem Array aus Dictionaries (Kapitel 5.4.4):</p>
+<pre><code>positionen ← [
+    {"bezeichnung": "Untersuchung", "preis": 30.00, "menge": 1},
+    {"bezeichnung": "Impfung",      "preis": 25.50, "menge": 2},
+    {"bezeichnung": "Wurmkur",      "preis": 8.20,  "menge": 3}
+]
+
+FUNCTION rechnungssumme(positionen)
+    summe ← 0
+    FOR i ← 0 TO LENGTH(positionen) - 1
+        summe ← summe + positionen[i]["preis"] * positionen[i]["menge"]
+    END FOR
+    RETURN summe
+END FUNCTION</code></pre>
+<div class="vergleich">
+  <table>
+    <caption>Trace-Tabelle für rechnungssumme(positionen)</caption>
+    <thead><tr><th>Schritt</th><th>i</th><th>preis</th><th>menge</th><th>preis * menge</th><th>summe</th></tr></thead>
+    <tbody>
+      <tr><th>Start</th><td>–</td><td>–</td><td>–</td><td>–</td><td>0</td></tr>
+      <tr><th>1. Durchlauf</th><td>0</td><td>30.00</td><td>1</td><td>30.00</td><td>30.00</td></tr>
+      <tr><th>2. Durchlauf</th><td>1</td><td>25.50</td><td>2</td><td>51.00</td><td>81.00</td></tr>
+      <tr><th>3. Durchlauf</th><td>2</td><td>8.20</td><td>3</td><td>24.60</td><td>105.60</td></tr>
+      <tr><th>Ende</th><td colspan="4">Schleife fertig, i hat den Endwert 2 erreicht</td><td>RETURN 105.60</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Rückgabewert: 105,60 €. Die Schleife läuft genau dreimal, weil <code>LENGTH(positionen) - 1</code> den Wert 2 ergibt.</p>
+
+<h3>Drei Arten von Fehlern</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Fehler</th><th>Was passiert</th><th>Beispiel</th><th>Wie man ihn findet</th></tr></thead>
+    <tbody>
+      <tr><th>Syntaxfehler</th><td>Code verletzt die Regeln der Sprache; er lässt sich nicht übersetzen bzw. nicht starten</td><td>fehlende Klammer, falsch geschriebenes Schlüsselwort</td><td>Compiler oder Interpreter meldet ihn mit Zeilennummer</td></tr>
+      <tr><th>Laufzeitfehler</th><td>Programm startet, bricht aber bei einer bestimmten Anweisung ab</td><td>Division durch 0, Zugriff auf einen Index, den es nicht gibt</td><td>Fehlermeldung beim Ausführen, oft nur bei bestimmten Daten</td></tr>
+      <tr><th>Logikfehler</th><td>Programm läuft durch, liefert aber ein falsches Ergebnis</td><td>falscher Operator, falsche Bedingung, falscher Startwert</td><td>nur durch Tests mit bekannten Sollwerten, Schreibtischtest, Debugger</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ein Laufzeitfehler entstünde oben mit <code>FOR i ← 0 TO LENGTH(positionen)</code>: Im vierten Durchlauf hätte <code>i</code> den Wert 3, aber das letzte Element hat den Index 2.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Zurück zur Rechnung über 0,00 €. In der Schleife steht <code>summe ← summe * positionen[i]["preis"] * positionen[i]["menge"]</code>, also Multiplikation statt Addition. Der Schreibtischtest zeigt es sofort: <code>summe</code> startet mit 0, und 0 mal irgendetwas bleibt 0. Nach dem ersten, zweiten und dritten Durchlauf steht in <code>summe</code> jeweils 0, zurückgegeben wird 0. Korrekt ist <code>summe ← summe + …</code>, dann ergibt sich wieder 105,60 €.</p>
+</div>
+
+<h3>Fehlersuche mit dem Debugger</h3>
+<p>Ein <strong>Debugger</strong> ist ein Werkzeug der Entwicklungsumgebung, das ein Programm kontrolliert ausführt. Grundbegriffe:</p>
+<ul>
+  <li><strong>Haltepunkt</strong> (Breakpoint): Markierung an einer Zeile; dort hält das Programm an.</li>
+  <li><strong>Einzelschritt</strong> (Step): Das Programm führt nur die nächste Anweisung aus und hält wieder an. Man kann dabei in eine aufgerufene Funktion hineinspringen oder sie in einem Schritt ausführen.</li>
+  <li><strong>Variablen beobachten</strong> (Watch): Die aktuellen Werte werden angezeigt, wie in einer Trace-Tabelle, die der Rechner selbst führt.</li>
+</ul>
+<p>Für die Rechnungsfunktion setzt man einen Haltepunkt auf die Zeile in der Schleife und beobachtet <code>summe</code>. Bleibt sie nach jedem Einzelschritt bei 0, ist die fehlerhafte Zeile gefunden.</p>
+
+<aside class="note" data-typ="fehler"><p>„Keine Fehlermeldung, also stimmt das Programm.“ Logikfehler erzeugen keine Meldung. Erst der Vergleich mit einem vorher von Hand berechneten Sollwert zeigt, ob das Ergebnis richtig ist. Wie man solche Testfälle plant, folgt in Kapitel 5.6.1.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Schreibtischtest:</strong> Algorithmus mit Testwerten von Hand ausführen und jeden Variablenwert Schritt für Schritt in einer Trace-Tabelle notieren.</li>
+  <li><strong>Fehlerarten:</strong> Syntaxfehler verhindern den Start, Laufzeitfehler brechen das Programm ab, Logikfehler liefern ohne Meldung ein falsches Ergebnis.</li>
+</ul>

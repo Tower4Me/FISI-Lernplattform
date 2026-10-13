@@ -1,0 +1,52 @@
+<p class="lead">Ein Programm, das Zeile für Zeile durchläuft, kann noch nicht viel. Die Impferinnerung der Praxis muss entscheiden, ob eine Impfung fällig ist, und die Rechnung muss jede Position einmal anfassen, egal wie viele es sind. Dafür gibt es Verzweigungen und Schleifen.</p>
+
+<h3>Verzweigungen</h3>
+<p>Eine <strong>Verzweigung</strong> führt Anweisungen nur aus, wenn eine Bedingung wahr ist. Die einseitige Form hat nur einen <code>THEN</code>-Teil, die zweiseitige zusätzlich einen <code>ELSE</code>-Teil für den Fall „falsch“. Gibt es mehr als zwei Fälle, hängt man weitere Bedingungen mit <code>ELSE IF</code> an (<strong>kaskadiert</strong>): Geprüft wird von oben nach unten, ausgeführt wird nur der erste Zweig, dessen Bedingung zutrifft.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Impfung soll in diesem Beispiel nach 365 Tagen aufgefrischt werden. Die Software zeigt einen Status abhängig von den Tagen seit der letzten Impfung:</p>
+<pre><code>IF tage &gt; 365 THEN
+    status ← "überfällig"
+ELSE IF tage &gt; 335 THEN
+    status ← "bald fällig"
+ELSE
+    status ← "aktuell"
+END IF</code></pre>
+  <p>Bei 350 Tagen ist die erste Bedingung falsch, die zweite wahr: Status „bald fällig“. Bei 400 Tagen greift schon der erste Zweig („überfällig“), bei 120 Tagen keiner der beiden, also „aktuell“.</p>
+</div>
+<p>Die Reihenfolge der Bedingungen zählt. Stünde <code>tage &gt; 335</code> oben, bekäme ein Tier mit 400 Tagen den Status „bald fällig“, denn 400 ist auch größer als 335, und der Zweig „überfällig“ würde nie erreicht.</p>
+<p>Steht eine Verzweigung innerhalb einer anderen, heißt sie <strong>verschachtelt</strong>, etwa: <code>IF tierart == "Hund" THEN IF gewicht &gt; 20 THEN …</code>. Oft lässt sich das mit <code>AND</code> zu einer Bedingung zusammenfassen. Vergleicht man eine Variable mit vielen festen Werten, bieten viele Sprachen eine <strong>Mehrfachauswahl</strong> (<code>switch</code>, <code>CASE</code>): Zum Wert „Hund“, „Katze“ oder „Vogel“ gibt es je einen Zweig, für alle anderen einen Standardzweig.</p>
+
+<h3>Schleifen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schleife</th><th>Prüfung</th><th>Einsatz</th></tr></thead>
+    <tbody>
+      <tr><th><code>WHILE bedingung DO … END WHILE</code></th><td>kopfgesteuert: vor jedem Durchlauf; ist die Bedingung gleich zu Beginn falsch, läuft sie keinmal</td><td>Anzahl der Durchläufe vorher unbekannt</td></tr>
+      <tr><th><code>DO … WHILE bedingung</code></th><td>fußgesteuert: nach jedem Durchlauf; läuft mindestens einmal</td><td>Eingabe so lange wiederholen, bis sie gültig ist</td></tr>
+      <tr><th><code>FOR i ← 0 TO n - 1 … END FOR</code></th><td>Zählschleife: Zählvariable läuft von Start- bis einschließlich Endwert</td><td>Anzahl bekannt, etwa alle Elemente einer Liste</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Besitzerin zahlt eine Operation über 250 € in Monatsraten zu 60 €. Wie viele Monate dauert das?</p>
+<pre><code>rest ← 250
+monate ← 0
+WHILE rest &gt; 0 DO
+    rest ← rest - 60
+    monate ← monate + 1
+END WHILE
+OUTPUT monate</code></pre>
+  <p><code>rest</code> nimmt nacheinander die Werte 190, 130, 70, 10 und −50 an. Danach ist <code>rest &gt; 0</code> falsch, die Schleife endet, ausgegeben wird 5. Die fünfte Rate beträgt in Wirklichkeit nur 10 €; das müsste die Ausgabe gesondert behandeln.</p>
+</div>
+<p>Eine <strong>Endlosschleife</strong> entsteht, wenn die Bedingung nie falsch wird. Fehlt im Beispiel die Zeile <code>rest ← rest - 60</code>, bleibt <code>rest</code> bei 250 und das Programm hängt. In jeder <code>WHILE</code>-Schleife muss sich also etwas ändern, das die Bedingung beeinflusst.</p>
+
+<aside class="note" data-typ="hinweis"><p>„Von 0 bis n − 1“ hat einen Grund: Listen zählen ihre Elemente meist ab 0 (Kapitel 5.4.4). Eine Liste mit 3 Elementen hat die Positionen 0, 1 und 2.</p></aside>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf10b"><p>Wird in LF10b ausführlicher behandelt. Dort werden dieselben Abläufe grafisch als Programmablaufplan (PAP) und Struktogramm dargestellt und entworfen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Verzweigung:</strong> Bei IF … ELSE IF … ELSE gewinnt der erste zutreffende Zweig, deshalb zählt die Reihenfolge der Bedingungen.</li>
+  <li><strong>Schleifen:</strong> WHILE prüft vorher (eventuell kein Durchlauf), DO … WHILE prüft nachher (mindestens ein Durchlauf), FOR zählt; ändert sich die Bedingung nie, entsteht eine Endlosschleife.</li>
+</ul>

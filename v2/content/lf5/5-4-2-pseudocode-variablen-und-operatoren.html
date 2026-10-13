@@ -1,0 +1,51 @@
+<p class="lead">Bevor das Systemhaus die Praxissoftware ändert, einigt es sich mit der Praxis auf den Ablauf, und zwar so, dass ihn auch jemand ohne Kenntnis der Programmiersprache lesen kann. Dafür gibt es Pseudocode. Seine Bausteine sind Variablen, Zuweisungen und Operatoren.</p>
+
+<h3>Pseudocode</h3>
+<p><strong>Pseudocode</strong> beschreibt einen Algorithmus in einer Mischung aus Programmiersprache und Klartext. Er ist nicht genormt und wird nicht ausgeführt, sondern dient dem Entwurf und der Verständigung. Wichtig ist nur, dass der Ablauf eindeutig ist und die Schreibweise innerhalb eines Dokuments gleich bleibt. In der Prüfung sind englische Schlüsselwörter üblich. Diese Lernplattform verwendet durchgehend folgende Schreibweise:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Baustein</th><th>Schreibweise</th></tr></thead>
+    <tbody>
+      <tr><th>Zuweisung</th><td><code>summe ← 0</code></td></tr>
+      <tr><th>Ein- und Ausgabe</th><td><code>INPUT gewicht</code>, <code>OUTPUT "Text", wert</code></td></tr>
+      <tr><th>Verzweigung</th><td><code>IF … THEN … ELSE IF … THEN … ELSE … END IF</code></td></tr>
+      <tr><th>Schleifen</th><td><code>FOR i ← 0 TO n - 1 … END FOR</code>, <code>WHILE … DO … END WHILE</code>, <code>DO … WHILE …</code></td></tr>
+      <tr><th>Funktion</th><td><code>FUNCTION name(parameter) … RETURN wert … END FUNCTION</code></td></tr>
+      <tr><th>Datenstrukturen</th><td><code>werte ← [4, 7, 2]</code>, Zugriff <code>werte[0]</code>; <code>tier ← {"name": "Mimi"}</code>, Zugriff <code>tier["name"]</code></td></tr>
+      <tr><th>Sonstiges</th><td><code>TRUE</code>, <code>FALSE</code>, <code>LENGTH(liste)</code> für die Anzahl der Elemente, <code>// Kommentar</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Eingerückt wird alles, was zu einem Block gehört. Verzweigungen und Schleifen folgen in Kapitel 5.4.3, Funktionen in Kapitel 5.4.4.</p>
+
+<h3>Variablen und Zuweisung</h3>
+<p>Eine <strong>Variable</strong> ist ein benannter Speicherplatz für einen Wert, der sich im Lauf des Programms ändern kann. Ihr Datentyp legt fest, welche Werte sie aufnehmen kann (Kapitel 5.1.4). Gute Namen sagen, was drinsteht: <code>nettobetrag</code> statt <code>x</code>.</p>
+<p>Die <strong>Zuweisung</strong> <code>variable ← ausdruck</code> rechnet zuerst die rechte Seite aus und speichert das Ergebnis dann in der Variablen links. Der alte Wert wird dabei überschrieben. <code>anzahl ← anzahl + 1</code> ist deshalb keine Gleichung, sondern heißt: Nimm den aktuellen Wert, addiere 1, speichere das Ergebnis wieder in <code>anzahl</code>.</p>
+
+<h3>Operatoren</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>Operatoren</th><th>Ergebnis</th></tr></thead>
+    <tbody>
+      <tr><th>arithmetisch</th><td><code>+ - * /</code>, <code>DIV</code> (ganzzahlige Division), <code>MOD</code> (Rest)</td><td>Zahl: <code>17 DIV 5</code> ergibt 3, <code>17 MOD 5</code> ergibt 2</td></tr>
+      <tr><th>Vergleich</th><td><code>== != &lt; &lt;= &gt; &gt;=</code></td><td>Wahrheitswert: <code>4 &gt;= 4</code> ist TRUE</td></tr>
+      <tr><th>logisch</th><td><code>AND OR NOT</code></td><td>Wahrheitswert</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><code>a AND b</code> ist nur wahr, wenn beide Teile wahr sind. <code>a OR b</code> ist wahr, sobald mindestens ein Teil wahr ist. <code>NOT a</code> kehrt den Wert um.</p>
+<p>Die Reihenfolge: Zuerst Klammern, dann Punkt- vor Strichrechnung (<code>DIV</code> und <code>MOD</code> zählen als Punktrechnung), dann Vergleiche, dann <code>NOT</code>, <code>AND</code> und zuletzt <code>OR</code>. Wo <code>NOT</code> genau steht, unterscheidet sich zwischen Sprachen. <code>7 + 3 * 2</code> ergibt 13, <code>(7 + 3) * 2</code> ergibt 20. Setze im Zweifel Klammern; sie kosten nichts und machen die Absicht klar.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Praxis rechnet eine Behandlung mit 80,00 € netto ab, darauf kommen 19 % Umsatzsteuer:</p>
+<pre><code>netto ← 80.00
+steuer ← netto * 0.19
+brutto ← netto + steuer
+OUTPUT "Rechnungsbetrag: ", brutto</code></pre>
+  <p>Nach der zweiten Zeile enthält <code>steuer</code> den Wert 15.20, nach der dritten <code>brutto</code> den Wert 95.20. Ausgegeben wird der Rechnungsbetrag von 95,20 €.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„<code>=</code> und <code>==</code> sind dasselbe.“ In vielen Sprachen weist <code>=</code> einen Wert zu, während <code>==</code> zwei Werte vergleicht. Wer in einer Bedingung versehentlich zuweist, verändert die Variable, statt sie zu prüfen. Der Pfeil <code>←</code> im Pseudocode vermeidet diese Verwechslung.</p></aside>
+
+<p class="merksatz">Eine Zuweisung rechnet erst die rechte Seite aus und speichert das Ergebnis dann links; Vergleiche und logische Operatoren (AND, OR, NOT) liefern einen Wahrheitswert.</p>

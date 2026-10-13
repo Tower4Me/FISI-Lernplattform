@@ -1427,6 +1427,10 @@
         {
           "id": "5-1-4",
           "tiefe": "Datentypen"
+        },
+        {
+          "id": "5-4-2",
+          "tiefe": "Rückverweis bei Variablen"
         }
       ]
     },
@@ -1487,6 +1491,39 @@
         {
           "id": "5-3-3",
           "tiefe": "Umsetzung"
+        }
+      ]
+    },
+    {
+      "begriff": "programmierung",
+      "kernfakten": [
+        "Algorithmus: endliche, eindeutige, ausführbare Schrittfolge mit Ergebnis; Compiler übersetzt vorab ganz, Interpreter führt beim Ausführen Anweisung für Anweisung aus; Java/C# Bytecode + Laufzeitumgebung.",
+        "HTML (Auszeichnung), CSS (Gestaltung), XML, SQL (Abfrage, deklarativ) sind keine Programmiersprachen; JavaScript ist eine. Statisch = fertige Datei, dynamisch = je Aufruf erzeugt (Server oder Browser).",
+        "Pseudocode-Stil der Plattform: Zuweisung ←, Vergleich == !=, AND OR NOT, IF … THEN … ELSE IF … ELSE … END IF, FOR i ← 0 TO n - 1, WHILE … DO … END WHILE, DO … WHILE, FUNCTION … RETURN … END FUNCTION, LENGTH(), DIV, MOD.",
+        "WHILE kopfgesteuert (evtl. 0 Durchläufe), DO-WHILE fußgesteuert (mind. 1), FOR Zählschleife; bei ELSE IF gewinnt der erste zutreffende Zweig; PAP/Struktogramm in LF10b.",
+        "Array (feste Größe)/Liste Index meist ab 0 bis n − 1 (Plattform: ab 0); Dictionary Schlüssel-Wert; Call by Value = Kopie, Call by Reference = Verweis aufs Original; Java: int als Kopie, Objekte/Arrays Verweis als Wert; Python immer Verweis als Wert (Zahlen/Texte unveränderlich); echtes Call by Reference z. B. C++ (&), C# (ref).",
+        "Fehlerarten: Syntax (kein Start), Laufzeit (Abbruch, z. B. Index außerhalb, Division durch 0), Logik (falsches Ergebnis ohne Meldung); Schreibtischtest mit Trace-Tabelle; Debugger: Haltepunkt, Einzelschritt, Variablen beobachten."
+      ],
+      "vorkommen": [
+        {
+          "id": "5-4-1",
+          "tiefe": "Algorithmus, Compiler/Interpreter, Sprachen"
+        },
+        {
+          "id": "5-4-2",
+          "tiefe": "Pseudocode, Operatoren"
+        },
+        {
+          "id": "5-4-3",
+          "tiefe": "Kontrollstrukturen"
+        },
+        {
+          "id": "5-4-4",
+          "tiefe": "Array, Dictionary, Funktionen"
+        },
+        {
+          "id": "5-4-5",
+          "tiefe": "Schreibtischtest, Fehlerarten"
         }
       ]
     }

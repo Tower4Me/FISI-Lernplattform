@@ -1,0 +1,57 @@
+<p class="lead">Die Praxis hat nicht ein Tier, sondern hunderte. Für jedes eine eigene Variable anzulegen, ginge nicht. Datenstrukturen fassen viele Werte unter einem Namen zusammen, Funktionen fassen Abläufe zusammen, die man immer wieder braucht.</p>
+
+<h3>Array und Liste</h3>
+<p>Ein <strong>Array</strong> speichert eine feste Anzahl von Werten hintereinander unter einem Namen. Jeder Wert hat eine Position, den <strong>Index</strong>. In den meisten Sprachen (C, Java, Python, JavaScript) und auf dieser Plattform wird ab 0 gezählt: Bei n Elementen läuft der Index von 0 bis n − 1. Legt eine Aufgabe einen anderen Startindex fest, gilt die Aufgabe. Eine <strong>Liste</strong> ist dasselbe Prinzip, kann aber zur Laufzeit wachsen und schrumpfen; in vielen Sprachen wie Python heißt das, was man umgangssprachlich Array nennt, Liste.</p>
+<pre><code>gewichte ← [4.3, 12.4, 3.8]
+OUTPUT gewichte[0]          // 4.3
+OUTPUT gewichte[2]          // 3.8
+OUTPUT LENGTH(gewichte)     // 3</code></pre>
+<p>Ein Zugriff auf <code>gewichte[3]</code> wäre ein Fehler: Das dritte Element hat den Index 2, ein Element mit Index 3 gibt es nicht.</p>
+
+<h3>Dictionary</h3>
+<p>Ein <strong>Dictionary</strong> (auch Map oder assoziatives Array) speichert Paare aus <strong>Schlüssel und Wert</strong>. Man greift nicht über eine Position zu, sondern über den Schlüssel. Das passt zu einem Datensatz mit benannten Feldern, ähnlich einem JSON-Objekt (Kapitel 5.2.2).</p>
+<pre><code>tier ← {"name": "Bello", "art": "Hund", "gewicht": 12.4}
+OUTPUT tier["art"]          // Hund</code></pre>
+
+<h3>Array aus Dictionaries</h3>
+<p>Kombiniert ergibt das eine Tabelle im Speicher: ein Array, dessen Elemente Dictionaries sind. Ein Element steht für eine Zeile, die Schlüssel für die Spalten. Zugegriffen wird in zwei Schritten: erst der Index, dann der Schlüssel.</p>
+<pre><code>tiere ← [
+    {"name": "Mimi",  "art": "Katze",         "gewicht": 4.3},
+    {"name": "Bello", "art": "Hund",          "gewicht": 12.4},
+    {"name": "Luna",  "art": "Katze",         "gewicht": 3.8},
+    {"name": "Kiki",  "art": "Wellensittich", "gewicht": 0.04}
+]
+OUTPUT tiere[1]["name"]     // Bello</code></pre>
+
+<h3>Funktionen</h3>
+<p>Eine <strong>Funktion</strong> ist ein benannter Programmteil, der eine Aufgabe erledigt. Sie bekommt Werte über <strong>Parameter</strong> und liefert mit <code>RETURN</code> einen <strong>Rückgabewert</strong> an die aufrufende Stelle. <code>RETURN</code> beendet die Funktion sofort. Einmal geschrieben, lässt sie sich mit beliebigen Werten aufrufen. Einen Programmteil ohne Rückgabewert nennt man oft Prozedur.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Praxis möchte wissen, wie viele Tiere einer Art sie betreut:</p>
+<pre><code>FUNCTION zaehleArt(tiere, gesucht)
+    anzahl ← 0
+    FOR i ← 0 TO LENGTH(tiere) - 1
+        IF tiere[i]["art"] == gesucht THEN
+            anzahl ← anzahl + 1
+        END IF
+    END FOR
+    RETURN anzahl
+END FUNCTION</code></pre>
+  <p>Mit der Liste oben liefert <code>zaehleArt(tiere, "Katze")</code> den Wert 2 (Mimi und Luna), <code>zaehleArt(tiere, "Hund")</code> den Wert 1 und <code>zaehleArt(tiere, "Pferd")</code> den Wert 0. Den Rückgabewert bestimmst du, indem du den Aufruf mit genau diesen Werten Schritt für Schritt durchgehst (Kapitel 5.4.5).</p>
+</div>
+
+<h3>Call by Value und Call by Reference</h3>
+<p>Bei <strong>Call by Value</strong> erhält die Funktion eine Kopie des Werts. Ändert sie den Parameter, bleibt die Variable des Aufrufers unverändert. Bei <strong>Call by Reference</strong> erhält sie einen Verweis auf die Variable des Aufrufers. Eine Änderung in der Funktion wirkt dann direkt auf diese Variable.</p>
+<pre><code>FUNCTION erhoehe(zahl)
+    zahl ← zahl + 1
+END FUNCTION
+
+x ← 5
+erhoehe(x)
+OUTPUT x      // Call by Value: 5, Call by Reference: 6</code></pre>
+<aside class="note" data-typ="hinweis"><p>Java übergibt einfache Werte wie <code>int</code> als Kopie, bei Arrays und Objekten einen Verweis als Wert. Python übergibt immer einen Verweis als Wert; Zahlen und Texte lassen sich aber nicht verändern, deshalb wirkt es bei ihnen wie Call by Value. Das Beispiel <code>erhoehe(x)</code> gibt in beiden Sprachen 5 aus. Ändert eine Funktion dagegen den Inhalt einer übergebenen Liste, etwa ein Element, sieht der Aufrufer die Änderung. Weist sie dem Parameter eine ganz neue Liste zu, bleibt die Liste des Aufrufers unverändert. Echtes Call by Reference bieten etwa C++ (<code>&amp;</code>) und C# (<code>ref</code>).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Datenstrukturen:</strong> Ein Array greift über den Index ab 0 zu (letzter Index n − 1), ein Dictionary über den Schlüssel; ein Array aus Dictionaries bildet eine Tabelle ab.</li>
+  <li><strong>Funktionen:</strong> Parameter bringen Werte hinein, RETURN gibt einen Wert zurück; Call by Value übergibt eine Kopie, Call by Reference einen Verweis auf das Original.</li>
+</ul>

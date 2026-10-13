@@ -1,0 +1,125 @@
+{
+  "titel": "Check 5.4",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Compiler und Interpreter",
+      "frage": "Ein Programm wird vor der Auslieferung vollständig in Maschinencode übersetzt; beim Kunden läuft danach nur die erzeugte Datei. Welches Werkzeug arbeitet so?",
+      "optionen": [
+        "Compiler",
+        "Interpreter",
+        "Debugger",
+        "Webbrowser"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Compiler übersetzt den gesamten Quellcode vorab. Ein Interpreter führt den Quellcode dagegen erst beim Ausführen Anweisung für Anweisung aus."
+    },
+    {
+      "typ": "mc",
+      "thema": "Programmiersprachen",
+      "frage": "Ein Kollege bezeichnet HTML, CSS und JavaScript als drei Programmiersprachen. Was stimmt?",
+      "optionen": [
+        "JavaScript ist eine, HTML und CSS sind keine",
+        "Alle drei sind welche, denn sie steuern den Browser",
+        "HTML und JavaScript sind welche, CSS ist keine",
+        "Keine der drei, da sie im Browser ausgeführt werden"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "HTML ist eine Auszeichnungssprache, CSS beschreibt die Gestaltung. Beide steuern keine Abläufe mit Verzweigungen oder Schleifen, JavaScript schon."
+    },
+    {
+      "typ": "mc",
+      "thema": "Statisch und dynamisch",
+      "frage": "Nach dem Anmelden sieht jede Besitzerin auf der Praxis-Webseite ihre eigenen gebuchten Termine aus der Datenbank. Um welche Art von Webseite handelt es sich?",
+      "optionen": [
+        "Dynamisch",
+        "Statisch, weil die Seite als Datei auf dem Webserver liegt",
+        "Barrierefrei",
+        "Statisch, weil sie für jede Besitzerin gleich aussieht"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Inhalt wird bei jedem Aufruf für die jeweilige Person neu erzeugt. Eine statische Seite wäre für alle Besucher gleich."
+    },
+    {
+      "typ": "mc",
+      "thema": "Verzweigung auswerten",
+      "frage": "Welchen Wert hat gebuehr nach diesem Ablauf, wenn gewicht den Wert 30 hat? IF gewicht > 30 THEN gebuehr ← 60; ELSE IF gewicht > 10 THEN gebuehr ← 45; ELSE gebuehr ← 30; END IF",
+      "optionen": [
+        "45",
+        "60",
+        "30",
+        "75"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "30 > 30 ist falsch, also greift der erste Zweig nicht. 30 > 10 ist wahr, deshalb wird 45 zugewiesen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Schleifenarten",
+      "frage": "Eine Eingabe soll wiederholt werden, bis ein gültiges Gewicht eingegeben ist. Gefragt wird also in jedem Fall wenigstens einmal. Welche Schleife passt dazu?",
+      "optionen": [
+        "DO … WHILE (fußgesteuert)",
+        "WHILE … DO (kopfgesteuert)",
+        "FOR mit festem Endwert 1",
+        "Eine Verzweigung mit ELSE IF"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die fußgesteuerte Schleife prüft erst nach dem Durchlauf und läuft deshalb mindestens einmal. Die kopfgesteuerte prüft vorher und kann ganz übersprungen werden."
+    },
+    {
+      "typ": "mc",
+      "thema": "Array aus Dictionaries",
+      "frage": "Gegeben ist liste ← [{\"art\": \"Hund\", \"alter\": 7}, {\"art\": \"Katze\", \"alter\": 2}, {\"art\": \"Hund\", \"alter\": 11}]. Was liefert liste[2][\"alter\"]?",
+      "optionen": [
+        "11",
+        "2",
+        "7",
+        "Fehler, weil es Index 2 nicht gibt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Index beginnt bei 0, Index 2 ist also das dritte Element. Dessen Wert zum Schlüssel \"alter\" ist 11."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rückgabewert und Logikfehler",
+      "frage": "Die Funktion summeBilden(werte) soll die Summe einer Liste bilden. Sie setzt erg ← 1, addiert in einer Schleife FOR i ← 0 TO LENGTH(werte) - 1 jedes Element mit erg ← erg + werte[i] und gibt danach erg zurück. Was liefert summeBilden([3, 5, 2])?",
+      "optionen": [
+        "11",
+        "10",
+        "30",
+        "31"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "erg startet mit 1 statt mit 0 und wird zu 4, 9 und 11. Das Programm läuft ohne Meldung, liefert aber ein falsches Ergebnis: ein Logikfehler."
+    },
+    {
+      "typ": "mc",
+      "thema": "Call by Value",
+      "frage": "Die Variable anzahl hat den Wert 4 und wird per Call by Value an eine Funktion übergeben. Die Funktion erhöht ihren Parameter um 1. Welchen Wert hat anzahl danach beim Aufrufer?",
+      "optionen": [
+        "4",
+        "5",
+        "0",
+        "1"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei Call by Value arbeitet die Funktion mit einer Kopie. Die Variable des Aufrufers bleibt unverändert, erst bei Call by Reference wäre sie danach 5."
+    }
+  ]
+}

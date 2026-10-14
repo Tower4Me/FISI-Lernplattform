@@ -1,0 +1,33 @@
+<p class="lead">Am Montagmorgen gehen beim Service Desk drei Anrufe der Kanzlei ein: Der Drucker im Empfang druckt nicht. Eine neue Kollegin braucht ein Benutzerkonto. Und zum dritten Mal in diesem Monat friert die Kanzleisoftware ein. Alle drei sind Anfragen, aber jede wird anders behandelt.</p>
+
+<h3>Warum Anfragen unterschieden werden</h3>
+<p>Eine Störung muss möglichst schnell behoben werden, eine Bestellung läuft nach einem festen Ablauf, eine wiederkehrende Störung braucht eine Ursachensuche. Wer alles gleich behandelt, verliert Zeit: Er sucht bei einer Störung nach der tiefen Ursache, während die Kanzlei nicht arbeiten kann, oder er flickt dasselbe Symptom immer wieder. Deshalb ordnet der Service Desk jede Anfrage einer Art zu. Die Namen stammen aus ITIL; Ticketsysteme verwenden mal die deutschen, mal die englischen Namen.</p>
+<aside class="note" data-typ="hinweis"><p>Im Rahmenlehrplan heißt jedes Anliegen eines Kunden Serviceanfrage. Im engeren Sinn (ITIL) ist damit nur der Wunsch nach einer Standardleistung gemeint, wie in der Tabelle unten.</p></aside>
+
+<h3>Die vier Arten</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>Bedeutung</th><th>Ziel</th><th>Beispiel aus der Kanzlei</th></tr></thead>
+    <tbody>
+      <tr><th>Störung (Incident)</th><td>ungeplante Unterbrechung eines Services oder spürbar schlechtere Qualität</td><td>Service so schnell wie möglich wiederherstellen</td><td>Drucker im Empfang druckt nicht</td></tr>
+      <tr><th>Serviceanfrage (Service Request)</th><td>Wunsch nach einer vereinbarten Standardleistung oder Auskunft; nichts ist kaputt</td><td>nach festem Ablauf erfüllen</td><td>Benutzerkonto für die neue Kollegin; Frage, wie sie ein Dokument als PDF speichert</td></tr>
+      <tr><th>Problem</th><td>der Grund, warum eine oder mehrere Störungen auftreten, auch wenn er erst vermutet wird</td><td>Ursache finden und dauerhaft beseitigen</td><td>Warum friert die Kanzleisoftware immer wieder ein?</td></tr>
+      <tr><th>Änderung (Change)</th><td>jede geplante Veränderung an Hardware, Software oder Einstellungen, die einen Service betreffen kann</td><td>Änderung planen, genehmigen, ohne neue Störung umsetzen</td><td>Update der Kanzleisoftware auf allen Rechnern einspielen</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Wie die Arten zusammenhängen</h3>
+<p>Die Arten greifen ineinander. Friert die Kanzleisoftware ein, ist das zuerst eine <strong>Störung</strong>: Der Service Desk startet das Programm neu, die Mitarbeiterin kann weiterarbeiten. Diese schnelle Abhilfe, die das Symptom umgeht, ohne die Ursache zu beseitigen, heißt <strong>Umgehungslösung</strong> (Workaround). Passiert das immer wieder, legt jemand ein <strong>Problem</strong> an und sucht die Ursache. Ist die Ursache gefunden, aber noch nicht beseitigt, heißt das <strong>bekannter Fehler</strong> (Known Error); die Umgehungslösung wird dazu festgehalten, damit alle sie kennen. Beseitigt wird die Ursache oft durch eine <strong>Änderung</strong>, etwa ein Update.</p>
+<p>Viele Serviceanfragen sind ebenfalls Änderungen, aber kleine und häufige mit geringem Risiko, zum Beispiel ein neues Benutzerkonto. Solche <strong>Standardänderungen</strong> sind vorab genehmigt und laufen nach einer festen Vorlage. Manche Serviceanfragen brauchen trotzdem die Freigabe einer verantwortlichen Person, etwa Zugriffsrechte auf Mandantenakten. Größere Änderungen werden einzeln geprüft und freigegeben.</p>
+
+<aside class="note" data-typ="fehler"><p>„Störung und Problem sind dasselbe.“ Die Störung ist das, was der Anwender bemerkt: Das Programm friert ein. Das Problem ist die Ursache dahinter, die oft erst nach mehreren Störungen sichtbar wird. Eine Störung kann gelöst sein, obwohl das Problem weiter besteht.</p></aside>
+
+<aside class="note" data-typ="vertiefung"><p>Ein Sicherheitsvorfall, etwa eine verdächtige Mail mit geöffnetem Anhang, ist eine besondere Störung mit eigenem Meldeweg. Wie du ihn erkennst und meldest, steht in <a href="../lf4/4-6-4-sicherheitsvorfaelle-erkennen-und-melden.html">LF4, Kapitel 4.6.4</a>.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Störung (Incident):</strong> Etwas funktioniert nicht, Ziel ist schnelle Wiederherstellung.</li>
+  <li><strong>Serviceanfrage (Service Request):</strong> Wunsch nach einer Standardleistung oder Auskunft.</li>
+  <li><strong>Problem:</strong> Ursache hinter Störungen, Ziel ist dauerhafte Beseitigung.</li>
+  <li><strong>Änderung (Change):</strong> geplante Veränderung, die vor der Umsetzung geprüft und genehmigt wird.</li>
+</ul>

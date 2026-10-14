@@ -1,0 +1,65 @@
+<p class="lead">Es ist kurz vor einer Abgabefrist. Eine Mitarbeiterin der Kanzlei ruft an: Die Kanzleisoftware meldet „Keine Verbindung zum Server“, niemand im Büro kann Mandantendaten öffnen. Bevor irgendjemand nach der Ursache sucht, legt der Service Desk ein Ticket an.</p>
+
+<h3>Wozu ein Ticketsystem?</h3>
+<p>Ein <strong>Ticketsystem</strong> erfasst jede Anfrage als eigenen Datensatz, das <strong>Ticket</strong>, und begleitet es bis zum Abschluss. Ohne ein solches System gehen Anfragen in Postfächern und auf Notizzetteln verloren, zwei Kollegen arbeiten am selben Fall, und niemand kann sagen, wie lange ein Kunde schon wartet. Mit Ticketsystem sieht jeder im Team:</p>
+<ul>
+  <li>welche Anfragen offen sind und wer sie bearbeitet,</li>
+  <li>wie dringend jede ist und welche Frist gilt (Kapitel 6.2),</li>
+  <li>was bisher getan wurde, auch wenn ein Kollege übernimmt,</li>
+  <li>wie viele Anfragen es gab und wie schnell sie gelöst wurden (Kapitel 6.6).</li>
+</ul>
+<p>Im Rahmenlehrplan heißt dieses Werkzeug auch Service-Management-System: die Software, mit der der Betrieb seine Service-Abläufe steuert; das Ticketsystem ist ihr Kern. Viele verbinden die Tickets mit einer Kundendatenbank (CRM) und einer Übersicht der betreuten Geräte, sodass der Bearbeiter sofort sieht, welcher Vertrag und welche Hardware zum Anrufer gehören.</p>
+
+<h3>Was in ein Ticket gehört</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Feld</th><th>Inhalt im Kanzlei-Fall</th></tr></thead>
+    <tbody>
+      <tr><th>Ticketnummer</th><td>vom System vergeben, eindeutig, z. B. 2026-10-0417</td></tr>
+      <tr><th>Melder und Kontakt</th><td>Name der Mitarbeiterin, Kanzlei, Rückrufnummer</td></tr>
+      <tr><th>Zeitpunkt des Eingangs</th><td>Datum und Uhrzeit; ab hier laufen die Fristen</td></tr>
+      <tr><th>Betroffenes System</th><td>Kanzleisoftware, alle fünf Arbeitsplätze</td></tr>
+      <tr><th>Beschreibung</th><td>Symptom in den Worten der Melderin und genaue Fehlermeldung, seit wann, was schon versucht wurde</td></tr>
+      <tr><th>Art und Kategorie</th><td>Störung; Kategorie „Anwendung“</td></tr>
+      <tr><th>Priorität</th><td>aus Auswirkung und Dringlichkeit (Kapitel 6.2.3)</td></tr>
+      <tr><th>Status und Bearbeiter</th><td>aktueller Stand, zuständige Person oder Gruppe</td></tr>
+      <tr><th>Verlauf und Lösung</th><td>jede Maßnahme mit Zeit; am Ende Ursache und Lösung</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Beschreibung hält fest, was der Kunde beobachtet, nicht was der Bearbeiter vermutet. „Server defekt“ ist eine Vermutung; „Fehlermeldung ‚Keine Verbindung zum Server‘ an allen Arbeitsplätzen seit 9:40 Uhr“ ist eine Beobachtung, mit der jeder Kollege weiterarbeiten kann.</p>
+
+<h3>Der Status zeigt den Stand</h3>
+<figure class="grafik">
+  <svg viewBox="0 0 760 200" role="img" aria-label="Statusablauf eines Tickets: Neu, In Bearbeitung, Gelöst, Geschlossen; von In Bearbeitung Abzweig zu Wartet auf Kunde und zurück; von Gelöst Rückweg zu In Bearbeitung, wenn der Kunde widerspricht">
+    <defs><marker id="pfeil-ticket" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <rect class="g-box" x="10" y="60" width="110" height="44" rx="8"/>
+    <text x="65" y="87" text-anchor="middle" font-size="15">Neu</text>
+    <rect class="g-accent" x="170" y="60" width="150" height="44" rx="8"/>
+    <text x="245" y="87" text-anchor="middle" font-size="15">In Bearbeitung</text>
+    <rect class="g-box" x="170" y="150" width="150" height="44" rx="8"/>
+    <text x="245" y="177" text-anchor="middle" font-size="15">Wartet auf Kunde</text>
+    <rect class="g-ok" x="400" y="60" width="110" height="44" rx="8"/>
+    <text x="455" y="87" text-anchor="middle" font-size="15">Gelöst</text>
+    <rect class="g-box" x="590" y="60" width="150" height="44" rx="8"/>
+    <text x="665" y="87" text-anchor="middle" font-size="15">Geschlossen</text>
+    <path class="g-line" d="M120 82H166" marker-end="url(#pfeil-ticket)" stroke-width="1.5"/>
+    <path class="g-line" d="M320 82H396" marker-end="url(#pfeil-ticket)" stroke-width="1.5"/>
+    <path class="g-line" d="M510 82H586" marker-end="url(#pfeil-ticket)" stroke-width="1.5"/>
+    <path class="g-line" d="M225 104V146" marker-end="url(#pfeil-ticket)" stroke-width="1.5"/>
+    <path class="g-line" d="M265 150V108" marker-end="url(#pfeil-ticket)" stroke-width="1.5"/>
+    <path class="g-line" d="M455 60V30H245V56" marker-end="url(#pfeil-ticket)" stroke-width="1.5"/>
+    <text x="350" y="22" text-anchor="middle" class="g-muted" font-size="12">Kunde: nicht behoben</text>
+    <text x="550" y="122" text-anchor="middle" class="g-muted" font-size="12">Kunde bestätigt</text>
+    <text x="550" y="138" text-anchor="middle" class="g-muted" font-size="12">oder Frist abgelaufen</text>
+    <text x="272" y="130" class="g-muted" font-size="12">Rückfrage offen</text>
+  </svg>
+  <figcaption>Typischer Statusablauf. Die Namen unterscheiden sich je nach Ticketsystem, das Prinzip ist gleich.</figcaption>
+</figure>
+<p>Wichtig ist der Unterschied zwischen <strong>gelöst</strong> und <strong>geschlossen</strong>. Gelöst heißt: Der Bearbeiter hat die Lösung umgesetzt und den Kunden informiert. Geschlossen wird das Ticket erst, wenn der Kunde bestätigt, dass alles funktioniert, oder eine vereinbarte Frist ohne Widerspruch abläuft. Meldet sich der Kunde, dass der Fehler noch besteht, geht das Ticket zurück in Bearbeitung. Der Status „wartet auf Kunde“ gilt, solange die Bearbeitung ohne eine Antwort des Kunden nicht weitergeht, etwa bei einer offenen Rückfrage; in vielen Systemen hält er die Frist an. Ist die Lösung umgesetzt und fehlt nur noch die Bestätigung, ist das Ticket gelöst.</p>
+
+<aside class="note" data-typ="hinweis"><p>Das Ticket wird angelegt, während der Kunde noch am Telefon ist, nicht danach aus dem Gedächtnis. So kannst du fehlende Angaben sofort erfragen, und der Kunde bekommt die Ticketnummer für spätere Rückfragen.</p></aside>
+
+<aside class="note" data-typ="vertiefung"><p>Den Ablauf „Störung bearbeiten“ mit Hotline und Technik als BPMN-Diagramm zeigt <a href="../lf1/1-3-3-prozesse-mit-bpmn-darstellen.html">LF1, Kapitel 1.3.3</a>.</p></aside>
+
+<p class="merksatz">Jede Anfrage wird als Ticket mit Melder, Zeitpunkt, beobachtetem Symptom, Art, Priorität, Status und Verlauf erfasst; geschlossen wird es erst, wenn der Kunde die Lösung bestätigt oder die vereinbarte Frist ohne Widerspruch abgelaufen ist.</p>

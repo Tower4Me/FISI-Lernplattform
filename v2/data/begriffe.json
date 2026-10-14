@@ -430,6 +430,10 @@
         {
           "id": "4-6-4",
           "tiefe": "Erkennen, Melden, Pflichten"
+        },
+        {
+          "id": "6-1-2",
+          "tiefe": "als besondere Störung, Verweis auf LF4"
         }
       ]
     },
@@ -510,6 +514,10 @@
         {
           "id": "1-2-3",
           "tiefe": "Kundengruppen, Zielgruppe, ABC"
+        },
+        {
+          "id": "6-1-1",
+          "tiefe": "interne und externe Kunden nur genannt"
         }
       ]
     },
@@ -574,6 +582,10 @@
         {
           "id": "1-3-4",
           "tiefe": "EPK"
+        },
+        {
+          "id": "6-1-4",
+          "tiefe": "Verweis auf BPMN-Beispiel Störung bearbeiten"
         }
       ]
     },
@@ -1690,6 +1702,10 @@
         {
           "id": "5-7-2",
           "tiefe": "Einsatzfelder, Vor- und Nachteile, menschliche Kontrolle"
+        },
+        {
+          "id": "6-1-3",
+          "tiefe": "Chatbot im Service, Verweis auf LF5"
         }
       ]
     },
@@ -1704,6 +1720,66 @@
         {
           "id": "5-7-2",
           "tiefe": "Überblick Risikostufen, KI-Kompetenz"
+        },
+        {
+          "id": "6-1-3",
+          "tiefe": "Transparenzpflicht nur genannt, Verweis auf LF5"
+        }
+      ]
+    },
+    {
+      "begriff": "it-service-management",
+      "kernfakten": [
+        "IT-Service: Leistung mit Nutzen für den Kunden; IT-Service-Management plant und steuert Services und Abläufe.",
+        "Service Desk: zentrale Anlaufstelle (Single Point of Contact) für alle Anliegen; Helpdesk oft nur technische Störungshilfe.",
+        "ITIL: Best-Practice-Sammlung, Zertifikate nur für Personen; ISO/IEC 20000-1: Norm, Unternehmen zertifizierbar."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-1-1",
+          "tiefe": "Begriffe, Service Desk, ITIL vs. ISO/IEC 20000-1"
+        }
+      ]
+    },
+    {
+      "begriff": "anfragearten",
+      "kernfakten": [
+        "Störung (Incident): ungeplante Unterbrechung oder Qualitätsminderung eines Services; Ziel schnelle Wiederherstellung.",
+        "Serviceanfrage (Service Request): Wunsch nach Standardleistung oder Auskunft.",
+        "Problem: Ursache oder mögliche Ursache einer oder mehrerer Störungen; bekannter Fehler (Known Error): analysiert, nicht beseitigt; Umgehungslösung (Workaround) umgeht Symptom.",
+        "Änderung (Change): Hinzufügen, Ändern, Entfernen von etwas mit Einfluss auf Services; Standardänderung vorab genehmigt, geringes Risiko."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-1-2",
+          "tiefe": "Vier Arten, Zusammenhang, Workaround, Known Error"
+        }
+      ]
+    },
+    {
+      "begriff": "kontaktwege",
+      "kernfakten": [
+        "Direkter Kontakt: gleichzeitig (vor Ort, Telefon, Live-Chat). Indirekter Kontakt: zeitversetzt (Mail, Webformular, Portal).",
+        "Jede Anfrage wird unabhängig vom Weg als Ticket im selben System erfasst."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-1-3",
+          "tiefe": "Vergleich der Kanäle, Chatbot"
+        }
+      ]
+    },
+    {
+      "begriff": "ticketsystem",
+      "kernfakten": [
+        "Ticket: eindeutige Nummer, Melder/Kontakt, Eingangszeit, betroffenes System, beobachtetes Symptom, Art/Kategorie, Priorität, Status, Bearbeiter, Verlauf, Lösung.",
+        "Status typisch: Neu, In Bearbeitung, Wartet auf Kunde, Gelöst, Geschlossen; geschlossen erst nach Bestätigung des Kunden oder Ablauf einer vereinbarten Frist.",
+        "Wartet auf Kunde hält in vielen Systemen die Frist an."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-1-4",
+          "tiefe": "Zweck, Felder, Statusablauf"
         }
       ]
     }

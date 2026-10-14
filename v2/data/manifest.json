@@ -2644,7 +2644,9 @@
                 "rahmenlehrplan": "LF5: Datenformate und Speicherlösungen berücksichtigen, Datenschutz, Datensicherheit und Speicheranforderung",
                 "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 4 und Nr. 10",
                 "zpa": "",
-                "ihk": [],
+                "ihk": [
+                  "AP1 Frühjahr 2024 (Dateiformat konvertieren)"
+                ],
                 "extern": [
                   "RFC 4180 (CSV)",
                   "RFC 8259 (JSON)",
@@ -2792,7 +2794,8 @@
                 "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
                 "zpa": "",
                 "ihk": [
-                  "AP1 Frühjahr 2025 (Programmiersprachen, statische und dynamische Webseite)"
+                  "AP1 Frühjahr 2025 (Programmiersprachen, statische und dynamische Webseite)",
+                  "AP1 Herbst 2024 (Kriterien zur Auswahl einer Programmiersprache)"
                 ],
                 "extern": []
               },
@@ -2860,7 +2863,8 @@
                 "zpa": "",
                 "ihk": [
                   "AP1 Frühjahr 2025 (Rückgabewerte einer Funktion)",
-                  "AP1 Herbst 2025 (Array aus Dictionaries)"
+                  "AP1 Herbst 2025 (Array aus Dictionaries)",
+                  "AP1 Herbst 2024 (verschachtelte Schleifen über zweidimensionales Array)"
                 ],
                 "extern": []
               },
@@ -2907,14 +2911,19 @@
                 "rahmenlehrplan": "LF5: Anpassung einer Anwendung zur Verwaltung der Datenbestände planen, im Team umsetzen, testen (Vorgehen wählen, im Team umsetzen)",
                 "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
                 "zpa": "",
-                "ihk": [],
+                "ihk": [
+                  "AP1 Herbst 2021 (Projektmerkmale)",
+                  "AP1 Herbst 2022 (Projektphasen, Stakeholder)"
+                ],
                 "extern": [
-                  "Scrum Guide 2020 (Rollen, Artefakte, Ereignisse, Sprint höchstens ein Monat, Daily Scrum 15 Minuten)"
+                  "Scrum Guide 2020 (Rollen, Artefakte, Ereignisse, Sprint höchstens ein Monat, Daily Scrum 15 Minuten)",
+                  "DIN 69901-2 (Projektphasen Initialisierung, Definition, Planung, Steuerung, Abschluss), Lehrbuchstandard Projektmerkmale und magisches Dreieck"
                 ]
               },
               "material": [
                 "wasserfall-vs-agil",
-                "kanban-scrum-board"
+                "kanban-scrum-board",
+                "projektbegriff-magisches-dreieck"
               ],
               "begriffe": [
                 "vorgehensmodelle"
@@ -2960,6 +2969,34 @@
               "begriffe": [
                 "softwaredokumentation",
                 "anforderungen"
+              ]
+            },
+            {
+              "nummer": "5.5.4",
+              "titel": "Abläufe und Strukturen mit UML darstellen",
+              "slug": "ablaeufe-und-strukturen-mit-uml-darstellen",
+              "quellen": {
+                "rahmenlehrplan": "LF5: Anpassung einer Anwendung planen und dokumentieren (Modellierung)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2023 (Klassendiagramm)",
+                  "AP1 Herbst 2023 (Use-Case-Diagramm Störungsmeldung)",
+                  "AP1 Herbst 2024 (Use-Case-Diagramm)",
+                  "AP1 Herbst 2025 (Aktivitätsdiagramm)"
+                ],
+                "extern": [
+                  "OMG UML 2.5.1: Anwendungsfall-, Aktivitäts- und Klassendiagramm (Notation, Lehrbuchstandard)"
+                ]
+              },
+              "material": [
+                "uml-diagramme"
+              ],
+              "begriffe": [
+                "uml",
+                "programmierung",
+                "datenbankmodell",
+                "prozessnotation"
               ]
             }
           ]

@@ -344,11 +344,12 @@
             <li><a class="up is-check" data-check="lf5-5-4" href="5-4-check.html"><span class="num">5.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
-        <li class="kap"><a class="kap-head" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3">0/3</span></a>
+        <li class="kap"><a class="kap-head" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3 5-5-4">0/4</span></a>
           <ul class="nav-up">
             <li><a class="up" data-id="5-5-1" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5.1</span><span class="t">Vorgehensmodelle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up" data-id="5-5-2" href="5-5-2-zeitplanung-mit-netzplan-und-gantt-diagramm.html"><span class="num">5.5.2</span><span class="t">Zeitplanung mit Netzplan und Gantt-Diagramm</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up" data-id="5-5-3" href="5-5-3-software-dokumentieren.html"><span class="num">5.5.3</span><span class="t">Software dokumentieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-4" href="5-5-4-ablaeufe-und-strukturen-mit-uml-darstellen.html"><span class="num">5.5.4</span><span class="t">Abläufe und Strukturen mit UML darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up is-check" data-check="lf5-5-5" href="5-5-check.html"><span class="num">5.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
@@ -536,6 +537,9 @@ Bello;Hund;2018-11-02;12,4</code></pre>
   <p class="block-label">Beispiel</p>
   <p>Die Online-Terminbuchung erwartet Termine als JSON über eine Web-Schnittstelle. Die Impfliste aus der alten Tabelle übernimmt die Auszubildende dagegen per CSV-Import: Sie speichert die Tabelle als CSV mit Semikolon und UTF-8, ordnet im Importdialog die Spalten den Feldern der Praxissoftware zu und prüft danach zehn zufällige Tiere.</p>
 </div>
+
+<h3 id="u5-2-2-daten-konvertieren">Daten konvertieren<a class="anchor" href="#u5-2-2-daten-konvertieren" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Oft liegen Daten im falschen Format vor, etwa eine alte Tabelle, die in die Praxissoftware soll. Konvertiert wird über die Export- und Importfunktion der Programme oder mit einem Konverter. Dabei kann etwas verloren gehen: Formatierungen und Formeln fallen beim Export als CSV weg, verschachtelte Daten passen nicht in eine flache Tabelle, und eine falsche Zeichenkodierung zerstört Umlaute. Deshalb gilt: vorher eine Kopie des Originals sichern, danach eine Stichprobe mit dem Original vergleichen.</p>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„CSV ist immer mit Komma getrennt.“ Nein: Trotz des Namens nutzen deutsche Programme meist das Semikolon. Stimmt das Trennzeichen nicht, landet beim Import eine ganze Zeile in einer einzigen Spalte.</p></aside>
 

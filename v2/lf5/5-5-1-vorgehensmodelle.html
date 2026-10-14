@@ -344,11 +344,12 @@
             <li><a class="up is-check" data-check="lf5-5-4" href="5-4-check.html"><span class="num">5.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
-        <li class="kap is-open"><a class="kap-head" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3">0/3</span></a>
+        <li class="kap is-open"><a class="kap-head" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3 5-5-4">0/4</span></a>
           <ul class="nav-up">
             <li><a class="up" data-id="5-5-1" href="5-5-1-vorgehensmodelle.html" aria-current="page"><span class="num">5.5.1</span><span class="t">Vorgehensmodelle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up" data-id="5-5-2" href="5-5-2-zeitplanung-mit-netzplan-und-gantt-diagramm.html"><span class="num">5.5.2</span><span class="t">Zeitplanung mit Netzplan und Gantt-Diagramm</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up" data-id="5-5-3" href="5-5-3-software-dokumentieren.html"><span class="num">5.5.3</span><span class="t">Software dokumentieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-4" href="5-5-4-ablaeufe-und-strukturen-mit-uml-darstellen.html"><span class="num">5.5.4</span><span class="t">Abläufe und Strukturen mit UML darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up is-check" data-check="lf5-5-5" href="5-5-check.html"><span class="num">5.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
@@ -439,10 +440,33 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF5</a></li><li><a href="index.html#k-5-5">5.5 Im Projekt vorgehen</a></li><li aria-current="page">5.5.1</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">5.5.1</span>Vorgehensmodelle</h1>
-  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>4 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>5 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="5-5-1">
 <p class="lead">Die Anpassung der Praxissoftware ist mehr als Programmieren: Anforderungen klären, Datenbank ändern, Altdaten übernehmen, testen, schulen. Ein Vorgehensmodell legt fest, in welcher Reihenfolge das geschieht, wer wofür zuständig ist und wann der Kunde Ergebnisse sieht. Welches Modell passt, hängt vor allem davon ab, wie genau die Anforderungen am Anfang feststehen.</p>
+
+<h3 id="was-ist-ein-projekt">Was ist ein Projekt?<a class="anchor" href="#was-ist-ein-projekt" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Nicht jede Aufgabe ist ein Projekt. Ein <strong>Projekt</strong> ist ein Vorhaben, das einmalig ist und ein festes Ziel hat. Typische Merkmale:</p>
+<ul>
+  <li><strong>Einmalig</strong> und neuartig, kein Routineablauf,</li>
+  <li><strong>klares Ziel</strong>, an dem sich der Erfolg messen lässt,</li>
+  <li><strong>zeitlich begrenzt</strong> mit Anfang und Ende,</li>
+  <li><strong>begrenzte Mittel</strong>: Budget, Personal, Material,</li>
+  <li><strong>eigene Organisation</strong> mit Projektleitung und Team, oft aus mehreren Abteilungen.</li>
+</ul>
+<p>Zeit, Kosten und Leistung (Qualität) hängen zusammen: Soll es schneller gehen, steigen meist die Kosten oder die Leistung sinkt. Dieses Spannungsfeld heißt <strong>magisches Dreieck</strong>. Nach DIN 69901-2 durchläuft ein Projekt fünf Phasen:</p>
+<ol>
+  <li><strong>Initialisierung:</strong> Idee prüfen, Auftrag erteilen.</li>
+  <li><strong>Definition:</strong> Ziele und Umfang festlegen.</li>
+  <li><strong>Planung:</strong> Termine, Kosten und Aufgaben planen.</li>
+  <li><strong>Steuerung:</strong> Umsetzung überwachen und nachsteuern.</li>
+  <li><strong>Abschluss:</strong> Ergebnis übergeben und auswerten.</li>
+</ol>
+<p><strong>Stakeholder</strong> (Anspruchsgruppen, LF1, Kapitel 1.1.2) sind im Projekt alle, die daran beteiligt sind, von ihm betroffen sind oder es beeinflussen können: Auftraggeber, Projektleitung, Team, spätere Anwender, Lieferanten, im Betrieb etwa auch der Betriebsrat. Eine Stakeholderanalyse hält fest, wer welches Interesse hat und wie groß sein Einfluss ist, damit niemand Wichtiges übergangen wird.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Anpassung der Praxissoftware ist ein Projekt: einmalig, mit dem Ziel „Online-Terminbuchung und Impferinnerung“, festem Endtermin und Budget sowie einem Team aus Systemhaus und Praxis. Stakeholder sind die Inhaberin (Auftraggeberin, großer Einfluss), die Tiermedizinischen Fachangestellten (Anwenderinnen, ihre Akzeptanz entscheidet) und der Hersteller der Praxissoftware (liefert die Schnittstelle). Die tägliche Datensicherung ist dagegen Routine und kein Projekt.</p>
+</div>
 
 <h3 id="sequenziell-das-wasserfallmodell">Sequenziell: das Wasserfallmodell<a class="anchor" href="#sequenziell-das-wasserfallmodell" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Im <strong>Wasserfallmodell</strong> laufen die Phasen nacheinander ab. Jede Phase endet mit einem Ergebnis, etwa einem Dokument, und die nächste baut darauf auf:</p>

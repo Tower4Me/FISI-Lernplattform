@@ -344,11 +344,12 @@
             <li><a class="up is-check" data-check="lf5-5-4" href="5-4-check.html"><span class="num">5.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
-        <li class="kap"><a class="kap-head" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3">0/3</span></a>
+        <li class="kap"><a class="kap-head" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3 5-5-4">0/4</span></a>
           <ul class="nav-up">
             <li><a class="up" data-id="5-5-1" href="5-5-1-vorgehensmodelle.html"><span class="num">5.5.1</span><span class="t">Vorgehensmodelle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up" data-id="5-5-2" href="5-5-2-zeitplanung-mit-netzplan-und-gantt-diagramm.html"><span class="num">5.5.2</span><span class="t">Zeitplanung mit Netzplan und Gantt-Diagramm</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up" data-id="5-5-3" href="5-5-3-software-dokumentieren.html"><span class="num">5.5.3</span><span class="t">Software dokumentieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-4" href="5-5-4-ablaeufe-und-strukturen-mit-uml-darstellen.html"><span class="num">5.5.4</span><span class="t">Abläufe und Strukturen mit UML darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
             <li><a class="up is-check" data-check="lf5-5-5" href="5-5-check.html"><span class="num">5.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
@@ -467,8 +468,27 @@ OUTPUT tier["art"]          // Hund</code></pre>
 ]
 OUTPUT tiere[1]["name"]     // Bello</code></pre>
 
+<h3 id="zweidimensionales-array">Zweidimensionales Array<a class="anchor" href="#zweidimensionales-array" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Ein Array kann selbst Arrays enthalten. So entsteht eine Tabelle aus Zeilen und Spalten, ein <strong>zweidimensionales Array</strong>. Der erste Index wählt die Zeile, der zweite die Spalte. Durchlaufen wird es mit zwei <strong>verschachtelten Schleifen</strong>: Die äußere geht die Zeilen durch, die innere für jede Zeile alle Spalten.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Praxis zählt Termine je Behandlungsraum (Zeile 0 und 1) an drei Tagen (Spalte 0 bis 2):</p>
+<pre><code>belegung ← [
+    [3, 5, 2],
+    [4, 0, 6]
+]
+summe ← 0
+FOR z ← 0 TO 1
+    FOR s ← 0 TO 2
+        summe ← summe + belegung[z][s]
+    END FOR
+END FOR
+OUTPUT summe                // 20</code></pre>
+  <p>Die innere Schleife läuft für jede Zeile vollständig durch, der Rumpf wird also 2 × 3 = 6-mal ausgeführt. <code>belegung[1][2]</code> ist der Wert in Zeile 1, Spalte 2, also 6.</p>
+</div>
+
 <h3 id="funktionen">Funktionen<a class="anchor" href="#funktionen" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Eine <strong>Funktion</strong> ist ein benannter Programmteil, der eine Aufgabe erledigt. Sie bekommt Werte über <strong>Parameter</strong> und liefert mit <code>RETURN</code> einen <strong>Rückgabewert</strong> an die aufrufende Stelle. <code>RETURN</code> beendet die Funktion sofort. Einmal geschrieben, lässt sie sich mit beliebigen Werten aufrufen. Einen Programmteil ohne Rückgabewert heißt oft Prozedur.</p>
+<p>Eine <strong>Funktion</strong> ist ein benannter Programmteil, der eine Aufgabe erledigt. Sie bekommt Werte über <strong>Parameter</strong> und liefert mit <code>RETURN</code> einen <strong>Rückgabewert</strong> an die aufrufende Stelle. <code>RETURN</code> beendet die Funktion sofort. Einmal geschrieben, lässt sie sich mit beliebigen Werten aufrufen. Ein Programmteil ohne Rückgabewert heißt oft Prozedur.</p>
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Die Praxis möchte wissen, wie viele Tiere einer Art sie betreut:</p>
@@ -496,7 +516,7 @@ OUTPUT x      // Call by Value: 5, Call by Reference: 6</code></pre>
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Java übergibt einfache Werte wie <code>int</code> als Kopie, bei Arrays und Objekten einen Verweis als Wert. Python übergibt immer einen Verweis als Wert; Zahlen und Texte lassen sich aber nicht verändern, deshalb wirkt es bei ihnen wie Call by Value. Das Beispiel <code>erhoehe(x)</code> gibt in beiden Sprachen 5 aus. Ändert eine Funktion dagegen den Inhalt einer übergebenen Liste, etwa ein Element, sieht der Aufrufer die Änderung. Weist sie dem Parameter eine ganz neue Liste zu, bleibt die Liste des Aufrufers unverändert. Echtes Call by Reference bieten etwa C++ (<code>&amp;</code>) und C# (<code>ref</code>).</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
-  <li><strong>Datenstrukturen:</strong> Ein Array greift über den Index ab 0 zu (letzter Index n − 1), ein Dictionary über den Schlüssel; ein Array aus Dictionaries bildet eine Tabelle ab.</li>
+  <li><strong>Datenstrukturen:</strong> Ein Array greift über den Index ab 0 zu (letzter Index n − 1), ein Dictionary über den Schlüssel; ein Array aus Dictionaries oder ein zweidimensionales Array bildet eine Tabelle ab, durchlaufen mit verschachtelten Schleifen.</li>
   <li><strong>Funktionen:</strong> Parameter bringen Werte hinein, RETURN gibt einen Wert zurück; Call by Value übergibt eine Kopie, Call by Reference einen Verweis auf das Original.</li>
 </ul></div>
 </div>

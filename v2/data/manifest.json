@@ -1225,7 +1225,8 @@
                 "qualitaetsplanung-guetesiegel"
               ],
               "begriffe": [
-                "auftragsauswertung"
+                "auftragsauswertung",
+                "kundenzufriedenheit"
               ]
             }
           ]
@@ -3664,6 +3665,110 @@
               "begriffe": [
                 "englisch-im-support",
                 "kuenstliche-intelligenz"
+              ]
+            }
+          ]
+        },
+        {
+          "nummer": "6.6",
+          "titel": "Servicequalität verbessern",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "6.6.1",
+              "titel": "Servicefälle auswerten",
+              "slug": "servicefaelle-auswerten",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Bearbeitung reflektieren, Maßnahmen zur Qualitätssteigerung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (Kritik am Service, Verbesserungen)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Service-Kennzahlen (SLA-Einhaltung, First Contact Resolution, mittlere Lösungszeit, Backlog, Wiedereröffnungsquote)"
+                ]
+              },
+              "material": [
+                "sla-support-level",
+                "ticketsystem-stoerungsmanagement-eskalation"
+              ],
+              "begriffe": [
+                "servicekennzahlen",
+                "sla",
+                "support-level"
+              ]
+            },
+            {
+              "nummer": "6.6.2",
+              "titel": "Kundenzufriedenheit ermitteln",
+              "slug": "kundenzufriedenheit-ermitteln",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Bearbeitung reflektieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (Methoden zur Messung der Kundenzufriedenheit)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Befragung, Interview, Beschwerdeauswertung; Weiterempfehlungsfrage (Skala 0 bis 10)"
+                ]
+              },
+              "material": [
+                "lessons-learned-nachfolgeauftraege"
+              ],
+              "begriffe": [
+                "kundenzufriedenheit",
+                "auftragsauswertung"
+              ]
+            },
+            {
+              "nummer": "6.6.3",
+              "titel": "Qualität dauerhaft verbessern",
+              "slug": "qualitaet-dauerhaft-verbessern",
+              "quellen": {
+                "rahmenlehrplan": "LF6: eigenes Gesprächsverhalten reflektieren, Maßnahmen zur Qualitätssteigerung vorschlagen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (Ticketsystem, CRM, Premiumservice, 24/7 als Verbesserung)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: PDCA (Deming), KVP, Lessons Learned"
+                ]
+              },
+              "material": [
+                "pdca-prozessorientiertes-qm",
+                "lessons-learned-nachfolgeauftraege"
+              ],
+              "begriffe": [
+                "qualitaetsverbesserung",
+                "geschaeftsprozess",
+                "isms"
+              ]
+            },
+            {
+              "nummer": "6.6.4",
+              "titel": "Anwender einweisen und Veränderungen begleiten",
+              "slug": "anwender-einweisen-und-veraenderungen-begleiten",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Lösungen umsetzen (Anwender einweisen); Veränderungen begleiten (Ausbildungsrahmenplan)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021 (Schulungsformen: Multiplikatoren, Webinar, Video)",
+                  "AP1 Herbst 2025 (Widerstände gegen eine Umstellung und Gegenmaßnahmen)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Schulungsformen; Change-Management, Promotorenmodell (Witte: Macht- und Fachpromotor), Opponenten; Lewin-Phasenmodell (Nennung)"
+                ]
+              },
+              "material": [
+                "change-management"
+              ],
+              "begriffe": [
+                "change-management",
+                "gespraechsfuehrung"
               ]
             }
           ]

@@ -212,6 +212,10 @@
         {
           "id": "4-6-5",
           "tiefe": "PDCA-Zyklus, regelmäßige Überprüfung"
+        },
+        {
+          "id": "6-6-3",
+          "tiefe": "PDCA, Verweis auf LF4"
         }
       ]
     },
@@ -588,6 +592,10 @@
         {
           "id": "1-3-5",
           "tiefe": "Verbesserung, Outsourcing"
+        },
+        {
+          "id": "6-6-3",
+          "tiefe": "KVP im Service"
         }
       ]
     },
@@ -1208,6 +1216,10 @@
         {
           "id": "5-6-3",
           "tiefe": "Prozess evaluieren, Lessons Learned im Softwareprojekt"
+        },
+        {
+          "id": "6-6-2",
+          "tiefe": "Verweis, laufende Messung statt Einzelauftrag"
         }
       ]
     },
@@ -1894,6 +1906,10 @@
         {
           "id": "6-5-4",
           "tiefe": "SLA als neutrales Kriterium"
+        },
+        {
+          "id": "6-6-1",
+          "tiefe": "SLA-Einhaltung, SLA-Bericht"
         }
       ]
     },
@@ -1957,6 +1973,10 @@
         {
           "id": "6-3-2",
           "tiefe": "Ebenen, eigenes Level"
+        },
+        {
+          "id": "6-6-1",
+          "tiefe": "Erstlösungsquote als Kennzahl"
         }
       ]
     },
@@ -2087,6 +2107,10 @@
         {
           "id": "6-5-3",
           "tiefe": "Telefon, aktives Zuhören, Fachsprache, Kundentypen, Mail"
+        },
+        {
+          "id": "6-6-4",
+          "tiefe": "Bedenken erfragen"
         }
       ]
     },
@@ -2117,6 +2141,65 @@
         {
           "id": "6-5-5",
           "tiefe": "Telefon, Fehlerbericht, Signalwörter"
+        }
+      ]
+    },
+    {
+      "begriff": "servicekennzahlen",
+      "kernfakten": [
+        "SLA-Einhaltung = Tickets in vereinbarter Zeit ÷ alle × 100 %; Erstlösungsquote = beim ersten Kontakt gelöst ÷ alle × 100 %; mittlere Lösungszeit = Summe ÷ Anzahl gelöster; offene Tickets (Rückstand); Wiedereröffnungsquote = wieder geöffnet ÷ geschlossen × 100 %.",
+        "Aussagekraft erst im Vergleich (Ziel, Vormonat) und mit mehreren Kennzahlen; Kennzahlen bewerten den Ablauf, nicht einzelne Personen.",
+        "SLA-Bericht an den Kunden, meist monatlich."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-6-1",
+          "tiefe": "Kennzahlen, Berechnung, Deutung"
+        }
+      ]
+    },
+    {
+      "begriff": "kundenzufriedenheit",
+      "kernfakten": [
+        "Methoden: Kurzumfrage nach Ticket, Fragebogen, persönliches Gespräch (Interview), Beschwerden und Lob auswerten, indirekte Hinweise (Wiedereröffnungen, Kündigungen); am besten kombiniert.",
+        "Fragen kurz, eindeutig (eine Sache), neutral, mit Freitext; Weiterempfehlungsfrage Skala 0 bis 10."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-7-4",
+          "tiefe": "Zufriedenheit nach einem Auftrag erfragen"
+        },
+        {
+          "id": "6-6-2",
+          "tiefe": "Methoden mit Stärken und Schwächen"
+        }
+      ]
+    },
+    {
+      "begriff": "qualitaetsverbesserung",
+      "kernfakten": [
+        "Lessons Learned: was passiert, was gut, was schlecht und warum, was ändern wir (wer, bis wann); Ursachen statt Schuldige.",
+        "PDCA: Plan (Ziel, Maßnahme, Erfolgsmaß), Do (im Kleinen umsetzen), Check (Wirkung prüfen), Act (Standard machen, nachbessern), dann von vorn; KVP = viele kleine Verbesserungen."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-6-3",
+          "tiefe": "Lessons Learned, Selbstreflexion, PDCA im Service"
+        }
+      ]
+    },
+    {
+      "begriff": "change-management",
+      "kernfakten": [
+        "Schulungsformen: Einzeleinweisung, Gruppenschulung, Webinar, Lernvideo/Kurzanleitung, Multiplikatoren (Key User).",
+        "Widerstandsgründe: Angst vor Überforderung, Gewohnheit, Sorge um Mehrarbeit/Kontrolle/Arbeitsplatz, fehlende Information, Übergangensein.",
+        "Gegenmaßnahmen: früh informieren (warum), beteiligen, schulen mit Übergangszeit, Multiplikatoren/Ansprechpartner, Pilotgruppe.",
+        "Rollen: Promotoren (Machtpromotor: entscheidet, stellt Mittel bereit; Fachpromotor: überzeugt durch Fachwissen), Opponenten (offen oder verdeckt), Unentschlossene; Lewin: Auftauen, Verändern, Stabilisieren."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-6-4",
+          "tiefe": "Einweisung, Widerstände, Rollen, Lewin genannt"
         }
       ]
     }

@@ -1,0 +1,126 @@
+{
+  "titel": "Check 6.6",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Erstlösungsquote",
+      "frage": "Ein Service Desk hatte im März 320 Tickets, davon wurden 208 beim ersten Kontakt gelöst. Wie hoch ist die Erstlösungsquote?",
+      "optionen": [
+        "65 %",
+        "35 %",
+        "62,5 %",
+        "6,5 %"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "208 ÷ 320 × 100 % = 65 %. Die übrigen 35 % mussten weitergegeben oder später gelöst werden."
+    },
+    {
+      "typ": "mc",
+      "thema": "SLA-Einhaltung",
+      "frage": "Von 150 Tickets eines Monats wurde bei 9 die vereinbarte Reaktionszeit überschritten. Wie hoch ist die SLA-Einhaltung bei der Reaktionszeit?",
+      "optionen": [
+        "94 %",
+        "9 %",
+        "91 %",
+        "6 %"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Eingehalten wurde sie bei 141 Tickets: 141 ÷ 150 × 100 % = 94 %."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kennzahlen deuten",
+      "frage": "Die mittlere Lösungszeit eines Teams sinkt deutlich, gleichzeitig steigt die Wiedereröffnungsquote von 3 % auf 12 %. Was ist die wahrscheinlichste Erklärung?",
+      "optionen": [
+        "Tickets werden geschlossen, bevor das Problem gelöst ist",
+        "Das Team arbeitet schneller und ebenso gründlich wie zuvor",
+        "Die Kunden melden im Vergleich zum Vormonat weniger Störungen",
+        "Der First Level löst deutlich mehr Fälle beim ersten Kontakt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Viele wieder geöffnete Tickets zeigen, dass Lösungen nicht halten. Deshalb gehören Lösungszeit und Wiedereröffnungsquote zusammen betrachtet."
+    },
+    {
+      "typ": "mc",
+      "thema": "Gründe der Unzufriedenheit",
+      "frage": "Ein IT-Dienstleister will verstehen, warum ein wichtiger Großkunde unzufrieden ist. Welche Methode liefert am ehesten die Gründe?",
+      "optionen": [
+        "Ein Gespräch mit offenen Fragen",
+        "Eine Sternebewertung nach jedem Ticket",
+        "Die Zahl offener Tickets am Monatsende",
+        "Ein jährlicher Fragebogen an alle Kunden"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein persönliches Gespräch geht in die Tiefe und macht Gründe sichtbar. Bewertungen und Zahlen zeigen eher, dass etwas nicht stimmt, aber nicht warum."
+    },
+    {
+      "typ": "mc",
+      "thema": "Promotoren",
+      "frage": "In einem Autohaus soll ein neues Werkstattsystem eingeführt werden. Der Geschäftsführer stellt Budget und Zeit bereit und setzt sich vor allen Beschäftigten dafür ein. Welche Rolle hat er?",
+      "optionen": [
+        "Machtpromotor",
+        "Fachpromotor",
+        "Opponent",
+        "Multiplikator"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Machtpromotor treibt die Änderung durch seine Entscheidungsbefugnis und seine Mittel voran. Ein Fachpromotor überzeugt durch Fachwissen."
+    },
+    {
+      "typ": "mc",
+      "thema": "PDCA",
+      "frage": "Ein Service Desk führt testweise für einen Kunden feste Rückmeldezeiten ein. Nach zwei Monaten wird ausgewertet, ob die Beschwerden zurückgegangen sind. Welcher Schritt des PDCA-Zyklus ist diese Auswertung?",
+      "optionen": [
+        "Check",
+        "Do",
+        "Act",
+        "Plan"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Check prüft die Wirkung einer Maßnahme, die im Schritt Do im Kleinen umgesetzt wurde. Bewährt sie sich, wird sie im Schritt Act zum Standard."
+    },
+    {
+      "typ": "mc",
+      "thema": "Lessons Learned",
+      "frage": "Worauf achtet eine gute Nachbesprechung nach einer größeren Störung?",
+      "optionen": [
+        "Ursachen in Abläufen suchen statt Schuldige zu benennen",
+        "Die verantwortliche Person ermitteln und ihr eine Rüge erteilen",
+        "Nur die erfolgreichen Schritte festhalten, um Mut zu machen",
+        "Ergebnisse mündlich besprechen, ohne sie schriftlich festzuhalten"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Wer Bloßstellung fürchtet, verschweigt Fehler. Die Ergebnisse werden festgehalten, etwa als Wissensartikel oder geänderte Checkliste."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Widerstände",
+      "frage": "Beschäftigte einer Spedition wehren sich gegen ein neues Zeiterfassungssystem. Welche zwei Maßnahmen helfen am ehesten?",
+      "optionen": [
+        "Früh erklären, warum es kommt und was es den Beschäftigten bringt",
+        "Einzelne Kolleginnen als Multiplikatoren schulen",
+        "Das System ohne Ankündigung über Nacht einführen und freischalten",
+        "Kritiker von den Schulungen ausnehmen, damit sie dort nicht stören"
+      ],
+      "richtig": [
+        0,
+        1
+      ],
+      "erklaerung": "Frühe Information und Unterstützung durch Kollegen bauen Ängste ab. Überrumpeln und Ausgrenzen verstärken den Widerstand."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+<p class="lead">Um 9:45 Uhr liegen beim Service Desk drei offene Tickets: Die Kanzlei kann nicht auf ihre Mandantendaten zugreifen, bei einem Handwerksbetrieb klemmt eine Taste an einer Tastatur, und der Empfang einer Arztpraxis wünscht sich einen zweiten Monitor. Wer wird zuerst bedient? Nicht der, der am lautesten klagt, sondern der mit der höchsten Priorität.</p>
+
+<h3>Auswirkung und Dringlichkeit</h3>
+<p>Die <strong>Priorität</strong> eines Tickets ergibt sich aus zwei Fragen:</p>
+<ul>
+  <li><strong>Auswirkung</strong> (Impact): Wie groß ist der Schaden? Wie viele Personen oder wie wichtige Geschäftsprozesse sind betroffen? Ein einzelner Arbeitsplatz wiegt weniger als ein ganzes Büro.</li>
+  <li><strong>Dringlichkeit</strong> (Urgency): Wie schnell muss es gehen? Gibt es eine Frist oder eine Umgehungslösung? Ein Problem, das erst nächste Woche stört, ist weniger dringend als eines, das jetzt die Arbeit stoppt.</li>
+</ul>
+<p>Beide Werte werden in einer <strong>Prioritätsmatrix</strong> kombiniert. Viele Betriebe verwenden je drei Stufen und daraus fünf Prioritäten:</p>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Auswirkung \ Dringlichkeit</th><th>hoch</th><th>mittel</th><th>niedrig</th></tr></thead>
+    <tbody>
+      <tr><th>hoch</th><td>1 kritisch</td><td>2 hoch</td><td>3 mittel</td></tr>
+      <tr><th>mittel</th><td>2 hoch</td><td>3 mittel</td><td>4 niedrig</td></tr>
+      <tr><th>niedrig</th><td>3 mittel</td><td>4 niedrig</td><td>5 planbar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Priorität und SLA</h3>
+<p>Für jede Priorität legt das SLA eigene Reaktions- und Lösungszeiten fest. So bekommt eine kritische Störung sofort Aufmerksamkeit, während ein Wunsch ohne Zeitdruck in Ruhe eingeplant wird. Eine typische Staffelung:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Priorität</th><th>Reaktionszeit</th><th>Lösungszeit</th></tr></thead>
+    <tbody>
+      <tr><td>1 kritisch</td><td>1 Stunde</td><td>4 Stunden</td></tr>
+      <tr><td>2 hoch</td><td>2 Stunden</td><td>8 Stunden</td></tr>
+      <tr><td>3 mittel</td><td>4 Stunden</td><td>2 Arbeitstage</td></tr>
+      <tr><td>4 niedrig</td><td>1 Arbeitstag</td><td>5 Arbeitstage</td></tr>
+      <tr><td>5 planbar</td><td>nach Absprache</td><td>nach Absprache</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die drei Tickets von 9:45 Uhr:</p>
+  <ul>
+    <li><strong>Kanzlei:</strong> Alle fünf Arbeitsplätze können die Kanzleisoftware nicht nutzen (Auswirkung hoch), die Abgabefrist läuft heute ab und es gibt keine Umgehungslösung (Dringlichkeit hoch): Priorität 1.</li>
+    <li><strong>Tastatur:</strong> ein Arbeitsplatz (Auswirkung niedrig); bis eine Ersatztastatur gebracht ist, kann die Mitarbeiterin nur mühsam tippen (Dringlichkeit mittel): Priorität 4.</li>
+    <li><strong>Zweiter Monitor:</strong> eine Serviceanfrage ohne Zeitdruck (Auswirkung niedrig, Dringlichkeit niedrig): Priorität 5.</li>
+  </ul>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Kunde sagt, es ist dringend, also Priorität 1.“ Der Kunde schildert die Lage, die Priorität vergibt der Service Desk nach den vereinbarten Regeln. Sonst wäre bald jedes Ticket „dringend“, und die wirklich kritischen Fälle gingen unter. Gute Fragen zu Auswirkung und Dringlichkeit helfen dir, die Lage richtig einzuschätzen.</p></aside>
+
+<p>Die Priorität kann sich ändern. Stellt sich heraus, dass nicht nur ein Rechner, sondern das ganze Büro betroffen ist, steigt sie. Findet sich eine Umgehungslösung, kann sie sinken. Jede Änderung wird mit Grund im Ticket vermerkt.</p>
+
+<p class="merksatz">Die Priorität ergibt sich aus Auswirkung (wie viel ist betroffen) und Dringlichkeit (wie schnell muss es gehen); das SLA legt für jede Priorität eigene Reaktions- und Lösungszeiten fest.</p>

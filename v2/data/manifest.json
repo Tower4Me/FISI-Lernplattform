@@ -3211,6 +3211,113 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "6.2",
+          "titel": "Vertragliche Grundlage: das SLA",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "6.2.1",
+              "titel": "Service Level Agreement",
+              "slug": "service-level-agreement",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Serviceanfrage mit der vertraglichen Grundlage (Service-Level-Agreement) abgleichen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7 und Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (Premiumservice mit kurzer Reaktionszeit)",
+                  "AP1 Herbst 2024 (Lastenheft mit Rahmenbedingungen wie Reaktionszeit)"
+                ],
+                "extern": [
+                  "ITIL 4 Glossar (Service Level Agreement, Operational Level Agreement), sinngemäß",
+                  "BGB § 611 (Dienstvertrag), § 631 (Werkvertrag)"
+                ]
+              },
+              "material": [
+                "sla-support-level",
+                "it-servicemanagement"
+              ],
+              "begriffe": [
+                "sla",
+                "kaufvertrag",
+                "vertragsstoerungen"
+              ]
+            },
+            {
+              "nummer": "6.2.2",
+              "titel": "Fristen und Verfügbarkeit berechnen",
+              "slug": "fristen-und-verfuegbarkeit-berechnen",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Reaktionszeit bestimmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (24/7-Bereitschaft, Reaktionszeit)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Verfügbarkeit = (Gesamtzeit − Ausfallzeit) / Gesamtzeit; Fristberechnung innerhalb der Servicezeit"
+                ]
+              },
+              "material": [
+                "sla-support-level",
+                "rto-rpo-verfuegbarkeit"
+              ],
+              "begriffe": [
+                "sla",
+                "schutzziele",
+                "ticketsystem"
+              ]
+            },
+            {
+              "nummer": "6.2.3",
+              "titel": "Priorität bestimmen",
+              "slug": "prioritaet-bestimmen",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Serviceanfragen analysieren, Reaktionszeit bestimmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (Priorisierung von Störungsmeldungen)"
+                ],
+                "extern": [
+                  "ITIL 4 (Priorität aus Impact und Urgency), verbreitete 3×3-Matrix mit fünf Stufen"
+                ]
+              },
+              "material": [
+                "ticketsystem-stoerungsmanagement-eskalation"
+              ],
+              "begriffe": [
+                "prioritaet",
+                "sla",
+                "anfragearten"
+              ]
+            },
+            {
+              "nummer": "6.2.4",
+              "titel": "Supportleistungen abrechnen",
+              "slug": "supportleistungen-abrechnen",
+              "quellen": {
+                "rahmenlehrplan": "LF6: vertragliche Grundlage der Serviceleistung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (Preisgestaltung Service, Minutensatz einer Hotline, Argumente für kostenpflichtige Hotline)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Pauschale, Abrechnung nach Aufwand mit Zeittakt, Kontingent; Selbstkostenkalkulation"
+                ]
+              },
+              "material": [
+                "sla-support-level"
+              ],
+              "begriffe": [
+                "supportabrechnung",
+                "handelskalkulation",
+                "gewaehrleistung"
+              ]
+            }
+          ]
         }
       ]
     }

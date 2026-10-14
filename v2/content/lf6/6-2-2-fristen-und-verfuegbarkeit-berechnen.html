@@ -1,0 +1,55 @@
+<p class="lead">Ein Ticket kommt am Freitag um 16 Uhr herein, die Reaktionszeit beträgt vier Stunden. Muss bis 20 Uhr jemand reagieren? Das hängt von der Servicezeit ab. Wer Fristen falsch berechnet, verspricht dem Kunden zu viel oder verletzt das SLA, ohne es zu merken.</p>
+
+<h3>Fristen laufen in der Servicezeit</h3>
+<p>Reaktions- und Lösungszeiten zählen in den meisten SLAs nur während der <strong>Servicezeit</strong>. Außerhalb ruht die Uhr. Wer das ausrechnet, geht in drei Schritten vor:</p>
+<ol>
+  <li>Restliche Servicezeit am Eingangstag bestimmen.</li>
+  <li>Diese Zeit von der Frist abziehen.</li>
+  <li>Den Rest ab Beginn der nächsten Servicezeit weiterzählen; Wochenenden und Feiertage überspringen, wenn sie nicht zur Servicezeit gehören.</li>
+</ol>
+<p>Kommt ein Ticket außerhalb der Servicezeit, etwa am Samstag, beginnt die Frist erst mit der nächsten Servicezeit. Passt die Frist noch in die restliche Servicezeit des Eingangstags, endet sie am selben Tag.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Servicezeit montags bis freitags von 8 bis 17 Uhr, Reaktionszeit 4 Stunden. Das Ticket kommt am Freitag um 16:00 Uhr.</p>
+  <ul>
+    <li>Am Freitag bleibt 1 Stunde (16 bis 17 Uhr), es fehlen noch 3 Stunden.</li>
+    <li>Samstag und Sonntag liegen außerhalb der Servicezeit.</li>
+    <li>Am Montag ab 8:00 Uhr laufen die restlichen 3 Stunden: Die Reaktion muss bis <strong>Montag, 11:00 Uhr</strong> erfolgen.</li>
+  </ul>
+  <p>Hätte die Kanzlei einen Vertrag mit Servicezeit rund um die Uhr an allen Tagen (oft „24/7“ geschrieben), wäre die Frist schon Freitag um 20:00 Uhr abgelaufen.</p>
+</div>
+
+<p>Servicezeiten werden häufig kurz geschrieben: „5 × 9“ steht für fünf Tage mit je neun Stunden, „24/7“ für 24 Stunden an sieben Tagen. Längere Servicezeiten kosten mehr, weil der Dienstleister Personal bereithalten muss.</p>
+
+<aside class="note" data-typ="hinweis"><p>Steht ein Ticket auf „wartet auf Kunde“ (Kapitel 6.1.4), hält die Uhr in vielen Verträgen ebenfalls an. Ob und wann das gilt, steht im SLA.</p></aside>
+
+<h3>Verfügbarkeit in Ausfallzeit umrechnen</h3>
+<p>Für Systeme, die der Dienstleister betreibt, etwa einen Server im Rechenzentrum, sagt das SLA eine <strong>Verfügbarkeit</strong> in Prozent zu. Ein Prozentwert ist schwer vorstellbar. Erst die Umrechnung in Stunden zeigt, wie viel Ausfall erlaubt ist:</p>
+<p class="formel">erlaubte Ausfallzeit = Gesamtzeit × (100 % − Verfügbarkeit)</p>
+<p class="formel">Verfügbarkeit = (Gesamtzeit − Ausfallzeit) ÷ Gesamtzeit × 100 %</p>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Zusage</th><th>Bezug</th><th>Rechnung</th><th>erlaubter Ausfall</th></tr></thead>
+    <tbody>
+      <tr><td>99,5 %</td><td>Monat mit 30 Tagen (720 h)</td><td>720 h × 0,005</td><td>3,6 h = 3 h 36 min</td></tr>
+      <tr><td>99,9 %</td><td>Monat mit 30 Tagen (720 h)</td><td>720 h × 0,001</td><td>0,72 h ≈ 43 min</td></tr>
+      <tr><td>99,9 %</td><td>Jahr mit 365 Tagen (8760 h)</td><td>8760 h × 0,001</td><td>8,76 h ≈ 8 h 46 min</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Server der Kanzlei soll laut SLA zu 99,5 % im Monat verfügbar sein. Im Dezember (31 Tage, 744 h) fiel er insgesamt 5 Stunden aus. Verfügbarkeit: (744 h − 5 h) ÷ 744 h × 100 % ≈ 99,33 %. Die Zusage ist verfehlt; erlaubt wären 744 h × 0,005 = 3,72 h gewesen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„99 % und 99,9 % sind fast dasselbe.“ Bezogen auf ein Jahr erlaubt 99 % gut 87 Stunden Ausfall, 99,9 % knapp 9 Stunden: ein Zehntel. Jede weitere Neun macht den Betrieb deutlich aufwendiger und teurer.</p></aside>
+
+<p>Ob geplante Wartungsfenster, etwa für Updates am Sonntagmorgen, als Ausfall zählen, regelt das SLA. Meist sind angekündigte Wartungen ausgenommen. Wichtig ist auch, auf welchen Zeitraum sich die Zusage bezieht: Sie kann rund um die Uhr gelten oder nur für die Servicezeit.</p>
+
+<ul class="merksatz">
+  <li><strong>Fristen:</strong> Reaktions- und Lösungszeit laufen meist nur in der Servicezeit; den Rest ab Beginn der nächsten Servicezeit weiterzählen.</li>
+  <li><strong>Verfügbarkeit:</strong> erlaubte Ausfallzeit = Gesamtzeit × (100 % − Verfügbarkeit); den Bezugszeitraum aus dem SLA nehmen.</li>
+</ul>

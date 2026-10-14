@@ -86,6 +86,10 @@
         {
           "id": "4-5-2",
           "tiefe": "Maßnahmen den Schutzzielen zuordnen"
+        },
+        {
+          "id": "6-2-2",
+          "tiefe": "Verfügbarkeit als SLA-Kennzahl in Prozent"
         }
       ]
     },
@@ -1047,6 +1051,10 @@
         {
           "id": "2-6-2",
           "tiefe": "Verkaufskalkulation"
+        },
+        {
+          "id": "6-2-4",
+          "tiefe": "Gewinn auf Selbstkosten je Minute"
         }
       ]
     },
@@ -1062,6 +1070,10 @@
         {
           "id": "2-6-3",
           "tiefe": "Zustandekommen, Vertragsarten"
+        },
+        {
+          "id": "6-2-1",
+          "tiefe": "Supportvertrag als Dienst- und/oder Werkvertrag, Verweis"
         }
       ]
     },
@@ -1077,6 +1089,10 @@
         {
           "id": "2-6-4",
           "tiefe": "Störungen"
+        },
+        {
+          "id": "6-2-1",
+          "tiefe": "nur Verweis"
         }
       ]
     },
@@ -1092,6 +1108,10 @@
         {
           "id": "2-6-5",
           "tiefe": "Gewährleistung, Garantie"
+        },
+        {
+          "id": "6-2-4",
+          "tiefe": "darf durch kostenpflichtige Hotline nicht ausgehebelt werden"
         }
       ]
     },
@@ -1753,6 +1773,10 @@
         {
           "id": "6-1-2",
           "tiefe": "Vier Arten, Zusammenhang, Workaround, Known Error"
+        },
+        {
+          "id": "6-2-3",
+          "tiefe": "Serviceanfrage niedrig priorisiert"
         }
       ]
     },
@@ -1780,6 +1804,58 @@
         {
           "id": "6-1-4",
           "tiefe": "Zweck, Felder, Statusablauf"
+        },
+        {
+          "id": "6-2-2",
+          "tiefe": "Wartet auf Kunde hält Frist an"
+        }
+      ]
+    },
+    {
+      "begriff": "sla",
+      "kernfakten": [
+        "SLA (Service Level Agreement, Dienstgütevereinbarung): legt Leistung und Qualität messbar fest; Teil eines Wartungs-/Supportvertrags.",
+        "Inhalte: Leistungsbeschreibung, Servicezeit, Reaktions- und Lösungszeit je Priorität, Verfügbarkeit, Kontaktwege, Mitwirkungspflichten, Berichte, Folgen bei Nichteinhaltung (z. B. Gutschrift).",
+        "Reaktionszeit: Eingang bis Beginn der Bearbeitung durch fachkundige Person (automatische Eingangsbestätigung zählt meist nicht); Lösungszeit: Eingang bis Service wieder läuft.",
+        "Fristen laufen meist nur in der Servicezeit; 5 × 9 = fünf Tage je neun Stunden, 24/7 = rund um die Uhr.",
+        "Erlaubte Ausfallzeit = Gesamtzeit × (100 % − Verfügbarkeit); 99,5 % in 30 Tagen = 3,6 h; 99,9 % im Jahr ≈ 8 h 46 min; angekündigte Wartung meist ausgenommen.",
+        "OLA: Vereinbarung zwischen Abteilungen desselben Betriebs."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-2-1",
+          "tiefe": "Inhalte, Kennzahlen, Vertragseinordnung, OLA"
+        },
+        {
+          "id": "6-2-2",
+          "tiefe": "Fristberechnung, Verfügbarkeit in Ausfallzeit"
+        }
+      ]
+    },
+    {
+      "begriff": "prioritaet",
+      "kernfakten": [
+        "Priorität aus Auswirkung (Impact: Umfang/Schwere) und Dringlichkeit (Urgency: Zeitdruck, Umgehungslösung).",
+        "Verbreitet: 3×3-Matrix, Prioritäten 1 kritisch bis 5 planbar (hoch/hoch = 1, niedrig/niedrig = 5).",
+        "Priorität vergibt der Service Desk nach Regeln, nicht der Kunde; Änderung mit Grund im Ticket."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-2-3",
+          "tiefe": "Matrix, Staffelung der Fristen"
+        }
+      ]
+    },
+    {
+      "begriff": "supportabrechnung",
+      "kernfakten": [
+        "Modelle: Pauschale, nach Aufwand mit Zeittakt (z. B. je angefangene 15 min), Stundenkontingent, Minutenpreis; Anfahrtspauschale bei Vor-Ort-Einsatz.",
+        "Hotline-Minutenpreis: Selbstkosten = Gesamtkosten inkl. Bereitschaft ÷ abgerechnete Minuten, dann Gewinn in Prozent der Selbstkosten."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-2-4",
+          "tiefe": "Modelle, Minutenpreis, kostenpflichtige Hotline"
         }
       ]
     }

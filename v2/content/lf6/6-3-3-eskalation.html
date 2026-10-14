@@ -1,0 +1,62 @@
+<p class="lead">Der Techniker im Second Level hat den Datenbankdienst der Kanzlei neu gestartet, doch nach zehn Minuten stürzt er wieder ab. Seit der Meldung sind drei Stunden vergangen, die Lösungszeit für Priorität 1 beträgt vier Stunden. Jetzt reicht Weiterarbeiten allein nicht mehr: Der Fall muss eskaliert werden.</p>
+
+<h3>Was Eskalation bedeutet</h3>
+<p><strong>Eskalation</strong> heißt im Support: Ein Fall wird an eine Stelle gegeben oder gemeldet, die mehr kann oder mehr entscheiden darf. Das ist kein Eingeständnis von Versagen, sondern ein geplanter Schritt, damit kein Ticket zu lange an der falschen Stelle hängt. Es gibt zwei Richtungen, die sich auch kombinieren lassen:</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 640 300" role="img" aria-label="Zwei Richtungen der Eskalation: waagerecht funktional vom First über den Second zum Third Level, senkrecht hierarchisch vom Bearbeiter auf jeder Ebene über die Teamleitung zur Geschäftsleitung">
+    <defs><marker id="pfeil-esk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <rect class="g-box" x="20" y="20" width="140" height="40" rx="8"/>
+    <text x="90" y="45" text-anchor="middle" font-size="14">Geschäftsleitung</text>
+    <rect class="g-box" x="20" y="120" width="140" height="40" rx="8"/>
+    <text x="90" y="145" text-anchor="middle" font-size="14">Teamleitung</text>
+    <rect class="g-accent" x="20" y="220" width="140" height="40" rx="8"/>
+    <text x="90" y="245" text-anchor="middle" font-size="14">First Level</text>
+    <text x="90" y="278" text-anchor="middle" class="g-muted" font-size="11">Bearbeiter auf jeder Ebene</text>
+    <rect class="g-box" x="240" y="220" width="140" height="40" rx="8"/>
+    <text x="310" y="245" text-anchor="middle" font-size="14">Second Level</text>
+    <rect class="g-box" x="460" y="220" width="140" height="40" rx="8"/>
+    <text x="530" y="245" text-anchor="middle" font-size="14">Third Level</text>
+    <path class="g-line" d="M160 240H236" marker-end="url(#pfeil-esk)" stroke-width="1.5"/>
+    <path class="g-line" d="M380 240H456" marker-end="url(#pfeil-esk)" stroke-width="1.5"/>
+    <path class="g-line" d="M90 220V164" marker-end="url(#pfeil-esk)" stroke-width="1.5"/>
+    <path class="g-line" d="M90 120V64" marker-end="url(#pfeil-esk)" stroke-width="1.5"/>
+    <text x="380" y="288" text-anchor="middle" class="g-muted" font-size="13">funktional: mehr Fachwissen</text>
+    <text x="180" y="96" class="g-muted" font-size="13">hierarchisch: mehr</text>
+    <text x="180" y="113" class="g-muted" font-size="13">Entscheidungsbefugnis</text>
+  </svg>
+  <figcaption>Funktionale Eskalation geht zur nächsten Support-Ebene, hierarchische zu Vorgesetzten. Hierarchisch eskalieren kann der Bearbeiter auf jeder Ebene, und ein Fall kann in beide Richtungen zugleich eskaliert werden.</figcaption>
+</figure>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Funktionale (fachliche) Eskalation</th><th>Hierarchische Eskalation</th></tr></thead>
+    <tbody>
+      <tr><th>Wohin?</th><td>zur nächsten Support-Ebene oder zu Spezialisten</td><td>zu Vorgesetzten: Teamleitung, Bereichsleitung, Geschäftsleitung</td></tr>
+      <tr><th>Wann?</th><td>Wissen, Werkzeuge oder Rechte der aktuellen Ebene reichen nicht; eine vereinbarte Bearbeitungszeit ist ohne Ergebnis abgelaufen</td><td>eine SLA-Frist droht zu reißen; der Kunde beschwert sich; es muss über Kosten, Personal oder Vorrang entschieden werden</td></tr>
+      <tr><th>Ziel</th><td>Lösung finden</td><td>Entscheidungen treffen, Mittel bereitstellen, Kunden informieren</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Wann eskaliert wird, ist vorher geregelt</h3>
+<p>Damit niemand aus dem Bauch heraus entscheidet, legen Betriebe <strong>Eskalationsregeln</strong> fest, oft je Priorität: zum Beispiel „Priorität 1 geht spätestens nach 30 Minuten ohne Lösung an den Second Level“ oder „Sind 75 % der Lösungszeit verbraucht, wird die Teamleitung informiert“. Viele Ticketsysteme lösen solche Schritte automatisch aus und benachrichtigen die nächste Stelle.</p>
+
+<h3>Gut übergeben</h3>
+<ul>
+  <li>Das Ticket ist vollständig: Symptom, bisherige Schritte und Ergebnisse, Grund der Eskalation.</li>
+  <li>Die neue Stelle bestätigt die Übernahme; das Ticket ist immer genau einer Stelle zugeordnet.</li>
+  <li>Der Kunde erfährt, dass sein Fall weitergegeben wurde und wann er wieder von euch hört.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Techniker eskaliert funktional an den Hersteller der Kanzleisoftware (Third Level) und schickt die Fehlerprotokolle mit. Gleichzeitig eskaliert er hierarchisch an seine Teamleiterin, weil die Lösungszeit von vier Stunden kaum zu halten ist. Sie ruft den Kanzleichef an, erklärt die Lage und entscheidet, dass ein zweiter Techniker vor Ort prüft, ob eine Umgehungslösung möglich ist.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Hierarchisch eskalieren heißt, den Fall an den Chef abzugeben.“ Die Teamleiterin löst den Fall meist nicht selbst. Sie entscheidet und informiert, die fachliche Arbeit läuft weiter bei den Technikern.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Funktionale Eskalation:</strong> zur nächsten Support-Ebene, wenn Wissen, Rechte oder Zeit nicht reichen.</li>
+  <li><strong>Hierarchische Eskalation:</strong> zu Vorgesetzten, wenn eine Frist droht zu reißen, der Kunde sich beschwert oder entschieden werden muss.</li>
+</ul>

@@ -3318,6 +3318,104 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "6.3",
+          "titel": "Anfragen klären und einordnen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "6.3.1",
+              "titel": "Systematisch fragen",
+              "slug": "systematisch-fragen",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Serviceanfragen durch systematisches Fragen einordnen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 2 und Nr. 8",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard: offene, geschlossene, Alternativ-, Kontroll- und Suggestivfragen, Fragetrichter"
+                ]
+              },
+              "material": [
+                "kommunikationsmodelle"
+              ],
+              "begriffe": [
+                "fragetechniken",
+                "prioritaet"
+              ]
+            },
+            {
+              "nummer": "6.3.2",
+              "titel": "Support-Level",
+              "slug": "support-level",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Support-Level beachten; Lösungen im Rahmen des eigenen Support-Levels",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard: First, Second, Third Level Support; Erstlösungsquote"
+                ]
+              },
+              "material": [
+                "first-second-third-level-support",
+                "sla-support-level"
+              ],
+              "begriffe": [
+                "support-level",
+                "it-service-management"
+              ]
+            },
+            {
+              "nummer": "6.3.3",
+              "titel": "Eskalation",
+              "slug": "eskalation",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Support-Level beachten, Anfragen weitergeben",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (langsame Reaktion, Verbesserung des Störungsmanagements)"
+                ],
+                "extern": [
+                  "ITIL 4 (functional and hierarchic escalation), sinngemäß"
+                ]
+              },
+              "material": [
+                "ticketsystem-stoerungsmanagement-eskalation"
+              ],
+              "begriffe": [
+                "eskalation",
+                "support-level",
+                "sla"
+              ]
+            },
+            {
+              "nummer": "6.3.4",
+              "titel": "Wissen und Standards nutzen",
+              "slug": "wissen-und-standards-nutzen",
+              "quellen": {
+                "rahmenlehrplan": "LF6: fachliche Standards beachten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (Informationsquellen zur Problemlösung)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Wissensdatenbank (Knowledge Base), Checklisten; Identitätsprüfung vor Passwort-Reset (BSI IT-Grundschutz, Sensibilisierung gegen Social Engineering)"
+                ]
+              },
+              "material": [
+                "ticketsystem-stoerungsmanagement-eskalation"
+              ],
+              "begriffe": [
+                "wissensdatenbank",
+                "anfragearten",
+                "social-engineering"
+              ]
+            }
+          ]
         }
       ]
     }

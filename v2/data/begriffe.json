@@ -268,6 +268,10 @@
         {
           "id": "4-3-3",
           "tiefe": "Formen und Erkennungsmerkmale"
+        },
+        {
+          "id": "6-3-4",
+          "tiefe": "falscher Anrufer am Service Desk, Identitätsprüfung"
         }
       ]
     },
@@ -1758,6 +1762,10 @@
         {
           "id": "6-1-1",
           "tiefe": "Begriffe, Service Desk, ITIL vs. ISO/IEC 20000-1"
+        },
+        {
+          "id": "6-3-2",
+          "tiefe": "Service Desk als First Level"
         }
       ]
     },
@@ -1777,6 +1785,10 @@
         {
           "id": "6-2-3",
           "tiefe": "Serviceanfrage niedrig priorisiert"
+        },
+        {
+          "id": "6-3-4",
+          "tiefe": "Known Error in der Wissensdatenbank"
         }
       ]
     },
@@ -1829,6 +1841,10 @@
         {
           "id": "6-2-2",
           "tiefe": "Fristberechnung, Verfügbarkeit in Ausfallzeit"
+        },
+        {
+          "id": "6-3-3",
+          "tiefe": "drohende Fristverletzung als Eskalationsgrund"
         }
       ]
     },
@@ -1843,6 +1859,10 @@
         {
           "id": "6-2-3",
           "tiefe": "Matrix, Staffelung der Fristen"
+        },
+        {
+          "id": "6-3-1",
+          "tiefe": "Fragen zu Auswirkung und Dringlichkeit"
         }
       ]
     },
@@ -1856,6 +1876,62 @@
         {
           "id": "6-2-4",
           "tiefe": "Modelle, Minutenpreis, kostenpflichtige Hotline"
+        }
+      ]
+    },
+    {
+      "begriff": "fragetechniken",
+      "kernfakten": [
+        "Offene Frage (W-Wort, viel Information), geschlossene Frage (ja/nein), Alternativfrage (Auswahl), Kontrollfrage (zusammenfassen, bestätigen lassen); Suggestivfrage legt Antwort nahe, vermeiden.",
+        "Fragetrichter: offen beginnen, eingrenzen, mit Kontrollfrage bestätigen.",
+        "Bei Störung klären: was genau, seit wann, wer/was betroffen, was geändert, was versucht, wie dringend."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-3-1",
+          "tiefe": "Frageformen, Fragetrichter, Störungsfragen"
+        }
+      ]
+    },
+    {
+      "begriff": "support-level",
+      "kernfakten": [
+        "First Level: Service Desk, annehmen, Ticket, Standardfälle mit Wissensdatenbank/Checklisten. Second Level: Fachleute für Systeme, tiefere Analyse, mehr Rechte, vor Ort. Third Level: Spezialisten, Entwickler, oft Hersteller, Produktfehler.",
+        "Kosten je Fall steigen mit der Ebene; Ziel: möglichst viel im First Level lösen (Erstlösungsquote).",
+        "Nur im Rahmen der eigenen Rechte und Anweisungen lösen, sonst mit vollständigem Ticket weitergeben."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-3-2",
+          "tiefe": "Ebenen, eigenes Level"
+        }
+      ]
+    },
+    {
+      "begriff": "eskalation",
+      "kernfakten": [
+        "Funktionale (fachliche) Eskalation: zur nächsten Support-Ebene/Spezialisten, wenn Wissen, Rechte oder vereinbarte Zeit nicht reichen.",
+        "Hierarchische Eskalation: zu Vorgesetzten, wenn SLA-Frist droht zu reißen, Kunde sich beschwert oder über Kosten/Personal/Vorrang entschieden werden muss; Vorgesetzte entscheiden und informieren, lösen nicht selbst.",
+        "Beide gleichzeitig möglich; Eskalationsregeln je Priorität, oft automatisch im Ticketsystem."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-3-3",
+          "tiefe": "Zwei Richtungen, Regeln, Übergabe"
+        }
+      ]
+    },
+    {
+      "begriff": "wissensdatenbank",
+      "kernfakten": [
+        "Fachliche Standards: Wissensdatenbank, Checklisten/Gesprächsleitfäden, Herstellervorgaben, betriebliche Richtlinien.",
+        "Wissensartikel: Titel mit Symptom, Gültigkeit (Produkt/Version), Ursache, Lösung/Umgehungslösung in Schritten, Grenzen, Stand mit Verantwortlichem; nach Updates prüfen.",
+        "Identität vor Passwort-Reset prüfen, z. B. Rückruf unter hinterlegter Nummer."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-3-4",
+          "tiefe": "Standards, Artikelaufbau, Identitätsprüfung"
         }
       ]
     }

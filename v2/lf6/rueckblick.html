@@ -454,14 +454,14 @@
 <li><span class="num">6.1.3</span><div><a href="6-1-3-kontaktwege.html">Kontaktwege</a><ul><li><strong>Direkter Kontakt</strong> (vor Ort, Telefon, Live-Chat): sofortige Rückfragen, bindet Personal.</li>
   <li><strong>Indirekter Kontakt</strong> (Mail, Portal, Formular): jederzeit möglich, Angaben oft unvollständig.</li>
   <li>Jede Anfrage wird als Ticket im selben System erfasst, egal über welchen Weg sie kommt.</li></ul></div></li>
-<li><span class="num">6.1.4</span><div><a href="6-1-4-das-ticketsystem.html">Das Ticketsystem</a><p>Jede Anfrage wird als Ticket mit Melder, Zeitpunkt, beobachtetem Symptom, Art, Priorität, Status und Verlauf erfasst; geschlossen wird es erst, wenn der Kunde die Lösung bestätigt oder die vereinbarte Frist ohne Widerspruch abgelaufen ist.</p></div></li>
+<li><span class="num">6.1.4</span><div><a href="6-1-4-das-ticketsystem.html">Das Ticketsystem</a><p>Ein Ticket hält Melder, Zeitpunkt, beobachtetes Symptom, Art, Priorität, Status und Verlauf fest. Geschlossen wird es erst nach Bestätigung des Kunden oder wenn die vereinbarte Frist ohne Widerspruch abläuft.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-6-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 6.1</a></p>
 </section>
 <section class="rb-kapitel" id="k-6-2"><h2><span class="num">6.2</span> Vertragliche Grundlage: das SLA</h2>
 <ul class="rb-list">
 <li><span class="num">6.2.1</span><div><a href="6-2-1-service-level-agreement.html">Service Level Agreement</a><p>Ein SLA legt Leistung und Qualität messbar fest, vor allem Servicezeit, Reaktionszeit, Lösungszeit und Verfügbarkeit; die Reaktionszeit sagt, wann die Bearbeitung beginnt, die Lösungszeit, wann der Service wieder läuft.</p></div></li>
-<li><span class="num">6.2.2</span><div><a href="6-2-2-fristen-und-verfuegbarkeit-berechnen.html">Fristen und Verfügbarkeit berechnen</a><ul><li><strong>Fristen:</strong> Reaktions- und Lösungszeit laufen meist nur in der Servicezeit; den Rest ab Beginn der nächsten Servicezeit weiterzählen.</li>
+<li><span class="num">6.2.2</span><div><a href="6-2-2-fristen-und-verfuegbarkeit-berechnen.html">Fristen und Verfügbarkeit berechnen</a><ul><li><strong>Fristen:</strong> Reaktions- und Lösungszeit laufen meist nur in der Servicezeit; was am Eingangstag nicht mehr hineinpasst, zählt ab Beginn der nächsten Servicezeit weiter.</li>
   <li><strong>Verfügbarkeit:</strong> erlaubte Ausfallzeit = Gesamtzeit × (100 % − Verfügbarkeit); den Bezugszeitraum aus dem SLA nehmen.</li></ul></div></li>
 <li><span class="num">6.2.3</span><div><a href="6-2-3-prioritaet-bestimmen.html">Priorität bestimmen</a><p>Die Priorität ergibt sich aus Auswirkung (wie viel ist betroffen) und Dringlichkeit (wie schnell muss es gehen); das SLA legt für jede Priorität eigene Reaktions- und Lösungszeiten fest.</p></div></li>
 <li><span class="num">6.2.4</span><div><a href="6-2-4-supportleistungen-abrechnen.html">Supportleistungen abrechnen</a><ul><li><strong>Modelle:</strong> Pauschale (planbar), nach Aufwand in Zeittakten, Stundenkontingent, Minutenpreis; oft kombiniert.</li>
@@ -486,16 +486,16 @@
 <ul class="rb-list">
 <li><span class="num">6.4.1</span><div><a href="6-4-1-vorgehen-bei-der-fehlersuche.html">Vorgehen bei der Fehlersuche</a><p>Bei der Fehlersuche erst das Symptom erfassen und nachvollziehen, Informationen sammeln, Vermutungen nach Wahrscheinlichkeit prüfen und eingrenzen; immer nur eine Änderung je Test und alles im Ticket festhalten.</p></div></li>
 <li><span class="num">6.4.2</span><div><a href="6-4-2-ursachen-analysieren.html">Ursachen analysieren</a><ul><li><strong>5-Why:</strong> vom Symptom so lange „Warum?“ fragen, bis eine behebbare Grundursache erreicht ist.</li>
-  <li><strong>Ishikawa-Diagramm:</strong> mögliche Ursachen im Team nach Kategorien sammeln, etwa den 6 M, und dann prüfen.</li></ul></div></li>
+  <li><strong>Ishikawa-Diagramm:</strong> mögliche Ursachen im Team nach Kategorien sammeln, etwa den 6 M (Mensch, Maschine, Methode, Material, Mitwelt, Messung), und dann prüfen.</li></ul></div></li>
 <li><span class="num">6.4.3</span><div><a href="6-4-3-loesungen-recherchieren.html">Lösungen recherchieren</a><p>Lösungen zuerst in eigener Wissensdatenbank und Herstellerquellen suchen, Foren und KI-Antworten prüfen; jede Lösung muss zu Produkt und Version passen, verstanden sein und gefahrlos getestet werden.</p></div></li>
 <li><span class="num">6.4.4</span><div><a href="6-4-4-fernwartung.html">Fernwartung</a><p>Fernwartung spart Zeit und Anfahrt, braucht aber Zustimmung, Ticket, verschlüsselte Verbindung, starke Anmeldung, Zugang nur bei Bedarf und Protokollierung; bei personenbezogenen Daten einen Vertrag zur Auftragsverarbeitung.</p></div></li>
-<li><span class="num">6.4.5</span><div><a href="6-4-5-bearbeitung-dokumentieren-und-abschliessen.html">Bearbeitung dokumentieren und abschließen</a><p>Zum Abschluss Ursache, Maßnahmen, Prüfung, Zeit und offene Punkte so im Ticket festhalten, dass Kollegen ohne Rückfrage weiterarbeiten können; mit dem Anwender testen, Kunden verständlich informieren, Wissen sichern und bei einer Umgehungslösung ein Problem anlegen.</p></div></li>
+<li><span class="num">6.4.5</span><div><a href="6-4-5-bearbeitung-dokumentieren-und-abschliessen.html">Bearbeitung dokumentieren und abschließen</a><p>Ursache, Maßnahmen, Prüfung, Zeit und offene Punkte so im Ticket festhalten, dass Kollegen ohne Rückfrage weiterarbeiten können. Vor dem Abschluss mit dem Anwender testen, Wissen sichern und bei einer Umgehungslösung ein Problem anlegen.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-6-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 6.4</a></p>
 </section>
 <section class="rb-kapitel" id="k-6-5"><h2><span class="num">6.5</span> Mit Kunden kommunizieren</h2>
 <ul class="rb-list">
-<li><span class="num">6.5.1</span><div><a href="6-5-1-wie-kommunikation-funktioniert.html">Wie Kommunikation funktioniert</a><ul><li><strong>Sender-Empfänger-Modell:</strong> Sender codiert, Empfänger decodiert; Störungen bei beiden und im Kanal; Rückmeldung zeigt, ob die Nachricht angekommen ist.</li>
+<li><span class="num">6.5.1</span><div><a href="6-5-1-wie-kommunikation-funktioniert.html">Wie Kommunikation funktioniert</a><ul><li><strong>Sender-Empfänger-Modell:</strong> Sender codiert, Empfänger decodiert; Missverständnisse entstehen beim Codieren, im Kanal oder beim Decodieren; die Rückmeldung zeigt, ob die Nachricht angekommen ist.</li>
   <li><strong>Eisbergmodell:</strong> Sichtbar ist die Sachebene, darunter liegt die größere Beziehungsebene mit Gefühlen und Erwartungen.</li></ul></div></li>
 <li><span class="num">6.5.2</span><div><a href="6-5-2-das-vier-seiten-modell.html">Das Vier-Seiten-Modell</a><ul><li>Jede Nachricht hat vier Seiten: <strong>Sachinhalt</strong>, <strong>Selbstoffenbarung</strong>, <strong>Beziehung</strong>, <strong>Appell</strong> (Schulz von Thun).</li>
   <li>Im Support hörst du nicht nur mit dem Sachohr, sondern gehst auch auf Gefühl und Anliegen des Kunden ein.</li></ul></div></li>
@@ -508,7 +508,7 @@
 </section>
 <section class="rb-kapitel" id="k-6-6"><h2><span class="num">6.6</span> Servicequalität verbessern</h2>
 <ul class="rb-list">
-<li><span class="num">6.6.1</span><div><a href="6-6-1-servicefaelle-auswerten.html">Servicefälle auswerten</a><p>Kennzahlen wie SLA-Einhaltung, Erstlösungsquote, mittlere Lösungszeit, offene Tickets und Wiedereröffnungsquote werden aus den Tickets berechnet; aussagekräftig sind sie erst im Vergleich mit Zielen und Vormonaten und im Zusammenspiel mehrerer Zahlen.</p></div></li>
+<li><span class="num">6.6.1</span><div><a href="6-6-1-servicefaelle-auswerten.html">Servicefälle auswerten</a><p>Wichtige Kennzahlen sind SLA-Einhaltung, Erstlösungsquote, mittlere Lösungszeit, offene Tickets und Wiedereröffnungsquote. Aussagekräftig werden sie erst im Vergleich mit Zielen und Vormonaten und im Zusammenspiel.</p></div></li>
 <li><span class="num">6.6.2</span><div><a href="6-6-2-kundenzufriedenheit-ermitteln.html">Kundenzufriedenheit ermitteln</a><p>Kundenzufriedenheit wird mit Kurzumfragen, Fragebögen, persönlichen Gesprächen und der Auswertung von Beschwerden ermittelt, am besten kombiniert; Fragen sind kurz, eindeutig und neutral.</p></div></li>
 <li><span class="num">6.6.3</span><div><a href="6-6-3-qualitaet-dauerhaft-verbessern.html">Qualität dauerhaft verbessern</a><ul><li><strong>Lessons Learned:</strong> nach wichtigen Fällen gemeinsam fragen, was gut und schlecht lief und was sich ändert; Ursachen statt Schuldige suchen.</li>
   <li><strong>PDCA:</strong> planen, im Kleinen umsetzen, Wirkung prüfen, Bewährtes zum Standard machen; dann von vorn.</li></ul></div></li>

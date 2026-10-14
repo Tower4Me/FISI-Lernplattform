@@ -42,7 +42,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Der Server der Kanzlei soll laut SLA zu 99,5 % im Monat verfügbar sein. Im Dezember (31 Tage, 744 h) fiel er insgesamt 5 Stunden aus. Verfügbarkeit: (744 h − 5 h) ÷ 744 h × 100 % ≈ 99,33 %. Die Zusage ist verfehlt; erlaubt wären 744 h × 0,005 = 3,72 h gewesen.</p>
+  <p>Das Systemhaus betreibt für einen Handwerksbetrieb einen Mailserver im Rechenzentrum und sagt 99,5 % Verfügbarkeit im Monat zu. Im Juli (31 Tage, 744 h) fiel der Server insgesamt 5 Stunden aus. Verfügbarkeit: (744 h − 5 h) ÷ 744 h × 100 % ≈ 99,33 %. Die Zusage ist verfehlt; erlaubt wären 744 h × 0,005 = 3,72 h gewesen.</p>
 </div>
 
 <aside class="note" data-typ="fehler"><p>„99 % und 99,9 % sind fast dasselbe.“ Bezogen auf ein Jahr erlaubt 99 % gut 87 Stunden Ausfall, 99,9 % knapp 9 Stunden: ein Zehntel. Jede weitere Neun macht den Betrieb deutlich aufwendiger und teurer.</p></aside>
@@ -50,6 +50,6 @@
 <p>Ob geplante Wartungsfenster, etwa für Updates am Sonntagmorgen, als Ausfall zählen, regelt das SLA. Meist sind angekündigte Wartungen ausgenommen. Wichtig ist auch, auf welchen Zeitraum sich die Zusage bezieht: Sie kann rund um die Uhr gelten oder nur für die Servicezeit.</p>
 
 <ul class="merksatz">
-  <li><strong>Fristen:</strong> Reaktions- und Lösungszeit laufen meist nur in der Servicezeit; den Rest ab Beginn der nächsten Servicezeit weiterzählen.</li>
+  <li><strong>Fristen:</strong> Reaktions- und Lösungszeit laufen meist nur in der Servicezeit; was am Eingangstag nicht mehr hineinpasst, zählt ab Beginn der nächsten Servicezeit weiter.</li>
   <li><strong>Verfügbarkeit:</strong> erlaubte Ausfallzeit = Gesamtzeit × (100 % − Verfügbarkeit); den Bezugszeitraum aus dem SLA nehmen.</li>
 </ul>

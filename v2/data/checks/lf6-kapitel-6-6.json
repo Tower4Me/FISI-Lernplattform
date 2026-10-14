@@ -36,7 +36,7 @@
       "thema": "Kennzahlen deuten",
       "frage": "Die mittlere Lösungszeit eines Teams sinkt deutlich, gleichzeitig steigt die Wiedereröffnungsquote von 3 % auf 12 %. Was ist die wahrscheinlichste Erklärung?",
       "optionen": [
-        "Tickets werden geschlossen, bevor das Problem gelöst ist",
+        "Tickets werden geschlossen, bevor die Störung behoben ist",
         "Das Team arbeitet schneller und ebenso gründlich wie zuvor",
         "Die Kunden melden im Vergleich zum Vormonat weniger Störungen",
         "Der First Level löst deutlich mehr Fälle beim ersten Kontakt"
@@ -79,17 +79,17 @@
     {
       "typ": "mc",
       "thema": "PDCA",
-      "frage": "Ein Service Desk führt testweise für einen Kunden feste Rückmeldezeiten ein. Nach zwei Monaten wird ausgewertet, ob die Beschwerden zurückgegangen sind. Welcher Schritt des PDCA-Zyklus ist diese Auswertung?",
+      "frage": "Ein Service Desk hat für einen Kunden testweise feste Rückmeldezeiten eingeführt, und die Beschwerden sind deutlich zurückgegangen. Nun werden die Rückmeldezeiten in alle Wartungsverträge übernommen. Welcher Schritt des PDCA-Zyklus ist das?",
       "optionen": [
+        "Act",
         "Check",
         "Do",
-        "Act",
         "Plan"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Check prüft die Wirkung einer Maßnahme, die im Schritt Do im Kleinen umgesetzt wurde. Bewährt sie sich, wird sie im Schritt Act zum Standard."
+      "erklaerung": "Act macht eine Maßnahme, die sich im Check bewährt hat, zum Standard. Danach beginnt der Zyklus von vorn."
     },
     {
       "typ": "mc",

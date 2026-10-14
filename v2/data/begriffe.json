@@ -741,6 +741,10 @@
         {
           "id": "1-6-3",
           "tiefe": "Präsentationsfeedback"
+        },
+        {
+          "id": "6-5-3",
+          "tiefe": "Ich-Botschaften, Verweis"
         }
       ]
     },
@@ -1754,6 +1758,10 @@
         {
           "id": "6-4-3",
           "tiefe": "KI-Chatbot als Quelle, prüfen, keine Kundendaten"
+        },
+        {
+          "id": "6-5-5",
+          "tiefe": "Übersetzungshilfe"
         }
       ]
     },
@@ -1882,6 +1890,10 @@
         {
           "id": "6-3-3",
           "tiefe": "drohende Fristverletzung als Eskalationsgrund"
+        },
+        {
+          "id": "6-5-4",
+          "tiefe": "SLA als neutrales Kriterium"
         }
       ]
     },
@@ -1927,6 +1939,10 @@
         {
           "id": "6-3-1",
           "tiefe": "Frageformen, Fragetrichter, Störungsfragen"
+        },
+        {
+          "id": "6-5-3",
+          "tiefe": "Fragetrichter im Telefonat"
         }
       ]
     },
@@ -1955,6 +1971,10 @@
         {
           "id": "6-3-3",
           "tiefe": "Zwei Richtungen, Regeln, Übergabe"
+        },
+        {
+          "id": "6-5-4",
+          "tiefe": "hierarchisch bei Gutschriftforderung"
         }
       ]
     },
@@ -2021,6 +2041,82 @@
         {
           "id": "6-4-4",
           "tiefe": "Ablauf, Absicherung, Datenschutz"
+        }
+      ]
+    },
+    {
+      "begriff": "kommunikationsmodelle",
+      "kernfakten": [
+        "Sender-Empfänger-Modell: Sender codiert, Kanal, Empfänger decodiert, Rückmeldung; Störungen beim Codieren, im Kanal, beim Decodieren, fehlende Rückmeldung.",
+        "Verbal (Worte), paraverbal (Tonfall, Lautstärke, Tempo), nonverbal (Mimik, Gestik, Haltung); bei Widerspruch wird oft eher Ton und Körpersprache geglaubt.",
+        "Eisbergmodell: sichtbare Sachebene, größere verborgene Beziehungsebene.",
+        "Watzlawick: Man kann nicht nicht kommunizieren; jede Nachricht hat Inhalts- und Beziehungsaspekt."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-5-1",
+          "tiefe": "Sender-Empfänger, Kanäle, Eisberg, Watzlawick"
+        },
+        {
+          "id": "6-5-2",
+          "tiefe": "Vier-Seiten-Modell"
+        }
+      ]
+    },
+    {
+      "begriff": "vier-seiten-modell",
+      "kernfakten": [
+        "Schulz von Thun: Sachinhalt, Selbstoffenbarung (Selbstkundgabe), Beziehung, Appell; Sender mit vier Schnäbeln, Empfänger mit vier Ohren.",
+        "Missverständnis, wenn Sender und Empfänger verschiedene Seiten betonen; Klärung durch Nachfragen."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-5-2",
+          "tiefe": "Analyse einer Kundenbeschwerde"
+        }
+      ]
+    },
+    {
+      "begriff": "gespraechsfuehrung",
+      "kernfakten": [
+        "Telefonat: melden (Firma, Name, Gruß), Anliegen aufnehmen, klären, lösen oder Weg vereinbaren, zusammenfassen mit Ticketnummer, verabschieden.",
+        "Aktives Zuhören: Aufmerksamkeit zeigen, paraphrasieren, Gefühle ansprechen (verbalisieren), nachfragen.",
+        "Kundentypen grob: unsicher, fachkundig, Vielredner, ungeduldig/verärgert."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-5-3",
+          "tiefe": "Telefon, aktives Zuhören, Fachsprache, Kundentypen, Mail"
+        }
+      ]
+    },
+    {
+      "begriff": "deeskalation",
+      "kernfakten": [
+        "Deeskalieren: ruhig bleiben, ausreden lassen, Verständnis zeigen (nicht jede Forderung anerkennen), sachlich klären, Lösung anbieten, verbindlich zusagen und einhalten.",
+        "Harvard-Konzept (Fisher/Ury): Menschen und Probleme trennen, Interessen statt Positionen, Optionen zum beiderseitigen Vorteil, neutrale Kriterien; BATNA = beste Alternative ohne Einigung."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-5-4",
+          "tiefe": "Beschwerde, Harvard-Konzept"
+        }
+      ]
+    },
+    {
+      "begriff": "englisch-im-support",
+      "kernfakten": [
+        "Fehlerbericht: summary, environment, steps to reproduce, expected behaviour, actual behaviour, impact; Logs ohne Kundendaten.",
+        "must not = darf nicht; need not / do not need to / don't have to = muss nicht."
+      ],
+      "vorkommen": [
+        {
+          "id": "6-4-3",
+          "tiefe": "Fachbegriffe, Release Notes"
+        },
+        {
+          "id": "6-5-5",
+          "tiefe": "Telefon, Fehlerbericht, Signalwörter"
         }
       ]
     }

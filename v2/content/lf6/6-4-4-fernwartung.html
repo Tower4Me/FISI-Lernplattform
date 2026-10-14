@@ -1,0 +1,45 @@
+<p class="lead">Die Kanzlei liegt 40 Kilometer vom Systemhaus entfernt. Bis ein Techniker vor Ort wäre, verginge eine Stunde. Per Fernwartung sitzt er nach zwei Minuten virtuell am Server. Dieser bequeme Zugang ist aber auch ein Einfallstor, wenn er schlecht abgesichert ist.</p>
+
+<h3>Was Fernwartung ist</h3>
+<p>Bei der <strong>Fernwartung</strong> greift ein Techniker über eine Netzverbindung auf einen entfernten Rechner zu: Er sieht den Bildschirm, bedient Maus und Tastatur und kann Dateien übertragen. Dafür gibt es eigene Fernwartungsprogramme; in Betriebssystemen sind Fernzugriffe teils schon eingebaut.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Fernwartung</th><th>Einsatz vor Ort</th></tr></thead>
+    <tbody>
+      <tr><th>Vorteile</th><td>schnell, keine Anfahrt, geringere Kosten; Anwender kann zusehen und lernen; Spezialisten können sich von überall zuschalten</td><td>Hardware kann geprüft und getauscht werden; persönlicher Kontakt; funktioniert auch ohne Netz</td></tr>
+      <tr><th>Nachteile</th><td>nur möglich, wenn Gerät und Verbindung laufen; keine Hardware-Arbeiten; Sicherheits- und Datenschutzrisiken</td><td>Anfahrtszeit und -kosten; längere Wartezeit für den Kunden</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Ablauf einer Sitzung</h3>
+<ol>
+  <li><strong>Anfrage und Ticket:</strong> Die Sitzung gehört zu einem Ticket, nie zu einem Zuruf.</li>
+  <li><strong>Zustimmung:</strong> Der Anwender startet das Programm selbst oder bestätigt den Zugriff, etwa mit einem einmaligen Sitzungscode. Er kann die Sitzung jederzeit beenden.</li>
+  <li><strong>Vorbereitung beim Anwender:</strong> vertrauliche Fenster schließen, die nicht zur Störung gehören.</li>
+  <li><strong>Arbeiten mit Blick des Anwenders:</strong> Der Techniker erklärt, was er tut.</li>
+  <li><strong>Abschluss:</strong> Sitzung beenden, Zugang schließen, Maßnahmen im Ticket festhalten.</li>
+</ol>
+<p>Für Server, an denen niemand sitzt, gibt es auch Zugänge ohne Bestätigung vor Ort (unbeaufsichtigter Zugriff). Sie müssen besonders gut geschützt sein und sind vertraglich zu vereinbaren.</p>
+
+<h3>Fernwartung absichern</h3>
+<ul>
+  <li><strong>Verschlüsselte Verbindung</strong>, damit niemand mitlesen kann.</li>
+  <li><strong>Starke Anmeldung</strong> der Techniker, möglichst mit zweitem Faktor (LF4, Kapitel 4.5.3).</li>
+  <li><strong>Zugang nur bei Bedarf:</strong> kein dauerhaft offener Zugang; Rechte nur so weit wie nötig.</li>
+  <li><strong>Protokollierung:</strong> wer, wann, auf welches System, was getan.</li>
+  <li><strong>Aktuelle Software:</strong> Lücken im Fernwartungsprogramm werden schnell ausgenutzt.</li>
+</ul>
+<p>Angreifer nutzen Fernwartung gezielt. Bei Betrugsanrufen geben sich Täter als Support eines bekannten Herstellers aus und überreden Anwender, ein Fernwartungsprogramm zu installieren. Ein schlecht geschützter, dauerhaft offener Zugang kann als Hintertür ins Firmennetz dienen. Deshalb gilt: Zugriff nur für bekannte Dienstleister, nach Prüfung und mit Ticket.</p>
+
+<aside class="note" data-typ="vertiefung"><p>Wie solche Täuschungen funktionieren und woran du sie erkennst, steht in <a href="../lf4/4-3-3-social-engineering-und-phishing.html">LF4, Kapitel 4.3.3</a>.</p></aside>
+
+<h3>Datenschutz und Vertraulichkeit</h3>
+<p>Bei der Fernwartung kann der Techniker personenbezogene Daten sehen, in der Kanzlei etwa Mandantenakten. Der Dienstleister verarbeitet sie dann im Auftrag des Kunden. Dafür braucht es in der Regel einen <strong>Vertrag zur Auftragsverarbeitung</strong> nach Art. 28 DSGVO. Bei Berufsgeheimnisträgern wie Steuerberatern müssen die Techniker zusätzlich ausdrücklich zur Verschwiegenheit verpflichtet werden; ein Verstoß ist strafbar. Du siehst nur, was du für die Störung brauchst, und gibst nichts weiter.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für den Kanzleiserver ist laut Vertrag ein Fernzugang mit zweitem Faktor vereinbart, der nur für eine angekündigte Sitzung freigeschaltet wird; jede Sitzung kündigt das Systemhaus telefonisch an, und sie wird protokolliert. Der Techniker prüft, dass die Datensicherung der letzten Nacht vollständig ist, verschiebt die alten Protokolle auf das NAS der Kanzlei und startet den Datenbankdienst neu. Drei Stunden und 25 Minuten nach der Meldung können alle fünf Plätze wieder arbeiten, innerhalb der Lösungszeit von vier Stunden.</p>
+</div>
+
+<p class="merksatz">Fernwartung spart Zeit und Anfahrt, braucht aber Zustimmung, Ticket, verschlüsselte Verbindung, starke Anmeldung, Zugang nur bei Bedarf und Protokollierung; bei personenbezogenen Daten einen Vertrag zur Auftragsverarbeitung.</p>

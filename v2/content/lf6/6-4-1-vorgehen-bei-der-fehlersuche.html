@@ -1,0 +1,28 @@
+<p class="lead">Der Datenbankdienst der Kanzlei läuft nach jedem Neustart nur zehn Minuten. Der Techniker könnte jetzt nacheinander alles ausprobieren, was ihm einfällt. Schneller und sicherer kommt er mit einem festen Vorgehen ans Ziel, das bei Hardware, Software und Netz gleich funktioniert.</p>
+
+<h3>Warum ein festes Vorgehen?</h3>
+<p>Wer planlos probiert, ändert oft mehrere Dinge gleichzeitig und weiß am Ende nicht, was geholfen hat. Schlimmstenfalls entstehen neue Fehler, die den ursprünglichen überdecken. Ein systematisches Vorgehen spart Zeit, lässt sich im Ticket nachvollziehen und kann von einem Kollegen fortgesetzt werden.</p>
+
+<h3>Schritt für Schritt</h3>
+<ol>
+  <li><strong>Symptom genau erfassen:</strong> Was passiert, mit welcher Meldung, seit wann, bei wem (Kapitel 6.3.1)?</li>
+  <li><strong>Fehler nachvollziehen:</strong> Tritt er bei dir genauso auf? Ein Fehler, den du auslösen kannst (reproduzierbar), lässt sich gezielt untersuchen und nach der Lösung prüfen.</li>
+  <li><strong>Informationen sammeln:</strong> Protokolle (Logdateien, Ereignisanzeige), Fehlercodes, letzte Änderungen wie Updates oder neue Geräte, Wissensdatenbank.</li>
+  <li><strong>Vermutungen bilden und ordnen:</strong> Welche Ursachen kommen in Frage? Prüfe zuerst, was wahrscheinlich und schnell zu testen ist.</li>
+  <li><strong>Eingrenzen:</strong> Durch Vergleich mit einem funktionierenden System, durch Austausch einzelner Teile (anderes Kabel, anderer Benutzer, anderer Rechner) oder durch Teilen des Weges in Abschnitte.</li>
+  <li><strong>Eine Änderung je Test:</strong> Nach jeder Änderung erneut prüfen und das Ergebnis notieren. Bringt eine Änderung nichts, machst du sie rückgängig.</li>
+  <li><strong>Lösung umsetzen und prüfen:</strong> Funktioniert alles wieder, auch aus Sicht des Anwenders?</li>
+  <li><strong>Dokumentieren:</strong> Ursache, Lösung und Prüfung im Ticket festhalten (Kapitel 6.4.5).</li>
+</ol>
+<p>Vor Eingriffen, die Daten verändern können, etwa an einer Datenbank oder an Systemeinstellungen, prüfst du, ob eine aktuelle Datensicherung vorhanden ist.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Techniker kann den Absturz auslösen: Dienst starten, zehn Minuten warten. Im Protokoll des Datenbankdienstes steht kurz vor jedem Absturz „Schreibfehler: nicht genügend Speicherplatz“. Seine Vermutungen ordnet er: Datenträger voll (schnell zu prüfen), defekte Festplatte, Fehler in der Software. Ein Blick auf den Server zeigt: Das Laufwerk mit der Datenbank ist zu 100 % belegt. Damit ist der Fehler eingegrenzt, aber noch nicht seine Ursache: Warum ist das Laufwerk voll? Das klärt Kapitel 6.4.2.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ich installiere einfach alles neu, dann ist der Fehler weg.“ Eine Neuinstallation kostet viel Zeit, kann Daten und Einstellungen löschen und zeigt nicht, woran es lag. Tritt die Ursache erneut auf, ist der Fehler bald wieder da.</p></aside>
+
+<aside class="note" data-typ="vertiefung"><p>Wie du bei Netzwerkfehlern Schicht für Schicht vorgehst, von Kabel und Adresse bis zu Namensauflösung und Dienst, steht in <a href="../lf3/3-7-3-systematische-fehlersuche.html">LF3, Kapitel 3.7.3</a>.</p></aside>
+
+<p class="merksatz">Bei der Fehlersuche erst das Symptom erfassen und nachvollziehen, Informationen sammeln, Vermutungen nach Wahrscheinlichkeit prüfen und eingrenzen; immer nur eine Änderung je Test und alles im Ticket festhalten.</p>

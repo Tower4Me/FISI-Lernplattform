@@ -1,0 +1,64 @@
+<p class="lead">Das Laufwerk des Kanzleiservers ist voll. Der Techniker könnte alte Dateien löschen, den Dienst starten und das Ticket schließen. Nach drei Wochen wäre das Laufwerk wieder voll, und die Kanzlei stünde erneut still. Wer nur das Symptom beseitigt, holt sich den Fehler zurück.</p>
+
+<h3>Symptom, Ursache, Grundursache</h3>
+<p>Eine Störung schnell zu beheben ist richtig, damit der Kunde weiterarbeiten kann (Kapitel 6.1.2). Damit sie nicht wiederkommt, muss aber die <strong>Grundursache</strong> (Root Cause) gefunden werden: der Punkt, an dem eine Änderung das Problem dauerhaft beseitigt. Zwei einfache Werkzeuge helfen dabei.</p>
+
+<h3>Die 5-Why-Methode</h3>
+<p>Bei der <strong>5-Why-Methode</strong> fragst du ausgehend vom Symptom immer wieder „Warum?“, bis du bei einer Ursache ankommst, die sich beheben lässt. Die Zahl fünf ist ein Richtwert: Manchmal reichen drei Fragen, manchmal braucht es mehr. Jede Antwort muss belegt sein, nicht nur vermutet.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <ol>
+    <li>Warum stürzt der Datenbankdienst ab? Weil das Laufwerk voll ist und er nicht mehr schreiben kann.</li>
+    <li>Warum ist das Laufwerk voll? Weil die Protokolldateien der Datenbank in drei Wochen auf das Zehnfache gewachsen sind.</li>
+    <li>Warum wachsen sie so stark? Weil seit dem letzten Update der Kanzleisoftware alte Protokolle nicht mehr automatisch gelöscht werden. Die Versionshinweise des Herstellers nennen das als bekannten Fehler (Kapitel 6.4.3); ein Patch ist angekündigt.</li>
+    <li>Warum hat das niemand früher bemerkt? Weil der freie Speicherplatz des Servers nicht überwacht wird.</li>
+    <li>Warum wird er nicht überwacht? Weil die Checkliste für Updates keinen Prüfpunkt dafür hat und keine Überwachung vereinbart ist.</li>
+  </ol>
+  <p>Ergebnis: Kurzfristig schafft der Techniker Platz, indem er alte Protokolle auf ein anderes Laufwerk verschiebt, und startet den Dienst neu (Umgehungslösung). Dauerhaft helfen der Patch des Herstellers und eine Warnung, wenn der Speicherplatz knapp wird. Die Fragen 4 und 5 klärt das Team erst nach der Wiederherstellung im Problem-Ticket; im ersten Schritt zählt, dass die Kanzlei weiterarbeiten kann.</p>
+</div>
+
+<h3>Das Ishikawa-Diagramm</h3>
+<p>Die 5-Why-Methode folgt einer einzigen Spur. Gibt es viele mögliche Ursachen, hilft ein <strong>Ishikawa-Diagramm</strong> (Ursache-Wirkungs-Diagramm, wegen seiner Form auch Fischgrätendiagramm). Das Problem steht am Kopf, die Gräten sind Kategorien, an denen das Team im Brainstorming mögliche Ursachen sammelt. Häufig sind es sechs Kategorien, die „6 M“: Mensch, Maschine, Methode, Material, Mitwelt (Umgebung) und Messung. Oft kommt Management als siebtes M hinzu, manche Darstellungen verwenden weniger Kategorien.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 680 300" role="img" aria-label="Ishikawa-Diagramm: Problem Datenbankdienst stürzt ab, Gräten Mensch, Methode, Messung oben und Maschine, Material, Mitwelt unten, je mit einer möglichen Ursache">
+    <path class="g-line" d="M20 150H516" stroke-width="2"/>
+    <rect class="g-accent" x="516" y="118" width="154" height="64" rx="8"/>
+    <text x="593" y="146" text-anchor="middle" font-size="14">Datenbankdienst</text>
+    <text x="593" y="164" text-anchor="middle" font-size="14">stürzt ab</text>
+    <path class="g-line" d="M40 46L100 150" stroke-width="1.5"/>
+    <text x="40" y="36" text-anchor="middle" font-size="14">Mensch</text>
+    <text x="90" y="92" class="g-muted" font-size="12.5">Versionshinweise</text>
+    <text x="90" y="108" class="g-muted" font-size="12.5">nicht gelesen</text>
+    <path class="g-line" d="M200 46L260 150" stroke-width="1.5"/>
+    <text x="200" y="36" text-anchor="middle" font-size="14">Methode</text>
+    <text x="250" y="92" class="g-muted" font-size="12.5">keine Prüfung</text>
+    <text x="250" y="108" class="g-muted" font-size="12.5">nach Updates</text>
+    <path class="g-line" d="M360 46L420 150" stroke-width="1.5"/>
+    <text x="360" y="36" text-anchor="middle" font-size="14">Messung</text>
+    <text x="410" y="92" class="g-muted" font-size="12.5">freier Platz</text>
+    <text x="410" y="108" class="g-muted" font-size="12.5">nicht gemessen</text>
+    <path class="g-line" d="M40 254L100 150" stroke-width="1.5"/>
+    <text x="40" y="276" text-anchor="middle" font-size="14">Maschine</text>
+    <text x="90" y="204" class="g-muted" font-size="12.5">Laufwerk</text>
+    <text x="90" y="220" class="g-muted" font-size="12.5">zu klein</text>
+    <path class="g-line" d="M200 254L260 150" stroke-width="1.5"/>
+    <text x="200" y="276" text-anchor="middle" font-size="14">Material</text>
+    <text x="250" y="204" class="g-muted" font-size="12.5">Update-Fehler:</text>
+    <text x="250" y="220" class="g-muted" font-size="12.5">Protokolle bleiben</text>
+    <path class="g-line" d="M360 254L420 150" stroke-width="1.5"/>
+    <text x="360" y="276" text-anchor="middle" font-size="14">Mitwelt</text>
+    <text x="410" y="204" class="g-muted" font-size="12.5">Stromausfall</text>
+    <text x="410" y="220" class="g-muted" font-size="12.5">(ausgeschlossen)</text>
+  </svg>
+  <figcaption>Ishikawa-Diagramm zum Kanzlei-Fall. Material steht in der IT oft für Software, Daten und Ersatzteile, Mitwelt für Umgebungseinflüsse wie Strom und Temperatur, Messung für Überwachung und Kennzahlen; Management (siebtes M) steht für Zuständigkeiten, Vereinbarungen und Mittel.</figcaption>
+</figure>
+
+<p>Nach dem Sammeln wird geprüft, welche Ursachen wirklich zutreffen; die wahrscheinlichsten verfolgt das Team mit der 5-Why-Methode weiter. Das Diagramm sorgt dafür, dass niemand nur in seine Lieblingsrichtung sucht, etwa nur bei der Technik, obwohl ein fehlender Prüfschritt im Ablauf mitschuldig ist.</p>
+
+<aside class="note" data-typ="fehler"><p>„Die Ursache war menschliches Versagen, Thema erledigt.“ Wenn ein Mensch einen Fehler macht, fragt die Analyse weiter: Warum war der Fehler möglich? Fehlten eine Checkliste, eine Warnung oder eine Schulung? Dort setzt die dauerhafte Lösung an.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>5-Why:</strong> vom Symptom so lange „Warum?“ fragen, bis eine behebbare Grundursache erreicht ist.</li>
+  <li><strong>Ishikawa-Diagramm:</strong> mögliche Ursachen im Team nach Kategorien sammeln, etwa den 6 M, und dann prüfen.</li>
+</ul>

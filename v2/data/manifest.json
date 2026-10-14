@@ -3416,6 +3416,136 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "6.4",
+          "titel": "Fehler finden und beheben",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "6.4.1",
+              "titel": "Vorgehen bei der Fehlersuche",
+              "slug": "vorgehen-bei-der-fehlersuche",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Lösungen im Rahmen des Support-Levels finden und umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2022 (Fehlerbilder, Fehlersuche)",
+                  "AP1 Frühjahr 2024 (Fehlersuche Netzwerkkarte)",
+                  "AP1 Herbst 2024 (APIPA-Fehler diagnostizieren)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: systematische Fehlersuche (reproduzieren, eingrenzen, eine Änderung je Test)"
+                ]
+              },
+              "material": [
+                "netzwerk-diagnose",
+                "problemanalyse-5whys-ishikawa"
+              ],
+              "begriffe": [
+                "fehlersuche",
+                "client-einbinden",
+                "datensicherung"
+              ]
+            },
+            {
+              "nummer": "6.4.2",
+              "titel": "Ursachen analysieren",
+              "slug": "ursachen-analysieren",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Lösungen finden; Bearbeitung reflektieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard: 5-Why-Methode, Ishikawa-Diagramm (6 M: Mensch, Maschine, Methode, Material, Mitwelt, Management bzw. Messung)"
+                ]
+              },
+              "material": [
+                "problemanalyse-5whys-ishikawa"
+              ],
+              "begriffe": [
+                "ursachenanalyse",
+                "anfragearten"
+              ]
+            },
+            {
+              "nummer": "6.4.3",
+              "titel": "Lösungen recherchieren",
+              "slug": "loesungen-recherchieren",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Lösungen finden, fremdsprachige Informationen nutzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 2 und Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Frühjahr 2024 (Informationsquellen: Suchmaschine, Foren, Hersteller, Handbücher, Chatbot)",
+                  "AP1 Frühjahr 2025 (englischer Herstellertext)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Bewertung von Informationsquellen; englische Supportbegriffe"
+                ]
+              },
+              "material": [
+                "it-servicemanagement"
+              ],
+              "begriffe": [
+                "wissensdatenbank",
+                "kuenstliche-intelligenz"
+              ]
+            },
+            {
+              "nummer": "6.4.4",
+              "titel": "Fernwartung",
+              "slug": "fernwartung",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Lösungen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2021 (Fernwartung Vor- und Nachteile)",
+                  "AP1 Frühjahr 2024 (Missbrauch von Fernwartungsprogrammen als Hintertür)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium, Baustein OPS.1.2.5 Fernwartung (sinngemäß)",
+                  "DSGVO Art. 28 (Auftragsverarbeitung)"
+                ]
+              },
+              "material": [
+                "dsgvo-grundlagen"
+              ],
+              "begriffe": [
+                "fernwartung",
+                "social-engineering",
+                "authentifizierung",
+                "personenbezogene-daten"
+              ]
+            },
+            {
+              "nummer": "6.4.5",
+              "titel": "Bearbeitung dokumentieren und abschließen",
+              "slug": "bearbeitung-dokumentieren-und-abschliessen",
+              "quellen": {
+                "rahmenlehrplan": "LF6: Lösungen dokumentieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 7 und Nr. 8",
+                "zpa": "",
+                "ihk": [
+                  "AP1 Herbst 2023 (Rückmeldung an Kunden im Störungsmanagement)"
+                ],
+                "extern": [
+                  "Lehrbuchstandard: Ticketabschluss, Servicebericht"
+                ]
+              },
+              "material": [
+                "ticketsystem-stoerungsmanagement-eskalation"
+              ],
+              "begriffe": [
+                "ticketsystem",
+                "anfragearten",
+                "wissensdatenbank"
+              ]
+            }
+          ]
         }
       ]
     }

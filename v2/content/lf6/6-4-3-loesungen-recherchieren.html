@@ -1,0 +1,53 @@
+<p class="lead">Kein Techniker kennt jede Fehlermeldung. Wichtiger als alles zu wissen ist, schnell eine verlässliche Lösung zu finden. Viele gute Quellen sind auf Englisch, und nicht jede Antwort im Netz stimmt.</p>
+
+<h3>Wo du Lösungen findest</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Quelle</th><th>Stärken</th><th>Worauf du achtest</th></tr></thead>
+    <tbody>
+      <tr><th>Eigene Wissensdatenbank, Kollegen</th><td>passt zu den Systemen der eigenen Kunden, schon erprobt</td><td>Stand des Artikels (Kapitel 6.3.4)</td></tr>
+      <tr><th>Herstellerdokumentation</th><td>Handbücher, Wissensartikel des Herstellers, Versionshinweise (Release Notes) mit bekannten Fehlern</td><td>passende Produktversion</td></tr>
+      <tr><th>Hersteller-Support</th><td>verbindliche Auskunft, kann Fehler im Produkt beheben (Third Level)</td><td>Supportvertrag, Wartezeit</td></tr>
+      <tr><th>Foren und Communitys</th><td>Erfahrungen anderer mit demselben Fehler, oft schnell</td><td>ungeprüft; Lösung verstehen, bevor du sie anwendest</td></tr>
+      <tr><th>Suchmaschine</th><td>findet alle oben genannten öffentlichen Quellen</td><td>Fehlermeldung im genauen Wortlaut suchen, Herkunft und Datum der Treffer prüfen</td></tr>
+      <tr><th>KI-Chatbot</th><td>fasst zusammen, erklärt, übersetzt</td><td>kann überzeugend falsch antworten; keine Kundendaten oder Zugangsdaten eingeben</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Eine gefundene Lösung prüfen</h3>
+<ul>
+  <li><strong>Passt sie?</strong> Gleiches Produkt, gleiche Version, gleiches Symptom.</li>
+  <li><strong>Ist die Quelle vertrauenswürdig?</strong> Hersteller vor Forum; bei Forenbeiträgen: Wurde die Lösung von anderen bestätigt?</li>
+  <li><strong>Verstehst du, was sie tut?</strong> Befehle oder Skripte, deren Wirkung du nicht kennst, führst du nicht auf einem Kundensystem aus.</li>
+  <li><strong>Kannst du sie gefahrlos testen?</strong> Erst an einem Testsystem oder mit Datensicherung, und im Rahmen deines Support-Levels.</li>
+</ul>
+
+<h3>Englische Fachtexte lesen</h3>
+<p>Herstellerseiten, Fehlermeldungen und Foren sind oft englisch. Du musst sie nicht Wort für Wort übersetzen, sondern die Kernaussage sicher erfassen. Einige Begriffe kommen immer wieder vor:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Englisch</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><td>issue, known issue</td><td>Fehler, bekannter Fehler</td></tr>
+      <tr><td>workaround</td><td>Umgehungslösung</td></tr>
+      <tr><td>fixed in version 4.2</td><td>behoben in Version 4.2 (und neueren)</td></tr>
+      <tr><td>affected versions</td><td>betroffene Versionen</td></tr>
+      <tr><td>steps to reproduce</td><td>Schritte, um den Fehler auszulösen</td></tr>
+      <tr><td>expected / actual behaviour</td><td>erwartetes / tatsächliches Verhalten</td></tr>
+      <tr><td>release notes</td><td>Versionshinweise zu einem Update</td></tr>
+      <tr><td>deprecated</td><td>veraltet, wird künftig entfernt</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>In den Versionshinweisen des Herstellers findet der Techniker diesen Eintrag (erfunden für dieses Beispiel):</p>
+  <p><code>Known issue (versions 4.1.0 to 4.1.2): Database log files are not deleted automatically. Workaround: Move old log files to another drive and restart the database service. A fix is planned for version 4.1.3.</code></p>
+  <p>Kernaussage: In den Versionen 4.1.0 bis 4.1.2 werden die Protokolldateien nicht automatisch gelöscht. Umgehungslösung: alte Protokolle auf ein anderes Laufwerk verschieben und den Dienst neu starten. Die Behebung ist für Version 4.1.3 geplant. Das passt genau zum Kanzlei-Fall.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Ein Übersetzungsprogramm oder KI-Dienst hilft bei langen Texten. Prüfe aber Fachbegriffe und Zahlen gegen das Original, und kopiere keine Kundendaten in öffentliche Dienste.</p></aside>
+
+<p class="merksatz">Lösungen zuerst in eigener Wissensdatenbank und Herstellerquellen suchen, Foren und KI-Antworten prüfen; jede Lösung muss zu Produkt und Version passen, verstanden sein und gefahrlos getestet werden.</p>

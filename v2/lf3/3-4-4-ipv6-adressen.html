@@ -442,7 +442,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF3</a></li><li><a href="index.html#k-3-4">3.4 IP-Adressierung</a></li><li aria-current="page">3.4.4</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">3.4.4</span>IPv6-Adressen</h1>
-  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>4 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>5 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="3-4-4">
 <p class="lead">IPv4 bietet rund 4,3 Milliarden Adressen, viel zu wenig für alle Geräte der Welt. Deshalb gibt es IPv6. Viele Internetanschlüsse arbeiten heute schon damit, und aktuelle Clients haben neben ihrer IPv4- in der Regel auch IPv6-Adressen. Du musst sie lesen, kürzen und einordnen können.</p>
@@ -459,6 +459,29 @@
 </ol>
 <p>Aus dem Beispiel wird <code>2001:db8:ab:10::20</code>. Zum Aufschreiben in voller Länge gehst du rückwärts: Blöcke auf vier Ziffern auffüllen und für <code>::</code> so viele <code>0000</code>-Blöcke einsetzen, bis es acht sind.</p>
 <p>Beispiel: Die Link-Local-Adresse des Druckers <code>fe80::21b:a9ff:fe4c:2207</code> hat fünf Blöcke, also stehen für <code>::</code> drei Null-Blöcke. In voller Länge: <code>fe80:0000:0000:0000:021b:a9ff:fe4c:2207</code>. Die ersten 64 Bit <code>fe80:0000:0000:0000</code> sind das Präfix, die letzten 64 Bit <code>021b:a9ff:fe4c:2207</code> der Interface-Identifier.</p>
+
+<h3 id="das-praefix-aufteilen">Das Präfix aufteilen<a class="anchor" href="#das-praefix-aufteilen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Ein Unternehmen bekommt vom Anbieter meist ein Präfix mit <strong>/48</strong> oder /56 für seinen Standort. Bei einem /48 legt der Betrieb die Bits 49 bis 64 selbst fest: Diese 16 Bit sind die <strong>Subnetz-ID</strong>. Damit kann er 2<sup>16</sup> = 65.536 Subnetze mit je /64 bilden, ohne neue Adressen beim Anbieter zu beantragen. Bei einem /56 bleiben 8 Bit, also 256 Subnetze.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Bits</th><th>1 bis 48</th><th>49 bis 64</th><th>65 bis 128</th></tr></thead>
+    <tbody>
+      <tr><th>Teil</th><td>Präfix des Standorts (vom Anbieter)</td><td>Subnetz-ID (vom Betrieb)</td><td>Interface-Identifier (Gerät)</td></tr>
+      <tr><th>Beispiel</th><td><code>2001:db8:ab</code></td><td><code>10</code></td><td><code>::20</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Jedes /64-Subnetz bietet 2<sup>64</sup> Adressen. Anders als bei IPv4 rechnest du hier nicht nach, ob die Adressen reichen, sondern teilst nur nach Bereichen ein, etwa ein Subnetz für Büro, eines für Gäste, eines für Server.</p>
+
+<h3 id="vorteile-gegenueber-ipv4">Vorteile gegenüber IPv4<a class="anchor" href="#vorteile-gegenueber-ipv4" aria-hidden="true" tabindex="-1">#</a></h3>
+<ul>
+  <li><strong>Adressraum:</strong> 2<sup>128</sup> Adressen, genug für jedes Gerät; Adressmangel entfällt.</li>
+  <li><strong>Ende-zu-Ende:</strong> Jedes Gerät kann eine weltweit eindeutige Adresse haben, NAT (Kapitel 3.4.3) ist meist nicht mehr nötig. Schutz bietet dann die Firewall, nicht die Adressübersetzung.</li>
+  <li><strong>Autokonfiguration:</strong> Geräte bilden ihre Adresse selbst (siehe unten).</li>
+  <li><strong>Einfacherer Kopf:</strong> Der Grundheader hat eine feste Länge von 40 Byte, ohne Prüfsumme; Zusatzangaben stehen in eigenen Erweiterungsheadern. Router verarbeiten Pakete dadurch einfacher.</li>
+  <li><strong>Sicherheit:</strong> Die Verschlüsselung IPsec war bei IPv6 anfangs Pflicht und ist heute empfohlen (bei IPv4 nur nachgerüstet). Eingeschaltet ist sie dadurch aber nicht automatisch.</li>
+  <li><strong>Kein Broadcast:</strong> Multicast an gezielte Gruppen belastet das Netz weniger.</li>
+</ul>
 
 <h3 id="adressarten">Adressarten<a class="anchor" href="#adressarten" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -484,13 +507,14 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Der Anbieter der Hausverwaltung vergibt das Präfix <code>2001:db8:ab:10::/64</code>. Der Router hat <code>2001:db8:ab:10::1</code> und ist das Gateway. Bei automatischer Konfiguration lernen die Clients das Gateway aus der Ankündigung des Routers; <code>ipconfig</code> zeigt als Standardgateway dann oft die fe80-Adresse des Routers. DHCPv6 verteilt kein Gateway. Dem NAS gibt die Auszubildende die feste Adresse <code>2001:db8:ab:10::10</code>, dem Drucker <code>2001:db8:ab:10::20</code>; beide mit Präfixlänge 64. Achtung: <code>::10</code> ist hexadezimal (dezimal 16); die Endung ist nur gewählt, damit sie leicht zur IPv4-Adresse .10 passt. Die übrigen Clients bilden ihre Adressen selbst.</p>
+  <p>Der Anbieter der Hausverwaltung vergibt das Präfix <code>2001:db8:ab::/48</code>. Für das Büronetz wählt die Auszubildende die Subnetz-ID <code>10</code>, also <code>2001:db8:ab:10::/64</code>. Der Router hat <code>2001:db8:ab:10::1</code> und ist das Gateway. Bei automatischer Konfiguration lernen die Clients das Gateway aus der Ankündigung des Routers; <code>ipconfig</code> zeigt als Standardgateway dann oft die fe80-Adresse des Routers. DHCPv6 verteilt kein Gateway. Dem NAS gibt die Auszubildende die feste Adresse <code>2001:db8:ab:10::10</code>, dem Drucker <code>2001:db8:ab:10::20</code>; beide mit Präfixlänge 64. Achtung: <code>::10</code> ist hexadezimal (dezimal 16); die Endung ist nur gewählt, damit sie leicht zur IPv4-Adresse .10 passt. Die übrigen Clients bilden ihre Adressen selbst.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„<code>2001:db8::ab::1</code> ist eine gültige Kurzform.“ Nein: <code>::</code> darf nur einmal vorkommen. Sonst lässt sich nicht bestimmen, wie viele Null-Blöcke an jeder Stelle fehlen.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>IPv6:</strong> 128 Bit, acht Blöcke à 16 Bit hexadezimal; meist /64 = 64 Bit Präfix plus 64 Bit Interface-Identifier.</li>
+  <li><strong>Präfix:</strong> Standort oft /48, dazu 16 Bit Subnetz-ID = 65.536 Subnetze mit /64.</li>
   <li><strong>Kürzen:</strong> führende Nullen weglassen, eine Null-Folge durch <code>::</code> ersetzen (nur einmal).</li>
   <li><strong>Adressarten:</strong> Global 2000::/3, Unique Local fd, Link-Local fe80, Loopback ::1, Multicast ff; kein Broadcast.</li>
 </ul></div>

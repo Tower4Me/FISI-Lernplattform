@@ -442,7 +442,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF3</a></li><li><a href="index.html#k-3-7">3.7 Clients einbinden und prüfen</a></li><li aria-current="page">3.7.3</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">3.7.3</span>Systematische Fehlersuche</h1>
-  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="3-7-3">
 <p class="lead">„Das Internet geht nicht“ beschreibt ein Symptom, keine Ursache. Wer wahllos Einstellungen ändert, verschlimmert es oft. Systematisch vorzugehen heißt: von unten nach oben prüfen, jede Stufe ausschließen und das Ergebnis festhalten. So findest du den Fehler schneller und kannst später zeigen, was du geprüft hast.</p>
@@ -458,6 +458,7 @@
   <li><strong>Namensauflösung:</strong> <code>nslookup</code> oder <code>ping</code> auf einen Namen. Geht die IP-Adresse, aber nicht der Name, ist DNS gestört (Kapitel 3.5.2).</li>
   <li><strong>Dienst:</strong> Erreicht der Client das Ziel, aber nicht die Anwendung, prüfst du den Port (Kapitel 3.7.2), Firewall und Dienst auf dem Server.</li>
 </ol>
+<p>Für die erste Stufe hilft unter Windows auch das Statusfenster des Netzwerkadapters (<strong>Netzwerkstatus</strong>). Es zeigt den <strong>Medienstatus</strong> („Aktiviert“), die IPv4- und IPv6-Konnektivität, wie lange die Verbindung besteht, die <strong>Übertragungsrate</strong> und die Menge der <strong>gesendeten und empfangenen</strong> Daten. Zeigt ein Gigabit-Anschluss nur 100 Mbit/s, ist oft ein Kabel oder Stecker beschädigt oder die Gegenstelle kann nur 100 Mbit/s. Normalerweise empfängt ein Client deutlich mehr, als er sendet. Steigt „Gesendet“, während „Empfangen“ kaum wächst, bekommt der Rechner kaum Antworten, etwa weil kein DHCP-Server antwortet oder das Kabel im falschen Netz steckt. Ohne Kabelverbindung lässt sich das Fenster nicht öffnen; die Adapterübersicht meldet dann „Netzwerkkabel wurde entfernt“, <code>ipconfig</code> „Medium getrennt“.</p>
 <p>Ändere jeweils nur eine Sache und teste danach erneut. Sonst weißt du am Ende nicht, was geholfen hat.</p>
 
 <h3 id="pruefen-und-protokollieren">Prüfen und protokollieren<a class="anchor" href="#pruefen-und-protokollieren" aria-hidden="true" tabindex="-1">#</a></h3>

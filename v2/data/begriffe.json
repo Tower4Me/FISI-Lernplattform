@@ -1395,7 +1395,9 @@
         "128 Bit, 8 Blöcke à 16 Bit hex; meist /64: Präfix + 64-Bit-Interface-Identifier; keine Maske in Punktschreibweise.",
         "Kürzen: führende Nullen weg, eine Null-Folge (die längste) durch :: (nur einmal), einzelner Null-Block als 0; Ausschreiben: auf 8 Blöcke à 4 Ziffern auffüllen.",
         "Arten: Global 2000::/3, Unique Local fd (fc00::/7), Link-Local fe80::/10 (immer vorhanden, nicht geroutet, Zonenkennung %), Loopback ::1, Multicast ff00::/8; kein Broadcast; Doku-Präfix 2001:db8::/32.",
-        "SLAAC (Präfix und Gateway aus Router-Ankündigung, Gateway oft fe80) oder DHCPv6 (ohne Gateway); Interface-ID per EUI-64 (ff:fe einfügen, 7. Bit von links umdrehen) oder zufällig, dazu temporäre Adressen; NAT bei IPv6 meist nicht nötig."
+        "SLAAC (Präfix und Gateway aus Router-Ankündigung, Gateway oft fe80) oder DHCPv6 (ohne Gateway); Interface-ID per EUI-64 (ff:fe einfügen, 7. Bit von links umdrehen) oder zufällig, dazu temporäre Adressen; NAT bei IPv6 meist nicht nötig.",
+        "Standort-Präfix oft /48 (oder /56); Bits 49–64 = 16 Bit Subnetz-ID = 65.536 Subnetze mit /64.",
+        "Vorteile: 2^128 Adressen, Ende-zu-Ende meist ohne NAT (Schutz durch Firewall), Autokonfiguration, Grundheader fest 40 Byte, IPsec im Standard vorgesehen, Multicast statt Broadcast."
       ],
       "vorkommen": [
         {
@@ -1493,7 +1495,9 @@
         "Vorher klären: Dienste, Anbindung, Adressvergabe (Clients DHCP, feste Adressen für Server/Drucker/Netzgeräte außerhalb Pool), Sicherheitsvorgaben.",
         "Windows 11: Einstellungen › Netzwerk und Internet › Ethernet/WLAN › IP-Zuweisung; eindeutiger Gerätename; Netzwerkprofil privat/öffentlich/Domäne (Firewall); Arbeitsgruppe vs. Domäne (nur Pro/Enterprise); Netzlaufwerk \\\\server\\freigabe mit NAS-Konto; Drucker über Einstellungen oder IP; VPN-Zugang je Person (Technik LF9).",
         "Befehle: ipconfig (/all, /release, /renew, /flushdns), ping (-t, -4/-6; Windows 4 Anfragen), tracert (* normal), nslookup, arp -a, getmac, netstat -an, Test-NetConnection -Port; Linux ip addr/ip route, traceroute, dig, ip neigh, ss -tuan; Meldungen: Zeitüberschreitung, Zielhost nicht erreichbar, Host nicht finden.",
-        "Fehlersuche von unten: Link-LED, ipconfig (APIPA?), 127.0.0.1 (prüft nur Stack), Gateway, externe IP, Name, Dienst/Port; eine Änderung zur Zeit; Testprotokoll; Kosten (Arbeitszeit, Checkliste) und Umwelt bewerten."
+        "Fehlersuche von unten: Link-LED, ipconfig (APIPA?), 127.0.0.1 (prüft nur Stack), Gateway, externe IP, Name, Dienst/Port; eine Änderung zur Zeit; Testprotokoll; Kosten (Arbeitszeit, Checkliste) und Umwelt bewerten.",
+        "Netzwerkstatus (Windows): Medienstatus, Dauer, Übertragungsrate, gesendet/empfangen; 100 statt 1000 Mbit/s oft Kabelschaden oder Gegenstelle nur 100 Mbit/s.",
+        "PowerShell: Variablen mit $, Cmdlets Verb-Substantiv, Vergleich mit -eq/-ne/-lt/-le/-gt/-ge (> ist Umleitung)."
       ],
       "vorkommen": [
         {

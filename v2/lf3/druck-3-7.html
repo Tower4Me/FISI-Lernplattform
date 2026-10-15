@@ -512,6 +512,30 @@
 </div>
 <p>In der PowerShell prüft <code>Test-NetConnection 192.168.10.10 -Port 445</code>, ob ein bestimmter Port erreichbar ist. Das ergänzt <code>ping</code>, denn ping nutzt keinen Port (Kapitel 3.5.4).</p>
 
+<h3 id="u3-7-2-kleine-skripte-in-der-powershell">Kleine Skripte in der PowerShell<a class="anchor" href="#u3-7-2-kleine-skripte-in-der-powershell" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Wiederkehrende Prüfungen schreibst du einmal als <strong>Skript</strong> und startest sie dann auf jedem Client gleich. Skripte speicherst du als <code>.ps1</code>-Datei. Auf Windows-Clients verhindert die Ausführungsrichtlinie (Execution Policy) das Starten zunächst; die Administration gibt es gezielt frei. Die PowerShell kennt dafür Variablen (beginnen mit <code>$</code>), Befehle in der Form Verb-Substantiv (<strong>Cmdlets</strong>, etwa <code>Test-Connection</code>) und Verzweigungen mit <code>if</code> und <code>else</code>: Ist die Bedingung erfüllt, läuft der erste Block, sonst der zweite.</p>
+<pre><code>$ziel = "192.168.10.20"
+$frei = (Get-PSDrive C).Free / 1GB
+if (Test-Connection -ComputerName $ziel -Count 2 -Quiet) {
+    Write-Host "Drucker $ziel erreichbar"
+} else {
+    Write-Host "Drucker $ziel antwortet nicht"
+}
+if ($frei -lt 20) {
+    Write-Host "Warnung: weniger als 20 GB frei auf C:"
+}</code></pre>
+<p><code>Test-Connection</code> pingt das Ziel; mit <code>-Quiet</code> liefert es nur wahr oder falsch. <code>1GB</code> steht in der PowerShell für 1024³ Byte, also eigentlich GiB. Vergleiche schreibst du nicht mit <code>&lt;</code> oder <code>&gt;</code>, sondern mit Operatoren, denn <code>&gt;</code> leitet in der PowerShell eine Ausgabe in eine Datei um und <code>&lt;</code> ist reserviert:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Operator</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th><code>-eq</code>, <code>-ne</code></th><td>gleich, ungleich</td></tr>
+      <tr><th><code>-lt</code>, <code>-le</code></th><td>kleiner, kleiner oder gleich</td></tr>
+      <tr><th><code>-gt</code>, <code>-ge</code></th><td>größer, größer oder gleich</td></tr>
+    </tbody>
+  </table>
+</div>
+
 <h3 id="u3-7-2-ausgaben-lesen">Ausgaben lesen<a class="anchor" href="#u3-7-2-ausgaben-lesen" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
   <li><strong>Antwort von 192.168.10.20: Bytes=32 Zeit&lt;1ms TTL=…</strong>: Ziel erreichbar; im kabelgebundenen LAN meist unter 1 ms, im WLAN einige Millisekunden.</li>
@@ -529,6 +553,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Konfiguration:</strong> <code>ipconfig /all</code>; neue DHCP-Adresse mit <code>/renew</code>, DNS-Cache leeren mit <code>/flushdns</code>.</li>
+  <li><strong>PowerShell:</strong> Variablen mit <code>$</code>, Cmdlets als Verb-Substantiv, Vergleiche mit <code>-eq</code>, <code>-lt</code>, <code>-gt</code>.</li>
   <li><strong>Erreichbarkeit und Weg:</strong> <code>ping</code>, <code>tracert</code>; Ports mit <code>Test-NetConnection</code>; Namen mit <code>nslookup</code>; Nachbarn mit <code>arp -a</code>.</li>
 </ul></div>
 </section>
@@ -546,6 +571,7 @@
   <li><strong>Namensauflösung:</strong> <code>nslookup</code> oder <code>ping</code> auf einen Namen. Geht die IP-Adresse, aber nicht der Name, ist DNS gestört (Kapitel 3.5.2).</li>
   <li><strong>Dienst:</strong> Erreicht der Client das Ziel, aber nicht die Anwendung, prüfst du den Port (Kapitel 3.7.2), Firewall und Dienst auf dem Server.</li>
 </ol>
+<p>Für die erste Stufe hilft unter Windows auch das Statusfenster des Netzwerkadapters (<strong>Netzwerkstatus</strong>). Es zeigt den <strong>Medienstatus</strong> („Aktiviert“), die IPv4- und IPv6-Konnektivität, wie lange die Verbindung besteht, die <strong>Übertragungsrate</strong> und die Menge der <strong>gesendeten und empfangenen</strong> Daten. Zeigt ein Gigabit-Anschluss nur 100 Mbit/s, ist oft ein Kabel oder Stecker beschädigt oder die Gegenstelle kann nur 100 Mbit/s. Normalerweise empfängt ein Client deutlich mehr, als er sendet. Steigt „Gesendet“, während „Empfangen“ kaum wächst, bekommt der Rechner kaum Antworten, etwa weil kein DHCP-Server antwortet oder das Kabel im falschen Netz steckt. Ohne Kabelverbindung lässt sich das Fenster nicht öffnen; die Adapterübersicht meldet dann „Netzwerkkabel wurde entfernt“, <code>ipconfig</code> „Medium getrennt“.</p>
 <p>Ändere jeweils nur eine Sache und teste danach erneut. Sonst weißt du am Ende nicht, was geholfen hat.</p>
 
 <h3 id="u3-7-3-pruefen-und-protokollieren">Prüfen und protokollieren<a class="anchor" href="#u3-7-3-pruefen-und-protokollieren" aria-hidden="true" tabindex="-1">#</a></h3>

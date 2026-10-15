@@ -442,7 +442,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF3</a></li><li><a href="index.html#k-3-7">3.7 Clients einbinden und prüfen</a></li><li aria-current="page">3.7.2</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">3.7.2</span>Netzwerkbefehle</h1>
-  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap1">AP1</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="3-7-2">
 <p class="lead">Ob ein Client richtig eingebunden ist, zeigt dir die Kommandozeile schneller als jedes Einstellungsfenster. Eine Handvoll Befehle reicht, um Konfiguration, Erreichbarkeit, Weg und Namensauflösung zu prüfen. Sie gehören zum Werkzeugkasten jeder IT-Fachkraft.</p>
@@ -466,6 +466,30 @@
 </div>
 <p>In der PowerShell prüft <code>Test-NetConnection 192.168.10.10 -Port 445</code>, ob ein bestimmter Port erreichbar ist. Das ergänzt <code>ping</code>, denn ping nutzt keinen Port (Kapitel 3.5.4).</p>
 
+<h3 id="kleine-skripte-in-der-powershell">Kleine Skripte in der PowerShell<a class="anchor" href="#kleine-skripte-in-der-powershell" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Wiederkehrende Prüfungen schreibst du einmal als <strong>Skript</strong> und startest sie dann auf jedem Client gleich. Skripte speicherst du als <code>.ps1</code>-Datei. Auf Windows-Clients verhindert die Ausführungsrichtlinie (Execution Policy) das Starten zunächst; die Administration gibt es gezielt frei. Die PowerShell kennt dafür Variablen (beginnen mit <code>$</code>), Befehle in der Form Verb-Substantiv (<strong>Cmdlets</strong>, etwa <code>Test-Connection</code>) und Verzweigungen mit <code>if</code> und <code>else</code>: Ist die Bedingung erfüllt, läuft der erste Block, sonst der zweite.</p>
+<pre><code>$ziel = "192.168.10.20"
+$frei = (Get-PSDrive C).Free / 1GB
+if (Test-Connection -ComputerName $ziel -Count 2 -Quiet) {
+    Write-Host "Drucker $ziel erreichbar"
+} else {
+    Write-Host "Drucker $ziel antwortet nicht"
+}
+if ($frei -lt 20) {
+    Write-Host "Warnung: weniger als 20 GB frei auf C:"
+}</code></pre>
+<p><code>Test-Connection</code> pingt das Ziel; mit <code>-Quiet</code> liefert es nur wahr oder falsch. <code>1GB</code> steht in der PowerShell für 1024³ Byte, also eigentlich GiB. Vergleiche schreibst du nicht mit <code>&lt;</code> oder <code>&gt;</code>, sondern mit Operatoren, denn <code>&gt;</code> leitet in der PowerShell eine Ausgabe in eine Datei um und <code>&lt;</code> ist reserviert:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Operator</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th><code>-eq</code>, <code>-ne</code></th><td>gleich, ungleich</td></tr>
+      <tr><th><code>-lt</code>, <code>-le</code></th><td>kleiner, kleiner oder gleich</td></tr>
+      <tr><th><code>-gt</code>, <code>-ge</code></th><td>größer, größer oder gleich</td></tr>
+    </tbody>
+  </table>
+</div>
+
 <h3 id="ausgaben-lesen">Ausgaben lesen<a class="anchor" href="#ausgaben-lesen" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
   <li><strong>Antwort von 192.168.10.20: Bytes=32 Zeit&lt;1ms TTL=…</strong>: Ziel erreichbar; im kabelgebundenen LAN meist unter 1 ms, im WLAN einige Millisekunden.</li>
@@ -483,6 +507,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Konfiguration:</strong> <code>ipconfig /all</code>; neue DHCP-Adresse mit <code>/renew</code>, DNS-Cache leeren mit <code>/flushdns</code>.</li>
+  <li><strong>PowerShell:</strong> Variablen mit <code>$</code>, Cmdlets als Verb-Substantiv, Vergleiche mit <code>-eq</code>, <code>-lt</code>, <code>-gt</code>.</li>
   <li><strong>Erreichbarkeit und Weg:</strong> <code>ping</code>, <code>tracert</code>; Ports mit <code>Test-NetConnection</code>; Namen mit <code>nslookup</code>; Nachbarn mit <code>arp -a</code>.</li>
 </ul></div>
 </div>

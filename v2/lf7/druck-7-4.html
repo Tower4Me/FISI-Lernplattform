@@ -559,7 +559,10 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Die Werte unter ‚absolute maximum ratings‘ sind die normalen Betriebswerte.“ Nein: Das sind Grenzen, die nicht einmal kurz überschritten werden dürfen. Für den Betrieb gelten die empfohlenen Betriebsbedingungen (recommended operating conditions), die meist deutlich darunter liegen.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Vor dem Anschluss liest du im Datenblatt Spannung, Stromaufnahme, Messbereich, Schnittstelle, Pinbelegung und Grenzwerte; nach dem Einbau aktualisierst du Geräteliste, Netzwerk- und Anschlusspläne, Topic-Schema und Prüfprotokoll.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Vorher:</strong> im Datenblatt Spannung, Stromaufnahme, Schnittstelle, Pinbelegung und Grenzwerte prüfen.</li>
+  <li><strong>Nachher:</strong> Geräteliste, Pläne, Topic-Schema und Prüfprotokoll aktualisieren.</li>
+</ul></div>
 </section>
 <section class="print-up" id="u-7-4-2"><h2><span class="num">7.4.2</span> Komponenten integrieren</h2>
 <p class="lead">Das bestehende System läuft, die Marktleitung verlässt sich auf die Alarme. Die Erweiterung darf das nicht unterbrechen. Deshalb bindest du neue Komponenten Schritt für Schritt ein, testest erst auf dem Tisch und dann vor Ort und prüfst am Ende den ganzen Weg vom Sensor bis zur Reaktion.</p>
@@ -583,14 +586,14 @@
 <p>Einzelne Teile können funktionieren, während der ganze Ablauf scheitert, etwa weil ein Topic falsch geschrieben ist. Entscheidend ist der Test von der physischen Ursache bis zur Wirkung:</p>
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Nach dem Einbau öffnet die Auszubildende die Kühlraumtür und wartet. Am Broker erscheint unter <code>biomarkt/kuehlraum/tuer</code> der Wert „offen“, nach zwei Minuten veröffentlicht die Auswertung <code>biomarkt/verkauf/warnleuchte</code> mit „an“, und die Leuchte im Verkaufsraum geht an. Sie schließt die Tür, die Leuchte geht aus. Danach trennt sie das Board des Türkontakts vom Netzteil: Sobald sich das Board innerhalb der eingestellten Wartezeit nicht mehr meldet, erkennt der Broker den Abbruch und veröffentlicht unter <code>biomarkt/kuehlraum/tuer/status</code> die Last-Will-Meldung „offline“, und die Marktleitung bekommt einen Hinweis. Beide Tests trägt sie mit Uhrzeit ins Prüfprotokoll ein.</p>
+  <p>Nach dem Einbau öffnet die Auszubildende die Kühlraumtür und wartet. Am Broker erscheint unter <code>biomarkt/kuehlraum/tuer</code> der Wert „offen“, nach zwei Minuten veröffentlicht die Auswertung <code>biomarkt/verkauf/warnleuchte</code> mit „an“, und die Leuchte im Verkaufsraum geht an. Sie schließt die Tür, die Leuchte geht aus. Danach trennt sie das Board des Türkontakts vom Netzteil: Sobald sich das Board innerhalb der eingestellten Wartezeit nicht mehr meldet, erkennt der Broker den Abbruch und veröffentlicht unter <code>biomarkt/kuehlraum/tuerstatus</code> die Last-Will-Meldung „offline“, und die Marktleitung bekommt einen Hinweis. Beide Tests trägt sie mit Uhrzeit ins Prüfprotokoll ein.</p>
 </div>
 
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Ändere am laufenden System nur in Absprache mit dem Kunden und zu einem Zeitpunkt, an dem ein kurzer Ausfall unkritisch ist. Notiere vorher den alten Stand, damit du ihn bei Problemen wiederherstellen kannst.</p></aside>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Sensor sendet, also ist er eingebunden.“ Erst wenn die Auswertung seine Nachrichten verarbeitet und die gewünschte Reaktion auslöst, ist die Funktion erfüllt. Teste immer den ganzen Weg.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Neue Komponenten bindest du schrittweise ein: auf dem Tisch testen, konfigurieren, vor Ort montieren und Funkqualität prüfen, in die Auswertung einbinden und den ganzen Weg von der Ursache bis zur Wirkung testen, auch den Fehlerfall.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Binde Komponenten einzeln ein, teste erst auf dem Tisch und dann den ganzen Weg von der Ursache bis zur Wirkung, auch den Fehlerfall.</p></div>
 </section>
 <section class="print-up" id="u-7-4-3"><h2><span class="num">7.4.3</span> Betriebswerte messen</h2>
 <p class="lead">Ob die Batterie so lange hält wie berechnet und ob der Sensor richtig misst, weißt du erst, wenn du nachmisst. Dazu gehören elektrische Werte wie Spannung und Strom und die physikalischen Werte, die der Sensor erfassen soll. Die Messungen belegen, dass das System so arbeitet wie geplant.</p>
@@ -644,7 +647,7 @@
 <p>Nicht nur Batteriegeräte zählen. Für die Geräte am Stromnetz addierst du die Leistungsaufnahme und vergleichst sie mit dem, was die Versorgung hergibt:</p>
 <ul>
   <li><strong>PoE-Budget:</strong> Reicht die Leistung des Switches für das neue Gateway (LF3, Kapitel 3.3.4)?</li>
-  <li><strong>USV:</strong> Wie lange überbrückt sie den Ausfall mit der gemessenen Gesamtlast? Kleinrechner 6 W, Switch 20 W einschließlich der PoE-Leistung für Access Point und LoRaWAN-Gateway und Router 10 W ergeben 36 W; die Überbrückungszeit für 36 W steht im Datenblatt der USV.</li>
+  <li><strong>USV:</strong> Wie lange überbrückt sie den Ausfall mit der gemessenen Gesamtlast? Einplatinencomputer 6 W, Switch 20 W einschließlich der PoE-Leistung für Access Point und LoRaWAN-Gateway und Router 10 W ergeben 36 W; die Überbrückungszeit für 36 W steht im Datenblatt der USV.</li>
   <li><strong>Energiekosten:</strong> Bei Dauerbetrieb ergeben 36 W rund 315 kWh im Jahr (LF2, Kapitel 2.4.5).</li>
 </ul>
 

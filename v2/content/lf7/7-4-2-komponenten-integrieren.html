@@ -19,11 +19,11 @@
 <p>Einzelne Teile können funktionieren, während der ganze Ablauf scheitert, etwa weil ein Topic falsch geschrieben ist. Entscheidend ist der Test von der physischen Ursache bis zur Wirkung:</p>
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Nach dem Einbau öffnet die Auszubildende die Kühlraumtür und wartet. Am Broker erscheint unter <code>biomarkt/kuehlraum/tuer</code> der Wert „offen“, nach zwei Minuten veröffentlicht die Auswertung <code>biomarkt/verkauf/warnleuchte</code> mit „an“, und die Leuchte im Verkaufsraum geht an. Sie schließt die Tür, die Leuchte geht aus. Danach trennt sie das Board des Türkontakts vom Netzteil: Sobald sich das Board innerhalb der eingestellten Wartezeit nicht mehr meldet, erkennt der Broker den Abbruch und veröffentlicht unter <code>biomarkt/kuehlraum/tuer/status</code> die Last-Will-Meldung „offline“, und die Marktleitung bekommt einen Hinweis. Beide Tests trägt sie mit Uhrzeit ins Prüfprotokoll ein.</p>
+  <p>Nach dem Einbau öffnet die Auszubildende die Kühlraumtür und wartet. Am Broker erscheint unter <code>biomarkt/kuehlraum/tuer</code> der Wert „offen“, nach zwei Minuten veröffentlicht die Auswertung <code>biomarkt/verkauf/warnleuchte</code> mit „an“, und die Leuchte im Verkaufsraum geht an. Sie schließt die Tür, die Leuchte geht aus. Danach trennt sie das Board des Türkontakts vom Netzteil: Sobald sich das Board innerhalb der eingestellten Wartezeit nicht mehr meldet, erkennt der Broker den Abbruch und veröffentlicht unter <code>biomarkt/kuehlraum/tuerstatus</code> die Last-Will-Meldung „offline“, und die Marktleitung bekommt einen Hinweis. Beide Tests trägt sie mit Uhrzeit ins Prüfprotokoll ein.</p>
 </div>
 
 <aside class="note" data-typ="hinweis"><p>Ändere am laufenden System nur in Absprache mit dem Kunden und zu einem Zeitpunkt, an dem ein kurzer Ausfall unkritisch ist. Notiere vorher den alten Stand, damit du ihn bei Problemen wiederherstellen kannst.</p></aside>
 
 <aside class="note" data-typ="fehler"><p>„Der Sensor sendet, also ist er eingebunden.“ Erst wenn die Auswertung seine Nachrichten verarbeitet und die gewünschte Reaktion auslöst, ist die Funktion erfüllt. Teste immer den ganzen Weg.</p></aside>
 
-<p class="merksatz">Neue Komponenten bindest du schrittweise ein: auf dem Tisch testen, konfigurieren, vor Ort montieren und Funkqualität prüfen, in die Auswertung einbinden und den ganzen Weg von der Ursache bis zur Wirkung testen, auch den Fehlerfall.</p>
+<p class="merksatz">Binde Komponenten einzeln ein, teste erst auf dem Tisch und dann den ganzen Weg von der Ursache bis zur Wirkung, auch den Fehlerfall.</p>

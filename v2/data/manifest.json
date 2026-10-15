@@ -3865,7 +3865,6 @@
     },
     {
       "id": "lf7",
-      "in_arbeit": true,
       "kapitel": [
         {
           "nummer": "7.1",
@@ -4038,7 +4037,8 @@
               "material": [],
               "begriffe": [
                 "schutzart-ip",
-                "energiebedarf-iot"
+                "energiebedarf-iot",
+                "iot-funk"
               ]
             }
           ]
@@ -4132,7 +4132,8 @@
                 "mqtt",
                 "uebertragungsdauer",
                 "praefixe",
-                "tcp-udp"
+                "tcp-udp",
+                "iot-funk"
               ]
             },
             {
@@ -4150,7 +4151,8 @@
               "begriffe": [
                 "softwarelizenzen",
                 "speicherloesungen",
-                "mikrocontroller"
+                "mikrocontroller",
+                "mqtt"
               ]
             }
           ]
@@ -4197,7 +4199,8 @@
               "begriffe": [
                 "inbetriebnahme",
                 "mqtt",
-                "iot-funk"
+                "iot-funk",
+                "abnahme"
               ]
             },
             {
@@ -4219,7 +4222,8 @@
               "begriffe": [
                 "messtechnik",
                 "elektrische-sicherheit",
-                "sensor-aktor"
+                "sensor-aktor",
+                "netzwerkkomponenten"
               ]
             },
             {
@@ -4238,7 +4242,9 @@
                 "energiebedarf-iot",
                 "inbetriebnahme",
                 "usv",
-                "energiekosten"
+                "energiekosten",
+                "iot-funk",
+                "netzwerkkomponenten"
               ]
             }
           ]
@@ -4267,7 +4273,8 @@
                 "betriebssicherheit-cps",
                 "elektrische-sicherheit",
                 "usv",
-                "mqtt"
+                "mqtt",
+                "datensicherung"
               ]
             },
             {
@@ -4292,7 +4299,8 @@
                 "iot-sicherheit",
                 "haertung",
                 "verschluesselung",
-                "mqtt"
+                "mqtt",
+                "schutzbedarfsfeststellung"
               ]
             },
             {
@@ -4312,7 +4320,9 @@
               "begriffe": [
                 "auftragsauswertung",
                 "energiebedarf-iot",
-                "green-it"
+                "green-it",
+                "iot-funk",
+                "betriebssicherheit-cps"
               ]
             }
           ]

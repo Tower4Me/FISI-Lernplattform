@@ -4,7 +4,7 @@
     {
       "typ": "mc",
       "thema": "Funktechnik",
-      "frage": "Sensoren im Außenlager stehen 800 m vom Gebäude entfernt. Die Batterie soll mehrere Jahre halten, gesendet wird alle 15 Minuten ein Messwert. Welche Funktechnik passt?",
+      "frage": "Sensoren stehen auf einem 800 m entfernten Freigelände. Die Batterie soll mehrere Jahre halten, gesendet wird alle 15 Minuten ein Messwert. Welche Funktechnik passt?",
       "optionen": [
         "LoRaWAN",
         "WLAN",
@@ -68,7 +68,7 @@
       "optionen": [
         "Damit Nachrichten vollständig und in Reihenfolge ankommen",
         "Weil UDP keine Portnummern für Dienste kennt",
-        "Damit der Broker ganz ohne Verbindungen arbeiten kann",
+        "Damit der Broker keine Verbindungen verwalten muss",
         "Weil TCP weniger Kopfdaten als UDP benötigt"
       ],
       "richtig": [

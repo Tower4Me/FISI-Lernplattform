@@ -535,7 +535,7 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Keine Alarmmeldung heißt: alles in Ordnung.“ Nicht, wenn die Überwachung selbst ausgefallen sein kann. Erst Lebenszeichen und Ausfallmeldungen machen aus „keine Meldung“ eine verlässliche Aussage.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Betriebssicherheit heißt: nur an Kleinspannung selbst arbeiten, für jeden Ausfall einen sicheren Zustand festlegen, Ausfälle mit Lebenszeichen, Last Will, Watchdog und Plausibilitätsprüfung erkennen und wichtige Teile mit USV und Reserven absichern.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Lege für jeden Ausfall einen sicheren Zustand fest und erkenne Ausfälle mit Lebenszeichen, Last Will und Watchdog; an Netzspannung arbeitet die Elektrofachkraft.</p></div>
 </section>
 <section class="print-up" id="u-7-5-2"><h2><span class="num">7.5.2</span> Datensicherheit im IoT</h2>
 <p class="lead">Ein billiger Sensor mit Standardpasswort kann zur Tür ins Firmennetz werden. Vernetzte Geräte wurden schon zu Hunderttausenden gekapert und für Angriffe auf andere missbraucht. Bei einem CPS geht es zudem nicht nur um Daten: Wer den Aktor steuert, greift in die physische Welt ein. Datensicherheit gehört deshalb von Anfang an in die Planung.</p>
@@ -565,6 +565,7 @@
     </tbody>
   </table>
 </div>
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du für vernetzte Systeme Risiken analysierst und ein Sicherheitskonzept erstellst, lernst du in LF11b.</p></aside>
 <aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du Netze mit VLANs trennst und Firewall-Regeln zwischen den Segmenten anlegst, lernst du in LF9.</p></aside>
 <p>Auch der Gesetzgeber nimmt die Hersteller in die Pflicht: Nach der EU-Cyberresilienz-Verordnung müssen Hersteller vernetzter Produkte ausgenutzte Sicherheitslücken seit September 2026 melden; ab Dezember 2027 müssen ihre Produkte grundlegende Sicherheitsanforderungen erfüllen, und die Hersteller müssen für einen festgelegten Zeitraum, in der Regel mindestens fünf Jahre, Sicherheitsupdates liefern. Für die Auswahl heißt das: Achte darauf, wie lange der Hersteller Updates zusagt.</p>
 
@@ -575,7 +576,10 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Unsere Sensoren übertragen nur Temperaturen, das ist nicht schützenswert.“ Ein Angreifer kann über ungeschützte Geräte ins übrige Netz gelangen, falsche Werte einspeisen oder Aktoren schalten. Schutzbedarf entsteht auch aus diesen Folgen (LF4, Kapitel 4.4).</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>IoT-Geräte sicherst du durch Härten und Updates, verschlüsselte Übertragung mit TLS, Anmeldung und Zugriffslisten am Broker, ein eigenes Netzsegment mit Firewall ohne Freigabe ins Internet und physischen Schutz.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Gerät und Übertragung:</strong> härten, Updates einspielen, mit TLS verschlüsseln.</li>
+  <li><strong>Broker und Netz:</strong> Anmeldung und Zugriffslisten je Gerät, eigenes Netzsegment mit Firewall, keine Freigabe ins Internet.</li>
+</ul></div>
 </section>
 <section class="print-up" id="u-7-5-3"><h2><span class="num">7.5.3</span> Ergebnis bewerten und optimieren</h2>
 <p class="lead">Die Erweiterung läuft, das Prüfprotokoll ist ausgefüllt. Bevor der Auftrag abgeschlossen ist, schaust du zurück: Erfüllt das System, was der Kunde wollte, ist es sicher, und was würdest du beim nächsten Mal anders machen? Aus diesem Rückblick entstehen Verbesserungen für das System und für den eigenen Arbeitsablauf.</p>
@@ -612,7 +616,7 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Das System funktioniert, also ist der Auftrag fertig.“ Ohne Wartungsplan, Einweisung und vollständige Dokumentation fällt die nächste leere Batterie oder Sicherheitslücke niemandem auf.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Zum Abschluss bewertest du Anforderungen, Betriebs- und Datensicherheit, Energie, Kosten und Wartbarkeit, leitest Optimierungen wie seltener senden und einen Wartungsplan ab und hältst Erkenntnisse zum eigenen Arbeitsablauf fest.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Zum Abschluss prüfst du das Ergebnis gegen Anforderungen und Sicherheit, leitest Optimierungen und einen Wartungsplan ab und hältst Lehren für den eigenen Arbeitsablauf fest.</p></div>
 </section>
 </div>
 </main>

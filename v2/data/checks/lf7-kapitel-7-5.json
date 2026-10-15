@@ -64,9 +64,9 @@
     {
       "typ": "mc",
       "thema": "Rechte am Broker",
-      "frage": "Das Relaismodul der Warnleuchte soll nur seine eigenen Nachrichten empfangen und selbst keine veröffentlichen. Welche Einstellung am Broker setzt das um?",
+      "frage": "Das Relaismodul der Leuchte im Verkaufsraum soll am Broker so wenig Rechte wie möglich haben. Welche Einstellung setzt das um?",
       "optionen": [
-        "Eine Zugriffsliste: nur dieses Topic lesen, nichts senden",
+        "Zugriffsliste: Lesen nur auf seinem eigenen Topic",
         "Ein anonymer Zugang, damit das Modul ohne Passwort verbindet",
         "Die Retained-Markierung für alle Topics des Biomarkts",
         "Ein eigener Broker für jedes Gerät im Netz des Marktes"

@@ -1,0 +1,38 @@
+<p class="lead">Ein Überwachungssystem, das selbst unbemerkt ausfällt, ist gefährlicher als gar keines: Alle verlassen sich darauf, und niemand schaut mehr in den Kühlraum. Betriebssicherheit heißt deshalb, dass das System Menschen und Geräte nicht gefährdet, Fehler erkennt und sich bei einem Ausfall berechenbar verhält.</p>
+
+<h3>Elektrische Sicherheit</h3>
+<p>Sensoren, Boards und Batterien arbeiten mit <strong>Kleinspannung</strong>, meist 3,3 bis 24 V. Daran darfst du als IT-Fachkraft arbeiten. Sobald Netzspannung beteiligt ist, etwa beim Laststromkreis eines Relais oder beim Netzteil im Schaltschrank, ist eine Elektrofachkraft zuständig (LF2, Kapitel 2.7.1). Verwende Netzteile mit passendem Prüfzeichen und Schutzklasse, und lege Kleinspannungs- und Netzleitungen getrennt.</p>
+
+<h3>Sicherer Zustand bei Ausfall</h3>
+<p>Jedes Teil kann ausfallen: Batterie leer, Funk gestört, Programm abgestürzt. Vorher legst du fest, in welchen Zustand das System dann gehen soll, und zwar in den ungefährlicheren (<strong>sicherer Zustand</strong>, englisch fail-safe):</p>
+<ul>
+  <li>Das Kühlaggregat regelt mit seinem eigenen Regler weiter, auch wenn die Überwachung ausfällt. Die Überwachung greift nicht in die Kühlung ein.</li>
+  <li>Nach dem <strong>Ruhestromprinzip</strong> hält die Steuerung ein Relais im Normalbetrieb angezogen. Fällt ihr Strom aus, fällt das Relais ab und löst eine Warnung aus, die eine eigene Versorgung hat, statt stumm zu bleiben.</li>
+  <li>Wichtige Funktionen laufen lokal im Lager und nicht nur über einen Cloud-Dienst, damit sie auch bei gestörter Internetverbindung arbeiten.</li>
+</ul>
+
+<h3>Ausfälle erkennen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Maßnahme</th><th>Was sie erkennt</th></tr></thead>
+    <tbody>
+      <tr><th>Lebenszeichen (Heartbeat)</th><td>Jedes Gerät meldet sich regelmäßig. Bleibt die Meldung aus, schlägt die Auswertung Alarm.</td></tr>
+      <tr><th>Last Will (Kapitel 7.3.2)</th><td>Der Broker veröffentlicht die hinterlegte Nachricht eines Clients, wenn dessen Verbindung unerwartet abbricht. Das wirkt nur bei Geräten, die selbst mit dem Broker verbunden sind; LoRaWAN-Sensoren überwachst du mit dem Lebenszeichen.</td></tr>
+      <tr><th>Watchdog</th><td>Eine Schaltung im Mikrocontroller startet das Gerät neu, wenn sich das Programm aufgehängt hat und den Watchdog nicht mehr regelmäßig zurücksetzt.</td></tr>
+      <tr><th>Plausibilitätsprüfung</th><td>Unmögliche Werte, etwa −80 °C im Kühlraum oder ein Sprung um 20 °C in einer Minute, deuten auf einen defekten Sensor.</td></tr>
+      <tr><th>Batteriestand</th><td>Sensoren senden ihre Batteriespannung mit; rechtzeitig vor dem Ende kommt ein Hinweis.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Verfügbarkeit</h3>
+<p>Für wichtige Teile planst du Reserven: eine USV für Broker, Switch und Router (Kapitel 7.1.4), einen zweiten Alarmweg, etwa Mail und Anruf, und eine regelmäßige Datensicherung der Konfiguration (LF4, Kapitel 4.6.2). So lässt sich ein defektes Gerät schnell ersetzen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus richtet für jeden Sensor einen Heartbeat-Alarm ein: Kommt 30 Minuten lang kein Wert, erhält die Marktleitung eine Nachricht „Sensor ohne Meldung“. Zusätzlich meldet die Auswertung Batteriespannungen unter dem Grenzwert aus dem Datenblatt des Sensors. Als die Internetverbindung des Marktes eines Nachts ausfällt, schaltet die Warnleuchte bei offener Kühlraumtür trotzdem, weil die Regel lokal auf dem Einplatinencomputer läuft.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Keine Alarmmeldung heißt: alles in Ordnung.“ Nicht, wenn die Überwachung selbst ausgefallen sein kann. Erst Lebenszeichen und Ausfallmeldungen machen aus „keine Meldung“ eine verlässliche Aussage.</p></aside>
+
+<p class="merksatz">Betriebssicherheit heißt: nur an Kleinspannung selbst arbeiten, für jeden Ausfall einen sicheren Zustand festlegen, Ausfälle mit Lebenszeichen, Last Will, Watchdog und Plausibilitätsprüfung erkennen und wichtige Teile mit USV und Reserven absichern.</p>

@@ -405,6 +405,10 @@
         {
           "id": "4-5-3",
           "tiefe": "Zertifikat und privater Schlüssel als Besitzfaktor"
+        },
+        {
+          "id": "7-5-2",
+          "tiefe": "TLS für MQTT"
         }
       ]
     },
@@ -439,6 +443,10 @@
         {
           "id": "4-6-1",
           "tiefe": "Arbeitsplatz absichern"
+        },
+        {
+          "id": "7-5-2",
+          "tiefe": "IoT-Geräte härten"
         }
       ]
     },
@@ -462,6 +470,10 @@
         {
           "id": "7-4-4",
           "tiefe": "Gesamtlast für Überbrückungszeit"
+        },
+        {
+          "id": "7-5-1",
+          "tiefe": "USV für Broker, Switch, Router"
         }
       ]
     },
@@ -1113,6 +1125,10 @@
         {
           "id": "1-1-3",
           "tiefe": "Nachhaltigkeit als Unternehmensziel"
+        },
+        {
+          "id": "7-5-3",
+          "tiefe": "Akkus statt Einwegbatterien, Batterierückgabe"
         }
       ]
     },
@@ -1247,6 +1263,10 @@
         {
           "id": "7-4-3",
           "tiefe": "Messen nur an Kleinspannung"
+        },
+        {
+          "id": "7-5-1",
+          "tiefe": "Kleinspannung vs. Netzspannung im CPS"
         }
       ]
     },
@@ -1318,6 +1338,10 @@
         {
           "id": "6-6-2",
           "tiefe": "Verweis, laufende Messung statt Einzelauftrag"
+        },
+        {
+          "id": "7-5-3",
+          "tiefe": "Rückblick CPS-Auftrag, Lessons Learned"
         }
       ]
     },
@@ -2556,6 +2580,10 @@
         {
           "id": "7-4-4",
           "tiefe": "Validierung mit Messwerten"
+        },
+        {
+          "id": "7-5-3",
+          "tiefe": "Optimierung: nur bei Änderung senden"
         }
       ]
     },
@@ -2626,6 +2654,14 @@
         {
           "id": "7-4-2",
           "tiefe": "Last Will im Fehlertest"
+        },
+        {
+          "id": "7-5-1",
+          "tiefe": "Last Will zur Ausfallerkennung"
+        },
+        {
+          "id": "7-5-2",
+          "tiefe": "TLS, Anmeldung und Zugriffslisten am Broker"
         }
       ]
     },
@@ -2641,6 +2677,35 @@
         {
           "id": "7-4-3",
           "tiefe": "Multimeter, Referenzmessung"
+        }
+      ]
+    },
+    {
+      "begriff": "betriebssicherheit-cps",
+      "kernfakten": [
+        "IT-Fachkraft arbeitet an Kleinspannung; Netzspannung (Laststromkreis, Netzteil im Schaltschrank) Elektrofachkraft.",
+        "Sicherer Zustand (fail-safe) für jeden Ausfall festlegen; Ruhestromprinzip: Relais im Normalbetrieb angezogen, fällt bei Stromausfall ab und löst separat versorgte Warnung aus; wichtige Funktionen lokal statt nur Cloud.",
+        "Ausfälle erkennen: Heartbeat (Lebenszeichen), Last Will, Watchdog (Neustart bei hängendem Programm), Plausibilitätsprüfung, Batteriestand. Last Will nur für Geräte mit eigener Broker-Verbindung; Lebenszeichen-Schwelle an Sendeintervall koppeln.",
+        "Verfügbarkeit: USV, zweiter Alarmweg, Sicherung der Konfiguration."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-5-1",
+          "tiefe": "Betriebssicherheit"
+        }
+      ]
+    },
+    {
+      "begriff": "iot-sicherheit",
+      "kernfakten": [
+        "Schwachstellen: Standardpasswörter, fehlende Updates, MQTT ohne TLS, offener Broker ohne Anmeldung, flaches Netz, physischer Zugriff.",
+        "Maßnahmen: härten, Updates, TLS (8883) und HTTPS, Anmeldung je Gerät, Zugriffsliste je Topic, eigenes Netzsegment mit Firewall, keine Portfreigabe ins Internet, physischer Schutz.",
+        "EU-Cyberresilienz-Verordnung (EU) 2024/2847: Meldepflicht für ausgenutzte Lücken seit September 2026, Sicherheitsanforderungen ab Dezember 2027, Updates für festgelegten Zeitraum, in der Regel mindestens fünf Jahre."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-5-2",
+          "tiefe": "Schwachstellen und Maßnahmen"
         }
       ]
     }

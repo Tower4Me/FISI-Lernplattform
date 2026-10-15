@@ -1,0 +1,125 @@
+{
+  "titel": "Check 7.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Zuständigkeit",
+      "frage": "Ein Relaismodul soll künftig eine Warnleuchte mit Netzspannung schalten. Wer schließt den Laststromkreis an?",
+      "optionen": [
+        "Eine Elektrofachkraft",
+        "Die IT-Fachkraft am Board",
+        "Die Marktleitung nach Einweisung",
+        "Der Sensorhersteller"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "An Kleinspannung darf die IT-Fachkraft arbeiten. Sobald Netzspannung beteiligt ist, ist eine Elektrofachkraft zuständig."
+    },
+    {
+      "typ": "mc",
+      "thema": "Sicherer Zustand",
+      "frage": "Die Steuerung der Warnmeldung verliert ihren Strom. Welche Auslegung sorgt dafür, dass die Warnung trotzdem ausgelöst wird?",
+      "optionen": [
+        "Ruhestromprinzip: Relais fällt ab und schaltet den Alarm",
+        "Ein kürzeres Sendeintervall aller Sensoren im Normalbetrieb",
+        "Eine höhere Dienstgüte für alle Nachrichten an den Broker",
+        "Ein Watchdog, der den Kleinrechner jede Stunde neu startet"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Beim Ruhestromprinzip hält die Steuerung das Relais im Normalbetrieb angezogen. Fällt ihr Strom aus, fällt das Relais ab, und die separat versorgte Warnung wird ausgelöst."
+    },
+    {
+      "typ": "mc",
+      "thema": "Ausfall erkennen",
+      "frage": "Ein Sensor ist ausgefallen, sendet also nichts mehr. Woran erkennt die Auswertung das?",
+      "optionen": [
+        "Am ausbleibenden Lebenszeichen (Heartbeat)",
+        "An einem besonders hohen Messwert des Sensors",
+        "An der Plausibilitätsprüfung der letzten Werte",
+        "Am Retained-Wert, den der Broker gespeichert hat"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Meldet sich ein Gerät nicht mehr in der erwarteten Zeit, schlägt die Auswertung Alarm. Die Plausibilitätsprüfung erkennt falsche Werte, aber keine fehlenden."
+    },
+    {
+      "typ": "mc",
+      "thema": "Watchdog",
+      "frage": "Wozu dient ein Watchdog in einem Mikrocontroller?",
+      "optionen": [
+        "Er startet das Gerät neu, wenn das Programm hängt",
+        "Er verschlüsselt die Nachrichten an den Broker mit TLS",
+        "Er misst die Batteriespannung und meldet sie dem Broker",
+        "Er prüft, ob die Messwerte im erlaubten Bereich liegen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Programm muss den Watchdog regelmäßig zurücksetzen. Bleibt das aus, weil das Programm hängt, löst er einen Neustart aus."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rechte am Broker",
+      "frage": "Das Relaismodul der Warnleuchte soll nur seine eigenen Nachrichten empfangen und selbst keine veröffentlichen. Welche Einstellung am Broker setzt das um?",
+      "optionen": [
+        "Eine Zugriffsliste: nur dieses Topic lesen, nichts senden",
+        "Ein anonymer Zugang, damit das Modul ohne Passwort verbindet",
+        "Die Retained-Markierung für alle Topics des Biomarkts",
+        "Ein eigener Broker für jedes Gerät im Netz des Marktes"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Mit einer Zugriffsliste legst du fest, welches Gerät welche Topics lesen oder beschreiben darf. Anonymer Zugang wäre eine Schwachstelle."
+    },
+    {
+      "typ": "mc",
+      "thema": "Netz trennen",
+      "frage": "Die Sensoren hängen im selben Netz wie die Kassen. Welche Maßnahme verringert das Risiko am wirksamsten?",
+      "optionen": [
+        "Ein eigenes Netzsegment mit Firewall für die Sensorik",
+        "Ein längeres WLAN-Passwort für das gemeinsame Netz",
+        "Ein Virenscanner auf dem Einplatinencomputer",
+        "Eine zweite SSID mit gleichem Passwort und gleichem Netz"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "In einem eigenen Segment erreicht ein übernommener Sensor die Kassen nicht. Die Firewall lässt nur die nötigen Verbindungen zu, etwa zum Broker."
+    },
+    {
+      "typ": "mc",
+      "thema": "Verschlüsselung",
+      "frage": "Ein Broker nimmt Verbindungen auf Port 1883 ohne TLS an. Welches Risiko besteht?",
+      "optionen": [
+        "Nachrichten lassen sich im Netz mitlesen und verändern",
+        "Die Sensoren verbrauchen dadurch deutlich mehr Strom",
+        "Der Broker kann keine Last-Will-Meldungen verschicken",
+        "Topics mit Platzhaltern lassen sich nicht abonnieren"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ohne TLS gehen Nachrichten im Klartext durchs Netz. Verschlüsselt wird MQTT über TLS, üblich auf Port 8883."
+    },
+    {
+      "typ": "mc",
+      "thema": "Optimieren",
+      "frage": "Welche Anpassung verlängert die Batterielaufzeit eines Sensors am stärksten, ohne dass wichtige Temperatursprünge unbemerkt bleiben?",
+      "optionen": [
+        "Nur bei deutlicher Änderung senden, sonst alle 30 min ein Lebenszeichen",
+        "Die Messwerte vor dem Senden mit TLS verschlüsseln",
+        "Das Sendeintervall für alle Sensoren auf einmal am Tag festlegen",
+        "Den Sensor im Dauerbetrieb ohne Schlafphase laufen lassen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Wer nur bei deutlicher Änderung sendet, spart Sendephasen und damit Energie. Das Lebenszeichen alle 30 Minuten zeigt weiter, dass der Sensor arbeitet; einmal am Tag würde Temperatursprünge zu spät melden."
+    }
+  ]
+}

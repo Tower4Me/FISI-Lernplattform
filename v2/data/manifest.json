@@ -4242,6 +4242,80 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "7.5",
+          "titel": "Betriebs- und Datensicherheit",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "7.5.1",
+              "titel": "Betriebssicherheit",
+              "slug": "betriebssicherheit",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Ergebnis in Bezug auf Betriebssicherheit diskutieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 6, Abschnitt C Nr. 1 a",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchwissen: sicherer Zustand (fail-safe), Ruhestromprinzip, Watchdog, Heartbeat",
+                  "DGUV Vorschrift 3 und Elektrofachkraft (Rückverweis LF2 2.7.1)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "betriebssicherheit-cps",
+                "elektrische-sicherheit",
+                "usv",
+                "mqtt"
+              ]
+            },
+            {
+              "nummer": "7.5.2",
+              "titel": "Datensicherheit im IoT",
+              "slug": "datensicherheit-im-iot",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Ergebnis in Bezug auf Datensicherheit diskutieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 6, Abschnitt C Nr. 1 a",
+                "zpa": "",
+                "ihk": [
+                  "AP2 mehrere Prüfungen (Firmware-Updates über einen festen Zeitraum als Auswahlkriterium)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium, Baustein IND.2.4 Maschine und SYS.4.4 Allgemeines IoT-Gerät, sinngemäß",
+                  "Verordnung (EU) 2024/2847 (Cyberresilienz-Verordnung): Meldepflichten ab 11.09.2026, Anforderungen ab 11.12.2027",
+                  "OASIS MQTT 5.0 (Authentifizierung), TLS"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "iot-sicherheit",
+                "haertung",
+                "verschluesselung",
+                "mqtt"
+              ]
+            },
+            {
+              "nummer": "7.5.3",
+              "titel": "Ergebnis bewerten und optimieren",
+              "slug": "ergebnis-bewerten-und-optimieren",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Arbeitsprozess hinsichtlich möglicher Optimierungen reflektieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 5 und 7",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Verordnung (EU) 2023/1542 (Batterieverordnung) und Batterierecht-Durchführungsgesetz (BattDG): Rückgabe von Altbatterien an Sammelstellen, sinngemäß"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "auftragsauswertung",
+                "energiebedarf-iot",
+                "green-it"
+              ]
+            }
+          ]
         }
       ]
     }

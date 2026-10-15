@@ -880,6 +880,10 @@
         {
           "id": "2-2-6",
           "tiefe": "Arbeitsplatzanschlüsse"
+        },
+        {
+          "id": "7-2-2",
+          "tiefe": "Sensor-Schnittstellen GPIO, I²C, SPI, UART"
         }
       ]
     },
@@ -1000,6 +1004,10 @@
         {
           "id": "2-4-4",
           "tiefe": "Formeln, Netzteil"
+        },
+        {
+          "id": "7-2-3",
+          "tiefe": "P = U × I bei Netzteil und PoE"
         }
       ]
     },
@@ -1382,6 +1390,10 @@
         {
           "id": "3-3-4",
           "tiefe": "Geräte, PoE"
+        },
+        {
+          "id": "7-2-3",
+          "tiefe": "PoE als Versorgung für IoT-Geräte"
         }
       ]
     },
@@ -2387,6 +2399,10 @@
         {
           "id": "1-2-4",
           "tiefe": "Industrie 4.0 als Leistungsbegriff"
+        },
+        {
+          "id": "7-2-1",
+          "tiefe": "Sensorknoten und Gateway"
         }
       ]
     },
@@ -2401,6 +2417,10 @@
         {
           "id": "7-1-2",
           "tiefe": "Arten, Signale, A/D-Wandlung"
+        },
+        {
+          "id": "7-2-2",
+          "tiefe": "Anschluss von Sensoren und Aktoren"
         }
       ]
     },
@@ -2416,6 +2436,58 @@
         {
           "id": "7-1-3",
           "tiefe": "Steuerung, Regelung, Zweipunktregler"
+        }
+      ]
+    },
+    {
+      "begriff": "mikrocontroller",
+      "kernfakten": [
+        "Mikrocontroller: Prozessor, kleiner RAM, Programmspeicher und Ein-/Ausgänge in einem Chip, feste Firmware, sehr sparsam (Schlafmodus µA), Sensorknoten.",
+        "Einplatinencomputer: vollständiger Rechner mit Betriebssystem (meist Linux), mehrere Watt, Gateway/Broker/Auswertung, braucht Updates wie ein Server.",
+        "SPS: robuste Steuerung für Maschinen und Anlagen im Schaltschrank.",
+        "Gateway: gibt Nachrichten von Nicht-IP-Funk (Zigbee, LoRaWAN) ins IP-Netz weiter.",
+        "Schnittstellen: GPIO (Ein/Aus), Analogeingang (A/D), I²C (Bus SDA/SCL, Adressen), SPI (4 Leitungen, Chip Select, schneller), UART (TX/RX gekreuzt, gleiche Baudrate); gemeinsame Masse; 3,3 V vs. 5 V nur mit Pegelwandler; Lasten über Relaismodul/Treiber."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-2-1",
+          "tiefe": "Auswahl, Gateway"
+        },
+        {
+          "id": "7-2-2",
+          "tiefe": "Schnittstellen und Pegel"
+        }
+      ]
+    },
+    {
+      "begriff": "energiebedarf-iot",
+      "kernfakten": [
+        "Versorgung: Netzteil, PoE (Budget beachten), Batterie/Akku, Energy Harvesting.",
+        "Laufzeit in h = Kapazität mAh ÷ durchschnittlicher Strom mA; Durchschnitt = (I aktiv × t aktiv + I Schlaf × t Schlaf) ÷ Zykluszeit.",
+        "Senden verbraucht fast alles; seltener senden verlängert die Laufzeit stark; Reserve 20–30 % (Kälte, Alterung, Selbstentladung)."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-2-3",
+          "tiefe": "Versorgungsarten, Laufzeitrechnung"
+        },
+        {
+          "id": "7-2-4",
+          "tiefe": "Batterie bei Kälte"
+        }
+      ]
+    },
+    {
+      "begriff": "schutzart-ip",
+      "kernfakten": [
+        "IP-Code (DIN EN 60529): erste Ziffer Fremdkörper/Berührung (5 staubgeschützt, 6 staubdicht), zweite Wasser (4 Spritzwasser, 5 Strahlwasser, 6 starkes Strahlwasser, 7 zeitweiliges Untertauchen); X = nicht geprüft.",
+        "Bis Ziffer 6 schließt höhere Wasserziffer niedrigere ein; IPX7 schließt Strahlwasser nicht automatisch ein (Doppelangabe IP65/IP67).",
+        "Typisch: IP20 trockener Innenraum, IP44 Spritzwasser, IP65 staubige oder abgespritzte Bereiche, IP67 außen mit kurzem Untertauchen."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-2-4",
+          "tiefe": "IP-Code, Umgebung"
         }
       ]
     }

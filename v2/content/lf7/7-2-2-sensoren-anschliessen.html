@@ -1,0 +1,32 @@
+<p class="lead">Ein neuer Sensor passt nur dann zum vorhandenen Board, wenn beide dieselbe Schnittstelle und dieselbe Spannung nutzen. Falsch angeschlossen liefert er keine Werte oder beschädigt sogar das Board. Deshalb prüfst du vor dem Kauf, wie der Sensor seine Daten abgibt.</p>
+
+<h3>Die üblichen Schnittstellen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schnittstelle</th><th>Leitungen</th><th>Eigenschaften</th><th>Typisch für</th></tr></thead>
+    <tbody>
+      <tr><th>GPIO (digitaler Ein- und Ausgang)</th><td>eine Signalleitung je Kontakt, dazu Masse</td><td>nur zwei Zustände: hohe oder niedrige Spannung</td><td>Türkontakt, Taster, Bewegungsmelder; LED oder Relaismodul ansteuern</td></tr>
+      <tr><th>Analogeingang</th><td>eine Signalleitung, dazu Masse</td><td>misst eine Spannung über einen A/D-Wandler (Kapitel 7.1.2); bei Mikrocontrollern meist eingebaut, Einplatinencomputer brauchen oft einen externen Wandler</td><td>einfache analoge Sensoren</td></tr>
+      <tr><th>I²C</th><td>zwei Leitungen: Daten (SDA) und Takt (SCL)</td><td>Bus: mehrere Sensoren an denselben zwei Leitungen, jeder mit eigener Adresse; für kurze Wege auf der Platine oder im Gehäuse</td><td>Temperatur-, Feuchte-, Drucksensoren</td></tr>
+      <tr><th>SPI</th><td>vier Leitungen: Takt, Daten hin, Daten zurück, Auswahl (Chip Select)</td><td>schneller als I²C; jedes Gerät braucht eine eigene Auswahlleitung</td><td>Anzeigen, Speicherkarten, schnelle Sensoren</td></tr>
+      <tr><th>UART (seriell)</th><td>Senden (TX) und Empfangen (RX), über Kreuz verbunden</td><td>zwei Geräte direkt miteinander; beide müssen dieselbe Geschwindigkeit (Baudrate) nutzen</td><td>GPS-Module, Feinstaubsensoren, Funkmodule</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Alle Leitungen beziehen sich auf eine gemeinsame <strong>Masse</strong> (GND). Fehlt die Masseverbindung, sind die Signale nicht auswertbar. Dazu kommt die Versorgungsspannung des Sensors.</p>
+
+<h3>Auf die Spannung achten</h3>
+<p>Viele Boards arbeiten mit 3,3 V an ihren Anschlüssen, ältere Module und manche Sensoren mit 5 V. Ein 5-V-Signal an einem 3,3-V-Eingang kann das Board zerstören. Abhilfe ist ein <strong>Pegelwandler</strong>, oder du wählst gleich einen Sensor für 3,3 V. Die zulässigen Werte stehen im Datenblatt (Kapitel 7.4.1).</p>
+<p>Ein GPIO-Ausgang liefert nur wenige Milliampere. Ein Relais, einen Motor oder eine helle Warnleuchte schließt du deshalb nie direkt an, sondern über eine Treiberstufe oder ein fertiges Relaismodul.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Lagerhalle wählt die Auszubildende einen kombinierten Temperatur- und Feuchtesensor mit I²C und 3,3 V. Ein weiterer I²C-Sensor könnte später an denselben zwei Leitungen hängen, wenn er eine andere Adresse hat. Am Kühlraum hängt der Türkontakt als Magnetkontakt an einem GPIO-Eingang eines eigenen Boards. Die Warnleuchte im Verkaufsraum schaltet ein Relaismodul an einem GPIO-Ausgang.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>In Industrieanlagen begegnen dir außerdem robuste Verfahren für lange Leitungen, etwa Stromsignale von 4 bis 20 mA oder Feldbusse wie Modbus. Für Sensoren im Gebäude reichen meist die Schnittstellen der Tabelle oder Funk.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>GPIO</strong> für Ein/Aus, <strong>Analogeingang</strong> für Spannungen, <strong>I²C</strong> als Bus mit Adressen, <strong>SPI</strong> schnell mit Auswahlleitung, <strong>UART</strong> seriell zwischen zwei Geräten.</li>
+  <li><strong>Spannung</strong> prüfen: 3,3-V- und 5-V-Teile nur mit Pegelwandler verbinden; Lasten über Relaismodul oder Treiber schalten.</li>
+</ul>

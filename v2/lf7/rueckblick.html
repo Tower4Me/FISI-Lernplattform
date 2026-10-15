@@ -447,6 +447,15 @@
             <li><a class="up is-check" data-check="lf7-7-1" href="7-1-check.html"><span class="num">7.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="7-2-1-mikrocontroller-und-einplatinencomputer.html"><span class="num">7.2</span><span>Hardware und Energieversorgung auswählen</span><span class="kap-progress" data-ids="7-2-1 7-2-2 7-2-3 7-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="7-2-1" href="7-2-1-mikrocontroller-und-einplatinencomputer.html"><span class="num">7.2.1</span><span class="t">Mikrocontroller und Einplatinencomputer</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-2-2" href="7-2-2-sensoren-anschliessen.html"><span class="num">7.2.2</span><span class="t">Sensoren anschließen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-2-3" href="7-2-3-energieversorgung-planen.html"><span class="num">7.2.3</span><span class="t">Energieversorgung planen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-2-4" href="7-2-4-umgebungsbedingungen-beachten.html"><span class="num">7.2.4</span><span class="t">Umgebungsbedingungen beachten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf7-7-2" href="7-2-check.html"><span class="num">7.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">7.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -470,8 +479,21 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-7-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 7.1</a></p>
 </section>
+<section class="rb-kapitel" id="k-7-2"><h2><span class="num">7.2</span> Hardware und Energieversorgung auswählen</h2>
+<ul class="rb-list">
+<li><span class="num">7.2.1</span><div><a href="7-2-1-mikrocontroller-und-einplatinencomputer.html">Mikrocontroller und Einplatinencomputer</a><ul><li><strong>Mikrocontroller:</strong> ein Chip mit fester Firmware, sehr sparsam, ideal als Sensorknoten.</li>
+  <li><strong>Einplatinencomputer:</strong> vollständiger Rechner mit Betriebssystem, für Gateway, Broker und Auswertung; braucht Updates wie ein Server.</li></ul></div></li>
+<li><span class="num">7.2.2</span><div><a href="7-2-2-sensoren-anschliessen.html">Sensoren anschließen</a><ul><li><strong>GPIO</strong> für Ein/Aus, <strong>Analogeingang</strong> für Spannungen, <strong>I²C</strong> als Bus mit Adressen, <strong>SPI</strong> schnell mit Auswahlleitung, <strong>UART</strong> seriell zwischen zwei Geräten.</li>
+  <li><strong>Spannung</strong> prüfen: 3,3-V- und 5-V-Teile nur mit Pegelwandler verbinden; Lasten über Relaismodul oder Treiber schalten.</li></ul></div></li>
+<li><span class="num">7.2.3</span><div><a href="7-2-3-energieversorgung-planen.html">Energieversorgung planen</a><ul><li><strong>Versorgung:</strong> Netzteil oder PoE für dauerhaft versorgte Geräte, Batterie für sparsame Sensorknoten ohne Kabel.</li>
+  <li><strong>Laufzeit</strong> = Kapazität in mAh ÷ durchschnittlicher Strom in mA; der Durchschnitt ergibt sich aus Schlaf- und Sendephasen, Reserve einplanen.</li></ul></div></li>
+<li><span class="num">7.2.4</span><div><a href="7-2-4-umgebungsbedingungen-beachten.html">Umgebungsbedingungen beachten</a><ul><li><strong>IP-Code:</strong> erste Ziffer Schutz gegen Fremdkörper und Staub (6 = staubdicht), zweite gegen Wasser (4 = Spritzwasser, 5 = Strahlwasser, 7 = kurzes Untertauchen).</li>
+  <li>Außerdem prüfen: Temperaturbereich, Feuchte und Kondenswasser, Staub, Funkdämpfung und Erschütterungen am Einsatzort.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-7-2.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 7.2</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="7-1-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">7.1</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="7-2-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">7.2</span>Check</span></a></nav>
 </main>
 </div>
 </body>

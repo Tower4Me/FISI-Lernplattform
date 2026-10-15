@@ -3950,6 +3950,98 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "7.2",
+          "titel": "Hardware und Energieversorgung auswählen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "7.2.1",
+              "titel": "Mikrocontroller und Einplatinencomputer",
+              "slug": "mikrocontroller-und-einplatinencomputer",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Kriterien für die Auswahl der Hardware aufstellen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b und d",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchwissen Mikrocontroller, Einplatinencomputer, SPS; herstellerneutral"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "mikrocontroller",
+                "cps-iot"
+              ]
+            },
+            {
+              "nummer": "7.2.2",
+              "titel": "Sensoren anschließen",
+              "slug": "sensoren-anschliessen",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Hardware auswählen, Schnittstellen zwischen physischer Welt und IT-System",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 d, Nr. 2 a",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "I²C-Bus-Spezifikation (NXP UM10204), sinngemäß",
+                  "Lehrbuchwissen SPI, UART, GPIO, Logikpegel 3,3 V/5 V"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "mikrocontroller",
+                "sensor-aktor",
+                "schnittstellen"
+              ]
+            },
+            {
+              "nummer": "7.2.3",
+              "titel": "Energieversorgung planen",
+              "slug": "energieversorgung-planen",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Kriterien für die Auswahl der Energieversorgung aufstellen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b und d",
+                "zpa": "",
+                "ihk": [
+                  "AP2 Sommer 2025 (Leistungsaufnahme als Auswahlkriterium)"
+                ],
+                "extern": [
+                  "Lehrbuchwissen Batteriekapazität mAh, mittlere Stromaufnahme",
+                  "IEEE 802.3af/at/bt (Rückverweis LF3)"
+                ]
+              },
+              "material": [
+                "elektrotechnik-grundformeln",
+                "poe"
+              ],
+              "begriffe": [
+                "energiebedarf-iot",
+                "elektrische-leistung",
+                "netzwerkkomponenten"
+              ]
+            },
+            {
+              "nummer": "7.2.4",
+              "titel": "Umgebungsbedingungen beachten",
+              "slug": "umgebungsbedingungen-beachten",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Kriterien für die Auswahl der Hardware (Einsatzumgebung)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b und d",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "DIN EN 60529 (IP-Code), Ziffernbedeutung sinngemäß"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "schutzart-ip",
+                "energiebedarf-iot"
+              ]
+            }
+          ]
         }
       ]
     }

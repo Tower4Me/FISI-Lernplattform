@@ -1,0 +1,47 @@
+<p class="lead">Ein Sensor an der Hallendecke, weit weg von jeder Steckdose: Woher bekommt er seinen Strom, und wie lange hält eine Batterie? Die Energieversorgung entscheidet, wo ein Gerät hängen kann und wie oft jemand vorbeikommen muss.</p>
+
+<h3>Möglichkeiten im Überblick</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Versorgung</th><th>Vorteile</th><th>Nachteile</th><th>passt für</th></tr></thead>
+    <tbody>
+      <tr><th>Netzteil an der Steckdose</th><td>dauerhaft, viel Leistung</td><td>Steckdose nötig, Kabel</td><td>Einplatinencomputer, Gateway</td></tr>
+      <tr><th>PoE (LF3, Kapitel 3.3.4)</th><td>Strom und Daten über ein Netzwerkkabel, zentral über den Switch abschaltbar und mit USV absicherbar</td><td>Kabel bis zum Gerät, PoE-fähiger Switch und PoE-fähiges Gerät nötig</td><td>Kameras, Access Points, Gateways an der Decke</td></tr>
+      <tr><th>Batterie oder Akku</th><td>keine Kabel, freie Montage</td><td>begrenzte Laufzeit, Wechsel oder Laden, Entsorgung</td><td>sparsame Sensorknoten</td></tr>
+      <tr><th>Energy Harvesting</th><td>Energie aus der Umgebung, etwa Licht oder Bewegung, wartungsarm</td><td>nur sehr wenig Leistung</td><td>Funkschalter, sehr sparsame Sensoren</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei Netzteil und PoE rechnest du mit der Leistung: P = U × I (LF2, Kapitel 2.4.4). Die Summe aller Geräte am PoE-Switch darf dessen PoE-Budget nicht übersteigen.</p>
+
+<h3>Wie lange hält die Batterie?</h3>
+<p>Die <strong>Kapazität</strong> einer Batterie gibt an, wie viel Ladung sie liefern kann, meist in Milliamperestunden (mAh). Eine Batterie mit 2600 mAh liefert zum Beispiel 26 Stunden lang 100 mA.</p>
+<p class="formel">Laufzeit in Stunden = Kapazität in mAh ÷ durchschnittlicher Strom in mA</p>
+<p>Ein Sensorknoten braucht aber nicht dauernd gleich viel Strom. Er schläft fast immer und wacht nur kurz zum Messen und Senden auf. Den durchschnittlichen Strom berechnest du deshalb als gewichteten Mittelwert über einen Zyklus:</p>
+<p class="formel">durchschnittlicher Strom = (Strom aktiv × Zeit aktiv + Strom im Schlaf × Zeit im Schlaf) ÷ Zykluszeit</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Feuchtesensor mit WLAN braucht beim Senden 80 mA für 2 Sekunden, im Schlaf 0,01 mA. Er hat eine Batterie mit 2600 mAh.</p>
+  <ul>
+    <li>Senden alle 5 Minuten (300 s): (80 mA × 2 s + 0,01 mA × 298 s) ÷ 300 s ≈ 0,54 mA. Laufzeit: 2600 ÷ 0,54 ≈ 4800 h, also rund 200 Tage.</li>
+    <li>Senden alle 15 Minuten (900 s): (80 mA × 2 s + 0,01 mA × 898 s) ÷ 900 s ≈ 0,188 mA. Laufzeit: 2600 ÷ 0,188 ≈ 13.800 h, also rund 1,6 Jahre.</li>
+    <li>Zum Vergleich, Senden alle 60 s wie die alten Kühlraumsensoren: (80 mA × 2 s + 0,01 mA × 58 s) ÷ 60 s ≈ 2,7 mA. Laufzeit: rund 970 h, also nur etwa 40 Tage.</li>
+  </ul>
+  <p>Fast der ganze Verbrauch entsteht beim Senden. Seltener senden verlängert die Laufzeit stark. Für eine Lagerhalle reicht ein Wert alle 15 Minuten.</p>
+</div>
+<p>Die Rechnung ist ein Idealwert. Kälte, Alterung und Selbstentladung verringern die nutzbare Kapazität; im Kühlraum deutlich. Plane deshalb eine Reserve von etwa 20 bis 30 Prozent ein und prüfe den Wert später durch Messung (Kapitel 7.4.4).</p>
+
+<h3>Strom sparen</h3>
+<ul>
+  <li><strong>Schlafmodus</strong> nutzen und nur zum Messen aufwachen,</li>
+  <li><strong>seltener senden</strong> oder nur, wenn sich der Wert deutlich ändert,</li>
+  <li>eine <strong>sparsame Funktechnik</strong> wählen (Kapitel 7.3.1),</li>
+  <li>nicht benötigte Bauteile wie Status-LEDs abschalten.</li>
+</ul>
+
+<aside class="note" data-typ="fehler"><p>„Die Batterie hat 2600 mAh, der Sensor braucht beim Senden 80 mA, also hält sie 32 Stunden.“ Das stimmt nur, wenn der Sensor ununterbrochen sendet. Maßgeblich ist der durchschnittliche Strom über den ganzen Zyklus aus Schlafen und Senden.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Versorgung:</strong> Netzteil oder PoE für dauerhaft versorgte Geräte, Batterie für sparsame Sensorknoten ohne Kabel.</li>
+  <li><strong>Laufzeit</strong> = Kapazität in mAh ÷ durchschnittlicher Strom in mA; der Durchschnitt ergibt sich aus Schlaf- und Sendephasen, Reserve einplanen.</li>
+</ul>

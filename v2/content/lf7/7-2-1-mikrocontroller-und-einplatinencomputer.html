@@ -1,0 +1,42 @@
+<p class="lead">Ein Sensor allein schickt noch keine Nachricht ins Netz. Dazwischen sitzt ein kleiner Rechner, der den Sensor ausliest, die Werte aufbereitet und versendet. Je nach Aufgabe ist das ein Mikrocontroller für wenige Euro oder ein Einplatinencomputer mit vollständigem Betriebssystem. Die Wahl entscheidet über Stromverbrauch, Aufwand und Sicherheit.</p>
+
+<h3>Zwei Klassen kleiner Rechner</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Mikrocontroller</th><th>Einplatinencomputer</th></tr></thead>
+    <tbody>
+      <tr><th>Aufbau</th><td>Prozessor, kleiner Arbeitsspeicher (Kilobyte), Programmspeicher und Ein- und Ausgänge in einem Chip</td><td>vollständiger Rechner auf einer Platine: Prozessor, Arbeitsspeicher (Gigabyte), Speicherkarte, USB, Netzwerk</td></tr>
+      <tr><th>Software</th><td>ein einzelnes Programm (Firmware), läuft direkt nach dem Einschalten, ohne Betriebssystem oder mit sehr kleinem Echtzeitbetriebssystem</td><td>Betriebssystem, meist Linux, darauf beliebige Programme und Dienste</td></tr>
+      <tr><th>Energie</th><td>sehr gering, im Schlafmodus nur Mikroampere; Batteriebetrieb über Jahre möglich</td><td>typisch einige Watt, meist Netzteil oder PoE</td></tr>
+      <tr><th>Start</th><td>in Bruchteilen einer Sekunde</td><td>einige Sekunden bis Minuten</td></tr>
+      <tr><th>Pflege</th><td>Firmware selten aktualisiert, wenig Angriffsfläche</td><td>Betriebssystem braucht regelmäßige Updates wie ein Server</td></tr>
+      <tr><th>typische Rolle</th><td>Sensorknoten: misst, sendet, schläft</td><td>Gateway, Broker, Auswertung, Anzeige</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Viele Mikrocontroller-Module haben WLAN oder Bluetooth schon eingebaut. Daneben gibt es in der Industrie <strong>speicherprogrammierbare Steuerungen</strong> (SPS): robuste Steuergeräte für Maschinen und Anlagen, die für den Dauerbetrieb im Schaltschrank gebaut sind.</p>
+
+<h3>Das Gateway</h3>
+<p>Nicht jeder Sensor spricht direkt IP. Funkstandards wie Zigbee oder LoRaWAN (Kapitel 7.3.1) brauchen ein <strong>Gateway</strong>: ein Gerät, das die Funknachrichten der Sensoren empfängt und ins IP-Netz weitergibt. Oft übernimmt ein Einplatinencomputer diese Rolle und sammelt zugleich die Daten.</p>
+
+<h3>Worauf du bei der Auswahl achtest</h3>
+<ul>
+  <li><strong>Aufgabe:</strong> Für reines Messen und Senden reicht ein Mikrocontroller. Wer Daten speichern, auswerten oder mehrere Dienste anbieten will, braucht einen Einplatinencomputer oder Server.</li>
+  <li><strong>Energie:</strong> Batteriebetrieb spricht klar für den Mikrocontroller.</li>
+  <li><strong>Schnittstellen:</strong> Hat das Board die Anschlüsse und Funkstandards, die die Sensoren brauchen (Kapitel 7.2.2)?</li>
+  <li><strong>Software:</strong> Gibt es gepflegte Bibliotheken für Sensor und Protokoll (Kapitel 7.3.5)?</li>
+  <li><strong>Betrieb:</strong> Wer spielt Updates ein? Ist das Gerät lange lieferbar, damit Ersatz baugleich bleibt?</li>
+  <li><strong>Umgebung:</strong> Temperaturbereich und Gehäuse (Kapitel 7.2.4).</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Biomarkt-Lager läuft auf einem Einplatinencomputer mit Linux der zentrale Dienst, der alle Messwerte sammelt, speichert und Alarme verschickt. Die neuen Feuchtesensoren in der Halle bekommen dagegen je einen Mikrocontroller mit eingebautem WLAN. Er wacht alle 15 Minuten auf, liest den Sensor, sendet den Wert und schläft wieder. So hält die Batterie lange.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Einplatinencomputer ist immer die bessere Wahl, weil er mehr kann.“ Für einen batteriebetriebenen Sensorknoten nicht: Er braucht ein Vielfaches an Strom, startet langsam und muss als vollwertiges System gepflegt und abgesichert werden.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Mikrocontroller:</strong> ein Chip mit fester Firmware, sehr sparsam, ideal als Sensorknoten.</li>
+  <li><strong>Einplatinencomputer:</strong> vollständiger Rechner mit Betriebssystem, für Gateway, Broker und Auswertung; braucht Updates wie ein Server.</li>
+</ul>

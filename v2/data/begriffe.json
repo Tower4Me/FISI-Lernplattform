@@ -458,6 +458,10 @@
         {
           "id": "7-1-4",
           "tiefe": "USV für Kleinrechner und Switch der Überwachung"
+        },
+        {
+          "id": "7-4-4",
+          "tiefe": "Gesamtlast für Überbrückungszeit"
         }
       ]
     },
@@ -1035,6 +1039,10 @@
         {
           "id": "2-4-5",
           "tiefe": "Berechnung"
+        },
+        {
+          "id": "7-4-4",
+          "tiefe": "Dauerlast 36 W im Jahr"
         }
       ]
     },
@@ -1235,6 +1243,10 @@
         {
           "id": "7-1-2",
           "tiefe": "Relais: Netzspannungsseite durch Elektrofachkraft"
+        },
+        {
+          "id": "7-4-3",
+          "tiefe": "Messen nur an Kleinspannung"
         }
       ]
     },
@@ -1253,6 +1265,14 @@
         {
           "id": "5-6-1",
           "tiefe": "Testprotokoll je Testfall (Rückverweis)"
+        },
+        {
+          "id": "7-4-2",
+          "tiefe": "Ablauf Integration, Ende-zu-Ende-Test"
+        },
+        {
+          "id": "7-4-4",
+          "tiefe": "Prüfprotokoll CPS"
         }
       ]
     },
@@ -1342,6 +1362,10 @@
         {
           "id": "7-1-4",
           "tiefe": "Bestandsaufnahme aus Netzwerkplänen"
+        },
+        {
+          "id": "7-4-1",
+          "tiefe": "Dokumentation nach Erweiterung anpassen"
         }
       ]
     },
@@ -2462,6 +2486,10 @@
         {
           "id": "7-2-2",
           "tiefe": "Anschluss von Sensoren und Aktoren"
+        },
+        {
+          "id": "7-4-3",
+          "tiefe": "Sensor gegen Referenz prüfen"
         }
       ]
     },
@@ -2501,6 +2529,10 @@
         {
           "id": "7-3-5",
           "tiefe": "Firmware und Bibliotheken"
+        },
+        {
+          "id": "7-4-1",
+          "tiefe": "Datenblatt und Pinbelegung"
         }
       ]
     },
@@ -2509,7 +2541,8 @@
       "kernfakten": [
         "Versorgung: Netzteil, PoE (Budget beachten), Batterie/Akku, Energy Harvesting.",
         "Laufzeit in h = Kapazität mAh ÷ durchschnittlicher Strom mA; Durchschnitt = (I aktiv × t aktiv + I Schlaf × t Schlaf) ÷ Zykluszeit.",
-        "Senden verbraucht fast alles; seltener senden verlängert die Laufzeit stark; Reserve 20–30 % (Kälte, Alterung, Selbstentladung)."
+        "Senden verbraucht fast alles; seltener senden verlängert die Laufzeit stark; Reserve 20–30 % (Kälte, Alterung, Selbstentladung).",
+        "Validieren: mit gemessenem Durchschnittsstrom nachrechnen, Reserve abziehen, gegen Anforderung prüfen; doppelter Strom = halbe Laufzeit."
       ],
       "vorkommen": [
         {
@@ -2519,6 +2552,10 @@
         {
           "id": "7-2-4",
           "tiefe": "Batterie bei Kälte"
+        },
+        {
+          "id": "7-4-4",
+          "tiefe": "Validierung mit Messwerten"
         }
       ]
     },
@@ -2542,7 +2579,8 @@
         "Zielkonflikt Reichweite, Datenrate, Energie; niedrigere Frequenz reicht weiter und durchdringt Wände besser.",
         "WLAN: viel Daten, viel Energie, direkt IP; BLE: 10–50 m, sehr sparsam, Gateway/Smartphone; Zigbee: IEEE 802.15.4, 2,4 GHz, Mesh, bis 250 kbit/s, Gateway (Koordinator).",
         "LoRaWAN: EU 868 MHz, mehrere km, wenige kbit/s, Batterie Jahre, Duty Cycle meist 1 %, Gateway und Netzwerkserver; NB-IoT/LTE-M: Mobilfunk, SIM und Vertrag.",
-        "Metallwände dämpfen Funk stark; BLE, Zigbee und WLAN (2,4 GHz) können sich stören."
+        "Metallwände dämpfen Funk stark; BLE, Zigbee und WLAN (2,4 GHz) können sich stören.",
+        "Signalstärke RSSI in dBm negativ, näher an 0 = stärker; WLAN −55 dBm sehr gut, −85 dBm schwach; Grenzwert je Technik laut Hersteller."
       ],
       "vorkommen": [
         {
@@ -2552,6 +2590,10 @@
         {
           "id": "7-2-4",
           "tiefe": "Funkdämpfung als Umgebungsbedingung"
+        },
+        {
+          "id": "7-4-2",
+          "tiefe": "Signalstärke RSSI prüfen"
         }
       ]
     },
@@ -2576,6 +2618,29 @@
         {
           "id": "7-3-4",
           "tiefe": "Datenrate vieler Geräte"
+        },
+        {
+          "id": "7-4-1",
+          "tiefe": "Topic-Schema dokumentieren"
+        },
+        {
+          "id": "7-4-2",
+          "tiefe": "Last Will im Fehlertest"
+        }
+      ]
+    },
+    {
+      "begriff": "messtechnik",
+      "kernfakten": [
+        "Multimeter: Spannung parallel (DC/AC wählen), Strom in Reihe (Kreis auftrennen; nie parallel an Spannungsquelle), Widerstand nur spannungsfrei; mit größtem Messbereich beginnen.",
+        "IT-Fachkraft misst nur an Kleinspannung; Netzspannung Elektrofachkraft.",
+        "Kleine Schlafströme (µA) mit aufzeichnendem Messgerät; USB-Messadapter; PoE-Leistung je Port am verwalteten Switch.",
+        "Sensorwerte mit Referenzmessgerät vergleichen, gegen Toleranz prüfen, ggf. Offset."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-4-3",
+          "tiefe": "Multimeter, Referenzmessung"
         }
       ]
     }

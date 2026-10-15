@@ -1,0 +1,40 @@
+<p class="lead">Bei der Planung hast du die Batterielaufzeit berechnet. Jetzt liegen Messwerte vor. Stimmen beide überein, ist die Planung bestätigt; weichen sie ab, musst du reagieren, bevor der erste Sensor nach wenigen Monaten verstummt. Dieses Abgleichen nennt man validieren.</p>
+
+<h3>Planwert und Messwert vergleichen</h3>
+<p>Beim <strong>Validieren</strong> prüfst du, ob das Ergebnis die Anforderung des Kunden erfüllt, hier etwa: „Batteriewechsel höchstens einmal im Jahr“. Dazu rechnest du mit dem gemessenen Durchschnittsstrom neu und berücksichtigst die Reserve für Kälte und Alterung (Kapitel 7.2.3).</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Geplant war für den Feuchtesensor ein Durchschnitt von 0,188 mA. Gemessen wurden 0,21 mA, also etwa 12 Prozent mehr (doppelter Strom hieße halbe Laufzeit), weil der Verbindungsaufbau zum WLAN länger dauert als angenommen.</p>
+  <ul>
+    <li>rechnerische Laufzeit: 2600 mAh ÷ 0,21 mA ≈ 12.400 h, also rund 516 Tage</li>
+    <li>mit 25 Prozent Reserve: 2600 mAh × 0,75 ÷ 0,21 mA ≈ 9300 h, also rund 387 Tage</li>
+  </ul>
+  <p>Die Anforderung von einem Jahr ist erfüllt, aber knapp. Die Auszubildende notiert das und schlägt vor, nach drei Monaten die Batteriespannung zu prüfen. Wäre die Anforderung verfehlt, kämen ein längeres Sendeintervall, eine größere Batterie oder eine andere Funktechnik in Frage.</p>
+</div>
+
+<h3>Den Gesamtbedarf prüfen</h3>
+<p>Nicht nur Batteriegeräte zählen. Für die Geräte am Stromnetz addierst du die Leistungsaufnahme und vergleichst sie mit dem, was die Versorgung hergibt:</p>
+<ul>
+  <li><strong>PoE-Budget:</strong> Reicht die Leistung des Switches für das neue Gateway (LF3, Kapitel 3.3.4)?</li>
+  <li><strong>USV:</strong> Wie lange überbrückt sie den Ausfall mit der gemessenen Gesamtlast? Kleinrechner 6 W, Switch 20 W einschließlich der PoE-Leistung für Access Point und LoRaWAN-Gateway und Router 10 W ergeben 36 W; die Überbrückungszeit für 36 W steht im Datenblatt der USV.</li>
+  <li><strong>Energiekosten:</strong> Bei Dauerbetrieb ergeben 36 W rund 315 kWh im Jahr (LF2, Kapitel 2.4.5).</li>
+</ul>
+
+<h3>Das Prüfprotokoll</h3>
+<p>Alle Prüfungen hältst du wie beim Arbeitsplatz in LF2 (Kapitel 2.7.2) in einem Protokoll fest: Prüfpunkt, Sollwert, gemessener Istwert, Ergebnis, Datum und Name.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Prüfpunkt</th><th>Soll</th><th>Ist</th><th>Ergebnis</th></tr></thead>
+    <tbody>
+      <tr><th>Batteriespannung Feuchtesensor Halle 1</th><td>3,6 V ± 0,1 V</td><td>3,62 V</td><td>i. O.</td></tr>
+      <tr><th>Durchschnittsstrom Feuchtesensor</th><td>höchstens 0,22 mA (ein Jahr mit 25 % Reserve)</td><td>0,21 mA</td><td>i. O., Laufzeit knapp über einem Jahr</td></tr>
+      <tr><th>Temperatur Kühlraum gegen Referenz</th><td>Abweichung höchstens 0,5 °C</td><td>0,3 °C</td><td>i. O.</td></tr>
+      <tr><th>Tür offen länger als 2 min</th><td>Warnleuchte an</td><td>nach 2 min an</td><td>i. O.</td></tr>
+      <tr><th>Signalstärke Sensor Außenlager</th><td>besser als der Grenzwert laut Hersteller</td><td>−112 dBm, keine Ausfälle in 24 h</td><td>i. O.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Die Rechnung hat ein Jahr ergeben, also hält die Batterie ein Jahr.“ Die Rechnung beruht auf Annahmen. Erst der gemessene Strom zeigt, ob sie stimmen; Kälte und Alterung verkürzen die Laufzeit zusätzlich.</p></aside>
+
+<p class="merksatz">Validieren heißt, mit gemessenen Werten nachzurechnen, ob die Anforderung erfüllt ist; Laufzeit, PoE-Budget und USV-Last prüfst du und hältst alles im Prüfprotokoll mit Soll, Ist und Ergebnis fest.</p>

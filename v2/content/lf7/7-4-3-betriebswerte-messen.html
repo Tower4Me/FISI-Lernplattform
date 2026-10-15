@@ -1,0 +1,31 @@
+<p class="lead">Ob die Batterie so lange hält wie berechnet und ob der Sensor richtig misst, weißt du erst, wenn du nachmisst. Dazu gehören elektrische Werte wie Spannung und Strom und die physikalischen Werte, die der Sensor erfassen soll. Die Messungen belegen, dass das System so arbeitet wie geplant.</p>
+
+<h3>Das Multimeter</h3>
+<p>Ein <strong>Multimeter</strong> misst Spannung, Strom und Widerstand. Wie du es anschließt, hängt von der Größe ab:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Messgröße</th><th>Anschluss</th><th>Worauf du achtest</th></tr></thead>
+    <tbody>
+      <tr><th>Spannung (V)</th><td><strong>parallel</strong> zum Bauteil: die Messspitzen an die beiden Punkte, zwischen denen die Spannung liegt</td><td>Gleichspannung (DC) oder Wechselspannung (AC) wählen; Stromkreis bleibt geschlossen</td></tr>
+      <tr><th>Strom (A)</th><td><strong>in Reihe</strong>: Stromkreis auftrennen und das Messgerät hineinschalten, damit der Strom hindurchfließt</td><td>passende Buchse und Messbereich; nie parallel an eine Spannungsquelle, sonst Kurzschluss über das Messgerät; danach die Messleitung zurück in die Spannungsbuchse stecken</td></tr>
+      <tr><th>Widerstand (Ω)</th><td>am Bauteil</td><td>nur im spannungsfreien Zustand messen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Beginne bei unbekannter Größe mit dem größten Messbereich und schalte dann herunter, falls das Gerät nicht selbst umschaltet. Miss als IT-Fachkraft nur an Kleinspannung, etwa an Board, Sensor und Batterie. Messungen an Netzspannung sind Sache der Elektrofachkraft (LF2, Kapitel 2.7.1).</p>
+<p>Sehr kleine Ströme im Schlafmodus, oft nur Mikroampere, erfasst ein einfaches Multimeter ungenau. Dafür gibt es Messgeräte, die den Strom über die Zeit aufzeichnen. Bei Geräten am USB-Anschluss hilft ein USB-Messadapter, der Spannung, Strom und Energie anzeigt. Bei PoE zeigt ein verwalteter Switch die Leistung je Port.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende misst an einem neuen Feuchtesensor in der Werkstatt: Die Batteriespannung beträgt 3,6 V. Die Batterie speist den Spannungsregler des Boards, der daraus die 3,3 V für Board und Sensor erzeugt. Für die Strommessung trennt sie die Plusleitung der Batterie auf und schaltet das Messgerät in Reihe. Beim Senden zeigt es etwa 85 mA, im Milliampere-Bereich bleibt die Anzeige im Schlaf nahe null. Mit einem aufzeichnenden Strommessgerät ermittelt sie über eine Stunde einen Durchschnitt von 0,21 mA.</p>
+</div>
+
+<h3>Messwerte des Sensors prüfen</h3>
+<p>Auch die Messung des Sensors selbst prüfst du, indem du sie mit einem <strong>Referenzmessgerät</strong> vergleichst, das genauer ist oder kalibriert wurde. Liegt der Sensor außerhalb seiner Toleranz aus dem Datenblatt, korrigierst du ihn, falls die Firmware einen Versatz (Offset) erlaubt, oder tauschst ihn aus. Bei einem Türkontakt prüfst du einfach beide Zustände: Tür offen, Tür zu.</p>
+
+<aside class="note" data-typ="fehler"><p>„Für die Strommessung halte ich die Messspitzen an Plus und Minus der Batterie.“ Das ist ein Kurzschluss über das Messgerät, denn im Strommessbereich hat es fast keinen Widerstand. Strom misst du in Reihe, Spannung parallel.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Spannung</strong> parallel messen, <strong>Strom</strong> in Reihe (Stromkreis auftrennen), <strong>Widerstand</strong> nur spannungsfrei; mit großem Messbereich beginnen, nur an Kleinspannung.</li>
+  <li><strong>Sensorwerte</strong> mit einem Referenzmessgerät vergleichen und gegen die Toleranz im Datenblatt prüfen.</li>
+</ul>

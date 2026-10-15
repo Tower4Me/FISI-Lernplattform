@@ -4154,6 +4154,94 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "7.4",
+          "titel": "Komponenten einbinden und prüfen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "7.4.1",
+              "titel": "Technische Unterlagen lesen und anpassen",
+              "slug": "technische-unterlagen-lesen-und-anpassen",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Unterlagen der technischen Kommunikation nutzen und anpassen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b, e und f",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchwissen Datenblatt (absolute maximum ratings, recommended operating conditions), Anschlussplan, Schaltzeichen nach DIN EN 60617, sinngemäß"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "netzwerkdokumentation",
+                "mikrocontroller",
+                "mqtt"
+              ]
+            },
+            {
+              "nummer": "7.4.2",
+              "titel": "Komponenten integrieren",
+              "slug": "komponenten-integrieren",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Komponenten mit dem cyber-physischen System funktional zusammenführen; Funktion systematisch prüfen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b, e und f",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchwissen RSSI in dBm"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "inbetriebnahme",
+                "mqtt",
+                "iot-funk"
+              ]
+            },
+            {
+              "nummer": "7.4.3",
+              "titel": "Betriebswerte messen",
+              "slug": "betriebswerte-messen",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Physikalische Betriebswerte messen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b, e und f",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchwissen Messtechnik: Spannung parallel, Strom in Reihe, Widerstand spannungsfrei"
+                ]
+              },
+              "material": [
+                "elektrotechnik-grundformeln"
+              ],
+              "begriffe": [
+                "messtechnik",
+                "elektrische-sicherheit",
+                "sensor-aktor"
+              ]
+            },
+            {
+              "nummer": "7.4.4",
+              "titel": "Energiebedarf validieren und protokollieren",
+              "slug": "energiebedarf-validieren-und-protokollieren",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Energiebedarf validieren und Ergebnisse protokollieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b, e und f",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [],
+              "begriffe": [
+                "energiebedarf-iot",
+                "inbetriebnahme",
+                "usv",
+                "energiekosten"
+              ]
+            }
+          ]
         }
       ]
     }

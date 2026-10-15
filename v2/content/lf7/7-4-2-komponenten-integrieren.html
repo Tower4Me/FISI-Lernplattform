@@ -1,0 +1,29 @@
+<p class="lead">Das bestehende System läuft, die Marktleitung verlässt sich auf die Alarme. Die Erweiterung darf das nicht unterbrechen. Deshalb bindest du neue Komponenten Schritt für Schritt ein, testest erst auf dem Tisch und dann vor Ort und prüfst am Ende den ganzen Weg vom Sensor bis zur Reaktion.</p>
+
+<h3>Der Ablauf</h3>
+<ol>
+  <li><strong>Vorbereiten:</strong> Plan, Datenblätter und Anschlusspläne bereitlegen; Zugangsdaten für WLAN und Broker, Gerätenamen und Topics festlegen; Material und Werkzeug prüfen.</li>
+  <li><strong>Testaufbau:</strong> Sensor und Board auf dem Tisch verbinden, Firmware aufspielen und konfigurieren. Erst wenn hier alles läuft, geht es an den Einsatzort.</li>
+  <li><strong>Konfigurieren:</strong> Netzwerkzugang, Adresse des Brokers, eigenes Topic, Sendeintervall, Zugangsdaten für den Broker, bei Bedarf Grenzwerte. Jedes Gerät bekommt einen eindeutigen Namen.</li>
+  <li><strong>Vor Ort montieren:</strong> am geplanten Ort befestigen, Funkqualität prüfen, Versorgung anschließen.</li>
+  <li><strong>In die Auswertung einbinden:</strong> neue Topics abonnieren, Alarmregeln und Anzeigen ergänzen.</li>
+  <li><strong>Funktion prüfen:</strong> jede Funktion einzeln und dann den ganzen Ablauf testen, auch den Fehlerfall (Kapitel 7.4.4).</li>
+  <li><strong>Dokumentieren und übergeben:</strong> Unterlagen anpassen (Kapitel 7.4.1), Kunden einweisen und Abnahme protokollieren (LF2, Kapitel 2.7.3).</li>
+</ol>
+<p>Binde nicht alles auf einmal ein, sondern eine Komponente nach der anderen. Tritt ein Fehler auf, weißt du dann, welches Teil ihn verursacht.</p>
+
+<h3>Funkqualität prüfen</h3>
+<p>Ob ein Funksensor am Montageort zuverlässig sendet, zeigt die <strong>Signalstärke</strong>, meist als RSSI in dBm angegeben. Die Werte sind negativ; je näher an null, desto stärker das Signal. Ein Wert von −55 dBm ist bei WLAN sehr gut, −85 dBm ist schwach. Wie viel genügt, hängt von der Funktechnik ab und steht in den Herstellerangaben; LoRaWAN kommt mit viel schwächeren Signalen aus als WLAN. Prüfe die Werte bei geschlossenen Türen, so wie im Betrieb.</p>
+
+<h3>Ende-zu-Ende testen</h3>
+<p>Einzelne Teile können funktionieren, während der ganze Ablauf scheitert, etwa weil ein Topic falsch geschrieben ist. Entscheidend ist der Test von der physischen Ursache bis zur Wirkung:</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach dem Einbau öffnet die Auszubildende die Kühlraumtür und wartet. Am Broker erscheint unter <code>biomarkt/kuehlraum/tuer</code> der Wert „offen“, nach zwei Minuten veröffentlicht die Auswertung <code>biomarkt/verkauf/warnleuchte</code> mit „an“, und die Leuchte im Verkaufsraum geht an. Sie schließt die Tür, die Leuchte geht aus. Danach trennt sie das Board des Türkontakts vom Netzteil: Sobald sich das Board innerhalb der eingestellten Wartezeit nicht mehr meldet, erkennt der Broker den Abbruch und veröffentlicht unter <code>biomarkt/kuehlraum/tuer/status</code> die Last-Will-Meldung „offline“, und die Marktleitung bekommt einen Hinweis. Beide Tests trägt sie mit Uhrzeit ins Prüfprotokoll ein.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Ändere am laufenden System nur in Absprache mit dem Kunden und zu einem Zeitpunkt, an dem ein kurzer Ausfall unkritisch ist. Notiere vorher den alten Stand, damit du ihn bei Problemen wiederherstellen kannst.</p></aside>
+
+<aside class="note" data-typ="fehler"><p>„Der Sensor sendet, also ist er eingebunden.“ Erst wenn die Auswertung seine Nachrichten verarbeitet und die gewünschte Reaktion auslöst, ist die Funktion erfüllt. Teste immer den ganzen Weg.</p></aside>
+
+<p class="merksatz">Neue Komponenten bindest du schrittweise ein: auf dem Tisch testen, konfigurieren, vor Ort montieren und Funkqualität prüfen, in die Auswertung einbinden und den ganzen Weg von der Ursache bis zur Wirkung testen, auch den Fehlerfall.</p>

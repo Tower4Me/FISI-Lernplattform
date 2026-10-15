@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>7.4 Komponenten einbinden und prüfen (Druck) – FISI Lernplattform</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/components.css">
+<script src="../assets/theme.js"></script>
+<script src="../assets/app.js" defer></script>
+<script src="../assets/tabs.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17h.01"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
+  <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+</svg>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="site-header">
+  <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
+  <a class="brand" href="../index.html"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
+  <div class="header-tools">
+    <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
+    <div class="theme-switch" role="group" aria-label="Farbschema">
+      <button type="button" data-theme-value="light" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span class="ts-text">Hell</span></button>
+      <button type="button" data-theme-value="dark" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span class="ts-text">Dunkel</span></button>
+      <button type="button" data-theme-value="system" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-auto"/></svg><span class="ts-text">System</span></button>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidenav" id="nav" aria-label="Lernfelder">
+  <ul class="nav-lf">
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF1</span><span>Das Unternehmen und die eigene Rolle im Betrieb beschreiben</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf1/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-1-1-unternehmen-im-wirtschaftsgeschehen.html"><span class="num">1.1</span><span>Das Unternehmen und seine Ziele</span><span class="kap-progress" data-ids="1-1-1 1-1-2 1-1-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-1-1" href="../lf1/1-1-1-unternehmen-im-wirtschaftsgeschehen.html"><span class="num">1.1.1</span><span class="t">Unternehmen im Wirtschaftsgeschehen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-1-2" href="../lf1/1-1-2-leitbild-und-unternehmensziele.html"><span class="num">1.1.2</span><span class="t">Leitbild und Unternehmensziele</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-1-3" href="../lf1/1-1-3-zielkonflikte-und-nachhaltigkeit.html"><span class="num">1.1.3</span><span class="t">Zielkonflikte und Nachhaltigkeit</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-1" href="../lf1/1-1-check.html"><span class="num">1.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-2-1-marktformen.html"><span class="num">1.2</span><span>Markt und Kunden</span><span class="kap-progress" data-ids="1-2-1 1-2-2 1-2-3 1-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-2-1" href="../lf1/1-2-1-marktformen.html"><span class="num">1.2.1</span><span class="t">Marktformen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-2-2" href="../lf1/1-2-2-kaeufermarkt-und-verkaeufermarkt.html"><span class="num">1.2.2</span><span class="t">Käufermarkt und Verkäufermarkt</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-2-3" href="../lf1/1-2-3-kunden-und-zielgruppen.html"><span class="num">1.2.3</span><span class="t">Kunden und Zielgruppen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-2-4" href="../lf1/1-2-4-leistungen-am-markt-platzieren.html"><span class="num">1.2.4</span><span class="t">Leistungen am Markt platzieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-2" href="../lf1/1-2-check.html"><span class="num">1.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-3-1-die-wertschoepfungskette.html"><span class="num">1.3</span><span>Wertschöpfung und Geschäftsprozesse</span><span class="kap-progress" data-ids="1-3-1 1-3-2 1-3-3 1-3-4 1-3-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-3-1" href="../lf1/1-3-1-die-wertschoepfungskette.html"><span class="num">1.3.1</span><span class="t">Die Wertschöpfungskette</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-2" href="../lf1/1-3-2-geschaeftsprozesse.html"><span class="num">1.3.2</span><span class="t">Geschäftsprozesse</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-3" href="../lf1/1-3-3-prozesse-mit-bpmn-darstellen.html"><span class="num">1.3.3</span><span class="t">Prozesse mit BPMN darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-4" href="../lf1/1-3-4-prozesse-mit-der-epk-darstellen.html"><span class="num">1.3.4</span><span class="t">Prozesse mit der EPK darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-3-5" href="../lf1/1-3-5-prozesse-verbessern.html"><span class="num">1.3.5</span><span class="t">Prozesse verbessern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-3" href="../lf1/1-3-check.html"><span class="num">1.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-4-1-aufbauorganisation-und-organigramm.html"><span class="num">1.4</span><span>Organisation und Rechtsform</span><span class="kap-progress" data-ids="1-4-1 1-4-2 1-4-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-4-1" href="../lf1/1-4-1-aufbauorganisation-und-organigramm.html"><span class="num">1.4.1</span><span class="t">Aufbauorganisation und Organigramm</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-4-2" href="../lf1/1-4-2-rechtsformen.html"><span class="num">1.4.2</span><span class="t">Rechtsformen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-4-3" href="../lf1/1-4-3-vollmachten.html"><span class="num">1.4.3</span><span class="t">Vollmachten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-4" href="../lf1/1-4-check.html"><span class="num">1.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-5-1-ausbildung-im-dualen-system.html"><span class="num">1.5</span><span>Die eigene Rolle im Betrieb</span><span class="kap-progress" data-ids="1-5-1 1-5-2 1-5-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-5-1" href="../lf1/1-5-1-ausbildung-im-dualen-system.html"><span class="num">1.5.1</span><span class="t">Ausbildung im dualen System</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-5-2" href="../lf1/1-5-2-im-team-arbeiten.html"><span class="num">1.5.2</span><span class="t">Im Team arbeiten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-5-3" href="../lf1/1-5-3-fort-und-weiterbildung.html"><span class="num">1.5.3</span><span class="t">Fort- und Weiterbildung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-5" href="../lf1/1-5-check.html"><span class="num">1.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf1/1-6-1-eine-praesentation-planen.html"><span class="num">1.6</span><span>Das Unternehmen präsentieren</span><span class="kap-progress" data-ids="1-6-1 1-6-2 1-6-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="1-6-1" href="../lf1/1-6-1-eine-praesentation-planen.html"><span class="num">1.6.1</span><span class="t">Eine Präsentation planen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-6-2" href="../lf1/1-6-2-folien-und-medien-gestalten.html"><span class="num">1.6.2</span><span class="t">Folien und Medien gestalten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="1-6-3" href="../lf1/1-6-3-qualitaet-pruefen-und-feedback-geben.html"><span class="num">1.6.3</span><span class="t">Qualität prüfen und Feedback geben</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf1-1-6" href="../lf1/1-6-check.html"><span class="num">1.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf1/rueckblick.html"><span class="num">1.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF2</span><span>Arbeitsplätze nach Kundenwunsch ausstatten</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf2/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-1-1-bedarf-im-kundengespraech-ermitteln.html"><span class="num">2.1</span><span>Kundenwunsch und Anforderungen</span><span class="kap-progress" data-ids="2-1-1 2-1-2 2-1-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-1-1" href="../lf2/2-1-1-bedarf-im-kundengespraech-ermitteln.html"><span class="num">2.1.1</span><span class="t">Bedarf im Kundengespräch ermitteln</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-1-2" href="../lf2/2-1-2-lastenheft-und-pflichtenheft.html"><span class="num">2.1.2</span><span class="t">Lastenheft und Pflichtenheft</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-1-3" href="../lf2/2-1-3-arbeitsplatztypen-und-geraeteklassen.html"><span class="num">2.1.3</span><span class="t">Arbeitsplatztypen und Geräteklassen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-1" href="../lf2/2-1-check.html"><span class="num">2.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-2-1-aufbau-eines-pcs.html"><span class="num">2.2</span><span>Hardware eines Arbeitsplatzrechners</span><span class="kap-progress" data-ids="2-2-1 2-2-2 2-2-3 2-2-4 2-2-5 2-2-6 2-2-7">0/7</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-2-1" href="../lf2/2-2-1-aufbau-eines-pcs.html"><span class="num">2.2.1</span><span class="t">Aufbau eines PCs</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-2" href="../lf2/2-2-2-prozessor.html"><span class="num">2.2.2</span><span class="t">Prozessor</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-3" href="../lf2/2-2-3-arbeitsspeicher.html"><span class="num">2.2.3</span><span class="t">Arbeitsspeicher</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-4" href="../lf2/2-2-4-massenspeicher.html"><span class="num">2.2.4</span><span class="t">Massenspeicher</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-5" href="../lf2/2-2-5-grafik-und-monitore.html"><span class="num">2.2.5</span><span class="t">Grafik und Monitore</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-6" href="../lf2/2-2-6-schnittstellen.html"><span class="num">2.2.6</span><span class="t">Schnittstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-2-7" href="../lf2/2-2-7-drucker-und-peripherie.html"><span class="num">2.2.7</span><span class="t">Drucker und Peripherie</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-2" href="../lf2/2-2-check.html"><span class="num">2.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-3-1-betriebssystem-und-schichtenmodell.html"><span class="num">2.3</span><span>Software einrichten</span><span class="kap-progress" data-ids="2-3-1 2-3-2 2-3-3 2-3-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-3-1" href="../lf2/2-3-1-betriebssystem-und-schichtenmodell.html"><span class="num">2.3.1</span><span class="t">Betriebssystem und Schichtenmodell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-3-2" href="../lf2/2-3-2-software-und-lizenzen.html"><span class="num">2.3.2</span><span class="t">Software und Lizenzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-3-3" href="../lf2/2-3-3-datentraeger-partitionieren-und-formatieren.html"><span class="num">2.3.3</span><span class="t">Datenträger partitionieren und formatieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-3-4" href="../lf2/2-3-4-firmware-bios-und-uefi.html"><span class="num">2.3.4</span><span class="t">Firmware: BIOS und UEFI</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-3" href="../lf2/2-3-check.html"><span class="num">2.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-4-1-bits-bytes-und-praefixe.html"><span class="num">2.4</span><span>Mit Kenngrößen rechnen</span><span class="kap-progress" data-ids="2-4-1 2-4-2 2-4-3 2-4-4 2-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-4-1" href="../lf2/2-4-1-bits-bytes-und-praefixe.html"><span class="num">2.4.1</span><span class="t">Bits, Bytes und Präfixe</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-2" href="../lf2/2-4-2-speicherbedarf-berechnen.html"><span class="num">2.4.2</span><span class="t">Speicherbedarf berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-3" href="../lf2/2-4-3-uebertragungsdauer-berechnen.html"><span class="num">2.4.3</span><span class="t">Übertragungsdauer berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-4" href="../lf2/2-4-4-spannung-strom-und-leistung.html"><span class="num">2.4.4</span><span class="t">Spannung, Strom und Leistung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-4-5" href="../lf2/2-4-5-energiekosten-berechnen.html"><span class="num">2.4.5</span><span class="t">Energiekosten berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-4" href="../lf2/2-4-check.html"><span class="num">2.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-5-1-datenblaetter-lesen.html"><span class="num">2.5</span><span>Produkte vergleichen und auswählen</span><span class="kap-progress" data-ids="2-5-1 2-5-2 2-5-3 2-5-4 2-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-5-1" href="../lf2/2-5-1-datenblaetter-lesen.html"><span class="num">2.5.1</span><span class="t">Datenblätter lesen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-2" href="../lf2/2-5-2-kennzeichen-und-normen.html"><span class="num">2.5.2</span><span class="t">Kennzeichen und Normen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-3" href="../lf2/2-5-3-ergonomie-am-bildschirmarbeitsplatz.html"><span class="num">2.5.3</span><span class="t">Ergonomie am Bildschirmarbeitsplatz</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-4" href="../lf2/2-5-4-nachhaltigkeit-und-green-it.html"><span class="num">2.5.4</span><span class="t">Nachhaltigkeit und Green IT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-5-5" href="../lf2/2-5-5-nutzwertanalyse.html"><span class="num">2.5.5</span><span class="t">Nutzwertanalyse</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-5" href="../lf2/2-5-check.html"><span class="num">2.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-6-1-angebote-vergleichen.html"><span class="num">2.6</span><span>Angebot und Beschaffung</span><span class="kap-progress" data-ids="2-6-1 2-6-2 2-6-3 2-6-4 2-6-5 2-6-6 2-6-7">0/7</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-6-1" href="../lf2/2-6-1-angebote-vergleichen.html"><span class="num">2.6.1</span><span class="t">Angebote vergleichen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-2" href="../lf2/2-6-2-verkaufspreis-kalkulieren.html"><span class="num">2.6.2</span><span class="t">Verkaufspreis kalkulieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-3" href="../lf2/2-6-3-der-kaufvertrag.html"><span class="num">2.6.3</span><span class="t">Der Kaufvertrag</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-4" href="../lf2/2-6-4-stoerungen-bei-der-lieferung.html"><span class="num">2.6.4</span><span class="t">Störungen bei der Lieferung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-5" href="../lf2/2-6-5-gewaehrleistung-und-garantie.html"><span class="num">2.6.5</span><span class="t">Gewährleistung und Garantie</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-6" href="../lf2/2-6-6-kaufen-leasen-oder-finanzieren.html"><span class="num">2.6.6</span><span class="t">Kaufen, leasen oder finanzieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-6-7" href="../lf2/2-6-7-rechnungen-pruefen-und-bezahlen.html"><span class="num">2.6.7</span><span class="t">Rechnungen prüfen und bezahlen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-6" href="../lf2/2-6-check.html"><span class="num">2.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf2/2-7-1-elektrische-sicherheit.html"><span class="num">2.7</span><span>Inbetriebnahme und Übergabe</span><span class="kap-progress" data-ids="2-7-1 2-7-2 2-7-3 2-7-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="2-7-1" href="../lf2/2-7-1-elektrische-sicherheit.html"><span class="num">2.7.1</span><span class="t">Elektrische Sicherheit</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-7-2" href="../lf2/2-7-2-arbeitsplatz-einrichten-und-testen.html"><span class="num">2.7.2</span><span class="t">Arbeitsplatz einrichten und testen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-7-3" href="../lf2/2-7-3-uebergabe-und-abnahme.html"><span class="num">2.7.3</span><span class="t">Übergabe und Abnahme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="2-7-4" href="../lf2/2-7-4-auftrag-auswerten.html"><span class="num">2.7.4</span><span class="t">Auftrag auswerten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf2-2-7" href="../lf2/2-7-check.html"><span class="num">2.7</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf2/rueckblick.html"><span class="num">2.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF3</span><span>Clients in Netzwerke einbinden</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf3/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-1-1-wozu-netzwerke.html"><span class="num">3.1</span><span>Netzwerke im Überblick</span><span class="kap-progress" data-ids="3-1-1 3-1-2 3-1-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-1-1" href="../lf3/3-1-1-wozu-netzwerke.html"><span class="num">3.1.1</span><span class="t">Wozu Netzwerke</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-1-2" href="../lf3/3-1-2-topologien.html"><span class="num">3.1.2</span><span class="t">Topologien</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-1-3" href="../lf3/3-1-3-netzwerkplaene-lesen.html"><span class="num">3.1.3</span><span class="t">Netzwerkpläne lesen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-1" href="../lf3/3-1-check.html"><span class="num">3.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-2-1-das-osi-modell.html"><span class="num">3.2</span><span>Schichtenmodelle</span><span class="kap-progress" data-ids="3-2-1 3-2-2 3-2-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-2-1" href="../lf3/3-2-1-das-osi-modell.html"><span class="num">3.2.1</span><span class="t">Das OSI-Modell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-2-2" href="../lf3/3-2-2-das-tcp-ip-modell-und-kapselung.html"><span class="num">3.2.2</span><span class="t">Das TCP/IP-Modell und Kapselung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-2-3" href="../lf3/3-2-3-geraete-und-protokolle-zuordnen.html"><span class="num">3.2.3</span><span class="t">Geräte und Protokolle zuordnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-2" href="../lf3/3-2-check.html"><span class="num">3.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-3-1-twisted-pair-kabel.html"><span class="num">3.3</span><span>Verkabelung und Komponenten</span><span class="kap-progress" data-ids="3-3-1 3-3-2 3-3-3 3-3-4 3-3-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-3-1" href="../lf3/3-3-1-twisted-pair-kabel.html"><span class="num">3.3.1</span><span class="t">Twisted-Pair-Kabel</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-2" href="../lf3/3-3-2-lichtwellenleiter.html"><span class="num">3.3.2</span><span class="t">Lichtwellenleiter</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-3" href="../lf3/3-3-3-strukturierte-verkabelung.html"><span class="num">3.3.3</span><span class="t">Strukturierte Verkabelung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-4" href="../lf3/3-3-4-netzwerkkomponenten.html"><span class="num">3.3.4</span><span class="t">Netzwerkkomponenten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-3-5" href="../lf3/3-3-5-ethernet-und-mac-adressen.html"><span class="num">3.3.5</span><span class="t">Ethernet und MAC-Adressen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-3" href="../lf3/3-3-check.html"><span class="num">3.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-4-1-ipv4-adressen-und-subnetzmaske.html"><span class="num">3.4</span><span>IP-Adressierung</span><span class="kap-progress" data-ids="3-4-1 3-4-2 3-4-3 3-4-4 3-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-4-1" href="../lf3/3-4-1-ipv4-adressen-und-subnetzmaske.html"><span class="num">3.4.1</span><span class="t">IPv4-Adressen und Subnetzmaske</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-2" href="../lf3/3-4-2-netz-broadcast-und-hosts-berechnen.html"><span class="num">3.4.2</span><span class="t">Netz, Broadcast und Hosts berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-3" href="../lf3/3-4-3-private-adressen-gateway-und-nat.html"><span class="num">3.4.3</span><span class="t">Private Adressen, Gateway und NAT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-4" href="../lf3/3-4-4-ipv6-adressen.html"><span class="num">3.4.4</span><span class="t">IPv6-Adressen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-4-5" href="../lf3/3-4-5-automatische-adressen-apipa-und-link-local.html"><span class="num">3.4.5</span><span class="t">Automatische Adressen: APIPA und Link-Local</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-4" href="../lf3/3-4-check.html"><span class="num">3.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-5-1-dhcp.html"><span class="num">3.5</span><span>Dienste und Protokolle</span><span class="kap-progress" data-ids="3-5-1 3-5-2 3-5-3 3-5-4 3-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-5-1" href="../lf3/3-5-1-dhcp.html"><span class="num">3.5.1</span><span class="t">DHCP</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-2" href="../lf3/3-5-2-dns.html"><span class="num">3.5.2</span><span class="t">DNS</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-3" href="../lf3/3-5-3-arp.html"><span class="num">3.5.3</span><span class="t">ARP</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-4" href="../lf3/3-5-4-tcp-udp-und-ports.html"><span class="num">3.5.4</span><span class="t">TCP, UDP und Ports</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-5-5" href="../lf3/3-5-5-anwendungsprotokolle.html"><span class="num">3.5.5</span><span class="t">Anwendungsprotokolle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-5" href="../lf3/3-5-check.html"><span class="num">3.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-6-1-wlan-standards-und-frequenzen.html"><span class="num">3.6</span><span>WLAN</span><span class="kap-progress" data-ids="3-6-1 3-6-2">0/2</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-6-1" href="../lf3/3-6-1-wlan-standards-und-frequenzen.html"><span class="num">3.6.1</span><span class="t">WLAN-Standards und Frequenzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-6-2" href="../lf3/3-6-2-wlan-absichern.html"><span class="num">3.6.2</span><span class="t">WLAN absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-6" href="../lf3/3-6-check.html"><span class="num">3.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf3/3-7-1-einen-client-konfigurieren.html"><span class="num">3.7</span><span>Clients einbinden und prüfen</span><span class="kap-progress" data-ids="3-7-1 3-7-2 3-7-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="3-7-1" href="../lf3/3-7-1-einen-client-konfigurieren.html"><span class="num">3.7.1</span><span class="t">Einen Client konfigurieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-7-2" href="../lf3/3-7-2-netzwerkbefehle.html"><span class="num">3.7.2</span><span class="t">Netzwerkbefehle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="3-7-3" href="../lf3/3-7-3-systematische-fehlersuche.html"><span class="num">3.7.3</span><span class="t">Systematische Fehlersuche</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf3-3-7" href="../lf3/3-7-check.html"><span class="num">3.7</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf3/rueckblick.html"><span class="num">3.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF4</span><span>Schutzbedarfsanalyse im eigenen Arbeitsbereich durchführen</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf4/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-1-1-warum-informationssicherheit.html"><span class="num">4.1</span><span>Grundlagen der Informationssicherheit</span><span class="kap-progress" data-ids="4-1-1 4-1-2 4-1-3 4-1-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-1-1" href="../lf4/4-1-1-warum-informationssicherheit.html"><span class="num">4.1.1</span><span class="t">Warum Informationssicherheit?</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-2" href="../lf4/4-1-2-die-drei-schutzziele.html"><span class="num">4.1.2</span><span class="t">Die drei Schutzziele</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-3" href="../lf4/4-1-3-authentizitaet-und-verbindlichkeit.html"><span class="num">4.1.3</span><span class="t">Authentizität und Verbindlichkeit</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-1-4" href="../lf4/4-1-4-informationswerte-im-arbeitsbereich.html"><span class="num">4.1.4</span><span class="t">Informationswerte im eigenen Arbeitsbereich</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-1" href="../lf4/4-1-check.html"><span class="num">4.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-2-1-datenschutz-dsgvo-bdsg.html"><span class="num">4.2</span><span>Rechtliche und betriebliche Vorgaben</span><span class="kap-progress" data-ids="4-2-1 4-2-2 4-2-3 4-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-2-1" href="../lf4/4-2-1-datenschutz-dsgvo-bdsg.html"><span class="num">4.2.1</span><span class="t">Datenschutz: DSGVO und BDSG</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-2" href="../lf4/4-2-2-technische-und-organisatorische-massnahmen.html"><span class="num">4.2.2</span><span class="t">Technische und organisatorische Maßnahmen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-3" href="../lf4/4-2-3-sicherheitsleitlinie-und-isms.html"><span class="num">4.2.3</span><span class="t">Sicherheitsleitlinie und ISMS</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-2-4" href="../lf4/4-2-4-zustaendigkeiten-und-eigene-pflichten.html"><span class="num">4.2.4</span><span class="t">Zuständigkeiten und eigene Pflichten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-2" href="../lf4/4-2-check.html"><span class="num">4.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-3-1-gefaehrdungen-im-ueberblick.html"><span class="num">4.3</span><span>Bedrohungen erkennen und gewichten</span><span class="kap-progress" data-ids="4-3-1 4-3-2 4-3-3 4-3-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-3-1" href="../lf4/4-3-1-gefaehrdungen-im-ueberblick.html"><span class="num">4.3.1</span><span class="t">Gefährdungen im Überblick</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-2" href="../lf4/4-3-2-schadsoftware.html"><span class="num">4.3.2</span><span class="t">Schadsoftware</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-3" href="../lf4/4-3-3-social-engineering-und-phishing.html"><span class="num">4.3.3</span><span class="t">Social Engineering und Phishing</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-3-4" href="../lf4/4-3-4-bedrohungen-gewichten.html"><span class="num">4.3.4</span><span class="t">Bedrohungen gewichten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-3" href="../lf4/4-3-check.html"><span class="num">4.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-4-1-ablauf-der-schutzbedarfsfeststellung.html"><span class="num">4.4</span><span>Schutzbedarf feststellen</span><span class="kap-progress" data-ids="4-4-1 4-4-2 4-4-3 4-4-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-4-1" href="../lf4/4-4-1-ablauf-der-schutzbedarfsfeststellung.html"><span class="num">4.4.1</span><span class="t">Ablauf der Schutzbedarfsfeststellung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-4-2" href="../lf4/4-4-2-schadensszenarien-und-schutzbedarfskategorien.html"><span class="num">4.4.2</span><span class="t">Schadensszenarien und Schutzbedarfskategorien</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-4-3" href="../lf4/4-4-3-schutzbedarf-vererben.html"><span class="num">4.4.3</span><span class="t">Schutzbedarf vererben</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-4-4" href="../lf4/4-4-4-analyse-eines-arbeitsbereichs.html"><span class="num">4.4.4</span><span class="t">Analyse eines Arbeitsbereichs</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-4" href="../lf4/4-4-check.html"><span class="num">4.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-5-1-vom-ergebnis-zur-massnahme.html"><span class="num">4.5</span><span>Schutzmaßnahmen auswählen</span><span class="kap-progress" data-ids="4-5-1 4-5-2 4-5-3 4-5-4 4-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-5-1" href="../lf4/4-5-1-vom-ergebnis-zur-massnahme.html"><span class="num">4.5.1</span><span class="t">Vom Ergebnis zur Maßnahme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-2" href="../lf4/4-5-2-massnahmen-den-schutzzielen-zuordnen.html"><span class="num">4.5.2</span><span class="t">Maßnahmen den Schutzzielen zuordnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-3" href="../lf4/4-5-3-anmelden-mit-wissen-besitz-und-merkmal.html"><span class="num">4.5.3</span><span class="t">Anmelden mit Wissen, Besitz und Merkmal</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-4" href="../lf4/4-5-4-verschluesselung-als-schutzmassnahme.html"><span class="num">4.5.4</span><span class="t">Verschlüsselung als Schutzmaßnahme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-5-5" href="../lf4/4-5-5-hashwerte-und-digitale-signatur.html"><span class="num">4.5.5</span><span class="t">Hashwerte und digitale Signatur</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-5" href="../lf4/4-5-check.html"><span class="num">4.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf4/4-6-1-den-arbeitsplatz-absichern.html"><span class="num">4.6</span><span>Sicherheit im eigenen Verantwortungsbereich</span><span class="kap-progress" data-ids="4-6-1 4-6-2 4-6-3 4-6-4 4-6-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="4-6-1" href="../lf4/4-6-1-den-arbeitsplatz-absichern.html"><span class="num">4.6.1</span><span class="t">Den Arbeitsplatz absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-2" href="../lf4/4-6-2-daten-sichern.html"><span class="num">4.6.2</span><span class="t">Daten sichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-3" href="../lf4/4-6-3-raeume-geraete-und-strom-schuetzen.html"><span class="num">4.6.3</span><span class="t">Räume, Geräte und Strom schützen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-4" href="../lf4/4-6-4-sicherheitsvorfaelle-erkennen-und-melden.html"><span class="num">4.6.4</span><span class="t">Sicherheitsvorfälle erkennen und melden</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="4-6-5" href="../lf4/4-6-5-sicherheit-als-prozess.html"><span class="num">4.6.5</span><span class="t">Sicherheit als Prozess</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf4-4-6" href="../lf4/4-6-check.html"><span class="num">4.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf4/rueckblick.html"><span class="num">4.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF5</span><span>Software zur Verwaltung von Daten anpassen</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf5/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf5/5-1-1-daten-und-informationen.html"><span class="num">5.1</span><span>Daten und Datentypen</span><span class="kap-progress" data-ids="5-1-1 5-1-2 5-1-3 5-1-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-1-1" href="../lf5/5-1-1-daten-und-informationen.html"><span class="num">5.1.1</span><span class="t">Daten und Informationen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-1-2" href="../lf5/5-1-2-zahlensysteme.html"><span class="num">5.1.2</span><span class="t">Zahlensysteme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-1-3" href="../lf5/5-1-3-zeichen-kodieren.html"><span class="num">5.1.3</span><span class="t">Zeichen kodieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-1-4" href="../lf5/5-1-4-datentypen.html"><span class="num">5.1.4</span><span class="t">Datentypen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-1" href="../lf5/5-1-check.html"><span class="num">5.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf5/5-2-1-text-und-binaerdateien.html"><span class="num">5.2</span><span>Datenformate und Speicherung</span><span class="kap-progress" data-ids="5-2-1 5-2-2 5-2-3 5-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-2-1" href="../lf5/5-2-1-text-und-binaerdateien.html"><span class="num">5.2.1</span><span class="t">Text- und Binärdateien</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-2-2" href="../lf5/5-2-2-austauschformate-csv-json-xml.html"><span class="num">5.2.2</span><span class="t">Austauschformate: CSV, JSON, XML</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-2-3" href="../lf5/5-2-3-wo-daten-gespeichert-werden.html"><span class="num">5.2.3</span><span class="t">Wo Daten gespeichert werden</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-2-4" href="../lf5/5-2-4-daten-komprimieren-und-pruefen.html"><span class="num">5.2.4</span><span class="t">Daten komprimieren und prüfen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-2" href="../lf5/5-2-check.html"><span class="num">5.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf5/5-3-1-relationale-datenbanken.html"><span class="num">5.3</span><span>Datenbanken modellieren</span><span class="kap-progress" data-ids="5-3-1 5-3-2 5-3-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-3-1" href="../lf5/5-3-1-relationale-datenbanken.html"><span class="num">5.3.1</span><span class="t">Relationale Datenbanken</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-3-2" href="../lf5/5-3-2-das-er-modell.html"><span class="num">5.3.2</span><span class="t">Das ER-Modell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-3-3" href="../lf5/5-3-3-vom-er-modell-zu-tabellen.html"><span class="num">5.3.3</span><span class="t">Vom ER-Modell zu Tabellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-3" href="../lf5/5-3-check.html"><span class="num">5.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf5/5-4-1-programme-und-sprachen.html"><span class="num">5.4</span><span>Algorithmen und Programme</span><span class="kap-progress" data-ids="5-4-1 5-4-2 5-4-3 5-4-4 5-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-4-1" href="../lf5/5-4-1-programme-und-sprachen.html"><span class="num">5.4.1</span><span class="t">Programme und Sprachen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-2" href="../lf5/5-4-2-pseudocode-variablen-und-operatoren.html"><span class="num">5.4.2</span><span class="t">Pseudocode, Variablen und Operatoren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-3" href="../lf5/5-4-3-verzweigungen-und-schleifen.html"><span class="num">5.4.3</span><span class="t">Verzweigungen und Schleifen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-4" href="../lf5/5-4-4-datenstrukturen-und-funktionen.html"><span class="num">5.4.4</span><span class="t">Datenstrukturen und Funktionen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-4-5" href="../lf5/5-4-5-schreibtischtest-und-fehlersuche.html"><span class="num">5.4.5</span><span class="t">Schreibtischtest und Fehlersuche</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-4" href="../lf5/5-4-check.html"><span class="num">5.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf5/5-5-1-vorgehensmodelle.html"><span class="num">5.5</span><span>Im Projekt vorgehen</span><span class="kap-progress" data-ids="5-5-1 5-5-2 5-5-3 5-5-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-5-1" href="../lf5/5-5-1-vorgehensmodelle.html"><span class="num">5.5.1</span><span class="t">Vorgehensmodelle</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-2" href="../lf5/5-5-2-zeitplanung-mit-netzplan-und-gantt-diagramm.html"><span class="num">5.5.2</span><span class="t">Zeitplanung mit Netzplan und Gantt-Diagramm</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-3" href="../lf5/5-5-3-software-dokumentieren.html"><span class="num">5.5.3</span><span class="t">Software dokumentieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-5-4" href="../lf5/5-5-4-ablaeufe-und-strukturen-mit-uml-darstellen.html"><span class="num">5.5.4</span><span class="t">Abläufe und Strukturen mit UML darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-5" href="../lf5/5-5-check.html"><span class="num">5.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf5/5-6-1-testfaelle-entwickeln.html"><span class="num">5.6</span><span>Testen und bewerten</span><span class="kap-progress" data-ids="5-6-1 5-6-2 5-6-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-6-1" href="../lf5/5-6-1-testfaelle-entwickeln.html"><span class="num">5.6.1</span><span class="t">Testfälle entwickeln</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-6-2" href="../lf5/5-6-2-testverfahren-und-teststufen.html"><span class="num">5.6.2</span><span class="t">Testverfahren und Teststufen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-6-3" href="../lf5/5-6-3-software-bewerten.html"><span class="num">5.6.3</span><span class="t">Software bewerten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-6" href="../lf5/5-6-check.html"><span class="num">5.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf5/5-7-1-grundlagen-der-ki.html"><span class="num">5.7</span><span>Künstliche Intelligenz</span><span class="kap-progress" data-ids="5-7-1 5-7-2">0/2</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="5-7-1" href="../lf5/5-7-1-grundlagen-der-ki.html"><span class="num">5.7.1</span><span class="t">Grundlagen der KI</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="5-7-2" href="../lf5/5-7-2-ki-im-betrieb-einsetzen.html"><span class="num">5.7.2</span><span class="t">KI im Betrieb einsetzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf5-5-7" href="../lf5/5-7-check.html"><span class="num">5.7</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf5/rueckblick.html"><span class="num">5.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf" data-stufe="AP1"><button class="lf-head" type="button" aria-expanded="false"><span class="num">LF6</span><span>Serviceanfragen bearbeiten</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="../lf6/index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="../lf6/6-1-1-it-services-und-service-management.html"><span class="num">6.1</span><span>Serviceanfragen annehmen</span><span class="kap-progress" data-ids="6-1-1 6-1-2 6-1-3 6-1-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="6-1-1" href="../lf6/6-1-1-it-services-und-service-management.html"><span class="num">6.1.1</span><span class="t">IT-Services und Service-Management</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-1-2" href="../lf6/6-1-2-arten-von-anfragen.html"><span class="num">6.1.2</span><span class="t">Arten von Anfragen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-1-3" href="../lf6/6-1-3-kontaktwege.html"><span class="num">6.1.3</span><span class="t">Kontaktwege</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-1-4" href="../lf6/6-1-4-das-ticketsystem.html"><span class="num">6.1.4</span><span class="t">Das Ticketsystem</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf6-6-1" href="../lf6/6-1-check.html"><span class="num">6.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf6/6-2-1-service-level-agreement.html"><span class="num">6.2</span><span>Vertragliche Grundlage: das SLA</span><span class="kap-progress" data-ids="6-2-1 6-2-2 6-2-3 6-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="6-2-1" href="../lf6/6-2-1-service-level-agreement.html"><span class="num">6.2.1</span><span class="t">Service Level Agreement</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-2-2" href="../lf6/6-2-2-fristen-und-verfuegbarkeit-berechnen.html"><span class="num">6.2.2</span><span class="t">Fristen und Verfügbarkeit berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-2-3" href="../lf6/6-2-3-prioritaet-bestimmen.html"><span class="num">6.2.3</span><span class="t">Priorität bestimmen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-2-4" href="../lf6/6-2-4-supportleistungen-abrechnen.html"><span class="num">6.2.4</span><span class="t">Supportleistungen abrechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf6-6-2" href="../lf6/6-2-check.html"><span class="num">6.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf6/6-3-1-systematisch-fragen.html"><span class="num">6.3</span><span>Anfragen klären und einordnen</span><span class="kap-progress" data-ids="6-3-1 6-3-2 6-3-3 6-3-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="6-3-1" href="../lf6/6-3-1-systematisch-fragen.html"><span class="num">6.3.1</span><span class="t">Systematisch fragen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-3-2" href="../lf6/6-3-2-support-level.html"><span class="num">6.3.2</span><span class="t">Support-Level</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-3-3" href="../lf6/6-3-3-eskalation.html"><span class="num">6.3.3</span><span class="t">Eskalation</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-3-4" href="../lf6/6-3-4-wissen-und-standards-nutzen.html"><span class="num">6.3.4</span><span class="t">Wissen und Standards nutzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf6-6-3" href="../lf6/6-3-check.html"><span class="num">6.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf6/6-4-1-vorgehen-bei-der-fehlersuche.html"><span class="num">6.4</span><span>Fehler finden und beheben</span><span class="kap-progress" data-ids="6-4-1 6-4-2 6-4-3 6-4-4 6-4-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="6-4-1" href="../lf6/6-4-1-vorgehen-bei-der-fehlersuche.html"><span class="num">6.4.1</span><span class="t">Vorgehen bei der Fehlersuche</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-4-2" href="../lf6/6-4-2-ursachen-analysieren.html"><span class="num">6.4.2</span><span class="t">Ursachen analysieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-4-3" href="../lf6/6-4-3-loesungen-recherchieren.html"><span class="num">6.4.3</span><span class="t">Lösungen recherchieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-4-4" href="../lf6/6-4-4-fernwartung.html"><span class="num">6.4.4</span><span class="t">Fernwartung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-4-5" href="../lf6/6-4-5-bearbeitung-dokumentieren-und-abschliessen.html"><span class="num">6.4.5</span><span class="t">Bearbeitung dokumentieren und abschließen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf6-6-4" href="../lf6/6-4-check.html"><span class="num">6.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf6/6-5-1-wie-kommunikation-funktioniert.html"><span class="num">6.5</span><span>Mit Kunden kommunizieren</span><span class="kap-progress" data-ids="6-5-1 6-5-2 6-5-3 6-5-4 6-5-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="6-5-1" href="../lf6/6-5-1-wie-kommunikation-funktioniert.html"><span class="num">6.5.1</span><span class="t">Wie Kommunikation funktioniert</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-5-2" href="../lf6/6-5-2-das-vier-seiten-modell.html"><span class="num">6.5.2</span><span class="t">Das Vier-Seiten-Modell</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-5-3" href="../lf6/6-5-3-gespraeche-am-telefon-und-schriftlich-fuehren.html"><span class="num">6.5.3</span><span class="t">Gespräche am Telefon und schriftlich führen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-5-4" href="../lf6/6-5-4-beschwerden-und-konflikte-deeskalieren.html"><span class="num">6.5.4</span><span class="t">Beschwerden und Konflikte deeskalieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-5-5" href="../lf6/6-5-5-service-auf-englisch.html"><span class="num">6.5.5</span><span class="t">Service auf Englisch</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf6-6-5" href="../lf6/6-5-check.html"><span class="num">6.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="../lf6/6-6-1-servicefaelle-auswerten.html"><span class="num">6.6</span><span>Servicequalität verbessern</span><span class="kap-progress" data-ids="6-6-1 6-6-2 6-6-3 6-6-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="6-6-1" href="../lf6/6-6-1-servicefaelle-auswerten.html"><span class="num">6.6.1</span><span class="t">Servicefälle auswerten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-6-2" href="../lf6/6-6-2-kundenzufriedenheit-ermitteln.html"><span class="num">6.6.2</span><span class="t">Kundenzufriedenheit ermitteln</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-6-3" href="../lf6/6-6-3-qualitaet-dauerhaft-verbessern.html"><span class="num">6.6.3</span><span class="t">Qualität dauerhaft verbessern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="6-6-4" href="../lf6/6-6-4-anwender-einweisen-und-veraenderungen-begleiten.html"><span class="num">6.6.4</span><span class="t">Anwender einweisen und Veränderungen begleiten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf6-6-6" href="../lf6/6-6-check.html"><span class="num">6.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="../lf6/rueckblick.html"><span class="num">6.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+    <li class="lf is-open" data-stufe="AP2" aria-current="true"><button class="lf-head" type="button" aria-expanded="true"><span class="num">LF7</span><span>Cyber-physische Systeme ergänzen</span><svg class="icon chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+      <ul class="nav-kap">
+        <li class="kap"><a class="kap-head" href="index.html"><span class="num"></span><span>Überblick</span></a></li>
+        <li class="kap"><a class="kap-head" href="7-1-1-was-ein-cyber-physisches-system-ist.html"><span class="num">7.1</span><span>Cyber-physische Systeme verstehen</span><span class="kap-progress" data-ids="7-1-1 7-1-2 7-1-3 7-1-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="7-1-1" href="7-1-1-was-ein-cyber-physisches-system-ist.html"><span class="num">7.1.1</span><span class="t">Was ein cyber-physisches System ist</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-1-2" href="7-1-2-sensoren-und-aktoren.html"><span class="num">7.1.2</span><span class="t">Sensoren und Aktoren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-1-3" href="7-1-3-steuern-und-regeln.html"><span class="num">7.1.3</span><span class="t">Steuern und Regeln</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-1-4" href="7-1-4-energie-stoff-und-informationsfluesse.html"><span class="num">7.1.4</span><span class="t">Energie-, Stoff- und Informationsflüsse</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf7-7-1" href="7-1-check.html"><span class="num">7.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="7-2-1-mikrocontroller-und-einplatinencomputer.html"><span class="num">7.2</span><span>Hardware und Energieversorgung auswählen</span><span class="kap-progress" data-ids="7-2-1 7-2-2 7-2-3 7-2-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="7-2-1" href="7-2-1-mikrocontroller-und-einplatinencomputer.html"><span class="num">7.2.1</span><span class="t">Mikrocontroller und Einplatinencomputer</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-2-2" href="7-2-2-sensoren-anschliessen.html"><span class="num">7.2.2</span><span class="t">Sensoren anschließen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-2-3" href="7-2-3-energieversorgung-planen.html"><span class="num">7.2.3</span><span class="t">Energieversorgung planen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-2-4" href="7-2-4-umgebungsbedingungen-beachten.html"><span class="num">7.2.4</span><span class="t">Umgebungsbedingungen beachten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf7-7-2" href="7-2-check.html"><span class="num">7.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head" href="7-3-1-funktechniken-fuer-iot.html"><span class="num">7.3</span><span>Kommunikation im Netzwerk</span><span class="kap-progress" data-ids="7-3-1 7-3-2 7-3-3 7-3-4 7-3-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="7-3-1" href="7-3-1-funktechniken-fuer-iot.html"><span class="num">7.3.1</span><span class="t">Funktechniken für IoT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-2" href="7-3-2-mqtt.html"><span class="num">7.3.2</span><span class="t">MQTT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-3" href="7-3-3-http-und-rest-im-vergleich.html"><span class="num">7.3.3</span><span class="t">HTTP und REST im Vergleich</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-4" href="7-3-4-datenmenge-und-bandbreite-berechnen.html"><span class="num">7.3.4</span><span class="t">Datenmenge und Bandbreite berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-5" href="7-3-5-software-und-bibliotheken-auswaehlen.html"><span class="num">7.3.5</span><span class="t">Software und Bibliotheken auswählen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf7-7-3" href="7-3-check.html"><span class="num">7.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap is-open"><a class="kap-head" href="7-4-1-technische-unterlagen-lesen-und-anpassen.html"><span class="num">7.4</span><span>Komponenten einbinden und prüfen</span><span class="kap-progress" data-ids="7-4-1 7-4-2 7-4-3 7-4-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="7-4-1" href="7-4-1-technische-unterlagen-lesen-und-anpassen.html"><span class="num">7.4.1</span><span class="t">Technische Unterlagen lesen und anpassen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-4-2" href="7-4-2-komponenten-integrieren.html"><span class="num">7.4.2</span><span class="t">Komponenten integrieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-4-3" href="7-4-3-betriebswerte-messen.html"><span class="num">7.4.3</span><span class="t">Betriebswerte messen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-4-4" href="7-4-4-energiebedarf-validieren-und-protokollieren.html"><span class="num">7.4.4</span><span class="t">Energiebedarf validieren und protokollieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf7-7-4" href="7-4-check.html"><span class="num">7.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
+        <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html"><span class="num">7.R</span><span class="t">Rückblick</span></a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="nav-extra"><a href="../../module/pruefung/simulation-ap1.html"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Prüfungssimulator</a></div>
+</nav>
+<main class="page" id="inhalt">
+<nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF7</a></li><li><a href="index.html#k-7-4">7.4 Komponenten einbinden und prüfen</a></li><li aria-current="page">Druckfassung</li></ol></nav>
+<header class="page-head">
+  <h1><span class="num">7.4</span>Komponenten einbinden und prüfen</h1>
+  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>LF7: Cyber-physische Systeme ergänzen</span></p>
+  <p class="no-print" style="margin-top:16px"><button class="btn btn-primary" type="button" onclick="window.print()"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Drucken</button></p>
+</header>
+<div class="content">
+<section class="print-up" id="u-7-4-1"><h2><span class="num">7.4.1</span> Technische Unterlagen lesen und anpassen</h2>
+<p class="lead">Bevor du einen Sensor anschließt, sagt dir das Datenblatt, welche Spannung er verträgt und an welchen Anschluss welche Leitung gehört. Nach dem Einbau muss die Dokumentation des Kunden wieder stimmen, sonst sucht der Nächste bei einer Störung an der falschen Stelle. Technische Unterlagen liest du also vorher und passt sie nachher an.</p>
+
+<h3 id="u7-4-1-das-datenblatt">Das Datenblatt<a class="anchor" href="#u7-4-1-das-datenblatt" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Das <strong>Datenblatt</strong> des Herstellers beschreibt ein Bauteil vollständig. Für die Auswahl und den Anschluss brauchst du vor allem diese Angaben:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Angabe</th><th>Wozu du sie brauchst</th></tr></thead>
+    <tbody>
+      <tr><th>Versorgungsspannung</th><td>passt sie zum Board, etwa 3,3 V (Kapitel 7.2.2)?</td></tr>
+      <tr><th>Stromaufnahme (aktiv und im Schlaf)</th><td>Energiebedarf und Batterielaufzeit (Kapitel 7.2.3)</td></tr>
+      <tr><th>Messbereich, Auflösung, Genauigkeit</th><td>reicht der Sensor für die Aufgabe, etwa −20 bis +60 °C mit ±0,5 °C?</td></tr>
+      <tr><th>Schnittstelle und Adresse</th><td>I²C mit welcher Adresse, UART mit welcher Baudrate?</td></tr>
+      <tr><th>Pinbelegung</th><td>welcher Anschluss welche Bedeutung hat</td></tr>
+      <tr><th>Betriebsbedingungen</th><td>Temperatur, Feuchte, Schutzart (Kapitel 7.2.4)</td></tr>
+      <tr><th>Grenzwerte</th><td>Werte, die nie überschritten werden dürfen, sonst droht ein Schaden</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Datenblätter sind meist auf Englisch. Typische Begriffe: supply voltage (Versorgungsspannung), current consumption (Stromaufnahme), operating temperature (Betriebstemperatur), accuracy (Genauigkeit), absolute maximum ratings (Grenzwerte).</p>
+
+<h3 id="u7-4-1-anschlussplan">Anschlussplan<a class="anchor" href="#u7-4-1-anschlussplan" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Wie die Teile verbunden werden, zeigt ein <strong>Anschlussplan</strong> (auch Verdrahtungsplan): Er ordnet jedem Anschluss des Sensors einen Anschluss des Boards zu. Die Bezeichnungen stehen in der Pinbelegung beider Datenblätter.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 640 230" role="img" aria-label="Anschlussplan: Board mit den Anschlüssen 3V3, GND, SDA und SCL ist mit den gleichnamigen Anschlüssen VCC, GND, SDA und SCL des Feuchtesensors verbunden">
+    <rect class="g-box" x="40" y="30" width="180" height="170" rx="10"/>
+    <text x="130" y="55" text-anchor="middle" font-size="14">Board</text>
+    <rect class="g-box" x="420" y="30" width="180" height="170" rx="10"/>
+    <text x="510" y="55" text-anchor="middle" font-size="14">Feuchtesensor</text>
+    <text x="205" y="88" text-anchor="end" class="g-mono" font-size="13">3V3</text>
+    <text x="205" y="118" text-anchor="end" class="g-mono" font-size="13">GND</text>
+    <text x="205" y="148" text-anchor="end" class="g-mono" font-size="13">SDA</text>
+    <text x="205" y="178" text-anchor="end" class="g-mono" font-size="13">SCL</text>
+    <text x="435" y="88" class="g-mono" font-size="13">VCC</text>
+    <text x="435" y="118" class="g-mono" font-size="13">GND</text>
+    <text x="435" y="148" class="g-mono" font-size="13">SDA</text>
+    <text x="435" y="178" class="g-mono" font-size="13">SCL</text>
+    <path class="g-line" d="M220 84H420" stroke-width="2"/>
+    <path class="g-line" d="M220 114H420" stroke-width="2"/>
+    <path class="g-line" d="M220 144H420" stroke-width="2"/>
+    <path class="g-line" d="M220 174H420" stroke-width="2"/>
+    <text x="320" y="78" text-anchor="middle" class="g-muted" font-size="11">Versorgung 3,3 V</text>
+    <text x="320" y="108" text-anchor="middle" class="g-muted" font-size="11">Masse</text>
+    <text x="320" y="138" text-anchor="middle" class="g-muted" font-size="11">Daten (I²C)</text>
+    <text x="320" y="168" text-anchor="middle" class="g-muted" font-size="11">Takt (I²C)</text>
+  </svg>
+  <figcaption>Anschlussplan für den I²C-Feuchtesensor: Versorgung, Masse, Daten und Takt.</figcaption>
+</figure>
+<p>In Schaltplänen stehen statt Kästen genormte <strong>Schaltzeichen</strong>, etwa für Widerstand, Schalter, Leuchtdiode, Relais und Masse. Als Fachkraft für Systemintegration musst du solche Pläne lesen können, aber keine Schaltungen entwerfen.</p>
+
+<h3 id="u7-4-1-dokumentation-anpassen">Dokumentation anpassen<a class="anchor" href="#u7-4-1-dokumentation-anpassen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Jede Erweiterung ändert die Unterlagen des Kunden. Nach dem Einbau ergänzt oder aktualisierst du:</p>
+<ul>
+  <li><strong>Geräteliste:</strong> neues Gerät mit Typ, Standort, Seriennummer, Firmware-Version, Versorgung,</li>
+  <li><strong>Netzwerkplan:</strong> Gateway, Adressen, Funkverbindungen (LF3, Kapitel 3.1.3),</li>
+  <li><strong>Anschlusspläne</strong> der neuen Komponenten,</li>
+  <li><strong>Topic-Schema</strong> und Alarmregeln (Kapitel 7.3.2),</li>
+  <li><strong>Prüfprotokoll</strong> mit den gemessenen Werten (Kapitel 7.4.4).</li>
+</ul>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Die Werte unter ‚absolute maximum ratings‘ sind die normalen Betriebswerte.“ Nein: Das sind Grenzen, die nicht einmal kurz überschritten werden dürfen. Für den Betrieb gelten die empfohlenen Betriebsbedingungen (recommended operating conditions), die meist deutlich darunter liegen.</p></aside>
+
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Vor dem Anschluss liest du im Datenblatt Spannung, Stromaufnahme, Messbereich, Schnittstelle, Pinbelegung und Grenzwerte; nach dem Einbau aktualisierst du Geräteliste, Netzwerk- und Anschlusspläne, Topic-Schema und Prüfprotokoll.</p></div>
+</section>
+<section class="print-up" id="u-7-4-2"><h2><span class="num">7.4.2</span> Komponenten integrieren</h2>
+<p class="lead">Das bestehende System läuft, die Marktleitung verlässt sich auf die Alarme. Die Erweiterung darf das nicht unterbrechen. Deshalb bindest du neue Komponenten Schritt für Schritt ein, testest erst auf dem Tisch und dann vor Ort und prüfst am Ende den ganzen Weg vom Sensor bis zur Reaktion.</p>
+
+<h3 id="u7-4-2-der-ablauf">Der Ablauf<a class="anchor" href="#u7-4-2-der-ablauf" aria-hidden="true" tabindex="-1">#</a></h3>
+<ol>
+  <li><strong>Vorbereiten:</strong> Plan, Datenblätter und Anschlusspläne bereitlegen; Zugangsdaten für WLAN und Broker, Gerätenamen und Topics festlegen; Material und Werkzeug prüfen.</li>
+  <li><strong>Testaufbau:</strong> Sensor und Board auf dem Tisch verbinden, Firmware aufspielen und konfigurieren. Erst wenn hier alles läuft, geht es an den Einsatzort.</li>
+  <li><strong>Konfigurieren:</strong> Netzwerkzugang, Adresse des Brokers, eigenes Topic, Sendeintervall, Zugangsdaten für den Broker, bei Bedarf Grenzwerte. Jedes Gerät bekommt einen eindeutigen Namen.</li>
+  <li><strong>Vor Ort montieren:</strong> am geplanten Ort befestigen, Funkqualität prüfen, Versorgung anschließen.</li>
+  <li><strong>In die Auswertung einbinden:</strong> neue Topics abonnieren, Alarmregeln und Anzeigen ergänzen.</li>
+  <li><strong>Funktion prüfen:</strong> jede Funktion einzeln und dann den ganzen Ablauf testen, auch den Fehlerfall (Kapitel 7.4.4).</li>
+  <li><strong>Dokumentieren und übergeben:</strong> Unterlagen anpassen (Kapitel 7.4.1), Kunden einweisen und Abnahme protokollieren (LF2, Kapitel 2.7.3).</li>
+</ol>
+<p>Binde nicht alles auf einmal ein, sondern eine Komponente nach der anderen. Tritt ein Fehler auf, weißt du dann, welches Teil ihn verursacht.</p>
+
+<h3 id="u7-4-2-funkqualitaet-pruefen">Funkqualität prüfen<a class="anchor" href="#u7-4-2-funkqualitaet-pruefen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Ob ein Funksensor am Montageort zuverlässig sendet, zeigt die <strong>Signalstärke</strong>, meist als RSSI in dBm angegeben. Die Werte sind negativ; je näher an null, desto stärker das Signal. Ein Wert von −55 dBm ist bei WLAN sehr gut, −85 dBm ist schwach. Wie viel genügt, hängt von der Funktechnik ab und steht in den Herstellerangaben; LoRaWAN kommt mit viel schwächeren Signalen aus als WLAN. Prüfe die Werte bei geschlossenen Türen, so wie im Betrieb.</p>
+
+<h3 id="u7-4-2-ende-zu-ende-testen">Ende-zu-Ende testen<a class="anchor" href="#u7-4-2-ende-zu-ende-testen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Einzelne Teile können funktionieren, während der ganze Ablauf scheitert, etwa weil ein Topic falsch geschrieben ist. Entscheidend ist der Test von der physischen Ursache bis zur Wirkung:</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach dem Einbau öffnet die Auszubildende die Kühlraumtür und wartet. Am Broker erscheint unter <code>biomarkt/kuehlraum/tuer</code> der Wert „offen“, nach zwei Minuten veröffentlicht die Auswertung <code>biomarkt/verkauf/warnleuchte</code> mit „an“, und die Leuchte im Verkaufsraum geht an. Sie schließt die Tür, die Leuchte geht aus. Danach trennt sie das Board des Türkontakts vom Netzteil: Sobald sich das Board innerhalb der eingestellten Wartezeit nicht mehr meldet, erkennt der Broker den Abbruch und veröffentlicht unter <code>biomarkt/kuehlraum/tuer/status</code> die Last-Will-Meldung „offline“, und die Marktleitung bekommt einen Hinweis. Beide Tests trägt sie mit Uhrzeit ins Prüfprotokoll ein.</p>
+</div>
+
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Ändere am laufenden System nur in Absprache mit dem Kunden und zu einem Zeitpunkt, an dem ein kurzer Ausfall unkritisch ist. Notiere vorher den alten Stand, damit du ihn bei Problemen wiederherstellen kannst.</p></aside>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Sensor sendet, also ist er eingebunden.“ Erst wenn die Auswertung seine Nachrichten verarbeitet und die gewünschte Reaktion auslöst, ist die Funktion erfüllt. Teste immer den ganzen Weg.</p></aside>
+
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Neue Komponenten bindest du schrittweise ein: auf dem Tisch testen, konfigurieren, vor Ort montieren und Funkqualität prüfen, in die Auswertung einbinden und den ganzen Weg von der Ursache bis zur Wirkung testen, auch den Fehlerfall.</p></div>
+</section>
+<section class="print-up" id="u-7-4-3"><h2><span class="num">7.4.3</span> Betriebswerte messen</h2>
+<p class="lead">Ob die Batterie so lange hält wie berechnet und ob der Sensor richtig misst, weißt du erst, wenn du nachmisst. Dazu gehören elektrische Werte wie Spannung und Strom und die physikalischen Werte, die der Sensor erfassen soll. Die Messungen belegen, dass das System so arbeitet wie geplant.</p>
+
+<h3 id="u7-4-3-das-multimeter">Das Multimeter<a class="anchor" href="#u7-4-3-das-multimeter" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Ein <strong>Multimeter</strong> misst Spannung, Strom und Widerstand. Wie du es anschließt, hängt von der Größe ab:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Messgröße</th><th>Anschluss</th><th>Worauf du achtest</th></tr></thead>
+    <tbody>
+      <tr><th>Spannung (V)</th><td><strong>parallel</strong> zum Bauteil: die Messspitzen an die beiden Punkte, zwischen denen die Spannung liegt</td><td>Gleichspannung (DC) oder Wechselspannung (AC) wählen; Stromkreis bleibt geschlossen</td></tr>
+      <tr><th>Strom (A)</th><td><strong>in Reihe</strong>: Stromkreis auftrennen und das Messgerät hineinschalten, damit der Strom hindurchfließt</td><td>passende Buchse und Messbereich; nie parallel an eine Spannungsquelle, sonst Kurzschluss über das Messgerät; danach die Messleitung zurück in die Spannungsbuchse stecken</td></tr>
+      <tr><th>Widerstand (Ω)</th><td>am Bauteil</td><td>nur im spannungsfreien Zustand messen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Beginne bei unbekannter Größe mit dem größten Messbereich und schalte dann herunter, falls das Gerät nicht selbst umschaltet. Miss als IT-Fachkraft nur an Kleinspannung, etwa an Board, Sensor und Batterie. Messungen an Netzspannung sind Sache der Elektrofachkraft (LF2, Kapitel 2.7.1).</p>
+<p>Sehr kleine Ströme im Schlafmodus, oft nur Mikroampere, erfasst ein einfaches Multimeter ungenau. Dafür gibt es Messgeräte, die den Strom über die Zeit aufzeichnen. Bei Geräten am USB-Anschluss hilft ein USB-Messadapter, der Spannung, Strom und Energie anzeigt. Bei PoE zeigt ein verwalteter Switch die Leistung je Port.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende misst an einem neuen Feuchtesensor in der Werkstatt: Die Batteriespannung beträgt 3,6 V. Die Batterie speist den Spannungsregler des Boards, der daraus die 3,3 V für Board und Sensor erzeugt. Für die Strommessung trennt sie die Plusleitung der Batterie auf und schaltet das Messgerät in Reihe. Beim Senden zeigt es etwa 85 mA, im Milliampere-Bereich bleibt die Anzeige im Schlaf nahe null. Mit einem aufzeichnenden Strommessgerät ermittelt sie über eine Stunde einen Durchschnitt von 0,21 mA.</p>
+</div>
+
+<h3 id="u7-4-3-messwerte-des-sensors-pruefen">Messwerte des Sensors prüfen<a class="anchor" href="#u7-4-3-messwerte-des-sensors-pruefen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Auch die Messung des Sensors selbst prüfst du, indem du sie mit einem <strong>Referenzmessgerät</strong> vergleichst, das genauer ist oder kalibriert wurde. Liegt der Sensor außerhalb seiner Toleranz aus dem Datenblatt, korrigierst du ihn, falls die Firmware einen Versatz (Offset) erlaubt, oder tauschst ihn aus. Bei einem Türkontakt prüfst du einfach beide Zustände: Tür offen, Tür zu.</p>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Für die Strommessung halte ich die Messspitzen an Plus und Minus der Batterie.“ Das ist ein Kurzschluss über das Messgerät, denn im Strommessbereich hat es fast keinen Widerstand. Strom misst du in Reihe, Spannung parallel.</p></aside>
+
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
+  <li><strong>Spannung</strong> parallel messen, <strong>Strom</strong> in Reihe (Stromkreis auftrennen), <strong>Widerstand</strong> nur spannungsfrei; mit großem Messbereich beginnen, nur an Kleinspannung.</li>
+  <li><strong>Sensorwerte</strong> mit einem Referenzmessgerät vergleichen und gegen die Toleranz im Datenblatt prüfen.</li>
+</ul></div>
+</section>
+<section class="print-up" id="u-7-4-4"><h2><span class="num">7.4.4</span> Energiebedarf validieren und protokollieren</h2>
+<p class="lead">Bei der Planung hast du die Batterielaufzeit berechnet. Jetzt liegen Messwerte vor. Stimmen beide überein, ist die Planung bestätigt; weichen sie ab, musst du reagieren, bevor der erste Sensor nach wenigen Monaten verstummt. Dieses Abgleichen nennt man validieren.</p>
+
+<h3 id="u7-4-4-planwert-und-messwert-vergleichen">Planwert und Messwert vergleichen<a class="anchor" href="#u7-4-4-planwert-und-messwert-vergleichen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Beim <strong>Validieren</strong> prüfst du, ob das Ergebnis die Anforderung des Kunden erfüllt, hier etwa: „Batteriewechsel höchstens einmal im Jahr“. Dazu rechnest du mit dem gemessenen Durchschnittsstrom neu und berücksichtigst die Reserve für Kälte und Alterung (Kapitel 7.2.3).</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Geplant war für den Feuchtesensor ein Durchschnitt von 0,188 mA. Gemessen wurden 0,21 mA, also etwa 12 Prozent mehr (doppelter Strom hieße halbe Laufzeit), weil der Verbindungsaufbau zum WLAN länger dauert als angenommen.</p>
+  <ul>
+    <li>rechnerische Laufzeit: 2600 mAh ÷ 0,21 mA ≈ 12.400 h, also rund 516 Tage</li>
+    <li>mit 25 Prozent Reserve: 2600 mAh × 0,75 ÷ 0,21 mA ≈ 9300 h, also rund 387 Tage</li>
+  </ul>
+  <p>Die Anforderung von einem Jahr ist erfüllt, aber knapp. Die Auszubildende notiert das und schlägt vor, nach drei Monaten die Batteriespannung zu prüfen. Wäre die Anforderung verfehlt, kämen ein längeres Sendeintervall, eine größere Batterie oder eine andere Funktechnik in Frage.</p>
+</div>
+
+<h3 id="u7-4-4-den-gesamtbedarf-pruefen">Den Gesamtbedarf prüfen<a class="anchor" href="#u7-4-4-den-gesamtbedarf-pruefen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Nicht nur Batteriegeräte zählen. Für die Geräte am Stromnetz addierst du die Leistungsaufnahme und vergleichst sie mit dem, was die Versorgung hergibt:</p>
+<ul>
+  <li><strong>PoE-Budget:</strong> Reicht die Leistung des Switches für das neue Gateway (LF3, Kapitel 3.3.4)?</li>
+  <li><strong>USV:</strong> Wie lange überbrückt sie den Ausfall mit der gemessenen Gesamtlast? Kleinrechner 6 W, Switch 20 W einschließlich der PoE-Leistung für Access Point und LoRaWAN-Gateway und Router 10 W ergeben 36 W; die Überbrückungszeit für 36 W steht im Datenblatt der USV.</li>
+  <li><strong>Energiekosten:</strong> Bei Dauerbetrieb ergeben 36 W rund 315 kWh im Jahr (LF2, Kapitel 2.4.5).</li>
+</ul>
+
+<h3 id="u7-4-4-das-pruefprotokoll">Das Prüfprotokoll<a class="anchor" href="#u7-4-4-das-pruefprotokoll" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Alle Prüfungen hältst du wie beim Arbeitsplatz in LF2 (Kapitel 2.7.2) in einem Protokoll fest: Prüfpunkt, Sollwert, gemessener Istwert, Ergebnis, Datum und Name.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Prüfpunkt</th><th>Soll</th><th>Ist</th><th>Ergebnis</th></tr></thead>
+    <tbody>
+      <tr><th>Batteriespannung Feuchtesensor Halle 1</th><td>3,6 V ± 0,1 V</td><td>3,62 V</td><td>i. O.</td></tr>
+      <tr><th>Durchschnittsstrom Feuchtesensor</th><td>höchstens 0,22 mA (ein Jahr mit 25 % Reserve)</td><td>0,21 mA</td><td>i. O., Laufzeit knapp über einem Jahr</td></tr>
+      <tr><th>Temperatur Kühlraum gegen Referenz</th><td>Abweichung höchstens 0,5 °C</td><td>0,3 °C</td><td>i. O.</td></tr>
+      <tr><th>Tür offen länger als 2 min</th><td>Warnleuchte an</td><td>nach 2 min an</td><td>i. O.</td></tr>
+      <tr><th>Signalstärke Sensor Außenlager</th><td>besser als der Grenzwert laut Hersteller</td><td>−112 dBm, keine Ausfälle in 24 h</td><td>i. O.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Die Rechnung hat ein Jahr ergeben, also hält die Batterie ein Jahr.“ Die Rechnung beruht auf Annahmen. Erst der gemessene Strom zeigt, ob sie stimmen; Kälte und Alterung verkürzen die Laufzeit zusätzlich.</p></aside>
+
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Validieren heißt, mit gemessenen Werten nachzurechnen, ob die Anforderung erfüllt ist; Laufzeit, PoE-Budget und USV-Last prüfst du und hältst alles im Prüfprotokoll mit Soll, Ist und Ergebnis fest.</p></div>
+</section>
+</div>
+</main>
+</div>
+</body>
+</html>

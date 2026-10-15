@@ -15,7 +15,7 @@ END IF</code></pre>
   <p>Bei 350 Tagen ist die erste Bedingung falsch, die zweite wahr: Status „bald fällig“. Bei 400 Tagen greift schon der erste Zweig („überfällig“), bei 120 Tagen keiner der beiden, also „aktuell“.</p>
 </div>
 <p>Die Reihenfolge der Bedingungen zählt. Stünde <code>tage &gt; 335</code> oben, bekäme ein Tier mit 400 Tagen den Status „bald fällig“, denn 400 ist auch größer als 335, und der Zweig „überfällig“ würde nie erreicht.</p>
-<p>Steht eine Verzweigung innerhalb einer anderen, heißt sie <strong>verschachtelt</strong>, etwa: <code>IF tierart == "Hund" THEN IF gewicht &gt; 20 THEN …</code>. Oft lässt sich das mit <code>AND</code> zu einer Bedingung zusammenfassen. Vergleichst du eine Variable mit vielen festen Werten, bieten viele Sprachen eine <strong>Mehrfachauswahl</strong> (<code>switch</code>, <code>CASE</code>): Zum Wert „Hund“, „Katze“ oder „Vogel“ gibt es je einen Zweig, für alle anderen einen Standardzweig.</p>
+<p>Steht eine Verzweigung innerhalb einer anderen, heißt sie <strong>verschachtelt</strong>, etwa: <code>IF tierart == "Hund" THEN IF gewicht &gt; 20 THEN …</code> (in der PowerShell aus LF3, Kapitel 3.7.2, heißt <code>==</code> <code>-eq</code>). Oft lässt sich das mit <code>AND</code> zu einer Bedingung zusammenfassen. Vergleichst du eine Variable mit vielen festen Werten, bieten viele Sprachen eine <strong>Mehrfachauswahl</strong> (<code>switch</code>, <code>CASE</code>): Zum Wert „Hund“, „Katze“ oder „Vogel“ gibt es je einen Zweig, für alle anderen einen Standardzweig.</p>
 
 <h3>Schleifen</h3>
 <div class="vergleich">

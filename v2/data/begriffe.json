@@ -203,7 +203,8 @@
       "kernfakten": [
         "ISMS: Regeln und Abläufe, um Informationssicherheit dauerhaft zu planen, umzusetzen, zu prüfen und zu verbessern.",
         "Standards: BSI IT-Grundschutz (konkrete Bausteine), ISO/IEC 27001 (Anforderungen an das ISMS, zertifizierbar).",
-        "Bei normalem Schutzbedarf genügen nach IT-Grundschutz meist Standardmaßnahmen; zusätzliche Risikoanalyse vor allem bei hohem/sehr hohem Schutzbedarf oder wenn kein passender Baustein existiert."
+        "Bei normalem Schutzbedarf genügen nach IT-Grundschutz meist Standardmaßnahmen; zusätzliche Risikoanalyse vor allem bei hohem/sehr hohem Schutzbedarf oder wenn kein passender Baustein existiert.",
+        "BSI prüft und zertifiziert IT-Produkte; das freiwillige IT-Sicherheitskennzeichen ist eine Herstellerzusage, keine Zertifizierung."
       ],
       "vorkommen": [
         {
@@ -400,6 +401,10 @@
         {
           "id": "4-5-5",
           "tiefe": "Schlüsselrichtung bei Signatur"
+        },
+        {
+          "id": "4-5-3",
+          "tiefe": "Zertifikat und privater Schlüssel als Besitzfaktor"
         }
       ]
     },
@@ -442,7 +447,8 @@
       "kernfakten": [
         "USV überbrückt Stromausfälle mit Akku für begrenzte Zeit und ermöglicht geordnetes Herunterfahren; längere Ausfälle: Notstromaggregat.",
         "IEC 62040-3 klassifiziert nach Netzabhängigkeit des Ausgangs: VFD (typisch Offline/Standby, Umschaltzeit), VI (typisch Line-Interactive, gleicht Spannungsschwankungen aus), VFI (typisch Online/Doppelwandler, keine Umschaltzeit, unabhängig von Spannung und Frequenz).",
-        "Dient vor allem der Verfügbarkeit, schützt auch die Integrität."
+        "Dient vor allem der Verfügbarkeit, schützt auch die Integrität.",
+        "Physische Manipulation: Keylogger, fremde Geräte an freien Netzwerkdosen; Schutz durch Zutritt, Verschluss, Siegel, Sichtkontrolle, abgeschaltete Switch-Ports."
       ],
       "vorkommen": [
         {
@@ -820,7 +826,9 @@
         "Massenspeicher: HDD günstig/langsam, SSD schnell/stoßfest, TBW; SATA max. 6 Gbit/s (SSD ca. 550 MB/s), NVMe über PCIe deutlich schneller; M.2 ist Bauform (NVMe oder SATA).",
         "Monitor: Full HD 1920x1080, WQHD 2560x1440, 4K UHD 3840x2160; IPS, VA, TN.",
         "Drucker: Kosten pro Seite = Preis Verbrauchsmaterial / Reichweite.",
-        "Peripherie: Barcode (1D) und QR-Code (2D) optisch mit Sichtkontakt, billig; RFID per Funk ohne Sicht, mehrere gleichzeitig, teurer."
+        "Peripherie: Barcode (1D) und QR-Code (2D) optisch mit Sichtkontakt, billig; RFID per Funk ohne Sicht, mehrere gleichzeitig, teurer.",
+        "RAM-Module verschiedener Geschwindigkeit laufen alle mit der des langsamsten.",
+        "Netzanschluss über Kaltgeräteanschluss: genormter dreipoliger Anschluss am Gerät, Kabel mit Kaltgerätekupplung."
       ],
       "vorkommen": [
         {
@@ -846,6 +854,10 @@
         {
           "id": "2-2-7",
           "tiefe": "Drucker"
+        },
+        {
+          "id": "2-6-7",
+          "tiefe": "Zahlungs-QR-Code"
         }
       ]
     },
@@ -1638,6 +1650,10 @@
         {
           "id": "5-7-2",
           "tiefe": "Rückverweis AV-Vertrag bei Cloud-KI"
+        },
+        {
+          "id": "1-2-4",
+          "tiefe": "Cloud-Dienste als Leistungsbegriff, Verweis"
         }
       ]
     },
@@ -1679,7 +1695,8 @@
         "Array (feste Größe)/Liste Index meist ab 0 bis n − 1 (Plattform: ab 0); Dictionary Schlüssel-Wert; Call by Value = Kopie, Call by Reference = Verweis aufs Original; Java: int als Kopie, Objekte/Arrays Verweis als Wert; Python immer Verweis als Wert (Zahlen/Texte unveränderlich); echtes Call by Reference z. B. C++ (&), C# (ref).",
         "Fehlerarten: Syntax (kein Start), Laufzeit (Abbruch, z. B. Index außerhalb, Division durch 0), Logik (falsches Ergebnis ohne Meldung); Schreibtischtest mit Trace-Tabelle; Debugger: Haltepunkt, Einzelschritt, Variablen beobachten.",
         "OOP: Klasse = Bauplan mit Attributen und Methoden, Objekt = Instanz; Kapselung = Attribute nur über Methoden ändern; Vererbung = Unterklasse übernimmt alles und ergänzt.",
-        "Zweidimensionales Array: erster Index Zeile, zweiter Spalte; Durchlauf mit verschachtelten Schleifen (innere läuft je äußerem Schritt vollständig)."
+        "Zweidimensionales Array: erster Index Zeile, zweiter Spalte; Durchlauf mit verschachtelten Schleifen (innere läuft je äußerem Schritt vollständig).",
+        "Kriterien der Sprachauswahl: Anforderungen und Plattform, Know-how im Team, Bibliotheken und Werkzeuge, Verbreitung und Zukunftssicherheit."
       ],
       "vorkommen": [
         {
@@ -1990,6 +2007,10 @@
         {
           "id": "6-2-4",
           "tiefe": "Modelle, Minutenpreis, kostenpflichtige Hotline"
+        },
+        {
+          "id": "2-7-4",
+          "tiefe": "effektiver Stundensatz"
         }
       ]
     },
@@ -2302,6 +2323,10 @@
         {
           "id": "2-6-7",
           "tiefe": "Belegfolge, Prüfung, USt, QR-Code, E-Rechnung"
+        },
+        {
+          "id": "2-2-7",
+          "tiefe": "QR-Code als Peripherie"
         }
       ]
     },

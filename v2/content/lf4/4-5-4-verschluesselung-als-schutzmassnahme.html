@@ -26,6 +26,20 @@
   <li><strong>E-Mails mit vertraulichem Inhalt:</strong> Ende-zu-Ende verschlüsseln, wenn Inhalte nur der Empfänger lesen darf.</li>
 </ul>
 
+<h3>Den Wiederherstellungsschlüssel aufbewahren</h3>
+<p>Verschlüsselt ein Betriebssystem die ganze Festplatte, erzeugt es zusätzlich einen langen <strong>Wiederherstellungsschlüssel</strong>. Er wird gebraucht, wenn die PIN vergessen ist, wenn Hardware getauscht wurde oder wenn sich Firmware oder Startkonfiguration geändert haben, etwa nach einem BIOS-Update. Ohne ihn sind die Daten verloren. Er darf deshalb nie nur auf dem verschlüsselten Gerät selbst liegen.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Ablageort</th><th>Vorteil</th><th>Nachteil</th></tr></thead>
+    <tbody>
+      <tr><th>zentrale Verwaltung des Betriebs (Verzeichnisdienst, Geräteverwaltung)</th><td>Administration findet ihn schnell, für alle Geräte einheitlich</td><td>die zentrale Ablage muss selbst gut geschützt werden</td></tr>
+      <tr><th>Ausdruck im Tresor</th><td>offline, für Angreifer aus dem Netz unerreichbar</td><td>nur vor Ort verfügbar, kann verlegt werden</td></tr>
+      <tr><th>Cloud-Konto des Herstellers</th><td>bequem, überall abrufbar</td><td>abhängig vom Anbieter, das Konto wird zum Angriffsziel</td></tr>
+      <tr><th>Datei auf einem USB-Stick</th><td>schnell zur Hand</td><td>darf nicht beim Gerät liegen, kann verloren gehen</td></tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Eine Rechtsanwältin will Schriftsätze per Mail an einen Mandanten schicken. Sie verschlüsselt die Mail mit dem öffentlichen Schlüssel des Mandanten. Unterwegs kann niemand den Inhalt lesen, und nur der Mandant kann sie mit seinem privaten Schlüssel öffnen. Einen geheimen Schlüssel mussten die beiden vorher nicht austauschen; die Anwältin brauchte nur den öffentlichen Schlüssel des Mandanten, etwa aus seinem Zertifikat.</p>

@@ -458,8 +458,9 @@
   <li>nicht benötigte Programme, Dienste und Benutzerkonten entfernen oder deaktivieren,</li>
   <li>nicht benötigte Netzwerk-Ports schließen und die Firewall des Betriebssystems aktiv lassen,</li>
   <li>Standardpasswörter von Geräten und Programmen ändern, denn sie stehen oft öffentlich im Handbuch,</li>
-  <li>Einstellungen zentral vorgeben, etwa über Gruppenrichtlinien in einer Windows-Domäne, damit Anwender sie nicht verstellen.</li>
+  <li>Einstellungen zentral vorgeben, damit Anwender sie nicht verstellen.</li>
 </ul>
+<p>In einer Windows-Domäne geschieht das über <strong>Gruppenrichtlinien</strong>: Die Administration legt Regeln einmal zentral fest, und sie wirken automatisch auf alle zugeordneten Rechner und Benutzer, etwa Mindestlänge für Passwörter, automatische Bildschirmsperre, gesperrte USB-Speicher oder Einstellungen der Firewall.</p>
 
 <h3 id="u4-6-1-nur-so-viele-rechte-wie-noetig">Nur so viele Rechte wie nötig<a class="anchor" href="#u4-6-1-nur-so-viele-rechte-wie-noetig" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Nach dem <strong>Prinzip der minimalen Rechte</strong> bekommt jedes Konto nur die Rechte, die es für seine Aufgabe braucht. Für die tägliche Arbeit nutzt du ein normales Benutzerkonto. Administratorrechte verwendest du nur für Aufgaben, die sie wirklich erfordern, und mit einem eigenen Konto. Läuft Schadsoftware unter einem normalen Konto, kann sie deutlich weniger Schaden anrichten als mit Administratorrechten.</p>
@@ -472,6 +473,16 @@
   <li><strong>Keine fremden Datenträger</strong> anschließen und keine privaten Programme installieren.</li>
   <li><strong>Blickschutz</strong>, wenn Besucher oder Kunden auf den Bildschirm sehen können.</li>
 </ul>
+
+<h3 id="u4-6-1-private-geraete-im-betrieb-byod">Private Geräte im Betrieb (BYOD)<a class="anchor" href="#u4-6-1-private-geraete-im-betrieb-byod" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Bei <strong>Bring Your Own Device</strong> nutzen Beschäftigte ihr privates Smartphone oder Notebook auch dienstlich. Das spart Anschaffungskosten und die Beschäftigten arbeiten mit vertrauten Geräten. Die Risiken sind aber erheblich:</p>
+<ul>
+  <li>Der Betrieb kann Updates, Virenschutz und Einstellungen nicht sicher vorgeben.</li>
+  <li>Private Apps können auf dienstliche Daten wie Kontakte zugreifen.</li>
+  <li>Geht das Gerät verloren oder verlässt die Person den Betrieb, liegen Firmendaten auf einem fremden Gerät.</li>
+  <li>Private Daten darf der Betrieb grundsätzlich nicht einsehen oder löschen. Das erschwert Kontrolle und Fernlöschung.</li>
+</ul>
+<p>Erlaubt ein Betrieb BYOD, regelt er es schriftlich und trennt dienstliche von privaten Daten, etwa mit einer Geräteverwaltung (Mobile Device Management) und einem getrennten dienstlichen Bereich, den er bei Bedarf allein löschen kann.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
@@ -539,6 +550,7 @@
 <h3 id="u4-6-3-geraete-schuetzen">Geräte schützen<a class="anchor" href="#u4-6-3-geraete-schuetzen" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
   <li><strong>Mobile Geräte:</strong> Notebooks und Smartphones nicht unbeaufsichtigt lassen, nicht sichtbar im Auto liegen lassen, Datenträger verschlüsseln (Kapitel 4.5.4).</li>
+  <li><strong>Manipulation:</strong> Wer unbeobachtet an Geräte kommt, kann etwas einbauen, etwa einen Keylogger zwischen Tastatur und PC oder ein eigenes kleines Gerät an einer freien Netzwerkdose. Dagegen helfen Zutrittsbeschränkung, verschlossene Gehäuse und Schränke, Siegel, die ein Öffnen sichtbar machen, regelmäßige Sichtkontrolle der Anschlüsse und ungenutzte Netzwerkdosen, deren Switch-Port abgeschaltet ist.</li>
   <li><strong>Entsorgung:</strong> Alte Festplatten, Smartphones und Drucker mit Speicher werden vor der Entsorgung sicher gelöscht oder physisch zerstört. Einfaches Löschen oder Formatieren reicht nicht, die Daten lassen sich oft wiederherstellen.</li>
 </ul>
 

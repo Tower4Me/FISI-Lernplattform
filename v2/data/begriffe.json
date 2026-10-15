@@ -17,7 +17,8 @@
       "begriff": "datenschutz",
       "kernfakten": [
         "Datenschutz schützt Personen und ihr Recht auf informationelle Selbstbestimmung, nicht die Daten an sich.",
-        "Rechtsgrundlagen in Deutschland: DSGVO und ergänzend BDSG."
+        "Rechtsgrundlagen in Deutschland: DSGVO und ergänzend BDSG.",
+        "Ergänzend zum Datenschutz schützt das StGB Daten und IT-Systeme: § 202a Ausspähen (Sicherung überwinden), § 202b Abfangen, § 202c Vorbereiten, § 303a Datenveränderung, § 303b Computersabotage; Fernmeldegeheimnis Art. 10 GG, § 3 TDDDG."
       ],
       "vorkommen": [
         {
@@ -367,7 +368,8 @@
         "Identifikation: Identität angeben; Authentifizierung: Identität nachweisen; Autorisierung: Rechte zuweisen.",
         "Faktoren: Wissen, Besitz, Merkmal (Biometrie).",
         "MFA: mindestens zwei verschiedene Faktoren; zwei Wissensfaktoren sind keine MFA.",
-        "Passwörter: Länge zählt am meisten, je Dienst eigenes Passwort, Passwortmanager; Wechsel bei Verdacht statt routinemäßig erzwungen."
+        "Passwörter: Länge zählt am meisten, je Dienst eigenes Passwort, Passwortmanager; Wechsel bei Verdacht statt routinemäßig erzwungen.",
+        "Chipkarte/Token/TPM mit privatem Schlüssel zum persönlichen Zertifikat = Besitzfaktor; mit PIN zwei Faktoren."
       ],
       "vorkommen": [
         {
@@ -387,7 +389,8 @@
         "Symmetrisch: ein gemeinsamer Schlüssel, schnell, Problem Schlüsselaustausch (z. B. AES).",
         "Asymmetrisch: Schlüsselpaar; Verschlüsseln mit öffentlichem Schlüssel des Empfängers, Entschlüsseln mit dessen privatem; langsamer (z. B. RSA).",
         "Hybrid: asymmetrisch einen symmetrischen Sitzungsschlüssel vereinbaren, Daten symmetrisch verschlüsseln (z. B. HTTPS/TLS).",
-        "Öffentlicher Schlüssel muss nachweislich zum Empfänger gehören (Zertifikat)."
+        "Öffentlicher Schlüssel muss nachweislich zum Empfänger gehören (Zertifikat).",
+        "Wiederherstellungsschlüssel der Festplattenverschlüsselung nie nur auf dem Gerät; Ablage zentral, Tresor, Cloud-Konto oder USB-Stick mit jeweiligen Vor- und Nachteilen."
       ],
       "vorkommen": [
         {
@@ -424,7 +427,8 @@
       "kernfakten": [
         "Härten: Angriffsfläche verkleinern (unnötige Programme/Dienste/Konten entfernen, Ports schließen, Standardpasswörter ändern, Firewall aktiv).",
         "Prinzip der minimalen Rechte: Alltag mit Standardkonto, Adminrechte nur bei Bedarf mit separatem Konto.",
-        "Updates schließen bekannte Lücken; automatische Updates einschalten."
+        "Updates schließen bekannte Lücken; automatische Updates einschalten.",
+        "Gruppenrichtlinien: zentral festgelegte Regeln in der Windows-Domäne (Passwortlänge, Sperre, USB, Firewall). BYOD: Risiken fehlende Kontrolle, Datenvermischung, Verlust; Regelung, MDM, getrennter dienstlicher Bereich."
       ],
       "vorkommen": [
         {

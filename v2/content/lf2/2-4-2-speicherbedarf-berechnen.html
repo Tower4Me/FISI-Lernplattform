@@ -2,6 +2,7 @@
 
 <h3>Größe eines Bildes</h3>
 <p>Ein unkomprimiertes Bild besteht aus Bildpunkten (Pixeln). Jeder Pixel braucht so viele Bit, wie die <strong>Farbtiefe</strong> angibt. Bei Echtfarben sind das 24 Bit, je 8 Bit für Rot, Grün und Blau.</p>
+<p>Mit n Bit lassen sich 2<sup>n</sup> verschiedene Werte darstellen. 8 Bit ergeben 2<sup>8</sup> = 256 Graustufen oder Helligkeitsstufen je Farbkanal, 24 Bit ergeben 2<sup>24</sup> = 16.777.216, also rund 16,7 Millionen Farben.</p>
 <p class="formel">Speicherbedarf in Byte = Breite × Höhe × Farbtiefe in Bit ÷ 8</p>
 <p>Danach teilst du durch 1024 für KiB und noch einmal durch 1024 für MiB.</p>
 <div class="beispiel">
@@ -14,6 +15,21 @@
     <li>6075 KiB ÷ 1024 ≈ 5,93 MiB</li>
   </ul>
 </div>
+<h3>Größe eines Scans</h3>
+<p>Beim Scanner kennst du nicht die Pixelzahl, sondern die Größe des Papiers und die <strong>Auflösung</strong> in dpi (dots per inch, Punkte pro Zoll). Ein Zoll sind 2,54 cm. Du rechnest die Seitenlänge erst in Zoll um und dann in Pixel:</p>
+<p class="formel">Pixel = Länge in cm ÷ 2,54 × dpi</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine DIN-A4-Seite (21 cm × 29,7 cm) wird mit 300 dpi und 24 Bit Farbtiefe gescannt:</p>
+  <ul>
+    <li>Breite: 21 ÷ 2,54 × 300 ≈ 2480 Pixel</li>
+    <li>Höhe: 29,7 ÷ 2,54 × 300 ≈ 3508 Pixel</li>
+    <li>2480 × 3508 × 24 Bit ÷ 8 = 26.099.520 Byte</li>
+    <li>26.099.520 Byte ÷ 1024 ÷ 1024 ≈ 24,89 MiB unkomprimiert</li>
+  </ul>
+  <p>Doppelte Auflösung bedeutet doppelt so viele Pixel in Breite und Höhe, also den vierfachen Speicherbedarf.</p>
+</div>
+
 <p>Bei Text rechnest du mit der Zahl der Zeichen. In ASCII belegt ein Zeichen ein Byte. In UTF-8 belegen die ASCII-Zeichen ebenfalls ein Byte, Umlaute zwei, das €-Zeichen drei und Emojis vier Byte.</p>
 
 <h3>Hochrechnen über die Zeit</h3>

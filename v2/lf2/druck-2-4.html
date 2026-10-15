@@ -496,6 +496,7 @@
 
 <h3 id="u2-4-2-groesse-eines-bildes">Größe eines Bildes<a class="anchor" href="#u2-4-2-groesse-eines-bildes" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Ein unkomprimiertes Bild besteht aus Bildpunkten (Pixeln). Jeder Pixel braucht so viele Bit, wie die <strong>Farbtiefe</strong> angibt. Bei Echtfarben sind das 24 Bit, je 8 Bit für Rot, Grün und Blau.</p>
+<p>Mit n Bit lassen sich 2<sup>n</sup> verschiedene Werte darstellen. 8 Bit ergeben 2<sup>8</sup> = 256 Graustufen oder Helligkeitsstufen je Farbkanal, 24 Bit ergeben 2<sup>24</sup> = 16.777.216, also rund 16,7 Millionen Farben.</p>
 <p class="formel">Speicherbedarf in Byte = Breite × Höhe × Farbtiefe in Bit ÷ 8</p>
 <p>Danach teilst du durch 1024 für KiB und noch einmal durch 1024 für MiB.</p>
 <div class="beispiel">
@@ -508,6 +509,21 @@
     <li>6075 KiB ÷ 1024 ≈ 5,93 MiB</li>
   </ul>
 </div>
+<h3 id="u2-4-2-groesse-eines-scans">Größe eines Scans<a class="anchor" href="#u2-4-2-groesse-eines-scans" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Beim Scanner kennst du nicht die Pixelzahl, sondern die Größe des Papiers und die <strong>Auflösung</strong> in dpi (dots per inch, Punkte pro Zoll). Ein Zoll sind 2,54 cm. Du rechnest die Seitenlänge erst in Zoll um und dann in Pixel:</p>
+<p class="formel">Pixel = Länge in cm ÷ 2,54 × dpi</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine DIN-A4-Seite (21 cm × 29,7 cm) wird mit 300 dpi und 24 Bit Farbtiefe gescannt:</p>
+  <ul>
+    <li>Breite: 21 ÷ 2,54 × 300 ≈ 2480 Pixel</li>
+    <li>Höhe: 29,7 ÷ 2,54 × 300 ≈ 3508 Pixel</li>
+    <li>2480 × 3508 × 24 Bit ÷ 8 = 26.099.520 Byte</li>
+    <li>26.099.520 Byte ÷ 1024 ÷ 1024 ≈ 24,89 MiB unkomprimiert</li>
+  </ul>
+  <p>Doppelte Auflösung bedeutet doppelt so viele Pixel in Breite und Höhe, also den vierfachen Speicherbedarf.</p>
+</div>
+
 <p>Bei Text rechnest du mit der Zahl der Zeichen. In ASCII belegt ein Zeichen ein Byte. In UTF-8 belegen die ASCII-Zeichen ebenfalls ein Byte, Umlaute zwei, das €-Zeichen drei und Emojis vier Byte.</p>
 
 <h3 id="u2-4-2-hochrechnen-ueber-die-zeit">Hochrechnen über die Zeit<a class="anchor" href="#u2-4-2-hochrechnen-ueber-die-zeit" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -650,6 +666,11 @@
   </ul>
 </div>
 
+<h3 id="u2-4-5-ab-wann-lohnt-sich-das-sparsamere-geraet">Ab wann lohnt sich das sparsamere Gerät?<a class="anchor" href="#u2-4-5-ab-wann-lohnt-sich-das-sparsamere-geraet" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Kostet das sparsame Gerät in der Anschaffung mehr, holt es den Mehrpreis erst nach einiger Zeit über die Stromersparnis wieder herein. Diese Zeit heißt <strong>Amortisationszeit</strong>.</p>
+<p class="formel">Amortisationszeit = Mehrpreis ÷ Ersparnis pro Zeiteinheit</p>
+<p>Fragt die Aufgabe nach vollen Monaten, rundest du auf: Erst im Monat, in dem die Ersparnis den Mehrpreis erreicht, hat sich das Gerät bezahlt gemacht. Angenommen, beim Kauf stehen zwei neue Modelle zur Wahl: eines mit 110 W und eines mit 60 W, das 80 Euro mehr kostet. Mit den Werten aus dem Beispiel oben spart das sparsamere Modell 30,80 Euro im Jahr, also 30,80 ÷ 12 ≈ 2,57 Euro pro Monat. 80 Euro ÷ (30,80 Euro ÷ 12) ≈ 31,2, aufgerundet 32 Monate. Wird der PC länger genutzt, ist das sparsamere Modell insgesamt günstiger.</p>
+
 <h3 id="u2-4-5-was-die-rechnung-genauer-macht">Was die Rechnung genauer macht<a class="anchor" href="#u2-4-5-was-die-rechnung-genauer-macht" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
   <li><strong>Wirkungsgrad:</strong> Ist nur die Leistung der Bauteile bekannt, teilst du durch den Wirkungsgrad des Netzteils (Kapitel 2.4.4), um die Leistung aus der Steckdose zu erhalten.</li>
@@ -672,7 +693,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Energie in kWh</strong> = Watt × Stunden ÷ 1000; <strong>Kosten</strong> = kWh × Preis.</li>
-  <li><strong>Genauer</strong> wird es mit Wirkungsgrad, Auslastung und Standby; bei vielen Geräten lohnt sich sparsame Hardware.</li>
+  <li><strong>Genauer</strong> wird es mit Wirkungsgrad, Auslastung und Standby; <strong>Amortisationszeit</strong> = Mehrpreis ÷ Ersparnis pro Zeiteinheit (volle Monate: aufrunden).</li>
 </ul></div>
 </section>
 </div>

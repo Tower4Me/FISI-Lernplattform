@@ -541,7 +541,7 @@
   <li><strong>Kapazität:</strong> wie viel gleichzeitig im Speicher liegen kann, angegeben in Gigabyte.</li>
   <li><strong>Typ:</strong> Die Generationen DDR4 und DDR5 sind nicht untereinander tauschbar. Die Module haben unterschiedliche Kerben und passen nur in den passenden Steckplatz.</li>
   <li><strong>Bauform:</strong> lange DIMM-Module für Desktop-PCs, kurze SO-DIMM-Module für Notebooks und Mini-PCs. In vielen dünnen Notebooks ist der Speicher fest aufgelötet und lässt sich nicht erweitern.</li>
-  <li><strong>Geschwindigkeit:</strong> Datenrate in MT/s (Millionen Transfers pro Sekunde), zum Beispiel 5600 MT/s.</li>
+  <li><strong>Geschwindigkeit:</strong> Datenrate in MT/s (Millionen Transfers pro Sekunde), zum Beispiel 5600 MT/s. Steckst du Module mit verschiedener Geschwindigkeit zusammen, laufen alle nur so schnell wie das langsamste; der Aufpreis für das schnellere Modul ist dann verschenkt.</li>
   <li><strong>Fehlerkorrektur (ECC):</strong> erkennt und korrigiert einzelne Bitfehler, wichtig für Server und Workstations, braucht passendes Mainboard und passenden Prozessor. DDR5 hat intern eine eigene Fehlerkorrektur (On-Die-ECC); das ersetzt keine ECC-Module.</li>
 </ul>
 
@@ -584,6 +584,19 @@
   <li><strong>NVMe:</strong> Protokoll für SSDs, die direkt über <strong>PCI Express</strong> angebunden sind. Sie erreichen ein Vielfaches der SATA-Geschwindigkeit, mehrere Gigabyte pro Sekunde.</li>
   <li><strong>M.2:</strong> eine Bauform, also ein kleiner Steckplatz für SSD-Karten. Eine M.2-SSD kann über NVMe oder über SATA angebunden sein. Welche Variante der Steckplatz unterstützt, steht im Handbuch.</li>
 </ul>
+
+<h3 id="u2-2-4-speicher-ausserhalb-des-pcs-das-nas-und-san">Speicher außerhalb des PCs: DAS, NAS und SAN<a class="anchor" href="#u2-2-4-speicher-ausserhalb-des-pcs-das-nas-und-san" aria-hidden="true" tabindex="-1">#</a></h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Anbindung</th><th>Typischer Einsatz</th></tr></thead>
+    <tbody>
+      <tr><th>DAS (Direct Attached Storage)</th><td>direkt an einem Rechner, etwa als externe USB-Festplatte; nur dieser Rechner nutzt sie</td><td>einzelner Arbeitsplatz, Datensicherung eines Rechners</td></tr>
+      <tr><th>NAS (Network Attached Storage)</th><td>eigenes Gerät im LAN, stellt Dateien und Ordner über das Netzwerk bereit</td><td>gemeinsame Ablage in kleinen Büros</td></tr>
+      <tr><th>SAN (Storage Area Network)</th><td>eigenes, schnelles Speichernetz; Server sehen den Speicher wie eine eigene Festplatte</td><td>Rechenzentren, Datenbanken, virtuelle Server</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Gegenüber einem NAS ist ein SAN schneller, belastet das normale Netzwerk nicht und lässt sich gut erweitern. Es ist aber deutlich teurer und aufwendiger zu betreiben, daher lohnt es sich nur für größere Umgebungen.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
@@ -681,6 +694,7 @@
 
 <h3 id="u2-2-6-strom-aus-der-schnittstelle">Strom aus der Schnittstelle<a class="anchor" href="#u2-2-6-strom-aus-der-schnittstelle" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Kleine Geräte wie Kartenleser oder externe Festplatten beziehen ihren Strom über USB. Ein USB-2.0-Anschluss liefert standardmäßig 0,5 A, USB 3.x 0,9 A, USB-C ohne Power Delivery bis 3 A, jeweils bei 5 Volt. Reicht das nicht, ist ein eigenes Netzteil nötig. Wie man das ausrechnet, folgt in Kapitel 2.4.4.</p>
+<p>Desktop-PCs, Monitore und Drucker bekommen ihren Netzstrom meist über einen <strong>Kaltgeräteanschluss</strong>: einen genormten dreipoligen Anschluss am Gerät (mit Stiften), auf den das Netzkabel mit der passenden Kaltgerätekupplung gesteckt wird. Weil sie genormt ist, passt dasselbe Netzkabel an viele Geräte.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
@@ -715,6 +729,20 @@
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Ein Büro druckt etwa 1.000 Seiten im Monat, also 12.000 Seiten im Jahr. Drucker A kostet 150 Euro, sein Toner 60 Euro für 3.000 Seiten: 2 Cent pro Seite. Drucker B kostet 60 Euro, eine Patrone 25 Euro für 500 Seiten: 5 Cent pro Seite. Über drei Jahre (36.000 Seiten) kostet A 150 + 720 = 870 Euro, B dagegen 60 + 1.800 = 1.860 Euro. Der in der Anschaffung teurere Drucker ist über drei Jahre deutlich günstiger (ohne Papier, Strom und Wartung).</p>
+</div>
+
+<h3 id="u2-2-7-barcode-qr-code-und-rfid">Barcode, QR-Code und RFID<a class="anchor" href="#u2-2-7-barcode-qr-code-und-rfid" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Wo Waren, Geräte oder Dokumente erfasst werden, etwa im Lager oder bei der Inventarisierung, liest ein Gerät eine Kennung automatisch ein, statt sie abzutippen.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Barcode (Strichcode)</th><th>QR-Code</th><th>RFID</th></tr></thead>
+    <tbody>
+      <tr><th>Technik</th><td>Striche, eindimensional, optisch gelesen</td><td>Punktmuster, zweidimensional, optisch gelesen, auch mit dem Smartphone</td><td>Funkchip (Transponder) mit Antenne, per Funk gelesen</td></tr>
+      <tr><th>Datenmenge</th><td>wenige Zeichen, meist eine Nummer</td><td>deutlich mehr, etwa eine Internetadresse oder Überweisungsdaten</td><td>je nach Chip; oft eine Nummer, manche Chips auch beschreibbar</td></tr>
+      <tr><th>Lesen</th><td>Sichtkontakt nötig, einzeln</td><td>Sichtkontakt nötig, einzeln; funktioniert auch bei teilweiser Beschädigung</td><td>ohne Sichtkontakt, auch durch Karton oder Kunststoff (Metall und Flüssigkeit stören), mehrere gleichzeitig</td></tr>
+      <tr><th>Kosten</th><td>sehr gering, einfach zu drucken</td><td>sehr gering, einfach zu drucken</td><td>höher (Chip und Lesegeräte)</td></tr>
+    </tbody>
+  </table>
 </div>
 
 <h3 id="u2-2-7-weitere-peripherie">Weitere Peripherie<a class="anchor" href="#u2-2-7-weitere-peripherie" aria-hidden="true" tabindex="-1">#</a></h3>

@@ -793,9 +793,10 @@
     {
       "begriff": "geraeteklassen",
       "kernfakten": [
-        "Desktop, Mini-PC, Notebook, Workstation, Thin Client; Fat Client führt Programme lokal aus, Thin Client nutzt Server/Terminalserver/VDI.",
+        "Desktop, Mini-PC, Notebook, All-in-One, Workstation, Thin Client; Fat Client führt Programme lokal aus, Thin Client nutzt Server/Terminalserver/VDI.",
         "Thin Client: zentral verwaltet, sparsam, aber abhängig von Netzwerk und Server.",
-        "Workstation: oft ECC-RAM, Profi-Grafik; Thin Client günstig in der Anschaffung, aber Server/Lizenzen nötig."
+        "Workstation: oft ECC-RAM, Profi-Grafik; Thin Client günstig in der Anschaffung, aber Server/Lizenzen nötig.",
+        "All-in-One-PC: Rechner im Monitorgehäuse, platzsparend, kaum aufrüstbar, Defekt betrifft beides."
       ],
       "vorkommen": [
         {
@@ -813,7 +814,8 @@
         "RAM: flüchtig; DDR4/DDR5 nicht tauschbar; DIMM/SO-DIMM; ECC (On-Die-ECC bei DDR5 ersetzt es nicht); Dual Channel mit zwei gleichen Modulen verdoppelt die mögliche Datenrate.",
         "Massenspeicher: HDD günstig/langsam, SSD schnell/stoßfest, TBW; SATA max. 6 Gbit/s (SSD ca. 550 MB/s), NVMe über PCIe deutlich schneller; M.2 ist Bauform (NVMe oder SATA).",
         "Monitor: Full HD 1920x1080, WQHD 2560x1440, 4K UHD 3840x2160; IPS, VA, TN.",
-        "Drucker: Kosten pro Seite = Preis Verbrauchsmaterial / Reichweite."
+        "Drucker: Kosten pro Seite = Preis Verbrauchsmaterial / Reichweite.",
+        "Peripherie: Barcode (1D) und QR-Code (2D) optisch mit Sichtkontakt, billig; RFID per Funk ohne Sicht, mehrere gleichzeitig, teurer."
       ],
       "vorkommen": [
         {
@@ -878,7 +880,8 @@
         "Systemsoftware vs. Anwendungssoftware; Standard-, Branchen-, Individualsoftware; Customizing.",
         "Software urheberrechtlich geschützt (§ 69a UrhG); Lizenz = Nutzungsrecht, nicht Urheberrecht.",
         "Modelle: Einzelplatz, Volumen, OEM (an Gerät gebunden), Abo, CAL (Device günstiger bei geteilten Geräten, User bei mehreren Geräten je Person), Netzwerk/Floating, Shareware, Freeware (oft nur privat), Open Source.",
-        "GPL Copyleft: weitergegebene Änderungen offenlegen; MIT: nur Lizenzhinweis erhalten."
+        "GPL Copyleft: weitergegebene Änderungen offenlegen; MIT: nur Lizenzhinweis erhalten.",
+        "Make-or-buy: kritische Menge = Entwicklungskosten ÷ Lizenzpreis je Arbeitsplatz; darunter Kauf günstiger."
       ],
       "vorkommen": [
         {
@@ -908,7 +911,8 @@
         "Start: POST, Bootreihenfolge, Bootloader, Betriebssystemkern.",
         "UEFI löst BIOS ab: GPT, grafisch, Secure Boot (nur signierte Bootloader), schneller; CSM für BIOS-Modus fehlt bei vielen neuen Rechnern.",
         "Windows 11 u. a.: UEFI mit Secure-Boot-Fähigkeit, TPM 2.0 (Chip oder in CPU, im UEFI aktivieren), unterstützter 64-Bit-Prozessor.",
-        "Einrichtung: Firmware, Installation (ISO-Abbild), Treiber, Updates, Anwendungen."
+        "Einrichtung: Firmware, Installation (ISO-Abbild), Treiber, Updates, Anwendungen.",
+        "Notfall-Update per USB-Taste (z. B. BIOS-Flashback): Firmware per USB-Stick ohne Systemstart, auch ohne CPU und RAM."
       ],
       "vorkommen": [
         {
@@ -923,7 +927,8 @@
         "1 Byte = 8 Bit; n Bit = 2^n Werte (1 Byte: 256).",
         "Dezimal kB/MB/GB/TB Faktor 1000 (Datenraten, Herstellerangaben Massenspeicher); binär KiB/MiB/GiB/TiB Faktor 1024 (Speichergrößen, RAM; in Aufgaben verwenden).",
         "kB in KiB: × 1000 ÷ 1024; 2 TB ≈ 1,82 TiB.",
-        "Bild: Breite × Höhe × Farbtiefe ÷ 8 = Byte; Hochrechnung Element × Anzahl × Tage × Jahre, am Ende aufrunden."
+        "Bild: Breite × Höhe × Farbtiefe ÷ 8 = Byte; Hochrechnung Element × Anzahl × Tage × Jahre, am Ende aufrunden.",
+        "n Bit ergeben 2^n Werte (8 Bit = 256, 24 Bit ≈ 16,7 Mio. Farben); Scan: Pixel = cm ÷ 2,54 × dpi; doppelte dpi = vierfacher Speicher."
       ],
       "vorkommen": [
         {
@@ -974,7 +979,8 @@
       "kernfakten": [
         "E in kWh = P in W × h ÷ 1000; Kosten = kWh × Preis.",
         "Arbeitstage (ca. 220–250) vs. 365 Tage; Dauerbetrieb 8760 h.",
-        "Genauer: Nennleistung × Auslastung = abgegeben, ÷ η = aus der Steckdose; Standby; Geld auf Cent runden."
+        "Genauer: Nennleistung × Auslastung = abgegeben, ÷ η = aus der Steckdose; Standby; Geld auf Cent runden.",
+        "Amortisationszeit = Mehrpreis ÷ Ersparnis pro Zeiteinheit; volle Monate aufrunden."
       ],
       "vorkommen": [
         {
@@ -1182,7 +1188,8 @@
       "begriff": "inbetriebnahme",
       "kernfakten": [
         "Ablauf: vorbereiten (Checkliste aus Pflichtenheft), aufbauen, einrichten, testen, inventarisieren.",
-        "Testprotokoll: Soll, Ist, Ergebnis (i. O./n. i. O.), Prüfer, Datum; mit Testkonto mit den Rechten der Nutzerin testen, Sicherung per Wiederherstellung prüfen."
+        "Testprotokoll: Soll, Ist, Ergebnis (i. O./n. i. O.), Prüfer, Datum; mit Testkonto mit den Rechten der Nutzerin testen, Sicherung per Wiederherstellung prüfen.",
+        "Client-Management: Inventarisierung, Softwareverteilung, Patch-/Update-Management, Lizenzmanagement zentral."
       ],
       "vorkommen": [
         {
@@ -1222,7 +1229,8 @@
       "begriff": "auftragsauswertung",
       "kernfakten": [
         "Soll-Ist-Vergleich: Kosten (Nachkalkulation mit tatsächlichen Kosten, bei Festpreis Mehrstunden = weniger Gewinn), Zeit, Qualität.",
-        "Kundenzufriedenheit erfragen; Dokumentation ablegen; Lessons Learned; Vorlagen und Kalkulationssätze anpassen (KVP, LF1 1.3.5)."
+        "Kundenzufriedenheit erfragen; Dokumentation ablegen; Lessons Learned; Vorlagen und Kalkulationssätze anpassen (KVP, LF1 1.3.5).",
+        "Effektiver Stundensatz = Jahreskosten der Fachkraft ÷ tatsächliche Arbeitsstunden (Arbeitstage minus Feiertage, Urlaub, Krankheit)."
       ],
       "vorkommen": [
         {
@@ -2284,6 +2292,23 @@
         {
           "id": "2-6-7",
           "tiefe": "Belegfolge, Prüfung, USt, QR-Code, E-Rechnung"
+        }
+      ]
+    },
+    {
+      "begriff": "das-nas-san",
+      "kernfakten": [
+        "DAS: direkt an einem Rechner (z. B. USB); NAS: eigenes Gerät im LAN, stellt Dateien bereit; SAN: eigenes schnelles Speichernetz, Server sehen Speicher wie eigene Festplatte.",
+        "SAN gegenüber NAS: schneller, entlastet LAN, gut erweiterbar, aber teuer und aufwendig."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-2-4",
+          "tiefe": "DAS, NAS, SAN im Vergleich"
+        },
+        {
+          "id": "3-1-1",
+          "tiefe": "NAS als Dateiserver im kleinen LAN"
         }
       ]
     }

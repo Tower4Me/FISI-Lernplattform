@@ -469,6 +469,19 @@
   <li><strong>M.2:</strong> eine Bauform, also ein kleiner Steckplatz für SSD-Karten. Eine M.2-SSD kann über NVMe oder über SATA angebunden sein. Welche Variante der Steckplatz unterstützt, steht im Handbuch.</li>
 </ul>
 
+<h3 id="speicher-ausserhalb-des-pcs-das-nas-und-san">Speicher außerhalb des PCs: DAS, NAS und SAN<a class="anchor" href="#speicher-ausserhalb-des-pcs-das-nas-und-san" aria-hidden="true" tabindex="-1">#</a></h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Anbindung</th><th>Typischer Einsatz</th></tr></thead>
+    <tbody>
+      <tr><th>DAS (Direct Attached Storage)</th><td>direkt an einem Rechner, etwa als externe USB-Festplatte; nur dieser Rechner nutzt sie</td><td>einzelner Arbeitsplatz, Datensicherung eines Rechners</td></tr>
+      <tr><th>NAS (Network Attached Storage)</th><td>eigenes Gerät im LAN, stellt Dateien und Ordner über das Netzwerk bereit</td><td>gemeinsame Ablage in kleinen Büros</td></tr>
+      <tr><th>SAN (Storage Area Network)</th><td>eigenes, schnelles Speichernetz; Server sehen den Speicher wie eine eigene Festplatte</td><td>Rechenzentren, Datenbanken, virtuelle Server</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Gegenüber einem NAS ist ein SAN schneller, belastet das normale Netzwerk nicht und lässt sich gut erweitern. Es ist aber deutlich teurer und aufwendiger zu betreiben, daher lohnt es sich nur für größere Umgebungen.</p>
+
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Für Büro-PCs empfiehlt ein Systemhaus eine NVMe-SSD mit 512 GB für System und Programme. Die gemeinsamen Daten liegen ohnehin auf dem Server. Ein Fotograf bekommt zusätzlich eine 4-TB-Festplatte für sein Bildarchiv, weil dort viel Platz wichtiger ist als Tempo.</p>

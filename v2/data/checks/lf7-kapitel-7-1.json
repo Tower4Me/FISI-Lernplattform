@@ -1,0 +1,110 @@
+{
+  "titel": "Check 7.1",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Aktor",
+      "frage": "Welche Aufgabe hat ein Aktor in einem cyber-physischen System?",
+      "optionen": [
+        "Er setzt ein elektrisches Signal in eine physische Wirkung um",
+        "Er wandelt eine physikalische Größe in ein elektrisches Signal um",
+        "Er sammelt die Messwerte und speichert sie zentral im Netz",
+        "Er vergleicht den gemessenen Wert mit dem gewünschten Wert"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Aktor wie Lüfter, Relais oder Warnleuchte setzt ein Signal in Bewegung, Licht, Wärme oder Schall um. Das Umwandeln einer Größe in ein Signal ist Aufgabe des Sensors."
+    },
+    {
+      "typ": "mc",
+      "thema": "CPS oder IoT",
+      "frage": "Was unterscheidet ein cyber-physisches System von einem bloß vernetzten Sensor?",
+      "optionen": [
+        "Es wertet die Daten aus und wirkt über Aktoren zurück",
+        "Es überträgt seine Messwerte über ein eigenes Funknetz",
+        "Es besitzt eine eigene, feste IP-Adresse im Firmennetz",
+        "Es misst mehrere physikalische Größen gleichzeitig"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein vernetzter Sensor ist ein IoT-Gerät. Zum CPS wird das System erst, wenn Daten ausgewertet werden und Aktoren auf die physische Welt zurückwirken."
+    },
+    {
+      "typ": "mc",
+      "thema": "A/D-Wandler",
+      "frage": "Ein A/D-Wandler mit 12 Bit misst Spannungen von 0 bis 4,096 V. Wie groß ist der kleinste Spannungsschritt?",
+      "optionen": [
+        "1 mV",
+        "4 mV",
+        "16 mV",
+        "0,34 V"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "12 Bit ergeben 2^12 = 4096 Stufen. 4,096 V ÷ 4096 = 0,001 V, also 1 mV."
+    },
+    {
+      "typ": "mc",
+      "thema": "Steuern oder Regeln",
+      "frage": "Welche Anlage arbeitet als Regelung?",
+      "optionen": [
+        "Eine Heizung, die die Raumtemperatur misst und bis 21 °C nachheizt",
+        "Eine Zeitschaltuhr, die das Hallenlicht täglich um 20 Uhr ausschaltet",
+        "Eine Warnleuchte, die nach zwei Minuten offener Tür angeht",
+        "Ein Lüfter, der jeden Morgen 15 Minuten auf voller Stufe läuft"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Nur die Heizung misst das Ergebnis (Istwert), vergleicht es mit dem Sollwert und greift nach. Die anderen Anlagen wirken ohne Rückmeldung, sie steuern."
+    },
+    {
+      "typ": "mc",
+      "thema": "Regelkreis",
+      "frage": "Im Kühlraum wird die Tür geöffnet und warme Luft strömt herein. Wie heißt dieser Einfluss im Regelkreis?",
+      "optionen": [
+        "Störgröße",
+        "Stellgröße",
+        "Regelabweichung",
+        "Sollwert"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Einfluss von außen, der die Regelgröße verändert, ist eine Störgröße. Die Stellgröße ist das Signal, mit dem der Regler eingreift."
+    },
+    {
+      "typ": "mc",
+      "thema": "Schaltdifferenz",
+      "frage": "Warum schaltet ein Zweipunktregler die Kühlung bei 5 °C ein, aber erst bei 3 °C wieder aus?",
+      "optionen": [
+        "Damit das Aggregat nicht ständig an- und ausgeht",
+        "Damit die Temperatur möglichst schnell den Sollwert erreicht",
+        "Damit der Sensor seltener Messwerte senden muss",
+        "Weil der Wandler nur ganze Grad unterscheidet"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Schaltdifferenz (Hysterese) verhindert, dass das Aggregat bei kleinen Schwankungen ständig ein- und ausschaltet. Die Temperatur pendelt dadurch um den Sollwert."
+    },
+    {
+      "typ": "mc",
+      "thema": "Energiefluss",
+      "frage": "Bei der Bestandsaufnahme notierst du: Die Sensoren laufen mit Batterie, Kleinrechner und Switch hängen am Stromnetz. Welche Schwachstelle zeigt der Energiefluss?",
+      "optionen": [
+        "Bei Stromausfall messen die Sensoren, aber kein Alarm kommt an",
+        "Bei Stromausfall fallen die Sensoren aus, der Kleinrechner meldet das aber",
+        "Die Batterien der Sensoren müssen öfter gewechselt werden als geplant",
+        "Bei einem Stromausfall fällt zuerst der Temperatursensor aus"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ohne Strom laufen Kleinrechner und Switch nicht. Die Messwerte erreichen niemanden, und gerade bei einem Ausfall des Kühlaggregats bliebe der Alarm aus. Abhilfe ist eine USV."
+    }
+  ]
+}

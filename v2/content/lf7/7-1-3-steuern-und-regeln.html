@@ -1,0 +1,65 @@
+<p class="lead">Die Warnleuchte soll angehen, wenn die Kühlraumtür offen steht. Das Kühlaggregat soll die Temperatur bei 4 °C halten, auch wenn ständig jemand Ware holt. Beides klingt ähnlich, ist aber technisch verschieden: Das eine ist eine Steuerung, das andere eine Regelung.</p>
+
+<h3>Eingabe, Verarbeitung, Ausgabe</h3>
+<p>Jede Automatisierung folgt dem <strong>EVA-Prinzip</strong>: Sensoren liefern die Eingabe, ein Programm verarbeitet sie nach Regeln, Aktoren führen die Ausgabe aus. Wie die Verarbeitung aussieht, hängt davon ab, ob das Ergebnis zurückgemeldet wird.</p>
+
+<h3>Steuern: ohne Rückmeldung</h3>
+<p>Bei einer <strong>Steuerung</strong> beeinflusst ein Eingangssignal den Aktor, ohne dass das System prüft, ob das Ziel erreicht ist. Man spricht von einer offenen Wirkungskette, der <strong>Steuerkette</strong>. Beispiel: Ist die Tür länger als zwei Minuten offen, schaltet die Steuerung die Warnleuchte ein. Ob jemand die Leuchte bemerkt, misst niemand. Auch eine Zeitschaltuhr, die das Hallenlicht um 20 Uhr ausschaltet, ist eine Steuerung.</p>
+
+<h3>Regeln: mit Rückmeldung</h3>
+<p>Bei einer <strong>Regelung</strong> misst ein Sensor laufend das Ergebnis und meldet es zurück. Das System vergleicht den gemessenen <strong>Istwert</strong> mit dem gewünschten <strong>Sollwert</strong> und wirkt der Abweichung laufend entgegen. Das ist ein geschlossener <strong>Regelkreis</strong>.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 640 250" role="img" aria-label="Regelkreis: Sollwert und zurückgemeldeter Istwert werden verglichen, die Regelabweichung geht an den Regler, dieser wirkt mit der Stellgröße auf die Regelstrecke Kühlraum, eine Störgröße wirkt von außen, der Sensor misst den Istwert und meldet ihn zurück">
+    <defs><marker id="pfeil-regel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <text x="20" y="80" font-size="13">Sollwert</text>
+    <text x="20" y="98" class="g-muted" font-size="11">4 °C</text>
+    <path class="g-line" d="M20 110H90" marker-end="url(#pfeil-regel)" stroke-width="1.5"/>
+    <circle class="g-box" cx="108" cy="110" r="16"/>
+    <text x="96" y="146" font-size="14">−</text>
+    <path class="g-line" d="M124 110H176" marker-end="url(#pfeil-regel)" stroke-width="1.5"/>
+    <text x="150" y="146" text-anchor="middle" class="g-muted" font-size="11">Abweichung</text>
+    <rect class="g-accent" x="180" y="88" width="120" height="44" rx="8"/>
+    <text x="240" y="108" text-anchor="middle" font-size="14">Regler</text>
+    <text x="240" y="124" text-anchor="middle" class="g-muted" font-size="11">Kühlregler</text>
+    <path class="g-line" d="M300 110H356" marker-end="url(#pfeil-regel)" stroke-width="1.5"/>
+    <text x="328" y="100" text-anchor="middle" class="g-muted" font-size="11">Stellgröße</text>
+    <rect class="g-box" x="360" y="88" width="140" height="44" rx="8"/>
+    <text x="430" y="108" text-anchor="middle" font-size="14">Regelstrecke</text>
+    <text x="430" y="124" text-anchor="middle" class="g-muted" font-size="11">Kühlraum</text>
+    <text x="430" y="30" text-anchor="middle" font-size="13">Störgröße: Tür offen</text>
+    <path class="g-line" d="M430 40V84" marker-end="url(#pfeil-regel)" stroke-width="1.5"/>
+    <path class="g-line" d="M500 110H600" marker-end="url(#pfeil-regel)" stroke-width="1.5"/>
+    <text x="560" y="100" text-anchor="middle" font-size="13">Regelgröße</text>
+    <path class="g-line" d="M560 110V200H424" marker-end="url(#pfeil-regel)" stroke-width="1.5"/>
+    <rect class="g-box" x="300" y="180" width="120" height="40" rx="8"/>
+    <text x="360" y="205" text-anchor="middle" font-size="14">Sensor</text>
+    <path class="g-line" d="M300 200H108V130" marker-end="url(#pfeil-regel)" stroke-width="1.5"/>
+    <text x="200" y="192" text-anchor="middle" class="g-muted" font-size="11">Istwert</text>
+  </svg>
+  <figcaption>Regelkreis am Beispiel Kühlraum: Der Sensor meldet den Istwert zurück, der Regler vergleicht ihn mit dem Sollwert.</figcaption>
+</figure>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Begriff</th><th>Bedeutung</th><th>im Kühlraum</th></tr></thead>
+    <tbody>
+      <tr><th>Regelgröße, Istwert</th><td>die Größe, die geregelt wird; ihr gemessener aktueller Wert heißt Istwert</td><td>aktuelle Temperatur</td></tr>
+      <tr><th>Sollwert</th><td>der gewünschte Wert</td><td>4 °C</td></tr>
+      <tr><th>Regelabweichung</th><td>Unterschied zwischen Soll- und Istwert</td><td>gemessen 6 °C, also 2 °C zu warm</td></tr>
+      <tr><th>Regler</th><td>entscheidet aus der Abweichung, was zu tun ist</td><td>Programm des Kühlreglers</td></tr>
+      <tr><th>Stellgröße</th><td>das Signal, mit dem der Regler eingreift</td><td>Kühlaggregat an oder aus</td></tr>
+      <tr><th>Störgröße</th><td>Einfluss von außen, der die Regelgröße verändert</td><td>offene Tür, warme Ware</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Ein einfacher Regler: Zweipunktregelung</h3>
+<p>Viele Kühl- und Heizgeräte kennen nur zwei Zustände: an oder aus. Damit das Aggregat nicht ständig ein- und ausschaltet, nutzt der Regler eine <strong>Schaltdifferenz</strong> (Hysterese): Er schaltet die Kühlung bei 5 °C ein und erst bei 3 °C wieder aus. Die Temperatur pendelt dann um den Sollwert von 4 °C.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Biomarkt regelt das Kühlaggregat die Temperatur selbst; es hat einen eigenen Regler. Das Überwachungssystem des Systemhauses misst unabhängig davon mit eigenen Sensoren mit und meldet, wenn der Regelkreis versagt, etwa weil das Aggregat ausgefallen ist. Die neue Warnleuchte für die offene Tür ist dagegen eine Steuerung: Türkontakt offen länger als zwei Minuten, Leuchte an.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Thermostat, das nach Zeitplan heizt, regelt nach der Uhr.“ Der Zeitplan verstellt nur den Sollwert. Die Temperatur selbst wird geregelt, weil der Thermostat sie misst und mit dem Sollwert vergleicht.</p></aside>
+
+<p class="merksatz">Eine Steuerung wirkt ohne Rückmeldung in einer offenen Kette; eine Regelung misst den Istwert, vergleicht ihn mit dem Sollwert und wirkt der Abweichung laufend entgegen.</p>

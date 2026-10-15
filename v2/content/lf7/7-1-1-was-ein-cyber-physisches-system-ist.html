@@ -1,0 +1,41 @@
+<p class="lead">Ein Kühlraum meldet selbst, wenn es darin zu warm wird. Eine Lagerhalle schaltet das Licht nur dort ein, wo jemand arbeitet. Hinter solchen Lösungen steckt dasselbe Prinzip: Geräte erfassen die physische Welt, ein IT-System wertet die Daten aus und greift wieder in die physische Welt ein. Als Fachkraft für Systemintegration richtest du solche Systeme ein und erweiterst sie.</p>
+
+<h3>Physische Welt und IT verbunden</h3>
+<p>Ein <strong>cyber-physisches System</strong> (CPS) verbindet physische Vorgänge mit Software und Netzwerk. Es besteht aus drei Teilen:</p>
+<ul>
+  <li><strong>Erfassen:</strong> Sensoren messen Größen wie Temperatur, Feuchte, Helligkeit oder ob eine Tür offen ist.</li>
+  <li><strong>Verarbeiten und kommunizieren:</strong> Ein Kleinrechner oder Server sammelt die Messwerte über das Netzwerk, wertet sie aus und speichert sie.</li>
+  <li><strong>Eingreifen:</strong> Aktoren setzen Entscheidungen um, etwa ein Lüfter, ein Ventil, ein Relais oder eine Warnleuchte.</li>
+</ul>
+<p>Der Kreis schließt sich: Was der Aktor verändert, misst der Sensor wieder. So kann das System auf seine Umgebung reagieren, ohne dass ein Mensch jeden Schritt auslöst.</p>
+
+<h3>Verwandte Begriffe</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Begriff</th><th>Bedeutung</th></tr></thead>
+    <tbody>
+      <tr><th>Internet der Dinge (IoT)</th><td>Alltagsgegenstände und Geräte sind vernetzt und tauschen Daten aus, etwa Sensoren, Zähler oder Haushaltsgeräte. Viele IoT-Geräte sind Teil eines CPS.</td></tr>
+      <tr><th>Industrie 4.0</th><td>CPS in der Produktion: Maschinen, Werkstücke und IT tauschen Daten aus und stimmen Abläufe teilweise selbst ab (LF1, Kapitel 1.2.4).</td></tr>
+      <tr><th>Smart Building</th><td>Gebäudetechnik wie Heizung, Licht, Lüftung und Zutritt wird über Sensoren und Netz gesteuert.</td></tr>
+      <tr><th>Eingebettetes System</th><td>Ein Rechner, der fest in ein Gerät eingebaut ist und dort eine bestimmte Aufgabe erledigt, etwa die Steuerung einer Waschmaschine.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Was ein CPS besonders macht</h3>
+<p>Ein CPS unterscheidet sich von einem Büro-PC in einigen Punkten, die du bei Planung und Betrieb beachten musst:</p>
+<ul>
+  <li><strong>Viele kleine Geräte:</strong> Oft sind es Dutzende oder Hunderte Sensoren mit wenig Rechenleistung und kleinem Speicher.</li>
+  <li><strong>Energie:</strong> Manche Geräte laufen jahrelang mit einer Batterie. Jede gesendete Nachricht kostet Energie.</li>
+  <li><strong>Lange Laufzeit:</strong> Geräte bleiben oft viele Jahre im Einsatz, an schwer zugänglichen Orten.</li>
+  <li><strong>Folgen in der physischen Welt:</strong> Ein Fehler zeigt sich nicht nur als falsche Zahl, sondern etwa als verdorbene Ware oder offene Tür.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Biomarkt lagert Frischware in einem Kühlraum. Zwei Temperatursensoren melden ihre Werte alle 60 Sekunden über das WLAN an einen Kleinrechner im Lager. Liegt die Temperatur länger als zehn Minuten über 7 °C, schickt der Kleinrechner eine Nachricht an das Handy der Marktleitung. Das Systemhaus soll das System erweitern: Feuchtesensoren für die Lagerhalle, ein Kontakt an der Kühlraumtür und eine Warnleuchte im Verkaufsraum. Dieses Beispiel begleitet dich durch das ganze Lernfeld. Erst mit der Warnleuchte als Aktor wirkt das System selbst auf die physische Welt zurück.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„IoT und CPS sind dasselbe.“ Nicht ganz: IoT betont die Vernetzung von Geräten. Ein CPS betont das Zusammenspiel von Messen, Verarbeiten und Eingreifen in einen physischen Vorgang. Ein vernetzter Sensor allein ist ein IoT-Gerät; erst mit Auswertung und Reaktion entsteht ein CPS.</p></aside>
+
+<p class="merksatz">Ein cyber-physisches System erfasst mit Sensoren die physische Welt, verarbeitet die Daten über Netz und Software und wirkt mit Aktoren auf die physische Welt zurück.</p>

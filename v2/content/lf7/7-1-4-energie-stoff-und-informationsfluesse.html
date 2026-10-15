@@ -1,0 +1,45 @@
+<p class="lead">Bevor du ein bestehendes System erweiterst, musst du verstehen, was darin fließt: Woher bekommt jedes Gerät seinen Strom, welche Daten schickt es wohin, und welche Stoffe bewegt die Anlage? Erst dieser Überblick zeigt, wo neue Komponenten andocken und was passiert, wenn ein Teil ausfällt.</p>
+
+<h3>Drei Arten von Flüssen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Fluss</th><th>Was fließt</th><th>Typische Fragen</th></tr></thead>
+    <tbody>
+      <tr><th>Energiefluss</th><td>elektrische Energie aus Netz, Netzteil, PoE oder Batterie; abgegebene Wärme</td><td>Wie wird jedes Gerät versorgt? Reicht die Leistung? Was passiert bei Stromausfall?</td></tr>
+      <tr><th>Stofffluss</th><td>Material, das die Anlage bewegt oder verändert, etwa Luft, Kältemittel, Wasser, Ware</td><td>Welche Stoffe beeinflussen die Messung? Wo entsteht Feuchtigkeit oder Staub?</td></tr>
+      <tr><th>Informationsfluss</th><td>Messwerte, Befehle, Statusmeldungen, Alarme</td><td>Wer sendet was an wen, wie oft, über welches Netz und Protokoll?</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Flüsse hängen zusammen: Ohne Energie gibt es keinen Informationsfluss, und ein Stofffluss wie Kondenswasser kann ein Gerät beschädigen.</p>
+
+<h3>Den Bestand aufnehmen</h3>
+<p>Für jedes Gerät und Betriebsmittel hältst du fest, was hinein- und was herausgeht. Eine Tabelle oder ein Blockbild mit Pfeilen reicht dafür. Quellen sind die Dokumentation des Kunden, Datenblätter, Netzwerkpläne (LF3, Kapitel 3.1.3) und ein Rundgang vor Ort.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Bestandsaufnahme im Biomarkt-Lager:</p>
+  <div class="vergleich">
+    <table>
+      <thead><tr><th>Gerät</th><th>Energie</th><th>Information</th><th>Stoff, Umgebung</th></tr></thead>
+      <tbody>
+        <tr><th>Temperatursensor Kühlraum</th><td>Batterie</td><td>sendet alle 60 s einen Messwert per WLAN</td><td>Kälte, Feuchte, Kondenswasser an der Tür</td></tr>
+        <tr><th>Kleinrechner mit Auswertung</th><td>Netzteil an Steckdose</td><td>empfängt Messwerte, speichert, sendet Alarme per Internet</td><td>Lager, im Regal beim Switch</td></tr>
+        <tr><th>Access Point</th><td>PoE vom Switch</td><td>verbindet Funkgeräte mit dem Netz</td><td>Lagerhalle, Staub</td></tr>
+        <tr><th>Kühlaggregat</th><td>Netzspannung</td><td>eigener Regler, keine Verbindung zum Netz</td><td>Kältemittel, gibt Wärme nach außen ab</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Die Tabelle zeigt eine Schwachstelle: Fällt der Strom aus, laufen die Sensoren mit Batterie weiter, aber Kleinrechner und Switch nicht. Gerade dann, wenn auch das Kühlaggregat steht, käme kein Alarm an. Das Systemhaus schlägt deshalb eine kleine USV für Kleinrechner, Switch und Router vor (LF4, Kapitel 4.6.3).</p>
+</div>
+
+<h3>Was der Überblick bringt</h3>
+<ul>
+  <li><strong>Anschlusspunkte:</strong> Wo bekommt eine neue Komponente Strom und Netz?</li>
+  <li><strong>Abhängigkeiten:</strong> Welche Geräte fallen gemeinsam aus? Wo fehlt eine Reserve?</li>
+  <li><strong>Umgebung:</strong> Welche Bedingungen muss eine neue Komponente aushalten (Kapitel 7.2.4)?</li>
+  <li><strong>Datenmengen:</strong> Wie viele Nachrichten kommen pro Minute zusammen (Kapitel 7.3.4)?</li>
+</ul>
+
+<aside class="note" data-typ="hinweis"><p>Nimm auch Geräte auf, die nicht vernetzt sind, wie hier das Kühlaggregat. Sie beeinflussen Messwerte und Energiebedarf, und vielleicht soll das System sie später einbinden.</p></aside>
+
+<p class="merksatz">Vor einer Erweiterung erfasst du für jedes Gerät Energie-, Stoff- und Informationsflüsse; so erkennst du Anschlusspunkte, Abhängigkeiten und Schwachstellen.</p>

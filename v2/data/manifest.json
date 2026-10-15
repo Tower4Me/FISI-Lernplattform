@@ -3862,6 +3862,96 @@
           ]
         }
       ]
+    },
+    {
+      "id": "lf7",
+      "in_arbeit": true,
+      "kapitel": [
+        {
+          "nummer": "7.1",
+          "titel": "Cyber-physische Systeme verstehen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "7.1.1",
+              "titel": "Was ein cyber-physisches System ist",
+              "slug": "was-ein-cyber-physisches-system-ist",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Physische Welt und IT-Systeme zu einem cyber-physischen System zusammenführen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchwissen Automatisierungstechnik; Begriffe CPS, IoT, Industrie 4.0 sinngemäß nach Plattform Industrie 4.0"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "cps-iot",
+                "produktlebenszyklus"
+              ]
+            },
+            {
+              "nummer": "7.1.2",
+              "titel": "Sensoren und Aktoren",
+              "slug": "sensoren-und-aktoren",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Datenfluss an der Schnittstelle zwischen physischer Welt und IT-System",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchwissen Messtechnik: Analog-Digital-Wandlung, Auflösung 2^n Stufen"
+                ]
+              },
+              "material": [
+                "scanner-sensoren"
+              ],
+              "begriffe": [
+                "sensor-aktor",
+                "praefixe",
+                "elektrische-sicherheit"
+              ]
+            },
+            {
+              "nummer": "7.1.3",
+              "titel": "Steuern und Regeln",
+              "slug": "steuern-und-regeln",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Datenfluss zwischen physischer Welt und IT-System (Steuerung, Regelung)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "DIN IEC 60050-351 (Begriffe Steuerung und Regelung, sinngemäß)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "regelkreis"
+              ]
+            },
+            {
+              "nummer": "7.1.4",
+              "titel": "Energie-, Stoff- und Informationsflüsse",
+              "slug": "energie-stoff-und-informationsfluesse",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Energie-, Stoff- und Informationsflüsse aller beteiligten Geräte und Betriebsmittel",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [],
+              "begriffe": [
+                "cps-iot",
+                "usv",
+                "netzwerkdokumentation"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

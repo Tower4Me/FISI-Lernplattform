@@ -1,0 +1,38 @@
+<p class="lead">Ein einzelner Messwert ist winzig. Hunderte Sensoren, die rund um die Uhr senden, ergeben aber einen stetigen Datenstrom. Reicht der Anschluss des Zentrallagers dafür, und wie viel Speicher braucht die Datenbank in einem Jahr? Beides rechnest du mit denselben Schritten wie in LF2.</p>
+
+<h3>Benötigte Datenrate</h3>
+<p>Du rechnest von der einzelnen Nachricht auf alle Geräte und auf eine Sekunde hoch:</p>
+<ol>
+  <li>Datenmenge aller Geräte pro Sendeintervall: Nachrichtengröße × Anzahl Geräte.</li>
+  <li>Pro Sekunde: durch das Sendeintervall in Sekunden teilen.</li>
+  <li>In Bit umrechnen: × 8, denn Datenraten werden in Bit pro Sekunde angegeben (LF2, Kapitel 2.4.3).</li>
+  <li>Mit der verfügbaren Datenrate vergleichen und eine Reserve einplanen.</li>
+</ol>
+<p class="formel">Datenrate in bit/s = Nachrichtengröße in Byte × Anzahl Geräte × 8 ÷ Sendeintervall in s</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Eine Lebensmittelkette will die Kühlgeräte von zwölf Filialen über ein Zentrallager auswerten: 240 Sensoren, jeder sendet alle 30 Sekunden eine Nachricht mit 90 Byte.</p>
+  <ul>
+    <li>pro Intervall: 90 Byte × 240 = 21.600 Byte</li>
+    <li>pro Sekunde: 21.600 Byte ÷ 30 s = 720 Byte/s</li>
+    <li>in Bit: 720 Byte/s × 8 = 5760 bit/s ≈ 5,8 kbit/s</li>
+  </ul>
+  <p>Die Filialen senden an den Broker im Zentrallager; dessen Anschluss zum Rechenzentrum hat 10 Mbit/s im Upload. Die Sensordaten brauchen davon weniger als ein Promille.</p>
+</div>
+
+<h3>Kopfdaten nicht vergessen</h3>
+<p>Auf der Leitung ist jede Nachricht größer als ihre Nutzlast. Allein die Köpfe von IPv4 und TCP umfassen mindestens 40 Byte, dazu kommen der MQTT-Kopf und der Rahmen auf Schicht 2 (LF3, Kapitel 3.2.2). Bei kleinen Messwerten können die Kopfdaten größer sein als der Messwert selbst. Nennt die Aufgabe einen Zuschlag, rechnest du ihn auf die Nachrichtengröße auf: Mit 40 Byte mehr je Nachricht werden aus 90 Byte 130 Byte, die Rate steigt auf 130 × 240 × 8 ÷ 30 = 8320 bit/s.</p>
+
+<h3>Speicherbedarf</h3>
+<p>Für die Datenbank rechnest du hoch wie beim Scan-Archiv (LF2, Kapitel 2.4.2): Größe je gespeicherter Messung × Messungen pro Tag × Tage. Im Beispiel kommen pro Tag 86.400 s ÷ 30 s = 2880 Intervalle zusammen. Wird jede Nachricht mit 90 Byte gespeichert, ergibt sich:</p>
+<ul>
+  <li>pro Tag: 21.600 Byte × 2880 = 62.208.000 Byte ≈ 59,3 MiB</li>
+  <li>pro Jahr: 62.208.000 Byte × 365 ≈ 21,1 GiB</li>
+</ul>
+<p>Ob das reicht, hängt davon ab, wie lange die Werte aufbewahrt werden. Oft speichert man ältere Daten nur noch verdichtet, etwa als Stundenmittelwert.</p>
+
+<aside class="note" data-typ="fehler"><p>„720 Byte/s sind 720 bit/s.“ Nein: Datenraten von Verbindungen werden in Bit pro Sekunde angegeben, Datenmengen in Byte. Vor dem Vergleich multiplizierst du mit 8.</p></aside>
+
+<aside class="note" data-typ="hinweis"><p>Bei Funktechniken wie LoRaWAN begrenzt oft nicht die Datenrate, sondern die erlaubte Sendezeit (Duty Cycle, Kapitel 7.3.1), wie viele Nachrichten ein Gerät verschicken darf.</p></aside>
+
+<p class="merksatz">Datenrate = Nachrichtengröße × Anzahl Geräte × 8 ÷ Sendeintervall; Kopfdaten als Zuschlag berücksichtigen und für den Speicher über Tage und Jahre hochrechnen.</p>

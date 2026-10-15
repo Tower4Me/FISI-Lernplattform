@@ -4042,6 +4042,118 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "7.3",
+          "titel": "Kommunikation im Netzwerk",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "7.3.1",
+              "titel": "Funktechniken für IoT",
+              "slug": "funktechniken-fuer-iot",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Kommunikation in einem bestehenden Netzwerk; Protokolle auswählen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2 a",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "LoRa Alliance: LoRaWAN-Grundlagen (EU868, Duty Cycle), sinngemäß",
+                  "Connectivity Standards Alliance: Zigbee (IEEE 802.15.4), sinngemäß",
+                  "Bluetooth SIG: Bluetooth Low Energy; 3GPP NB-IoT/LTE-M, sinngemäß"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "iot-funk",
+                "wlan"
+              ]
+            },
+            {
+              "nummer": "7.3.2",
+              "titel": "MQTT",
+              "slug": "mqtt",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Software auswählen (Protokolle), Datenfluss zwischen physischer Welt und IT-System",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2 a",
+                "zpa": "",
+                "ihk": [
+                  "AP2 Sommer 2025 (MQTT über TCP, Zuverlässigkeit der Publish-Nachrichten)"
+                ],
+                "extern": [
+                  "OASIS MQTT Version 5.0 (Publish/Subscribe, Topics, Wildcards, QoS, Retained, Will), sinngemäß",
+                  "IANA Ports 1883/8883"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "mqtt",
+                "tcp-udp",
+                "datenformate"
+              ]
+            },
+            {
+              "nummer": "7.3.3",
+              "titel": "HTTP und REST im Vergleich",
+              "slug": "http-und-rest-im-vergleich",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Software auswählen (Protokolle, Schnittstellen)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2 a",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "RFC 9110 HTTP Semantics (Methoden, Statuscodes), sinngemäß"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "mqtt",
+                "tcp-udp",
+                "datenformate"
+              ]
+            },
+            {
+              "nummer": "7.3.4",
+              "titel": "Datenmenge und Bandbreite berechnen",
+              "slug": "datenmenge-und-bandbreite-berechnen",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Kommunikation im bestehenden Netzwerk planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2 a",
+                "zpa": "",
+                "ihk": [
+                  "AP2 Sommer 2025 (Bandbreitenbedarf vieler IoT-Geräte berechnen und bewerten)"
+                ],
+                "extern": [
+                  "RFC 791, RFC 9293 (Mindestgröße IPv4- und TCP-Kopf je 20 Byte)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "mqtt",
+                "uebertragungsdauer",
+                "praefixe",
+                "tcp-udp"
+              ]
+            },
+            {
+              "nummer": "7.3.5",
+              "titel": "Software und Bibliotheken auswählen",
+              "slug": "software-und-bibliotheken-auswaehlen",
+              "quellen": {
+                "rahmenlehrplan": "LF7: Kriterien für die Auswahl der Software (Bibliotheken, Protokolle) aufstellen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 b und c",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [],
+              "begriffe": [
+                "softwarelizenzen",
+                "speicherloesungen",
+                "mikrocontroller"
+              ]
+            }
+          ]
         }
       ]
     }

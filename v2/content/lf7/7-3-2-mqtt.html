@@ -1,0 +1,70 @@
+<p class="lead">Ein Messwert soll an mehrere Stellen zugleich: in die Datenbank, auf eine Anzeige und an die Auswertung, die bei Bedarf die Warnleuchte schaltet. Würde jeder Sensor jeden Empfänger einzeln kennen, müsste man bei jedem neuen Empfänger alle Sensoren umstellen. MQTT löst das mit einer zentralen Vermittlungsstelle. Es ist eines der verbreitetsten Protokolle für Sensordaten.</p>
+
+<h3>Publish und Subscribe</h3>
+<p><strong>MQTT</strong> (Message Queuing Telemetry Transport) arbeitet nach dem Prinzip <strong>Veröffentlichen und Abonnieren</strong> (Publish/Subscribe). Im Mittelpunkt steht der <strong>Broker</strong>, ein Serverdienst. Alle anderen Teilnehmer sind Clients:</p>
+<ul>
+  <li>Ein Sensor <strong>veröffentlicht</strong> (publish) eine Nachricht unter einem Thema, dem <strong>Topic</strong>, und schickt sie an den Broker.</li>
+  <li>Wer sich für ein Topic interessiert, <strong>abonniert</strong> es (subscribe) beim Broker.</li>
+  <li>Der Broker leitet jede Nachricht an alle Abonnenten des Topics weiter.</li>
+</ul>
+<p>Sender und Empfänger kennen sich nicht. Ein neuer Empfänger abonniert einfach das Topic, an den Sensoren ändert sich nichts.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 640 230" role="img" aria-label="MQTT: Zwei Sensoren veröffentlichen Nachrichten an den Broker, der Broker verteilt sie an drei Abonnenten: Datenbank, Anzeige und Auswertung">
+    <defs><marker id="pfeil-mqtt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+    <rect class="g-box" x="20" y="40" width="150" height="44" rx="8"/>
+    <text x="95" y="67" text-anchor="middle" font-size="14">Sensor Kühlraum</text>
+    <rect class="g-box" x="20" y="140" width="150" height="44" rx="8"/>
+    <text x="95" y="167" text-anchor="middle" font-size="14">Sensor Halle</text>
+    <path class="g-line" d="M170 62L252 102" marker-end="url(#pfeil-mqtt)" stroke-width="1.5"/>
+    <path class="g-line" d="M170 162L252 124" marker-end="url(#pfeil-mqtt)" stroke-width="1.5"/>
+    <text x="200" y="40" class="g-muted" font-size="11">publish</text>
+    <rect class="g-accent" x="256" y="88" width="128" height="48" rx="8"/>
+    <text x="320" y="117" text-anchor="middle" font-size="15">Broker</text>
+    <path class="g-line" d="M384 104L466 52" marker-end="url(#pfeil-mqtt)" stroke-width="1.5"/>
+    <path class="g-line" d="M384 112H466" marker-end="url(#pfeil-mqtt)" stroke-width="1.5"/>
+    <path class="g-line" d="M384 120L466 172" marker-end="url(#pfeil-mqtt)" stroke-width="1.5"/>
+    <text x="392" y="40" class="g-muted" font-size="11">an Abonnenten</text>
+    <rect class="g-box" x="470" y="30" width="150" height="40" rx="8"/>
+    <text x="545" y="55" text-anchor="middle" font-size="14">Datenbank</text>
+    <rect class="g-box" x="470" y="92" width="150" height="40" rx="8"/>
+    <text x="545" y="117" text-anchor="middle" font-size="14">Anzeige</text>
+    <rect class="g-box" x="470" y="154" width="150" height="40" rx="8"/>
+    <text x="545" y="179" text-anchor="middle" font-size="14">Auswertung</text>
+    <text x="320" y="215" text-anchor="middle" class="g-muted" font-size="11">Abonnenten haben vorher die Topics beim Broker abonniert (subscribe)</text>
+  </svg>
+  <figcaption>Der Broker entkoppelt Sender und Empfänger: Jede Nachricht geht an alle Abonnenten ihres Topics.</figcaption>
+</figure>
+
+<h3>Topics</h3>
+<p>Topics sind Zeichenketten mit Ebenen, getrennt durch Schrägstriche, etwa <code>biomarkt/kuehlraum/temperatur</code>. Beim Abonnieren sind Platzhalter erlaubt:</p>
+<ul>
+  <li><code>+</code> ersetzt genau eine Ebene: <code>biomarkt/+/temperatur</code> liefert die Temperatur aller Räume.</li>
+  <li><code>#</code> ersetzt alle folgenden Ebenen und steht am Ende: <code>biomarkt/kuehlraum/#</code> liefert alles aus dem Kühlraum.</li>
+</ul>
+<p>Ein durchdachtes <strong>Topic-Schema</strong> legst du vor der Einrichtung fest und dokumentierst es (Kapitel 7.4.2). Die eigentliche Nachricht, die <strong>Nutzlast</strong>, ist für MQTT beliebig; oft ist sie JSON (LF5, Kapitel 5.2.2), etwa <code>{"wert": 4.2, "einheit": "°C"}</code>.</p>
+
+<h3>Zuverlässigkeit</h3>
+<p>MQTT läuft über <strong>TCP</strong> (LF3, Kapitel 3.5.4), Port 1883, verschlüsselt mit TLS auf Port 8883. TCP sorgt dafür, dass Nachrichten vollständig und in der richtigen Reihenfolge beim Broker ankommen. Zusätzlich legt jede Nachricht eine <strong>Dienstgüte</strong> (Quality of Service, QoS) fest:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>QoS</th><th>Zusage</th><th>Einsatz</th></tr></thead>
+    <tbody>
+      <tr><th>0</th><td>höchstens einmal, ohne Bestätigung; geht die Verbindung verloren, kann die Nachricht fehlen</td><td>häufige Messwerte, bei denen ein fehlender Wert nicht stört</td></tr>
+      <tr><th>1</th><td>mindestens einmal, mit Bestätigung; Doppelte sind möglich</td><td>Alarme, die ankommen müssen</td></tr>
+      <tr><th>2</th><td>genau einmal, mit mehrstufigem Austausch</td><td>Nachrichten, die nicht doppelt verarbeitet werden dürfen, etwa Zählimpulse oder Buchungen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Zwei weitere Funktionen helfen im Betrieb: Eine als <strong>Retained</strong> markierte Nachricht hebt der Broker auf und schickt sie jedem neuen Abonnenten sofort, so kennt eine neu gestartete Anzeige gleich den letzten Wert. Mit dem <strong>Last Will</strong> hinterlegt ein Client beim Verbinden eine Nachricht, die der Broker veröffentlicht, wenn die Verbindung unerwartet abbricht, etwa „Sensor offline“.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Biomarkt läuft der Broker auf dem Einplatinencomputer im Lager. Die Sensoren veröffentlichen unter <code>biomarkt/&lt;raum&gt;/&lt;messgroesse&gt;</code> mit QoS 0; für die LoRaWAN-Sensoren veröffentlicht der Netzwerkserver die Werte, die er vom Gateway erhält. Der Türkontakt sendet <code>biomarkt/kuehlraum/tuer</code> mit QoS 1 und Retained, damit die Auswertung nach einem Neustart sofort weiß, ob die Tür offen ist. Die Auswertung abonniert <code>biomarkt/#</code> und veröffentlicht bei Bedarf <code>biomarkt/verkauf/warnleuchte</code> mit dem Wert „an“; das Relaismodul der Leuchte hat genau dieses Topic abonniert.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Bei MQTT schickt der Sensor seine Werte direkt an die Anzeige.“ Nein: Alle Nachrichten laufen über den Broker. Fällt er aus, kommt keine Nachricht mehr an. Deshalb gehört der Broker zu den Geräten, die du überwachst und absicherst.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>MQTT:</strong> Clients veröffentlichen unter Topics an einen Broker, der an alle Abonnenten verteilt; Sender und Empfänger kennen sich nicht.</li>
+  <li>Läuft über <strong>TCP</strong> (1883, mit TLS 8883); <strong>QoS</strong> 0 höchstens, 1 mindestens, 2 genau einmal; Platzhalter <code>+</code> eine Ebene, <code>#</code> alle folgenden.</li>
+</ul>

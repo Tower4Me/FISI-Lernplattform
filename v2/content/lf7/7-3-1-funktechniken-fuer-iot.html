@@ -1,0 +1,41 @@
+<p class="lead">Der Kühlraum ist mit Metallpaneelen verkleidet, die Lagerhalle ist groß, und ein Sensor soll künftig auch im Außenlager hinter dem Gebäude messen. Ein einziges WLAN reicht dafür nicht überall. Für IoT gibt es mehrere Funktechniken, die jeweils Reichweite, Datenrate und Stromverbrauch anders gewichten.</p>
+
+<h3>Der Grundkonflikt</h3>
+<p>Funktechniken für Sensoren bewegen sich zwischen drei Zielen: große Reichweite, hohe Datenrate und geringer Stromverbrauch. Alle drei zugleich erreicht keine Technik. WLAN überträgt viel, braucht aber viel Energie. LoRaWAN reicht kilometerweit und hält jahrelang mit einer Batterie, überträgt aber nur wenige Bytes. Sensoren senden meist nur kleine Messwerte, deshalb ist eine geringe Datenrate oft kein Nachteil.</p>
+<p>Als Faustregel gilt: Niedrigere Frequenzen reichen weiter und durchdringen Wände besser. Funk im 868-MHz-Band kommt daher besser durch Mauern als Funk bei 2,4 GHz.</p>
+
+<h3>Die wichtigsten Techniken</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Technik</th><th>Reichweite (typisch)</th><th>Datenrate</th><th>Energie</th><th>Anbindung ans IP-Netz</th></tr></thead>
+    <tbody>
+      <tr><th>WLAN (LF3, Kapitel 3.6)</th><td>im Gebäude einige zehn Meter</td><td>hoch</td><td>hoch</td><td>direkt, das Gerät hat eine IP-Adresse</td></tr>
+      <tr><th>Bluetooth Low Energy (BLE)</th><td>etwa 10 bis 50 m</td><td>gering</td><td>sehr gering</td><td>über Gateway oder Smartphone</td></tr>
+      <tr><th>Zigbee</th><td>etwa 10 bis 100 m je Gerät, durch Weiterleitung größer</td><td>gering (bis 250 kbit/s)</td><td>sehr gering</td><td>über Gateway (Koordinator)</td></tr>
+      <tr><th>LoRaWAN</th><td>mehrere Kilometer</td><td>sehr gering (wenige kbit/s)</td><td>sehr gering</td><td>über LoRaWAN-Gateway und Netzwerkserver</td></tr>
+      <tr><th>NB-IoT, LTE-M (Mobilfunk)</th><td>überall mit Netzabdeckung des Anbieters</td><td>gering bis mittel</td><td>gering</td><td>über das Mobilfunknetz, SIM und Vertrag nötig</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Zigbee bildet ein <strong>Mesh-Netz</strong>: Geräte mit festem Strom leiten Nachrichten anderer Geräte weiter. Fällt ein Weg aus, sucht das Netz einen anderen. Bluetooth Low Energy, Zigbee und WLAN nutzen das 2,4-GHz-Band und können sich gegenseitig stören. LoRaWAN arbeitet in Europa im 868-MHz-Band. Dort darf jedes Gerät nur einen kleinen Teil der Zeit senden (Duty Cycle, meist 1 Prozent), was die Zahl der Nachrichten begrenzt.</p>
+
+<h3>So wählst du aus</h3>
+<ul>
+  <li><strong>Entfernung und Gebäude:</strong> Wie weit ist es zum nächsten Empfänger, wie viele Wände und Metall liegen dazwischen?</li>
+  <li><strong>Datenmenge und Häufigkeit:</strong> Ein Temperaturwert alle 15 Minuten passt zu jeder Technik, ein Kamerabild braucht WLAN, Kabel oder schnellen Mobilfunk.</li>
+  <li><strong>Energie:</strong> Batteriebetrieb spricht gegen WLAN.</li>
+  <li><strong>Vorhandene Infrastruktur:</strong> Gibt es schon WLAN, ein Zigbee-Gateway oder LoRaWAN-Abdeckung?</li>
+  <li><strong>Laufende Kosten:</strong> Mobilfunk braucht einen Vertrag je Gerät.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Lagerhalle bleibt es bei WLAN; die Access Points sind vorhanden. Im Kühlraum dämpfen die Metallpaneele das 2,4-GHz-Signal so stark, dass die alten Sensoren immer wieder Werte verlieren. Das Systemhaus schlägt für Kühlraum und Außenlager LoRaWAN-Sensoren vor: Ein einziges LoRaWAN-Gateway im Lager reicht für beide Orte, und die Batterien halten mehrere Jahre, weil die Sensoren nur alle 15 Minuten einige Bytes senden.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Mehr Reichweite heißt einfach mehr Sendeleistung.“ Die Sendeleistung ist gesetzlich begrenzt. Reichweite entsteht vor allem durch niedrigere Frequenz und eine geringe Datenrate, bei der der Empfänger auch sehr schwache Signale noch auswerten kann.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>WLAN:</strong> viele Daten, viel Energie; <strong>BLE</strong> und <strong>Zigbee</strong> (Mesh): kurz bis mittel, sehr sparsam, Gateway nötig.</li>
+  <li><strong>LoRaWAN:</strong> Kilometer, sehr wenig Daten, Batterie für Jahre; <strong>NB-IoT/LTE-M:</strong> Mobilfunk mit SIM.</li>
+</ul>

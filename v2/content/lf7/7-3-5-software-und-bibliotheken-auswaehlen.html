@@ -1,0 +1,35 @@
+<p class="lead">Den Treiber für einen Sensor oder die MQTT-Anbindung schreibt kaum jemand selbst. Dafür gibt es fertige Bibliotheken und Programme. Doch eine Bibliothek, die seit Jahren niemand pflegt, kann zur Sicherheitslücke werden, und eine falsche Lizenz zum rechtlichen Problem. Deshalb wählst du Software nach festen Kriterien aus.</p>
+
+<h3>Was in einem CPS an Software steckt</h3>
+<ul>
+  <li><strong>Firmware der Sensorknoten:</strong> das Programm auf dem Mikrocontroller, oft aus einer Entwicklungsumgebung des Board-Herstellers oder einer offenen Plattform erstellt; nutzt Bibliotheken für Sensor, Funk und MQTT.</li>
+  <li><strong>Bibliothek:</strong> eine Sammlung fertiger Funktionen, die ein Programm einbindet, etwa „Sensor auslesen“ oder „Nachricht an den Broker senden“. Sie spart Entwicklungszeit, und der Code ist von vielen Nutzern erprobt.</li>
+  <li><strong>Dienste auf dem Gateway oder Server:</strong> MQTT-Broker, Datenbank für Zeitreihen, Auswertung mit Regeln und Alarmen, Weboberfläche mit Diagrammen.</li>
+  <li><strong>Fertige Plattformen:</strong> Viele Hersteller und Cloud-Anbieter bieten eine IoT-Plattform, die Geräteverwaltung, Speicherung und Anzeige zusammen liefert.</li>
+</ul>
+
+<h3>Auswahlkriterien</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Kriterium</th><th>Fragen</th></tr></thead>
+    <tbody>
+      <tr><th>Funktion</th><td>Unterstützt sie Board, Sensor und Protokoll (MQTT mit TLS, QoS)? Passt sie in den knappen Speicher des Mikrocontrollers?</td></tr>
+      <tr><th>Pflege</th><td>Wann kam die letzte Version? Werden Sicherheitslücken behoben? Gibt es mehrere aktive Entwickler?</td></tr>
+      <tr><th>Lizenz</th><td>Darf der Betrieb sie gewerblich nutzen? Verlangt eine Copyleft-Lizenz, Änderungen offenzulegen, sobald du die Software weitergibst, etwa als Firmware auf ausgelieferten Geräten (LF2, Kapitel 2.3.2)?</td></tr>
+      <tr><th>Dokumentation</th><td>Gibt es Anleitung, Beispiele und eine Gemeinschaft, die Fragen beantwortet?</td></tr>
+      <tr><th>Abhängigkeit</th><td>Ist man an einen Hersteller oder Cloud-Dienst gebunden? Was passiert, wenn der Dienst eingestellt oder teurer wird?</td></tr>
+      <tr><th>Datenschutz und Standort</th><td>Wo werden die Daten gespeichert? Braucht es einen Vertrag zur Auftragsverarbeitung (LF5, Kapitel 5.2.3)?</td></tr>
+      <tr><th>Kosten</th><td>Lizenz- oder Abogebühren, Kosten je Gerät, Aufwand für Betrieb und Updates</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Für offene Standards wie MQTT gibt es Broker und Bibliotheken von vielen Anbietern. Wer auf Standards setzt, kann Teile später austauschen, ohne alles neu aufzubauen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die neuen Feuchtesensoren vergleicht die Auszubildende zwei MQTT-Bibliotheken für ihren Mikrocontroller. Die erste ist klein und einfach, die letzte Änderung liegt aber fünf Jahre zurück, und sie kann kein TLS. Die zweite wird laufend gepflegt, unterstützt TLS und steht unter einer freizügigen Open-Source-Lizenz. Sie wählt die zweite und notiert Name, Version und Lizenz in der Dokumentation, damit spätere Updates nachvollziehbar sind.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Was auf einer bekannten Plattform zum Herunterladen liegt, ist geprüft.“ Nein: Jeder kann dort Code veröffentlichen. Prüfe Herkunft, Pflege und Lizenz selbst und spiele Bibliotheken nur aus vertrauenswürdigen Quellen ein.</p></aside>
+
+<p class="merksatz">Software für ein CPS wählst du nach Funktion, Pflege und Sicherheitsupdates, Lizenz, Dokumentation, Herstellerabhängigkeit, Datenschutz und Kosten aus; offene Standards halten Teile austauschbar.</p>

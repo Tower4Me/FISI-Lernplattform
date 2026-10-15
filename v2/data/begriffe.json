@@ -916,6 +916,10 @@
         {
           "id": "2-3-2",
           "tiefe": "Arten, Lizenzmodelle"
+        },
+        {
+          "id": "7-3-5",
+          "tiefe": "Lizenz als Auswahlkriterium für Bibliotheken"
         }
       ]
     },
@@ -975,6 +979,10 @@
         {
           "id": "7-1-2",
           "tiefe": "2^n Stufen beim A/D-Wandler"
+        },
+        {
+          "id": "7-3-4",
+          "tiefe": "Speicherbedarf der Messwerte in MiB/GiB"
         }
       ]
     },
@@ -989,6 +997,10 @@
         {
           "id": "2-4-3",
           "tiefe": "Berechnung"
+        },
+        {
+          "id": "7-3-4",
+          "tiefe": "Datenrate vieler Sensoren, Byte zu Bit"
         }
       ]
     },
@@ -1507,7 +1519,8 @@
         "Port 0–65535: well-known 0–1023, registered 1024–49151, dynamisch ab 49152 (Linux 32768–60999); Socket = IP + Port (+ Protokoll), Verbindung = zwei Sockets.",
         "TCP verbindungsorientiert, zuverlässig (Bestätigung, Wiederholung, Reihenfolge), Handschlag SYN, SYN-ACK, ACK, Abbau FIN/ACK; UDP verbindungslos, schnell (DNS, DHCP, VoIP, Videokonferenzen); ping = ICMP ohne Port.",
         "HTTP 80, HTTPS 443 (HTTP/3 QUIC/UDP), DNS 53, DHCP 67/68, SMTP 25/587/465, IMAP 143/993, POP3 110/995, FTP 20/21, SSH 22, Telnet 23, RDP 3389, SMB 445, NTP 123.",
-        "URL: Schema, Rechnername, Port, Pfad, Parameter."
+        "URL: Schema, Rechnername, Port, Pfad, Parameter.",
+        "MQTT 1883, MQTT über TLS 8883; HTTP-Methoden GET, POST, PUT, DELETE; Statuscodes 200, 401, 404, 500."
       ],
       "vorkommen": [
         {
@@ -1517,6 +1530,18 @@
         {
           "id": "3-5-5",
           "tiefe": "Protokolle"
+        },
+        {
+          "id": "7-3-2",
+          "tiefe": "MQTT über TCP 1883/8883"
+        },
+        {
+          "id": "7-3-3",
+          "tiefe": "HTTP-Methoden und Statuscodes"
+        },
+        {
+          "id": "7-3-4",
+          "tiefe": "Kopfgrößen IPv4 und TCP als Zuschlag"
         }
       ]
     },
@@ -1536,6 +1561,10 @@
         {
           "id": "3-6-2",
           "tiefe": "Sicherheit"
+        },
+        {
+          "id": "7-3-1",
+          "tiefe": "WLAN als IoT-Funktechnik"
         }
       ]
     },
@@ -1665,6 +1694,14 @@
         {
           "id": "2-6-7",
           "tiefe": "XRechnung als XML-Format"
+        },
+        {
+          "id": "7-3-2",
+          "tiefe": "JSON als MQTT-Nutzlast"
+        },
+        {
+          "id": "7-3-3",
+          "tiefe": "JSON als Antwort einer REST-Schnittstelle"
         }
       ]
     },
@@ -1686,6 +1723,10 @@
         {
           "id": "1-2-4",
           "tiefe": "Cloud-Dienste als Leistungsbegriff, Verweis"
+        },
+        {
+          "id": "7-3-5",
+          "tiefe": "Datenstandort und AV-Vertrag bei IoT-Plattformen"
         }
       ]
     },
@@ -2456,6 +2497,10 @@
         {
           "id": "7-2-2",
           "tiefe": "Schnittstellen und Pegel"
+        },
+        {
+          "id": "7-3-5",
+          "tiefe": "Firmware und Bibliotheken"
         }
       ]
     },
@@ -2488,6 +2533,49 @@
         {
           "id": "7-2-4",
           "tiefe": "IP-Code, Umgebung"
+        }
+      ]
+    },
+    {
+      "begriff": "iot-funk",
+      "kernfakten": [
+        "Zielkonflikt Reichweite, Datenrate, Energie; niedrigere Frequenz reicht weiter und durchdringt Wände besser.",
+        "WLAN: viel Daten, viel Energie, direkt IP; BLE: 10–50 m, sehr sparsam, Gateway/Smartphone; Zigbee: IEEE 802.15.4, 2,4 GHz, Mesh, bis 250 kbit/s, Gateway (Koordinator).",
+        "LoRaWAN: EU 868 MHz, mehrere km, wenige kbit/s, Batterie Jahre, Duty Cycle meist 1 %, Gateway und Netzwerkserver; NB-IoT/LTE-M: Mobilfunk, SIM und Vertrag.",
+        "Metallwände dämpfen Funk stark; BLE, Zigbee und WLAN (2,4 GHz) können sich stören."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-3-1",
+          "tiefe": "Vergleich und Auswahl"
+        },
+        {
+          "id": "7-2-4",
+          "tiefe": "Funkdämpfung als Umgebungsbedingung"
+        }
+      ]
+    },
+    {
+      "begriff": "mqtt",
+      "kernfakten": [
+        "Publish/Subscribe über Broker; Sender und Empfänger kennen sich nicht; alle sind Clients.",
+        "Topics mit Ebenen und /; Platzhalter beim Abonnieren: + genau eine Ebene, # alle folgenden (nur am Ende).",
+        "Über TCP, Port 1883, mit TLS 8883; QoS 0 höchstens einmal, 1 mindestens einmal (Doppelte möglich), 2 genau einmal. QoS 2 für Nachrichten, die nicht doppelt verarbeitet werden dürfen.",
+        "Retained: Broker hebt letzte Nachricht auf für neue Abonnenten; Last Will: Broker veröffentlicht bei unerwartetem Verbindungsabbruch.",
+        "REST: Ressourcen unter URLs, GET/POST/PUT/DELETE, zustandslos, Statuscodes 200/401/404/500, Client fragt (Polling); MQTT schiebt (Push)."
+      ],
+      "vorkommen": [
+        {
+          "id": "7-3-2",
+          "tiefe": "Funktionsweise"
+        },
+        {
+          "id": "7-3-3",
+          "tiefe": "Vergleich mit HTTP/REST"
+        },
+        {
+          "id": "7-3-4",
+          "tiefe": "Datenrate vieler Geräte"
         }
       ]
     }

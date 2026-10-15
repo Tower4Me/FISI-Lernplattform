@@ -1,0 +1,44 @@
+<p class="lead">Das alte Kühlaggregat wird ersetzt. Der Hersteller des neuen Modells bietet eine Schnittstelle an, über die man Status und Störungen abfragen kann, aber nicht per MQTT, sondern über das Web. Viele Geräte und Cloud-Dienste sprechen HTTP. Du musst einschätzen können, wann das passt und wann MQTT besser ist.</p>
+
+<h3>REST: Anfragen an Ressourcen</h3>
+<p>Bei einer <strong>REST-Schnittstelle</strong> (eine Web-Programmierschnittstelle, kurz Web-API) stellt ein Gerät oder Dienst seine Daten als <strong>Ressourcen</strong> unter Adressen bereit, etwa <code>https://aggregat.lager.local/api/status</code>. Ein Client fragt per HTTP an, der Server antwortet, meist mit JSON. Die HTTP-Methode sagt, was mit der Ressource geschehen soll:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Methode</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th><code>GET</code></th><td>lesen</td><td>aktuellen Status des Aggregats abfragen</td></tr>
+      <tr><th><code>POST</code></th><td>neu anlegen oder Aktion auslösen</td><td>eine neue Alarmregel anlegen</td></tr>
+      <tr><th><code>PUT</code></th><td>ersetzen (Ressource vollständig neu setzen)</td><td>Sollwert auf 3 °C setzen</td></tr>
+      <tr><th><code>DELETE</code></th><td>löschen</td><td>Alarmregel entfernen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Jede Anfrage steht für sich; der Server merkt sich zwischen zwei Anfragen nichts über den Client (zustandslos). Deshalb schickt der Client Zugangsdaten wie einen Schlüssel bei jeder Anfrage mit. Ob die Anfrage geklappt hat, zeigt der <strong>Statuscode</strong>: 200 bedeutet Erfolg, 401 fehlende oder ungültige Anmeldung, 404 Ressource nicht gefunden, 500 Fehler beim Server.</p>
+
+<h3>Anfrage oder Abonnement</h3>
+<p>Der wichtigste Unterschied zu MQTT: Bei HTTP fragt der Client, der Server antwortet (Anfrage und Antwort). Will die Auswertung wissen, ob sich etwas geändert hat, muss sie regelmäßig nachfragen (<strong>Polling</strong>). Bei MQTT schiebt der Broker neue Nachrichten von selbst zu den Abonnenten (Push).</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>HTTP/REST</th><th>MQTT</th></tr></thead>
+    <tbody>
+      <tr><th>Muster</th><td>Anfrage und Antwort zwischen zwei Partnern</td><td>Veröffentlichen und Abonnieren über einen Broker</td></tr>
+      <tr><th>Neuigkeiten</th><td>Client muss nachfragen (Polling)</td><td>kommen sofort, sobald sie veröffentlicht werden</td></tr>
+      <tr><th>Aufwand je Nachricht</th><td>größer: jede Anfrage trägt vollständige Kopfzeilen</td><td>klein: wenige Bytes Kopf auf einer bestehenden Verbindung</td></tr>
+      <tr><th>Verbreitung</th><td>überall im Web, in Cloud-Diensten, viele Werkzeuge</td><td>Standard für Sensordaten und IoT-Plattformen</td></tr>
+      <tr><th>passt für</th><td>Abfragen bei Bedarf, Konfiguration, Anbindung an Webdienste</td><td>viele Geräte, häufige kleine Messwerte, Ereignisse</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Beide schließen sich nicht aus. Häufig liefern Sensoren per MQTT, und eine Weboberfläche oder ein Cloud-Dienst liest die gesammelten Daten per REST ab.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auswertung im Biomarkt fragt den Status des neuen Kühlaggregats jede Minute per <code>GET</code> über HTTPS ab und meldet sich dabei mit einem Zugangsschlüssel an. Meldet das Aggregat eine Störung, veröffentlicht die Auswertung sie unter <code>biomarkt/kuehlraum/aggregat</code> beim Broker. So landen alle Werte an einer Stelle, und Anzeige und Warnleuchte müssen nur MQTT verstehen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„REST ist ein eigenes Protokoll wie MQTT.“ Nein: REST ist ein Architekturstil, der festlegt, wie man HTTP für Schnittstellen nutzt. Übertragen wird mit gewöhnlichem HTTP, verschlüsselt mit HTTPS.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>REST:</strong> Ressourcen unter URLs, Methoden GET, POST, PUT, DELETE, Antwort meist JSON mit Statuscode; Client fragt, Server antwortet.</li>
+  <li><strong>MQTT</strong> schiebt Neuigkeiten über den Broker zu den Abonnenten und eignet sich für viele kleine Messwerte; REST für Abfragen bei Bedarf und Webdienste.</li>
+</ul>

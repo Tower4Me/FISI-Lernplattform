@@ -456,6 +456,16 @@
             <li><a class="up is-check" data-check="lf7-7-2" href="7-2-check.html"><span class="num">7.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="7-3-1-funktechniken-fuer-iot.html"><span class="num">7.3</span><span>Kommunikation im Netzwerk</span><span class="kap-progress" data-ids="7-3-1 7-3-2 7-3-3 7-3-4 7-3-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="7-3-1" href="7-3-1-funktechniken-fuer-iot.html"><span class="num">7.3.1</span><span class="t">Funktechniken für IoT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-2" href="7-3-2-mqtt.html"><span class="num">7.3.2</span><span class="t">MQTT</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-3" href="7-3-3-http-und-rest-im-vergleich.html"><span class="num">7.3.3</span><span class="t">HTTP und REST im Vergleich</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-4" href="7-3-4-datenmenge-und-bandbreite-berechnen.html"><span class="num">7.3.4</span><span class="t">Datenmenge und Bandbreite berechnen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="7-3-5" href="7-3-5-software-und-bibliotheken-auswaehlen.html"><span class="num">7.3.5</span><span class="t">Software und Bibliotheken auswählen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf7-7-3" href="7-3-check.html"><span class="num">7.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">7.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -492,8 +502,21 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-7-2.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 7.2</a></p>
 </section>
+<section class="rb-kapitel" id="k-7-3"><h2><span class="num">7.3</span> Kommunikation im Netzwerk</h2>
+<ul class="rb-list">
+<li><span class="num">7.3.1</span><div><a href="7-3-1-funktechniken-fuer-iot.html">Funktechniken für IoT</a><ul><li><strong>WLAN:</strong> viele Daten, viel Energie; <strong>BLE</strong> und <strong>Zigbee</strong> (Mesh): kurz bis mittel, sehr sparsam, Gateway nötig.</li>
+  <li><strong>LoRaWAN:</strong> Kilometer, sehr wenig Daten, Batterie für Jahre; <strong>NB-IoT/LTE-M:</strong> Mobilfunk mit SIM.</li></ul></div></li>
+<li><span class="num">7.3.2</span><div><a href="7-3-2-mqtt.html">MQTT</a><ul><li><strong>MQTT:</strong> Clients veröffentlichen unter Topics an einen Broker, der an alle Abonnenten verteilt; Sender und Empfänger kennen sich nicht.</li>
+  <li>Läuft über <strong>TCP</strong> (1883, mit TLS 8883); <strong>QoS</strong> 0 höchstens, 1 mindestens, 2 genau einmal; Platzhalter <code>+</code> eine Ebene, <code>#</code> alle folgenden.</li></ul></div></li>
+<li><span class="num">7.3.3</span><div><a href="7-3-3-http-und-rest-im-vergleich.html">HTTP und REST im Vergleich</a><ul><li><strong>REST:</strong> Ressourcen unter URLs, Methoden GET, POST, PUT, DELETE, Antwort meist JSON mit Statuscode; Client fragt, Server antwortet.</li>
+  <li><strong>MQTT</strong> schiebt Neuigkeiten über den Broker zu den Abonnenten und eignet sich für viele kleine Messwerte; REST für Abfragen bei Bedarf und Webdienste.</li></ul></div></li>
+<li><span class="num">7.3.4</span><div><a href="7-3-4-datenmenge-und-bandbreite-berechnen.html">Datenmenge und Bandbreite berechnen</a><p>Datenrate = Nachrichtengröße × Anzahl Geräte × 8 ÷ Sendeintervall; Kopfdaten als Zuschlag berücksichtigen und für den Speicher über Tage und Jahre hochrechnen.</p></div></li>
+<li><span class="num">7.3.5</span><div><a href="7-3-5-software-und-bibliotheken-auswaehlen.html">Software und Bibliotheken auswählen</a><p>Software für ein CPS wählst du nach Funktion, Pflege und Sicherheitsupdates, Lizenz, Dokumentation, Herstellerabhängigkeit, Datenschutz und Kosten aus; offene Standards halten Teile austauschbar.</p></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-7-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 7.3</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="7-2-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">7.2</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="7-3-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">7.3</span>Check</span></a></nav>
 </main>
 </div>
 </body>

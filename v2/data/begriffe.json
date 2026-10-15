@@ -1118,6 +1118,10 @@
         {
           "id": "2-6-6",
           "tiefe": "Eigentum beim Kauf im Vergleich zu Miete und Leasing"
+        },
+        {
+          "id": "2-6-7",
+          "tiefe": "Belegfolge vom Angebot bis zur Zahlung"
         }
       ]
     },
@@ -1595,6 +1599,10 @@
         {
           "id": "5-2-4",
           "tiefe": "Kompression, Prüfung"
+        },
+        {
+          "id": "2-6-7",
+          "tiefe": "XRechnung als XML-Format"
         }
       ]
     },
@@ -2260,6 +2268,22 @@
         {
           "id": "2-6-6",
           "tiefe": "Kauf, Miete, Leasing, Kredit mit Tilgungsplan"
+        }
+      ]
+    },
+    {
+      "begriff": "rechnung",
+      "kernfakten": [
+        "Belegfolge: Anfrage, Angebot, Bestellung, Auftragsbestätigung, Lieferschein, Rechnung, Zahlung (Kontoauszug).",
+        "Prüfung sachlich (gegen Bestellung und Lieferschein), rechnerisch (Preise, Rabatt, Summen, USt), formal (Pflichtangaben § 14 UStG); Kleinbetragsrechnung bis 250 € brutto mit weniger Angaben.",
+        "USt-Regelsatz 19 %, ermäßigt 7 % (z. B. die meisten Lebensmittel, Bücher, Zeitungen); IT-Geräte und IT-Leistungen 19 %; USt aus Brutto = Brutto × 19/119.",
+        "Zahlungs-QR-Code (EPC-QR, GiroCode): Empfänger, IBAN, Betrag, Verwendungszweck; Risiko gefälschter Codes, Daten in der App prüfen.",
+        "E-Rechnung: strukturiertes maschinenlesbares Format nach EN 16931 (XRechnung = XML, ZUGFeRD = PDF mit XML); einfaches PDF ist keine E-Rechnung; Empfang B2B Pflicht seit 1.1.2025, Ausstellung schrittweise ab 2027, für alle spätestens 2028; Aufbewahrung Buchungsbelege acht Jahre."
+      ],
+      "vorkommen": [
+        {
+          "id": "2-6-7",
+          "tiefe": "Belegfolge, Prüfung, USt, QR-Code, E-Rechnung"
         }
       ]
     }

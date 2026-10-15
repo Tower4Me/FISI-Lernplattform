@@ -48,18 +48,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Vertragsart",
-      "frage": "Ein Systemhaus baut einen PC nach den Wünschen des Kunden aus Einzelteilen zusammen und liefert ihn. Welche Vertragsart liegt vor?",
+      "thema": "Rechnung prüfen",
+      "frage": "Eine Arztpraxis erhält eine Rechnung über 2 Etikettendrucker zu je 250,00 € netto, darauf 7 % Umsatzsteuer, brutto 535,00 €. Der Lieferschein bestätigt 2 Drucker. Was ist an der Rechnung zu beanstanden?",
       "optionen": [
-        "Werklieferungsvertrag nach § 650 BGB",
-        "Dienstvertrag über die Montagearbeit des Systemhauses",
-        "Mietvertrag über die Bauteile",
-        "Werkvertrag nach § 631 BGB"
+        "Der Steuersatz: richtig sind 19 %, also 595,00 € zu zahlen",
+        "Die Umsatzsteuer: 7 % von 500,00 € sind 37,50 €, nicht 35,00 €",
+        "Nichts, Etikettendrucker fallen unter den ermäßigten Satz",
+        "Nichts, bei 250,00 € je Gerät reicht eine Kleinbetragsrechnung"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Eine bewegliche Sache wird erst hergestellt und dann geliefert. Das ist ein Werklieferungsvertrag (§ 650 BGB), auf den das Kaufrecht angewendet wird."
+      "erklaerung": "Für IT-Geräte gilt der Regelsatz von 19 %: 500,00 € × 1,19 = 595,00 €. 7 % von 500,00 € wären 35,00 €; die Kleinbetragsgrenze von 250 € gilt für den Bruttobetrag der ganzen Rechnung."
     },
     {
       "typ": "mc",

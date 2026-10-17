@@ -1,0 +1,34 @@
+<p class="lead">Die zentrale Datenbank läuft, die Praxisleitung hat ihre erste Auswertung. Bevor das Projekt abgeschlossen wird, schaut das Team zurück: Hat das Ergebnis gehalten, was vereinbart war? Welche Werkzeuge und Vorgehensweisen haben geholfen, welche nicht? Was davon nimmt das Systemhaus in das nächste Projekt mit?</p>
+
+<h3>Das Ergebnis bewerten</h3>
+<p>Grundlage ist ein <strong>Soll-Ist-Vergleich</strong> wie in LF5, Kapitel 5.6.3, hier mit den Anforderungen aus Pflichtenheft und Projektplan:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Frage</th><th>Soll (vereinbart)</th><th>Ist (gemessen)</th><th>Bewertung</th></tr></thead>
+    <tbody>
+      <tr><th>Aktualität</th><td>Daten spätestens am Morgen des Folgetags</td><td>Nachtlauf fertig um 03:40 Uhr</td><td>erfüllt</td></tr>
+      <tr><th>Datenqualität</th><td>keine Dubletten bei Besitzern</td><td>nach Bereinigung 0; 4 neue in drei Monaten, vom Prüfskript gemeldet</td><td>teilweise: neue Dubletten werden erkannt, aber nicht verhindert</td></tr>
+      <tr><th>Datenschutz</th><td>Auswertung ohne Besitzerdaten</td><td>über Sicht und Lesekonto umgesetzt</td><td>erfüllt</td></tr>
+      <tr><th>Aufwand</th><td>12 Personentage</td><td>15 Personentage, Mehraufwand durch die alte Impfliste</td><td>Abweichung, mit dem Kunden besprochen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Abnahme durch den Kunden hältst du in einem Abnahmeprotokoll fest (LF2, Kapitel 2.7.3). Offene Mängel stehen dort mit Frist, damit nichts verloren geht.</p>
+
+<h3>Werkzeuge und Vorgehen reflektieren</h3>
+<p>In einer Rückschau, ähnlich der Retrospektive in Scrum (LF5, Kapitel 5.5.1), beantwortet das Team gemeinsam:</p>
+<ul>
+  <li>Was lief gut und soll bleiben?</li>
+  <li>Was hat Zeit gekostet oder zu Fehlern geführt?</li>
+  <li>Was ändern wir beim nächsten Mal, und wer kümmert sich darum?</li>
+</ul>
+<p>Werkzeuge bewertest du daran, ob sie ihren Zweck erfüllt haben: Hat die CI Fehler früh gemeldet? Hat das Board gezeigt, wer woran arbeitet? War die Dokumentation für die Bereitschaft des Partnerunternehmens verständlich? Halte die Ergebnisse als <strong>Lessons Learned</strong> schriftlich fest (LF2, Kapitel 2.7.4), etwa in einem Wiki, damit andere Projekte davon profitieren. Es geht um bessere Abläufe, nicht um Schuldige.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Rückschau des Teams ergibt: Die Reviews haben zwei Sicherheitslücken in der API vor dem Start gefunden; das bleibt. Der Mehraufwand kam von der alten Impfliste, deren Qualität erst beim Probelauf auffiel. Beim nächsten Projekt erstellt das Team deshalb gleich zu Beginn ein Datenprofil (Kapitel 8.1.4) auch für Nebenquellen, nicht erst beim Probelauf (Kapitel 8.4.1). Die Chatgruppe war unübersichtlich, weil Entscheidungen dort untergingen; künftig stehen sie im Ticket. Die Auszubildende schreibt diese drei Punkte ins Wiki des Systemhauses.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Reflexion hört nicht mit der Übergabe auf. Kennzahlen wie Laufzeit des Imports, Zahl der gemeldeten Datenfehler und Anfragen der Nutzer zeigen im Betrieb, wo das System nachgebessert werden sollte.</p></aside>
+
+<p class="merksatz">Du bewertest das Ergebnis mit einem Soll-Ist-Vergleich und dem Abnahmeprotokoll, reflektierst Werkzeuge und Vorgehen im Team und hältst Lessons Learned schriftlich fest, um das nächste Projekt besser zu machen.</p>

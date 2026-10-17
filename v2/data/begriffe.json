@@ -74,6 +74,10 @@
         {
           "id": "8-4-4",
           "tiefe": "konsistenter Datenbankabzug (Dump)"
+        },
+        {
+          "id": "8-5-1",
+          "tiefe": "Git ersetzt keine Sicherung"
         }
       ]
     },
@@ -185,6 +189,10 @@
         {
           "id": "8-4-4",
           "tiefe": "Pseudonymisieren und Anonymisieren in Auswertungen"
+        },
+        {
+          "id": "8-5-2",
+          "tiefe": "AV-Vertrag bei Werkzeugwahl"
         }
       ]
     },
@@ -838,6 +846,10 @@
         {
           "id": "6-5-3",
           "tiefe": "Ich-Botschaften, Verweis"
+        },
+        {
+          "id": "8-5-2",
+          "tiefe": "Code-Review sachlich"
         }
       ]
     },
@@ -1362,6 +1374,10 @@
         {
           "id": "7-4-2",
           "tiefe": "Einweisung und Abnahme nach Integration"
+        },
+        {
+          "id": "8-5-4",
+          "tiefe": "Abnahmeprotokoll, Soll-Ist-Vergleich"
         }
       ]
     },
@@ -1941,6 +1957,14 @@
         {
           "id": "5-6-2",
           "tiefe": "V-Modell: Entwurfsphasen und zugehörige Teststufen"
+        },
+        {
+          "id": "8-5-2",
+          "tiefe": "Kanban-Board für Tickets"
+        },
+        {
+          "id": "8-5-4",
+          "tiefe": "Rückschau wie Retrospektive"
         }
       ]
     },
@@ -1971,6 +1995,14 @@
         {
           "id": "5-5-3",
           "tiefe": "Arten und Zweck, UML nur genannt"
+        },
+        {
+          "id": "8-5-1",
+          "tiefe": "Commit-Beschreibungen"
+        },
+        {
+          "id": "8-5-3",
+          "tiefe": "Übergabe- und Betriebsdokumentation, README, Englisch"
         }
       ]
     },
@@ -2410,6 +2442,10 @@
         {
           "id": "6-5-5",
           "tiefe": "Telefon, Fehlerbericht, Signalwörter"
+        },
+        {
+          "id": "8-5-3",
+          "tiefe": "englische Anleitung, must/should/may"
         }
       ]
     },
@@ -2962,6 +2998,31 @@
         {
           "id": "8-4-2",
           "tiefe": "Arten und Abgrenzung"
+        }
+      ]
+    },
+    {
+      "begriff": "versionsverwaltung",
+      "kernfakten": [
+        "Versionsverwaltung speichert jeden Stand mit Datum, Autor, Beschreibung; Änderungen nachvollziehbar, alte Stände wiederherstellbar, paralleles Arbeiten.",
+        "Git ist verteilt: jedes Repository enthält die ganze Geschichte; Commit offline möglich, Server nur zum Austausch.",
+        "Befehle: clone, status, add (vormerken), commit, log, pull (holen und einarbeiten), push (übertragen), switch -c (Branch), merge, revert (Commit durch neuen Commit zurücknehmen).",
+        "Konflikt bei verschiedenen Änderungen an derselben Stelle: Mensch entscheidet, Abschluss mit Commit.",
+        "Keine Zugangsdaten ins Repository: bleiben in der Geschichte; .gitignore wirkt nur auf noch nicht aufgenommene Dateien; Git ersetzt keine Datensicherung.",
+        "Ablauf im Team: Ticket, Branch, Pull Request (GitLab: Merge Request), CI-Tests, Code-Review, Merge in geschützten main."
+      ],
+      "vorkommen": [
+        {
+          "id": "8-5-1",
+          "tiefe": "Git-Grundlagen"
+        },
+        {
+          "id": "8-5-2",
+          "tiefe": "Pull Request, CI, Code-Review"
+        },
+        {
+          "id": "5-5-3",
+          "tiefe": "nur genannt"
         }
       ]
     }

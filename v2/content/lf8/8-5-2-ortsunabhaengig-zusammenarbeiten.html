@@ -1,0 +1,45 @@
+<p class="lead">Das Projektteam sitzt nicht zusammen: Die Auszubildende arbeitet im Systemhaus, der Kollege an zwei Tagen in der Woche beim Kunden, die Kollegin im Homeoffice. Trotzdem soll jeder wissen, wer gerade woran arbeitet, und keine Änderung soll ungeprüft in den laufenden Betrieb gehen. Dafür braucht das Team gemeinsame Werkzeuge und klare Absprachen.</p>
+
+<h3>Ein gemeinsamer Ablauf</h3>
+<ol>
+  <li><strong>Aufgabe anlegen:</strong> Jede Aufgabe steht als Ticket (englisch Issue) mit Beschreibung, Verantwortlichem und Status auf einem gemeinsamen Board, etwa einem Kanban-Board (LF5, Kapitel 5.5.1).</li>
+  <li><strong>Branch anlegen:</strong> Für das Ticket entsteht ein eigener Branch (Kapitel 8.5.1).</li>
+  <li><strong>Änderung zur Prüfung stellen:</strong> Ist die Arbeit fertig, stellt die Bearbeiterin einen <strong>Pull Request</strong> (bei GitLab: Merge Request). Das ist die Bitte, den Branch in <code>main</code> zu übernehmen. Er zeigt alle Änderungen übersichtlich an.</li>
+  <li><strong>Automatisch prüfen:</strong> Continuous Integration (CI) heißt: Änderungen häufig zusammenführen und jedes Mal automatisch bauen und testen. Ein CI-Dienst führt dazu bei jedem Pull Request Tests und Prüfskripte aus. Schlägt ein Test fehl, ist das sofort sichtbar.</li>
+  <li><strong>Code-Review:</strong> Eine zweite Person liest die Änderungen, stellt Fragen und gibt Hinweise. Erst nach ihrer Zustimmung wird zusammengeführt.</li>
+  <li><strong>Zusammenführen und schließen:</strong> Der Branch wird in <code>main</code> übernommen, das Ticket gilt als erledigt.</li>
+</ol>
+<p>Ein Code-Review findet Fehler früh und verteilt Wissen: Mindestens zwei Personen kennen jede Änderung. Ein Review ist sachlich und bezieht sich auf den Code, nicht auf die Person; die Regeln für gutes Feedback aus LF1, Kapitel 1.6.3 gelten auch hier.</p>
+
+<h3>Werkzeuge auswählen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Zweck</th><th>Werkzeuge (Beispiele)</th></tr></thead>
+    <tbody>
+      <tr><th>Repository mit Pull Requests, Tickets, CI</th><td>GitHub, GitLab, Gitea; GitLab und Gitea auch selbst betrieben</td></tr>
+      <tr><th>Aufgaben planen</th><td>Board im Repository-Dienst, eigenes Ticketsystem</td></tr>
+      <tr><th>gleichzeitig sprechen (synchron)</th><td>Videokonferenz, Telefon</td></tr>
+      <tr><th>zeitversetzt austauschen (asynchron)</th><td>Kommentare in Tickets und Pull Requests, Teamchat, Wiki</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei der Auswahl zählen nicht nur Funktionen: Wo liegen die Daten, braucht es einen Vertrag zur Auftragsverarbeitung (Kapitel 8.1.3), was kostet es je Person, kennen die Beteiligten das Werkzeug schon? Ein selbst betriebener Dienst hält die Daten im Haus, muss aber gewartet und gesichert werden.</p>
+
+<h3>Absprachen und Sicherheit</h3>
+<ul>
+  <li>Niemand schreibt direkt in <code>main</code>; der Hauptzweig ist im Repository-Dienst geschützt und nimmt nur geprüfte Pull Requests an.</li>
+  <li>Das Team legt fest, wann eine Aufgabe als fertig gilt (Definition of Done, LF5, Kapitel 5.5.1), etwa: getestet, geprüft, dokumentiert.</li>
+  <li>Entscheidungen, die in einem Gespräch fallen, stehen danach im Ticket, damit auch Abwesende sie finden.</li>
+  <li>Zugänge zu Repository und Servern mit Mehr-Faktor-Authentifizierung; der Zugriff auf interne Systeme von außen über VPN.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Kollegin im Homeoffice stellt einen Pull Request für den neuen API-Pfad <code>/api/v1/tiere/{id}/impfungen</code>. Die CI meldet einen fehlgeschlagenen Test: Für ein Tier ohne Impfungen kommt Statuscode 500 statt einer leeren Liste. Sie behebt das. Im Review fragt die Auszubildende nach, ob der Dienst prüft, dass das Tier zur angemeldeten Besitzerin gehört (Kapitel 8.4.3). Die Kollegin ergänzt den Test dafür, dann wird zusammengeführt.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Pull Request ist dasselbe wie <code>git pull</code>.“ Nein: <code>git pull</code> holt die Änderungen der anderen zu dir. Ein Pull Request bittet die anderen, deinen Branch zu übernehmen.</p></aside>
+
+<aside class="note" data-typ="hinweis"><p>Ein Code-Review lohnt sich nicht nur bei Anfängern. Auch erfahrene Entwickler übersehen Fehler in ihrem eigenen Code. Das Review dient außerdem dazu, dass das Wissen nicht an einer Person hängt.</p></aside>
+
+<p class="merksatz">Ortsunabhängig arbeitet ein Team über Tickets, Branches und Pull Requests mit automatischen Tests und Code-Review; Werkzeuge wählst du nach Funktion, Datenschutz, Kosten und Vorwissen, Absprachen stehen schriftlich im Ticket.</p>

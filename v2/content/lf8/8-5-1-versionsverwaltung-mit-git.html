@@ -1,0 +1,42 @@
+<p class="lead">An der zentralen Datenbank arbeiten drei Leute: die Auszubildende schreibt das Importskript, ein Kollege die Sichten und Auswertungen, eine Kollegin im Homeoffice die Web-API. Alle ändern Dateien im selben Projekt. Ohne Ordnung überschreibt bald jemand die Arbeit eines anderen, und niemand weiß mehr, welcher Stand läuft. Eine <strong>Versionsverwaltung</strong> verhindert das.</p>
+
+<h3>Was eine Versionsverwaltung leistet</h3>
+<ul>
+  <li>Sie speichert jeden Stand eines Projekts mit Datum, Autor und Beschreibung.</li>
+  <li>Jede Änderung lässt sich nachvollziehen und ein älterer Stand wiederherstellen.</li>
+  <li>Mehrere Personen arbeiten parallel und führen ihre Änderungen kontrolliert zusammen.</li>
+</ul>
+<p>Das verbreitetste Werkzeug ist <strong>Git</strong>. Git ist <strong>verteilt</strong>: Jede Person hat eine vollständige Kopie des Projekts mit seiner ganzen Geschichte, das <strong>Repository</strong>. Ein gemeinsames Repository auf einem Server dient als Treffpunkt, über den alle ihre Stände austauschen. Auch Commits gehen ohne Verbindung; nur zum Austausch (pull, push) braucht man den Server.</p>
+
+<h3>Die wichtigsten Befehle</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Befehl</th><th>Wirkung</th></tr></thead>
+    <tbody>
+      <tr><th><code>git clone &lt;adresse&gt;</code></th><td>gemeinsames Repository auf den eigenen Rechner kopieren</td></tr>
+      <tr><th><code>git status</code></th><td>zeigt geänderte und neue Dateien</td></tr>
+      <tr><th><code>git add &lt;datei&gt;</code></th><td>Änderung für den nächsten Stand vormerken</td></tr>
+      <tr><th><code>git commit -m "…"</code></th><td>vorgemerkte Änderungen als neuen Stand (<strong>Commit</strong>) mit Beschreibung speichern</td></tr>
+      <tr><th><code>git log</code></th><td>Liste der bisherigen Commits</td></tr>
+      <tr><th><code>git pull</code></th><td>neue Commits der anderen vom Server holen und einarbeiten</td></tr>
+      <tr><th><code>git push</code></th><td>eigene Commits auf den Server übertragen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ein Commit fasst eine zusammengehörige Änderung zusammen, etwa „Import: Tierarten über Zuordnungstabelle vereinheitlichen“. Die Beschreibung sagt, was und warum geändert wurde. Kleine, häufige Commits sind leichter zu prüfen und bei Bedarf zurückzunehmen als ein großer am Ende der Woche.</p>
+
+<h3>Branches: parallel entwickeln</h3>
+<p>Ein <strong>Branch</strong> (Zweig) ist eine eigene Entwicklungslinie. Der Hauptzweig, meist <code>main</code>, in älteren Repositories <code>master</code>, enthält den Stand, der läuft. Für eine neue Aufgabe legst du einen eigenen Branch an (<code>git switch -c import-labor</code>, ältere Form <code>git checkout -b import-labor</code>), arbeitest dort und führst ihn erst zurück (<strong>Merge</strong>), wenn die Aufgabe fertig und geprüft ist. Bis dahin stört deine halbfertige Arbeit niemanden.</p>
+<p>Haben zwei Personen dieselbe Stelle einer Datei verschieden geändert, kann Git nicht selbst entscheiden. Es meldet einen <strong>Konflikt</strong> und markiert beide Fassungen in der Datei. Ein Mensch wählt die richtige Fassung oder kombiniert beide und schließt den Merge mit einem Commit ab.</p>
+
+<h3>Was nicht ins Repository gehört</h3>
+<p>Kennwörter, API-Schlüssel und echte Datenbestände gehören nicht ins Repository: Was einmal committet ist, bleibt in der Geschichte auffindbar, auch wenn die Datei später gelöscht wird. In der Datei <code>.gitignore</code> trägst du Dateien ein, die Git nie aufnehmen soll, etwa eine lokale Datei mit Zugangsdaten oder Exporte mit Kundendaten. <code>.gitignore</code> wirkt nur auf Dateien, die Git noch nicht aufgenommen hat. Ist ein Kennwort doch committet worden, gilt es als bekannt und wird sofort geändert.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach einer Änderung am Importskript fehlen in der Nacht plötzlich alle Laborwerte. Mit <code>git log</code> findet die Auszubildende den Commit vom Vortag, „Labor-CSV: Trennzeichen auf Komma“. Das Labor liefert aber weiterhin Semikolon. Sie nimmt die Änderung mit einem neuen Commit zurück (<code>git revert</code>) und stellt ihn als Pull Request (Kapitel 8.5.2). Nach kurzer Prüfung wird er übernommen, und der nächste Lauf übernimmt die Werte wieder.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Git ist dasselbe wie eine Datensicherung.“ Git verwaltet die Stände von Quelltext und Konfiguration, die bewusst committet wurden. Datenbanken, Nutzerdaten und alles, was nicht committet ist, sichert es nicht. Die Datensicherung bleibt nötig.</p></aside>
+
+<p class="merksatz">Git speichert jeden Stand als Commit mit Autor und Beschreibung. Branches trennen parallele Arbeit, pull und push gleichen mit dem Server ab, Zugangsdaten bleiben draußen.</p>

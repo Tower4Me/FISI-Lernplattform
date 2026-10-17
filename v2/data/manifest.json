@@ -4719,6 +4719,90 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "8.5",
+          "titel": "Arbeitsteilig entwickeln und übergeben",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "8.5.1",
+              "titel": "Versionsverwaltung mit Git",
+              "slug": "versionsverwaltung-mit-git",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Arbeitsteilig mit geeigneten Entwicklungswerkzeugen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 4 (Arbeitsorganisation)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Git-Dokumentation (git-scm.com): clone, add, commit, log, pull, push, switch, merge, revert, gitignore"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "versionsverwaltung",
+                "softwaredokumentation",
+                "datensicherung"
+              ]
+            },
+            {
+              "nummer": "8.5.2",
+              "titel": "Ortsunabhängig zusammenarbeiten",
+              "slug": "ortsunabhaengig-zusammenarbeiten",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Arbeitsteilig, auch ortsunabhängig, umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 4 und 5 (Kommunikation)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Dokumentation GitHub/GitLab (Pull/Merge Request, geschützte Branches, CI)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "versionsverwaltung",
+                "vorgehensmodelle",
+                "feedback",
+                "personenbezogene-daten"
+              ]
+            },
+            {
+              "nummer": "8.5.3",
+              "titel": "Dokumentation zur Handhabung",
+              "slug": "dokumentation-zur-handhabung",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Ergebnis mit Dokumentation zur Handhabung, auch fremdsprachig, übergeben",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "RFC 2119 (MUST, SHOULD, MAY)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "softwaredokumentation",
+                "englisch-im-support"
+              ]
+            },
+            {
+              "nummer": "8.5.4",
+              "titel": "Werkzeuge und Ergebnis reflektieren",
+              "slug": "werkzeuge-und-ergebnis-reflektieren",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Werkzeuge und Dokumentation reflektieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 4",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [],
+              "begriffe": [
+                "abnahme",
+                "vorgehensmodelle"
+              ]
+            }
+          ]
         }
       ]
     }

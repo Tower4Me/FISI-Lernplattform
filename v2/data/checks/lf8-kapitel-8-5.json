@@ -1,0 +1,127 @@
+{
+  "titel": "Check 8.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Git-Befehl",
+      "frage": "Du hast eine Änderung am Importskript vorgemerkt und als Stand gespeichert. Mit welchem Befehl kommt sie auf den gemeinsamen Server?",
+      "optionen": [
+        "git push",
+        "git pull",
+        "git clone",
+        "git status"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "git push überträgt eigene Commits auf den Server. git pull holt die Commits der anderen, git clone kopiert ein Repository erstmals, git status zeigt nur geänderte Dateien."
+    },
+    {
+      "typ": "mc",
+      "thema": "Verteilt",
+      "frage": "Was bedeutet es, dass Git verteilt arbeitet?",
+      "optionen": [
+        "Jede Person hat eine vollständige Kopie mit der ganzen Geschichte",
+        "Jede Datei des Projekts liegt auf einem anderen Server im Netz",
+        "Ohne Verbindung zum Server lässt sich kein neuer Stand speichern",
+        "Die Geschichte liegt nur auf dem Server, lokal nur der aktuelle Stand"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Jedes Repository enthält alle Stände. Committen geht auch ohne Verbindung; der Server dient nur zum Austausch."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zugangsdaten",
+      "frage": "Eine Kollegin hat versehentlich eine Datei mit dem Kennwort der Datenbank committet und gepusht. Sie löscht die Datei im nächsten Commit. Ist das Problem damit gelöst?",
+      "optionen": [
+        "Nein, es bleibt in der Geschichte und muss geändert werden",
+        "Ja, gelöschte Dateien verschwinden aus der ganzen Geschichte",
+        "Ja, solange noch niemand git pull ausgeführt hat",
+        "Nein, aber ein Eintrag in .gitignore entfernt die Datei nachträglich aus allen Ständen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Was einmal committet ist, bleibt in der Geschichte auffindbar. Das Kennwort gilt als bekannt und wird geändert; .gitignore wirkt nur auf Dateien, die noch nicht aufgenommen sind."
+    },
+    {
+      "typ": "mc",
+      "thema": "Konflikt",
+      "frage": "Zwei Personen haben dieselbe Zeile einer Datei unterschiedlich geändert. Was passiert beim Zusammenführen?",
+      "optionen": [
+        "Git meldet einen Konflikt, ein Mensch entscheidet",
+        "Git übernimmt ohne Rückfrage die Fassung des neueren Commits",
+        "Git verwirft beide Änderungen und behält den alten Stand",
+        "Git hängt beide Fassungen ohne Markierung untereinander"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei widersprüchlichen Änderungen an derselben Stelle entscheidet Git nicht selbst. Es markiert beide Fassungen; ein Mensch löst den Konflikt und schließt mit einem Commit ab."
+    },
+    {
+      "typ": "mc",
+      "thema": "Pull Request",
+      "frage": "Wozu dient ein Pull Request im gemeinsamen Ablauf?",
+      "optionen": [
+        "Änderungen eines Branches zur Prüfung stellen, bevor sie in main kommen",
+        "Die neuesten Commits der anderen vom Server auf den eigenen Rechner holen",
+        "Ein Repository vom Server erstmals auf den Rechner kopieren",
+        "Ein neues Ticket für eine gemeldete Störung anlegen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Pull Request bittet darum, einen Branch zu übernehmen. Er zeigt die Änderungen, an ihm laufen automatische Tests und das Code-Review."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Werkzeugauswahl",
+      "frage": "Das Team wählt einen Dienst für Repository und Tickets. Welche Gesichtspunkte gehören zur Auswahl? Wähle alle passenden Antworten.",
+      "optionen": [
+        "Wo die Daten gespeichert werden und ob ein Vertrag zur Auftragsverarbeitung nötig ist",
+        "Kosten je Person",
+        "Ob die Beteiligten das Werkzeug schon kennen",
+        "Ob der Dienst die meisten Funktionen bietet, auch ungenutzte"
+      ],
+      "richtig": [
+        0,
+        1,
+        2
+      ],
+      "erklaerung": "Neben den Funktionen zählen Datenschutz, Kosten und Vorwissen der Beteiligten. Funktionen, die das Team nicht braucht, sind kein Auswahlgrund."
+    },
+    {
+      "typ": "mc",
+      "thema": "Englische Anleitung",
+      "frage": "In der englischen Anleitung steht: „You must not delete records directly in the central database.“ Was bedeutet das?",
+      "optionen": [
+        "Du darfst Datensätze nicht direkt löschen",
+        "Du musst Datensätze nicht direkt löschen",
+        "Du solltest Datensätze direkt löschen",
+        "Du darfst Datensätze nur direkt löschen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "must not bedeutet „darf nicht“, also ein Verbot. „Muss nicht“ hieße need not oder do not have to."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rückschau",
+      "frage": "Nach dem Projekt zeigt sich: Der Mehraufwand kam von einer Quelle, deren Mängel erst spät auffielen. Was gehört in die Lessons Learned?",
+      "optionen": [
+        "Künftig auch Nebenquellen gleich zu Beginn mit einem Datenprofil prüfen",
+        "Den Namen der Person, die die Quelle zuerst angebunden hat",
+        "Nichts, da das Projekt vom Kunden bereits abgenommen ist",
+        "Die Empfehlung, bei künftigen Projekten auf alte Quellen ganz zu verzichten"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Lessons Learned halten fest, was man beim nächsten Mal anders macht. Es geht um bessere Abläufe, nicht um Schuldige."
+    }
+  ]
+}

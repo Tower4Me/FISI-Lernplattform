@@ -611,7 +611,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF9</a></li><li><a href="index.html#k-9-4">9.4 Routing und Adressumsetzung</a></li><li aria-current="page">9.4.1</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">9.4.1</span>Routingtabellen lesen und anlegen</h1>
-  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="9-4-1">
 <p class="lead">Ein PC am Standort Nord fragt die Datenbank im Stammhaus ab. Sein Paket muss durch mehrere Router: vom Router in Nord durch den VPN-Tunnel zum Router im Stammhaus und von dort zum Kern-Switch mit dem Servernetz. Jeder Router entscheidet anhand seiner <strong>Routingtabelle</strong>, wohin er ein Paket als Nächstes schickt. Stimmt ein Eintrag nicht, kommt das Paket nie an.</p>
@@ -637,7 +637,7 @@
     <rect class="g-box" x="390" y="180" width="140" height="40" rx="6"/>
     <text x="460" y="205" text-anchor="middle">Süd 10.30.0.0/24</text>
   </svg>
-  <figcaption>Der Verbund: Transfernetz 10.10.255.0/30 zwischen Kern-Switch (.1) und Router (.2), Internetanschluss im Netz 198.51.100.8/29, Tunnel zu den Standorten.</figcaption>
+  <figcaption>Der Verbund: Transfernetz 10.10.255.0/30 zwischen Kern-Switch (.1) und Router (.2), Internetanschluss im Netz 198.51.100.8/30, Tunnel zu den Standorten.</figcaption>
 </figure>
 
 <h3 id="aufbau-eines-eintrags">Aufbau eines Eintrags<a class="anchor" href="#aufbau-eines-eintrags" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -647,7 +647,7 @@
     <thead><tr><th>Ziel</th><th>Gateway (Next Hop)</th><th>Schnittstelle</th><th>Herkunft</th></tr></thead>
     <tbody>
       <tr><th>10.10.255.0/30</th><td>direkt verbunden</td><td>LAN</td><td>Schnittstelle</td></tr>
-      <tr><th>198.51.100.8/29</th><td>direkt verbunden</td><td>WAN</td><td>Schnittstelle</td></tr>
+      <tr><th>198.51.100.8/30</th><td>direkt verbunden</td><td>WAN</td><td>Schnittstelle</td></tr>
       <tr><th>10.10.0.0/24</th><td>10.10.255.1</td><td>LAN</td><td>statisch</td></tr>
       <tr><th>10.20.0.0/24</th><td>über Tunnel</td><td>VPN Nord</td><td>statisch</td></tr>
       <tr><th>10.30.0.0/24</th><td>über Tunnel</td><td>VPN Süd</td><td>statisch</td></tr>
@@ -661,6 +661,12 @@
   <li><strong>Schnittstelle</strong>: über welchen Anschluss das Paket hinausgeht.</li>
   <li><strong>Metrik</strong> (hier nicht gezeigt): Bewertung, falls es mehrere Einträge mit gleichem Ziel und gleicher Präfixlänge gibt; der kleinere Wert gewinnt. Der genaueste Eintrag (siehe unten) geht immer vor.</li>
 </ul>
+<p>Auf einem Windows-PC zeigt <code>route print</code> die Tabelle mit Subnetzmaske statt Präfixlänge und mit Metrik. Ein Auszug von einem PC in Nord:</p>
+<pre><code>Netzwerkziel    Netzwerkmaske     Gateway         Schnittstelle  Metrik
+0.0.0.0         0.0.0.0           10.20.0.65      10.20.0.70         25
+10.20.0.64      255.255.255.224   Auf Verbindung  10.20.0.70        281
+127.0.0.0       255.0.0.0         Auf Verbindung  127.0.0.1         331</code></pre>
+<p>„Auf Verbindung“ heißt direkt verbunden, ohne Gateway. Die erste Zeile ist die Default-Route zum Router in Nord, die zweite das eigene Netz, die dritte die Loopback-Adressen des PCs.</p>
 <p>Die <strong>Default-Route</strong> 0.0.0.0/0 passt auf jede Adresse. Sie nimmt alles auf, wofür es keinen genaueren Eintrag gibt, hier den Weg ins Internet. Für IPv6 heißt sie ::/0.</p>
 
 <h3 id="wie-der-router-entscheidet">Wie der Router entscheidet<a class="anchor" href="#wie-der-router-entscheidet" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -668,7 +674,7 @@
 <p>Ein Endgerät entscheidet einfacher: Liegt das Ziel nach seiner Maske im eigenen Netz, stellt es direkt zu (LF3, Kapitel 3.4.3); sonst schickt es das Paket an sein Standardgateway. Das Standardgateway ist nichts anderes als eine Default-Route.</p>
 
 <h3 id="eintraege-sparen">Einträge sparen<a class="anchor" href="#eintraege-sparen" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Weil jeder Standort einen zusammenhängenden /24-Block hat, braucht der Router im Stammhaus für Nord nur einen Eintrag, nicht fünf für die einzelnen VLAN-Netze. Dieses Zusammenfassen heißt <strong>Summarization</strong> und ist der Grund für einen geordneten Adressplan (Kapitel 9.3.1). In den Routern von Nord und Süd steht für das Stammhaus entsprechend 10.10.0.0/16; so ist auch das Transfernetz 10.10.255.0/30 erreichbar, etwa für die Verwaltung des Kern-Switches. Der Kern-Switch im Stammhaus kommt sogar mit seinen direkt verbundenen VLAN-Netzen und einer einzigen Default-Route an 10.10.255.2 aus.</p>
+<p>Weil jeder Standort einen zusammenhängenden /24-Block hat, braucht der Router im Stammhaus für Nord nur einen Eintrag, nicht fünf für die einzelnen VLAN-Netze. Dieses Zusammenfassen heißt <strong>Summarization</strong> und ist der Grund für einen geordneten Adressplan (Kapitel 9.3.1). Rechnerisch suchst du die Bits, die alle Netze gemeinsam haben: Bekäme Nord später vier Blöcke 10.20.0.0/24 bis 10.20.3.0/24, unterscheiden sie sich nur in den letzten zwei Bit des dritten Oktetts (0 bis 3 = 000000<strong>00</strong> bis 000000<strong>11</strong>). Gemeinsam sind 8 + 8 + 6 = 22 Bit, der Sammeleintrag lautet 10.20.0.0/22. In den Routern von Nord und Süd steht für das Stammhaus entsprechend 10.10.0.0/16; so ist auch das Transfernetz 10.10.255.0/30 erreichbar, etwa für die Verwaltung des Kern-Switches. Der Kern-Switch im Stammhaus kommt sogar mit seinen direkt verbundenen VLAN-Netzen und einer einzigen Default-Route an 10.10.255.2 aus.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>

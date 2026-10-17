@@ -634,8 +634,9 @@
 <ul>
   <li><strong>IPsec</strong>: genormt, arbeitet auf Schicht 3, Schlüsselaustausch mit IKEv2; Standard für Site-to-Site zwischen Routern verschiedener Hersteller.</li>
   <li><strong>WireGuard</strong>: schlank und schnell, arbeitet über UDP, wenige Einstellungen.</li>
-  <li><strong>TLS-VPN</strong> (etwa OpenVPN oder das SSL-VPN vieler Firewalls): sichert die Verbindung mit TLS wie HTTPS; über TCP-Port 443 betrieben, kommt es auch durch Firewalls, die nur Webverkehr durchlassen.</li>
+  <li><strong>TLS-VPN</strong> (etwa OpenVPN oder das SSL-VPN vieler Firewalls): sichert die Verbindung mit TLS wie HTTPS; lässt sich über TCP-Port 443 betreiben und kommt so auch durch Firewalls, die nur Webverkehr durchlassen.</li>
 </ul>
+<p>IPsec kennt zwei Modi: Im <strong>Tunnelmodus</strong> verpackt es das ganze ursprüngliche Paket in ein neues mit den Adressen der Gateways, typisch für Site-to-Site. Im <strong>Transportmodus</strong> schützt es nur die Nutzdaten zwischen zwei Endgeräten. Verschlüsselt wird mit <strong>ESP</strong>; das ältere AH sichert nur Echtheit und Unverändertheit, verschlüsselt nicht und verträgt sich nicht mit NAT.</p>
 <p>Damit Pakete in den Tunnel gehen, brauchen die Router Routen für die Netze der Gegenseite, statisch (Kapitel 9.4.1) oder per OSPF (Kapitel 9.4.3).</p>
 
 <h3 id="u9-6-1-full-tunnel-oder-split-tunnel">Full Tunnel oder Split Tunnel<a class="anchor" href="#u9-6-1-full-tunnel-oder-split-tunnel" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -692,7 +693,7 @@
 
 <h3 id="u9-6-2-anforderungen-an-das-netz">Anforderungen an das Netz<a class="anchor" href="#u9-6-2-anforderungen-an-das-netz" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Gängige Richtwerte für gute Sprachqualität: Verzögerung in eine Richtung höchstens 150 ms, Jitter unter 30 ms, Paketverlust unter 1 %. Endgeräte gleichen kleine Schwankungen mit einem Puffer (Jitter-Buffer) aus, der die Verzögerung aber erhöht. Für eine Videokonferenz in HD rechnet man je nach Anbieter mit 1,5 bis 4 Mbit/s je Richtung; Bild darf eher leiden als Ton.</p>
-<p>Faxgeräte vertragen VoIP schlecht, weil schon kleine Verluste die Übertragung abbrechen lassen. Dafür gibt es das Verfahren <strong>T.38</strong>, das Fax nicht als Tonsignal, sondern als Daten überträgt und sie mehrfach schickt, damit einzelne Verluste nicht schaden, oder man ersetzt das Fax durch E-Mail.</p>
+<p>Faxgeräte vertragen VoIP schlecht, weil schon kleine Verluste die Übertragung abbrechen lassen. Dafür gibt es das Verfahren <strong>T.38</strong>, das Fax nicht als Tonsignal, sondern als Daten überträgt und sie mehrfach schickt, damit einzelne Verluste nicht schaden. Alternativ ersetzt man das Fax durch E-Mail.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
@@ -703,7 +704,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>VoIP:</strong> SIP baut Gespräche auf (5060/5061), RTP über UDP trägt die Sprache; der Codec bestimmt die Rate.</li>
-  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms, Jitter unter 30 ms, Verlust unter 1 %.</li>
+  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms Verzögerung in eine Richtung, Jitter unter 30 ms, Verlust unter 1 %.</li>
 </ul></div>
 </section>
 <section class="print-up" id="u-9-6-3"><h2><span class="num">9.6.3</span> Dienstgüte (QoS)</h2>
@@ -752,7 +753,7 @@
 
 <h3 id="u9-6-4-planen">Planen<a class="anchor" href="#u9-6-4-planen" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
-  <li><strong>Ausleuchtung</strong> (Site Survey): Mit Messgerät oder App wird vor Ort gemessen, wo welches Signal ankommt. Wände, Metall und Wasser (auch Aquarien und Menschen) dämpfen. Für Telefonie und Roaming rechnet man in der Praxis mit einem Signal von −67 dBm oder stärker (etwa −60 dBm) am Client.</li>
+  <li><strong>Ausleuchtung</strong> (Site Survey): Mit Messgerät oder App wird vor Ort gemessen, wo welches Signal ankommt. Wände, Metall und Wasser (auch Aquarien und Menschen) dämpfen. Für Telefonie und Roaming rechnet man in der Praxis mit einem Signal von −67 dBm oder stärker (also etwa −60 dBm, nicht −75 dBm) am Client.</li>
   <li><strong>Anzahl der Access Points</strong> nach Fläche und nach Zahl der gleichzeitigen Geräte. Ein Access Point teilt seinen Kanal auf alle Clients auf; viele Geräte brauchen mehrere kleinere Zellen.</li>
   <li><strong>Kanalplan</strong>: Benachbarte Access Points bekommen Kanäle, die sich nicht überlappen, im 2,4-GHz-Band etwa 1, 6 und 11. Senden zwei Access Points auf demselben Kanal in Hörweite, teilen sie sich die Sendezeit.</li>
   <li><strong>Sendeleistung</strong> eher niedrig, damit Zellen klein bleiben und Clients rechtzeitig zum nächsten Access Point wechseln.</li>
@@ -782,18 +783,18 @@ Nachbar-WLAN    6c:1f:f7:02:aa:10  6      20 MHz  WPA2        -64 dBm</code></pr
   <li><strong>Signal</strong> in dBm, ein negativer Wert: −58 ist stärker als −71.</li>
   <li>Die Zeile Praxis-Intern auf Kanal 6 (BSSID …:30:01) liegt mit −71 dBm unter dem Richtwert und teilt sich den Kanal mit dem stärkeren Nachbarnetz. Abhilfe: einen anderen Kanal wählen oder das Gerät ins 5-GHz-Band lenken.</li>
 </ul>
-<p>Eine <strong>versteckte SSID</strong>, die nicht ausgestrahlt wird, ist kein Schutz: Sie ist in den Anmeldungen der Clients trotzdem lesbar, und Geräte suchen dann ständig aktiv nach ihr.</p>
+<p>Eine <strong>versteckte SSID</strong>, die nicht ausgestrahlt wird, ist kein Schutz: Sie ist in den Anmeldungen der Clients trotzdem lesbar, und Geräte suchen dann ständig aktiv nach ihr. Ebenso wenig schützt ein MAC-Filter: MAC-Adressen lassen sich mitlesen und fälschen.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Standort Nord hängen zwei Access Points per PoE an Trunk-Ports, einer im Wartezimmer, einer im Flur der Behandlungsräume. Beide strahlen Praxis-Intern (VLAN 10) und Praxis-Gast (VLAN 40) aus. Am Access Point im Flur lief Praxis-Intern im 2,4-GHz-Band auf Kanal 6, schwächer als das Nachbarnetz (Scan oben). Ein älteres Tablet am Empfang, das nur 2,4 GHz kann, verliert deshalb immer wieder die Verbindung. Die Auszubildende legt den Access Point im 2,4-GHz-Band auf Kanal 1, abseits des Nachbarnetzes.</p>
+  <p>Am Standort Nord hängen zwei Access Points per PoE an Trunk-Ports, einer im Wartezimmer, einer im Flur der Behandlungsräume. Beide strahlen Praxis-Intern (VLAN 10) und Praxis-Gast (VLAN 40) aus. Am Access Point im Flur lief Praxis-Intern im 2,4-GHz-Band auf Kanal 6, schwächer als das Nachbarnetz (Scan oben). Ein älteres Tablet am Empfang, das nur 2,4 GHz kann, verliert deshalb immer wieder die Verbindung. Die Auszubildende legt den Access Point im 2,4-GHz-Band auf Kanal 1, abseits des Nachbarnetzes, und prüft am Empfang, ob dort −67 dBm oder mehr ankommen; sonst versetzt sie den Access Point.</p>
 </div>
 
 <aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie sich Mitarbeitende mit WPA3-Enterprise und einem RADIUS-Server persönlich anmelden und welche Angriffe auf WLANs es gibt, wird in LF11b ausführlicher behandelt.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Planung:</strong> Ausleuchtung messen, Access Points nach Fläche und Geräten, Kanäle ohne Überlappung, Sendeleistung eher niedrig, zentrale Verwaltung.</li>
-  <li><strong>Gäste-WLAN:</strong> eigene SSID, VLAN und IP-Netz, nur Internet, Client-Isolation, Captive Portal; im Scan BSSID, Kanal und Signal (dBm) auswerten.</li>
+  <li><strong>Gäste-WLAN:</strong> eigene SSID, VLAN und IP-Netz, nur Internet, Client-Isolation, Captive Portal.</li>
 </ul></div>
 </section>
 </div>

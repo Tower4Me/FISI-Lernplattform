@@ -644,7 +644,7 @@
 
 <h3 id="anforderungen-an-das-netz">Anforderungen an das Netz<a class="anchor" href="#anforderungen-an-das-netz" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Gängige Richtwerte für gute Sprachqualität: Verzögerung in eine Richtung höchstens 150 ms, Jitter unter 30 ms, Paketverlust unter 1 %. Endgeräte gleichen kleine Schwankungen mit einem Puffer (Jitter-Buffer) aus, der die Verzögerung aber erhöht. Für eine Videokonferenz in HD rechnet man je nach Anbieter mit 1,5 bis 4 Mbit/s je Richtung; Bild darf eher leiden als Ton.</p>
-<p>Faxgeräte vertragen VoIP schlecht, weil schon kleine Verluste die Übertragung abbrechen lassen. Dafür gibt es das Verfahren <strong>T.38</strong>, das Fax nicht als Tonsignal, sondern als Daten überträgt und sie mehrfach schickt, damit einzelne Verluste nicht schaden, oder man ersetzt das Fax durch E-Mail.</p>
+<p>Faxgeräte vertragen VoIP schlecht, weil schon kleine Verluste die Übertragung abbrechen lassen. Dafür gibt es das Verfahren <strong>T.38</strong>, das Fax nicht als Tonsignal, sondern als Daten überträgt und sie mehrfach schickt, damit einzelne Verluste nicht schaden. Alternativ ersetzt man das Fax durch E-Mail.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
@@ -655,7 +655,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>VoIP:</strong> SIP baut Gespräche auf (5060/5061), RTP über UDP trägt die Sprache; der Codec bestimmt die Rate.</li>
-  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms, Jitter unter 30 ms, Verlust unter 1 %.</li>
+  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms Verzögerung in eine Richtung, Jitter unter 30 ms, Verlust unter 1 %.</li>
 </ul></div>
 </div>
 <nav class="pager" aria-label="Blättern"><a class="prev" href="9-6-1-vpn.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.6.1</span>VPN</span></a><a class="next" href="9-6-3-dienstguete-qos.html"><span class="dir">Weiter</span><span class="pt"><span class="num">9.6.3</span>Dienstgüte (QoS)</span></a></nav>

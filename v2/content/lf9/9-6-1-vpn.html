@@ -16,8 +16,9 @@
 <ul>
   <li><strong>IPsec</strong>: genormt, arbeitet auf Schicht 3, Schlüsselaustausch mit IKEv2; Standard für Site-to-Site zwischen Routern verschiedener Hersteller.</li>
   <li><strong>WireGuard</strong>: schlank und schnell, arbeitet über UDP, wenige Einstellungen.</li>
-  <li><strong>TLS-VPN</strong> (etwa OpenVPN oder das SSL-VPN vieler Firewalls): sichert die Verbindung mit TLS wie HTTPS; über TCP-Port 443 betrieben, kommt es auch durch Firewalls, die nur Webverkehr durchlassen.</li>
+  <li><strong>TLS-VPN</strong> (etwa OpenVPN oder das SSL-VPN vieler Firewalls): sichert die Verbindung mit TLS wie HTTPS; lässt sich über TCP-Port 443 betreiben und kommt so auch durch Firewalls, die nur Webverkehr durchlassen.</li>
 </ul>
+<p>IPsec kennt zwei Modi: Im <strong>Tunnelmodus</strong> verpackt es das ganze ursprüngliche Paket in ein neues mit den Adressen der Gateways, typisch für Site-to-Site. Im <strong>Transportmodus</strong> schützt es nur die Nutzdaten zwischen zwei Endgeräten. Verschlüsselt wird mit <strong>ESP</strong>; das ältere AH sichert nur Echtheit und Unverändertheit, verschlüsselt nicht und verträgt sich nicht mit NAT.</p>
 <p>Damit Pakete in den Tunnel gehen, brauchen die Router Routen für die Netze der Gegenseite, statisch (Kapitel 9.4.1) oder per OSPF (Kapitel 9.4.3).</p>
 
 <h3>Full Tunnel oder Split Tunnel</h3>

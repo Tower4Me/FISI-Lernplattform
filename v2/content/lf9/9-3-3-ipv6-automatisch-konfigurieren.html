@@ -30,12 +30,12 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Standort Nord sendet der Router im Gäste-VLAN RAs mit M = 0 und O = 0 und gibt den DNS-Server im RA mit. Smartphones aller Hersteller bekommen so eine Adresse. Im Verwaltungs-VLAN setzt er O = 1: Die PCs bilden ihre Adresse selbst, holen sich DNS-Server und Suchdomäne aber über ein DHCPv6-Relay auf dem Router (Kapitel 9.5.1) vom DHCPv6-Server im Stammhaus. Ein PC zeigt danach neben fe80::… eine Adresse aus 2001:db8:4a00:2110::/64 und als Gateway die fe80-Adresse des Routers.</p>
+  <p>Am Standort Nord sendet der Router im Gäste-VLAN RAs mit M = 0 und O = 0 und gibt den DNS-Server im RA mit. Smartphones aller Hersteller bekommen so eine Adresse. Im Verwaltungs-VLAN setzt er O = 1: Die PCs bilden ihre Adresse selbst, holen sich DNS-Server und Suchdomäne aber vom Router in Nord, der als zustandsloser DHCPv6-Server arbeitet (wie DHCP in Kapitel 9.5.1). Ein PC zeigt danach neben fe80::… eine Adresse aus 2001:db8:4a00:2110::/64 und als Gateway die fe80-Adresse des Routers.</p>
 </div>
 
 <aside class="note" data-typ="fehler"><p>„Das Standardgateway kommt bei IPv6 vom DHCPv6-Server.“ Nein: DHCPv6 kennt keine Option für das Gateway. Ohne Router Advertisement und ohne von Hand eingetragenes Gateway hat ein Gerät kein Standardgateway.</p></aside>
 
 <ul class="merksatz">
   <li><strong>SLAAC:</strong> Gerät bildet seine Adresse aus dem Präfix im Router Advertisement und einem 64 Bit langen Geräteteil (EUI-64 oder zufällig); Gateway ist die Link-Local-Adresse des Routers.</li>
-  <li><strong>DHCPv6:</strong> M-Flag für zentral vergebene Adressen, O-Flag nur für weitere Angaben; Dual Stack heißt IPv4 und IPv6 parallel.</li>
+  <li><strong>DHCPv6:</strong> M-Flag für zentral vergebene Adressen, O-Flag nur für weitere Angaben wie den DNS-Server.</li>
 </ul>

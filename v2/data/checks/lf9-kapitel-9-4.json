@@ -114,7 +114,7 @@
         "Eine Weiterleitung von öffentlicher Adresse und Port 443 auf die interne Adresse",
         "Eine zweite Default-Route im Router, die direkt auf die interne Adresse des Webservers zeigt",
         "Eine Subschnittstelle für das VLAN des Webservers",
-        "PAT für alle eingehenden Pakete ohne weitere Regel"
+        "PAT für eingehende Pakete an Port 443 ohne Zieladresse"
       ],
       "richtig": [
         0

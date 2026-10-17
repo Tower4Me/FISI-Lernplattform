@@ -639,7 +639,7 @@
     <rect class="g-box" x="390" y="180" width="140" height="40" rx="6"/>
     <text x="460" y="205" text-anchor="middle">Süd 10.30.0.0/24</text>
   </svg>
-  <figcaption>Der Verbund: Transfernetz 10.10.255.0/30 zwischen Kern-Switch (.1) und Router (.2), Internetanschluss im Netz 198.51.100.8/29, Tunnel zu den Standorten.</figcaption>
+  <figcaption>Der Verbund: Transfernetz 10.10.255.0/30 zwischen Kern-Switch (.1) und Router (.2), Internetanschluss im Netz 198.51.100.8/30, Tunnel zu den Standorten.</figcaption>
 </figure>
 
 <h3 id="u9-4-1-aufbau-eines-eintrags">Aufbau eines Eintrags<a class="anchor" href="#u9-4-1-aufbau-eines-eintrags" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -649,7 +649,7 @@
     <thead><tr><th>Ziel</th><th>Gateway (Next Hop)</th><th>Schnittstelle</th><th>Herkunft</th></tr></thead>
     <tbody>
       <tr><th>10.10.255.0/30</th><td>direkt verbunden</td><td>LAN</td><td>Schnittstelle</td></tr>
-      <tr><th>198.51.100.8/29</th><td>direkt verbunden</td><td>WAN</td><td>Schnittstelle</td></tr>
+      <tr><th>198.51.100.8/30</th><td>direkt verbunden</td><td>WAN</td><td>Schnittstelle</td></tr>
       <tr><th>10.10.0.0/24</th><td>10.10.255.1</td><td>LAN</td><td>statisch</td></tr>
       <tr><th>10.20.0.0/24</th><td>über Tunnel</td><td>VPN Nord</td><td>statisch</td></tr>
       <tr><th>10.30.0.0/24</th><td>über Tunnel</td><td>VPN Süd</td><td>statisch</td></tr>
@@ -663,6 +663,12 @@
   <li><strong>Schnittstelle</strong>: über welchen Anschluss das Paket hinausgeht.</li>
   <li><strong>Metrik</strong> (hier nicht gezeigt): Bewertung, falls es mehrere Einträge mit gleichem Ziel und gleicher Präfixlänge gibt; der kleinere Wert gewinnt. Der genaueste Eintrag (siehe unten) geht immer vor.</li>
 </ul>
+<p>Auf einem Windows-PC zeigt <code>route print</code> die Tabelle mit Subnetzmaske statt Präfixlänge und mit Metrik. Ein Auszug von einem PC in Nord:</p>
+<pre><code>Netzwerkziel    Netzwerkmaske     Gateway         Schnittstelle  Metrik
+0.0.0.0         0.0.0.0           10.20.0.65      10.20.0.70         25
+10.20.0.64      255.255.255.224   Auf Verbindung  10.20.0.70        281
+127.0.0.0       255.0.0.0         Auf Verbindung  127.0.0.1         331</code></pre>
+<p>„Auf Verbindung“ heißt direkt verbunden, ohne Gateway. Die erste Zeile ist die Default-Route zum Router in Nord, die zweite das eigene Netz, die dritte die Loopback-Adressen des PCs.</p>
 <p>Die <strong>Default-Route</strong> 0.0.0.0/0 passt auf jede Adresse. Sie nimmt alles auf, wofür es keinen genaueren Eintrag gibt, hier den Weg ins Internet. Für IPv6 heißt sie ::/0.</p>
 
 <h3 id="u9-4-1-wie-der-router-entscheidet">Wie der Router entscheidet<a class="anchor" href="#u9-4-1-wie-der-router-entscheidet" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -670,7 +676,7 @@
 <p>Ein Endgerät entscheidet einfacher: Liegt das Ziel nach seiner Maske im eigenen Netz, stellt es direkt zu (LF3, Kapitel 3.4.3); sonst schickt es das Paket an sein Standardgateway. Das Standardgateway ist nichts anderes als eine Default-Route.</p>
 
 <h3 id="u9-4-1-eintraege-sparen">Einträge sparen<a class="anchor" href="#u9-4-1-eintraege-sparen" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Weil jeder Standort einen zusammenhängenden /24-Block hat, braucht der Router im Stammhaus für Nord nur einen Eintrag, nicht fünf für die einzelnen VLAN-Netze. Dieses Zusammenfassen heißt <strong>Summarization</strong> und ist der Grund für einen geordneten Adressplan (Kapitel 9.3.1). In den Routern von Nord und Süd steht für das Stammhaus entsprechend 10.10.0.0/16; so ist auch das Transfernetz 10.10.255.0/30 erreichbar, etwa für die Verwaltung des Kern-Switches. Der Kern-Switch im Stammhaus kommt sogar mit seinen direkt verbundenen VLAN-Netzen und einer einzigen Default-Route an 10.10.255.2 aus.</p>
+<p>Weil jeder Standort einen zusammenhängenden /24-Block hat, braucht der Router im Stammhaus für Nord nur einen Eintrag, nicht fünf für die einzelnen VLAN-Netze. Dieses Zusammenfassen heißt <strong>Summarization</strong> und ist der Grund für einen geordneten Adressplan (Kapitel 9.3.1). Rechnerisch suchst du die Bits, die alle Netze gemeinsam haben: Bekäme Nord später vier Blöcke 10.20.0.0/24 bis 10.20.3.0/24, unterscheiden sie sich nur in den letzten zwei Bit des dritten Oktetts (0 bis 3 = 000000<strong>00</strong> bis 000000<strong>11</strong>). Gemeinsam sind 8 + 8 + 6 = 22 Bit, der Sammeleintrag lautet 10.20.0.0/22. In den Routern von Nord und Süd steht für das Stammhaus entsprechend 10.10.0.0/16; so ist auch das Transfernetz 10.10.255.0/30 erreichbar, etwa für die Verwaltung des Kern-Switches. Der Kern-Switch im Stammhaus kommt sogar mit seinen direkt verbundenen VLAN-Netzen und einer einzigen Default-Route an 10.10.255.2 aus.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
@@ -704,7 +710,7 @@
 </div>
 
 <h3 id="u9-4-2-erreichbarkeit-regeln">Erreichbarkeit regeln<a class="anchor" href="#u9-4-2-erreichbarkeit-regeln" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Routing allein verbindet alle VLANs miteinander, damit wäre die Trennung wieder aufgehoben. Deshalb legst du an Router oder Layer-3-Switch fest, welcher Verkehr zwischen den VLANs erlaubt ist, etwa mit Zugriffslisten oder einer Firewall: Gäste dürfen nur ins Internet, Verwaltung darf zum Drucker und zur Datenbank, Medizingeräte nur zu ihrer Auswertestation.</p>
+<p>Routing allein verbindet alle VLANs miteinander, damit wäre die Trennung wieder aufgehoben. Deshalb legst du an Router oder Layer-3-Switch fest, welcher Verkehr zwischen den VLANs erlaubt ist, etwa mit Zugriffslisten oder einer Firewall: Gäste dürfen nur ins Internet, Verwaltung darf zum Drucker und zur Datenbank, aus anderen VLANs niemand zu den Medizingeräten. Röntgengerät und Auswertestation im selben VLAN erreichen sich direkt über den Switch, ohne Router.</p>
 <aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du Regeln zwischen Netzen planst und eine Firewall einrichtest, wird in LF11b ausführlicher behandelt.</p></aside>
 
 <h3 id="u9-4-2-typische-fehlerbilder">Typische Fehlerbilder<a class="anchor" href="#u9-4-2-typische-fehlerbilder" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -721,7 +727,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Standort Nord richtet die Auszubildende Router-on-a-Stick ein: Der Router hängt am Trunk-Port 24 und hat Subschnittstellen für die VLANs 10, 20, 30, 40 und 99 mit den Gateway-Adressen aus Kapitel 9.3.1. Den Drucker verlegt sie ins Verwaltungs-VLAN 10, wo er hingehört. Für die Röntgenstation erlaubt eine Regel nur den Zugriff der Auswertestation; Gäste kommen nur ins Internet.</p>
+  <p>Am Standort Nord richtet die Auszubildende Router-on-a-Stick ein: Der Router hängt am Trunk-Port 24 und hat Subschnittstellen für die VLANs 10, 20, 30, 40 und 99 mit den Gateway-Adressen aus Kapitel 9.3.1. Den Drucker verlegt sie ins Verwaltungs-VLAN 10, wo er hingehört. Für VLAN 20 sperrt eine Regel jeden Zugriff aus anderen VLANs, Röntgengerät und Auswertestation erreichen sich innerhalb des VLANs direkt; Gäste kommen nur ins Internet.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ein Layer-2-Switch kann zwischen VLANs vermitteln, wenn man beide VLANs auf denselben Port legt.“ Nein: Ein Layer-2-Switch leitet nur innerhalb eines VLANs weiter. Zwischen VLANs braucht es immer eine Schicht-3-Einheit, also Router oder Layer-3-Switch.</p></aside>
@@ -732,7 +738,7 @@
 </ul></div>
 </section>
 <section class="print-up" id="u-9-4-3"><h2><span class="num">9.4.3</span> Dynamisches Routing</h2>
-<p class="lead">Drei Standorte mit je einem Tunnel lassen sich gut mit statischen Routen verbinden. Bekommt jeder Standort aber einen zweiten Tunnel über den Mobilfunk-Ersatzweg, müsstest du für jeden Ersatzweg eigene statische Routen mit schlechterer Bewertung pflegen; mit mehr Standorten wird das schnell unübersichtlich. Hier helfen <strong>Routing-Protokolle</strong>: Router tauschen selbst aus, welche Netze sie erreichen, und passen ihre Tabellen an.</p>
+<p class="lead">Zwei Außenstellen mit je einem Tunnel zum Stammhaus lassen sich gut mit statischen Routen verbinden. Bekommt jeder Standort aber einen zweiten Tunnel über den Mobilfunk-Ersatzweg, müsstest du für jeden Ersatzweg eigene statische Routen mit schlechterer Bewertung pflegen; mit mehr Standorten wird das schnell unübersichtlich. Hier helfen <strong>Routing-Protokolle</strong>: Router tauschen selbst aus, welche Netze sie erreichen, und passen ihre Tabellen an.</p>
 
 <h3 id="u9-4-3-statisch-oder-dynamisch">Statisch oder dynamisch<a class="anchor" href="#u9-4-3-statisch-oder-dynamisch" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -814,7 +820,7 @@
 <aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Warum öffentlich erreichbare Server besser in einem eigenen Netzbereich (DMZ) stehen, wird in LF11b ausführlicher behandelt.</p></aside>
 
 <h3 id="u9-4-4-nat-und-ipv6-cgnat">NAT und IPv6, CGNAT<a class="anchor" href="#u9-4-4-nat-und-ipv6-cgnat" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Mit IPv6 hat jedes Gerät eine öffentliche Adresse, NAT ist dort nicht nötig und unüblich; ein Dienst wird erreichbar, indem die Firewall den Zugriff erlaubt. Bei Carrier-Grade NAT (Kapitel 9.1.3) setzt bereits der Anbieter um, oft zusätzlich zum eigenen Router. Eine Weiterleitung im eigenen Router nützt dann nichts, weil die Anfrage den Router gar nicht erreicht.</p>
+<p>Mit IPv6 kann jedes Gerät eine öffentliche Adresse haben, NAT ist dort nicht nötig und unüblich; ein Dienst wird erreichbar, indem die Firewall den Zugriff erlaubt. Bei Carrier-Grade NAT (Kapitel 9.1.3) setzt bereits der Anbieter um, oft zusätzlich zum eigenen Router. Eine Weiterleitung im eigenen Router nützt dann nichts, weil die Anfrage den Router gar nicht erreicht.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>

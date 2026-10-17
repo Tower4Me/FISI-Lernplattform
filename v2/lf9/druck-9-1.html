@@ -634,7 +634,7 @@
     </tbody>
   </table>
 </div>
-<p>Die Antworten hältst du als Anforderungen fest, wie im Lastenheft aus LF2, Kapitel 2.1.2. Funktionale Anforderungen sagen, was das Netz können soll („Gäste-WLAN im Wartezimmer“). Nicht-funktionale sagen, wie gut („Telefonie ohne hörbare Aussetzer“, „Ausfall höchstens vier Stunden“). Damit sie später prüfbar sind, machst du sie messbar.</p>
+<p>Die Antworten hältst du als Anforderungen fest, wie im Lastenheft aus LF2, Kapitel 2.1.2. Funktionale Anforderungen sagen, was das Netz können soll („Gäste-WLAN im Wartezimmer“). Nicht-funktionale sagen, wie gut („Telefonie ohne hörbare Aussetzer“, „Ausfall höchstens acht Stunden“). Damit sie später prüfbar sind, machst du sie messbar.</p>
 
 <h3 id="u9-1-1-ist-aufnahme">Ist-Aufnahme<a class="anchor" href="#u9-1-1-ist-aufnahme" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Selten beginnt ein Netz bei null. Am Anfang steht deshalb eine Bestandsaufnahme: vorhandene Verkabelung und ihre Kategorie (LF3, Kapitel 3.3), Switches, Router und Access Points mit Modell und Alter, bestehende Adressbereiche, Internetanschluss, Netzwerkpläne. Was fehlt oder veraltet ist, ergibt zusammen mit den Anforderungen den Handlungsbedarf.</p>
@@ -742,7 +742,7 @@
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Bis zu 250 Mbit/s“ heißt nicht, dass immer 250 Mbit/s ankommen. Bei Festnetzanschlüssen muss der Vertrag auch die normalerweise verfügbare und die minimale Datenrate nennen. Für die Planung zählen diese Werte und der Upload.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>DSL, Kabel, Glasfaser und Mobilfunk unterscheiden sich in Datenrate, Symmetrie, geteiltem Medium und Latenz; ein Geschäftsanschluss bietet feste öffentliche Adressen und zugesicherte Entstörzeiten, hinter CGNAT ist ein Gerät von außen nicht erreichbar.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>DSL, Kabel, Glasfaser und Mobilfunk unterscheiden sich in Datenrate, Symmetrie, geteiltem Medium und Latenz; ein Geschäftsanschluss bietet feste öffentliche Adressen und zugesicherte Entstörzeiten, hinter CGNAT ist ein Gerät von außen über IPv4 nicht erreichbar.</p></div>
 </section>
 <section class="print-up" id="u-9-1-4"><h2><span class="num">9.1.4</span> Konzepte vergleichen</h2>
 <p class="lead">Für den Praxisverbund gibt es mehr als einen sinnvollen Weg. Die Server können im Stammhaus stehen oder in einem Rechenzentrum, das Netz kann das Systemhaus selbst betreuen oder ein Anbieter als Gesamtpaket liefern. Bisher läuft die zentrale Datenbank auf einem Server im Stammhaus; zu prüfen ist, ob sie dort bleibt. Dem Kunden legst du deshalb zwei oder drei Varianten vor und vergleichst sie nachvollziehbar.</p>
@@ -771,9 +771,9 @@
       <thead><tr><th></th><th>A: Server im Stammhaus</th><th>B: Server im Rechenzentrum</th></tr></thead>
       <tbody>
         <tr><th>Anschaffung</th><td>9.000 € (Server, USV, Schrank)</td><td>2.000 € (Einrichtung)</td></tr>
-        <tr><th>laufend je Jahr</th><td>1.400 € (Strom, Wartung) + 600 € (zweiter Anschluss)</td><td>3.000 € (Miete, Betrieb)</td></tr>
+        <tr><th>laufend je Jahr</th><td>1.400 € (Strom) + 600 € (Wartungsvertrag Server)</td><td>3.000 € (Miete, Betrieb)</td></tr>
         <tr><th>Summe 5 Jahre</th><td>9.000 + 5 × 2.000 = 19.000 €</td><td>2.000 + 5 × 3.000 = 17.000 €</td></tr>
-        <tr><th>Verfügbarkeit</th><td>hängt an den zwei Anschlüssen des Stammhauses</td><td>Rechenzentrum mit Notstrom und mehreren Leitungen</td></tr>
+        <tr><th>Verfügbarkeit</th><td>hängt am Anschluss und an der Stromversorgung des Stammhauses</td><td>Rechenzentrum mit Notstrom und mehreren Leitungen</td></tr>
       </tbody>
     </table>
   </div>

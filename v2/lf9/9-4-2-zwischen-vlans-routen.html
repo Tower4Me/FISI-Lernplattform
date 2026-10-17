@@ -633,7 +633,7 @@
 </div>
 
 <h3 id="erreichbarkeit-regeln">Erreichbarkeit regeln<a class="anchor" href="#erreichbarkeit-regeln" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Routing allein verbindet alle VLANs miteinander, damit wäre die Trennung wieder aufgehoben. Deshalb legst du an Router oder Layer-3-Switch fest, welcher Verkehr zwischen den VLANs erlaubt ist, etwa mit Zugriffslisten oder einer Firewall: Gäste dürfen nur ins Internet, Verwaltung darf zum Drucker und zur Datenbank, Medizingeräte nur zu ihrer Auswertestation.</p>
+<p>Routing allein verbindet alle VLANs miteinander, damit wäre die Trennung wieder aufgehoben. Deshalb legst du an Router oder Layer-3-Switch fest, welcher Verkehr zwischen den VLANs erlaubt ist, etwa mit Zugriffslisten oder einer Firewall: Gäste dürfen nur ins Internet, Verwaltung darf zum Drucker und zur Datenbank, aus anderen VLANs niemand zu den Medizingeräten. Röntgengerät und Auswertestation im selben VLAN erreichen sich direkt über den Switch, ohne Router.</p>
 <aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du Regeln zwischen Netzen planst und eine Firewall einrichtest, wird in LF11b ausführlicher behandelt.</p></aside>
 
 <h3 id="typische-fehlerbilder">Typische Fehlerbilder<a class="anchor" href="#typische-fehlerbilder" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -650,7 +650,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Standort Nord richtet die Auszubildende Router-on-a-Stick ein: Der Router hängt am Trunk-Port 24 und hat Subschnittstellen für die VLANs 10, 20, 30, 40 und 99 mit den Gateway-Adressen aus Kapitel 9.3.1. Den Drucker verlegt sie ins Verwaltungs-VLAN 10, wo er hingehört. Für die Röntgenstation erlaubt eine Regel nur den Zugriff der Auswertestation; Gäste kommen nur ins Internet.</p>
+  <p>Am Standort Nord richtet die Auszubildende Router-on-a-Stick ein: Der Router hängt am Trunk-Port 24 und hat Subschnittstellen für die VLANs 10, 20, 30, 40 und 99 mit den Gateway-Adressen aus Kapitel 9.3.1. Den Drucker verlegt sie ins Verwaltungs-VLAN 10, wo er hingehört. Für VLAN 20 sperrt eine Regel jeden Zugriff aus anderen VLANs, Röntgengerät und Auswertestation erreichen sich innerhalb des VLANs direkt; Gäste kommen nur ins Internet.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ein Layer-2-Switch kann zwischen VLANs vermitteln, wenn man beide VLANs auf denselben Port legt.“ Nein: Ein Layer-2-Switch leitet nur innerhalb eines VLANs weiter. Zwischen VLANs braucht es immer eine Schicht-3-Einheit, also Router oder Layer-3-Switch.</p></aside>

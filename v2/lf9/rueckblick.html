@@ -619,7 +619,7 @@
 <li><span class="num">9.1.1</span><div><a href="9-1-1-anforderungen-an-ein-netzwerk.html">Anforderungen an ein Netzwerk</a><p>Im Kundengespräch klärst du Standorte, Geräte, Dienste, Leistung, Verfügbarkeit, Sicherheit, Betrieb und Rahmen, nimmst den Ist-Stand auf und formulierst daraus messbare Anforderungen.</p></div></li>
 <li><span class="num">9.1.2</span><div><a href="9-1-2-bandbreite-latenz-und-uebertragungsdauer.html">Bandbreite, Latenz und Übertragungsdauer</a><ul><li><strong>Bandbreite:</strong> wie viel je Sekunde; <strong>Latenz:</strong> wie lange ein Paket braucht; <strong>Jitter:</strong> wie stark die Latenz schwankt.</li>
   <li>Den Bedarf summierst du je Richtung mit Reserve; Übertragungsdauern rechnest du mit dem Overhead der Protokolle.</li></ul></div></li>
-<li><span class="num">9.1.3</span><div><a href="9-1-3-internetanschluesse.html">Internetanschlüsse</a><p>DSL, Kabel, Glasfaser und Mobilfunk unterscheiden sich in Datenrate, Symmetrie, geteiltem Medium und Latenz; ein Geschäftsanschluss bietet feste öffentliche Adressen und zugesicherte Entstörzeiten, hinter CGNAT ist ein Gerät von außen nicht erreichbar.</p></div></li>
+<li><span class="num">9.1.3</span><div><a href="9-1-3-internetanschluesse.html">Internetanschlüsse</a><p>DSL, Kabel, Glasfaser und Mobilfunk unterscheiden sich in Datenrate, Symmetrie, geteiltem Medium und Latenz; ein Geschäftsanschluss bietet feste öffentliche Adressen und zugesicherte Entstörzeiten, hinter CGNAT ist ein Gerät von außen über IPv4 nicht erreichbar.</p></div></li>
 <li><span class="num">9.1.4</span><div><a href="9-1-4-konzepte-vergleichen.html">Konzepte vergleichen</a><p>Du vergleichst Varianten mit internen und externen Ressourcen nach Technik, Gesamtkosten über die Nutzungsdauer und Nachhaltigkeit und dokumentierst die Entscheidung mit Begründung.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.1</a></p>
@@ -641,7 +641,7 @@
 <li><span class="num">9.3.2</span><div><a href="9-3-2-ipv6-adressplan.html">IPv6-Adressplan</a><ul><li><strong>Anzahl /64-Netze</strong> = 2^(64 − Präfixlänge).</li>
   <li><strong>Teilen:</strong> n geliehene Bits ergeben 2^n Teile; Grenzen auf ganzen Hexadezimalziffern sind am lesbarsten, Netze mit Endgeräten bleiben /64.</li></ul></div></li>
 <li><span class="num">9.3.3</span><div><a href="9-3-3-ipv6-automatisch-konfigurieren.html">IPv6 automatisch konfigurieren</a><ul><li><strong>SLAAC:</strong> Gerät bildet seine Adresse aus dem Präfix im Router Advertisement und einem 64 Bit langen Geräteteil (EUI-64 oder zufällig); Gateway ist die Link-Local-Adresse des Routers.</li>
-  <li><strong>DHCPv6:</strong> M-Flag für zentral vergebene Adressen, O-Flag nur für weitere Angaben; Dual Stack heißt IPv4 und IPv6 parallel.</li></ul></div></li>
+  <li><strong>DHCPv6:</strong> M-Flag für zentral vergebene Adressen, O-Flag nur für weitere Angaben wie den DNS-Server.</li></ul></div></li>
 <li><span class="num">9.3.4</span><div><a href="9-3-4-unicast-multicast-broadcast-anycast.html">Unicast, Multicast, Broadcast, Anycast</a><p>Unicast geht an einen Empfänger, Broadcast an alle im Netz (nur IPv4), Multicast an eine Gruppe (IPv4 224.0.0.0/4, IPv6 ff00::/8), Anycast an den nächstgelegenen von mehreren mit derselben Adresse.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.3</a></p>
@@ -677,11 +677,11 @@
 <li><span class="num">9.6.1</span><div><a href="9-6-1-vpn.html">VPN</a><ul><li><strong>Site-to-Site</strong> verbindet Netze dauerhaft über Gateways, <strong>End-to-Site</strong> einzelne Geräte über einen Client; Full Tunnel schickt allen, Split Tunnel nur Firmenverkehr durch den Tunnel.</li>
   <li><strong>Stolpersteine:</strong> NAT (NAT-Traversal, UDP 4500), MTU durch Tunnelköpfe, IPv6 am Tunnel vorbei, gleiche Adressbereiche.</li></ul></div></li>
 <li><span class="num">9.6.2</span><div><a href="9-6-2-voip-und-videokonferenz.html">VoIP und Videokonferenz</a><ul><li><strong>VoIP:</strong> SIP baut Gespräche auf (5060/5061), RTP über UDP trägt die Sprache; der Codec bestimmt die Rate.</li>
-  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms, Jitter unter 30 ms, Verlust unter 1 %.</li></ul></div></li>
+  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms Verzögerung in eine Richtung, Jitter unter 30 ms, Verlust unter 1 %.</li></ul></div></li>
 <li><span class="num">9.6.3</span><div><a href="9-6-3-dienstguete-qos.html">Dienstgüte (QoS)</a><ul><li><strong>QoS:</strong> klassifizieren, markieren (PCP mit 3 Bit im VLAN-Tag, DSCP mit 6 Bit im IP-Kopf, Sprache EF), in Warteschlangen bevorzugt senden.</li>
   <li>Wirkt nur am Engpass, meist am Upload; Rate knapp unter der Anschlussrate begrenzen, dann priorisieren. Mehr Bandbreite entsteht nicht.</li></ul></div></li>
 <li><span class="num">9.6.4</span><div><a href="9-6-4-wlan-im-unternehmen.html">WLAN im Unternehmen</a><ul><li><strong>Planung:</strong> Ausleuchtung messen, Access Points nach Fläche und Geräten, Kanäle ohne Überlappung, Sendeleistung eher niedrig, zentrale Verwaltung.</li>
-  <li><strong>Gäste-WLAN:</strong> eigene SSID, VLAN und IP-Netz, nur Internet, Client-Isolation, Captive Portal; im Scan BSSID, Kanal und Signal (dBm) auswerten.</li></ul></div></li>
+  <li><strong>Gäste-WLAN:</strong> eigene SSID, VLAN und IP-Netz, nur Internet, Client-Isolation, Captive Portal.</li></ul></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-6.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.6</a></p>
 </section>

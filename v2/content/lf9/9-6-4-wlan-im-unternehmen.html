@@ -2,7 +2,7 @@
 
 <h3>Planen</h3>
 <ul>
-  <li><strong>Ausleuchtung</strong> (Site Survey): Mit Messgerät oder App wird vor Ort gemessen, wo welches Signal ankommt. Wände, Metall und Wasser (auch Aquarien und Menschen) dämpfen. Für Telefonie und Roaming rechnet man in der Praxis mit einem Signal von −67 dBm oder stärker (etwa −60 dBm) am Client.</li>
+  <li><strong>Ausleuchtung</strong> (Site Survey): Mit Messgerät oder App wird vor Ort gemessen, wo welches Signal ankommt. Wände, Metall und Wasser (auch Aquarien und Menschen) dämpfen. Für Telefonie und Roaming rechnet man in der Praxis mit einem Signal von −67 dBm oder stärker (also etwa −60 dBm, nicht −75 dBm) am Client.</li>
   <li><strong>Anzahl der Access Points</strong> nach Fläche und nach Zahl der gleichzeitigen Geräte. Ein Access Point teilt seinen Kanal auf alle Clients auf; viele Geräte brauchen mehrere kleinere Zellen.</li>
   <li><strong>Kanalplan</strong>: Benachbarte Access Points bekommen Kanäle, die sich nicht überlappen, im 2,4-GHz-Band etwa 1, 6 und 11. Senden zwei Access Points auf demselben Kanal in Hörweite, teilen sie sich die Sendezeit.</li>
   <li><strong>Sendeleistung</strong> eher niedrig, damit Zellen klein bleiben und Clients rechtzeitig zum nächsten Access Point wechseln.</li>
@@ -32,16 +32,16 @@ Nachbar-WLAN    6c:1f:f7:02:aa:10  6      20 MHz  WPA2        -64 dBm</code></pr
   <li><strong>Signal</strong> in dBm, ein negativer Wert: −58 ist stärker als −71.</li>
   <li>Die Zeile Praxis-Intern auf Kanal 6 (BSSID …:30:01) liegt mit −71 dBm unter dem Richtwert und teilt sich den Kanal mit dem stärkeren Nachbarnetz. Abhilfe: einen anderen Kanal wählen oder das Gerät ins 5-GHz-Band lenken.</li>
 </ul>
-<p>Eine <strong>versteckte SSID</strong>, die nicht ausgestrahlt wird, ist kein Schutz: Sie ist in den Anmeldungen der Clients trotzdem lesbar, und Geräte suchen dann ständig aktiv nach ihr.</p>
+<p>Eine <strong>versteckte SSID</strong>, die nicht ausgestrahlt wird, ist kein Schutz: Sie ist in den Anmeldungen der Clients trotzdem lesbar, und Geräte suchen dann ständig aktiv nach ihr. Ebenso wenig schützt ein MAC-Filter: MAC-Adressen lassen sich mitlesen und fälschen.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Standort Nord hängen zwei Access Points per PoE an Trunk-Ports, einer im Wartezimmer, einer im Flur der Behandlungsräume. Beide strahlen Praxis-Intern (VLAN 10) und Praxis-Gast (VLAN 40) aus. Am Access Point im Flur lief Praxis-Intern im 2,4-GHz-Band auf Kanal 6, schwächer als das Nachbarnetz (Scan oben). Ein älteres Tablet am Empfang, das nur 2,4 GHz kann, verliert deshalb immer wieder die Verbindung. Die Auszubildende legt den Access Point im 2,4-GHz-Band auf Kanal 1, abseits des Nachbarnetzes.</p>
+  <p>Am Standort Nord hängen zwei Access Points per PoE an Trunk-Ports, einer im Wartezimmer, einer im Flur der Behandlungsräume. Beide strahlen Praxis-Intern (VLAN 10) und Praxis-Gast (VLAN 40) aus. Am Access Point im Flur lief Praxis-Intern im 2,4-GHz-Band auf Kanal 6, schwächer als das Nachbarnetz (Scan oben). Ein älteres Tablet am Empfang, das nur 2,4 GHz kann, verliert deshalb immer wieder die Verbindung. Die Auszubildende legt den Access Point im 2,4-GHz-Band auf Kanal 1, abseits des Nachbarnetzes, und prüft am Empfang, ob dort −67 dBm oder mehr ankommen; sonst versetzt sie den Access Point.</p>
 </div>
 
 <aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie sich Mitarbeitende mit WPA3-Enterprise und einem RADIUS-Server persönlich anmelden und welche Angriffe auf WLANs es gibt, wird in LF11b ausführlicher behandelt.</p></aside>
 
 <ul class="merksatz">
   <li><strong>Planung:</strong> Ausleuchtung messen, Access Points nach Fläche und Geräten, Kanäle ohne Überlappung, Sendeleistung eher niedrig, zentrale Verwaltung.</li>
-  <li><strong>Gäste-WLAN:</strong> eigene SSID, VLAN und IP-Netz, nur Internet, Client-Isolation, Captive Portal; im Scan BSSID, Kanal und Signal (dBm) auswerten.</li>
+  <li><strong>Gäste-WLAN:</strong> eigene SSID, VLAN und IP-Netz, nur Internet, Client-Isolation, Captive Portal.</li>
 </ul>

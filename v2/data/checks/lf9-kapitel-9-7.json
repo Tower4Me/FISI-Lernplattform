@@ -79,9 +79,9 @@
     {
       "typ": "mc",
       "thema": "Fehlerbild",
-      "frage": "Ein PC erreicht sein Gateway und öffentliche IP-Adressen, aber Namen werden nicht aufgelöst. Laut ipconfig fragt er für Namen bei 10.10.0.147 an, das Netz des PCs ist 10.20.0.64/27. Was prüfst du zuerst?",
+      "frage": "Ein PC in Nord erreicht sein Gateway und öffentliche IP-Adressen. Öffentliche Namen werden aufgelöst, interne nicht. Laut ipconfig ist der Router 10.20.0.65 sein DNS-Server; der Router leitet interne Namen an 10.10.0.147 weiter. Was prüfst du zuerst?",
       "optionen": [
-        "Ob der DNS-Server über den Tunnel erreichbar ist",
+        "Ob 10.10.0.147 im Stammhaus über den Tunnel erreichbar ist",
         "Ob das Patchkabel des PCs steckt",
         "Ob der PC eine 169.254er-Adresse hat, weil DHCP ausgefallen sein könnte",
         "Ob das Gäste-WLAN eingeschaltet ist"
@@ -89,7 +89,7 @@
       "richtig": [
         0
       ],
-      "erklaerung": "Verbindung und Internet funktionieren, nur die Namensauflösung nicht. Liegt der DNS-Server hinter einem Tunnel, ist dessen Erreichbarkeit der nächste Prüfschritt."
+      "erklaerung": "Verbindung, Internet und öffentliche Namen funktionieren, nur interne Namen nicht. Der Router leitet sie an den Server im Stammhaus weiter; ist dieser über den Tunnel nicht erreichbar, scheitert die Auflösung."
     },
     {
       "typ": "mc",
@@ -112,7 +112,7 @@
       "frage": "Warum legst du für die Protokolle des Captive Portals eine Löschfrist fest?",
       "optionen": [
         "Sie enthalten IP- und MAC-Adressen, die sich Personen zuordnen lassen",
-        "Die DSGVO verbietet das Speichern von IP-Adressen grundsätzlich",
+        "Die DSGVO erlaubt das Speichern von IP-Adressen nur 24 Stunden lang",
         "Sie verlangsamen sonst das WLAN der Gäste",
         "Der Anbieter des Captive Portals verlangt es so in seinem Lizenzvertrag"
       ],

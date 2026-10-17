@@ -611,7 +611,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF9</a></li><li><a href="index.html#k-9-7">9.7 Einrichten, prüfen, dokumentieren</a></li><li aria-current="page">9.7.2</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">9.7.2</span>Messen und Fehler finden</h1>
-  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="9-7-2">
 <p class="lead">Das Netz in Nord ist aufgebaut. Bevor die Praxis es nutzt, misst die Auszubildende, ob es die Anforderungen erfüllt, und sie muss Fehler finden können, wenn später etwas nicht geht. Die Befehle auf dem Client kennst du aus LF3, Kapitel 3.7.2, das Vorgehen von unten nach oben aus LF3, Kapitel 3.7.3. Im Unternehmensnetz kommen weitere Messmittel und typische Fehlerbilder hinzu.</p>
@@ -634,11 +634,20 @@
 <h3 id="einen-mitschnitt-lesen">Einen Mitschnitt lesen<a class="anchor" href="#einen-mitschnitt-lesen" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Ein Mitschnitt zeigt jedes Paket mit Absender, Ziel, Protokoll und Kopffeldern. Zwei Beispiele, was du daraus ablesen kannst:</p>
 <ul>
-  <li><strong>Zahl der Router:</strong> Jeder Router verringert die TTL (IPv4) oder das Hop Limit (IPv6) um eins. Kommt ein Paket mit Hop Limit 61 an und hat der Absender mit 64 begonnen, lagen 3 Router auf dem Weg. Übliche Startwerte sind 64, 128 und 255.</li>
+  <li><strong>Zahl der Router:</strong> Jeder Router verringert die TTL (IPv4) oder das Hop Limit (IPv6) um eins. Kommt ein Paket mit Hop Limit 61 an und hat der Absender mit 64 begonnen, lagen 3 Router auf dem Weg. Übliche Startwerte sind 64 (etwa Linux), 128 (Windows) und 255 (manche Netzgeräte).</li>
   <li><strong>Namensauflösung:</strong> DNS-Anfrage vom Client an Port 53 des DNS-Servers, Antwort mit A- oder AAAA-Eintrag. Fehlt die Antwort, liegt das Problem beim DNS-Server oder auf dem Weg dorthin.</li>
 </ul>
 
 <p>Im geswitchten Netz sieht ein Rechner nur seinen eigenen Verkehr und Broadcasts. Für den Verkehr anderer Geräte richtest du am Switch einen Spiegelport (Port Mirroring) ein. Ein Mitschnitt kann personenbezogene Daten enthalten: Schneide nur im Auftrag mit, filtere gezielt und lösche die Datei nach der Analyse.</p>
+
+<h3 id="den-weg-verfolgen">Den Weg verfolgen<a class="anchor" href="#den-weg-verfolgen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Mit tracert (LF3, Kapitel 3.7.2) siehst du jeden Router auf dem Weg. Im Verbund zeigt ein PC in Nord den Weg zur Datenbank so:</p>
+<pre><code>tracert -d 10.10.0.146
+  1    &lt;1 ms   10.20.0.65     Router Nord
+  2    18 ms   10.10.255.2    Router Stammhaus, am anderen Ende des Tunnels
+  3    19 ms   10.10.255.1    Kern-Switch Stammhaus
+  4    19 ms   10.10.0.146    Datenbankserver</code></pre>
+<p>Der Tunnel erscheint als ein einziger Schritt: Die Router des Internets dazwischen sind unsichtbar, weil die Pakete verpackt durch sie hindurchlaufen. Der Sprung der Zeit von unter 1 ms auf 18 ms zeigt die Strecke über das Internet. Endet die Ausgabe nach Schritt 1 mit Sternchen, kommt nichts durch den Tunnel, oder der Router in Nord hat keine Route dorthin.</p>
 
 <h3 id="typische-fehlerbilder">Typische Fehlerbilder<a class="anchor" href="#typische-fehlerbilder" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -658,7 +667,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Am Empfang in Nord laden Webseiten, aber die Praxissoftware findet die Datenbank db.intern.praxisverbund.example nicht. ipconfig zeigt 10.20.0.70/27, Gateway und DNS-Server 10.20.0.65, also den Router in Nord. nslookup auf den internen Namen endet mit einer Zeitüberschreitung, ping auf eine öffentliche Adresse im Internet klappt, ping auf den DNS-Server im Stammhaus (10.10.0.147) nicht. Der Router leitet Anfragen für die interne Zone an das Stammhaus weiter (Kapitel 9.5.2); der Weg dorthin ist offenbar unterbrochen. Im Syslog findet die Auszubildende den Grund: Der Tunnel zum Stammhaus wurde nach einem Neustart des Anbieter-Routers nicht wieder aufgebaut. Sie baut ihn neu auf und lässt die Überwachung künftig bei einem abgebauten Tunnel alarmieren.</p>
+  <p>Am Empfang in Nord laden Webseiten, aber die Praxissoftware findet die Datenbank db.intern.praxisverbund.example nicht. ipconfig zeigt 10.20.0.70 mit Maske 255.255.255.224, Gateway und DNS-Server 10.20.0.65, also den Router in Nord. nslookup auf den internen Namen endet mit einer Zeitüberschreitung, ping auf eine öffentliche Adresse im Internet klappt, ping auf den DNS-Server im Stammhaus (10.10.0.147) nicht. Der Router leitet Anfragen für die interne Zone an das Stammhaus weiter (Kapitel 9.5.2); der Weg dorthin ist offenbar unterbrochen. Im Syslog findet die Auszubildende den Grund: Nach einem Firmware-Update baut nord-rt01 keinen der beiden Tunnel mehr auf, weil das Zertifikat des Gateways fehlt. Sie spielt es wieder ein und lässt die Überwachung künftig alarmieren, sobald kein Tunnel zum Stammhaus aktiv ist.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„ping geht nicht, also ist das Gerät aus.“ Viele Firewalls und Server beantworten ping absichtlich nicht. Prüfe zusätzlich den eigentlichen Dienst, etwa mit Test-NetConnection und dem Port (LF3, Kapitel 3.7.2).</p></aside>

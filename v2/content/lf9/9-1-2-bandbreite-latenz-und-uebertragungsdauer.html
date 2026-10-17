@@ -14,6 +14,7 @@
   </table>
 </div>
 <p>Latenz entsteht durch die Laufzeit des Signals auf der Strecke, durch die Verarbeitung in jedem Switch und Router und durch Warteschlangen, wenn eine Leitung ausgelastet ist. Eine Datei kommt bei höherer Latenz nur etwas später an. Bei einem Telefonat fallen Verzögerung und Jitter dagegen sofort auf: Die Gesprächspartner fallen sich ins Wort, die Sprache klingt abgehackt. Für Sprache empfiehlt die ITU-T eine Verzögerung in eine Richtung von höchstens 150 ms.</p>
+<aside class="note" data-typ="hinweis"><p><code>ping</code> misst die Zeit hin und zurück (Round Trip Time). Zeigt ping 120 ms, liegt die Verzögerung in eine Richtung bei etwa 60 ms.</p></aside>
 
 <h3>Bandbreitenbedarf abschätzen</h3>
 <p>Du addierst, was gleichzeitig läuft, und planst eine Reserve ein. Für jede Richtung (Upload, Download) rechnest du getrennt, denn viele Anschlüsse sind asymmetrisch.</p>
@@ -25,7 +26,7 @@
       <tr><th>4 Telefonate zu je 100 kbit/s</th><td>0,4 Mbit/s</td></tr>
       <tr><th>1 Videosprechstunde</th><td>2 Mbit/s</td></tr>
       <tr><th>Praxissoftware zur zentralen Datenbank (Spitze)</th><td>5 Mbit/s</td></tr>
-      <tr><th>sonstiger Internetverkehr, Updates</th><td>10 Mbit/s</td></tr>
+      <tr><th>sonstiger Verkehr (E-Mail-Anhänge, Uploads in Portale)</th><td>10 Mbit/s</td></tr>
       <tr><th>Summe</th><td>17,4 Mbit/s</td></tr>
       <tr><th>mit 50 % Reserve für Wachstum</th><td>rund 26 Mbit/s</td></tr>
     </tbody>
@@ -34,19 +35,23 @@
 <p>Woher die 100 kbit/s je Gespräch kommen, rechnest du in Kapitel 9.6.2 nach.</p>
 
 <h3>Übertragungsdauer mit Overhead</h3>
-<p>Die Grundformel kennst du aus LF2, Kapitel 2.4.3: Datenmenge in Bit geteilt durch Datenrate in Bit/s. Genauer wird es, wenn du den <strong>Overhead</strong> der Protokolle einrechnest. Ein Ethernet-Rahmen trägt höchstens 1500 Byte (MTU). Davon belegen IPv4- und TCP-Kopf je 20 Byte, es bleiben 1460 Byte Nutzdaten. Auf der Leitung kommen zu den 1500 Byte noch Ethernet-Kopf und Prüfsumme (18 Byte) sowie Präambel und Pause zwischen den Rahmen (20 Byte) hinzu, zusammen 1538 Byte.</p>
+<p>Die Grundformel kennst du aus LF2, Kapitel 2.4.3: Datenmenge in Bit geteilt durch Datenrate in Bit/s. Genauer wird es, wenn du den <strong>Overhead</strong> der Protokolle einrechnest. Ein Ethernet-Rahmen trägt höchstens 1500 Byte (MTU). Davon belegen IPv4- und TCP-Kopf (ohne Optionen) je 20 Byte, es bleiben 1460 Byte Nutzdaten. Auf der Leitung kommen zu den 1500 Byte noch Ethernet-Kopf und Prüfsumme (18 Byte) sowie Präambel und Pause zwischen den Rahmen (20 Byte) hinzu, zusammen 1538 Byte.</p>
 <p class="formel">Nutzanteil = 1460 Byte ÷ 1538 Byte ≈ 94,9 %</p>
+<p>Die Rechnung gilt für reines Ethernet. Ein VLAN-Tag (4 Byte, Kapitel 9.2.2), PPPoE auf DSL-Leitungen (MTU 1492) oder ein VPN-Tunnel ändern die Werte.</p>
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Jede Nacht kopiert der Standort Nord eine Sicherung von 20 GiB ins Stammhaus. Der Upload hat 100 Mbit/s.</p>
+  <p>Jede Nacht kopiert der Standort Nord eine Sicherung von 20 GiB ins Stammhaus. Der Upload hat 40 Mbit/s (Kapitel 9.1.3).</p>
   <ul>
     <li>Datenmenge: 20 × 1024³ Byte × 8 = 171.798.691.840 Bit</li>
-    <li>ohne Overhead: 171.798.691.840 ÷ 100.000.000 ≈ 1718 s, also etwa 28,6 Minuten</li>
-    <li>mit Overhead: 1718 s × 1538 ÷ 1460 ≈ 1810 s, also etwa 30,2 Minuten</li>
+    <li>ohne Overhead: 171.798.691.840 ÷ 40.000.000 ≈ 4295 s, also etwa 71,6 Minuten</li>
+    <li>mit Overhead: 4295 s × 1538 ÷ 1460 ≈ 4524 s, also etwa 75,4 Minuten</li>
   </ul>
-  <p>Durch den VPN-Tunnel (Kapitel 9.6.1) kommt weiterer Overhead hinzu. Für die Nacht reicht das in jedem Fall.</p>
+  <p>Durch den VPN-Tunnel (Kapitel 9.6.1) kommt weiterer Overhead hinzu. Für die Nacht reicht das.</p>
 </div>
 
-<aside class="note" data-typ="fehler"><p>„Mehr Bandbreite löst jedes Problem mit Telefonie.“ Ruckelt die Sprache wegen hoher Latenz oder Jitter, hilft eine dickere Leitung nur, wenn die Ursache volle Warteschlangen sind. Sonst helfen Priorisierung (Kapitel 9.6.3) oder ein anderer Weg.</p></aside>
+<aside class="note" data-typ="fehler"><p>„Mehr Bandbreite löst jedes Problem mit Telefonie.“ Klingt die Sprache abgehackt, weil Latenz und Jitter in vollen Warteschlangen entstehen, hilft oft schon Priorisierung (Kapitel 9.6.3) statt mehr Bandbreite. Liegt die Ursache auf der Strecke, etwa im WLAN, im Mobilfunk oder auf einem langen Weg, hilft beides nicht, sondern nur ein anderer Weg.</p></aside>
 
-<p class="merksatz">Bandbreite sagt, wie viel, Latenz, wie schnell ein Paket ankommt, Jitter, wie gleichmäßig. Den Bedarf summierst du je Richtung mit Reserve und rechnest Übertragungsdauern mit dem Overhead der Protokolle.</p>
+<ul class="merksatz">
+  <li><strong>Bandbreite:</strong> wie viel je Sekunde; <strong>Latenz:</strong> wie lange ein Paket braucht; <strong>Jitter:</strong> wie stark die Latenz schwankt.</li>
+  <li>Den Bedarf summierst du je Richtung mit Reserve; Übertragungsdauern rechnest du mit dem Overhead der Protokolle.</li>
+</ul>

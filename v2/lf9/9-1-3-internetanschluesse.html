@@ -581,20 +581,20 @@
 <p>Ein <strong>Geschäftsanschluss</strong> (Business-Anschluss) unterscheidet sich vom Privatanschluss vor allem in diesen Punkten:</p>
 <ul>
   <li><strong>Feste öffentliche IPv4-Adresse</strong> oder ein festes IPv6-Präfix, damit VPN-Gateway oder Server von außen erreichbar sind,</li>
-  <li><strong>vertraglich zugesicherte Entstörzeit</strong> (SLA, LF6, Kapitel 6.2.1), etwa Entstörung innerhalb von acht Stunden statt „im Laufe der nächsten Werktage“,</li>
+  <li><strong>vertraglich zugesicherte Entstörzeit</strong> (im SLA die Lösungszeit, LF6, Kapitel 6.2.1), etwa Entstörung innerhalb von acht Stunden statt „im Laufe der nächsten Werktage“,</li>
   <li>oft <strong>symmetrische</strong> Datenraten, also gleich viel Upload wie Download,</li>
   <li>Rechnung an das Unternehmen, Ansprechpartner für Geschäftskunden.</li>
 </ul>
 
 <h3 id="carrier-grade-nat">Carrier-Grade NAT<a class="anchor" href="#carrier-grade-nat" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Viele Mobilfunk- und manche Festnetzanschlüsse bekommen keine eigene öffentliche IPv4-Adresse mehr. Der Anbieter setzt die Adressen vieler Kunden in seinem Netz auf wenige öffentliche um, das heißt <strong>Carrier-Grade NAT</strong> (CGNAT). Ausgehende Verbindungen funktionieren normal. Verbindungen von außen zu einem Gerät des Kunden sind über IPv4 aber nicht möglich, denn die öffentliche Adresse gehört nicht ihm allein. Ein VPN-Gateway hinter CGNAT kann deshalb keine Verbindungen annehmen; es kann nur selbst eine Verbindung zu einer Gegenstelle mit öffentlicher Adresse aufbauen, oder man nutzt IPv6. Wie NAT arbeitet, folgt in Kapitel 9.4.4.</p>
+<p>Viele Mobilfunk- und manche Festnetzanschlüsse bekommen keine eigene öffentliche IPv4-Adresse mehr. Der Anbieter setzt die Adressen vieler Kunden in seinem Netz auf wenige öffentliche um. Das nennt man <strong>Carrier-Grade NAT</strong> (CGNAT); im Festnetz kommt es etwa bei DS-Lite-Anschlüssen vor. Ausgehende Verbindungen funktionieren normal. Verbindungen von außen zu einem Gerät des Kunden sind über IPv4 aber nicht möglich, denn die öffentliche Adresse gehört nicht ihm allein. Ein VPN-Gateway hinter CGNAT kann deshalb keine Verbindungen annehmen. Es kann aber selbst eine Verbindung zu einer Gegenstelle mit öffentlicher Adresse aufbauen. Alternativ nutzt man IPv6. Wie NAT arbeitet, folgt in Kapitel 9.4.4.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Das Stammhaus bekommt einen Glasfaser-Geschäftsanschluss mit 500 Mbit/s symmetrisch, fester IPv4-Adresse und Entstörung innerhalb von acht Stunden, denn hier laufen Datenbank und VPN-Gateway. Die Standorte Nord und Süd erhalten VDSL-Geschäftsanschlüsse mit 250 Mbit/s Download und 40 Mbit/s Upload; das deckt den Bedarf aus Kapitel 9.1.2 mit Reserve. Fällt dort die Leitung aus, schaltet der Router automatisch auf einen Mobilfunk-Ersatzweg um. Weil dieser hinter CGNAT liegt, bauen die Standorte den Tunnel selbst zum Stammhaus auf.</p>
 </div>
 
-<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Bis zu 250 Mbit/s“ heißt nicht, dass immer 250 Mbit/s ankommen. Der Vertrag nennt meist auch eine normalerweise verfügbare und eine minimale Datenrate. Für die Planung zählen diese Werte und der Upload.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Bis zu 250 Mbit/s“ heißt nicht, dass immer 250 Mbit/s ankommen. Bei Festnetzanschlüssen muss der Vertrag auch die normalerweise verfügbare und die minimale Datenrate nennen. Für die Planung zählen diese Werte und der Upload.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>DSL, Kabel, Glasfaser und Mobilfunk unterscheiden sich in Datenrate, Symmetrie, geteiltem Medium und Latenz; ein Geschäftsanschluss bietet feste öffentliche Adressen und zugesicherte Entstörzeiten, hinter CGNAT ist ein Gerät von außen nicht erreichbar.</p></div>
 </div>

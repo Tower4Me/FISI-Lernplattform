@@ -6,7 +6,7 @@
       "thema": "Messbare Anforderung",
       "frage": "Welche Formulierung ist als Anforderung bei der Abnahme am besten prüfbar?",
       "optionen": [
-        "Vier Telefonate und eine Videosprechstunde gleichzeitig ohne Aussetzer",
+        "Vier Telefonate und eine Videosprechstunde gleichzeitig mit höchstens 150 ms Verzögerung",
         "Das Netz soll schnell und modern sein",
         "Die Telefonie soll gut funktionieren",
         "Das WLAN soll überall angenehm nutzbar sein"
@@ -22,9 +22,9 @@
       "frage": "Bei Telefonaten über das Netz klingt die Sprache abgehackt, obwohl die Leitung nur zur Hälfte ausgelastet ist. Welche Kenngröße prüfst du zuerst?",
       "optionen": [
         "Jitter, also die Schwankung der Laufzeit",
-        "Die maximale Datenrate des Anschlusses",
+        "Die maximale Upload-Rate des Anschlusses",
         "Die Größe des Speichers im Router und dessen Firmwarestand",
-        "Die Zahl der Anschlussdosen im Raum"
+        "Die maximale Download-Rate des Anschlusses"
       ],
       "richtig": [
         0
@@ -69,7 +69,7 @@
         "Eine feste öffentliche IP-Adresse",
         "Ein besonders hoher Download",
         "Ein unbegrenztes Datenvolumen",
-        "Ein WLAN-Router mit vier Antennen"
+        "Eine symmetrische Datenrate"
       ],
       "richtig": [
         0
@@ -98,8 +98,8 @@
       "optionen": [
         "Kabel (DOCSIS)",
         "Eigene Glasfaser als Standleitung",
-        "Lokales Twisted-Pair-Kabel zum Switch",
-        "Ein Patchkabel im Netzwerkschrank"
+        "VDSL über die Kupferleitung",
+        "ADSL über die Kupferleitung"
       ],
       "richtig": [
         0

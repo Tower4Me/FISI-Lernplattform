@@ -5821,6 +5821,113 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "10.5",
+          "titel": "Benutzer, Rechte und Lizenzen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "10.5.1",
+              "titel": "Verzeichnisdienst und Gruppen",
+              "slug": "verzeichnisdienst-und-gruppen",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Serverdienste bereitstellen; Administrierbarkeit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2021/22 (NTFS-Berechtigungen den Gruppen zuordnen)"
+                ],
+                "extern": [
+                  "RFC 4511 (LDAP); Microsoft-Dokumentation Active Directory (Domänencontroller, OUs, Gruppenbereiche, AGDLP)"
+                ]
+              },
+              "material": [
+                "berechtigungskonzepte"
+              ],
+              "begriffe": [
+                "verzeichnisdienst",
+                "authentifizierung",
+                "dns"
+              ]
+            },
+            {
+              "nummer": "10.5.2",
+              "titel": "Dateirechte unter Windows und Linux",
+              "slug": "dateirechte-unter-windows-und-linux",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Umsetzung mit betrieblichen Vorgaben",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 2 (Linux-Dateirechte: Problem finden, Oktalrechte lesen)",
+                  "AP2 FISI Winter 2021/22 (NTFS-Berechtigungen)"
+                ],
+                "extern": [
+                  "Microsoft-Dokumentation NTFS- und Freigabeberechtigungen; POSIX chmod, Linux man-pages chmod(1), ls(1)"
+                ]
+              },
+              "material": [
+                "windows-berechtigungen-acl",
+                "linux-dateiberechtigungen"
+              ],
+              "begriffe": [
+                "dateirechte",
+                "haertung"
+              ]
+            },
+            {
+              "nummer": "10.5.3",
+              "titel": "Serverlizenzen",
+              "slug": "serverlizenzen",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Lizenzierung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2024 Teil 1 Aufgabe 4 (User-CAL und Device-CAL)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 3 (User-CAL und Device-CAL, Update und Upgrade)",
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 4 (englischer Lizenztext zu Patch und Upgrade)"
+                ],
+                "extern": [
+                  "Microsoft Product Terms / Windows Server Licensing Guide (Kernlizenzierung, Standard/Datacenter, CAL)"
+                ]
+              },
+              "material": [
+                "urheberrecht-lizenzen"
+              ],
+              "begriffe": [
+                "softwarelizenzen",
+                "patch-management"
+              ]
+            },
+            {
+              "nummer": "10.5.4",
+              "titel": "Updates und Patch-Management",
+              "slug": "updates-und-patch-management",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Konzepte für Aktualisierung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 4 (zentrales Patch-Management)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 2 (Blue-Green-Deployment)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 3 (Update und Upgrade)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium OPS.1.1.3 (Patch- und Änderungsmanagement)"
+                ]
+              },
+              "material": [
+                "deployment-formate"
+              ],
+              "begriffe": [
+                "patch-management",
+                "haertung",
+                "firmware"
+              ]
+            }
+          ]
         }
       ]
     }

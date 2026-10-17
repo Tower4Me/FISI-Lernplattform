@@ -1,0 +1,38 @@
+<p class="lead">Die Gruppen stehen, jetzt bekommen die Ordner auf dem Dateiserver ihre Rechte. Der Empfang soll Röntgenbilder ansehen, aber nicht löschen; die Lohnabrechnung soll nur die Verwaltung sehen. Wie du das umsetzt, hängt vom Betriebssystem ab.</p>
+
+<h3>Windows: Freigabe und NTFS</h3>
+<p>Auf einem Windows-Dateiserver wirken zwei Ebenen zusammen:</p>
+<ul>
+  <li><strong>Freigaberechte</strong> gelten für den Zugriff über das Netz auf eine Freigabe: Lesen, Ändern, Vollzugriff.</li>
+  <li><strong>NTFS-Rechte</strong> gelten für jeden Ordner und jede Datei, auch bei Anmeldung direkt am Server. Sie sind feiner: unter anderem Lesen, Lesen und Ausführen, Schreiben, Ändern (einschließlich Löschen), Vollzugriff (einschließlich Rechte ändern).</li>
+</ul>
+<p>Greift jemand über das Netz zu, gilt von beiden Ebenen die <strong>strengere</strong>. Üblich ist deshalb: Freigaberecht großzügig, etwa „Ändern“ für alle Benutzer der Domäne, und die eigentliche Steuerung über NTFS-Rechte. Innerhalb der NTFS-Rechte addieren sich die Rechte aller Gruppen einer Person. Ein <strong>Verweigern</strong> schlägt ein Zulassen auf derselben Ebene; ein direkt am Ordner gesetztes Zulassen geht aber einem geerbten Verweigern vor. Unterordner <strong>erben</strong> die Rechte des übergeordneten Ordners, solange du die Vererbung nicht unterbrichst.</p>
+
+<h3>Linux: Besitzer, Gruppe, andere</h3>
+<p>Linux vergibt für jede Datei drei Rechte an drei Klassen:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Recht</th><th>Wert</th><th>bei Dateien</th><th>bei Verzeichnissen</th></tr></thead>
+    <tbody>
+      <tr><th>r (read)</th><td>4</td><td>Inhalt lesen</td><td>Inhalt auflisten</td></tr>
+      <tr><th>w (write)</th><td>2</td><td>Inhalt ändern</td><td>Dateien anlegen, löschen, umbenennen (zusammen mit x)</td></tr>
+      <tr><th>x (execute)</th><td>1</td><td>als Programm ausführen</td><td>hineinwechseln</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Klassen sind Besitzer (user), Gruppe (group) und alle anderen (others). Je Klasse addierst du die Werte zu einer Ziffer: rwx = 7, rw- = 6, r-x = 5, r-- = 4. Drei Ziffern ergeben die <strong>Oktalschreibweise</strong>. <code>ls -l</code> zeigt die Rechte als Buchstaben, <code>chmod</code> setzt sie, <code>chown</code> ändert Besitzer und Gruppe.</p>
+<pre><code>-rw-r----- 1 mbauer verwaltung 48211 Okt  1 08:12 lohn-2026-09.pdf
+chmod 640 lohn-2026-09.pdf     # Besitzer rw-, Gruppe r--, andere ---</code></pre>
+<p>Für ein Verzeichnis, in dem eine Gruppe Dateien lesen soll, braucht die Gruppe r und x: Ohne x darf sie nicht hineinwechseln, ohne r nicht auflisten. Wer am Verzeichnis w und x hat, kann darin Dateien löschen, auch fremde, die er selbst nicht ändern darf; das verhindert zum Beispiel das Sticky Bit, das etwa auf /tmp gesetzt ist.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Auf dem Dateiserver vergibt die Auszubildende für den Ordner Röntgen: „Ablage-Röntgen-Ändern“ erhält NTFS-Ändern, „Ablage-Röntgen-Lesen“ Lesen und Ausführen. Das Freigaberecht ist „Ändern“ für alle Domänenbenutzer. Eine Kollegin vom Empfang kann Bilder öffnen, aber nicht löschen, weil ihr NTFS-Recht strenger ist. Auf dem Linux-Container-Host macht sie mit chown den Dienst-Benutzer der Web-API der Termin-App zum Besitzer des Verzeichnisses mit den Zugangsschlüsseln und setzt es auf 700: Nur er (und root) darf hinein.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ich gebe allen Vollzugriff, dann gibt es keine Beschwerden.“ Vollzugriff erlaubt auch, Rechte zu ändern und alles zu löschen. Vergib nach dem Prinzip der minimalen Rechte (LF4, Kapitel 4.6.1) nur, was eine Rolle wirklich braucht.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen, Unterordner erben.</li>
+  <li><strong>Linux</strong>: r = 4, w = 2, x = 1 je Besitzer, Gruppe, andere, etwa 640 = rw-r-----; Verzeichnisse brauchen x zum Hineinwechseln.</li>
+</ul>

@@ -639,6 +639,15 @@
             <li><a class="up is-check" data-check="lf10b-10-4" href="10-4-check.html"><span class="num">10.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="10-5-1-verzeichnisdienst-und-gruppen.html"><span class="num">10.5</span><span>Benutzer, Rechte und Lizenzen</span><span class="kap-progress" data-ids="10-5-1 10-5-2 10-5-3 10-5-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="10-5-1" href="10-5-1-verzeichnisdienst-und-gruppen.html"><span class="num">10.5.1</span><span class="t">Verzeichnisdienst und Gruppen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-5-2" href="10-5-2-dateirechte-unter-windows-und-linux.html"><span class="num">10.5.2</span><span class="t">Dateirechte unter Windows und Linux</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-5-3" href="10-5-3-serverlizenzen.html"><span class="num">10.5.3</span><span class="t">Serverlizenzen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-5-4" href="10-5-4-updates-und-patch-management.html"><span class="num">10.5.4</span><span class="t">Updates und Patch-Management</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf10b-10-5" href="10-5-check.html"><span class="num">10.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">10b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -696,8 +705,21 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-10-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.4</a></p>
 </section>
+<section class="rb-kapitel" id="k-10-5"><h2><span class="num">10.5</span> Benutzer, Rechte und Lizenzen</h2>
+<ul class="rb-list">
+<li><span class="num">10.5.1</span><div><a href="10-5-1-verzeichnisdienst-und-gruppen.html">Verzeichnisdienst und Gruppen</a><ul><li><strong>Verzeichnisdienst</strong> (z. B. Active Directory, Zugriff per LDAP): zentrale Konten, Anmeldung mit Single Sign-on, Gruppen, Richtlinien; OUs gliedern nach Standort oder Abteilung.</li>
+  <li><strong>Rechte</strong> vergibst du an Berechtigungsgruppen, Personen kommen über Rollengruppen hinein; ein Stellenwechsel ändert nur die Mitgliedschaft.</li></ul></div></li>
+<li><span class="num">10.5.2</span><div><a href="10-5-2-dateirechte-unter-windows-und-linux.html">Dateirechte unter Windows und Linux</a><ul><li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen, Unterordner erben.</li>
+  <li><strong>Linux</strong>: r = 4, w = 2, x = 1 je Besitzer, Gruppe, andere, etwa 640 = rw-r-----; Verzeichnisse brauchen x zum Hineinwechseln.</li></ul></div></li>
+<li><span class="num">10.5.3</span><div><a href="10-5-3-serverlizenzen.html">Serverlizenzen</a><ul><li><strong>Server</strong> werden oft nach Kernen lizenziert, dazu kommen <strong>CALs</strong> für jeden Zugriff: User-CAL je Person mit mehreren Geräten, Device-CAL je geteiltem Gerät.</li>
+  <li><strong>Update</strong> pflegt die vorhandene Version und ist enthalten, <strong>Upgrade</strong> auf eine neue Hauptversion braucht neue Lizenz oder Wartungsvertrag.</li></ul></div></li>
+<li><span class="num">10.5.4</span><div><a href="10-5-4-updates-und-patch-management.html">Updates und Patch-Management</a><ul><li><strong>Patch-Management</strong>: Bestand kennen, bewerten, testen, zentral in Wellen verteilen, prüfen und dokumentieren; vorher einen Weg zurück schaffen.</li>
+  <li><strong>Blue-Green</strong>: neue Version in zweiter Umgebung testen, Verkehr umschalten, bei Problemen zurück; im Cluster Knoten nacheinander aktualisieren.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-10-5.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.5</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="10-4-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.4</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="10-5-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.5</span>Check</span></a></nav>
 </main>
 </div>
 </body>

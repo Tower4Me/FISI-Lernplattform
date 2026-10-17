@@ -1,0 +1,33 @@
+<p class="lead">Viele Hersteller veröffentlichen regelmäßig Sicherheitskorrekturen, Microsoft etwa am zweiten Dienstag im Monat (Patchday), für Betriebssysteme, Datenbanken, Hypervisoren und Firmware. Werden sie nicht eingespielt, nutzen Angreifer die bekannten Lücken. Werden sie ungeprüft eingespielt, legt ein fehlerhaftes Update vielleicht die Praxissoftware lahm. <strong>Patch-Management</strong> ist der geregelte Weg zwischen beiden Gefahren.</p>
+
+<h3>Der Ablauf</h3>
+<ol>
+  <li><strong>Bestand kennen</strong>: Welche Systeme, Versionen und Firmwarestände gibt es? Ohne Liste bleibt ein vergessener Server ungepatcht.</li>
+  <li><strong>Bewerten</strong>: Wie kritisch ist die Lücke, ist sie schon ausgenutzt, betrifft sie ein System, das aus dem Internet erreichbar ist? Kritische Patches kommen beschleunigt außerhalb des regulären Fensters, nach kurzem Test; andere im nächsten Wartungsfenster.</li>
+  <li><strong>Testen</strong>: zuerst in einer Testumgebung oder auf wenigen Geräten einer Testgruppe.</li>
+  <li><strong>Verteilen</strong>: zentral und zeitgesteuert über einen Update-Server oder eine Geräteverwaltung, in Wellen von unkritisch nach kritisch.</li>
+  <li><strong>Prüfen und dokumentieren</strong>: Sind alle Systeme aktuell, laufen die Dienste? Was wurde wann eingespielt?</li>
+</ol>
+<p>Vor Updates an Servern sorgst du für einen Weg zurück, etwa einen Snapshot der VM oder eine aktuelle Sicherung. Wartungsfenster legst du so, dass möglichst wenige Menschen betroffen sind, und kündigst sie an.</p>
+
+<h3>Zentral verteilen</h3>
+<p>Ein zentraler Update-Server lädt Updates einmal aus dem Internet und verteilt sie im eigenen Netz. Das spart Internet-Bandbreite, weil jedes Update nur einmal heruntergeladen wird. Außenstandorte, die über ein VPN angebunden sind, bekommen dafür oft einen eigenen Verteilpunkt vor Ort. Die Administration entscheidet, welche Updates für welche Gerätegruppe freigegeben werden, und sieht in einem Bericht, welche Geräte noch fehlen. Für Arbeitsplätze übernimmt das oft die Geräteverwaltung, die auch Software verteilt (LF2, Kapitel 2.7.2).</p>
+
+<h3>Neue Versionen ohne Ausfall</h3>
+<p>Für Anwendungen, die ständig erreichbar sein müssen, gibt es Verfahren, die Updates ohne spürbare Unterbrechung erlauben:</p>
+<ul>
+  <li><strong>Blue-Green-Deployment</strong>: Zwei gleiche Umgebungen stehen bereit. Blau bedient die Nutzer, Grün bekommt die neue Version und wird getestet. Dann wird der Verkehr auf Grün umgeschaltet. Gibt es Probleme, schaltest du sofort auf Blau zurück.</li>
+  <li><strong>Rolling Update</strong>: In einem Cluster wird ein Knoten nach dem anderen aktualisiert, während die übrigen die Last tragen (Kapitel 10.3.1).</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus legt für den Verbund fest: Updates für Arbeitsplätze gehen am Mittwoch nach dem Patchday an eine Testgruppe aus drei PCs, eine Woche später an alle. Server werden im Wartungsfenster am Sonntagmorgen aktualisiert, abgestimmt mit dem Notdienst, der für diese Zeit die Notfallmappe aus Kapitel 10.3.2 bereithält; vorher entsteht von jeder VM ein Snapshot, der nach erfolgreichem Test wieder gelöscht wird. Die Hosts werden nacheinander gepatcht, die VMs wandern so lange auf den anderen Host. Für die Web-API der Termin-App laufen auf dem Container-Host alte und neue Version als zwei Container nebeneinander; nach dem Test schaltet der Reverse Proxy auf die neue um (Blue-Green, anders als der einfache Tausch in Kapitel 10.1.3).</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Auch Firmware von Servern, Speichersystemen, Switches und USV hat Lücken. Sie gehört mit in den Bestand und in den Patch-Plan, wird aber seltener und mit mehr Vorsicht aktualisiert, weil ein Fehlschlag das Gerät unbrauchbar machen kann.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Patch-Management</strong>: Bestand kennen, bewerten, testen, zentral in Wellen verteilen, prüfen und dokumentieren; vorher einen Weg zurück schaffen.</li>
+  <li><strong>Blue-Green</strong>: neue Version in zweiter Umgebung testen, Verkehr umschalten, bei Problemen zurück; im Cluster Knoten nacheinander aktualisieren.</li>
+</ul>

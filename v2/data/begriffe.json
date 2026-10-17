@@ -466,6 +466,10 @@
         {
           "id": "8-4-4",
           "tiefe": "eigenes Konto je Programm und Person, Rollen"
+        },
+        {
+          "id": "10-5-1",
+          "tiefe": "zentrale Anmeldung, Single Sign-on"
         }
       ]
     },
@@ -553,6 +557,14 @@
         {
           "id": "9-7-1",
           "tiefe": "Netzgeräte verwalten"
+        },
+        {
+          "id": "10-5-2",
+          "tiefe": "minimale Rechte auf dem Dateiserver"
+        },
+        {
+          "id": "10-5-4",
+          "tiefe": "Patches einspielen"
         }
       ]
     },
@@ -1045,7 +1057,8 @@
         "Software urheberrechtlich geschützt (§ 69a UrhG); Lizenz = Nutzungsrecht, nicht Urheberrecht.",
         "Modelle: Einzelplatz, Volumen, OEM (an Gerät gebunden), Abo, CAL (Device günstiger bei geteilten Geräten, User bei mehreren Geräten je Person), Netzwerk/Floating, Shareware, Freeware (oft nur privat), Open Source.",
         "GPL Copyleft: weitergegebene Änderungen offenlegen; MIT: nur Lizenzhinweis erhalten.",
-        "Make-or-buy: kritische Menge = Entwicklungskosten ÷ Lizenzpreis je Arbeitsplatz; darunter Kauf günstiger."
+        "Make-or-buy: kritische Menge = Entwicklungskosten ÷ Lizenzpreis je Arbeitsplatz; darunter Kauf günstiger.",
+        "Windows Server: alle physischen Kerne lizenzieren, mind. 8 je CPU und 16 je Server; Standard: zwei VMs je vollständiger Lizenzierung (erneut lizenzierbar), Datacenter unbegrenzt; bei Failover jeder Host für alle möglichen VMs; plus CAL je Zugriff; Upgrade auf neue Hauptversion braucht neue Lizenz oder Wartungsvertrag."
       ],
       "vorkommen": [
         {
@@ -1055,6 +1068,10 @@
         {
           "id": "7-3-5",
           "tiefe": "Lizenz als Auswahlkriterium für Bibliotheken"
+        },
+        {
+          "id": "10-5-3",
+          "tiefe": "Kernlizenz, CAL-Wahl, Update/Upgrade"
         }
       ]
     },
@@ -1091,6 +1108,10 @@
         {
           "id": "2-3-4",
           "tiefe": "BIOS/UEFI, Einrichtungsablauf"
+        },
+        {
+          "id": "10-5-4",
+          "tiefe": "Firmware im Patch-Plan"
         }
       ]
     },
@@ -1838,6 +1859,10 @@
         {
           "id": "9-7-2",
           "tiefe": "Fehlerbild DNS über Tunnel"
+        },
+        {
+          "id": "10-5-1",
+          "tiefe": "AD-Domäne = interne Zone"
         }
       ]
     },
@@ -3596,6 +3621,54 @@
         {
           "id": "10-3-1",
           "tiefe": "Redundanz, Cluster, Skalierung, Verfügbarkeitsrechnung"
+        }
+      ]
+    },
+    {
+      "begriff": "verzeichnisdienst",
+      "kernfakten": [
+        "Zentrale Konten, Anmeldung mit Single Sign-on, Gruppen, Richtlinien; Active Directory mit Domänencontrollern (für Ausfallsicherheit mind. zwei), Zugriff per LDAP; OUs gliedern und erlauben Delegation.",
+        "Rechte an Berechtigungsgruppen, Personen über Rollengruppen (AGDLP: Rollengruppen global, Berechtigungsgruppen domänenlokal); Stellenwechsel ändert nur Mitgliedschaft."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-6-1",
+          "tiefe": "Gruppenrichtlinien nennen"
+        },
+        {
+          "id": "10-5-1",
+          "tiefe": "Domäne, OUs, Gruppenkonzept"
+        }
+      ]
+    },
+    {
+      "begriff": "dateirechte",
+      "kernfakten": [
+        "Windows: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen auf derselben Ebene, direktes Zulassen geht geerbtem Verweigern vor, Vererbung von oben.",
+        "Linux: r = 4, w = 2, x = 1 für Besitzer, Gruppe, andere; Oktal z. B. 640 = rw-r-----, 755 = rwxr-xr-x; Verzeichnis braucht x zum Hineinwechseln, r zum Auflisten; w+x am Verzeichnis erlaubt Löschen (verhindert z. B. durch Sticky Bit)."
+      ],
+      "vorkommen": [
+        {
+          "id": "10-5-2",
+          "tiefe": "NTFS/Freigabe, Linux-Oktalrechte"
+        }
+      ]
+    },
+    {
+      "begriff": "patch-management",
+      "kernfakten": [
+        "Ablauf: Bestand, bewerten, testen (Testgruppe), zentral in Wellen verteilen, prüfen, dokumentieren; vorher Snapshot oder Sicherung.",
+        "Update pflegt vorhandene Version (in Lizenz enthalten), Upgrade auf neue Hauptversion (neue Lizenz oder Wartungsvertrag).",
+        "Blue-Green: zwei Umgebungen, Verkehr umschalten, Rückweg; Rolling Update: Clusterknoten nacheinander."
+      ],
+      "vorkommen": [
+        {
+          "id": "10-5-3",
+          "tiefe": "Update/Upgrade lizenzrechtlich"
+        },
+        {
+          "id": "10-5-4",
+          "tiefe": "Ablauf, zentrale Verteilung, Blue-Green"
         }
       ]
     }

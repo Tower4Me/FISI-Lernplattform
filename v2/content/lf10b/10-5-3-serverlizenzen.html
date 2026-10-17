@@ -1,0 +1,37 @@
+<p class="lead">Software ist urheberrechtlich geschützt; eine Lizenz erlaubt ihre Nutzung zu bestimmten Bedingungen (LF2, Kapitel 2.3.2). Bei Servern kommt etwas hinzu: Bezahlt wird oft nicht nur für die Installation, sondern auch für jede Person oder jedes Gerät, das auf den Server zugreift. Wer das übersieht, ist unterlizenziert, und bei einer Prüfung durch den Hersteller wird es teuer.</p>
+
+<h3>Wonach lizenziert wird</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Bezugsgröße</th><th>Bedeutung</th><th>typisch für</th></tr></thead>
+    <tbody>
+      <tr><th>Prozessorkern</th><td>Lizenzen für die Kerne des physischen Servers, oft mit Mindestzahl je Server</td><td>Server-Betriebssysteme, Datenbanken</td></tr>
+      <tr><th>Zugriff (CAL)</th><td>Client Access License: Recht, auf den Server zuzugreifen, zusätzlich zur Serverlizenz</td><td>Verzeichnis-, Datei-, Mail- und Terminaldienste</td></tr>
+      <tr><th>Benutzer im Abo</th><td>monatlicher Preis je Person, enthält Updates und oft Cloud-Dienste</td><td>SaaS, Office-Pakete</td></tr>
+      <tr><th>Instanz oder VM</th><td>Rechte je installierte Kopie; manche Lizenzen erlauben eine bestimmte Zahl VMs auf einem Host</td><td>virtualisierte Server</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei Windows Server lizenzierst du alle physischen Kerne eines Hosts, mindestens 8 je Prozessor und 16 je Server. Es gibt zwei Ausgaben: Standard deckt bei vollständig lizenzierten Kernen zwei Windows-VMs auf dem Host ab; für je zwei weitere VMs lizenzierst du alle Kerne erneut. Datacenter deckt beliebig viele VMs ab, kostet aber ein Vielfaches. Laufen viele VMs auf einem Host, wird Datacenter günstiger. Wandern VMs bei Ausfall oder Wartung auf den anderen Host, muss jeder Host für alle VMs lizenziert sein, die dort laufen können. Open-Source-Server kosten keine Lizenzgebühr, für Support und Updates mit festen Reaktionszeiten bieten Hersteller aber Abonnements an.</p>
+
+<h3>User-CAL oder Device-CAL</h3>
+<ul>
+  <li><strong>User-CAL</strong>: gilt für eine Person, egal mit wie vielen Geräten sie zugreift. Günstig, wenn Menschen mehrere Geräte nutzen, etwa PC, Notebook und Tablet.</li>
+  <li><strong>Device-CAL</strong>: gilt für ein Gerät, egal wie viele Personen daran arbeiten. Günstig bei geteilten Geräten, etwa im Schichtbetrieb oder an einem Empfangs-PC.</li>
+</ul>
+
+<h3>Update und Upgrade</h3>
+<p>Ein <strong>Update</strong> verbessert die vorhandene Version, etwa durch Sicherheitskorrekturen (Patches); es ist in der Lizenz enthalten, solange der Hersteller die Version pflegt. Ein <strong>Upgrade</strong> führt auf eine neue Hauptversion. Es braucht eine neue Lizenz oder einen Wartungsvertrag, der neue Versionen einschließt. Prüfe beim Kauf auch das Ende der Unterstützung: Danach gibt es keine Sicherheitsupdates mehr.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Verbund arbeiten 40 Mitarbeitende. 12 Tierärztinnen und Tierärzte nutzen je einen PC, ein Notebook und ein Tablet; die 28 übrigen teilen sich 20 PCs an den Empfängen, in Labor und Verwaltung. Die Auszubildende rechnet: User-CALs für die 12 Tierärzte (statt 36 Geräte) und Device-CALs für die 20 geteilten PCs (statt 28 Personen), zusammen 32 Windows-Server-CALs für Anmeldung, Dateiablage und Druck. Nur mit User-CALs wären es 40, nur mit Device-CALs 56.</p>
+  <p>Für die Server selbst: Jeder der zwei Hosts hat zwei Prozessoren mit je 12 Kernen, also 24 Kernlizenzen je Lizenzierung. Sechs Windows-VMs sollen bei einem Ausfall alle auf einem Host laufen können. Mit Standard lizenziert sie jeden Host dreimal (3 × 2 VMs): 3 × 24 = 72 Kernlizenzen je Host, 144 insgesamt. Mit Datacenter wären es 24 je Host, 48 insgesamt, aber zu einem deutlich höheren Preis je Kern. Sie vergleicht beide Summen mit den aktuellen Preisen des Lizenzhändlers.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Lizenzbedingungen sind oft englisch und ändern sich. Stütze dich bei der Planung auf die aktuellen Bedingungen des Herstellers oder eines Lizenzhändlers und dokumentiere, welche Lizenzen für welche Server und Zugriffe gekauft wurden.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Server</strong> werden oft nach Kernen lizenziert, dazu kommen <strong>CALs</strong> für jeden Zugriff: User-CAL je Person mit mehreren Geräten, Device-CAL je geteiltem Gerät.</li>
+  <li><strong>Update</strong> pflegt die vorhandene Version und ist enthalten, <strong>Upgrade</strong> auf eine neue Hauptversion braucht neue Lizenz oder Wartungsvertrag.</li>
+</ul>

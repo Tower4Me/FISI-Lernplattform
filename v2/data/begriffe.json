@@ -48,7 +48,11 @@
         "Vollsicherung: alles; differenziell: Änderungen seit letzter Vollsicherung (Restore: Voll + letzte Diff); inkrementell: Änderungen seit letzter Sicherung (Restore: Voll + alle Inkremente).",
         "RAID ist keine Datensicherung (überbrückt je nach Level Plattenausfälle, nicht RAID 0; schützt nicht vor Löschen oder Verschlüsselung).",
         "Wiederherstellung regelmäßig testen.",
-        "Datenbanken mit den Werkzeugen des DBMS konsistent sichern (Dump), nicht laufende Dateien kopieren."
+        "Datenbanken mit den Werkzeugen des DBMS konsistent sichern (Dump), nicht laufende Dateien kopieren.",
+        "Archivbit: bei Änderung gesetzt; Voll und inkrementell setzen zurück, differenziell und Kopiesicherung (Klon) nicht.",
+        "RPO = hinnehmbarer Datenverlust (Sicherungsabstand), RTO = hinnehmbare Ausfalldauer (Wiederherstellungszeit).",
+        "D2D2T: Platte für schnelle Wiederherstellung, dann Band für Langzeit/außer Haus; LTFS (ab LTO-5) macht so geschriebene Bänder wie ein Dateisystem lesbar.",
+        "Archivierung ≠ Sicherung: abgeschlossene Daten revisionssicher (vollständig, unverändert, lesbar, auffindbar; GoBD), WORM; Fristen 10 Jahre Bücher/Abschlüsse, 8 Jahre Buchungsbelege, 6 Jahre Geschäftsbriefe, ab Schluss des Kalenderjahres."
       ],
       "vorkommen": [
         {
@@ -94,6 +98,18 @@
         {
           "id": "10-3-1",
           "tiefe": "Cluster ersetzt keine Sicherung"
+        },
+        {
+          "id": "10-4-1",
+          "tiefe": "Archivbit, Restore-Medien"
+        },
+        {
+          "id": "10-4-2",
+          "tiefe": "RPO/RTO, D2D2T, Band/LTFS, Konzept"
+        },
+        {
+          "id": "10-4-3",
+          "tiefe": "Abgrenzung Archivierung"
         }
       ]
     },
@@ -502,6 +518,10 @@
         {
           "id": "5-2-4",
           "tiefe": "Hashwert als Prüfverfahren gegen absichtliche Änderung, Abgrenzung zu CRC"
+        },
+        {
+          "id": "10-4-3",
+          "tiefe": "Unveränderbarkeit im Archiv prüfen"
         }
       ]
     },
@@ -2452,6 +2472,10 @@
         {
           "id": "10-3-1",
           "tiefe": "Verfügbarkeit mehrerer Komponenten"
+        },
+        {
+          "id": "10-4-2",
+          "tiefe": "RPO/RTO im SLA"
         }
       ]
     },
@@ -2807,6 +2831,10 @@
         {
           "id": "2-2-7",
           "tiefe": "QR-Code als Peripherie"
+        },
+        {
+          "id": "10-4-3",
+          "tiefe": "Aufbewahrung 8 Jahre, revisionssicher"
         }
       ]
     },

@@ -1,0 +1,42 @@
+<p class="lead">Die Inhaberin fragt: „Wie lange dauert es, bis nach einem Totalausfall wieder alles läuft, und wie viel Arbeit ist dann weg?“ Ein <strong>Sicherungskonzept</strong> beantwortet genau das. Die Grundfragen (was, wie oft, wohin, wer), die 3-2-1-Regel und das Generationenprinzip kennst du aus LF4, Kapitel 4.6.2. Für Server kommen messbare Ziele, passende Medien und eine geprüfte Wiederherstellung hinzu.</p>
+
+<h3>Zwei Kennzahlen</h3>
+<ul>
+  <li><strong>RPO</strong> (Recovery Point Objective): Wie viel Datenverlust ist höchstens hinnehmbar, gemessen als Zeit? Bei einem RPO von 4 Stunden musst du mindestens alle 4 Stunden sichern.</li>
+  <li><strong>RTO</strong> (Recovery Time Objective): Wie lange darf es höchstens dauern, bis der Dienst nach einem Ausfall wieder läuft? Das bestimmt, wie schnell Medium, Verfahren und Ersatzhardware sein müssen.</li>
+</ul>
+<p>Beide Werte legt der Betrieb fest; mit einem Dienstleister stehen sie im SLA neben Verfügbarkeit und Lösungszeit (LF6, Kapitel 6.2). Je kleiner sie sind, desto teurer wird die Lösung.</p>
+
+<h3>Bausteine</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Baustein</th><th>Stärke</th><th>Grenze</th></tr></thead>
+    <tbody>
+      <tr><th>Snapshot</th><td>Zustand in Sekunden eingefroren, schnell zurück</td><td>liegt auf demselben Speicher, keine eigenständige Sicherung (Kapitel 10.1.2)</td></tr>
+      <tr><th>Sicherung auf Festplatte (Disk, NAS)</th><td>schnelles Sichern und Zurückspielen, Deduplizierung</td><td>ständig erreichbar, also auch für Schadsoftware</td></tr>
+      <tr><th>Band (Tape, LTO)</th><td>günstig je TB, lange haltbar, nach dem Herausnehmen offline, leicht außer Haus zu bringen</td><td>langsamer Zugriff auf einzelne Dateien, Laufwerk nötig</td></tr>
+      <tr><th>Cloud oder zweiter Standort</th><td>räumlich getrennt ohne Transport</td><td>Wiederherstellung großer Mengen hängt an der Bandbreite</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><strong>D2D2T</strong> (Disk to Disk to Tape) kombiniert die Stärken: Zuerst wird schnell auf Festplatten gesichert, von dort später auf Band kopiert. Aktuelle Stände kommen schnell von der Platte zurück, ältere und außer Haus gelagerte vom Band. Bänder nach dem Standard LTO (Linear Tape-Open) lassen sich ab LTO-5 mit <strong>LTFS</strong> (Linear Tape File System) beschreiben: Das Band erscheint wie ein Laufwerk mit Ordnern und Dateien. So geschriebene Dateien liest jeder Rechner mit LTFS-Treiber, auch ohne die ursprüngliche Sicherungssoftware.</p>
+
+<h3>Was ein Serverkonzept zusätzlich festlegt</h3>
+<ul>
+  <li>RPO und RTO je Dienst, abgeleitet aus dem Schutzbedarf</li>
+  <li>Medien und Wege: Platte, Band, zweiter Standort, davon eine Kopie offline oder unveränderbar</li>
+  <li>konsistente Sicherung von Datenbanken mit den Werkzeugen des DBMS (LF8, Kapitel 8.4.4)</li>
+  <li>Wiederanlauf: Reihenfolge der Dienste (Kapitel 10.6.2), regelmäßiger Test mit gemessener Zeit und Protokoll</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Praxisdatenbank vereinbart der Verbund RPO 1 Stunde und RTO 4 Stunden. Die Auszubildende plant: stündlich eine Sicherung des Transaktionsprotokolls, in dem das DBMS jede Änderung festhält, und nachts eine Vollsicherung mit dem Sicherungswerkzeug des DBMS auf den Sicherungsserver im Stammhaus (Kapitel 10.2.3). Danach geht eine Kopie auf das bisherige NAS, das an den Standort Nord umgezogen und über das VPN erreichbar ist (LF9, Kapitel 9.6.1); freitags Kopie auf LTO-Band, das außer Haus kommt. Einmal im Quartal spielt sie die Datenbank in eine Test-VM zurück und misst die Zeit: 2 Stunden 40 Minuten, unter dem RTO.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>RAID und Failover-Cluster (Kapitel 10.3.1) übernehmen Löschungen und Verschlüsselungen sofort. Snapshots liegen auf demselben Speicher und gehen mit ihm verloren oder werden vom Angreifer mitgelöscht. Alle drei ergänzen die Sicherung, ersetzen sie aber nicht.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>RPO</strong> = höchstens hinnehmbarer Datenverlust (bestimmt, wie oft gesichert wird), <strong>RTO</strong> = höchstens hinnehmbare Ausfalldauer (bestimmt, wie schnell wiederhergestellt wird).</li>
+  <li><strong>D2D2T</strong>: schnell auf Platte, dann auf Band für Langzeit und außer Haus; Konzept mit 3-2-1-Regel, Offline-Kopie und getesteter Wiederherstellung.</li>
+</ul>

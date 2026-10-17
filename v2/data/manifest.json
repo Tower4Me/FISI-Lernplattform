@@ -5742,6 +5742,85 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "10.4",
+          "titel": "Daten sichern und archivieren",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "10.4.1",
+              "titel": "Sicherungsarten",
+              "slug": "sicherungsarten",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Konzepte für Datensicherung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 4 (inkrementelle und differenzielle Sicherung)",
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 3 (Voll, differenziell, inkrementell, Klon mit Archivbit; Restore-Medien)",
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 4 (Restore aus Voll- und Differenzsicherung)"
+                ],
+                "extern": [
+                  "Microsoft-Dokumentation Dateiattribut Archiv (FILE_ATTRIBUTE_ARCHIVE)"
+                ]
+              },
+              "material": [
+                "backup-arten"
+              ],
+              "begriffe": [
+                "datensicherung"
+              ]
+            },
+            {
+              "nummer": "10.4.2",
+              "titel": "Sicherungskonzept",
+              "slug": "sicherungskonzept",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Konzepte für Datensicherung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 3 (Bandspeicher und LTFS)",
+                  "AP2 FISI Sommer 2024 Teil 1 Aufgabe 4 (RTO und RPO)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 2 (D2D2T, Snapshots, 3-2-1-Regel)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium CON.3 (Datensicherungskonzept); LTO-Konsortium (LTFS)"
+                ]
+              },
+              "material": [
+                "backup-arten",
+                "rto-rpo-verfuegbarkeit"
+              ],
+              "begriffe": [
+                "datensicherung",
+                "sla"
+              ]
+            },
+            {
+              "nummer": "10.4.3",
+              "titel": "Archivieren",
+              "slug": "archivieren",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Konzepte für Datensicherung; betriebliche Vorgaben",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 4 (revisionssichere Archivierung, WORM)"
+                ],
+                "extern": [
+                  "§ 257 HGB und § 147 AO in der Fassung des Vierten Bürokratieentlastungsgesetzes (Buchungsbelege 8 Jahre ab 2025); BMF-Schreiben GoBD; ISO 19005 (PDF/A)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "datensicherung",
+                "rechnung",
+                "hashwert"
+              ]
+            }
+          ]
         }
       ]
     }

@@ -1,0 +1,31 @@
+<p class="lead">Voll, differenziell, inkrementell: Die drei Sicherungsarten kennst du aus LF4, Kapitel 4.6.2. Jetzt planst du sie für die Server ein und musst im Ernstfall schnell sagen können, welche Sicherungen du für die Wiederherstellung brauchst.</p>
+
+<h3>Woher die Software weiß, was neu ist</h3>
+<p>Unter Windows trägt jede Datei ein <strong>Archivbit</strong>. Das Betriebssystem setzt es, sobald die Datei neu angelegt oder geändert wird. Die Sicherungssoftware liest es und setzt es je nach Art zurück:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>sichert</th><th>Archivbit danach</th><th>Wiederherstellung braucht</th></tr></thead>
+    <tbody>
+      <tr><th>Vollsicherung</th><td>alle ausgewählten Dateien</td><td>zurückgesetzt</td><td>nur diese Sicherung</td></tr>
+      <tr><th>Differenziell</th><td>Dateien mit gesetztem Archivbit</td><td>bleibt gesetzt</td><td>letzte Voll- und letzte differenzielle Sicherung</td></tr>
+      <tr><th>Inkrementell</th><td>Dateien mit gesetztem Archivbit</td><td>zurückgesetzt</td><td>letzte Voll- und alle inkrementellen Sicherungen seitdem, in Reihenfolge</td></tr>
+      <tr><th>Kopiesicherung (in Prüfungen auch Klon)</th><td>alle ausgewählten Dateien, etwa vor einem Umbau</td><td>bleibt unverändert</td><td>nur diese Kopie; stört den laufenden Plan nicht</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Weil die differenzielle Sicherung das Archivbit stehen lässt, wächst sie Tag für Tag bis zur nächsten Vollsicherung. Die inkrementelle setzt es zurück und sichert deshalb nur, was seit der letzten Sicherung dazukam. Moderne Sicherungsprogramme und Linux-Systeme arbeiten statt mit dem Archivbit mit Zeitstempeln oder einem eigenen Änderungsprotokoll; das Prinzip bleibt gleich.</p>
+
+<h3>Die richtigen Medien für die Wiederherstellung</h3>
+<p>Gehe vom Zeitpunkt des Schadens rückwärts: Suche die letzte Vollsicherung davor. Bei differenzieller Sicherung nimmst du zusätzlich nur die letzte differenzielle, bei inkrementeller alle inkrementellen dazwischen. Fehlt eine davon oder ist sie defekt, lässt sich bei inkrementeller Sicherung kein vollständiger Stand nach dieser Lücke mehr herstellen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Auf dem alten NAS wurde der Dateiserver des Praxisverbunds bisher freitags abends voll gesichert, montags bis donnerstags abends inkrementell. Am Donnerstagmittag verschlüsselt Schadsoftware die Ablage. Zurückgespielt werden die Vollsicherung vom Freitag, dann die Inkremente von Montag, Dienstag und Mittwoch, genau in dieser Reihenfolge. Die Arbeit vom Donnerstagvormittag ist verloren. Wäre montags bis donnerstags differenziell gesichert worden, hätte die Auszubildende nur die Sicherungen von Freitag und Mittwoch gebraucht. Der neue Sicherungsserver sichert dank Deduplizierung jede Nacht voll (Kapitel 10.2.3); dann reicht eine einzige Sicherung.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Für die inkrementelle Wiederherstellung reicht die letzte Inkrementsicherung.“ Jedes Inkrement enthält nur die Änderungen eines Tages. Erst die Vollsicherung und alle Inkremente zusammen ergeben den letzten Stand.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Archivbit</strong>: wird bei Änderung gesetzt; Voll- und inkrementelle Sicherung setzen es zurück, differenzielle und Kopie nicht.</li>
+  <li><strong>Wiederherstellung</strong>: letzte Vollsicherung plus letzte differenzielle oder plus alle inkrementellen seitdem, in Reihenfolge.</li>
+</ul>

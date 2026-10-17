@@ -39,7 +39,7 @@ Aliases:  termine.intern.praxisverbund.example</code></pre>
   <p>Nach dem Umzug der Termin-App meldet Nord, dass termine.intern.praxisverbund.example nicht mehr geht. nslookup meldet, dass der Name nicht existiert. Mit nslookup -type=CNAME termine.intern.praxisverbund.example sieht die Auszubildende: canonical name = apl.intern.praxisverbund.example, ein Tippfehler im CNAME. Sie korrigiert den Eintrag auf api, erhöht die Seriennummer und leert an einem Client mit ipconfig /flushdns den Zwischenspeicher. Die übrigen Clients bekommen den richtigen Eintrag, sobald ihr zwischengespeicherter Fehler abläuft; den Zwischenspeicher des Routers in Nord leert sie ebenfalls.</p>
 </div>
 
-<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie DNS-Antworten gefälscht werden können und wie DNSSEC sie absichert, wird in LF11b ausführlicher behandelt.</p></aside>
+<aside class="note" data-typ="vertiefung"><p>Wie DNS-Antworten gefälscht werden und wie du sie mit DNSSEC und einer abgesicherten Auflösung im eigenen Netz schützt, wird in <a href="../lf11b/11-5-2-dns-absichern.html">LF11b, Kapitel 11.5.2</a> ausführlicher behandelt.</p></aside>
 
 <ul class="merksatz">
   <li><strong>Zone:</strong> SOA mit Seriennummer, NS, dazu A, AAAA, CNAME (nur auf Namen), MX, TXT (SPF); Rückwärtszonen mit PTR.</li>

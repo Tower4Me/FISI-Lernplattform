@@ -1,0 +1,45 @@
+<p class="lead">Ein Tierhalter tippt termine.praxisverbund.example ein, und sein Gerät fragt den DNS nach der Adresse (LF9, Kapitel 9.5.2). Bekommt es eine gefälschte Antwort, landet es auf dem Server eines Angreifers, der genauso aussieht wie die Termin-App. DNS wurde ohne Schutz gegen Fälschung entworfen. Deshalb sicherst du sowohl die eigenen Zonen als auch die Auflösung im eigenen Netz ab.</p>
+
+<h3>Angriffe auf DNS</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Angriff</th><th>Ablauf</th><th>Folge</th></tr></thead>
+    <tbody>
+      <tr><th>DNS-Spoofing</th><td>Der Angreifer schickt eine gefälschte Antwort, bevor die echte ankommt, oder verändert sie auf dem Weg</td><td>ein einzelnes Gerät wird umgeleitet</td></tr>
+      <tr><th>Cache Poisoning</th><td>Ein Resolver übernimmt eine gefälschte Antwort in seinen Zwischenspeicher</td><td>alle Clients dieses Resolvers werden umgeleitet, bis die TTL abläuft</td></tr>
+      <tr><th>falscher DNS-Server</th><td>Schadsoftware ändert den DNS-Server im Gerät oder im Router, oder ein falscher DHCP-Server verteilt ihn (Kapitel 11.4.3)</td><td>der Angreifer beantwortet alle Anfragen</td></tr>
+      <tr><th>Übernahme der Domain</th><td>Jemand meldet sich mit gestohlenen Zugangsdaten beim Anbieter der Domain an und ändert die Einträge</td><td>die echte, öffentliche Zone zeigt auf fremde Server, auch für Mail</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Gegen die Umleitung auf einen falschen Webserver hilft zwar auch TLS: Der Angreifer hat kein gültiges Zertifikat für den Namen, und der Browser warnt (Kapitel 11.3.1). Viele andere Dienste prüfen aber weniger streng, etwa Mailserver untereinander oder ältere Geräte.</p>
+
+<h3>DNSSEC: Antworten signieren</h3>
+<p>Mit <strong>DNSSEC</strong> signiert der Betreiber einer Zone ihre Einträge. Ein Resolver, der DNSSEC prüft (validierender Resolver), erkennt dann gefälschte oder veränderte Antworten und verwirft sie. Geschützt sind nur Clients, deren Resolver DNSSEC prüft. Viele Anbieter und öffentliche Resolver tun das; wer nicht prüft, nimmt auch gefälschte Antworten an.</p>
+<ul>
+  <li><strong>RRSIG</strong>: die Signatur zu einer Gruppe gleicher Einträge, etwa allen A-Einträgen eines Namens.</li>
+  <li><strong>DNSKEY</strong>: der öffentliche Schlüssel der Zone, mit dem sich die Signaturen prüfen lassen.</li>
+  <li><strong>DS</strong>: ein Hashwert dieses Schlüssels, eingetragen in der übergeordneten Zone.</li>
+</ul>
+<p>So entsteht eine Vertrauenskette wie bei Zertifikaten (Kapitel 11.3.1): Der Resolver kennt den Schlüssel der Root-Zone, die Root-Zone bestätigt per DS den Schlüssel der Top-Level-Domain, diese den Schlüssel der Domain des Verbunds.</p>
+<p class="formel">Root-Zone → Top-Level-Domain → praxisverbund.example → signierter Eintrag</p>
+<p>DNSSEC sichert <strong>Integrität und Authentizität</strong> der Antworten. Es verschlüsselt nichts: Wer mitliest, sieht weiter, welche Namen abgefragt werden. Dafür gibt es verschlüsselte Verbindungen zwischen Client und Resolver, DNS over TLS (TCP 853) und DNS over HTTPS (Port 443).</p>
+
+<h3>Die Auflösung im eigenen Netz</h3>
+<ul>
+  <li>Die internen DNS-Server beantworten nur Anfragen aus dem eigenen Netz. Ein offener Resolver, der jedem im Internet antwortet, kann für Angriffe auf Dritte missbraucht werden: Angreifer schicken kleine Anfragen mit gefälschter Absenderadresse, und große Antworten überfluten das Opfer.</li>
+  <li>Die Firewall lässt DNS (UDP und TCP 53) ins Internet nur von den internen DNS-Servern zu. Clients müssen dann intern fragen, und Schadsoftware erreicht keinen fremden DNS-Server über Port 53. DNS over HTTPS läuft über Port 443 und fällt im Webverkehr nicht auf; Browser legst du deshalb per Richtlinie auf den internen Server fest.</li>
+  <li>Das Konto beim Anbieter der Domain bekommt einen zweiten Faktor; Änderungen an der öffentlichen Zone laufen über ein Ticket.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die öffentliche Zone praxisverbund.example liegt beim Anbieter der Domain. Die Auszubildende schaltet dort DNSSEC ein; der Anbieter signiert die Zone und lässt den DS-Eintrag in der übergeordneten Zone eintragen. Ein Online-Prüfdienst zeigt danach eine geschlossene Kette bis zur Root-Zone. Der DNS-Server im Stammhaus (10.10.0.147), der Namen außerhalb der eigenen Zonen auflöst, prüft jetzt DNSSEC. In der Firewall ergänzt sie eine Regel: DNS ins Internet nur von diesem Server, vom Reverse Proxy in der DMZ (Kapitel 11.4.2) und vom Gäste-VLAN, das seinen öffentlichen Resolver behält (LF9, Kapitel 9.5.2). In Nord und Süd darf nur der Router selbst DNS ins Internet schicken, dazu das Gäste-VLAN; die Router leiten öffentliche Namen an einen Resolver des Anbieters weiter, der DNSSEC prüft. Kurz danach zeigt das Protokoll des Routers in Süd ein Notebook, das immer wieder einen fremden DNS-Server anfragt. Auf ihm findet sich Schadsoftware.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„DNSSEC verschlüsselt die DNS-Anfragen.“ DNSSEC signiert die Antworten, damit sich Fälschungen erkennen lassen. Vertraulich werden die Anfragen erst mit DNS over TLS oder DNS over HTTPS.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Angriffe</strong>: gefälschte Antworten (Spoofing), vergifteter Zwischenspeicher (Cache Poisoning), falscher DNS-Server, übernommenes Domain-Konto.</li>
+  <li><strong>DNSSEC</strong> signiert Einträge (RRSIG, DNSKEY, DS als Kette bis zur Root) und sichert Integrität und Authentizität, nicht Vertraulichkeit; dazu interne Resolver nur für das eigene Netz und DNS nach außen nur von ihnen.</li>
+</ul>

@@ -1,0 +1,41 @@
+<p class="lead">Ein frisch installierter Server ist auf Bequemlichkeit eingestellt: Dienste laufen, die niemand braucht, Standardkonten sind aktiv, die Verwaltung ist aus jedem Netz erreichbar. Jede dieser Bequemlichkeiten ist ein möglicher Angriffsweg. <strong>Härten</strong> heißt, die Angriffsfläche auf das zu verkleinern, was der Dienst wirklich braucht. Die Grundsätze für Arbeitsplätze kennst du aus LF4, Kapitel 4.6.1, die für Netzgeräte aus LF9, Kapitel 9.7.1. Jetzt gehst du systematisch über Server, Firewall und VPN-Gateway des Praxisverbunds.</p>
+
+<h3>Härten nach Bereichen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Bereich</th><th>Maßnahmen</th></tr></thead>
+    <tbody>
+      <tr><th>Hardware und Firmware</th><td>Firmware aktuell, UEFI mit Kennwort und Secure Boot, ungenutzte Schnittstellen abschalten, Fernverwaltung (BMC) nur im Management-VLAN</td></tr>
+      <tr><th>Betriebssystem</th><td>nur die nötigen Rollen und Programme installieren (Minimalinstallation), unnötige Dienste abschalten, Updates nach Plan (LF10b, Kapitel 10.5.4), Härtungsempfehlungen von Hersteller oder BSI umsetzen</td></tr>
+      <tr><th>Konten und Rechte</th><td>Standardkonten deaktivieren oder umbenennen, Standardkennwörter ändern, getrennte Admin-Konten mit zweitem Faktor, Dienstkonten mit minimalen Rechten (LF10b, Kapitel 10.7.3)</td></tr>
+      <tr><th>Netz</th><td>lokale Firewall nur für benötigte Ports, Verwaltung nur aus dem Management-VLAN, verschlüsselte Protokolle (SSH, HTTPS) statt Telnet und HTTP, veraltete Protokolle wie SMBv1 und TLS 1.0 abschalten</td></tr>
+      <tr><th>Programme</th><td>nur freigegebene Programme dürfen starten (Positivliste); eine Negativliste, die bekannte Schadprogramme sperrt, ist schwächer, weil neue Schadsoftware darauf noch fehlt</td></tr>
+      <tr><th>Protokollierung</th><td>Anmeldungen, Rechteänderungen und Fehler zentral sammeln (LF10b, Kapitel 10.6.1), Uhrzeit aller Systeme per NTP abgleichen, damit sich Ereignisse zuordnen lassen</td></tr>
+      <tr><th>Daten</th><td>Datenträger verschlüsseln, Sicherung nach Konzept (LF10b, Kapitel 10.4.2)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Härten ist kein einmaliger Schritt. Neue Dienste, Updates und geänderte Anforderungen verschieben die Angriffsfläche. Deshalb hältst du den gehärteten Zustand als Vorlage fest und prüfst regelmäßig, ob die Systeme ihm noch entsprechen (Kapitel 11.7.1).</p>
+
+<h3>Minimale Rechte und Zero Trust</h3>
+<p>Nach dem <strong>Prinzip der minimalen Rechte</strong> (Least Privilege) bekommt jedes Konto und jeder Dienst nur die Rechte, die für die Aufgabe nötig sind, und nur so lange, wie sie nötig sind. Wird ein Konto übernommen, ist der Schaden begrenzt.</p>
+<p>Klassisch galt das Perimeter-Modell: Wer im internen Netz ist, gilt als vertrauenswürdig, die Firewall am Rand hält die Angreifer draußen. Ist ein Angreifer aber einmal drin, etwa über ein gestohlenes VPN-Konto (Kapitel 11.1.2), kann er sich frei bewegen. <strong>Zero Trust</strong> geht davon aus, dass jede Verbindung von einem Angreifer stammen kann, auch aus dem internen Netz:</p>
+<ul>
+  <li>Jeder Zugriff wird einzeln geprüft: Wer fragt, mit welchem Gerät, in welchem Zustand, wofür?</li>
+  <li>Personen und Geräte melden sich stark an, mit zweitem Faktor oder Zertifikat (Kapitel 11.3.2).</li>
+  <li>Rechte gelten nur für die einzelne Anwendung, nicht für ein ganzes Netz.</li>
+  <li>Das Netz ist in kleine Bereiche geteilt; Zugriffe werden protokolliert und ausgewertet.</li>
+</ul>
+<p>Zero Trust ist kein Produkt, sondern ein Leitbild, das ein Betrieb schrittweise umsetzt. VLANs, Firewall-Regeln zwischen den Netzen und 802.1X aus Kapitel 11.4 sind bereits Schritte dorthin.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das VPN-Gateway ist aus dem Internet erreichbar und deshalb ein beliebtes Ziel; Lücken in VPN-Gateways werden oft schon Tage nach Bekanntwerden ausgenutzt. Kritische Firmware-Updates dafür spielt die Auszubildende beschleunigt außerhalb des regulären Wartungsfensters ein, nach kurzem Test (LF10b, Kapitel 10.5.4). Die Verwaltungsoberfläche ist nur aus dem Management-VLAN 99 erreichbar, nicht aus dem Internet. Für die Tunnel lässt sie nur IKEv2 mit AES-GCM zu, die Standorte melden sich mit Zertifikaten an (Kapitel 11.3.2), die Tierärztinnen zusätzlich mit zweitem Faktor. Fehlgeschlagene Anmeldungen meldet das Monitoring ab einer Schwelle. Auf den Windows-Servern deaktiviert sie SMBv1, auf dem Container-Host meldet sich die Administration nur noch per SSH-Schlüssel an, die Anmeldung als root ist abgeschaltet.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Server steht im internen Netz, da muss die lokale Firewall nicht an sein.“ Gerade wenn ein Angreifer schon im Netz ist, begrenzt die lokale Firewall, was er von dort erreicht. Härtung gilt für jedes System, nicht nur für die am Rand.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Härten</strong> nach Bereichen: Firmware, Betriebssystem, Konten und Rechte, Netz, Programme (Positivliste), Protokollierung, Daten; den Zustand festhalten und regelmäßig prüfen.</li>
+  <li><strong>Least Privilege</strong>: nur nötige Rechte, nur so lange wie nötig; <strong>Zero Trust</strong>: jeder Zugriff wird geprüft, auch aus dem internen Netz.</li>
+</ul>

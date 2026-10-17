@@ -1,0 +1,125 @@
+{
+  "titel": "Check 11.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "SPF",
+      "frage": "Ein Mailserver erhält eine Mail mit Absender @praxisverbund.example von einem Server, der im TXT-Eintrag der Domain nicht genannt ist; der Eintrag endet auf „-all“. Was sagt die Prüfung aus?",
+      "optionen": [
+        "Der sendende Rechner ist zum Versand dafür nicht zugelassen",
+        "Die Mail wurde unterwegs verändert",
+        "Der Inhalt der Mail enthält Schadsoftware",
+        "Die Mail ist verschlüsselt und kann vom Filter nicht gelesen werden"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "SPF listet die Server, die für eine Domain senden dürfen; „-all“ verbietet alle anderen. Ob der Inhalt verändert wurde, zeigt DKIM, ob er gefährlich ist, der Inhalts- und Virenfilter."
+    },
+    {
+      "typ": "mc",
+      "thema": "TPM",
+      "frage": "Welche Aufgabe übernimmt das TPM bei der Festplattenverschlüsselung eines Notebooks?",
+      "optionen": [
+        "Es speichert den Schlüssel und gibt ihn nur bei unverändertem Start frei",
+        "Es prüft die Signatur des Bootloaders und blockiert unsignierte Systeme",
+        "Es löscht den Datenträger, sobald das Gerät als verloren gemeldet ist",
+        "Es überträgt den Schlüssel bei jedem Start an den Verzeichnisdienst"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das TPM hält den Schlüssel so, dass er sich nicht auslesen lässt, und gibt ihn nur frei, wenn der Start unverändert ist. Signaturen prüft Secure Boot, Fernlöschen ist Sache des MDM."
+    },
+    {
+      "typ": "mc",
+      "thema": "Sandbox",
+      "frage": "Ein Mailfilter öffnet unbekannte Anhänge zuerst in einer abgeschotteten Umgebung. Welcher Nachteil ist damit verbunden?",
+      "optionen": [
+        "Bekannte Viren werden nicht mehr erkannt",
+        "Die Zustellung verzögert sich, und manche Schadsoftware verhält sich dort unauffällig",
+        "Anhänge kommen beim Empfänger nur noch als PDF-Vorschau an",
+        "Absender müssen ihre Mails zusätzlich mit DKIM signieren, damit sie zugestellt werden"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Die Sandbox beobachtet das Verhalten einer Datei. Das dauert einige Minuten, und Schadsoftware, die die Sandbox erkennt, kann ihr Verhalten verbergen."
+    },
+    {
+      "typ": "mc",
+      "thema": "DNSSEC",
+      "frage": "Welche Schutzziele sichert DNSSEC für DNS-Antworten?",
+      "optionen": [
+        "Vertraulichkeit und Verfügbarkeit",
+        "Vertraulichkeit und Integrität",
+        "Integrität und Authentizität",
+        "Verfügbarkeit und Verbindlichkeit"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "DNSSEC signiert die Einträge; ein Resolver erkennt so veränderte oder gefälschte Antworten. Verschlüsselt wird nichts, dafür gibt es DNS over TLS oder DNS over HTTPS."
+    },
+    {
+      "typ": "mc",
+      "thema": "Cache Poisoning",
+      "frage": "Warum ist eine gefälschte Antwort im Zwischenspeicher des Resolvers schlimmer als eine gefälschte Antwort an ein einzelnes Gerät?",
+      "optionen": [
+        "Weil sie jeden Client trifft, der dort fragt, bis die TTL abläuft",
+        "Weil sie die Signaturen von DNSSEC löscht",
+        "Weil der Resolver danach keine Anfragen mehr beantwortet",
+        "Weil sie die Zone beim Anbieter der Domain verändert"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Beim Cache Poisoning speichert der Resolver die falsche Antwort und gibt sie an jeden Client weiter, der den Namen erfragt, bis der Eintrag abläuft."
+    },
+    {
+      "typ": "mc",
+      "thema": "Härtung",
+      "frage": "Welche Maßnahme verhindert beim Härten eines Servers, dass unbekannte Software startet?",
+      "optionen": [
+        "Die Uhrzeit per NTP abgleichen",
+        "Ausführung nur für Einträge einer Positivliste erlauben",
+        "Die Fernverwaltung ins Verwaltungs-VLAN legen",
+        "Das Standardkonto des Administrators deaktivieren oder umbenennen"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Eine Positivliste lässt nur freigegebene Programme starten. NTP gehört zur Protokollierung, die Fernverwaltung zu Firmware und Netz, das Standardkonto zu Konten und Rechten."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zero Trust",
+      "frage": "Ein Angreifer hat ein VPN-Konto übernommen und ist im internen Netz. Welcher Grundsatz von Zero Trust begrenzt jetzt den Schaden?",
+      "optionen": [
+        "Das VPN-Konto wird nach 90 Tagen Inaktivität gesperrt",
+        "Die Firewall am Rand prüft nur Verbindungen aus dem Internet",
+        "Jeder Zugriff wird einzeln geprüft, auch aus dem internen Netz",
+        "Geräte im internen Netz weisen sich über ihre feste IP-Adresse aus"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Zero Trust vertraut keinem Zugriff wegen seines Netzstandorts. Jede Anfrage wird nach Person, Gerät und Zweck geprüft, Rechte gelten nur je Anwendung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Mobile Geräte",
+      "frage": "Ein Tablet mit Firmendaten wird gestohlen; der Dieb schaltet es nicht mehr ein. Was schützt die Daten jetzt?",
+      "optionen": [
+        "Das Fernlöschen über das MDM",
+        "Die Ortung über das MDM",
+        "Die Verschlüsselung des Speichers",
+        "Das Arbeitsprofil auf privaten Smartphones"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Fernlöschen und Ortung wirken erst, wenn das Gerät online geht. Ein verschlüsselter Speicher gibt auch ausgebaut keine Daten preis."
+    }
+  ]
+}

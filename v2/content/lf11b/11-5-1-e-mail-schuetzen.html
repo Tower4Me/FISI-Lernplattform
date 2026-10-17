@@ -1,0 +1,43 @@
+<p class="lead">Viele Angriffe auf kleine Betriebe beginnen mit einer E-Mail: ein Link zu einer gefälschten Anmeldeseite, eine Rechnung mit Schadsoftware im Anhang, eine Nachricht, die angeblich von der Inhaberin kommt. Wie du solche Mails am Arbeitsplatz erkennst, kennst du aus LF4, Kapitel 4.3.3. Hier geht es darum, wie der Mailserver sie aussortiert, bevor sie im Postfach landen, und wie du verhinderst, dass andere unter dem Namen des Praxisverbunds Mails verschicken.</p>
+
+<h3>Filter auf mehreren Stufen</h3>
+<p>Ein Mailfilter prüft eine eingehende Mail in mehreren Schritten. Jede Stufe fängt einen Teil ab, keine fängt alles.</p>
+<ul>
+  <li><strong>Absender prüfen</strong>: Darf der einliefernde Server für diese Domain senden (SPF), ist die Mail signiert (DKIM), was verlangt der Inhaber der Domain (DMARC)?</li>
+  <li><strong>Ruf</strong>: Steht die Adresse des einliefernden Servers auf einer Sperrliste bekannter Spamquellen?</li>
+  <li><strong>Inhalt</strong>: Typische Merkmale von Spam und Phishing, etwa auffällige Betreffzeilen, gefälschte Links oder Zeitdruck, ergeben Punkte. Ab einer Schwelle wandert die Mail in den Spam-Ordner oder in die Quarantäne.</li>
+  <li><strong>Anhänge</strong>: Ausführbare Dateien und Skripte (.exe, .js, .vbs), Office-Dateien mit Makros und Archive mit Kennwort, in die der Virenscanner nicht hineinsehen kann, blockiert der Filter oder stellt sie in Quarantäne. Ein Virenscanner prüft die übrigen.</li>
+  <li><strong>Sandbox</strong>: Unbekannte Anhänge und Links öffnet der Filter in einer abgeschotteten Umgebung und beobachtet, was sie tun. Versucht eine Datei etwa, Programme nachzuladen oder Dateien zu verschlüsseln, wird die Mail gesperrt. Das kostet einige Minuten Zustellzeit, und manche Schadsoftware erkennt die Sandbox und bleibt dort ruhig.</li>
+</ul>
+<p>Ein Filter, der zu scharf eingestellt ist, sortiert auch echte Mails aus. Deshalb landen Verdachtsfälle in einer <strong>Quarantäne</strong>, die regelmäßig gesichtet wird, statt sofort gelöscht zu werden.</p>
+
+<h3>SPF, DKIM und DMARC</h3>
+<p>Beim Versand per SMTP kann jeder Server einen beliebigen Absender eintragen. Eine Mail hat dabei zwei Absenderangaben: den Absender im Umschlag, den der sendende Server im SMTP-Dialog nennt (MAIL FROM), und den sichtbaren Absender in der Kopfzeile From, den das Mailprogramm anzeigt. Beide können verschieden sein. Drei Einträge im DNS der eigenen Domain (LF9, Kapitel 9.5.2) machen das prüfbar:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Verfahren</th><th>Was im DNS steht</th><th>Was der Empfänger prüft</th></tr></thead>
+    <tbody>
+      <tr><th>SPF</th><td>TXT-Eintrag mit den Servern, die Mails für die Domain versenden dürfen</td><td>ob die Adresse des einliefernden Servers zur Absenderdomain im Umschlag passt</td></tr>
+      <tr><th>DKIM</th><td>öffentlicher Schlüssel unter einem Namen wie <code>s1._domainkey.praxisverbund.example</code></td><td>die Signatur, die der Server des Absenders über Kopfzeilen und Text gesetzt hat; sie zeigt, dass die Mail unverändert von dieser Domain kommt</td></tr>
+      <tr><th>DMARC</th><td>TXT-Eintrag unter <code>_dmarc.praxisverbund.example</code> mit einer Richtlinie</td><td>ob SPF oder DKIM bestanden hat und zur sichtbaren Absenderdomain passt; wenn nicht, gilt die Richtlinie: nichts tun, Quarantäne oder ablehnen</td></tr>
+    </tbody>
+  </table>
+</div>
+<pre><code>praxisverbund.example.         TXT  "v=spf1 include:_spf.mailanbieter.example -all"
+_dmarc.praxisverbund.example.  TXT  "v=DMARC1; p=quarantine; rua=mailto:dmarc@praxisverbund.example"</code></pre>
+<p><code>-all</code> heißt: Alle anderen Server dürfen nicht für die Domain senden. <code>rua</code> nennt die Adresse, an die Empfänger Berichte über geprüfte Mails schicken. DKIM signiert mit dem privaten Schlüssel des Absenderservers; das Prinzip der Signatur kennst du aus Kapitel 11.2.2.</p>
+<p>Schlägt DKIM fehl, wurde die Mail nach dem Signieren verändert, etwa durch einen Verteiler, der eine Fußzeile anhängt, oder der Schlüssel im DNS fehlt oder passt nicht zum Selektor. Landet ein echter Absender dauerhaft im Filter, gibst du ihn gezielt frei, statt den Filter insgesamt zu lockern.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Postfächer des Verbunds liegen beim Mail-Anbieter, Praxissoftware und Multifunktionsgerät liefern dort mit eigenen Konten ein (LF9, Kapitel 9.5.3). Die Auszubildende trägt den SPF-Eintrag des Anbieters ein, schaltet beim Anbieter DKIM ein und veröffentlicht den Schlüssel. DMARC startet mit <code>p=none</code>: Erst einmal kommen nur Berichte. Nach vier Wochen zeigen sie, dass alle echten Mails bestehen, aber ein fremder Server im Ausland Mails mit Absender @praxisverbund.example verschickt. Sie stellt auf <code>p=quarantine</code> um. Im Filter des Anbieters blockiert sie ausführbare Anhänge, stellt Office-Dateien mit Makros in Quarantäne und lässt Mails von außen im Betreff mit „[Extern]“ kennzeichnen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„SPF ist bestanden, also ist die Mail echt.“ SPF prüft nur, ob der Server für die Domain im Umschlag senden darf. Ein Betrüger kann eine ähnlich klingende Domain wie praxisverbund-example.com registrieren und dafür einen gültigen SPF-Eintrag setzen. Auf den sichtbaren Absender und das Linkziel kommt es weiter an.</p></aside>
+
+<aside class="note" data-typ="hinweis"><p>Ob die Administration in dienstliche Postfächer schauen darf, etwa um eine Quarantäne zu prüfen, hängt auch davon ab, ob die private Nutzung erlaubt ist. Das klärt Kapitel 11.6.1.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Mailfilter</strong> prüfen in Stufen: Absender, Ruf, Inhalt, Anhänge, Sandbox; Verdachtsfälle gehen in eine Quarantäne, die gesichtet wird.</li>
+  <li><strong>SPF</strong> nennt die erlaubten Server, <strong>DKIM</strong> signiert die Mail, <strong>DMARC</strong> verlangt, dass eines davon zur sichtbaren Absenderdomain passt, und legt fest, was sonst passiert.</li>
+</ul>

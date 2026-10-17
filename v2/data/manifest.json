@@ -6439,6 +6439,120 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "11.5",
+          "titel": "Dienste und Geräte absichern",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "11.5.1",
+              "titel": "E-Mail schützen",
+              "slug": "e-mail-schuetzen",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 4 (Regeln für den Spamfilter, Sandbox)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 1 (Schutz vor Schadcode in E-Mails)",
+                  "AP2 FISI Winter 2024/25 Teil 1 Aufgabe 2 (Spam und Phishing, DKIM und SPF, Absender im Filter blockiert)",
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 4 (SPF-Eintrag)"
+                ],
+                "extern": [
+                  "RFC 7208 (SPF); RFC 6376 (DKIM); RFC 7489 (DMARC); BSI IT-Grundschutz-Kompendium APP.5.3 Allgemeiner E-Mail-Client und -Server"
+                ]
+              },
+              "material": [
+                "angriffsmethoden"
+              ],
+              "begriffe": [
+                "email-sicherheit",
+                "email-dienste",
+                "dns",
+                "social-engineering"
+              ]
+            },
+            {
+              "nummer": "11.5.2",
+              "titel": "DNS absichern",
+              "slug": "dns-absichern",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 4 (DNS-Spoofing, DNSSEC: Authentizität und Integrität)"
+                ],
+                "extern": [
+                  "RFC 4033 bis 4035 (DNSSEC); RFC 7858 (DNS over TLS); RFC 8484 (DNS over HTTPS); BSI IT-Grundschutz-Kompendium APP.3.6 DNS-Server"
+                ]
+              },
+              "material": [
+                "dns-grundlagen"
+              ],
+              "begriffe": [
+                "dnssec",
+                "dns",
+                "firewall"
+              ]
+            },
+            {
+              "nummer": "11.5.3",
+              "titel": "Systeme härten",
+              "slug": "systeme-haerten",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen; Sicherheitsniveau prüfen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 4 (Sicherheitsfunktionen des Betriebssystems, Server härten)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 1 (Server härten, gegliedert nach Bereichen)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 2 (Härtung, Least Privilege und Zero Trust)",
+                  "AP2 FISI Winter 2020/21 Ganzheitliche Aufgabe I (Blacklist und Whitelist)"
+                ],
+                "extern": [
+                  "NIST SP 800-207 (Zero Trust Architecture); BSI IT-Grundschutz-Kompendium SYS.1.1 Allgemeiner Server, NET.3.3 VPN"
+                ]
+              },
+              "material": [
+                "betriebssystem-haertung",
+                "authentifizierung-mfa-aaa"
+              ],
+              "begriffe": [
+                "haertung",
+                "zero-trust",
+                "vpn"
+              ]
+            },
+            {
+              "nummer": "11.5.4",
+              "titel": "Mobile Geräte",
+              "slug": "mobile-geraete",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische und organisatorische Maßnahmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2024 Teil 1 Aufgabe 4 (mobile Geräte mit 2FA, MDM, TPM, Secure Boot absichern)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 3 (Container-App für Firmendaten, Richtlinie für Mobilgeräte und BYOD)",
+                  "AP2 FISI Winter 2020/21 Ganzheitliche Aufgabe I (Vorteile MDM, BYOD-Richtlinie, TPM, UEFI und Secure Boot)"
+                ],
+                "extern": [
+                  "TCG TPM 2.0 Library Specification (Überblick); UEFI Specification (Secure Boot); BSI IT-Grundschutz-Kompendium SYS.3.2.2 Mobile Device Management, SYS.3.1 Laptops"
+                ]
+              },
+              "material": [
+                "endpoint-security"
+              ],
+              "begriffe": [
+                "mdm",
+                "authentifizierung",
+                "haertung",
+                "zertifikat-pki"
+              ]
+            }
+          ]
         }
       ]
     }

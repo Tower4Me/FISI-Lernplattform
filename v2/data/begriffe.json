@@ -369,6 +369,10 @@
         {
           "id": "6-4-4",
           "tiefe": "falscher Support-Anruf mit Fernwartung"
+        },
+        {
+          "id": "11-5-1",
+          "tiefe": "Phishing serverseitig filtern"
         }
       ]
     },
@@ -505,6 +509,10 @@
         {
           "id": "11-3-2",
           "tiefe": "Anmeldung mit Zertifikat statt Kennwort"
+        },
+        {
+          "id": "11-5-4",
+          "tiefe": "TPM plus PIN als zwei Faktoren"
         }
       ]
     },
@@ -620,6 +628,14 @@
         {
           "id": "10-5-4",
           "tiefe": "Patches einspielen"
+        },
+        {
+          "id": "11-5-3",
+          "tiefe": "Härten nach Bereichen, Positivliste, VPN-Gateway"
+        },
+        {
+          "id": "11-5-4",
+          "tiefe": "mobile Geräte"
         }
       ]
     },
@@ -1922,6 +1938,10 @@
         {
           "id": "10-5-1",
           "tiefe": "AD-Domäne = interne Zone"
+        },
+        {
+          "id": "11-5-2",
+          "tiefe": "DNS-Angriffe und DNSSEC"
         }
       ]
     },
@@ -3613,6 +3633,10 @@
         {
           "id": "11-2-3",
           "tiefe": "STARTTLS nutzt TLS"
+        },
+        {
+          "id": "11-5-1",
+          "tiefe": "Mailschutz beim Anbieter"
         }
       ]
     },
@@ -3656,6 +3680,10 @@
         {
           "id": "11-3-2",
           "tiefe": "CA-Zertifikate statt PSK/reiner Public Keys"
+        },
+        {
+          "id": "11-5-3",
+          "tiefe": "VPN-Gateway härten"
         }
       ]
     },
@@ -3933,6 +3961,10 @@
         {
           "id": "11-4-3",
           "tiefe": "Gerätezertifikate für 802.1X am Switch"
+        },
+        {
+          "id": "11-5-4",
+          "tiefe": "Gerätezertifikat bei Verlust widerrufen"
         }
       ]
     },
@@ -3955,6 +3987,10 @@
         {
           "id": "11-4-2",
           "tiefe": "Zonen und Regeln der DMZ"
+        },
+        {
+          "id": "11-5-2",
+          "tiefe": "DNS nach außen nur von internen Servern"
         }
       ]
     },
@@ -3992,6 +4028,65 @@
         {
           "id": "11-4-4",
           "tiefe": "AAA, EAP-Verfahren, WLAN-Angriffe"
+        }
+      ]
+    },
+    {
+      "begriff": "email-sicherheit",
+      "kernfakten": [
+        "Mailfilter in Stufen: Absenderprüfung (SPF, DKIM, DMARC), Ruf/Sperrlisten, Inhalt mit Punktwert, Anhänge (ausführbare Dateien, Makros, verschlüsselte Archive), Virenscanner, Sandbox; Verdachtsfälle in Quarantäne.",
+        "SPF: TXT-Eintrag mit erlaubten sendenden Servern, prüft Umschlag-Absender (-all = alle anderen verboten); DKIM: Signatur über Kopfzeilen und Text, öffentlicher Schlüssel unter selector._domainkey; DMARC: TXT unter _dmarc, verlangt bestandenes SPF oder DKIM passend zur sichtbaren Absenderdomain, Richtlinie none/quarantine/reject, Berichte (rua). Umschlag-Absender (MAIL FROM) und sichtbarer Absender (From) können verschieden sein; DKIM-Fehler: Mail nach Signatur verändert oder Schlüssel/Selektor im DNS falsch.",
+        "SPF bestanden heißt nicht, dass die Mail echt ist (ähnliche Domains)."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-5-3",
+          "tiefe": "SPF-Eintrag nennen, Einlieferung"
+        },
+        {
+          "id": "11-5-1",
+          "tiefe": "Filterstufen, SPF/DKIM/DMARC, Sandbox"
+        }
+      ]
+    },
+    {
+      "begriff": "dnssec",
+      "kernfakten": [
+        "Angriffe: DNS-Spoofing, Cache Poisoning (alle Clients eines Resolvers bis TTL-Ablauf), falscher DNS-Server, Übernahme des Domain-Kontos.",
+        "DNSSEC signiert Zonen: RRSIG (Signatur), DNSKEY (öffentlicher Schlüssel), DS (Hash des Schlüssels in der Elternzone); Kette bis zur Root; validierender Resolver verwirft Fälschungen; sichert Integrität und Authentizität, nicht Vertraulichkeit (dafür DoT TCP 853, DoH 443).",
+        "Interne Resolver nur für das eigene Netz (kein offener Resolver, sonst Verstärkungsangriffe); DNS ins Internet nur von den internen DNS-Servern und begründeten Ausnahmen (DMZ, Gäste); DoH über 443 per Browser-Richtlinie steuern; nur Clients mit validierendem Resolver geschützt; Domain-Konto mit zweitem Faktor."
+      ],
+      "vorkommen": [
+        {
+          "id": "11-5-2",
+          "tiefe": "Angriffe, DNSSEC, Auflösung im eigenen Netz"
+        }
+      ]
+    },
+    {
+      "begriff": "zero-trust",
+      "kernfakten": [
+        "Least Privilege: nur nötige Rechte, nur so lange wie nötig.",
+        "Zero Trust: kein Vertrauen aufgrund des Netzstandorts; jeder Zugriff einzeln geprüft (Person, Gerät, Zustand, Zweck), starke Anmeldung, Rechte je Anwendung, kleine Netzbereiche, Protokollierung; Leitbild, kein Produkt."
+      ],
+      "vorkommen": [
+        {
+          "id": "11-5-3",
+          "tiefe": "Least Privilege, Zero Trust gegen Perimeter-Modell"
+        }
+      ]
+    },
+    {
+      "begriff": "mdm",
+      "kernfakten": [
+        "TPM: Sicherheitschip, Schlüssel nicht auslesbar, misst den Start; Grundlage für Festplattenverschlüsselung (z. B. BitLocker) und Gerätezertifikate; TPM plus Start-PIN = zwei Faktoren. Secure Boot (UEFI): nur signierte Bootloader/Betriebssysteme, gegen Bootkits.",
+        "MDM: Einrichten bei erstem Start, Richtlinien (PIN, Verschlüsselung, Mindestversion, Updates), Apps und Profile verteilen, Überblick und Ausschluss nicht konformer Geräte, orten, sperren, fernlöschen.",
+        "BYOD mit Arbeitsprofil (Container): nur Firmendaten verwaltet und löschbar; schriftliche Richtlinie (zugelassene Geräte, Pflichten, Rechte des Betriebs, Austritt, Kosten); Fernlöschen ersetzt keine Verschlüsselung."
+      ],
+      "vorkommen": [
+        {
+          "id": "11-5-4",
+          "tiefe": "TPM, Secure Boot, MDM, BYOD-Richtlinie"
         }
       ]
     }

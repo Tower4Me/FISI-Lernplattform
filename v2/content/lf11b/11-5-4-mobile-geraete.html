@@ -1,0 +1,40 @@
+<p class="lead">Die zwölf Tierärztinnen und Tierärzte des Praxisverbunds haben neben dem PC je ein Notebook und ein Tablet (LF10b, Kapitel 10.5.3) und arbeiten damit auch im Stall eines Landwirts, im Auto und zu Hause. Ein Gerät, das den Betrieb verlässt, kann verloren gehen, gestohlen werden oder in einem fremden WLAN hängen. Damit die Daten der Tierhalter trotzdem geschützt bleiben, brauchen mobile Geräte Schutz im Gerät selbst und eine zentrale Verwaltung.</p>
+
+<h3>Schutz im Gerät: TPM und Secure Boot</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Baustein</th><th>Aufgabe</th><th>Nutzen</th></tr></thead>
+    <tbody>
+      <tr><th>TPM (Trusted Platform Module)</th><td>Sicherheitschip, der Schlüssel erzeugt und so speichert, dass sie sich nicht auslesen lassen; misst beim Start, welche Software geladen wurde</td><td>Grundlage für die Festplattenverschlüsselung und für Gerätezertifikate (Besitzfaktor, LF4, Kapitel 4.5.3); gibt den Schlüssel nur bei unverändertem Start frei</td></tr>
+      <tr><th>UEFI mit Secure Boot</th><td>startet nur Bootloader und Betriebssystem, die mit einem hinterlegten Schlüssel signiert sind (LF2, Kapitel 2.3.4)</td><td>Schadsoftware, die sich vor dem Betriebssystem einnistet (Bootkit), wird nicht gestartet, solange sie nicht gültig signiert ist</td></tr>
+      <tr><th>Festplattenverschlüsselung</th><td>verschlüsselt den ganzen Datenträger, etwa BitLocker unter Windows; Smartphones und Tablets verschlüsseln mit gesetzter PIN meist ab Werk</td><td>ein gestohlenes, ausgeschaltetes Gerät gibt keine Daten preis</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Mit TPM allein startet ein Notebook ohne Eingabe und entschlüsselt sich selbst. Das schützt gegen den Ausbau der Festplatte, aber weniger gegen einen Dieb mit dem ganzen Gerät. Mit einer zusätzlichen PIN beim Start sind es zwei Faktoren: das Gerät mit seinem TPM und das Wissen der PIN.</p>
+
+<h3>Zentral verwalten: MDM</h3>
+<p>Ein <strong>Mobile Device Management</strong> (MDM, oft Teil des Client-Managements für alle Endgeräte, LF2, Kapitel 2.7.2) verwaltet Notebooks, Tablets und Smartphones zentral:</p>
+<ul>
+  <li><strong>Einrichten</strong>: Neue Geräte melden sich beim ersten Start an und bekommen ihre Einstellungen, ohne dass die IT sie vorher einzeln einrichten muss.</li>
+  <li><strong>Richtlinien durchsetzen</strong>: Bildschirmsperre mit PIN, Verschlüsselung, Mindestversion des Betriebssystems, Updates.</li>
+  <li><strong>Verteilen</strong>: Apps, WLAN-Profile mit Zertifikat (Kapitel 11.4.4), VPN und Mail.</li>
+  <li><strong>Überblick</strong>: Welche Geräte gibt es, welche erfüllen die Richtlinien nicht? Solche Geräte lassen sich vom Zugriff auf Firmendaten ausschließen.</li>
+  <li><strong>Im Notfall</strong>: ein verlorenes Gerät orten, sperren oder aus der Ferne löschen.</li>
+</ul>
+
+<h3>Private Geräte und Richtlinie</h3>
+<p>Ob private Geräte dienstlich genutzt werden dürfen (BYOD, Bring Your Own Device), entscheidet der Betrieb. Die Risiken kennst du aus LF4, Kapitel 4.6.1. Erlaubt er es, trennt ein <strong>Arbeitsprofil</strong> (Container) Firmendaten und Firmen-Apps von den privaten Daten. Das MDM verwaltet nur den Container und kann bei Verlust oder Austritt nur ihn löschen; private Fotos und Nachrichten bleiben unberührt und für den Betrieb unsichtbar.</p>
+<p>Eine <strong>Richtlinie für mobile Geräte</strong> regelt schriftlich, was gilt: welche Geräte und Versionen zugelassen sind, Pflichten der Nutzer (PIN, Updates, Verlust sofort melden), Rechte des Betriebs (Sperren, Löschen, bei privaten Geräten nur den Container), was mit den Daten bei Austritt geschieht und wer die Kosten trägt. Die Beschäftigten bestätigen sie, bevor ihr Gerät eingebunden wird.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende nimmt alle Notebooks und Tablets der Tierärzte ins MDM auf. Die Notebooks verschlüsseln mit BitLocker, TPM und Start-PIN, Secure Boot ist an; das MDM verteilt das Gerätezertifikat für WLAN und VPN. Private Smartphones dürfen Mail und Kalender nur im Arbeitsprofil nutzen; das WLAN ist für sie das Gäste-WLAN (Kapitel 11.4.4); die Mail-App erreicht den Anbieter dort über HTTPS (TCP 443). Als in Süd ein Tablet aus dem Auto gestohlen wird, meldet die Tierärztin den Verlust am selben Tag. Die Auszubildende sperrt das Gerät per MDM, löscht es aus der Ferne und widerruft sein Gerätezertifikat (Kapitel 11.3.2). Weil das Tablet verschlüsselt ist, ergibt die Bewertung des Vorfalls voraussichtlich kein Risiko für die Tierhalter (Kapitel 11.6.2).</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Wir können ja aus der Ferne löschen, Verschlüsselung brauchen wir nicht.“ Das Löschen wirkt erst, wenn das Gerät online geht. Ein Dieb lässt das Gerät offline, etwa im Flugmodus oder ausgeschaltet, und liest den Speicher aus. Nur die Verschlüsselung schützt dann die Daten.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Im Gerät</strong>: TPM speichert Schlüssel und prüft den Start, Secure Boot startet nur signierte Software, Verschlüsselung schützt gestohlene Geräte; TPM plus PIN sind zwei Faktoren.</li>
+  <li><strong>MDM</strong> richtet ein, setzt Richtlinien durch, verteilt Apps und Profile und kann sperren oder löschen; bei BYOD nur im Arbeitsprofil, geregelt in einer schriftlichen Richtlinie.</li>
+</ul>

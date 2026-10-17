@@ -703,6 +703,15 @@
             <li><a class="up is-check" data-check="lf11b-11-4" href="11-4-check.html"><span class="num">11.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="11-5-1-e-mail-schuetzen.html"><span class="num">11.5</span><span>Dienste und Geräte absichern</span><span class="kap-progress" data-ids="11-5-1 11-5-2 11-5-3 11-5-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="11-5-1" href="11-5-1-e-mail-schuetzen.html"><span class="num">11.5.1</span><span class="t">E-Mail schützen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-5-2" href="11-5-2-dns-absichern.html"><span class="num">11.5.2</span><span class="t">DNS absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-5-3" href="11-5-3-systeme-haerten.html"><span class="num">11.5.3</span><span class="t">Systeme härten</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-5-4" href="11-5-4-mobile-geraete.html"><span class="num">11.5.4</span><span class="t">Mobile Geräte</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf11b-11-5" href="11-5-check.html"><span class="num">11.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">11b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -760,8 +769,21 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-11-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 11.4</a></p>
 </section>
+<section class="rb-kapitel" id="k-11-5"><h2><span class="num">11.5</span> Dienste und Geräte absichern</h2>
+<ul class="rb-list">
+<li><span class="num">11.5.1</span><div><a href="11-5-1-e-mail-schuetzen.html">E-Mail schützen</a><ul><li><strong>Mailfilter</strong> prüfen in Stufen: Absender, Ruf, Inhalt, Anhänge, Sandbox; Verdachtsfälle gehen in eine Quarantäne, die gesichtet wird.</li>
+  <li><strong>SPF</strong> nennt die erlaubten Server, <strong>DKIM</strong> signiert die Mail, <strong>DMARC</strong> verlangt, dass eines davon zur sichtbaren Absenderdomain passt, und legt fest, was sonst passiert.</li></ul></div></li>
+<li><span class="num">11.5.2</span><div><a href="11-5-2-dns-absichern.html">DNS absichern</a><ul><li><strong>Angriffe</strong>: gefälschte Antworten (Spoofing), vergifteter Zwischenspeicher (Cache Poisoning), falscher DNS-Server, übernommenes Domain-Konto.</li>
+  <li><strong>DNSSEC</strong> signiert Einträge (RRSIG, DNSKEY, DS als Kette bis zur Root) und sichert Integrität und Authentizität, nicht Vertraulichkeit; dazu interne Resolver nur für das eigene Netz und DNS nach außen nur von ihnen.</li></ul></div></li>
+<li><span class="num">11.5.3</span><div><a href="11-5-3-systeme-haerten.html">Systeme härten</a><ul><li><strong>Härten</strong> nach Bereichen: Firmware, Betriebssystem, Konten und Rechte, Netz, Programme (Positivliste), Protokollierung, Daten; den Zustand festhalten und regelmäßig prüfen.</li>
+  <li><strong>Least Privilege</strong>: nur nötige Rechte, nur so lange wie nötig; <strong>Zero Trust</strong>: jeder Zugriff wird geprüft, auch aus dem internen Netz.</li></ul></div></li>
+<li><span class="num">11.5.4</span><div><a href="11-5-4-mobile-geraete.html">Mobile Geräte</a><ul><li><strong>Im Gerät</strong>: TPM speichert Schlüssel und prüft den Start, Secure Boot startet nur signierte Software, Verschlüsselung schützt gestohlene Geräte; TPM plus PIN sind zwei Faktoren.</li>
+  <li><strong>MDM</strong> richtet ein, setzt Richtlinien durch, verteilt Apps und Profile und kann sperren oder löschen; bei BYOD nur im Arbeitsprofil, geregelt in einer schriftlichen Richtlinie.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-11-5.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 11.5</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="11-4-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">11.4</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="11-5-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">11.5</span>Check</span></a></nav>
 </main>
 </div>
 </body>

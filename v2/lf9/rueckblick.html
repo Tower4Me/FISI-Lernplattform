@@ -584,6 +584,15 @@
             <li><a class="up is-check" data-check="lf9-9-5" href="9-5-check.html"><span class="num">9.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="9-6-1-vpn.html"><span class="num">9.6</span><span>Standorte, Sprache und WLAN</span><span class="kap-progress" data-ids="9-6-1 9-6-2 9-6-3 9-6-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="9-6-1" href="9-6-1-vpn.html"><span class="num">9.6.1</span><span class="t">VPN</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-6-2" href="9-6-2-voip-und-videokonferenz.html"><span class="num">9.6.2</span><span class="t">VoIP und Videokonferenz</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-6-3" href="9-6-3-dienstguete-qos.html"><span class="num">9.6.3</span><span class="t">Dienstgüte (QoS)</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-6-4" href="9-6-4-wlan-im-unternehmen.html"><span class="num">9.6.4</span><span class="t">WLAN im Unternehmen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf9-9-6" href="9-6-check.html"><span class="num">9.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">9.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -655,8 +664,21 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-5.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.5</a></p>
 </section>
+<section class="rb-kapitel" id="k-9-6"><h2><span class="num">9.6</span> Standorte, Sprache und WLAN</h2>
+<ul class="rb-list">
+<li><span class="num">9.6.1</span><div><a href="9-6-1-vpn.html">VPN</a><ul><li><strong>Site-to-Site</strong> verbindet Netze dauerhaft über Gateways, <strong>End-to-Site</strong> einzelne Geräte über einen Client; Full Tunnel schickt allen, Split Tunnel nur Firmenverkehr durch den Tunnel.</li>
+  <li><strong>Stolpersteine:</strong> NAT (NAT-Traversal, UDP 4500), MTU durch Tunnelköpfe, IPv6 am Tunnel vorbei, gleiche Adressbereiche.</li></ul></div></li>
+<li><span class="num">9.6.2</span><div><a href="9-6-2-voip-und-videokonferenz.html">VoIP und Videokonferenz</a><ul><li><strong>VoIP:</strong> SIP baut Gespräche auf (5060/5061), RTP über UDP trägt die Sprache; der Codec bestimmt die Rate.</li>
+  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms, Jitter unter 30 ms, Verlust unter 1 %.</li></ul></div></li>
+<li><span class="num">9.6.3</span><div><a href="9-6-3-dienstguete-qos.html">Dienstgüte (QoS)</a><ul><li><strong>QoS:</strong> klassifizieren, markieren (PCP mit 3 Bit im VLAN-Tag, DSCP mit 6 Bit im IP-Kopf, Sprache EF), in Warteschlangen bevorzugt senden.</li>
+  <li>Wirkt nur am Engpass, meist am Upload; Rate knapp unter der Anschlussrate begrenzen, dann priorisieren. Mehr Bandbreite entsteht nicht.</li></ul></div></li>
+<li><span class="num">9.6.4</span><div><a href="9-6-4-wlan-im-unternehmen.html">WLAN im Unternehmen</a><ul><li><strong>Planung:</strong> Ausleuchtung messen, Access Points nach Fläche und Geräten, Kanäle ohne Überlappung, Sendeleistung eher niedrig, zentrale Verwaltung.</li>
+  <li><strong>Gäste-WLAN:</strong> eigene SSID, VLAN und IP-Netz, nur Internet, Client-Isolation, Captive Portal; im Scan BSSID, Kanal und Signal (dBm) auswerten.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-9-6.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.6</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="9-5-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.5</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="9-6-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.6</span>Check</span></a></nav>
 </main>
 </div>
 </body>

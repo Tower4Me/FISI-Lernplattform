@@ -1097,6 +1097,10 @@
         {
           "id": "9-1-2",
           "tiefe": "mit Overhead 1460/1538, Bandbreitenbedarf"
+        },
+        {
+          "id": "9-6-2",
+          "tiefe": "Overhead je VoIP-Paket"
         }
       ]
     },
@@ -1681,6 +1685,10 @@
         {
           "id": "9-3-4",
           "tiefe": "Multicast ff00::/8, kein Broadcast"
+        },
+        {
+          "id": "9-6-1",
+          "tiefe": "IPv6 am Tunnel vorbei"
         }
       ]
     },
@@ -1794,6 +1802,10 @@
         {
           "id": "9-5-4",
           "tiefe": "80/443"
+        },
+        {
+          "id": "9-6-2",
+          "tiefe": "RTP über UDP"
         }
       ]
     },
@@ -1803,7 +1815,9 @@
         "IEEE 802.11: n = Wi-Fi 4 (600 Mbit/s), ac = Wi-Fi 5 (6,9 Gbit/s), ax = Wi-Fi 6/6E (9,6 Gbit/s, OFDMA, 6E auch 6 GHz), be = Wi-Fi 7 (ca. 46 Gbit/s); theoretische Werte.",
         "2,4 GHz: Reichweite, EU 13 Kanäle, 3–4 überlappungsfrei (1, 6, 11 bzw. 1, 5, 9, 13), Störungen; 5 GHz mehr Kanäle, DFS; 6 GHz in der EU nur unterer Teil, nur 6E/7; Band Steering.",
         "SSID, Access Point (Infrastruktur) vs. Ad-hoc; geteiltes Medium mit CSMA/CA; Roaming, Mesh, Repeater halbiert meist Datenrate.",
-        "WEP und WPA (TKIP) unsicher, WPA2-AES, WPA3 (SAE, Übergangsmodus, 6 GHz nur WPA3); Personal (PSK) vs. Enterprise (802.1X, EAP, RADIUS, Schlüssel je Person); Gästenetz, WPS aus, Admin-Passwörter, Passwort ≥ 20 Zeichen; versteckte SSID/MAC-Filter kein Schutz."
+        "WEP und WPA (TKIP) unsicher, WPA2-AES, WPA3 (SAE, Übergangsmodus, 6 GHz nur WPA3); Personal (PSK) vs. Enterprise (802.1X, EAP, RADIUS, Schlüssel je Person); Gästenetz, WPS aus, Admin-Passwörter, Passwort ≥ 20 Zeichen; versteckte SSID/MAC-Filter kein Schutz.",
+        "Planung: Ausleuchtung messen (für Sprache etwa −67 dBm), AP-Zahl nach Fläche und Clients, Kanäle ohne Überlappung, Sendeleistung eher niedrig, zentrale Verwaltung; je SSID ein VLAN, AP am Trunk.",
+        "Gäste-WLAN: eigene SSID/VLAN/IP-Netz, nur Internet, Client-Isolation, Captive Portal (Voucher), Bandbreite begrenzen; versteckte SSID kein Schutz; BSSID = MAC der Funkschnittstelle."
       ],
       "vorkommen": [
         {
@@ -1817,6 +1831,10 @@
         {
           "id": "7-3-1",
           "tiefe": "WLAN als IoT-Funktechnik"
+        },
+        {
+          "id": "9-6-4",
+          "tiefe": "Planung, Kanalplan, Gäste-WLAN, Scan auswerten"
         }
       ]
     },
@@ -3234,6 +3252,14 @@
         {
           "id": "9-5-1",
           "tiefe": "Relay je VLAN"
+        },
+        {
+          "id": "9-6-3",
+          "tiefe": "PCP im VLAN-Tag"
+        },
+        {
+          "id": "9-6-4",
+          "tiefe": "SSID je VLAN, Trunk zum AP"
         }
       ]
     },
@@ -3299,6 +3325,10 @@
         {
           "id": "9-5-4",
           "tiefe": "Weiterleitung auf Reverse Proxy"
+        },
+        {
+          "id": "9-6-1",
+          "tiefe": "NAT-Traversal"
         }
       ]
     },
@@ -3317,6 +3347,64 @@
         {
           "id": "3-5-5",
           "tiefe": "Ports, IMAP statt POP3"
+        }
+      ]
+    },
+    {
+      "begriff": "vpn",
+      "kernfakten": [
+        "Site-to-Site verbindet Netze dauerhaft über Gateways; End-to-Site (Client-to-Site) einzelne Geräte per Client.",
+        "Verfahren: IPsec (Schicht 3, IKEv2), WireGuard (UDP), TLS-VPN (z. B. OpenVPN); Anmeldung per Pre-Shared Key oder Zertifikat; Routen für Gegenseite nötig.",
+        "Full Tunnel: aller Verkehr durch den Tunnel (Filter der Firma, mehr Last); Split Tunnel: nur Firmenziele.",
+        "Stolpersteine: NAT-Traversal (IKE UDP 500, ESP in UDP 4500), MTU durch Tunnelköpfe, IPv6 am Tunnel vorbei, gleiche private Adressbereiche."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-6-1",
+          "tiefe": "Bauformen, Verfahren, Stolpersteine"
+        },
+        {
+          "id": "3-7-1",
+          "tiefe": "VPN-Client einrichten, Zweck"
+        },
+        {
+          "id": "2-5-3",
+          "tiefe": "VPN für Homeoffice nennen"
+        },
+        {
+          "id": "9-1-3",
+          "tiefe": "Tunnel trotz CGNAT"
+        },
+        {
+          "id": "9-4-1",
+          "tiefe": "Routen in den Tunnel"
+        },
+        {
+          "id": "9-4-3",
+          "tiefe": "OSPF über Tunnel"
+        }
+      ]
+    },
+    {
+      "begriff": "qos",
+      "kernfakten": [
+        "VoIP: SIP-Signalisierung 5060/5061 (TLS), Sprache RTP über UDP (SRTP verschlüsselt); G.711 und G.722 64 kbit/s, Opus variabel; SIP-Trunk.",
+        "G.711 mit 20 ms: 50 Pakete/s, 160 Byte Sprache + RTP 12 + UDP 8 + IPv4 20 + Ethernet 18 = 218 Byte, 87,2 kbit/s je Richtung. Mit Präambel und Rahmenabstand 238 Byte = 95,2 kbit/s; durch IPsec-Tunnel (rund 60 Byte mehr) knapp 120 kbit/s, Planungswert 120 kbit/s.",
+        "Richtwerte Sprache: Einweg höchstens 150 ms, Jitter unter 30 ms, Verlust unter 1 %; Fax per T.38.",
+        "QoS: klassifizieren, markieren (PCP 3 Bit im VLAN-Tag, DSCP 6 Bit im IP-Kopf, Sprache EF 46), bevorzugt senden mit Obergrenze; wirkt am Engpass (Upload), Shaping knapp unter Anschlussrate; schafft keine Bandbreite."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-6-2",
+          "tiefe": "VoIP-Bandbreite"
+        },
+        {
+          "id": "9-6-3",
+          "tiefe": "QoS"
+        },
+        {
+          "id": "9-1-2",
+          "tiefe": "Latenz, Jitter"
         }
       ]
     }

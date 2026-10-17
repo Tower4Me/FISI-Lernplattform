@@ -1,0 +1,39 @@
+<p class="lead">Mittags lädt der Standort Nord die Röntgenbilder des Vormittags ins Stammhaus hoch. Genau dann klingen Telefonate abgehackt. Die Leitung ist nicht zu langsam, aber die großen Uploads füllen die Warteschlange im Router, und die Sprachpakete warten mit. <strong>Dienstgüte</strong> (Quality of Service, QoS) sorgt dafür, dass zeitkritische Pakete vorgehen.</p>
+
+<h3>Das Prinzip</h3>
+<p>Ohne QoS behandelt jedes Gerät alle Pakete gleich (Best Effort). Bei QoS laufen drei Schritte:</p>
+<ol>
+  <li><strong>Klassifizieren</strong>: erkennen, was ein Paket ist, etwa an VLAN, Adresse, Port oder Protokoll.</li>
+  <li><strong>Markieren</strong>: die Klasse im Paket vermerken, damit nachfolgende Geräte nicht neu prüfen müssen.</li>
+  <li><strong>Behandeln</strong>: Pakete in getrennte Warteschlangen legen und die wichtigen zuerst senden. Eine Obergrenze für die bevorzugte Klasse verhindert, dass sie alles andere verdrängt.</li>
+</ol>
+
+<h3>Markierungen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Schicht 2: PCP (802.1p)</th><th>Schicht 3: DSCP</th></tr></thead>
+    <tbody>
+      <tr><th>wo</th><td>im VLAN-Tag nach 802.1Q (Kapitel 9.2.2)</td><td>im IP-Kopf, IPv4 und IPv6</td></tr>
+      <tr><th>Umfang</th><td>3 Bit, Werte 0 bis 7</td><td>6 Bit, Werte 0 bis 63</td></tr>
+      <tr><th>gilt</th><td>nur auf getaggten Strecken; spätestens der Router entfernt das Tag</td><td>Ende zu Ende, solange niemand sie ändert</td></tr>
+      <tr><th>typisch für Sprache</th><td>5</td><td>EF (Expedited Forwarding, Wert 46)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>IP-Telefone markieren ihre Pakete meist selbst. Ein Switch sollte Markierungen nur von Geräten übernehmen, denen er vertraut; sonst könnte jeder PC seine Downloads als Sprache ausgeben.</p>
+
+<h3>Wo QoS wirkt</h3>
+<p>Priorisieren hilft nur dort, wo sich Pakete stauen: am Übergang von einer schnellen auf eine langsame Leitung, meist am Upload des Internetanschlusses. Im Internet selbst beachten Anbieter fremde Markierungen in der Regel nicht. Damit sich die Warteschlange im eigenen Router bildet und nicht im Modem des Anbieters, begrenzt man die Senderate knapp unter der Anschlussrate (Shaping) und priorisiert dort.</p>
+<p>QoS schafft keine zusätzliche Bandbreite. Reicht die Leitung dauerhaft nicht, hilft nur eine schnellere.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Am Router in Nord richtet die Auszubildende ein: Upload auf 38 von 40 Mbit/s begrenzen; Sprache (DSCP EF aus dem Voice-VLAN 30) in eine Vorrangwarteschlange mit höchstens 1 Mbit/s; Videosprechstunde mit eigener Klasse und mindestens 2 Mbit/s; alles andere Best Effort. Am nächsten Mittag laufen die Uploads etwas langsamer, die Telefonate bleiben klar.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Mit QoS wird die Leitung schneller.“ Nein: QoS verteilt nur die vorhandene Bandbreite anders. Sprache kommt pünktlich an, dafür warten weniger wichtige Daten etwas länger.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>QoS:</strong> klassifizieren, markieren (PCP mit 3 Bit im VLAN-Tag, DSCP mit 6 Bit im IP-Kopf, Sprache EF), in Warteschlangen bevorzugt senden.</li>
+  <li>Wirkt nur am Engpass, meist am Upload; Rate knapp unter der Anschlussrate begrenzen, dann priorisieren. Mehr Bandbreite entsteht nicht.</li>
+</ul>

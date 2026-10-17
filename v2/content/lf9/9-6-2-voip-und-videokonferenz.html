@@ -1,0 +1,43 @@
+<p class="lead">Die alte Telefonanlage der Praxen wird abgelöst. Künftig telefonieren alle Standorte über das Netz, und Tierhalter können eine Videosprechstunde buchen. Sprache und Bild verzeihen keine Verzögerung. Damit das funktioniert, musst du wissen, welche Protokolle beteiligt sind und wie viel Bandbreite ein Gespräch wirklich braucht.</p>
+
+<h3>Wie VoIP funktioniert</h3>
+<p>Bei <strong>VoIP</strong> (Voice over IP) wird Sprache digitalisiert und in IP-Paketen übertragen. Zwei Aufgaben sind getrennt:</p>
+<ul>
+  <li><strong>Signalisierung</strong> mit <strong>SIP</strong> (Session Initiation Protocol): Anruf aufbauen, klingeln lassen, annehmen, beenden. Port 5060, verschlüsselt mit TLS 5061.</li>
+  <li><strong>Sprachdaten</strong> mit <strong>RTP</strong> (Real-time Transport Protocol) über UDP. UDP, weil ein verspätetes Paket nutzlos ist; eine Wiederholung wie bei TCP käme zu spät. Verschlüsselt heißt es SRTP.</li>
+</ul>
+<p>Ein <strong>Codec</strong> wandelt die Sprache in Daten um. G.711 überträgt 64 kbit/s ohne Kompression in Telefonqualität, G.722 ebenfalls 64 kbit/s mit besserer Sprachqualität (HD-Telefonie), Opus passt seine Rate an die Leitung an. Den Anschluss an das öffentliche Telefonnetz liefert der Anbieter als <strong>SIP-Trunk</strong> über die Internetleitung.</p>
+
+<h3>Bandbreite eines Gesprächs</h3>
+<p>Ein Codec teilt die Sprache in kurze Abschnitte, meist 20 ms. Das ergibt 50 Pakete je Sekunde und Richtung. Jedes Paket trägt bei G.711 160 Byte Sprache, dazu kommen Köpfe:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Teil</th><th>Byte je Paket</th></tr></thead>
+    <tbody>
+      <tr><th>Sprachdaten (64 kbit/s × 20 ms ÷ 8)</th><td>160</td></tr>
+      <tr><th>RTP-Kopf</th><td>12</td></tr>
+      <tr><th>UDP-Kopf</th><td>8</td></tr>
+      <tr><th>IPv4-Kopf</th><td>20</td></tr>
+      <tr><th>Ethernet-Kopf und Prüfsumme</th><td>18</td></tr>
+      <tr><th>Summe</th><td>218</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="formel">218 Byte × 8 × 50 Pakete/s = 87.200 bit/s ≈ 87,2 kbit/s je Richtung</p>
+<p>Aus 64 kbit/s Sprache werden also rund 87 kbit/s auf dem Ethernet. Auf der Leitung kommen Präambel und Rahmenabstand hinzu (20 Byte, Kapitel 9.1.2): 238 Byte, also 95,2 kbit/s. Ein IPsec-Tunnel fügt jedem Paket noch rund 60 Byte hinzu, damit sind es knapp 120 kbit/s. Deshalb rechnet die Planung in Kapitel 9.1.2 mit 120 kbit/s je Gespräch durch den Tunnel.</p>
+
+<h3>Anforderungen an das Netz</h3>
+<p>Gängige Richtwerte für gute Sprachqualität: Verzögerung in eine Richtung höchstens 150 ms, Jitter unter 30 ms, Paketverlust unter 1 %. Endgeräte gleichen kleine Schwankungen mit einem Puffer (Jitter-Buffer) aus, der die Verzögerung aber erhöht. Für eine Videokonferenz in HD rechnet man je nach Anbieter mit 1,5 bis 4 Mbit/s je Richtung; Bild darf eher leiden als Ton.</p>
+<p>Faxgeräte vertragen VoIP schlecht, weil schon kleine Verluste die Übertragung abbrechen lassen. Dafür gibt es das Verfahren <strong>T.38</strong>, das Fax nicht als Tonsignal, sondern als Daten überträgt und sie mehrfach schickt, damit einzelne Verluste nicht schaden, oder man ersetzt das Fax durch E-Mail.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Am Standort Nord laufen zur Spitzenzeit vier Gespräche gleichzeitig: 4 × 87,2 kbit/s ≈ 349 kbit/s je Richtung, mit Präambel und VPN-Köpfen knapp 120 kbit/s je Gespräch, zusammen rund 0,5 Mbit/s. Dazu kommt eine Videosprechstunde mit 2 Mbit/s. Das passt in den Upload von 40 Mbit/s, aber nur, wenn ein großer Upload die Leitung nicht verstopft. Deshalb plant die Auszubildende eine Priorisierung (Kapitel 9.6.3). Das alte Faxgerät des Labors ersetzt die Praxis durch E-Mail.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„G.711 braucht 64 kbit/s, also reichen 64 kbit/s je Gespräch.“ Die Köpfe von RTP, UDP, IP und Ethernet kommen dazu. Auf dem Ethernet sind es rund 87 kbit/s, und zwar in jede Richtung.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>VoIP:</strong> SIP baut Gespräche auf (5060/5061), RTP über UDP trägt die Sprache; der Codec bestimmt die Rate.</li>
+  <li><strong>Bandbreite:</strong> G.711 mit 20 ms: rund 87 kbit/s je Richtung auf dem Ethernet; gut sind höchstens 150 ms, Jitter unter 30 ms, Verlust unter 1 %.</li>
+</ul>

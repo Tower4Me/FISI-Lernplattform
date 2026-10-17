@@ -1,0 +1,44 @@
+<p class="lead">Nord und Süd sollen auf die Datenbank im Stammhaus zugreifen, als stünde sie im eigenen Haus, und die Tierärztin im Nachtdienst soll von zu Hause Befunde einsehen. Dazwischen liegt das öffentliche Internet. Ein <strong>VPN</strong> (Virtual Private Network) baut darüber einen verschlüsselten Tunnel, in dem die Daten vertraulich und unverändert ankommen. Einen VPN-Client hast du in LF3, Kapitel 3.7.1 eingerichtet; jetzt planst du VPNs für einen Betrieb.</p>
+
+<h3>Zwei Bauformen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Site-to-Site</th><th>End-to-Site (Client-to-Site, Remote Access)</th></tr></thead>
+    <tbody>
+      <tr><th>verbindet</th><td>zwei ganze Netze über ihre VPN-Gateways, meist die Router</td><td>ein einzelnes Gerät mit einem Netz</td></tr>
+      <tr><th>auf den Endgeräten</th><td>nichts nötig, der Tunnel ist für sie unsichtbar</td><td>VPN-Client auf dem Gerät, Anmeldung durch die Person</td></tr>
+      <tr><th>Betrieb</th><td>dauerhaft aufgebaut</td><td>bei Bedarf aufgebaut</td></tr>
+      <tr><th>Einsatz</th><td>Standorte, Filialen, Rechenzentrum</td><td>Homeoffice, Bereitschaft, Fernwartung durch Dienstleister</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Beide Enden weisen sich gegenseitig aus, mit einem gemeinsamen Schlüssel (Pre-Shared Key) oder mit Zertifikaten, und vereinbaren Schlüssel für die Verschlüsselung. Verbreitete Verfahren:</p>
+<ul>
+  <li><strong>IPsec</strong>: genormt, arbeitet auf Schicht 3, Schlüsselaustausch mit IKEv2; Standard für Site-to-Site zwischen Routern verschiedener Hersteller.</li>
+  <li><strong>WireGuard</strong>: schlank und schnell, arbeitet über UDP, wenige Einstellungen.</li>
+  <li><strong>TLS-VPN</strong> (etwa OpenVPN oder das SSL-VPN vieler Firewalls): sichert die Verbindung mit TLS wie HTTPS; über TCP-Port 443 betrieben, kommt es auch durch Firewalls, die nur Webverkehr durchlassen.</li>
+</ul>
+<p>Damit Pakete in den Tunnel gehen, brauchen die Router Routen für die Netze der Gegenseite, statisch (Kapitel 9.4.1) oder per OSPF (Kapitel 9.4.3).</p>
+
+<h3>Full Tunnel oder Split Tunnel</h3>
+<p>Beim <strong>Full Tunnel</strong> schickt ein VPN-Client allen Verkehr durch den Tunnel, auch den ins Internet. Er läuft dann über die Firewall und Filter des Betriebs; die Anbindung im Stammhaus muss diesen Verkehr aber tragen. Beim <strong>Split Tunnel</strong> gehen nur Ziele im Firmennetz durch den Tunnel, alles andere direkt ins Internet. Das spart Bandbreite, das Gerät ist dabei aber ohne den Schutz des Betriebs im Internet.</p>
+
+<h3>Typische Stolpersteine</h3>
+<ul>
+  <li><strong>NAT auf dem Weg:</strong> IPsec verpackt Daten in ESP-Pakete ohne Portnummern, die viele NAT-Router nicht umsetzen können. <strong>NAT-Traversal</strong> verpackt sie zusätzlich in UDP auf Port 4500; beide Seiten müssen es unterstützen. Der Schlüsseltausch (IKE) läuft über UDP 500; die Firewall muss UDP 500 und 4500 durchlassen.</li>
+  <li><strong>MTU:</strong> Der Tunnel fügt jedem Paket eigene Köpfe hinzu. Ein Paket, das vorher genau 1500 Byte hatte, passt dann nicht mehr durch, meist weil es nicht geteilt werden darf und die Rückmeldung „zu groß“ (ICMP) unterwegs gefiltert wird. Kleine Seiten laden, große Downloads oder Anhänge hängen. Abhilfe: im Tunnel eine kleinere MTU oder Segmentgröße einstellen.</li>
+  <li><strong>IPv6 am Tunnel vorbei:</strong> Tunnelt der Client nur IPv4, während das Heimnetz auch IPv6 bietet, gehen IPv6-Verbindungen ungeschützt am Tunnel vorbei. Abhilfe: IPv6 mit in den Tunnel nehmen oder auf dem Client für die Dauer der Verbindung sperren.</li>
+  <li><strong>Gleiche Adressbereiche:</strong> Nutzt das Heimnetz denselben privaten Bereich wie die Firma, weiß der Client nicht, welches Netz gemeint ist. Firmennetze wählen deshalb selten genutzte Bereiche, etwa 10.20.0.0/24 wie im Verbund (Kapitel 9.3.1) statt der Standardnetze von Heimroutern wie 192.168.178.0/24.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nord und Süd sind per IPsec-Site-to-Site mit dem Stammhaus verbunden; die Gateways melden sich mit Zertifikaten an. Die Tierärztinnen im Nachtdienst nutzen einen End-to-Site-Zugang mit Full Tunnel, damit auch ihr Internetverkehr durch die Filter des Verbunds geht. Eine Ärztin meldet, dass Befunde mit großen Röntgenbildern im VPN nicht öffnen, kleine aber schon. Die Auszubildende senkt die Segmentgröße im Tunnel, danach öffnen auch die großen Dateien.</p>
+</div>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie Zertifikate und Schlüssel im VPN funktionieren und wie du ein VPN-Gateway absicherst, wird in LF11b ausführlicher behandelt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Site-to-Site</strong> verbindet Netze dauerhaft über Gateways, <strong>End-to-Site</strong> einzelne Geräte über einen Client; Full Tunnel schickt allen, Split Tunnel nur Firmenverkehr durch den Tunnel.</li>
+  <li><strong>Stolpersteine:</strong> NAT (NAT-Traversal, UDP 4500), MTU durch Tunnelköpfe, IPv6 am Tunnel vorbei, gleiche Adressbereiche.</li>
+</ul>

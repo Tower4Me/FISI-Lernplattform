@@ -5309,6 +5309,111 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "9.6",
+          "titel": "Standorte, Sprache und WLAN",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "9.6.1",
+              "titel": "VPN",
+              "slug": "vpn",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze und Dienste mit externen Ressourcen planen, Sicherheitsmerkmale",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 1 (VPN erklären, Full-Tunnel begründen)",
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 3 (End-to-Site und Site-to-Site, NAT-Traversal, MTU, IPv6-Breakout)",
+                  "AP2 FISI Winter 2021/22 (Zweck des VPN-Clients)"
+                ],
+                "extern": [
+                  "RFC 4301 (IPsec), RFC 7296 (IKEv2), RFC 3948 (UDP-Kapselung ESP, Port 4500), WireGuard-Whitepaper (Donenfeld)"
+                ]
+              },
+              "material": [
+                "vpn-grundlagen"
+              ],
+              "begriffe": [
+                "vpn",
+                "nat",
+                "ipv6"
+              ]
+            },
+            {
+              "nummer": "9.6.2",
+              "titel": "VoIP und Videokonferenz",
+              "slug": "voip-und-videokonferenz",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dienste planen, Leistungsmerkmale",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 4 (VoIP-Bandbreite mit Overhead, Videokonferenz, Fax über VoIP)",
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 4 (Bandbreite für Videokonferenzen)"
+                ],
+                "extern": [
+                  "RFC 3261 (SIP), RFC 3550 (RTP), ITU-T G.711, G.722, G.114, T.38; RFC 6716 (Opus)"
+                ]
+              },
+              "material": [
+                "qos"
+              ],
+              "begriffe": [
+                "qos",
+                "uebertragungsdauer",
+                "tcp-udp"
+              ]
+            },
+            {
+              "nummer": "9.6.3",
+              "titel": "Dienstgüte (QoS)",
+              "slug": "dienstguete-qos",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Leistungsmerkmale von Netzwerken",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 4 (QoS, Audio vorrangig)"
+                ],
+                "extern": [
+                  "IEEE 802.1Q (PCP), RFC 2474 (DSCP), RFC 3246 (Expedited Forwarding), RFC 4594 (Klassen)"
+                ]
+              },
+              "material": [
+                "qos"
+              ],
+              "begriffe": [
+                "qos",
+                "vlan"
+              ]
+            },
+            {
+              "nummer": "9.6.4",
+              "titel": "WLAN im Unternehmen",
+              "slug": "wlan-im-unternehmen",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze planen, installieren, messen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 2 (Planungsaspekte, Gast-WLAN mit SSID, IP-Bereich, Captive Portal)",
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 4 (2,4 und 5 GHz, WLAN-Scan, Kanalkonflikt, versteckte SSID, Captive Portal mit Voucher)"
+                ],
+                "extern": [
+                  "IEEE 802.11; Herstellerleitfäden zur WLAN-Planung (Richtwert −67 dBm für Sprache)"
+                ]
+              },
+              "material": [
+                "wlan-grundlagen"
+              ],
+              "begriffe": [
+                "wlan",
+                "vlan"
+              ]
+            }
+          ]
         }
       ]
     }

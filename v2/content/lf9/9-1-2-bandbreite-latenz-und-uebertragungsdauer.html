@@ -23,16 +23,16 @@
     <caption>Standort Nord, gleichzeitiger Bedarf im Upload (Annahmen)</caption>
     <thead><tr><th>Dienst</th><th>Bedarf</th></tr></thead>
     <tbody>
-      <tr><th>4 Telefonate zu je 100 kbit/s</th><td>0,4 Mbit/s</td></tr>
+      <tr><th>4 Telefonate zu je 120 kbit/s (durch den Tunnel)</th><td>0,5 Mbit/s</td></tr>
       <tr><th>1 Videosprechstunde</th><td>2 Mbit/s</td></tr>
       <tr><th>Praxissoftware zur zentralen Datenbank (Spitze)</th><td>5 Mbit/s</td></tr>
       <tr><th>sonstiger Verkehr (E-Mail-Anhänge, Uploads in Portale)</th><td>10 Mbit/s</td></tr>
-      <tr><th>Summe</th><td>17,4 Mbit/s</td></tr>
+      <tr><th>Summe</th><td>17,5 Mbit/s</td></tr>
       <tr><th>mit 50 % Reserve für Wachstum</th><td>rund 26 Mbit/s</td></tr>
     </tbody>
   </table>
 </div>
-<p>Woher die 100 kbit/s je Gespräch kommen, rechnest du in Kapitel 9.6.2 nach.</p>
+<p>Woher die 120 kbit/s je Gespräch kommen, rechnest du in Kapitel 9.6.2 nach.</p>
 
 <h3>Übertragungsdauer mit Overhead</h3>
 <p>Die Grundformel kennst du aus LF2, Kapitel 2.4.3: Datenmenge in Bit geteilt durch Datenrate in Bit/s. Genauer wird es, wenn du den <strong>Overhead</strong> der Protokolle einrechnest. Ein Ethernet-Rahmen trägt höchstens 1500 Byte (MTU). Davon belegen IPv4- und TCP-Kopf (ohne Optionen) je 20 Byte, es bleiben 1460 Byte Nutzdaten. Auf der Leitung kommen zu den 1500 Byte noch Ethernet-Kopf und Prüfsumme (18 Byte) sowie Präambel und Pause zwischen den Rahmen (20 Byte) hinzu, zusammen 1538 Byte.</p>

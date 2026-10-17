@@ -616,6 +616,14 @@
             <li><a class="up is-check" data-check="lf10b-10-1" href="10-1-check.html"><span class="num">10.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="10-2-1-speicherbedarf-planen.html"><span class="num">10.2</span><span>Speicher planen</span><span class="kap-progress" data-ids="10-2-1 10-2-2 10-2-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="10-2-1" href="10-2-1-speicherbedarf-planen.html"><span class="num">10.2.1</span><span class="t">Speicherbedarf planen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-2-2" href="10-2-2-raid.html"><span class="num">10.2.2</span><span class="t">RAID</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-2-3" href="10-2-3-speichersysteme-und-dateisysteme.html"><span class="num">10.2.3</span><span class="t">Speichersysteme und Dateisysteme</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf10b-10-2" href="10-2-check.html"><span class="num">10.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">10b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -642,8 +650,19 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-10-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.1</a></p>
 </section>
+<section class="rb-kapitel" id="k-10-2"><h2><span class="num">10.2</span> Speicher planen</h2>
+<ul class="rb-list">
+<li><span class="num">10.2.1</span><div><a href="10-2-1-speicherbedarf-planen.html">Speicherbedarf planen</a><ul><li><strong>Speicherbedarf</strong> = Bestand hochgerechnet über die Nutzungsdauer plus Reserve; prozentuales Wachstum mit Bestand × (1 + Rate)<sup>n</sup>.</li>
+  <li><strong>Streams:</strong> Datenrate × Dauer ÷ 8; Ergebnisse in GiB/TiB, Herstellerangaben in GB/TB umrechnen; Kompressionsangaben genau lesen (gespart oder Faktor).</li></ul></div></li>
+<li><span class="num">10.2.2</span><div><a href="10-2-2-raid.html">RAID</a><ul><li><strong>RAID 0</strong> n × C ohne Redundanz, <strong>RAID 1</strong> Spiegel, <strong>RAID 5</strong> (n − 1) × C verkraftet eine, <strong>RAID 6</strong> (n − 2) × C zwei Platten, <strong>RAID 10</strong> n ÷ 2 × C schnell.</li>
+  <li><strong>Hot Spare</strong> startet den Wiederaufbau automatisch und zählt nicht zur Kapazität; JBOD ist kein Schutz, RAID keine Sicherung.</li></ul></div></li>
+<li><span class="num">10.2.3</span><div><a href="10-2-3-speichersysteme-und-dateisysteme.html">Speichersysteme und Dateisysteme</a><ul><li><strong>NAS</strong> liefert Dateien (SMB, NFS), <strong>SAN</strong> Blöcke wie eine eigene Platte (iSCSI, Fibre Channel) und ist der übliche gemeinsame Speicher für Virtualisierungshosts.</li>
+  <li><strong>Clustergröße</strong>: klein für viele kleine Dateien, groß für große Dateien; <strong>Deduplizierung</strong> speichert gleiche Blöcke nur einmal und spart vor allem bei Sicherungen und VMs.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-10-2.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.2</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="10-1-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.1</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="10-2-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.2</span>Check</span></a></nav>
 </main>
 </div>
 </body>

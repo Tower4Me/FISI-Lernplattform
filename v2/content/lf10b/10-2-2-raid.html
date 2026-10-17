@@ -1,0 +1,42 @@
+<p class="lead">Festplatten und SSDs fallen irgendwann aus, oft ohne Vorwarnung. Hängt die Praxisdatenbank an einer einzigen Platte, steht der Betrieb, bis eine neue eingebaut und die Sicherung zurückgespielt ist. Ein <strong>RAID</strong> (Redundant Array of Independent Disks) fasst mehrere Platten zu einem Verbund zusammen, der den Ausfall einer oder zweier Platten ohne Unterbrechung übersteht oder schneller arbeitet. In LF4, Kapitel 4.6.2 hast du erfahren, dass ein RAID keine Sicherung ersetzt; jetzt wählst du das passende Level und rechnest die Kapazität.</p>
+
+<h3>Die wichtigsten Level</h3>
+<p>Einige Level arbeiten mit <strong>Parität</strong>: Das RAID speichert zu jedem Streifen eine Prüfinformation. Fällt eine Platte aus, berechnet der Verbund die fehlenden Daten aus den übrigen Platten und der Parität. Jeder Schreibvorgang muss dafür auch die Parität lesen, neu berechnen und schreiben; diese zusätzlichen Zugriffe machen RAID 5 und 6 beim Schreiben langsamer als RAID 10.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Level</th><th>Prinzip</th><th>mind. Platten</th><th>Nettokapazität bei n Platten der Größe C</th><th>verkraftet</th></tr></thead>
+    <tbody>
+      <tr><th>RAID 0</th><td>Daten in Streifen auf alle Platten verteilt (Striping)</td><td>2</td><td>n × C</td><td>keinen Ausfall</td></tr>
+      <tr><th>RAID 1</th><td>zwei Platten mit identischem Inhalt (Spiegelung)</td><td>2</td><td>C</td><td>eine Platte</td></tr>
+      <tr><th>RAID 5</th><td>Striping mit einer verteilten Paritätsinformation</td><td>3</td><td>(n − 1) × C</td><td>eine Platte</td></tr>
+      <tr><th>RAID 6</th><td>Striping mit zwei unabhängigen Paritätsinformationen</td><td>4</td><td>(n − 2) × C</td><td>zwei beliebige Platten</td></tr>
+      <tr><th>RAID 10</th><td>gespiegelte Paare, über die gestreift wird (1 + 0)</td><td>4, gerade Anzahl</td><td>n ÷ 2 × C</td><td>eine Platte je Spiegelpaar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Level auswählen</h3>
+<ul>
+  <li><strong>RAID 1</strong>: zwei Platten für das Betriebssystem eines Servers; einfach und sicher.</li>
+  <li><strong>RAID 5</strong>: viel Nettokapazität, eine Platte Reserve. Bei großen Platten dauert der Wiederaufbau viele Stunden; fällt währenddessen eine zweite aus, sind die Daten verloren.</li>
+  <li><strong>RAID 6</strong>: wie RAID 5, verkraftet aber zwei Ausfälle; heute üblich für große Datenspeicher.</li>
+  <li><strong>RAID 10</strong>: schnell beim Schreiben und beim Wiederaufbau, gut für Datenbanken und VMs; dafür nur die halbe Kapazität.</li>
+  <li><strong>RAID 0</strong>: nur für Daten, die du jederzeit neu erzeugen kannst, etwa Zwischendateien beim Videoschnitt.</li>
+</ul>
+
+<h3>Hot Spare, JBOD und Controller</h3>
+<p>Eine <strong>Hot Spare</strong> ist eine zusätzliche Platte, die am Controller bereitsteht, aber nicht zum Verbund gehört. Fällt eine Platte aus, beginnt der Controller sofort mit dem Wiederaufbau auf die Hot Spare, ohne dass jemand eingreifen muss. Sie zählt nicht zur Nettokapazität.</p>
+<p><strong>JBOD</strong> (Just a Bunch of Disks) hängt Platten einfach hintereinander zu einem großen Laufwerk. Das bringt weder Redundanz noch Geschwindigkeit: Fällt eine Platte aus, sind ihre Daten weg, je nach Umsetzung auch der ganze Verbund.</p>
+<p>Ein <strong>Hardware-RAID-Controller</strong> berechnet die Parität selbst, und hat einen eigenen Schreibcache, der bei Stromausfall durch Akku oder Kondensator geschützt ist. Er ist aber selbst ein Einzelpunkt, und der Verbund lässt sich meist nur mit einem Controller derselben Baureihe wieder lesen. <strong>Software-RAID</strong> übernimmt das Betriebssystem; es kostet nichts extra, belastet aber den Prozessor. Beide melden Plattenausfälle, wenn sie ans Monitoring angebunden sind (Kapitel 10.6.1).</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die VMs mit den 4,4 TiB aus Kapitel 10.2.1 liegen auf dem gemeinsamen Speichersystem der beiden Hosts. Die Auszubildende wählt vier SSDs mit je 3,84 TB (rund 3,49 TiB) im RAID 10: netto 4 ÷ 2 × 3,49 TiB ≈ 7 TiB, schnell genug für die Datenbank. Der Sicherungsserver soll vier Wochen tägliche Sicherungen aufnehmen und braucht dafür 20 TiB nutzbar (Kapitel 10.2.3). Seine Platten haben je 8 TB, also rund 7,28 TiB. Sie wählt RAID 6: 20 TiB ÷ 7,28 TiB ≈ 2,75, also 3 Platten für Daten, plus 2 für Parität, plus 1 Hot Spare. Das sind 6 Platten, netto (5 − 2) × 7,28 TiB ≈ 21,8 TiB.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Mit RAID brauchen wir keine Sicherung mehr.“ Ein RAID schützt vor dem Ausfall von Platten, nicht vor versehentlichem Löschen, Verschlüsselung durch Schadsoftware oder einem defekten Controller. Gelöschte Dateien sind auf allen Platten gleichzeitig weg (Kapitel 10.4).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>RAID 0</strong> n × C ohne Redundanz, <strong>RAID 1</strong> Spiegel, <strong>RAID 5</strong> (n − 1) × C verkraftet eine, <strong>RAID 6</strong> (n − 2) × C zwei Platten, <strong>RAID 10</strong> n ÷ 2 × C schnell.</li>
+  <li><strong>Hot Spare</strong> startet den Wiederaufbau automatisch und zählt nicht zur Kapazität; JBOD ist kein Schutz, RAID keine Sicherung.</li>
+</ul>

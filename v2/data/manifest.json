@@ -5598,6 +5598,91 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "10.2",
+          "titel": "Speicher planen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "10.2.1",
+              "titel": "Speicherbedarf planen",
+              "slug": "speicherbedarf-planen",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Konzepte für Einrichtung und Datensicherung; Auswahl nach Skalierbarkeit und Wirtschaftlichkeit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 3 (Speicherbedarf eines Videostreams)",
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 1 (Archivspeicher mit Kompression)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 4 (Speicherbedarf mit Wachstum in TiB)",
+                  "AP2 FISI Winter 2024/25 Teil 1 Aufgabe 3 (Speicherbedarf mit Wachstum)"
+                ],
+                "extern": [
+                  "IEC 80000-13 (Binärpräfixe)"
+                ]
+              },
+              "material": [
+                "datenmengen-uebertragung"
+              ],
+              "begriffe": [
+                "praefixe"
+              ]
+            },
+            {
+              "nummer": "10.2.2",
+              "titel": "RAID",
+              "slug": "raid",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Auswahl nach Verfügbarkeit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 1 (RAID-Controller, Level wählen)",
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 1 (RAID 6 mit Hot Spare)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 4 (Plattenanzahl RAID 6, Hot Spare)",
+                  "AP2 FISI Sommer 2024 Teil 1 Aufgabe 4 (RAID 10, 5 und 6 vergleichen)",
+                  "AP2 FISI Winter 2024/25 Teil 1 Aufgabe 3 (Nettokapazität, Hot Spare, JBOD)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 1 (RAID-6-Erweiterung, RAID 10)"
+                ],
+                "extern": [
+                  "SNIA Common RAID Disk Data Format (RAID-Level-Definitionen)"
+                ]
+              },
+              "material": [
+                "raid-level"
+              ],
+              "begriffe": [
+                "raid",
+                "datensicherung",
+                "praefixe"
+              ]
+            },
+            {
+              "nummer": "10.2.3",
+              "titel": "Speichersysteme und Dateisysteme",
+              "slug": "speichersysteme-und-dateisysteme",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Serverdienste und Plattformen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 4 (Clustergröße wählen)",
+                  "AP2 FISI Winter 2024/25 Teil 1 Aufgabe 3 (Deduplizierung)"
+                ],
+                "extern": [
+                  "RFC 7143 (iSCSI), Microsoft-Dokumentation NTFS-Zuordnungseinheiten"
+                ]
+              },
+              "material": [
+                "nas-san-storage"
+              ],
+              "begriffe": [
+                "das-nas-san",
+                "dateisysteme"
+              ]
+            }
+          ]
         }
       ]
     }

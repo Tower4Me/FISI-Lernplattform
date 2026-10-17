@@ -1,0 +1,125 @@
+{
+  "titel": "Check 10.2",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Prozentuales Wachstum",
+      "frage": "Ein Datenbestand von 2 TiB wächst jährlich um 10 %. Wie groß ist er nach drei Jahren ungefähr?",
+      "optionen": [
+        "2,60 TiB",
+        "2,66 TiB",
+        "2,30 TiB",
+        "6,00 TiB"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "2 TiB × 1,1³ = 2 TiB × 1,331 ≈ 2,66 TiB. Mit 2,60 TiB hättest du linear gerechnet und übersehen, dass sich der Zuwachs auf den gewachsenen Bestand bezieht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Videostream",
+      "frage": "Eine Kamera zeichnet mit 2 Mbit/s einen Tag lang (86.400 s) auf. Wie viel Speicher braucht das?",
+      "optionen": [
+        "172,8 GB",
+        "2,7 GB",
+        "21,6 GB",
+        "1.382,4 GB"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "2.000.000 Bit/s × 86.400 s = 172.800.000.000 Bit; geteilt durch 8 sind das 21.600.000.000 Byte = 21,6 GB (rund 20,1 GiB). 172,8 GB entsteht, wenn du die Division durch 8 vergisst, 2,7 GB, wenn du zweimal durch 8 teilst."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kompression",
+      "frage": "Ein Archiv mit 800 GiB wird so komprimiert, dass 25 % Platz gespart werden. Wie groß ist es danach?",
+      "optionen": [
+        "200 GiB",
+        "400 GiB",
+        "775 GiB",
+        "600 GiB"
+      ],
+      "richtig": [
+        3
+      ],
+      "erklaerung": "Werden 25 % gespart, bleiben 75 %: 800 GiB × 0,75 = 600 GiB. 200 GiB ist die eingesparte Menge."
+    },
+    {
+      "typ": "mc",
+      "thema": "RAID-6-Kapazität",
+      "frage": "Sechs Platten zu je 4 TiB bilden ein RAID 6 ohne Hot Spare. Wie viel ist nutzbar?",
+      "optionen": [
+        "16 TiB",
+        "20 TiB",
+        "12 TiB",
+        "24 TiB"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "RAID 6 verwendet die Kapazität von zwei Platten für Parität: (6 − 2) × 4 TiB = 16 TiB. 20 TiB wäre RAID 5, 12 TiB RAID 10."
+    },
+    {
+      "typ": "mc",
+      "thema": "RAID-Level wählen",
+      "frage": "Ein großer Datenspeicher soll weiterlaufen, auch wenn während des Wiederaufbaus noch eine zweite Platte ausfällt. Welches Level passt?",
+      "optionen": [
+        "RAID 0",
+        "RAID 5",
+        "RAID 6",
+        "RAID 5 mit Hot Spare"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "RAID 6 hat zwei unabhängige Paritätsinformationen und verkraftet zwei beliebige Plattenausfälle. RAID 5 verkraftet auch mit Hot Spare nur einen: Fällt während des Wiederaufbaus eine zweite Platte aus, sind die Daten verloren."
+    },
+    {
+      "typ": "mc",
+      "thema": "Hot Spare",
+      "frage": "Wozu steckt in einem RAID eine zusätzliche Festplatte, die im Normalbetrieb nichts speichert?",
+      "optionen": [
+        "Sie erhöht die Nettokapazität um ihre eigene Größe",
+        "Sie ersetzt eine ausgefallene Platte automatisch",
+        "Sie speichert eine Sicherung aller Daten vom Vortag",
+        "Sie beschleunigt das Schreiben der Parität"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Eine Hot Spare springt automatisch ein, sobald eine Platte ausfällt, und verkürzt so die Zeit ohne Redundanz. Zur Nettokapazität zählt sie nicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "NAS und SAN",
+      "frage": "Zwei Virtualisierungshosts sollen auf dieselben VM-Festplatten zugreifen, die sie wie eigene Laufwerke sehen. Was passt?",
+      "optionen": [
+        "Eine SMB-Freigabe auf einem Arbeitsplatz-PC",
+        "Ein USB-Laufwerk an einem der beiden Hosts",
+        "Blockspeicher im SAN, angebunden per iSCSI",
+        "Eine NFS-Freigabe auf dem NAS"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Ein SAN stellt Blöcke bereit, die die Server wie eigene Platten nutzen; das ist der übliche gemeinsame Speicher für Hosts. Eine NFS- oder SMB-Freigabe liefert Dateien, ein USB-Laufwerk (DAS) hängt nur an einem Host."
+    },
+    {
+      "typ": "mc",
+      "thema": "Clustergröße",
+      "frage": "Ein Laufwerk soll fast nur Sicherungsdateien von mehreren Gigabyte aufnehmen. Welche Einstellung beim Formatieren ist sinnvoll?",
+      "optionen": [
+        "Große Zuordnungseinheiten, etwa 64 KiB",
+        "Möglichst kleine Zuordnungseinheiten, etwa 512 Byte",
+        "Kleine Zuordnungseinheiten, damit wenig Verschnitt entsteht",
+        "Standardgröße 4 KiB, weil sie für jede Dateiart am besten passt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei großen Dateien fällt der Verschnitt kaum ins Gewicht; große Cluster verringern den Verwaltungsaufwand. Kleine Cluster lohnen sich bei vielen kleinen Dateien."
+    }
+  ]
+}

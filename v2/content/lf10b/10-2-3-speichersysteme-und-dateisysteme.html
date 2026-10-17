@@ -1,0 +1,39 @@
+<p class="lead">Zwei Virtualisierungshosts sollen sich gegenseitig vertreten können. Das geht nur, wenn beide auf dieselben Daten zugreifen: Liegen die Festplatten der VMs in einem Host, sind sie bei dessen Ausfall nicht erreichbar. Deshalb brauchst du einen gemeinsamen Speicher und musst ihn passend einrichten.</p>
+
+<h3>Datei- oder Blockspeicher</h3>
+<p>DAS, NAS und SAN kennst du aus LF2, Kapitel 2.2.4. Für Server entscheidet vor allem, <em>wie</em> der Speicher bereitgestellt wird:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>NAS</th><th>SAN</th></tr></thead>
+    <tbody>
+      <tr><th>stellt bereit</th><td>Dateien und Ordner (Dateiebene)</td><td>Speicherblöcke, die der Server wie eine eigene Festplatte sieht (Blockebene)</td></tr>
+      <tr><th>Protokolle</th><td>SMB (vor allem Windows-Netze), NFS (vor allem Linux und Unix)</td><td>iSCSI über Ethernet, Fibre Channel über eigenes Netz</td></tr>
+      <tr><th>Dateisystem</th><td>verwaltet das NAS</td><td>verwaltet der Server</td></tr>
+      <tr><th>typisch für</th><td>gemeinsame Ablage, Sicherungsziel</td><td>Datenbanken, gemeinsamer Speicher für Virtualisierungshosts</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Läuft iSCSI über das normale Netz, bekommt der Speicherverkehr ein eigenes VLAN (LF9, Kapitel 9.2.2) oder eigene Anschlüsse, damit er die Clients nicht ausbremst und vor ihnen geschützt ist.</p>
+
+<h3>Clustergröße</h3>
+<p>Wie viel Platz Dateien tatsächlich belegen, hängt auch davon ab, wie das Laufwerk formatiert ist. Ein Dateisystem teilt den Speicher in <strong>Cluster</strong> (Zuordnungseinheiten), etwa 4 KiB oder 64 KiB. Eine Datei belegt immer ganze Cluster. Eine Datei mit 5 KiB belegt bei 64-KiB-Clustern einen ganzen Cluster; 59 KiB bleiben ungenutzt (Verschnitt).</p>
+<ul>
+  <li><strong>Kleine Cluster</strong> passen zu vielen kleinen Dateien, etwa Dokumenten und Vorlagen: wenig Verschnitt.</li>
+  <li><strong>Große Cluster</strong> passen zu wenigen großen Dateien, etwa Sicherungen, Videos oder VM-Festplatten: weniger Verwaltungsaufwand, schnelleres Lesen am Stück.</li>
+</ul>
+<p>Das Formatieren kennst du aus LF2, Kapitel 2.3.3; dabei legst du auch die Clustergröße fest. Nachträglich ändern heißt neu formatieren.</p>
+
+<h3>Deduplizierung</h3>
+<p>Viele Daten liegen mehrfach vor: zehn VMs mit demselben Betriebssystem, dieselbe Datei in jeder Wochensicherung. Die <strong>Deduplizierung</strong> erkennt gleiche Blöcke und speichert sie nur einmal; alle weiteren Vorkommen verweisen auf diesen Block. Kompression kodiert Wiederholungen innerhalb eines Datenstroms kürzer; die Deduplizierung findet gleiche Blöcke auch in verschiedenen Dateien und VMs. Besonders viel spart sie bei Sicherungen und VMs, bei vielen einzigartigen Daten wie Röntgenbildern kaum. Sie braucht Rechenleistung und Arbeitsspeicher, und geht ein deduplizierter Block verloren, fehlt er in allen Dateien, die ihn nutzen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die beiden Hosts im Stammhaus greifen per iSCSI über ein eigenes Speicher-VLAN auf ein Speichersystem mit RAID 10, zwei Controllern und je zwei Anschlüssen pro Host zu; dort liegen alle VM-Festplatten. Die Sicherungen landen auf einem Sicherungsserver unter Windows Server mit RAID 6, der das alte NAS ablöst. Sein Sicherungslaufwerk ist mit 64-KiB-Clustern formatiert, die Deduplizierung ist eingeschaltet. Nach vier Wochen belegen 28 tägliche Vollsicherungen der VMs nur etwa das Dreifache einer einzelnen. Eine weitere Kopie liegt offline außer Haus (Kapitel 10.4.2).</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Ein gemeinsamer Speicher ist selbst ein Einzelpunkt, dessen Ausfall alle Hosts trifft. Deshalb braucht er zwei Controller und doppelte Anschlüsse.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>NAS</strong> liefert Dateien (SMB, NFS), <strong>SAN</strong> Blöcke wie eine eigene Platte (iSCSI, Fibre Channel) und ist der übliche gemeinsame Speicher für Virtualisierungshosts.</li>
+  <li><strong>Clustergröße</strong>: klein für viele kleine Dateien, groß für große Dateien; <strong>Deduplizierung</strong> speichert gleiche Blöcke nur einmal und spart vor allem bei Sicherungen und VMs.</li>
+</ul>

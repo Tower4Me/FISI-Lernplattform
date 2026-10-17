@@ -1,0 +1,39 @@
+<p class="lead">Wie groß muss der Speicher der neuen Serverumgebung sein? Kaufst du zu knapp, ist er in zwei Jahren voll und die Erweiterung wird teuer. Kaufst du zu viel, liegt Geld ungenutzt im Schrank. Wie du die Größe einzelner Dateien und Datenmengen berechnest, kennst du aus LF2, Kapitel 2.4.2. Jetzt rechnest du den Bedarf eines ganzen Betriebs über die geplante Nutzungsdauer hoch, mit Wachstum und Reserve.</p>
+
+<h3>Vorgehen</h3>
+<ol>
+  <li><strong>Bestand erfassen</strong>: Was liegt heute vor? Datenbank, Dateiablage, Postfächer, VMs.</li>
+  <li><strong>Zuwachs schätzen</strong>: aus der Entwicklung der letzten Jahre oder aus neuen Datenquellen (Einzelgröße × Anzahl × Zeitraum).</li>
+  <li><strong>Hochrechnen</strong> auf die Nutzungsdauer, meist drei bis fünf Jahre.</li>
+  <li><strong>Reserve</strong> aufschlagen, etwa 20 %, weil volle Datenträger langsamer werden und Schätzungen ungenau sind.</li>
+</ol>
+<p>Speichergrößen rechnest du in GiB und TiB (Faktor 1024), Herstellerangaben der Platten stehen in GB und TB (Faktor 1000; LF2, Kapitel 2.4.1).</p>
+
+<h3>Wachstum</h3>
+<p>Wächst der Bestand jedes Jahr um <strong>dieselbe Menge</strong> (linear), addierst du sie Jahr für Jahr. Wächst er um <strong>denselben Prozentsatz</strong>, wird der Zuwachs jedes Jahr größer, weil er sich auf den gewachsenen Bestand bezieht:</p>
+<p class="formel">Bestand nach n Jahren = heutiger Bestand × (1 + Wachstumsrate)<sup>n</sup></p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Daten des Praxisverbunds belegen heute 1,5 TiB und wachsen jährlich um 25 %. Für vier Jahre rechnet die Auszubildende: 1,5 TiB × 1,25<sup>4</sup> = 1,5 TiB × 2,44 ≈ 3,66 TiB. Mit 20 % Reserve: 3,66 TiB × 1,2 ≈ 4,4 TiB nutzbarer Speicher. Hätte sie linear mit 25 % des heutigen Bestands gerechnet (0,375 TiB pro Jahr), käme sie nur auf 3 TiB und wäre zu knapp.</p>
+</div>
+
+<h3>Neue Datenquellen hochrechnen</h3>
+<p>Für einzelne Quellen multiplizierst du die Größe eines Elements mit der Anzahl im Zeitraum. Bei Video oder Audio rechnest du mit der Datenrate:</p>
+<p class="formel">Datenmenge in Byte = Datenrate in Bit/s × Dauer in s ÷ 8</p>
+<p>Eine Kamera im Medikamentenlager zeichnet mit 4 Mbit/s rund um die Uhr auf, die Aufnahmen werden sieben Tage aufbewahrt: 4.000.000 Bit/s × 86.400 s × 7 ÷ 8 = 302.400.000.000 Byte. Das sind 302,4 GB oder, geteilt durch 1024<sup>3</sup>, rund 281,6 GiB.</p>
+
+<h3>Kompression</h3>
+<p>Komprimierte Daten brauchen weniger Platz. Achte genau darauf, wie die Angabe gemeint ist:</p>
+<ul>
+  <li>„Kompression <strong>spart 40 %</strong>“: Es bleiben 60 %. 500 GiB × 0,6 = 300 GiB.</li>
+  <li>„Kompressionsfaktor <strong>2:1</strong>“: Die Daten werden halb so groß. 500 GiB ÷ 2 = 250 GiB.</li>
+</ul>
+<p>Bereits komprimierte Formate wie JPEG, MP4 oder ZIP lassen sich kaum weiter verkleinern. Unkomprimiert gespeicherte Röntgenbilder oder Textdaten schrumpfen dagegen deutlich.</p>
+
+<aside class="note" data-typ="fehler"><p>Eine Platte mit 8 TB zeigt Windows nur mit rund 7,27 „TB“ an und meint damit TiB. Das ist kein Defekt: Der Hersteller rechnet mit 1000, Windows mit 1024. Rechne Herstellerangaben vor dem Vergleich um.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Speicherbedarf</strong> = Bestand hochgerechnet über die Nutzungsdauer plus Reserve; prozentuales Wachstum mit Bestand × (1 + Rate)<sup>n</sup>.</li>
+  <li><strong>Streams:</strong> Datenrate × Dauer ÷ 8; Ergebnisse in GiB/TiB, Herstellerangaben in GB/TB umrechnen; Kompressionsangaben genau lesen (gespart oder Faktor).</li>
+</ul>

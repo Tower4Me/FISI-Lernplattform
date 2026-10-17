@@ -86,6 +86,10 @@
         {
           "id": "10-1-2",
           "tiefe": "Snapshot ersetzt keine Sicherung"
+        },
+        {
+          "id": "10-2-2",
+          "tiefe": "RAID ersetzt keine Sicherung"
         }
       ]
     },
@@ -1031,12 +1035,17 @@
         "Partitionieren teilt auf, Formatieren legt Dateisystem an.",
         "MBR: bis 2 TiB, 4 primäre Partitionen, BIOS; GPT: über 2 TiB, Windows bis 128 Partitionen, UEFI.",
         "NTFS (Windows, Rechte, Journaling; macOS nur lesen, aktuelles Linux lesen/schreiben), FAT32 (max. 4 GB je Datei), exFAT (ohne 4-GB-Grenze, breit lesbar), ext4 (Linux), APFS (macOS).",
-        "Schnellformatierung erneuert nur Verwaltungsdaten, löscht nicht sicher; vollständige prüft und überschreibt mit Nullen."
+        "Schnellformatierung erneuert nur Verwaltungsdaten, löscht nicht sicher; vollständige prüft und überschreibt mit Nullen.",
+        "Cluster (Zuordnungseinheit): Datei belegt ganze Cluster; klein für viele kleine Dateien, groß für große Dateien. Deduplizierung speichert gleiche Blöcke einmal."
       ],
       "vorkommen": [
         {
           "id": "2-3-3",
           "tiefe": "MBR/GPT, Dateisysteme"
+        },
+        {
+          "id": "10-2-3",
+          "tiefe": "Clustergröße, Deduplizierung"
         }
       ]
     },
@@ -1063,7 +1072,8 @@
         "Dezimal kB/MB/GB/TB Faktor 1000 (Datenraten, Herstellerangaben Massenspeicher); binär KiB/MiB/GiB/TiB Faktor 1024 (Speichergrößen, RAM; in Aufgaben verwenden).",
         "kB in KiB: × 1000 ÷ 1024; 2 TB ≈ 1,82 TiB.",
         "Bild: Breite × Höhe × Farbtiefe ÷ 8 = Byte; Hochrechnung Element × Anzahl × Tage × Jahre, am Ende aufrunden.",
-        "n Bit ergeben 2^n Werte (8 Bit = 256, 24 Bit ≈ 16,7 Mio. Farben); Scan: Pixel = cm ÷ 2,54 × dpi; doppelte dpi = vierfacher Speicher."
+        "n Bit ergeben 2^n Werte (8 Bit = 256, 24 Bit ≈ 16,7 Mio. Farben); Scan: Pixel = cm ÷ 2,54 × dpi; doppelte dpi = vierfacher Speicher.",
+        "Wachstum prozentual: Bestand × (1 + Rate)^n; Stream: Datenrate × Dauer ÷ 8; Kompression „spart x %“ vs. Faktor."
       ],
       "vorkommen": [
         {
@@ -1089,6 +1099,14 @@
         {
           "id": "9-1-2",
           "tiefe": "GiB und Mbit/s"
+        },
+        {
+          "id": "10-2-1",
+          "tiefe": "Speicherbedarf mit Wachstum, Stream, Kompression"
+        },
+        {
+          "id": "10-2-2",
+          "tiefe": "TB in TiB für RAID-Rechnung"
         }
       ]
     },
@@ -2778,7 +2796,8 @@
       "begriff": "das-nas-san",
       "kernfakten": [
         "DAS: direkt an einem Rechner (z. B. USB); NAS: eigenes Gerät im LAN, stellt Dateien bereit; SAN: eigenes schnelles Speichernetz, Server sehen Speicher wie eigene Festplatte.",
-        "SAN gegenüber NAS: schneller, entlastet LAN, gut erweiterbar, aber teuer und aufwendig."
+        "SAN gegenüber NAS: schneller, entlastet LAN, gut erweiterbar, aber teuer und aufwendig.",
+        "NAS liefert Dateien (SMB, NFS), SAN Blöcke (iSCSI, Fibre Channel); SAN als gemeinsamer Speicher für Virtualisierungshosts."
       ],
       "vorkommen": [
         {
@@ -2788,6 +2807,10 @@
         {
           "id": "3-1-1",
           "tiefe": "NAS als Dateiserver im kleinen LAN"
+        },
+        {
+          "id": "10-2-3",
+          "tiefe": "Datei- vs. Blockebene, SMB/NFS, iSCSI/FC, gemeinsamer Speicher"
         }
       ]
     },
@@ -3493,6 +3516,25 @@
         {
           "id": "10-1-4",
           "tiefe": "Servicemodelle, Abrechnung, Vergleich mit On-Premises"
+        }
+      ]
+    },
+    {
+      "begriff": "raid",
+      "kernfakten": [
+        "RAID 0 Striping, n × C, keine Redundanz, mind. 2; RAID 1 Spiegel, C, mind. 2; RAID 5 eine Parität, (n − 1) × C, mind. 3, verkraftet eine Platte; RAID 6 zwei Paritäten, (n − 2) × C, mind. 4, verkraftet zwei; RAID 10 Spiegelpaare gestreift, n ÷ 2 × C, mind. 4, gerade Anzahl.",
+        "Hot Spare: ungenutzte Reserveplatte, Wiederaufbau startet automatisch, zählt nicht zur Nettokapazität; JBOD: Platten hintereinander, keine Redundanz.",
+        "Parität kostet Schreibleistung (RAID 5/6 langsamer als RAID 10); Wiederaufbau großer Platten dauert lange, daher RAID 6 für große Speicher.",
+        "Hardware-Controller mit geschütztem Cache vs. Software-RAID; RAID ist keine Datensicherung."
+      ],
+      "vorkommen": [
+        {
+          "id": "4-6-2",
+          "tiefe": "RAID ist keine Sicherung"
+        },
+        {
+          "id": "10-2-2",
+          "tiefe": "Level, Kapazität, Hot Spare, JBOD, Controller"
         }
       ]
     }

@@ -695,21 +695,21 @@
 <p>Ein kritischer Zustand ist alles, was einen wichtigen Dienst gefährdet: Host ausgefallen, Speicher voll, Sicherung seit Tagen fehlgeschlagen, Verdacht auf Schadsoftware. Für solche Fälle legt der Betrieb vorher fest:</p>
 <ul>
   <li><strong>Notfallhandbuch</strong> mit Abläufen für die wichtigsten Szenarien: Wer tut was in welcher Reihenfolge? Es liegt auch ausgedruckt oder außerhalb der betroffenen Systeme bereit, denn fallen diese aus, ist auch ein Handbuch darauf nicht lesbar (vergleiche die Notfallmappe in Kapitel 10.3.2).</li>
-  <li><strong>Erreichbarkeit</strong>: Rufbereitschaft, Ansprechpartner beim Hersteller, Eskalation (LF6, Kapitel 6.3).</li>
+  <li><strong>Erreichbarkeit</strong>: Rufbereitschaft, Ansprechpartner beim Hersteller, Eskalation (LF6, Kapitel 6.3.3).</li>
   <li><strong>Wiederanlauf</strong>: Reihenfolge, etwa Netz, Speichersystem, Hosts, dann Verzeichnisdienst und DNS, Datenbank, Anwendungen; umgekehrt zum Herunterfahren in Kapitel 10.3.2.</li>
   <li><strong>Information</strong> der Betroffenen: Was geht nicht, wie lange voraussichtlich, welche Ersatzlösung gibt es?</li>
 </ul>
-<p>Nach dem Vorfall folgt die Ursachenanalyse (LF6, Kapitel 6.4): Was war die eigentliche Ursache, und wie verhindern wir die Wiederholung? Die Erkenntnisse fließen in Schwellwerte, Abläufe und das Notfallhandbuch.</p>
+<p>Nach dem Vorfall folgt die Ursachenanalyse (LF6, Kapitel 6.4.2): Was war die eigentliche Ursache, und wie verhindern wir die Wiederholung? Die Erkenntnisse fließen in Schwellwerte, Abläufe und das Notfallhandbuch.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Vor der Umstellung baut die Auszubildende eine Testumgebung auf einem der beiden neuen Hosts, noch vor der Inbetriebnahme, mit einer Kopie der Datenbank, in der Namen, Adressen, Telefonnummern, Mailadressen und Bankdaten der Tierhalter durch Testdaten ersetzt sind. Ein Lastprogramm simuliert 30, dann 60 gleichzeitige Nutzer. Bei 30 öffnet die Behandlungsakte in 0,8 Sekunden, bei 60 in 3,5 Sekunden; Engpass ist der Arbeitsspeicher der Datenbank-VM. Sie erhöht ihn und misst erneut: 0,7 Sekunden bei 30, 1,1 Sekunden bei 60 Nutzern. Beide Werte hält sie als Ausgangswerte fest. Ins Notfallhandbuch schreibt sie den Ablauf „Host ausgefallen“ mit Wiederanlaufreihenfolge und Telefonnummern.</p>
+  <p>Vor der Umstellung baut die Auszubildende eine Testumgebung auf einem der beiden neuen Hosts, noch vor der Inbetriebnahme, mit einer Kopie der Datenbank, in der Namen, Adressen, Telefonnummern, Mailadressen und Bankdaten der Tierhalter durch Testdaten ersetzt sind. Ein Lastprogramm simuliert 30 gleichzeitige Nutzer (erwartete Spitzenlast), dann 60 als Reserve für weiteres Wachstum. Bei 30 öffnet die Behandlungsakte in 0,8 Sekunden, bei 60 in 3,5 Sekunden; Engpass ist der Arbeitsspeicher der Datenbank-VM. Sie erhöht ihn und misst erneut: 0,7 Sekunden bei 30, 1,1 Sekunden bei 60 Nutzern. Beide Werte hält sie als Ausgangswerte fest. Ins Notfallhandbuch schreibt sie den Ablauf „Host ausgefallen“ mit Wiederanlaufreihenfolge und Telefonnummern.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Getestet haben wir mit drei Leuten am Freitagnachmittag.“ Ein paar Klicks zeigen nur, dass etwas grundsätzlich funktioniert. Wie das System unter echter Last reagiert, zeigt erst ein geplanter Test mit realistischer Last und festgelegten Kriterien.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
-  <li><strong>Performance- und Lasttests</strong> (Stresstest: über die Spitzenlast hinaus bis zur Grenze) brauchen eine realistische, getrennte Umgebung, messbare Kriterien und Wiederholbarkeit; der Ausgangswert dient später als Vergleich.</li>
+  <li><strong>Last- und Performance-Tests</strong> (Stresstest: bis zur Grenze) brauchen eine realistische, getrennte Umgebung und messbare Kriterien; das Ergebnis dient als Ausgangswert.</li>
   <li><strong>Kritische Zustände</strong>: Notfallhandbuch, Erreichbarkeit und Eskalation, Wiederanlaufreihenfolge, Information der Betroffenen, danach Ursachenanalyse.</li>
 </ul></div>
 </div>

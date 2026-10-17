@@ -713,7 +713,7 @@ chmod 640 lohn-2026-09.pdf     # Besitzer rw-, Gruppe r--, andere ---</code></pr
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ich gebe allen Vollzugriff, dann gibt es keine Beschwerden.“ Vollzugriff erlaubt auch, Rechte zu ändern und alles zu löschen. Vergib nach dem Prinzip der minimalen Rechte (LF4, Kapitel 4.6.1) nur, was eine Rolle wirklich braucht.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
-  <li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen, Unterordner erben.</li>
+  <li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen auf derselben Ebene, direktes Zulassen schlägt geerbtes Verweigern; Unterordner erben.</li>
   <li><strong>Linux</strong>: r = 4, w = 2, x = 1 je Besitzer, Gruppe, andere, etwa 640 = rw-r-----; Verzeichnisse brauchen x zum Hineinwechseln.</li>
 </ul></div>
 </div>

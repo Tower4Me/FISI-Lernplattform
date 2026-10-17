@@ -714,7 +714,7 @@
   <p>Für die Praxisdatenbank vereinbart der Verbund RPO 1 Stunde und RTO 4 Stunden. Die Auszubildende plant: stündlich eine Sicherung des Transaktionsprotokolls, in dem das DBMS jede Änderung festhält, und nachts eine Vollsicherung mit dem Sicherungswerkzeug des DBMS auf den Sicherungsserver im Stammhaus (Kapitel 10.2.3). Danach geht eine Kopie auf das bisherige NAS, das an den Standort Nord umgezogen und über das VPN erreichbar ist (LF9, Kapitel 9.6.1); freitags Kopie auf LTO-Band, das außer Haus kommt. Einmal im Quartal spielt sie die Datenbank in eine Test-VM zurück und misst die Zeit: 2 Stunden 40 Minuten, unter dem RTO.</p>
 </div>
 
-<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>RAID und Failover-Cluster (Kapitel 10.3.1) übernehmen Löschungen und Verschlüsselungen sofort. Snapshots liegen auf demselben Speicher und gehen mit ihm verloren oder werden vom Angreifer mitgelöscht. Alle drei ergänzen die Sicherung, ersetzen sie aber nicht.</p></aside>
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>RAID, Cluster und Snapshots ergänzen die Sicherung, ersetzen sie aber nicht (Kapitel 10.1.2, 10.2.2, 10.3.1).</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>RPO</strong> = höchstens hinnehmbarer Datenverlust (bestimmt, wie oft gesichert wird), <strong>RTO</strong> = höchstens hinnehmbare Ausfalldauer (bestimmt, wie schnell wiederhergestellt wird).</li>

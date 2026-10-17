@@ -738,6 +738,8 @@ if ($frei -lt 20) {
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ping geht nicht, also ist das Gerät aus.“ Nicht unbedingt: Viele Geräte antworten nicht auf ping, und die Windows-Firewall lässt ping in der Grundeinstellung nicht durch, solange die Datei- und Druckerfreigabe aus ist. Prüfe dann einen Dienst, etwa mit <code>Test-NetConnection</code> auf den passenden Port.</p></aside>
 
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du mit PowerShell und Bash Administrationsaufgaben automatisierst, wird in <a href="../lf10b/10-7-1-skripte-auf-der-kommandozeile.html">LF10b, Kapitel 10.7.1</a> ausführlicher behandelt.</p></aside>
+
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Konfiguration:</strong> <code>ipconfig /all</code>; neue DHCP-Adresse mit <code>/renew</code>, DNS-Cache leeren mit <code>/flushdns</code>.</li>
   <li><strong>PowerShell:</strong> Variablen mit <code>$</code>, Cmdlets als Verb-Substantiv, Vergleiche mit <code>-eq</code>, <code>-lt</code>, <code>-gt</code>.</li>

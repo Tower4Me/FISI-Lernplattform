@@ -7,14 +7,14 @@
       "frage": "Eine USV und ein Speichersystem sollen ins Monitoring, auf ihnen lässt sich aber kein zusätzliches Programm installieren. Wie kommen die Werte trotzdem an?",
       "optionen": [
         "Über SNMP, mit Abfragen und eigenen Meldungen der Geräte",
-        "Über einen Agenten, der auf dem Gerät nachinstalliert wird",
+        "Über die zentral gesammelten Windows-Ereignisprotokolle",
         "Über eine tägliche Sichtprüfung der Anzeigen vor Ort",
         "Über die Datensicherung der Geräte"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Netzgeräte, USV und Speichersysteme geben ihre Werte per SNMP heraus und senden bei Ereignissen Traps. Ein zusätzlicher Agent lässt sich auf diesen Geräten nicht installieren; ihre SNMP-Funktion ist schon eingebaut."
+      "erklaerung": "Netzgeräte, USV und Speichersysteme geben ihre Werte per SNMP heraus und senden bei Ereignissen Traps; ihre SNMP-Funktion ist schon eingebaut. Windows-Ereignisprotokolle gibt es auf diesen Geräten nicht."
     },
     {
       "typ": "mc",

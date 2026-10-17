@@ -34,6 +34,7 @@ OUTPUT max, anzahl</code></pre>
 <h3>Mit Testdaten prüfen</h3>
 <ul>
   <li><strong>Grenzfälle</strong> durchspielen: leere Liste, ein einziges Element, Wert genau auf der Grenze (80 %), größter Wert am Anfang und am Ende (Grenzwertanalyse, LF5, Kapitel 5.6.1).</li>
+  <li><strong>Durchschnitt</strong>: In der Schleife <code>summe ← summe + belegung[i]</code>, danach <code>durchschnitt ← summe / LENGTH(belegung)</code>. Bei leerer Liste entsteht eine Division durch 0, ein Laufzeitfehler.</li>
   <li><strong>Trockenlauf</strong>: Viele PowerShell-Befehle, die etwas ändern, kennen den Parameter <code>-WhatIf</code>. Er zeigt nur an, was passieren würde.</li>
   <li><strong>Fehler behandeln</strong>: Mit <code>try</code> und <code>catch</code> fängt das Skript Fehler ab, protokolliert sie und meldet sich, statt mittendrin abzubrechen. <code>catch</code> greift nur bei Fehlern, die die Ausführung beenden; Cmdlets gibst du dafür <code>-ErrorAction Stop</code> mit.</li>
   <li><strong>Erst Testumgebung</strong>, dann wenige echte Systeme, dann alle (wie beim Patch-Management, Kapitel 10.5.4).</li>

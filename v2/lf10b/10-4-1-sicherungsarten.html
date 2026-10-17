@@ -700,7 +700,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Auf dem alten NAS wurde der Dateiserver des Praxisverbunds bisher freitags abends voll gesichert, montags bis donnerstags abends inkrementell. Am Donnerstagmittag verschlüsselt Schadsoftware die Ablage. Zurückgespielt werden die Vollsicherung vom Freitag, dann die Inkremente von Montag, Dienstag und Mittwoch, genau in dieser Reihenfolge. Die Arbeit vom Donnerstagvormittag ist verloren. Wäre montags bis donnerstags differenziell gesichert worden, hätte die Auszubildende nur die Sicherungen von Freitag und Mittwoch gebraucht. Der neue Sicherungsserver sichert dank Deduplizierung jede Nacht voll (Kapitel 10.2.3); dann reicht eine einzige Sicherung.</p>
+  <p>Die Dateiablage auf dem alten NAS wurde bisher freitags abends voll gesichert, montags bis donnerstags abends inkrementell. Am Donnerstagmittag verschlüsselt Schadsoftware die Ablage. Zurückgespielt werden die Vollsicherung vom Freitag, dann die Inkremente von Montag, Dienstag und Mittwoch, genau in dieser Reihenfolge. Die Arbeit vom Donnerstagvormittag ist verloren. Wäre montags bis donnerstags differenziell gesichert worden, hätte die Auszubildende nur die Sicherungen von Freitag und Mittwoch gebraucht. Der neue Sicherungsserver sichert dank Deduplizierung jede Nacht voll (Kapitel 10.2.3); dann reicht eine einzige Sicherung.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Für die inkrementelle Wiederherstellung reicht die letzte Inkrementsicherung.“ Jedes Inkrement enthält nur die Änderungen eines Tages. Erst die Vollsicherung und alle Inkremente zusammen ergeben den letzten Stand.</p></aside>

@@ -694,10 +694,12 @@
       <tr><th>Anwendungsserver</th><td>Fachanwendung oder Schnittstelle, die Clients über das Netz nutzen</td><td>Web-API der Termin-App hinter dem Reverse Proxy (LF9, Kapitel 9.5.4)</td></tr>
       <tr><th>Druckserver</th><td>Drucker und Warteschlangen zentral bereitstellen</td><td>Etiketten- und Rezeptdrucker</td></tr>
       <tr><th>DHCP, DNS</th><td>Adressen und Namen</td><td>im Stammhaus; Nord und Süd über ihre Router (LF9, Kapitel 9.5)</td></tr>
+      <tr><th>Terminalserver, virtuelle Desktops</th><td>Anwendungen oder ganze Desktops laufen auf dem Server, Clients zeigen nur das Bild (LF2, Kapitel 2.1.3)</td><td>bei Bedarf für Verwaltung und Telearbeit</td></tr>
       <tr><th>Web- und Maildienst</th><td>Webseiten, Postfächer</td><td>Website und Postfächer beim Anbieter</td></tr>
     </tbody>
   </table>
 </div>
+<p>Zentral bereitgestellte Anwendungen haben Vorteile: Installation und Updates an einer Stelle, Daten verlassen den Server nicht, einfache Clients genügen. Nachteile: Ein Ausfall von Server oder Netz trifft alle, und es kommen eigene Zugriffslizenzen hinzu.</p>
 <p>Ein Gerät kann mehrere Dienste tragen, ein Dienst kann auf mehrere Geräte verteilt sein. Üblich ist heute, jeden wichtigen Dienst in einer eigenen virtuellen Maschine zu betreiben (Kapitel 10.1.2). Dann stört ein Update am Druckserver nicht die Datenbank.</p>
 
 <h3 id="u10-1-1-was-einen-server-ausmacht">Was einen Server ausmacht<a class="anchor" href="#u10-1-1-was-einen-server-ausmacht" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -722,7 +724,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Die Auszubildende listet für das Stammhaus auf: Verzeichnisdienst (neu), Dateiablage, Praxisdatenbank, Web-API der Termin-App, Reverse Proxy, Druckdienst, DHCP und DNS. Die Praxis arbeitet von 7 bis 20 Uhr und hat Notdienst; länger als vier Stunden darf die Datenbank nicht ausfallen. Ein einzelner Server schafft das nur mit Herstellerservice, der innerhalb von vier Stunden vor Ort ist. Sie schlägt deshalb zwei Rack-Server mit je zwei Netzteilen, ECC-Speicher und Fernverwaltung vor, auf denen die Dienste in getrennten virtuellen Maschinen laufen.</p>
+  <p>Die Auszubildende listet für das Stammhaus auf: Verzeichnisdienst (neu), Dateiablage, Praxisdatenbank, Web-API der Termin-App, Reverse Proxy, Druckdienst, DHCP und DNS. Die Praxis arbeitet von 7 bis 20 Uhr und hat Notdienst; länger als vier Stunden darf die Datenbank nicht ausfallen. Ein einzelner Server schafft das kaum: Selbst ein Herstellerservice, der innerhalb von vier Stunden vor Ort ist, braucht danach noch Zeit für Reparatur und Wiederanlauf. Sie schlägt deshalb zwei Rack-Server mit je zwei Netzteilen, ECC-Speicher und Fernverwaltung vor, auf denen die Dienste in getrennten virtuellen Maschinen laufen.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Server“ meint nicht nur ein Gerät. Im Alltag heißt sowohl die Hardware als auch das Programm, das einen Dienst anbietet, Server. Achte im Gespräch darauf, was gemeint ist.</p></aside>
@@ -736,7 +738,7 @@
 <p class="lead">Sieben Dienste, jeder auf eigener Hardware: Das wären sieben Geräte, die meist zu einem Bruchteil ausgelastet sind, sieben Netzteile und sieben Wartungsverträge. <strong>Virtualisierung</strong> lässt viele getrennte Server auf einer gemeinsamen Hardware laufen. Jeder verhält sich, als hätte er einen eigenen Rechner.</p>
 
 <h3 id="u10-1-2-wie-es-funktioniert">Wie es funktioniert<a class="anchor" href="#u10-1-2-wie-es-funktioniert" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Eine Software, der <strong>Hypervisor</strong>, teilt Prozessor, Arbeitsspeicher, Speicher und Netzwerk eines physischen Rechners (Host) auf mehrere <strong>virtuelle Maschinen</strong> (VMs, Gäste) auf. Jede VM hat ein eigenes Betriebssystem und sieht nur die Hardware, die ihr zugeteilt ist, etwa 4 Kerne und 16 GiB RAM. Abstürze und Updates in einer VM betreffen die anderen nicht.</p>
+<p>Eine Software, der <strong>Hypervisor</strong>, teilt Prozessor, Arbeitsspeicher, Speicher und Netzwerk eines physischen Rechners (Host) auf mehrere <strong>virtuelle Maschinen</strong> (VMs, Gäste) auf. Jede VM hat ein eigenes Betriebssystem und sieht nur die Hardware, die ihr zugeteilt ist, etwa 4 Kerne und 16 GiB RAM. Abstürze und Updates in einer VM legen die anderen nicht lahm.</p>
 <div class="vergleich">
   <table>
     <thead><tr><th></th><th>Typ 1 (Bare Metal)</th><th>Typ 2 (Hosted)</th></tr></thead>
@@ -777,18 +779,18 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Für das Stammhaus plant die Auszubildende zwei Hosts mit Typ-1-Hypervisor und einem gemeinsamen Speicher, auf den beide zugreifen (Kapitel 10.2.3). Auf ihnen laufen VMs für Verzeichnisdienst, Dateiserver, Datenbank, Druckdienst, DHCP und DNS, Reverse Proxy und einen Container-Host für die Web-API der Termin-App. Fällt ein Host aus, startet die Verwaltung dessen VMs auf dem anderen neu (Kapitel 10.3.1); der gemeinsame Speicher muss dafür selbst ausfallsicher sein. Für Schulungen nutzt sie auf ihrem Notebook einen Typ-2-Hypervisor.</p>
+  <p>Für das Stammhaus plant die Auszubildende zwei Hosts mit Typ-1-Hypervisor und einem gemeinsamen Speicher, auf den beide zugreifen (Kapitel 10.2.3). Auf ihnen laufen VMs für Verzeichnisdienst, Dateiserver, Datenbank, Druckdienst, DHCP und DNS, Reverse Proxy und einen Container-Host für die Web-API der Termin-App. Das Server-VLAN 50 aus LF9 (10.10.0.144/28) hat dafür zu wenige freie Adressen; für Hosts, Fernverwaltung, Speicher und VMs plant sie ein größeres Server-VLAN und ein eigenes Verwaltungs-VLAN. Fällt ein Host aus, startet die Verwaltung dessen VMs auf dem anderen neu (Kapitel 10.3.1); der gemeinsame Speicher muss dafür selbst ausfallsicher sein. Für Schulungen nutzt sie auf ihrem Notebook einen Typ-2-Hypervisor.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ein Snapshot ist eine Datensicherung.“ Ein Snapshot liegt auf demselben Speicher wie die VM und geht mit ihm verloren. Er hilft vor einem Update, ersetzt aber keine Sicherung auf einem getrennten Medium (Kapitel 10.4.2). Lange aufbewahrte Snapshots wachsen zudem und bremsen die VM.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Hypervisor Typ 1</strong> läuft direkt auf der Hardware (Server), <strong>Typ 2</strong> als Programm auf einem Betriebssystem (Test, Schulung).</li>
-  <li><strong>Virtualisierung</strong> bringt Auslastung, schnelle Bereitstellung, Live-Migration und Snapshots; ein Host-Ausfall trifft aber alle seine VMs.</li>
+  <li><strong>Virtualisierung</strong> bringt Auslastung, schnelle Bereitstellung, Live-Migration und Snapshots; Snapshots ersetzen keine Sicherung, ein Host-Ausfall trifft alle seine VMs.</li>
 </ul></div>
 </section>
 <section class="print-up" id="u-10-1-3"><h2><span class="num">10.1.3</span> Container</h2>
-<p class="lead">Die Web-API der Termin-App (LF9, Kapitel 9.5.4) bekommt eine neue Version. Das Entwicklerteam liefert sie mit dem Satz „Bei mir läuft sie.“ Auf dem Server fehlt dann eine Bibliothek, eine andere hat die falsche Version. <strong>Container</strong> lösen dieses Problem: Die Anwendung kommt mit allem, was sie braucht, in einem Paket, das überall gleich läuft.</p>
+<p class="lead">Die Web-API der Termin-App (LF9, Kapitel 9.5.4) bekommt eine neue Version. Das Entwicklerteam liefert sie mit dem Satz „Bei mir läuft sie.“ Auf dem Server fehlt dann eine Bibliothek, eine andere hat die falsche Version. <strong>Container</strong> lösen dieses Problem: Die Anwendung kommt mit allem, was sie braucht, in einem Paket, das auf jedem passenden Host gleich läuft.</p>
 
 <h3 id="u10-1-3-container-und-virtuelle-maschine">Container und virtuelle Maschine<a class="anchor" href="#u10-1-3-container-und-virtuelle-maschine" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Ein Container enthält nur die Anwendung und ihre Abhängigkeiten, etwa Bibliotheken und Laufzeitumgebung. Ein eigenes Betriebssystem bringt er nicht mit: Alle Container auf einem Host teilen sich dessen Betriebssystemkern (Kernel). Der Kernel trennt sie voneinander, sodass jeder Container nur seine eigenen Prozesse, Dateien und Netzwerkschnittstellen sieht.</p>

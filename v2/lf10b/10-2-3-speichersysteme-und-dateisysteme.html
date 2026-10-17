@@ -701,7 +701,7 @@
   <li><strong>Kleine Cluster</strong> passen zu vielen kleinen Dateien, etwa Dokumenten und Vorlagen: wenig Verschnitt.</li>
   <li><strong>Große Cluster</strong> passen zu wenigen großen Dateien, etwa Sicherungen, Videos oder VM-Festplatten: weniger Verwaltungsaufwand, schnelleres Lesen am Stück.</li>
 </ul>
-<p>Das Formatieren kennst du aus LF2, Kapitel 2.3.3; dabei legst du auch die Clustergröße fest. Nachträglich ändern heißt neu formatieren.</p>
+<p>Die Clustergröße legst du beim Formatieren fest (LF2, Kapitel 2.3.3). Nachträglich ändern heißt neu formatieren.</p>
 
 <h3 id="deduplizierung">Deduplizierung<a class="anchor" href="#deduplizierung" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Viele Daten liegen mehrfach vor: zehn VMs mit demselben Betriebssystem, dieselbe Datei in jeder Wochensicherung. Die <strong>Deduplizierung</strong> erkennt gleiche Blöcke und speichert sie nur einmal; alle weiteren Vorkommen verweisen auf diesen Block. Kompression kodiert Wiederholungen innerhalb eines Datenstroms kürzer; die Deduplizierung findet gleiche Blöcke auch in verschiedenen Dateien und VMs. Besonders viel spart sie bei Sicherungen und VMs, bei vielen einzigartigen Daten wie Röntgenbildern kaum. Sie braucht Rechenleistung und Arbeitsspeicher, und geht ein deduplizierter Block verloren, fehlt er in allen Dateien, die ihn nutzen.</p>

@@ -684,7 +684,7 @@
 
 <h3 id="u10-5-1-was-ein-verzeichnisdienst-leistet">Was ein Verzeichnisdienst leistet<a class="anchor" href="#u10-5-1-was-ein-verzeichnisdienst-leistet" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
-  <li><strong>Zentrale Konten</strong>: Jede Person hat genau ein Konto mit einem Kennwort, egal an welchem Gerät sie arbeitet. Sperrst du das Konto, ist der Zugang überall weg.</li>
+  <li><strong>Zentrale Konten</strong>: Jede Person hat ein Konto mit einem Kennwort, egal an welchem Gerät sie arbeitet; wer administriert, bekommt zusätzlich ein getrenntes Admin-Konto (LF4, Kapitel 4.6.1). Sperrst du die Konten, ist der Zugang überall weg.</li>
   <li><strong>Anmeldung prüfen</strong>: Der Server prüft die Anmeldedaten und stellt eine Bestätigung aus, mit der die Person ohne erneute Eingabe auf Dateiserver, Drucker und Anwendungen zugreift (Single Sign-on).</li>
   <li><strong>Gruppen</strong> fassen Personen mit gleichen Aufgaben zusammen.</li>
   <li><strong>Richtlinien</strong>: Einstellungen wie Kennwortregeln oder Bildschirmsperre wirken zentral auf alle Rechner (Gruppenrichtlinien, LF4, Kapitel 4.6.1).</li>
@@ -705,7 +705,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Die Auszubildende legt die Domäne intern.praxisverbund.example an, passend zur internen DNS-Zone aus LF9, Kapitel 9.5.2; die beiden Domänencontroller laufen als VMs, je einer auf jedem Host; beide hängen am gemeinsamen Speicher (Kapitel 10.2.3). Je Standort gibt es eine OU. Die Gruppe „Tierärzte“ ist Mitglied von „Ablage-Röntgen-Ändern“ und „Ablage-Befunde-Ändern“, die Gruppe „Empfang“ nur von „Ablage-Röntgen-Lesen“. Als eine Tierärztin nach Süd wechselt, verschiebt die Auszubildende ihr Konto in die OU Süd. Ab dann gelten die Richtlinien von Süd; die Rechte der Tierärztin bleiben, weil sie an ihrer Rolle hängen.</p>
+  <p>Die Auszubildende legt die Domäne intern.praxisverbund.example an, passend zur internen DNS-Zone aus LF9, Kapitel 9.5.2; die beiden Domänencontroller laufen als VMs, je einer auf jedem Host; beide hängen am gemeinsamen Speicher (Kapitel 10.2.3). Je Standort gibt es eine OU. Active Directory braucht DNS: Clients finden die Domänencontroller über SRV-Einträge. Deshalb übernehmen die Domänencontroller die interne Zone; die VM für DHCP und DNS aus Kapitel 10.1.2 leitet Anfragen für die Domäne an sie weiter. Die Gruppe „Tierärzte“ ist Mitglied von „Ablage-Röntgen-Ändern“ und „Ablage-Befunde-Ändern“, die Gruppe „Empfang“ nur von „Ablage-Röntgen-Lesen“. Als eine Tierärztin nach Süd wechselt, verschiebt die Auszubildende ihr Konto in die OU Süd. Ab dann gelten die Richtlinien von Süd; die Rechte der Tierärztin bleiben, weil sie an ihrer Rolle hängen.</p>
 </div>
 
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Der Domänenname sollte eine Subdomain einer Domain sein, die dem Betrieb gehört, etwa intern.&lt;eigene-domain&gt;.de, oder die für private Netze reservierte Endung .internal nutzen. Erfundene Endungen können später mit echten öffentlichen Domains kollidieren. Die Endung .example steht hier nur als Platzhalter für Beispiele.</p></aside>
@@ -751,7 +751,7 @@ chmod 640 lohn-2026-09.pdf     # Besitzer rw-, Gruppe r--, andere ---</code></pr
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ich gebe allen Vollzugriff, dann gibt es keine Beschwerden.“ Vollzugriff erlaubt auch, Rechte zu ändern und alles zu löschen. Vergib nach dem Prinzip der minimalen Rechte (LF4, Kapitel 4.6.1) nur, was eine Rolle wirklich braucht.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
-  <li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen, Unterordner erben.</li>
+  <li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen auf derselben Ebene, direktes Zulassen schlägt geerbtes Verweigern; Unterordner erben.</li>
   <li><strong>Linux</strong>: r = 4, w = 2, x = 1 je Besitzer, Gruppe, andere, etwa 640 = rw-r-----; Verzeichnisse brauchen x zum Hineinwechseln.</li>
 </ul></div>
 </section>
@@ -784,7 +784,7 @@ chmod 640 lohn-2026-09.pdf     # Besitzer rw-, Gruppe r--, andere ---</code></pr
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Im Verbund arbeiten 40 Mitarbeitende. 12 Tierärztinnen und Tierärzte nutzen je einen PC, ein Notebook und ein Tablet; die 28 übrigen teilen sich 20 PCs an den Empfängen, in Labor und Verwaltung. Die Auszubildende rechnet: User-CALs für die 12 Tierärzte (statt 36 Geräte) und Device-CALs für die 20 geteilten PCs (statt 28 Personen), zusammen 32 Windows-Server-CALs für Anmeldung, Dateiablage und Druck. Nur mit User-CALs wären es 40, nur mit Device-CALs 56.</p>
-  <p>Für die Server selbst: Jeder der zwei Hosts hat zwei Prozessoren mit je 12 Kernen, also 24 Kernlizenzen je Lizenzierung. Sechs Windows-VMs sollen bei einem Ausfall alle auf einem Host laufen können. Mit Standard lizenziert sie jeden Host dreimal (3 × 2 VMs): 3 × 24 = 72 Kernlizenzen je Host, 144 insgesamt. Mit Datacenter wären es 24 je Host, 48 insgesamt, aber zu einem deutlich höheren Preis je Kern. Sie vergleicht beide Summen mit den aktuellen Preisen des Lizenzhändlers.</p>
+  <p>Für die Server selbst: Jeder der zwei Hosts hat zwei Prozessoren mit je 12 Kernen, also 24 Kernlizenzen je Lizenzierung. Fünf Windows-VMs (zwei Domänencontroller, Datei-, Druck- und DHCP/DNS-Server) sollen bei einem Ausfall alle auf einem Host laufen können. Mit Standard lizenziert sie jeden Host dreimal (bis zu 6 VMs): 3 × 24 = 72 Kernlizenzen je Host, 144 insgesamt. Mit Datacenter wären es 24 je Host, 48 insgesamt, aber zu einem deutlich höheren Preis je Kern. Sie vergleicht beide Summen mit den aktuellen Preisen des Lizenzhändlers. Der Sicherungsserver braucht eine eigene Lizenz für mindestens 16 Kerne.</p>
 </div>
 
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Lizenzbedingungen sind oft englisch und ändern sich. Stütze dich bei der Planung auf die aktuellen Bedingungen des Herstellers oder eines Lizenzhändlers und dokumentiere, welche Lizenzen für welche Server und Zugriffe gekauft wurden.</p></aside>

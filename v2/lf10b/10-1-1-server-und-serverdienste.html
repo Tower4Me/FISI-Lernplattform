@@ -675,7 +675,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF10b</a></li><li><a href="index.html#k-10-1">10.1 Serverdienste und Plattformen</a></li><li aria-current="page">10.1.1</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">10.1.1</span>Server und Serverdienste</h1>
-  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="10-1-1">
 <p class="lead">Das Netz des Praxisverbunds steht (LF9). Im Server-VLAN des Stammhauses laufen Datenbank, DNS und DHCP, die Web-API der Termin-App und der Reverse Proxy aber auf einzelnen, teils alten Geräten ohne jede Redundanz. Fällt der Datenbankserver aus, kann kein Standort mehr Behandlungen erfassen. Das Systemhaus soll eine neue Serverumgebung planen. Dafür musst du wissen, welche Dienste ein Betrieb braucht und was einen Server von einem Arbeitsplatzrechner unterscheidet.</p>
@@ -692,10 +692,12 @@
       <tr><th>Anwendungsserver</th><td>Fachanwendung oder Schnittstelle, die Clients über das Netz nutzen</td><td>Web-API der Termin-App hinter dem Reverse Proxy (LF9, Kapitel 9.5.4)</td></tr>
       <tr><th>Druckserver</th><td>Drucker und Warteschlangen zentral bereitstellen</td><td>Etiketten- und Rezeptdrucker</td></tr>
       <tr><th>DHCP, DNS</th><td>Adressen und Namen</td><td>im Stammhaus; Nord und Süd über ihre Router (LF9, Kapitel 9.5)</td></tr>
+      <tr><th>Terminalserver, virtuelle Desktops</th><td>Anwendungen oder ganze Desktops laufen auf dem Server, Clients zeigen nur das Bild (LF2, Kapitel 2.1.3)</td><td>bei Bedarf für Verwaltung und Telearbeit</td></tr>
       <tr><th>Web- und Maildienst</th><td>Webseiten, Postfächer</td><td>Website und Postfächer beim Anbieter</td></tr>
     </tbody>
   </table>
 </div>
+<p>Zentral bereitgestellte Anwendungen haben Vorteile: Installation und Updates an einer Stelle, Daten verlassen den Server nicht, einfache Clients genügen. Nachteile: Ein Ausfall von Server oder Netz trifft alle, und es kommen eigene Zugriffslizenzen hinzu.</p>
 <p>Ein Gerät kann mehrere Dienste tragen, ein Dienst kann auf mehrere Geräte verteilt sein. Üblich ist heute, jeden wichtigen Dienst in einer eigenen virtuellen Maschine zu betreiben (Kapitel 10.1.2). Dann stört ein Update am Druckserver nicht die Datenbank.</p>
 
 <h3 id="was-einen-server-ausmacht">Was einen Server ausmacht<a class="anchor" href="#was-einen-server-ausmacht" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -720,7 +722,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Die Auszubildende listet für das Stammhaus auf: Verzeichnisdienst (neu), Dateiablage, Praxisdatenbank, Web-API der Termin-App, Reverse Proxy, Druckdienst, DHCP und DNS. Die Praxis arbeitet von 7 bis 20 Uhr und hat Notdienst; länger als vier Stunden darf die Datenbank nicht ausfallen. Ein einzelner Server schafft das nur mit Herstellerservice, der innerhalb von vier Stunden vor Ort ist. Sie schlägt deshalb zwei Rack-Server mit je zwei Netzteilen, ECC-Speicher und Fernverwaltung vor, auf denen die Dienste in getrennten virtuellen Maschinen laufen.</p>
+  <p>Die Auszubildende listet für das Stammhaus auf: Verzeichnisdienst (neu), Dateiablage, Praxisdatenbank, Web-API der Termin-App, Reverse Proxy, Druckdienst, DHCP und DNS. Die Praxis arbeitet von 7 bis 20 Uhr und hat Notdienst; länger als vier Stunden darf die Datenbank nicht ausfallen. Ein einzelner Server schafft das kaum: Selbst ein Herstellerservice, der innerhalb von vier Stunden vor Ort ist, braucht danach noch Zeit für Reparatur und Wiederanlauf. Sie schlägt deshalb zwei Rack-Server mit je zwei Netzteilen, ECC-Speicher und Fernverwaltung vor, auf denen die Dienste in getrennten virtuellen Maschinen laufen.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Server“ meint nicht nur ein Gerät. Im Alltag heißt sowohl die Hardware als auch das Programm, das einen Dienst anbietet, Server. Achte im Gespräch darauf, was gemeint ist.</p></aside>

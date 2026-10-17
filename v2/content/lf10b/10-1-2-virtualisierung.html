@@ -1,7 +1,7 @@
 <p class="lead">Sieben Dienste, jeder auf eigener Hardware: Das wären sieben Geräte, die meist zu einem Bruchteil ausgelastet sind, sieben Netzteile und sieben Wartungsverträge. <strong>Virtualisierung</strong> lässt viele getrennte Server auf einer gemeinsamen Hardware laufen. Jeder verhält sich, als hätte er einen eigenen Rechner.</p>
 
 <h3>Wie es funktioniert</h3>
-<p>Eine Software, der <strong>Hypervisor</strong>, teilt Prozessor, Arbeitsspeicher, Speicher und Netzwerk eines physischen Rechners (Host) auf mehrere <strong>virtuelle Maschinen</strong> (VMs, Gäste) auf. Jede VM hat ein eigenes Betriebssystem und sieht nur die Hardware, die ihr zugeteilt ist, etwa 4 Kerne und 16 GiB RAM. Abstürze und Updates in einer VM betreffen die anderen nicht.</p>
+<p>Eine Software, der <strong>Hypervisor</strong>, teilt Prozessor, Arbeitsspeicher, Speicher und Netzwerk eines physischen Rechners (Host) auf mehrere <strong>virtuelle Maschinen</strong> (VMs, Gäste) auf. Jede VM hat ein eigenes Betriebssystem und sieht nur die Hardware, die ihr zugeteilt ist, etwa 4 Kerne und 16 GiB RAM. Abstürze und Updates in einer VM legen die anderen nicht lahm.</p>
 <div class="vergleich">
   <table>
     <thead><tr><th></th><th>Typ 1 (Bare Metal)</th><th>Typ 2 (Hosted)</th></tr></thead>
@@ -42,12 +42,12 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Für das Stammhaus plant die Auszubildende zwei Hosts mit Typ-1-Hypervisor und einem gemeinsamen Speicher, auf den beide zugreifen (Kapitel 10.2.3). Auf ihnen laufen VMs für Verzeichnisdienst, Dateiserver, Datenbank, Druckdienst, DHCP und DNS, Reverse Proxy und einen Container-Host für die Web-API der Termin-App. Fällt ein Host aus, startet die Verwaltung dessen VMs auf dem anderen neu (Kapitel 10.3.1); der gemeinsame Speicher muss dafür selbst ausfallsicher sein. Für Schulungen nutzt sie auf ihrem Notebook einen Typ-2-Hypervisor.</p>
+  <p>Für das Stammhaus plant die Auszubildende zwei Hosts mit Typ-1-Hypervisor und einem gemeinsamen Speicher, auf den beide zugreifen (Kapitel 10.2.3). Auf ihnen laufen VMs für Verzeichnisdienst, Dateiserver, Datenbank, Druckdienst, DHCP und DNS, Reverse Proxy und einen Container-Host für die Web-API der Termin-App. Das Server-VLAN 50 aus LF9 (10.10.0.144/28) hat dafür zu wenige freie Adressen; für Hosts, Fernverwaltung, Speicher und VMs plant sie ein größeres Server-VLAN und ein eigenes Verwaltungs-VLAN. Fällt ein Host aus, startet die Verwaltung dessen VMs auf dem anderen neu (Kapitel 10.3.1); der gemeinsame Speicher muss dafür selbst ausfallsicher sein. Für Schulungen nutzt sie auf ihrem Notebook einen Typ-2-Hypervisor.</p>
 </div>
 
 <aside class="note" data-typ="fehler"><p>„Ein Snapshot ist eine Datensicherung.“ Ein Snapshot liegt auf demselben Speicher wie die VM und geht mit ihm verloren. Er hilft vor einem Update, ersetzt aber keine Sicherung auf einem getrennten Medium (Kapitel 10.4.2). Lange aufbewahrte Snapshots wachsen zudem und bremsen die VM.</p></aside>
 
 <ul class="merksatz">
   <li><strong>Hypervisor Typ 1</strong> läuft direkt auf der Hardware (Server), <strong>Typ 2</strong> als Programm auf einem Betriebssystem (Test, Schulung).</li>
-  <li><strong>Virtualisierung</strong> bringt Auslastung, schnelle Bereitstellung, Live-Migration und Snapshots; ein Host-Ausfall trifft aber alle seine VMs.</li>
+  <li><strong>Virtualisierung</strong> bringt Auslastung, schnelle Bereitstellung, Live-Migration und Snapshots; Snapshots ersetzen keine Sicherung, ein Host-Ausfall trifft alle seine VMs.</li>
 </ul>

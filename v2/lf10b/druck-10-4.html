@@ -702,7 +702,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Auf dem alten NAS wurde der Dateiserver des Praxisverbunds bisher freitags abends voll gesichert, montags bis donnerstags abends inkrementell. Am Donnerstagmittag verschlüsselt Schadsoftware die Ablage. Zurückgespielt werden die Vollsicherung vom Freitag, dann die Inkremente von Montag, Dienstag und Mittwoch, genau in dieser Reihenfolge. Die Arbeit vom Donnerstagvormittag ist verloren. Wäre montags bis donnerstags differenziell gesichert worden, hätte die Auszubildende nur die Sicherungen von Freitag und Mittwoch gebraucht. Der neue Sicherungsserver sichert dank Deduplizierung jede Nacht voll (Kapitel 10.2.3); dann reicht eine einzige Sicherung.</p>
+  <p>Die Dateiablage auf dem alten NAS wurde bisher freitags abends voll gesichert, montags bis donnerstags abends inkrementell. Am Donnerstagmittag verschlüsselt Schadsoftware die Ablage. Zurückgespielt werden die Vollsicherung vom Freitag, dann die Inkremente von Montag, Dienstag und Mittwoch, genau in dieser Reihenfolge. Die Arbeit vom Donnerstagvormittag ist verloren. Wäre montags bis donnerstags differenziell gesichert worden, hätte die Auszubildende nur die Sicherungen von Freitag und Mittwoch gebraucht. Der neue Sicherungsserver sichert dank Deduplizierung jede Nacht voll (Kapitel 10.2.3); dann reicht eine einzige Sicherung.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Für die inkrementelle Wiederherstellung reicht die letzte Inkrementsicherung.“ Jedes Inkrement enthält nur die Änderungen eines Tages. Erst die Vollsicherung und alle Inkremente zusammen ergeben den letzten Stand.</p></aside>
@@ -749,7 +749,7 @@
   <p>Für die Praxisdatenbank vereinbart der Verbund RPO 1 Stunde und RTO 4 Stunden. Die Auszubildende plant: stündlich eine Sicherung des Transaktionsprotokolls, in dem das DBMS jede Änderung festhält, und nachts eine Vollsicherung mit dem Sicherungswerkzeug des DBMS auf den Sicherungsserver im Stammhaus (Kapitel 10.2.3). Danach geht eine Kopie auf das bisherige NAS, das an den Standort Nord umgezogen und über das VPN erreichbar ist (LF9, Kapitel 9.6.1); freitags Kopie auf LTO-Band, das außer Haus kommt. Einmal im Quartal spielt sie die Datenbank in eine Test-VM zurück und misst die Zeit: 2 Stunden 40 Minuten, unter dem RTO.</p>
 </div>
 
-<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>RAID und Failover-Cluster (Kapitel 10.3.1) übernehmen Löschungen und Verschlüsselungen sofort. Snapshots liegen auf demselben Speicher und gehen mit ihm verloren oder werden vom Angreifer mitgelöscht. Alle drei ergänzen die Sicherung, ersetzen sie aber nicht.</p></aside>
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>RAID, Cluster und Snapshots ergänzen die Sicherung, ersetzen sie aber nicht (Kapitel 10.1.2, 10.2.2, 10.3.1).</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>RPO</strong> = höchstens hinnehmbarer Datenverlust (bestimmt, wie oft gesichert wird), <strong>RTO</strong> = höchstens hinnehmbare Ausfalldauer (bestimmt, wie schnell wiederhergestellt wird).</li>
@@ -784,7 +784,7 @@
 <h3 id="u10-4-3-technik">Technik<a class="anchor" href="#u10-4-3-technik" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
   <li><strong>WORM</strong> (Write Once, Read Many): Daten lassen sich einmal schreiben und dann nur noch lesen. Das gibt es als Hardware (WORM-Bänder, einmal beschreibbare optische Medien) und als Software-Sperre in Speichersystemen oder Cloud-Speichern, die Löschen bis zum Ablauf einer Frist verweigert.</li>
-  <li><strong>Archivsystem</strong>: verwaltet die Dokumente mit Index und Suche, protokolliert Zugriffe und prüft mit Hashwerten, ob Dateien unverändert sind.</li>
+  <li><strong>Archivsystem</strong>: verwaltet die Dokumente mit Index und Suche, protokolliert Zugriffe und prüft mit Hashwerten (LF4, Kapitel 4.5.5), ob Dateien unverändert sind.</li>
   <li><strong>Formate</strong>: Elektronisch empfangene Unterlagen bewahrst du im Eingangsformat auf, E-Rechnungen also mit ihren XML-Daten (LF2, Kapitel 2.6.7). Für Scans und eigene Dokumente eignen sich langfristig lesbare, offene Formate wie PDF/A. Medien und Formate prüfst du regelmäßig und überträgst sie rechtzeitig auf neue Technik.</li>
 </ul>
 

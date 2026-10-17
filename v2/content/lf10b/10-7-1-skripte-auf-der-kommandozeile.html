@@ -21,7 +21,8 @@ ps aux | grep sql</code></pre>
 <h3>Platzhalter</h3>
 <p>Platzhalter (Wildcards) wählen mehrere Dateien auf einmal aus: <code>*</code> steht für beliebig viele Zeichen, auch keines, <code>?</code> für genau ein Zeichen.</p>
 <pre><code>copy D:\Befunde\*.pdf E:\Uebergabe\                 # Windows-Eingabeaufforderung
-Get-ChildItem D:\Befunde -Recurse -Filter *.pdf     # PowerShell, auch Unterordner
+Get-ChildItem D:\Befunde -Recurse -File -Filter *.pdf  # PowerShell, auch Unterordner, nur Dateien
+                                                    # -Hidden oder -Attributes filtern nach Attributen
 cp /srv/termin-api/logs/2026-0?-*.log /mnt/export/  # Bash: Protokolle der Monate 01 bis 09</code></pre>
 
 <h3>Wo Programme gefunden werden</h3>

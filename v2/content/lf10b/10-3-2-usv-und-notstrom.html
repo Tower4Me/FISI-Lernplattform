@@ -14,12 +14,12 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>An der USV im Stammhaus hängen die zwei Hosts mit je 350 W, das Speichersystem mit 250 W, der Kern-Switch mit 120 W und der Router mit 40 W: zusammen 1110 W. Die Auszubildende wählt eine USV der Klasse VFI, weil Datenbank und Speicher keine Umschaltzeit und keine Spannungsschwankungen vertragen: 3000 VA, 2700 W, Akkus mit 864 Wh. Die Formel ergibt 864 Wh × 0,9 ÷ 1110 W ≈ 0,7 h, also gut 40 Minuten. Die Herstellertabelle nennt bei dieser Last aber nur rund 20 Minuten, denn bei hoher Last liefern die Akkus weniger. Sie rechnet mit dem Tabellenwert. Das Herunterfahren aller VMs, Hosts und des Speichers dauert 10 Minuten; sie stellt die Schwelle auf 12 Minuten Restlaufzeit. Ein Notstromaggregat lehnt die Inhaberin aus Kostengründen ab. Bei einem langen Stromausfall stehen deshalb auch Nord und Süd ohne Datenbank da; für diesen Fall gibt es im Notdienst eine Notfallmappe auf Papier mit Medikation und Telefonnummern.</p>
+  <p>An der USV im Stammhaus hängen die zwei Hosts mit je 350 W, das Speichersystem mit 250 W, der Kern-Switch mit 120 W und der Router mit 40 W: zusammen 1110 W. Die Auszubildende wählt eine USV der Klasse VFI, weil Datenbank und Speicher keine Umschaltzeit und keine Spannungsschwankungen vertragen: 3000 VA, 2700 W, Akkus mit 864 Wh. Die Formel ergibt 864 Wh × 0,9 ÷ 1110 W ≈ 0,7 h, also gut 40 Minuten. Die Herstellertabelle nennt bei dieser Last aber nur rund 20 Minuten, denn bei hoher Last liefern die Akkus weniger. Sie rechnet mit dem Tabellenwert. Das Herunterfahren aller VMs, Hosts und des Speichers dauert 10 Minuten; sie stellt die Schwelle auf 12 Minuten Restlaufzeit. Beim Gewitter aus der Einleitung würde die USV die Umgebung also nach etwa acht Minuten geordnet herunterfahren. Ein Notstromaggregat lehnt die Inhaberin aus Kostengründen ab. Bei einem langen Stromausfall stehen deshalb auch Nord und Süd ohne Datenbank da; für diesen Fall gibt es im Notdienst eine Notfallmappe auf Papier mit Medikation und Telefonnummern.</p>
 </div>
 
 <aside class="note" data-typ="hinweis"><p>Akkus altern, auch wenn die USV nie gebraucht wird; nach drei bis fünf Jahren lässt ihre Kapazität deutlich nach. Ein regelmäßiger Selbsttest der USV und ein geplanter Akkutausch gehören deshalb in den Wartungsplan.</p></aside>
 
 <ul class="merksatz">
-  <li><strong>USV auslegen</strong>: Wirkleistung aller Geräte addieren, VA- und W-Grenze mit Reserve einhalten; Laufzeit ≈ Akkuenergie × Wirkungsgrad ÷ Last.</li>
+  <li><strong>USV auslegen</strong>: Wirkleistung (W) und Scheinleistung (VA) aller Geräte addieren, beide mit Reserve unter den Grenzen der USV; Laufzeit ≈ Akkuenergie × Wirkungsgrad ÷ Last, maßgeblich ist die Herstellertabelle.</li>
   <li><strong>Herunterfahren</strong> rechtzeitig auslösen (Restlaufzeit größer als Dauer des Herunterfahrens); bei langen Ausfällen überbrückt die USV bis zur Übernahme durch das Notstromaggregat.</li>
 </ul>

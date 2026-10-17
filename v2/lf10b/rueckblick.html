@@ -683,7 +683,7 @@
 <li><span class="num">10.1.1</span><div><a href="10-1-1-server-und-serverdienste.html">Server und Serverdienste</a><ul><li><strong>Serverdienst</strong>: beantwortet Anfragen vieler Clients; Server-Hardware ist auf Dauerbetrieb und Ausfallsicherheit ausgelegt (Redundanz, ECC, Fernverwaltung).</li>
   <li><strong>Auswahl</strong> nach Verfügbarkeit, Skalierbarkeit, Administrierbarkeit, Wirtschaftlichkeit und Sicherheit.</li></ul></div></li>
 <li><span class="num">10.1.2</span><div><a href="10-1-2-virtualisierung.html">Virtualisierung</a><ul><li><strong>Hypervisor Typ 1</strong> läuft direkt auf der Hardware (Server), <strong>Typ 2</strong> als Programm auf einem Betriebssystem (Test, Schulung).</li>
-  <li><strong>Virtualisierung</strong> bringt Auslastung, schnelle Bereitstellung, Live-Migration und Snapshots; ein Host-Ausfall trifft aber alle seine VMs.</li></ul></div></li>
+  <li><strong>Virtualisierung</strong> bringt Auslastung, schnelle Bereitstellung, Live-Migration und Snapshots; Snapshots ersetzen keine Sicherung, ein Host-Ausfall trifft alle seine VMs.</li></ul></div></li>
 <li><span class="num">10.1.3</span><div><a href="10-1-3-container.html">Container</a><ul><li><strong>Container</strong> bündeln Anwendung und Abhängigkeiten, teilen sich den Kernel des Hosts, sind klein und starten in Sekunden; <strong>VMs</strong> haben ein eigenes Betriebssystem und trennen stärker.</li>
   <li><strong>Image</strong> = Vorlage, <strong>Container</strong> = laufendes Exemplar, dauerhafte Daten gehören in ein Volume.</li></ul></div></li>
 <li><span class="num">10.1.4</span><div><a href="10-1-4-cloud-oder-eigener-betrieb.html">Cloud oder eigener Betrieb</a><ul><li><strong>IaaS</strong> liefert Infrastruktur, <strong>PaaS</strong> zusätzlich die Plattform, <strong>SaaS</strong> die fertige Anwendung; die Verantwortung für die Daten bleibt beim Kunden.</li>
@@ -694,8 +694,10 @@
 <section class="rb-kapitel" id="k-10-2"><h2><span class="num">10.2</span> Speicher planen</h2>
 <ul class="rb-list">
 <li><span class="num">10.2.1</span><div><a href="10-2-1-speicherbedarf-planen.html">Speicherbedarf planen</a><ul><li><strong>Speicherbedarf</strong> = Bestand hochgerechnet über die Nutzungsdauer plus Reserve; prozentuales Wachstum mit Bestand × (1 + Rate)<sup>n</sup>.</li>
-  <li><strong>Streams:</strong> Datenrate × Dauer ÷ 8; Ergebnisse in GiB/TiB, Herstellerangaben in GB/TB umrechnen; Kompressionsangaben genau lesen (gespart oder Faktor).</li></ul></div></li>
-<li><span class="num">10.2.2</span><div><a href="10-2-2-raid.html">RAID</a><ul><li><strong>RAID 0</strong> n × C ohne Redundanz, <strong>RAID 1</strong> Spiegel, <strong>RAID 5</strong> (n − 1) × C verkraftet eine, <strong>RAID 6</strong> (n − 2) × C zwei Platten, <strong>RAID 10</strong> n ÷ 2 × C schnell.</li>
+  <li><strong>Streams:</strong> Datenrate × Dauer ÷ 8. Herstellerangaben (GB/TB) in GiB/TiB umrechnen; bei Kompression prüfen, ob „spart x %“ oder ein Faktor gemeint ist.</li></ul></div></li>
+<li><span class="num">10.2.2</span><div><a href="10-2-2-raid.html">RAID</a><ul><li><strong>RAID 0</strong>: n × C, keine Redundanz.</li>
+  <li><strong>RAID 1</strong>: Spiegel, C; <strong>RAID 10</strong>: n ÷ 2 × C, schnell.</li>
+  <li><strong>RAID 5</strong>: (n − 1) × C, verkraftet eine Platte; <strong>RAID 6</strong>: (n − 2) × C, verkraftet zwei.</li>
   <li><strong>Hot Spare</strong> startet den Wiederaufbau automatisch und zählt nicht zur Kapazität; JBOD ist kein Schutz, RAID keine Sicherung.</li></ul></div></li>
 <li><span class="num">10.2.3</span><div><a href="10-2-3-speichersysteme-und-dateisysteme.html">Speichersysteme und Dateisysteme</a><ul><li><strong>NAS</strong> liefert Dateien (SMB, NFS), <strong>SAN</strong> Blöcke wie eine eigene Platte (iSCSI, Fibre Channel) und ist der übliche gemeinsame Speicher für Virtualisierungshosts.</li>
   <li><strong>Clustergröße</strong>: klein für viele kleine Dateien, groß für große Dateien; <strong>Deduplizierung</strong> speichert gleiche Blöcke nur einmal und spart vor allem bei Sicherungen und VMs.</li></ul></div></li>
@@ -706,7 +708,7 @@
 <ul class="rb-list">
 <li><span class="num">10.3.1</span><div><a href="10-3-1-hochverfuegbarkeit-und-skalierung.html">Hochverfügbarkeit und Skalierung</a><ul><li><strong>Hochverfügbarkeit</strong>: jeden Single Point of Failure doppeln (Strom, Netz, Speicher, Server); ein Cluster übernimmt bei Ausfall, ein Load Balancer verteilt die Last.</li>
   <li><strong>Vertikal</strong> skalieren = stärkerer Server, <strong>horizontal</strong> = mehr Server; Verfügbarkeit hintereinander A<sub>1</sub> × A<sub>2</sub>, parallel 1 − (1 − A<sub>1</sub>) × (1 − A<sub>2</sub>).</li></ul></div></li>
-<li><span class="num">10.3.2</span><div><a href="10-3-2-usv-und-notstrom.html">USV und Notstrom</a><ul><li><strong>USV auslegen</strong>: Wirkleistung aller Geräte addieren, VA- und W-Grenze mit Reserve einhalten; Laufzeit ≈ Akkuenergie × Wirkungsgrad ÷ Last.</li>
+<li><span class="num">10.3.2</span><div><a href="10-3-2-usv-und-notstrom.html">USV und Notstrom</a><ul><li><strong>USV auslegen</strong>: Wirkleistung (W) und Scheinleistung (VA) aller Geräte addieren, beide mit Reserve unter den Grenzen der USV; Laufzeit ≈ Akkuenergie × Wirkungsgrad ÷ Last, maßgeblich ist die Herstellertabelle.</li>
   <li><strong>Herunterfahren</strong> rechtzeitig auslösen (Restlaufzeit größer als Dauer des Herunterfahrens); bei langen Ausfällen überbrückt die USV bis zur Übernahme durch das Notstromaggregat.</li></ul></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-10-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.3</a></p>
@@ -726,7 +728,7 @@
 <ul class="rb-list">
 <li><span class="num">10.5.1</span><div><a href="10-5-1-verzeichnisdienst-und-gruppen.html">Verzeichnisdienst und Gruppen</a><ul><li><strong>Verzeichnisdienst</strong> (z. B. Active Directory, Zugriff per LDAP): zentrale Konten, Anmeldung mit Single Sign-on, Gruppen, Richtlinien; OUs gliedern nach Standort oder Abteilung.</li>
   <li><strong>Rechte</strong> vergibst du an Berechtigungsgruppen, Personen kommen über Rollengruppen hinein; ein Stellenwechsel ändert nur die Mitgliedschaft.</li></ul></div></li>
-<li><span class="num">10.5.2</span><div><a href="10-5-2-dateirechte-unter-windows-und-linux.html">Dateirechte unter Windows und Linux</a><ul><li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen, Unterordner erben.</li>
+<li><span class="num">10.5.2</span><div><a href="10-5-2-dateirechte-unter-windows-und-linux.html">Dateirechte unter Windows und Linux</a><ul><li><strong>Windows</strong>: Freigabe- und NTFS-Rechte, beim Netzzugriff gilt die strengere Ebene; Rechte mehrerer Gruppen addieren sich, Verweigern schlägt Zulassen auf derselben Ebene, direktes Zulassen schlägt geerbtes Verweigern; Unterordner erben.</li>
   <li><strong>Linux</strong>: r = 4, w = 2, x = 1 je Besitzer, Gruppe, andere, etwa 640 = rw-r-----; Verzeichnisse brauchen x zum Hineinwechseln.</li></ul></div></li>
 <li><span class="num">10.5.3</span><div><a href="10-5-3-serverlizenzen.html">Serverlizenzen</a><ul><li><strong>Server</strong> werden oft nach Kernen lizenziert, dazu kommen <strong>CALs</strong> für jeden Zugriff: User-CAL je Person mit mehreren Geräten, Device-CAL je geteiltem Gerät.</li>
   <li><strong>Update</strong> pflegt die vorhandene Version und ist enthalten, <strong>Upgrade</strong> auf eine neue Hauptversion braucht neue Lizenz oder Wartungsvertrag.</li></ul></div></li>
@@ -739,7 +741,7 @@
 <ul class="rb-list">
 <li><span class="num">10.6.1</span><div><a href="10-6-1-monitoring.html">Monitoring</a><ul><li><strong>Monitoring</strong> überwacht Hardware, Betriebssystem, Netz, Dienste und Sicherungen über Agenten, SNMP, Prüfungen von außen und Protokolle.</li>
   <li><strong>Schwellwerte</strong> mit Warnung und kritisch lösen gezielte Alarme aus; Verläufe zeigen Trends und belegen die Verfügbarkeit.</li></ul></div></li>
-<li><span class="num">10.6.2</span><div><a href="10-6-2-tests-und-kritische-zustaende.html">Tests und kritische Zustände</a><ul><li><strong>Performance- und Lasttests</strong> (Stresstest: über die Spitzenlast hinaus bis zur Grenze) brauchen eine realistische, getrennte Umgebung, messbare Kriterien und Wiederholbarkeit; der Ausgangswert dient später als Vergleich.</li>
+<li><span class="num">10.6.2</span><div><a href="10-6-2-tests-und-kritische-zustaende.html">Tests und kritische Zustände</a><ul><li><strong>Last- und Performance-Tests</strong> (Stresstest: bis zur Grenze) brauchen eine realistische, getrennte Umgebung und messbare Kriterien; das Ergebnis dient als Ausgangswert.</li>
   <li><strong>Kritische Zustände</strong>: Notfallhandbuch, Erreichbarkeit und Eskalation, Wiederanlaufreihenfolge, Information der Betroffenen, danach Ursachenanalyse.</li></ul></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-10-6.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.6</a></p>

@@ -687,7 +687,7 @@
     <tbody>
       <tr><th>Hardware</th><td>Temperatur, Lüfter, Netzteile, Zustand der Platten und des RAID, USV-Status</td></tr>
       <tr><th>Betriebssystem</th><td>Prozessorlast, Arbeitsspeicher, freier Speicherplatz, laufende Dienste</td></tr>
-      <tr><th>Netz</th><td>Erreichbarkeit, Auslastung und Fehler der Switch-Ports, Tunnelstatus (LF9, Kapitel 9.7)</td></tr>
+      <tr><th>Netz</th><td>Erreichbarkeit, Auslastung und Fehler der Switch-Ports, Tunnelstatus (LF9, Kapitel 9.6.1)</td></tr>
       <tr><th>Dienste</th><td>Antwortet die Datenbank, lädt die Webseite, wie lange dauert eine Anfrage?</td></tr>
       <tr><th>Sicherung</th><td>Ist die nächtliche Sicherung gelaufen, ohne Fehler?</td></tr>
       <tr><th>Zertifikate, Lizenzen</th><td>Wie lange sind sie noch gültig?</td></tr>
@@ -709,7 +709,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Das Systemhaus nimmt die Serverumgebung des Verbunds in sein Monitoring auf: Agenten auf allen VMs, SNMPv3 für Hosts, Speichersystem, Switches und USV, eine Prüfung der Web-API der Termin-App von außen alle fünf Minuten. Platzwarnung bei 80 %, kritisch bei 95 %; Warnungen gehen per Mail an den Support, kritische Meldungen gehen tagsüber als Ticket an den Support, nachts per SMS an die Rufbereitschaft. Drei Wochen später meldet das Monitoring „Platte Transaktionsprotokoll 82 %“ und zeigt im Verlauf, dass sie in zehn Tagen voll wäre. Die Auszubildende findet heraus, dass die stündliche Protokollsicherung (Kapitel 10.4.2) seit dem letzten Update fehlschlägt. Deshalb wird das Protokoll nicht mehr freigegeben und wächst weiter. Sie behebt den Fehler, bevor jemand etwas merkt.</p>
+  <p>Das Systemhaus nimmt die Serverumgebung des Verbunds in sein Monitoring auf: Agenten auf allen VMs, SNMPv3 für Hosts, Speichersystem, Switches und USV, eine Prüfung der Web-API der Termin-App von außen alle fünf Minuten. Platzwarnung bei 80 %, kritisch bei 95 %; Warnungen gehen per Mail an den Support, kritische Meldungen gehen tagsüber als Ticket an den Support, nachts per SMS an die Rufbereitschaft. Drei Wochen später meldet das Monitoring „Platte Transaktionsprotokoll 82 %“ und zeigt im Verlauf, dass sie in zehn Tagen voll wäre. Die Auszubildende findet heraus, dass die stündliche Protokollsicherung (Kapitel 10.4.2) seit dem letzten Update fehlschlägt. Deshalb wird das Protokoll nicht mehr freigegeben und wächst weiter. Die Sicherungsüberwachung prüfte bisher nur die nächtliche Vollsicherung; sie nimmt die stündliche Protokollsicherung mit auf. Sie behebt den Fehler, bevor jemand etwas merkt.</p>
 </div>
 
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Das Monitoring selbst kann ausfallen. Prüfe deshalb, ob es läuft: Das Monitoring schickt regelmäßig eine Kontrollmeldung an eine zweite, unabhängige Stelle. Bleibt sie aus, schlägt diese Stelle Alarm.</p></aside>

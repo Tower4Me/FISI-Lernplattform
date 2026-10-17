@@ -6553,6 +6553,64 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "11.6",
+          "titel": "Datenschutz im Betrieb",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "11.6.1",
+              "titel": "Videoüberwachung und Beschäftigtendaten",
+              "slug": "videoueberwachung-und-beschaeftigtendaten",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: Maßnahmen nach rechtlichen Regelungen planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Datenschutz)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 3 (DSGVO bei Videoüberwachung: Löschfristen, Persönlichkeitsrechte, Zweckbindung)",
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 4 (Recht bei der Kontrolle von Mitarbeiter-E-Mails)"
+                ],
+                "extern": [
+                  "Art. 5, 6, 13 DSGVO (EUR-Lex); § 87 Abs. 1 Nr. 6 BetrVG (gesetze-im-internet.de); DSK Orientierungshilfe Videoüberwachung durch nicht-öffentliche Stellen; § 26 BDSG und § 3 TDDDG (gesetze-im-internet.de); EuGH C-34/21 vom 30.03.2023"
+                ]
+              },
+              "material": [
+                "persoenlichkeitsrechte",
+                "dsgvo-grundlagen"
+              ],
+              "begriffe": [
+                "datenschutz",
+                "personenbezogene-daten",
+                "firewall"
+              ]
+            },
+            {
+              "nummer": "11.6.2",
+              "titel": "Pflichten und Datenpanne",
+              "slug": "pflichten-und-datenpanne",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: Maßnahmen nach rechtlichen Regelungen planen; Kunden informieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Datenschutz)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2024 Teil 1 Aufgabe 1 (DSGVO-Pflichten: Verzeichnis, DSB, Löschfristen; Maßnahmen bei einer Datenpanne)"
+                ],
+                "extern": [
+                  "Art. 4 Nr. 12, 28, 30, 32 bis 35 DSGVO (EUR-Lex); § 38 BDSG (gesetze-im-internet.de)"
+                ]
+              },
+              "material": [
+                "dsgvo-grundlagen"
+              ],
+              "begriffe": [
+                "sicherheitsvorfall",
+                "datenschutzbeauftragter",
+                "toms",
+                "datenschutz"
+              ]
+            }
+          ]
         }
       ]
     }

@@ -1,0 +1,125 @@
+{
+  "titel": "Check 11.6",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Videoüberwachung",
+      "frage": "Eine Kamera im Lager soll Diebstähle aufklären. Welche Einstellung passt zur DSGVO?",
+      "optionen": [
+        "Aufnahmen vier Wochen speichern, falls später noch etwas auffällt oder fehlt",
+        "Nur den Schrank erfassen und Aufnahmen nach wenigen Tagen löschen",
+        "Auch den Flur filmen, damit sich Wege nachvollziehen lassen",
+        "Kein Hinweisschild, damit Täter nicht gewarnt werden"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Die Kamera erfasst nur den nötigen Bereich, die Aufnahmen werden gelöscht, sobald sie nicht mehr gebraucht werden. Ein Hinweisschild ist Pflicht, damit die Gefilmten Bescheid wissen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zweckbindung",
+      "frage": "Die Inhaberin möchte mit den Aufnahmen der Lagerkamera auch prüfen, wer morgens zu spät kommt. Was steht dem entgegen?",
+      "optionen": [
+        "Die Aufnahmen sind an den festgelegten Zweck gebunden",
+        "Kameras dürfen technisch keine Uhrzeit speichern",
+        "Die Aufnahmen gehören rechtlich dem Systemhaus",
+        "Für Pünktlichkeit gilt das Arbeitszeitgesetz statt der DSGVO"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Zweck, hier Aufklärung von Diebstählen, wird vorab festgelegt. Eine Auswertung für andere Zwecke braucht eine eigene Rechtsgrundlage und würde die Abwägung meist kippen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Betriebsrat",
+      "frage": "Ein Betrieb mit Betriebsrat will eine Firewall mit Protokollierung der aufgerufenen Webseiten einführen. Was gilt?",
+      "optionen": [
+        "Er muss erst nach der Einführung schriftlich informiert werden",
+        "Er bestimmt mit, weil sich damit Verhalten überwachen lässt",
+        "Er legt die einzelnen Firewall-Regeln anstelle der IT-Abteilung fest",
+        "Er wird beteiligt, sobald zusätzlich Kameras dazukommen"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Nach § 87 Abs. 1 Nr. 6 BetrVG bestimmt der Betriebsrat bei jeder Technik mit, die Verhalten oder Leistung überwachen kann. Meist entsteht dazu eine Betriebsvereinbarung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Verzeichnis",
+      "frage": "Was gehört in einen Eintrag im Verzeichnis von Verarbeitungstätigkeiten?",
+      "optionen": [
+        "Name und Anschrift jedes Kunden, dessen Daten verarbeitet werden",
+        "Die Kennwortrichtlinie und alle Benutzerkonten mit ihren Rechten",
+        "Zweck, Kategorien von Personen und Daten, Empfänger, Löschfristen",
+        "Datum, Dauer und Speicherort jeder einzelnen Datensicherung"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Das Verzeichnis beschreibt jede Verarbeitung: Verantwortlicher, Zweck, Kategorien von Personen und Daten, Empfänger, Drittlandübermittlung, Löschfristen und die TOMs. Einzelne Kundennamen gehören nicht hinein."
+    },
+    {
+      "typ": "mc",
+      "thema": "Meldefrist",
+      "frage": "Am Montag um 9 Uhr erfährt der Betrieb von einer Datenpanne mit Risiko für die Betroffenen. Bis wann sollte die Meldung an die Aufsichtsbehörde möglichst erfolgen?",
+      "optionen": [
+        "Bis Donnerstag 9 Uhr",
+        "Bis Freitag 9 Uhr",
+        "Bis Montag in einer Woche",
+        "Erst wenn alle Einzelheiten geklärt sind"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Meldung erfolgt unverzüglich und möglichst binnen 72 Stunden ab Kenntnis, hier also bis Donnerstag 9 Uhr. Fehlende Angaben werden nachgereicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Benachrichtigung",
+      "frage": "Ein Notebook mit Kundendaten wird gestohlen; der Datenträger ist verschlüsselt, der Schlüssel nicht mit gestohlen. Was gilt für die Benachrichtigung der Betroffenen?",
+      "optionen": [
+        "Alle Betroffenen müssen innerhalb von 24 Stunden informiert werden",
+        "Sie kann entfallen, weil die Daten für Unbefugte unlesbar sind",
+        "Sie ist nur nötig, wenn die Polizei es verlangt",
+        "Die Aufsichtsbehörde benachrichtigt die Betroffenen selbst"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Betroffene werden bei voraussichtlich hohem Risiko benachrichtigt. Das entfällt unter anderem, wenn die Daten durch Verschlüsselung für Unbefugte unlesbar waren. Dokumentiert wird der Vorfall trotzdem."
+    },
+    {
+      "typ": "mc",
+      "thema": "Dokumentation",
+      "frage": "Eine Datenpanne führt nach der Bewertung voraussichtlich zu keinem Risiko für die Personen. Was muss der Betrieb trotzdem tun?",
+      "optionen": [
+        "Den Vorfall mit Ursache, Folgen und Maßnahmen dokumentieren",
+        "Alle Kunden per Brief informieren",
+        "Die Aufsichtsbehörde binnen 72 Stunden informieren",
+        "Die betroffenen Systeme abschalten, bis die Ursache geklärt ist"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ohne Risiko entfällt die Meldung, aber jede Verletzung wird intern festgehalten. So kann der Betrieb seine Entscheidung später belegen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Dienstliches Postfach",
+      "frage": "Ein Tierarzt ist vier Wochen krank. Kunden warten auf Antworten aus seinem dienstlichen Postfach; private Nutzung ist im Verbund verboten. Was passt?",
+      "optionen": [
+        "Zugriff nach dem vorher bekannten Verfahren, mit zweiter Person und dokumentiert",
+        "Die IT öffnet das Postfach allein, weil dienstliche Mails dem Betrieb gehören",
+        "Kein Zugriff bis zur Rückkehr, weil für den Betrieb das Fernmeldegeheimnis gilt",
+        "Die Inhaberin liest alle seine Mails seit Beginn des Arbeitsverhältnisses"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ist private Nutzung verboten, darf der Betrieb mit gutem Grund in dienstliche Mails schauen, wenn das Verfahren vorher bekannt ist. Zweite Person und Protokoll machen den Zugriff nachprüfbar."
+    }
+  ]
+}

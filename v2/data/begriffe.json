@@ -28,6 +28,10 @@
         {
           "id": "4-2-1",
           "tiefe": "DSGVO/BDSG, personenbezogene Daten, Grundsätze"
+        },
+        {
+          "id": "8-1-3",
+          "tiefe": "Auftragsverarbeitung Art. 28, Verzeichnis Art. 30, Nutzungsrechte an Daten"
         }
       ]
     },
@@ -145,7 +149,8 @@
         "Grundsätze (Art. 5) u. a.: Rechtmäßigkeit, Zweckbindung, Datenminimierung, Richtigkeit, Speicherbegrenzung, Integrität und Vertraulichkeit, Rechenschaftspflicht.",
         "Bußgelder bis 20 Mio. Euro oder bei Unternehmen bis 4 % des weltweiten Jahresumsatzes, je nachdem, was höher ist (Art. 83 Abs. 5; Abs. 4: 10 Mio./2 %).",
         "Pseudonymisiert: Personenbezug nur mit Zusatzwissen, bleibt personenbezogen; anonymisiert: kein Personenbezug mehr, DSGVO gilt nicht.",
-        "Betroffenenrechte u. a.: Auskunft, Berichtigung, Löschung, Widerspruch."
+        "Betroffenenrechte u. a.: Auskunft, Berichtigung, Löschung, Widerspruch.",
+        "Weitere Betroffenenrechte: Einschränkung (Art. 18), Datenübertragbarkeit in gängigem maschinenlesbarem Format (Art. 20); Rechte gelten auch für Kopien in zusammengeführten Datenbanken."
       ],
       "vorkommen": [
         {
@@ -167,6 +172,10 @@
         {
           "id": "6-4-4",
           "tiefe": "Auftragsverarbeitung bei Fernwartung"
+        },
+        {
+          "id": "8-1-3",
+          "tiefe": "Zweckbindung, Datenminimierung, Betroffenenrechte in Kopien"
         }
       ]
     },
@@ -388,6 +397,10 @@
         {
           "id": "6-4-4",
           "tiefe": "zweiter Faktor für Techniker"
+        },
+        {
+          "id": "8-1-2",
+          "tiefe": "eigenes Lesekonto, Schlüssel im Kennworttresor"
         }
       ]
     },
@@ -1770,6 +1783,10 @@
         {
           "id": "7-3-3",
           "tiefe": "JSON als Antwort einer REST-Schnittstelle"
+        },
+        {
+          "id": "8-1-1",
+          "tiefe": "Einordnung strukturiert/semistrukturiert/unstrukturiert"
         }
       ]
     },
@@ -2698,6 +2715,10 @@
         {
           "id": "7-3-5",
           "tiefe": "MQTT-Bibliotheken auswählen"
+        },
+        {
+          "id": "8-1-2",
+          "tiefe": "Rückverweis REST als Zugriffsweg"
         }
       ]
     },
@@ -2746,6 +2767,39 @@
         {
           "id": "7-5-2",
           "tiefe": "Schwachstellen und Maßnahmen"
+        }
+      ]
+    },
+    {
+      "begriff": "datenquellen",
+      "kernfakten": [
+        "Heterogene Quellen: Datenbanken, Dateien, Web-APIs, Dokumente, Sensoren; unterschiedliche Formate, Technik, Bezeichnungen.",
+        "Strukturiert = festes Schema (relationale Tabelle, CSV); semistrukturiert = Struktur in den Daten, Felder variabel (JSON, XML); unstrukturiert = kein Schema (Freitext, PDF, Bild).",
+        "Zugriffswege: Dateiübergabe, Datenbankverbindung (Treiber, ODBC/JDBC), Web-API (REST, JSON), Export aus der Anwendung; Vollabzug vs. Deltaabzug (braucht Änderungsmerkmal).",
+        "Abrufkonto nur mit Leserechten auf nötige Tabellen, Übertragung verschlüsselt (HTTPS, TLS, SFTP), Zugangsdaten nicht im Skript."
+      ],
+      "vorkommen": [
+        {
+          "id": "8-1-1",
+          "tiefe": "Arten und Analyse von Quellen"
+        },
+        {
+          "id": "8-1-2",
+          "tiefe": "Zugriffswege, Voll- und Deltaabzug"
+        }
+      ]
+    },
+    {
+      "begriff": "datenqualitaet",
+      "kernfakten": [
+        "Merkmale: Vollständigkeit, Korrektheit, Einheitlichkeit, Eindeutigkeit (keine Dubletten), Aktualität, Gültigkeit.",
+        "Prüfen mit Datenprofil (Anzahl, leere Felder, Werteverteilung, Min/Max), Regeln und Stichproben.",
+        "Mängel möglichst an der Quelle beheben; sonst feste Umwandlungsregeln beim Übernehmen; Constraints verhindern neue Fehler."
+      ],
+      "vorkommen": [
+        {
+          "id": "8-1-4",
+          "tiefe": "Merkmale und Prüfung"
         }
       ]
     }

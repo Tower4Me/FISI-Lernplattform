@@ -1,0 +1,36 @@
+<p class="lead">Eine Auswertung ist nur so gut wie die Daten, aus denen sie entsteht. Stehen in einer Quelle Tippfehler, Lücken oder doppelte Einträge, landen sie ungeprüft auch in der zentralen Datenbank und verfälschen jede Zahl. Deshalb prüfst du die Qualität einer Quelle, bevor du sie übernimmst.</p>
+
+<h3>Merkmale guter Daten</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Merkmal</th><th>Frage</th><th>Beispiel für einen Mangel</th></tr></thead>
+    <tbody>
+      <tr><th>Vollständigkeit</th><td>Sind alle nötigen Werte vorhanden?</td><td>bei vielen Tieren fehlt die Tierart</td></tr>
+      <tr><th>Korrektheit</th><td>Stimmen die Werte mit der Wirklichkeit überein?</td><td>Katze mit 45 kg Gewicht (Kommafehler, gemeint 4,5 kg)</td></tr>
+      <tr><th>Einheitlichkeit</th><td>Ist dasselbe überall gleich dargestellt?</td><td>„Hund“, „hund“ und „Canis“; Datum mal als 03.04.2025, mal als 2025-04-03</td></tr>
+      <tr><th>Eindeutigkeit</th><td>Ist jede Person und jedes Ding nur einmal erfasst?</td><td>dieselbe Besitzerin an zwei Standorten mit zwei Nummern (Dublette)</td></tr>
+      <tr><th>Aktualität</th><td>Sind die Werte auf dem nötigen Stand?</td><td>Lagerbestand von letzter Woche</td></tr>
+      <tr><th>Gültigkeit</th><td>Halten die Werte die vereinbarten Regeln ein?</td><td>Telefonnummer mit Buchstaben, Geburtsdatum in der Zukunft</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>So prüfst du</h3>
+<ol>
+  <li><strong>Überblick verschaffen</strong>: Anzahl der Datensätze, Anteil leerer Felder je Spalte, verschiedene Werte einer Spalte mit ihrer Häufigkeit, kleinster und größter Wert. Diese Übersicht heißt auch <strong>Datenprofil</strong>.</li>
+  <li><strong>Regeln prüfen</strong>: Formate (Datum, Telefonnummer), erlaubte Werte (Liste der Tierarten), Wertebereiche (Gewicht größer als 0) und Verweise (gibt es zu jedem Tier die Besitzerin?).</li>
+  <li><strong>Stichproben</strong> mit der Quelle vergleichen, etwa zehn zufällige Datensätze mit der Anzeige in der Praxissoftware.</li>
+  <li><strong>Mängel festhalten</strong> mit Anzahl und Beispiel, damit die Verantwortlichen der Quelle entscheiden können, was zu tun ist.</li>
+</ol>
+
+<h3>Wo Mängel behoben werden</h3>
+<p>Am besten an der Quelle: Wird ein Fehler nur in der Kopie korrigiert, kommt er beim nächsten Abruf wieder. Lässt sich die Quelle nicht ändern, legst du beim Übernehmen feste Umwandlungsregeln fest, etwa „Canis“ wird zu „Hund“ (Kapitel 8.4.1). Regeln in der Zieldatenbank wie Pflichtfelder und zulässige Wertebereiche (Kapitel 8.2.1) verhindern, dass neue Fehler hineinkommen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Datenprofil der Praxisdatenbank am Standort Nord zeigt: 1.840 Tiere, bei 212 fehlt die Tierart, in der Spalte Tierart stehen 14 verschiedene Schreibweisen für 6 Arten, 3 Tiere haben ein Geburtsdatum in der Zukunft. Die Auszubildende schickt die Liste an die Praxisleitung. Die Praxis korrigiert die Geburtsdaten in der Software; für die Schreibweisen der Tierart vereinbaren beide eine Zuordnungstabelle für die Übernahme.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Datenqualität ist kein einmaliger Schritt. Prüfregeln, die du jetzt aufstellst, lässt du bei jedem Abruf wieder laufen und meldest neue Auffälligkeiten.</p></aside>
+
+<p class="merksatz">Gute Daten sind vollständig, korrekt, einheitlich, eindeutig, aktuell und gültig; du prüfst eine Quelle mit Datenprofil, Regeln und Stichproben und behebst Mängel möglichst an der Quelle.</p>

@@ -1,0 +1,44 @@
+<p class="lead">Die Tierarztpraxis aus LF5 hat zwei weitere Standorte übernommen; alle drei gehören jetzt zu einem Unternehmen, dem Praxisverbund. Jetzt will die Praxisleitung wissen, wie viele Tiere wo behandelt werden, welche Impfungen fällig sind und was der Verbund für Futter ausgibt. Die Antworten stecken in verschiedenen Systemen. Bevor du etwas zusammenführst, findest du heraus, welche Daten wo liegen und wie sie aufgebaut sind.</p>
+
+<h3>Heterogene Quellen</h3>
+<p>Kaum ein Betrieb hat alle Daten an einem Ort. Typische Quellen sind:</p>
+<ul>
+  <li><strong>Datenbanken</strong> von Fachanwendungen, etwa der Praxissoftware an jedem Standort,</li>
+  <li><strong>Dateien</strong> wie CSV-Exporte, Tabellenkalkulationen oder JSON-Dateien (LF5, Kapitel 5.2.2),</li>
+  <li><strong>Webschnittstellen</strong> von Partnern und Cloud-Diensten, etwa die Bestell-API des Futterlieferanten (LF7, Kapitel 7.3.3),</li>
+  <li><strong>Dokumente und Nachrichten</strong> wie PDF-Befunde, E-Mails oder Fotos,</li>
+  <li><strong>Sensoren und Maschinen</strong>, etwa die Temperaturüberwachung des Impfstoff-Kühlschranks, wie beim Kühlraum in LF7, Kapitel 7.1.1.</li>
+</ul>
+<p>Weil sich diese Quellen in Format, Aufbau und Technik unterscheiden, heißen sie <strong>heterogen</strong>. Oft bezeichnen sie dasselbe auch unterschiedlich: Der eine Standort speichert „Hund“, der andere „Canis“, und die Kundennummern beginnen an jedem Standort bei 1.</p>
+
+<h3>Strukturiert, semistrukturiert, unstrukturiert</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Merkmal</th><th>Beispiele</th><th>Auswertung</th></tr></thead>
+    <tbody>
+      <tr><th>strukturiert</th><td>festes Schema: Jede Zeile hat dieselben Spalten mit festem Datentyp</td><td>Tabellen einer relationalen Datenbank, sauber aufgebaute CSV-Datei</td><td>direkt maschinell auswertbar, in einer Datenbank per SQL</td></tr>
+      <tr><th>semistrukturiert</th><td>Daten tragen ihre Struktur mit sich (Namen, Verschachtelung), Felder können fehlen oder dazukommen</td><td>JSON, XML</td><td>maschinell lesbar, aber vor dem Zusammenführen anzupassen</td></tr>
+      <tr><th>unstrukturiert</th><td>kein vorgegebenes Schema</td><td>Freitext, PDF-Befund, Foto, Sprachnachricht</td><td>nur mit Aufwand, etwa Texterkennung oder KI</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Eine Quelle analysieren</h3>
+<p>Für jede Quelle hältst du in einer Übersicht fest:</p>
+<ul>
+  <li><strong>Inhalt:</strong> Welche Daten, für welchen Zeitraum, in welcher Menge?</li>
+  <li><strong>Struktur und Format:</strong> Tabellen, Felder, Datentypen, Kodierung, Trennzeichen?</li>
+  <li><strong>Aktualität:</strong> Wie oft ändern sich die Daten, wie aktuell müssen sie beim Empfänger sein?</li>
+  <li><strong>Verantwortung:</strong> Wem gehören die Daten, wer gibt sie frei?</li>
+  <li><strong>Zugriff:</strong> Wie kommt man technisch heran (Kapitel 8.1.2)?</li>
+  <li><strong>Rechtlicher Rahmen:</strong> Enthalten sie personenbezogene Daten, gibt es Nutzungsbedingungen (Kapitel 8.1.3)?</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende des Systemhauses listet für den Praxisverbund auf: drei Datenbanken der Praxissoftware (strukturiert, je Standort eigene Nummern für Besitzer und Tiere), Laborergebnisse als CSV aus dem Laborportal (strukturiert, aber mit Komma als Dezimalzeichen und Semikolon als Trennzeichen), Bestellungen über die JSON-API des Futterlieferanten (semistrukturiert) und eingescannte Überweisungsschreiben anderer Tierärzte (unstrukturiert). Die Scans lässt sie vorerst außen vor; für die Auswertungen reichen die übrigen Quellen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„JSON ist unstrukturiert, weil es kein festes Tabellenschema hat.“ JSON hat eine erkennbare, maschinenlesbare Struktur aus Namen und Werten, nur ist sie nicht für alle Datensätze gleich vorgeschrieben. Deshalb heißt es semistrukturiert.</p></aside>
+
+<p class="merksatz">Datenquellen im Betrieb sind heterogen; du ordnest sie als strukturiert, semistrukturiert oder unstrukturiert ein und analysierst Inhalt, Format, Aktualität, Verantwortung, Zugriff und rechtlichen Rahmen.</p>

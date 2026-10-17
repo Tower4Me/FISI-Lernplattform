@@ -1,0 +1,39 @@
+<p class="lead">Du weißt jetzt, welche Daten wo liegen. Als Nächstes klärst du, wie du technisch an sie herankommst. Davon hängt ab, wie aktuell die Daten beim Empfänger sind, wie viel Aufwand die Anbindung macht und welche Rechte du dafür brauchst.</p>
+
+<h3>Vier typische Wege</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>So funktioniert es</th><th>Stärken</th><th>Grenzen</th></tr></thead>
+    <tbody>
+      <tr><th>Dateiübergabe</th><td>Die Quelle legt eine Datei ab (CSV, JSON, XML), etwa auf einer Freigabe oder per SFTP; der Empfänger liest sie ein.</td><td>einfach, kaum Abhängigkeit von der Technik der Quelle</td><td>Daten nur so aktuell wie die letzte Datei; Format muss genau abgestimmt sein</td></tr>
+      <tr><th>Datenbankverbindung</th><td>Ein Programm verbindet sich über einen Treiber direkt mit dem DBMS und fragt per SQL ab.</td><td>aktuell, gezielte Abfragen, große Mengen</td><td>braucht Netzzugang und eigenes Datenbankkonto; Änderungen am Schema der Quelle können die Abfragen brechen</td></tr>
+      <tr><th>Web-API</th><td>Der Empfänger fragt per HTTPS eine REST-Schnittstelle an und bekommt meist JSON zurück.</td><td>vom Anbieter vorgesehen, dokumentiert, über das Internet nutzbar</td><td>nur die Daten, die der Anbieter freigibt; oft begrenzte Anzahl Anfragen je Minute</td></tr>
+      <tr><th>Export aus der Anwendung</th><td>Jemand erzeugt in der Fachanwendung einen Bericht oder Export und gibt ihn weiter.</td><td>ohne Technik nutzbar, gut für einmalige Übernahmen</td><td>Handarbeit, fehleranfällig, schlecht zu wiederholen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Für eine Datenbankverbindung brauchst du Rechnername oder IP-Adresse, Port, Name der Datenbank, ein Benutzerkonto und den passenden Treiber. Verbreitete Schnittstellen für solche Treiber sind ODBC und JDBC. Wie eine REST-Schnittstelle arbeitet, kennst du aus LF7, Kapitel 7.3.3.</p>
+
+<h3>Wann und wie viel abgeholt wird</h3>
+<ul>
+  <li><strong>Vollabzug</strong>: Jedes Mal werden alle Daten übertragen. Einfach, aber bei großen Beständen langsam.</li>
+  <li><strong>Deltaabzug</strong>: Nur Datensätze, die seit dem letzten Abruf neu sind oder sich geändert haben. Dafür braucht die Quelle ein Merkmal wie einen Änderungszeitpunkt. Gelöschte Datensätze erkennt ein Änderungszeitpunkt nicht; dafür braucht die Quelle eine Löschmarkierung, oder du gleichst von Zeit zu Zeit vollständig ab.</li>
+  <li><strong>Zeitpunkt</strong>: zeitgesteuert (etwa jede Nacht) oder bei Bedarf. Er richtet sich danach, wie aktuell die Daten beim Empfänger sein müssen.</li>
+</ul>
+
+<h3>Sicher zugreifen</h3>
+<ul>
+  <li>Für den Abruf ein eigenes Konto anlegen, das nur lesen darf und nur die nötigen Tabellen sieht (Prinzip der minimalen Rechte).</li>
+  <li>Verschlüsselt übertragen: HTTPS für APIs, TLS für Datenbankverbindungen über das Netz, SFTP statt FTP für Dateien.</li>
+  <li>Kennwörter und API-Schlüssel nicht in Skripte oder Dokumentation schreiben, sondern getrennt und geschützt ablegen.</li>
+  <li>Abrufe außerhalb der Hauptlast planen, damit die Fachanwendung nicht langsamer wird.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für den Praxisverbund legt die Auszubildende fest: Die drei Praxisdatenbanken werden nachts über eine Datenbankverbindung mit einem Lesekonto abgefragt, und zwar nur Datensätze, die seit dem letzten Lauf geändert wurden. Die Laborwerte holt ein Skript stündlich als CSV per SFTP aus dem Laborportal. Die Futterbestellungen liefert die API des Lieferanten; der API-Schlüssel liegt im Kennworttresor des Systemhauses.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Für den Abruf nehme ich einfach das Administratorkonto der Datenbank.“ Damit könnte ein Fehler im Skript oder ein Angreifer Daten ändern oder löschen. Ein Abruf braucht nur Leserechte auf die nötigen Tabellen.</p></aside>
+
+<p class="merksatz">Daten kommen per Dateiübergabe, Datenbankverbindung, Web-API oder Export aus der Anwendung; du wählst den Weg nach Aktualität und Aufwand und greifst mit einem Konto mit minimalen Rechten verschlüsselt zu.</p>

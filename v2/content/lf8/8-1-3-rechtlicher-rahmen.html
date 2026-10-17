@@ -1,0 +1,43 @@
+<p class="lead">Technisch lassen sich die Daten aller drei Standorte leicht zusammenführen. Ob das erlaubt ist und in welchem Umfang, ist eine andere Frage. Bevor du Daten aus einer Quelle übernimmst, prüfst du, ob dafür eine Rechtsgrundlage besteht und ob die Bedingungen des Datenlieferanten es zulassen.</p>
+
+<h3>Personenbezogene Daten</h3>
+<p>Namen, Anschriften und Telefonnummern der Tierbesitzer sind personenbezogene Daten. Die Grundlagen kennst du aus LF4, Kapitel 4.2.1. Jede Verarbeitung braucht eine Rechtsgrundlage nach Art. 6 DSGVO, etwa einen Vertrag, eine gesetzliche Pflicht, ein berechtigtes Interesse oder eine Einwilligung. Die Daten über die Tiere selbst sind keine Gesundheitsdaten im Sinne der DSGVO, denn die betreffen nur Menschen. Sie hängen aber über den Fremdschlüssel an der Besitzerin und sind damit ebenfalls auf eine Person beziehbar.</p>
+<p>Für ein Zusammenführen sind vor allem diese Grundsätze aus Art. 5 DSGVO wichtig:</p>
+<ul>
+  <li><strong>Zweckbindung:</strong> Daten, die für die Behandlung erhoben wurden, dürfen nicht beliebig für andere Zwecke genutzt werden. Ein neuer Zweck muss mit dem ursprünglichen vereinbar sein oder eine eigene Rechtsgrundlage haben, etwa eine Einwilligung.</li>
+  <li><strong>Datenminimierung:</strong> Nur so viele Daten übernehmen, wie der Zweck braucht. Für eine Statistik reichen oft Zahlen ohne Namen.</li>
+  <li><strong>Speicherbegrenzung:</strong> Für jede Kopie festlegen, wann sie gelöscht wird.</li>
+  <li><strong>Integrität und Vertraulichkeit:</strong> Die zentrale Datenbank braucht mindestens den Schutz der Quellen, durch die Bündelung oft sogar mehr (Kumulationseffekt, LF4, Kapitel 4.4.3). Wie du sie schützt, folgt in Kapitel 8.4.4.</li>
+</ul>
+
+<h3>Rechte der Betroffenen</h3>
+<p>Wer Daten zusammenführt, muss die Rechte der betroffenen Personen weiter erfüllen können. Die wichtigsten:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Recht</th><th>DSGVO</th><th>Folge für die zentrale Datenbank</th></tr></thead>
+    <tbody>
+      <tr><th>Auskunft</th><td>Art. 15</td><td>alle Kopien einer Person finden können</td></tr>
+      <tr><th>Berichtigung</th><td>Art. 16</td><td>Korrekturen auch in die Kopien übernehmen</td></tr>
+      <tr><th>Löschung</th><td>Art. 17</td><td>Löschung aus der Quelle an die Kopien weitergeben</td></tr>
+      <tr><th>Einschränkung</th><td>Art. 18</td><td>Datensätze sperren, ohne sie zu löschen</td></tr>
+      <tr><th>Datenübertragbarkeit</th><td>Art. 20</td><td>Daten, die die Person selbst bereitgestellt hat, in einem gängigen, maschinenlesbaren Format herausgeben, etwa CSV oder JSON</td></tr>
+      <tr><th>Widerspruch</th><td>Art. 21</td><td>bestimmte Verarbeitungen für eine Person beenden</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Wer verantwortlich ist</h3>
+<p>Verantwortlich im Sinne der DSGVO bleibt der Praxisverbund: Er entscheidet über Zweck und Mittel. Das Systemhaus richtet die Datenbank in seinem Auftrag ein und betreibt sie. Es ist damit <strong>Auftragsverarbeiter</strong>, und beide schließen einen Vertrag nach Art. 28 DSGVO. Die neue Verarbeitung kommt außerdem in das Verzeichnis von Verarbeitungstätigkeiten des Verbunds (Art. 30).</p>
+<aside class="note" data-typ="hinweis"><p>Tierärztinnen und Tierärzte unterliegen der Schweigepflicht (§ 203 StGB). Die Praxis verpflichtet das Systemhaus deshalb zusätzlich ausdrücklich zur Verschwiegenheit.</p></aside>
+
+<h3>Nutzungsrechte an fremden Daten</h3>
+<p>Nicht nur der Datenschutz setzt Grenzen. Daten von Partnern und Anbietern unterliegen deren <strong>Nutzungsbedingungen</strong>: Die API des Futterlieferanten darf vielleicht nur für eigene Bestellungen genutzt werden, nicht für einen Preisvergleich, den man an Dritte weitergibt. Auch eine Datenbank als Ganzes kann geschützt sein: Das Urheberrechtsgesetz gibt dem Hersteller einer Datenbank, der wesentlich in sie investiert hat, eigene Rechte (§§ 87a ff. UrhG). Lies deshalb vor der Anbindung die Bedingungen und kläre offene Punkte mit dem Anbieter.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Praxisleitung möchte wissen, wie viele Hunde, Katzen und Kaninchen je Standort behandelt werden. Die Auszubildende schlägt vor, für diese Auswertung nur Tierart, Standort und Datum zu übernehmen, keine Besitzernamen. Für die Erinnerung an fällige Impfungen braucht der Verbund die Kontaktdaten weiterhin; diese Funktion bleibt in der Praxissoftware, die den Kontakt ohnehin zur Behandlung speichert.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Die Daten gehören doch dem Verbund, also darf er sie für alles nutzen.“ Auch eigene Daten über Kunden sind an den Zweck gebunden, für den sie erhoben wurden. Ein neuer Zweck muss vereinbar sein oder braucht eine eigene Rechtsgrundlage.</p></aside>
+
+<p class="merksatz">Vor dem Zusammenführen prüfst du Rechtsgrundlage, Zweckbindung und Datenminimierung, stellst sicher, dass Betroffenenrechte auch in den Kopien erfüllbar bleiben, und hältst die Nutzungsbedingungen fremder Datenquellen ein.</p>

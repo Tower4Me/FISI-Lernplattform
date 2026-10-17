@@ -1,0 +1,109 @@
+{
+  "titel": "Check 8.1",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Struktur einordnen",
+      "frage": "Der Futterlieferant liefert Bestellungen als JSON. Manche Bestellungen enthalten ein Feld für Rabatte, andere nicht. Wie ordnest du diese Daten ein?",
+      "optionen": [
+        "Semistrukturiert",
+        "Strukturiert",
+        "Unstrukturiert",
+        "Strukturiert, weil jeder Wert einen Namen trägt"
+      ],
+      "richtig": [0],
+      "erklaerung": "JSON trägt seine Struktur aus Namen und Werten mit sich, schreibt aber nicht für alle Datensätze dieselben Felder vor. Das heißt semistrukturiert."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Heterogene Quellen",
+      "frage": "Woran zeigt sich, dass die Datenquellen eines Betriebs heterogen sind? Wähle alle passenden Antworten.",
+      "optionen": [
+        "Die Quellen liegen in unterschiedlichen Formaten vor, etwa Datenbank und CSV.",
+        "Dieselbe Sache ist unterschiedlich bezeichnet, etwa „Hund“ und „Canis“.",
+        "Jede Quelle hat eine eigene Nummerierung der Kunden.",
+        "Alle Quellen werden jede Nacht gesichert."
+      ],
+      "richtig": [0, 1, 2],
+      "erklaerung": "Heterogen bedeutet: Die Quellen unterscheiden sich in Format, Aufbau, Technik und Bezeichnungen. Eine gemeinsame Sicherung sagt darüber nichts aus."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zugriffsweg wählen",
+      "frage": "Eine Auswertung soll jede Nacht die geänderten Termine aus der Praxisdatenbank holen. Welcher Zugriff passt am besten?",
+      "optionen": [
+        "Datenbankverbindung mit Lesekonto und Deltaabzug",
+        "Händischer Export durch das Praxisteam",
+        "Vollabzug über das Administratorkonto der Datenbank",
+        "Ausdruck der Terminliste, später abgetippt"
+      ],
+      "richtig": [0],
+      "erklaerung": "Eine Datenbankverbindung lässt sich zeitgesteuert ausführen. Ein Deltaabzug holt nur Änderungen, und ein Lesekonto genügt für den Abruf."
+    },
+    {
+      "typ": "mc",
+      "thema": "Deltaabzug",
+      "frage": "Was braucht die Quelle, damit ein Deltaabzug möglich ist?",
+      "optionen": [
+        "Ein Merkmal wie den Änderungszeitpunkt je Datensatz",
+        "Einen eigenen Server für jede Tabelle",
+        "Eine Ausgabe der Daten als PDF",
+        "Ein Konto mit Schreibrechten für das abrufende Programm"
+      ],
+      "richtig": [0],
+      "erklaerung": "Beim Deltaabzug werden nur neue und geänderte Datensätze geholt. Dafür muss erkennbar sein, was sich seit dem letzten Abruf geändert hat."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zweckbindung",
+      "frage": "Die Praxisleitung will mit den Kontaktdaten aus der Behandlung künftig Werbung für ein neues Hundefutter verschicken. Welcher Grundsatz der DSGVO ist vor allem zu prüfen?",
+      "optionen": [
+        "Zweckbindung",
+        "Speicherbegrenzung",
+        "Richtigkeit",
+        "Integrität und Vertraulichkeit"
+      ],
+      "richtig": [0],
+      "erklaerung": "Die Daten wurden für die Behandlung erhoben. Ein neuer Zweck muss mit dem ursprünglichen vereinbar sein oder braucht eine eigene Rechtsgrundlage, etwa eine Einwilligung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rolle des Systemhauses",
+      "frage": "Das Systemhaus betreibt die zentrale Datenbank für den Praxisverbund. Zweck und Mittel legt der Verbund fest. Welche Rolle hat das Systemhaus nach der DSGVO?",
+      "optionen": [
+        "Auftragsverarbeiter mit Vertrag nach Art. 28",
+        "Verantwortlicher anstelle des Verbunds",
+        "Gemeinsam Verantwortlicher mit dem Verbund",
+        "Dritter, für den die DSGVO keine Pflichten vorsieht"
+      ],
+      "richtig": [0],
+      "erklaerung": "Der Verbund entscheidet über Zweck und Mittel und bleibt verantwortlich. Das Systemhaus verarbeitet in seinem Auftrag und schließt dazu einen Vertrag nach Art. 28 DSGVO."
+    },
+    {
+      "typ": "mc",
+      "thema": "Qualitätsmerkmal",
+      "frage": "Dieselbe Besitzerin steht an zwei Standorten mit zwei verschiedenen Nummern in den Daten. Welches Merkmal der Datenqualität ist verletzt?",
+      "optionen": [
+        "Eindeutigkeit",
+        "Aktualität",
+        "Gültigkeit",
+        "Vollständigkeit"
+      ],
+      "richtig": [0],
+      "erklaerung": "Eine Person, die doppelt erfasst ist, ist eine Dublette. Das verletzt die Eindeutigkeit."
+    },
+    {
+      "typ": "mc",
+      "thema": "Mängel beheben",
+      "frage": "Im Datenprofil fallen falsche Geburtsdaten auf. Wo werden sie am besten korrigiert?",
+      "optionen": [
+        "In der Quelle, also in der Praxissoftware",
+        "Nur in der Kopie der zentralen Datenbank",
+        "In der fertigen Auswertung für die Praxisleitung",
+        "Im Skript, das die Werte beim Abruf löscht"
+      ],
+      "richtig": [0],
+      "erklaerung": "Wird nur die Kopie korrigiert, kommt der Fehler beim nächsten Abruf zurück. Deshalb behebst du Mängel möglichst an der Quelle."
+    }
+  ]
+}

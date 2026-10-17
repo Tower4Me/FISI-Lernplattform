@@ -1,0 +1,25 @@
+<p class="lead">Ein Gewitter, und im Stammhaus fällt für zwanzig Minuten der Strom aus. Ohne Vorsorge schalten sich die Hosts hart ab, mitten in laufenden Schreibvorgängen der Datenbank. Die USV-Klassen VFD, VI und VFI kennst du aus LF4, Kapitel 4.6.3. Jetzt legst du eine USV für die Serverumgebung aus und planst, was bei einem langen Ausfall passiert.</p>
+
+<h3>Leistung bestimmen</h3>
+<p>USV werden mit zwei Leistungsangaben verkauft: der <strong>Scheinleistung</strong> in VA und der <strong>Wirkleistung</strong> in W. Netzteile ziehen auch Strom, der keine Arbeit verrichtet; deshalb ist die Scheinleistung (Spannung × Strom) größer als die Wirkleistung. Es gilt Leistungsfaktor = Wirkleistung ÷ Scheinleistung; eine USV mit 3000 VA und Leistungsfaktor 0,9 liefert höchstens 2700 W. Du addierst Wirkleistung (W) und Scheinleistung (VA) der Geräte laut Typenschild; beide Summen müssen unter den Grenzen der USV bleiben. Für Wachstum und Einschaltströme plant man Reserve ein, die USV sollte im Normalbetrieb deutlich unter Volllast laufen.</p>
+
+<h3>Laufzeit berechnen</h3>
+<p>Die Laufzeit hängt vom Energieinhalt der Akkus und der Last ab. Ein Teil der Energie geht bei der Umwandlung verloren:</p>
+<p class="formel">Laufzeit in h = Akkuenergie in Wh × Wirkungsgrad ÷ Last in W</p>
+<p>Die Akkuenergie ergibt sich aus Spannung × Kapazität, etwa 48 V × 18 Ah = 864 Wh. Hersteller geben die Laufzeit meist als Tabelle nach Last an; die Formel ist eine Näherung, denn bei hoher Last liefern Akkus weniger Energie, und alte Akkus haben weniger Kapazität.</p>
+
+<h3>Herunterfahren und Notstrom</h3>
+<p>Die USV meldet über Netzwerk oder USB, dass sie auf Akku läuft. Eine Software auf den Servern fährt dann nach festgelegter Zeit oder bei einer bestimmten Restlaufzeit geordnet herunter, zuerst die VMs, dann die Hosts, zuletzt das Speichersystem. Damit das klappt, muss die Restlaufzeit beim Start des Herunterfahrens größer sein als die Zeit, die das Herunterfahren dauert. Dabei wägst du ab: Löst du früh aus, überstehst du kurze Ausfälle nicht ohne Unterbrechung; löst du spät aus, wird es mit alternden Akkus knapp. Robuster als eine feste Zeit ist eine Schwelle für die Restlaufzeit, die die USV laufend misst.</p>
+<p>Soll der Betrieb weiterlaufen, übernimmt ein <strong>Notstromaggregat</strong>. Es startet bei Netzausfall automatisch, braucht aber Zeit, bis es stabil Strom liefert. Diese Lücke überbrückt die USV. Die Laufzeit der USV muss also mindestens bis zur Übernahme durch das Aggregat reichen, mit Reserve für einen Fehlstart.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>An der USV im Stammhaus hängen die zwei Hosts mit je 350 W, das Speichersystem mit 250 W, der Kern-Switch mit 120 W und der Router mit 40 W: zusammen 1110 W. Die Auszubildende wählt eine USV der Klasse VFI, weil Datenbank und Speicher keine Umschaltzeit und keine Spannungsschwankungen vertragen: 3000 VA, 2700 W, Akkus mit 864 Wh. Die Formel ergibt 864 Wh × 0,9 ÷ 1110 W ≈ 0,7 h, also gut 40 Minuten. Die Herstellertabelle nennt bei dieser Last aber nur rund 20 Minuten, denn bei hoher Last liefern die Akkus weniger. Sie rechnet mit dem Tabellenwert. Das Herunterfahren aller VMs, Hosts und des Speichers dauert 10 Minuten; sie stellt die Schwelle auf 12 Minuten Restlaufzeit. Ein Notstromaggregat lehnt die Inhaberin aus Kostengründen ab. Bei einem langen Stromausfall stehen deshalb auch Nord und Süd ohne Datenbank da; für diesen Fall gibt es im Notdienst eine Notfallmappe auf Papier mit Medikation und Telefonnummern.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Akkus altern, auch wenn die USV nie gebraucht wird; nach drei bis fünf Jahren lässt ihre Kapazität deutlich nach. Ein regelmäßiger Selbsttest der USV und ein geplanter Akkutausch gehören deshalb in den Wartungsplan.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>USV auslegen</strong>: Wirkleistung aller Geräte addieren, VA- und W-Grenze mit Reserve einhalten; Laufzeit ≈ Akkuenergie × Wirkungsgrad ÷ Last.</li>
+  <li><strong>Herunterfahren</strong> rechtzeitig auslösen (Restlaufzeit größer als Dauer des Herunterfahrens); bei langen Ausfällen überbrückt die USV bis zur Übernahme durch das Notstromaggregat.</li>
+</ul>

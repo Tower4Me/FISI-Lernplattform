@@ -5683,6 +5683,65 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "10.3",
+          "titel": "Verfügbarkeit sichern",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "10.3.1",
+              "titel": "Hochverfügbarkeit und Skalierung",
+              "slug": "hochverfuegbarkeit-und-skalierung",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Auswahl nach Verfügbarkeit und Skalierbarkeit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 1 (Verfügbarkeit erhöhen: RAID, Netzteile, NICs, Cluster, USV)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 2 (horizontale und vertikale Skalierung)",
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 1 (Voraussetzungen für einen Cluster)",
+                  "AP2 FISI Sommer 2024 Teil 1 Aufgabe 4 (Hochverfügbarkeit mit Cluster, Load Balancing)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium SYS.1.1 (Allgemeiner Server), Verfügbarkeitsrechnung Serien-/Parallelschaltung (Lehrbuch)"
+                ]
+              },
+              "material": [
+                "rto-rpo-verfuegbarkeit",
+                "cloud-grundlagen"
+              ],
+              "begriffe": [
+                "hochverfuegbarkeit",
+                "sla",
+                "datensicherung"
+              ]
+            },
+            {
+              "nummer": "10.3.2",
+              "titel": "USV und Notstrom",
+              "slug": "usv-und-notstrom",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Konzepte für Einrichtung und Überwachung; Maßnahmen bei kritischen Zuständen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 2 (USV-Klassen mit Vor- und Nachteilen)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 1 (USV-Laufzeit und Startzeitpunkt des Notstromaggregats)"
+                ],
+                "extern": [
+                  "IEC 62040-3 (USV-Klassen), Herstellerangaben zu Leistungsfaktor und Laufzeittabellen"
+                ]
+              },
+              "material": [
+                "usv-klassen"
+              ],
+              "begriffe": [
+                "usv",
+                "elektrische-leistung"
+              ]
+            }
+          ]
         }
       ]
     }

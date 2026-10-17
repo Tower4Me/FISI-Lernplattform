@@ -1,0 +1,47 @@
+<p class="lead">Die Praxis hat Notdienst. Fällt nachts die Datenbank aus, sieht die Tierärztin keine Vorbefunde und keine Medikation. Die Inhaberin will deshalb, dass die Serverumgebung den Ausfall eines Bauteils ohne oder nur mit kurzer Unterbrechung übersteht. Das ist <strong>Hochverfügbarkeit</strong>: Jede Komponente, deren Ausfall den Dienst stoppen würde, gibt es mindestens doppelt.</p>
+
+<h3>Einzelpunkte finden und doppeln</h3>
+<p>Ein <strong>Single Point of Failure</strong> ist ein Bauteil, dessen Ausfall allein den ganzen Dienst lahmlegt. Du gehst den Weg der Daten vom Client bis zur Platte durch und doppelst, was nur einmal da ist:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Ebene</th><th>Maßnahme</th></tr></thead>
+    <tbody>
+      <tr><th>Strom</th><td>zwei Netzteile je Gerät an getrennten Stromkreisen, USV, Notstrom (Kapitel 10.3.2)</td></tr>
+      <tr><th>Netz</th><td>zwei Netzwerkkarten an zwei Switches; gebündelt (LF9, Kapitel 9.2.3) nur, wenn die Switches als ein Gerät arbeiten (Stack), sonst als Ersatzweg; zweiter Kern-Switch</td></tr>
+      <tr><th>Speicher</th><td>RAID (Kapitel 10.2.2), Speichersystem mit zwei Controllern</td></tr>
+      <tr><th>Server</th><td>Cluster aus mehreren Hosts</td></tr>
+      <tr><th>Standort</th><td>zweites Rechenzentrum oder Kopie an einem anderen Standort</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Cluster und Lastverteilung</h3>
+<p>Ein <strong>Cluster</strong> verbindet mehrere Server, die sich gegenseitig überwachen. Fällt einer aus, übernehmen die anderen seine Dienste (Failover). Voraussetzungen: gemeinsamer Speicher oder laufend abgeglichene Daten (Kapitel 10.2.3), eine schnelle Verbindung zwischen den Knoten und genug freie Leistung, um die Last eines ausgefallenen Knotens zu tragen.</p>
+<ul>
+  <li><strong>Aktiv/Passiv</strong>: Ein Knoten arbeitet, der andere wartet und übernimmt bei Ausfall. Nach dem Umschalten startet der Dienst neu, es entsteht eine kurze Unterbrechung.</li>
+  <li><strong>Aktiv/Aktiv</strong>: Alle Knoten arbeiten gleichzeitig. Bei Webdiensten verteilt meist ein <strong>Load Balancer</strong> die Anfragen auf sie und nimmt einen ausgefallenen Knoten aus der Verteilung.</li>
+</ul>
+
+<h3>Skalieren</h3>
+<p>Wächst die Last, gibt es zwei Wege:</p>
+<ul>
+  <li><strong>Vertikal</strong> (Scale-up): einen Server stärker machen, mit mehr Kernen, RAM, schnelleren Platten. Einfach, aber begrenzt, meist mit Ausfallzeit, und der Server bleibt ein Einzelpunkt.</li>
+  <li><strong>Horizontal</strong> (Scale-out): weitere gleichartige Server hinzufügen und die Last verteilen. Erhöht gleichzeitig die Verfügbarkeit, die Anwendung muss aber dafür gebaut sein.</li>
+</ul>
+
+<h3>Verfügbarkeit berechnen</h3>
+<p>Was eine Verfügbarkeit in Prozent an Ausfallzeit bedeutet, kennst du aus LF6, Kapitel 6.2.2. Bei mehreren Komponenten gilt:</p>
+<p class="formel">Hintereinander (alle nötig): A<sub>gesamt</sub> = A<sub>1</sub> × A<sub>2</sub></p>
+<p class="formel">Parallel (eine genügt): A<sub>gesamt</sub> = 1 − (1 − A<sub>1</sub>) × (1 − A<sub>2</sub>)</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Beide Hosts im Stammhaus tragen VMs und sind höchstens zur Hälfte ausgelastet. Fällt einer aus, startet der andere dessen VMs neu (Kapitel 10.1.2), mit kurzer Unterbrechung. Die Auszubildende rechnet: Ein einzelner Host erreicht 99 %, ein Speichersystem mit nur einem Controller 99,9 %. Mit nur einem Host: 0,99 × 0,999 ≈ 98,9 %, im Jahr also gut 96 Stunden Ausfall möglich. Mit zwei Hosts im Cluster: 1 − 0,01 × 0,01 = 99,99 % für die Hosts, zusammen mit dem Speicher 0,9999 × 0,999 ≈ 99,89 %, also noch knapp 10 Stunden im Jahr. Jetzt begrenzt das Speichersystem die Verfügbarkeit; mit zwei Controllern steigt sein Wert deutlich (Kapitel 10.2.3). Bleibt der einzelne Kern-Switch aus LF9, Kapitel 9.2.3: Für ihn vereinbart der Verbund einen Herstellerservice mit Austausch innerhalb von vier Stunden, ein zweiter Kern-Switch folgt im nächsten Jahr.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Hochverfügbarkeit ersetzt die Datensicherung.“ Ein Cluster überträgt auch Fehler sofort: Löscht jemand Daten oder verschlüsselt Schadsoftware sie, sind sie auf allen Knoten betroffen. Gegen Datenverlust hilft nur die Sicherung.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Hochverfügbarkeit</strong>: jeden Single Point of Failure doppeln (Strom, Netz, Speicher, Server); ein Cluster übernimmt bei Ausfall, ein Load Balancer verteilt die Last.</li>
+  <li><strong>Vertikal</strong> skalieren = stärkerer Server, <strong>horizontal</strong> = mehr Server; Verfügbarkeit hintereinander A<sub>1</sub> × A<sub>2</sub>, parallel 1 − (1 − A<sub>1</sub>) × (1 − A<sub>2</sub>).</li>
+</ul>

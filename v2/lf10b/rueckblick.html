@@ -624,6 +624,13 @@
             <li><a class="up is-check" data-check="lf10b-10-2" href="10-2-check.html"><span class="num">10.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="10-3-1-hochverfuegbarkeit-und-skalierung.html"><span class="num">10.3</span><span>Verfügbarkeit sichern</span><span class="kap-progress" data-ids="10-3-1 10-3-2">0/2</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="10-3-1" href="10-3-1-hochverfuegbarkeit-und-skalierung.html"><span class="num">10.3.1</span><span class="t">Hochverfügbarkeit und Skalierung</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-3-2" href="10-3-2-usv-und-notstrom.html"><span class="num">10.3.2</span><span class="t">USV und Notstrom</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf10b-10-3" href="10-3-check.html"><span class="num">10.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">10b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -661,8 +668,17 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-10-2.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.2</a></p>
 </section>
+<section class="rb-kapitel" id="k-10-3"><h2><span class="num">10.3</span> Verfügbarkeit sichern</h2>
+<ul class="rb-list">
+<li><span class="num">10.3.1</span><div><a href="10-3-1-hochverfuegbarkeit-und-skalierung.html">Hochverfügbarkeit und Skalierung</a><ul><li><strong>Hochverfügbarkeit</strong>: jeden Single Point of Failure doppeln (Strom, Netz, Speicher, Server); ein Cluster übernimmt bei Ausfall, ein Load Balancer verteilt die Last.</li>
+  <li><strong>Vertikal</strong> skalieren = stärkerer Server, <strong>horizontal</strong> = mehr Server; Verfügbarkeit hintereinander A<sub>1</sub> × A<sub>2</sub>, parallel 1 − (1 − A<sub>1</sub>) × (1 − A<sub>2</sub>).</li></ul></div></li>
+<li><span class="num">10.3.2</span><div><a href="10-3-2-usv-und-notstrom.html">USV und Notstrom</a><ul><li><strong>USV auslegen</strong>: Wirkleistung aller Geräte addieren, VA- und W-Grenze mit Reserve einhalten; Laufzeit ≈ Akkuenergie × Wirkungsgrad ÷ Last.</li>
+  <li><strong>Herunterfahren</strong> rechtzeitig auslösen (Restlaufzeit größer als Dauer des Herunterfahrens); bei langen Ausfällen überbrückt die USV bis zur Übernahme durch das Notstromaggregat.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-10-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.3</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="10-2-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.2</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="10-3-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.3</span>Check</span></a></nav>
 </main>
 </div>
 </body>

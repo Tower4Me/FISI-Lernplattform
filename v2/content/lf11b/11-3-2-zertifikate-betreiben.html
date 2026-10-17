@@ -1,0 +1,56 @@
+<p class="lead">Die Termin-App, der Reverse Proxy, das VPN-Gateway, die Weboberflächen der Switches und bald auch die WLAN-Anmeldung brauchen Zertifikate. Jedes muss beantragt, eingespielt und rechtzeitig erneuert werden. Läuft eines ab, steht der Dienst oder die Nutzer sehen Warnungen und gewöhnen sich an, sie wegzuklicken.</p>
+
+<h3>Ein Zertifikat beantragen</h3>
+<ol>
+  <li>Auf dem Server ein <strong>Schlüsselpaar</strong> erzeugen. Der private Schlüssel verlässt den Server nicht.</li>
+  <li>Einen <strong>Zertifikatsantrag</strong> (Certificate Signing Request, CSR) erstellen: öffentlicher Schlüssel, gewünschte Namen, mit dem privaten Schlüssel unterschrieben.</li>
+  <li>Die CA prüft, ob der Antragsteller die Domain kontrolliert, etwa über einen DNS-Eintrag oder eine Datei auf dem Webserver, und stellt das Zertifikat aus.</li>
+  <li>Zertifikat und Zwischenzertifikat auf dem Server <strong>einspielen</strong> und dem Dienst zuordnen.</li>
+</ol>
+<p>Öffentliche Zertifikate gelten nur kurz: Nach den Regeln von Browserherstellern und CAs (CA/Browser Forum) höchstens 200 Tage, ab März 2027 100 Tage und ab März 2029 47 Tage; Let's Encrypt stellt kostenlos Zertifikate für 90 Tage aus. Von Hand ist das kaum zu schaffen. Deshalb fordert ein Programm auf dem Server die Zertifikate über das Protokoll <strong>ACME</strong> an und erneuert sie selbstständig, bevor sie ablaufen.</p>
+
+<h3>Eigene oder öffentliche CA?</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Öffentliche CA</th><th>Eigene (interne) CA</th></tr></thead>
+    <tbody>
+      <tr><th>Vertrauen</th><td>von aktuellen Geräten und Browsern ohne Zutun</td><td>nur von Geräten, auf denen das eigene Stammzertifikat verteilt wurde</td></tr>
+      <tr><th>Namen</th><td>nur Namen im öffentlichen DNS, deren Kontrolle man nachweist</td><td>auch rein interne Namen wie srv-db01 oder private IP-Adressen</td></tr>
+      <tr><th>Kosten, Aufwand</th><td>gering, oft automatisch</td><td>Betrieb und Schutz der CA selbst</td></tr>
+      <tr><th>Einsatz</th><td>Webseiten und Dienste für Kunden</td><td>interne Server, VPN, WLAN-Anmeldung, Geräte- und Benutzerzertifikate</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Das Stammzertifikat der eigenen CA verteilst du per Gruppenrichtlinie oder Geräteverwaltung auf alle Firmengeräte. Statt Kennwörtern können sich Geräte und Personen dann mit eigenen Zertifikaten anmelden, etwa am VPN oder im WLAN. Der private Schlüssel wird bei der Anmeldung nicht übertragen, er lässt sich also weder erraten noch per Phishing abfragen. Liegt er nicht exportierbar im TPM oder auf einer Chipkarte, kann ihn auch Schadsoftware kaum kopieren (Besitzfaktor, LF4, Kapitel 4.5.3).</p>
+
+<h3>Zertifikate im VPN</h3>
+<p>Mit einem gemeinsamen Schlüssel (Pre-Shared Key) kennen alle Gegenstellen dasselbe Geheimnis. Verrät es ein Gerät, musst du es überall tauschen. Mit reinen öffentlichen Schlüsseln, wie bei WireGuard, trägst du den Schlüssel jedes Partners einzeln auf jeder Gegenstelle ein. Mit Zertifikaten einer CA vertraut das Gateway nur noch der CA. Ein neues Notebook bekommt ein Zertifikat und kann sich sofort anmelden, ohne dass du am Gateway etwas änderst. Ein verlorenes Notebook sperrst du, indem du sein Zertifikat widerrufst.</p>
+
+<h3>Typische Fehlerbilder</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Meldung</th><th>Ursache prüfen</th></tr></thead>
+    <tbody>
+      <tr><th>Zertifikat abgelaufen</th><td>Gültigkeit überschritten, oder die Uhr des Clients geht falsch</td></tr>
+      <tr><th>Name stimmt nicht überein</th><td>aufgerufener Name fehlt im SAN-Feld, etwa Aufruf über IP-Adresse oder anderen Namen</td></tr>
+      <tr><th>Aussteller unbekannt</th><td>Zwischenzertifikat fehlt auf dem Server, oder Stammzertifikat der eigenen CA nicht verteilt</td></tr>
+      <tr><th>Verbindung wird abgelehnt</th><td>kein Zertifikatsproblem: Client und Server haben keine gemeinsame TLS-Version oder kein gemeinsames Verfahren (Kapitel 11.2.3)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Widerruf und kompromittierte Schlüssel</h3>
+<p>Wird ein privater Schlüssel gestohlen, muss das Zertifikat vor Ablauf ungültig werden. Die CA <strong>widerruft</strong> es; Clients erfahren das über Sperrlisten (CRL) oder eine Online-Abfrage (OCSP). Bei öffentlichen Webzertifikaten setzt sich die Sperrliste durch; Let's Encrypt hat OCSP 2025 abgeschaltet, weil die CA bei jeder Abfrage sieht, wer welche Seite aufruft. Danach wird ein neues Schlüsselpaar mit neuem Zertifikat erzeugt.</p>
+<p>Viel schlimmer ist es, wenn der private Schlüssel einer CA in falsche Hände gerät: Der Angreifer kann dann beliebige, scheinbar gültige Zertifikate ausstellen, etwa für einen gefälschten Server. Alle Zertifikate dieser CA verlieren ihr Vertrauen, das Stammzertifikat muss überall entfernt und durch ein neues ersetzt werden, alle Zertifikate werden neu ausgestellt. Deshalb wird der Schlüssel einer Stamm-CA besonders geschützt, oft auf einem Rechner ohne Netz oder in einem Hardware-Sicherheitsmodul.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus baut für den Verbund eine interne CA auf: Die Stamm-CA läuft auf einer VM ohne Netzwerkanschluss; ihre Festplattendatei liegt verschlüsselt im Tresor und wird nur zum Signieren eingebunden; eine Zwischen-CA stellt die Zertifikate aus. Das Stammzertifikat verteilt die Auszubildende per Gruppenrichtlinie (LF10b, Kapitel 10.5.1). Die VPN-Gateways der Standorte, die sich schon mit Zertifikaten anmelden (LF9, Kapitel 9.6.1), bekommen ihre Zertifikate künftig von der eigenen CA. Die Notebooks der Tierärztinnen erhalten zusätzlich zum zweiten Faktor (Kapitel 11.1.2) ein Gerätezertifikat. Für termine.praxisverbund.example erneuert der Reverse Proxy das öffentliche Zertifikat automatisch per ACME, sobald etwa zwei Drittel der Laufzeit vorbei sind. Das Monitoring warnt 21 Tage vor Ablauf jedes Zertifikats.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Die Warnung kennen wir, einfach auf Weiter klicken.“ Wer Zertifikatswarnungen zur Gewohnheit macht, erkennt einen echten Angriff mit gefälschtem Zertifikat nicht mehr. Jede Warnung wird geklärt und behoben.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Beantragen</strong>: Schlüsselpaar erzeugen, CSR an die CA, Domain-Nachweis, Zertifikat mit Zwischenzertifikat einspielen; öffentliche CA für Kunden, eigene CA für interne Namen, VPN und Geräte.</li>
+  <li><strong>Fehler</strong>: abgelaufen oder falsche Uhrzeit, Name fehlt im SAN, Zwischen- oder Stammzertifikat fehlt; gestohlener Schlüssel heißt widerrufen (CRL, OCSP), gestohlener CA-Schlüssel heißt alles neu ausstellen.</li>
+</ul>

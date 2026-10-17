@@ -1,0 +1,41 @@
+<p class="lead">Ein Tierhalter öffnet die Termin-App. Woher weiß sein Smartphone, dass es wirklich mit dem Server des Praxisverbunds spricht und nicht mit einem Fälscher, der sich dazwischengeschaltet hat? Der öffentliche Schlüssel des Servers allein beweist das nicht, denn jeder kann ein Schlüsselpaar erzeugen. Ein <strong>Zertifikat</strong> bestätigt, dass ein öffentlicher Schlüssel zu einem bestimmten Namen gehört (LF4, Kapitel 4.5.5).</p>
+
+<h3>Was in einem Zertifikat steht</h3>
+<p>Zertifikate folgen dem Standard <strong>X.509</strong>. Die wichtigsten Felder:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Feld</th><th>Inhalt im Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th>Inhaber (Subject) und alternative Namen (SAN)</th><td>termine.praxisverbund.example; Browser prüfen die Namen im SAN-Feld</td></tr>
+      <tr><th>Öffentlicher Schlüssel</th><td>der öffentliche Schlüssel des Servers mit Verfahren, etwa ECC mit 256 Bit</td></tr>
+      <tr><th>Aussteller (Issuer)</th><td>die Zertifizierungsstelle, die unterschrieben hat</td></tr>
+      <tr><th>Gültigkeit</th><td>gültig ab und gültig bis</td></tr>
+      <tr><th>Seriennummer</th><td>eindeutig je Aussteller, wichtig für den Widerruf</td></tr>
+      <tr><th>Verwendungszweck</th><td>etwa Serverauthentifizierung, Clientauthentifizierung, Code-Signatur</td></tr>
+      <tr><th>Signatur des Ausstellers</th><td>mit dem privaten Schlüssel der Zertifizierungsstelle über einen Hashwert aller übrigen Felder</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Der private Schlüssel des Servers steht nicht im Zertifikat. Er bleibt geheim auf dem Server.</p>
+
+<h3>Wer unterschreibt: die Zertifizierungsstelle</h3>
+<p>Eine <strong>Zertifizierungsstelle</strong> (Certificate Authority, CA) prüft, ob der Antragsteller den Namen wirklich kontrolliert, und signiert dann das Zertifikat. Die Signatur entsteht so: Die CA bildet einen Hashwert über alle übrigen Felder und signiert ihn mit ihrem privaten Schlüssel (bei RSA vereinfacht: verschlüsselt ihn, siehe LF4, Kapitel 4.5.5). Wer das Zertifikat prüft, bildet selbst den Hashwert und prüft mit dem öffentlichen Schlüssel der CA, ob die Signatur dazu passt. Stimmen beide überein, ist das Zertifikat echt und unverändert.</p>
+<p>Deshalb muss die Hashfunktion sicher sein. Mit MD5 gelang es Angreifern, zu einem harmlosen Zertifikatsantrag ein zweites, gefälschtes Zertifikat mit demselben Hashwert zu bauen, 2008 sogar ein Zertifikat für eine eigene Zwischen-CA. Die Signatur der CA passte auch auf die Fälschung, und die Angreifer konnten damit beliebige Zertifikate ausstellen, denen Browser vertrauten. Heute wird mit SHA-256 oder stärker signiert.</p>
+
+<h3>Die Vertrauenskette</h3>
+<p>Warum vertraut das Smartphone der CA? Betriebssysteme und Browser bringen eine Liste von <strong>Stammzertifikaten</strong> (Root-CAs) mit, denen sie vertrauen. Öffentliche Root-CAs dürfen Serverzertifikate nicht direkt signieren. Sie stellen Zertifikate für <strong>Zwischenzertifizierungsstellen</strong> (Intermediate-CAs) aus, und diese signieren die Serverzertifikate. So bleibt der Stammschlüssel meist offline. Wird eine Zwischen-CA kompromittiert, sperrt die Stamm-CA nur deren Zertifikat, und das Stammzertifikat auf allen Geräten bleibt gültig. Daraus entsteht eine Kette:</p>
+<p class="formel">Stammzertifikat (im Gerät gespeichert) → Zwischenzertifikat → Serverzertifikat</p>
+<p>Ein Stammzertifikat ist selbst signiert: Aussteller und Inhaber sind gleich. Vertrauen entsteht nur, weil es im Gerät hinterlegt ist. Ein selbst signiertes Serverzertifikat ohne CA löst deshalb auf jedem Gerät eine Warnung aus.</p>
+<p>Der Server schickt sein eigenes Zertifikat und das Zwischenzertifikat mit. Der Client prüft jedes Glied bis zu einem Stammzertifikat, das er kennt. Fehlt ein Glied, bricht die Prüfung ab.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende öffnet im Browser die Zertifikatsdetails der Termin-App: Inhaber termine.praxisverbund.example, Aussteller eine Zwischen-CA eines öffentlichen Anbieters, gültig 90 Tage, Signatur mit SHA-256. Die Kette führt zu einer Root-CA, die im Betriebssystem hinterlegt ist. Auf dem Testserver fehlt nach einem Konfigurationsfehler das Zwischenzertifikat. Ein Smartphone meldet „Aussteller unbekannt“, obwohl das Serverzertifikat selbst gültig ist; ein Desktop-Browser, der das Zwischenzertifikat schon kennt, zeigt keine Warnung.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Zertifikat verschlüsselt die Verbindung.“ Das Zertifikat bestätigt nur, wem ein öffentlicher Schlüssel gehört. Verschlüsselt wird mit dem Sitzungsschlüssel, der im TLS-Handshake vereinbart wird (Kapitel 11.2.3).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>X.509-Zertifikat</strong>: Inhaber und Namen, öffentlicher Schlüssel, Aussteller, Gültigkeit, Seriennummer, Verwendungszweck, Signatur der CA; der private Schlüssel steht nicht darin.</li>
+  <li><strong>Vertrauenskette</strong>: Stamm-CA im Gerät → Zwischen-CA → Serverzertifikat; die CA signiert einen sicheren Hashwert der übrigen Felder mit ihrem privaten Schlüssel; Stammzertifikate sind selbst signiert.</li>
+</ul>

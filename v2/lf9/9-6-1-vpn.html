@@ -687,6 +687,13 @@
             <li><a class="up is-check" data-check="lf11b-11-2" href="../lf11b/11-2-check.html"><span class="num">11.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="../lf11b/11-3-1-zertifikate-und-vertrauenskette.html"><span class="num">11.3</span><span>Zertifikate und PKI</span><span class="kap-progress" data-ids="11-3-1 11-3-2">0/2</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="11-3-1" href="../lf11b/11-3-1-zertifikate-und-vertrauenskette.html"><span class="num">11.3.1</span><span class="t">Zertifikate und Vertrauenskette</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-3-2" href="../lf11b/11-3-2-zertifikate-betreiben.html"><span class="num">11.3.2</span><span class="t">Zertifikate betreiben</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf11b-11-3" href="../lf11b/11-3-check.html"><span class="num">11.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="../lf11b/rueckblick.html"><span class="num">11b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -739,7 +746,9 @@
   <p>Nord und Süd sind per IPsec-Site-to-Site mit dem Stammhaus verbunden; die Gateways melden sich mit Zertifikaten an. Die Tierärztinnen im Nachtdienst nutzen einen End-to-Site-Zugang mit Full Tunnel, damit auch ihr Internetverkehr durch die Filter des Verbunds geht. Eine Ärztin meldet, dass Befunde mit großen Röntgenbildern im VPN nicht öffnen, kleine aber schon. Die Auszubildende senkt die Segmentgröße im Tunnel, danach öffnen auch die großen Dateien.</p>
 </div>
 
-<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie Zertifikate und Schlüssel im VPN funktionieren und wie du ein VPN-Gateway absicherst, wird in LF11b ausführlicher behandelt.</p></aside>
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Warum Zertifikate einer eigenen CA im VPN besser skalieren als gemeinsame Schlüssel und wie du ein gestohlenes Gerät sperrst, wird in <a href="../lf11b/11-3-2-zertifikate-betreiben.html">LF11b, Kapitel 11.3.2</a> ausführlicher behandelt.</p></aside>
+
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du ein VPN-Gateway selbst absicherst, wird in LF11b ausführlicher behandelt.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>Site-to-Site</strong> verbindet Netze dauerhaft über Gateways, <strong>End-to-Site</strong> einzelne Geräte über einen Client; Full Tunnel schickt allen, Split Tunnel nur Firmenverkehr durch den Tunnel.</li>

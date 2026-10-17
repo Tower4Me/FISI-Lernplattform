@@ -6270,6 +6270,66 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "11.3",
+          "titel": "Zertifikate und PKI",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "11.3.1",
+              "titel": "Zertifikate und Vertrauenskette",
+              "slug": "zertifikate-und-vertrauenskette",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 3 (Inhalt eines X.509-Zertifikats)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 4 (CA signiert den Hash, Kollisionsangriff auf MD5)",
+                  "AP2 FISI Winter 2024/25 Teil 1 Aufgabe 2 (Inhalte eines Zertifikats)"
+                ],
+                "extern": [
+                  "RFC 5280 (X.509-Zertifikate und Sperrlisten); Stevens u. a. 2008/2009 (MD5-Kollision, gefälschtes CA-Zertifikat)"
+                ]
+              },
+              "material": [
+                "zertifikate-tls-pki"
+              ],
+              "begriffe": [
+                "zertifikat-pki",
+                "hashwert"
+              ]
+            },
+            {
+              "nummer": "11.3.2",
+              "titel": "Zertifikate betreiben",
+              "slug": "zertifikate-betreiben",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische und organisatorische Umsetzung",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 1 (Serverzertifikat beantragen und installieren)",
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 3 (eigene oder externe CA)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 4 (Zertifikat statt Passwort, privater CA-Schlüssel kompromittiert)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 4 (Zertifikatsfehler: unbekannte Intermediate-CA, abgelaufen, falsche Systemzeit, TLS-Version)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 3 (VPN mit CA-Zertifikaten)"
+                ],
+                "extern": [
+                  "RFC 2986 (CSR, PKCS #10), RFC 8555 (ACME), RFC 6960 (OCSP); Let's Encrypt Dokumentation"
+                ]
+              },
+              "material": [
+                "zertifikate-tls-pki"
+              ],
+              "begriffe": [
+                "zertifikat-pki",
+                "authentifizierung",
+                "verzeichnisdienst"
+              ]
+            }
+          ]
         }
       ]
     }

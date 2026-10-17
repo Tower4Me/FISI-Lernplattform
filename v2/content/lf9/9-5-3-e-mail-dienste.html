@@ -1,0 +1,32 @@
+<p class="lead">Die Praxissoftware soll Impferinnerungen selbst per E-Mail verschicken, und das Multifunktionsgerät am Empfang schickt Scans an die Postfächer. Die Postfächer liegen bei einem Mail-Anbieter. Protokolle und Ports kennst du aus LF3, Kapitel 3.5.5; jetzt geht es darum, wie eine Mail ihren Weg findet und wie Geräte und Programme sie sicher einliefern.</p>
+
+<h3>Der Weg einer Mail</h3>
+<ol>
+  <li>Programm oder Gerät liefert die Mail per <strong>SMTP-Submission</strong> beim Postausgangsserver des eigenen Anbieters ein und meldet sich dabei mit einem Konto an.</li>
+  <li>Der Postausgangsserver fragt im DNS den <strong>MX</strong>-Eintrag der Empfängerdomain ab (Kapitel 9.5.2) und liefert die Mail per SMTP über Port 25 an den dort genannten Server.</li>
+  <li>Der Empfangsserver prüft die Mail, etwa auf Spam, und legt sie im Postfach ab.</li>
+  <li>Die Empfängerin holt sie per IMAP oder POP3 ab.</li>
+</ol>
+<p>Die Anmeldung bei der Einlieferung ist wichtig: Ein Server, der Mails von jedem ohne Anmeldung an beliebige Ziele weitergibt (offenes Relay), wird sofort für Spam missbraucht und landet auf Sperrlisten.</p>
+
+<h3>STARTTLS oder implizites TLS</h3>
+<p>Für die Verbindungen vom Mailprogramm gibt es zwei verschlüsselte Formen:</p>
+<ul>
+  <li><strong>STARTTLS</strong>: Die Verbindung beginnt unverschlüsselt auf dem normalen Port (587, 143, 110), und der Client schaltet mit einem Befehl auf TLS um.</li>
+  <li><strong>Implizites TLS</strong>: Die Verbindung ist von Anfang an verschlüsselt, auf einem eigenen Port (465, 993, 995).</li>
+</ul>
+<p>Zwischen Mailservern gibt es auf Port 25 nur STARTTLS. Das Risiko bei STARTTLS: Verlangt der Client die Verschlüsselung nicht ausdrücklich, kann ein Angreifer auf dem Weg den Umschaltbefehl unterdrücken, und Anmeldedaten und Inhalt laufen im Klartext. Deshalb wird für Clients heute implizites TLS empfohlen; wo nur STARTTLS geht, stellst du die Verschlüsselung auf „erforderlich“.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Multifunktionsgerät am Empfang kann nur Port 587 mit STARTTLS. Die Auszubildende legt beim Anbieter ein eigenes Postfach scanner@praxisverbund.example an, trägt Server, Port 587 und dieses Konto ein und stellt „TLS erforderlich“ ein, damit das Gerät nie unverschlüsselt sendet. Die Praxissoftware unterstützt Port 465 mit implizitem TLS; sie bekommt ein eigenes Konto für die Impferinnerungen. Fällt eines der Konten auf, etwa weil es plötzlich Tausende Mails versendet, lässt es sich sperren, ohne die anderen zu stören.</p>
+</div>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie SPF, DKIM und Spamfilter gefälschte Absender und Phishing abwehren, wird in LF11b ausführlicher behandelt.</p></aside>
+
+<aside class="note" data-typ="fehler"><p>„Mit STARTTLS ist die Verbindung immer verschlüsselt.“ Nur wenn beide Seiten es können und der Client darauf besteht. Sonst läuft sie ohne Warnung unverschlüsselt weiter.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Weg:</strong> Einlieferung per SMTP-Submission mit Anmeldung, Zustellung zum Server aus dem MX-Eintrag per SMTP auf Port 25, Abholen per IMAP oder POP3.</li>
+  <li><strong>STARTTLS</strong> schaltet auf dem normalen Port um und muss erzwungen werden; <strong>implizites TLS</strong> (465, 993, 995) ist von Anfang an verschlüsselt und für Clients empfohlen.</li>
+</ul>

@@ -21,7 +21,7 @@
 <p>Jedes /58 enthält 2⁶ = 64 Netze mit /64.</p>
 
 <h3>Ein lesbarer Plan</h3>
-<p>Die Alternative für kleine Standorte ist eine sprechende Subnetz-ID: Die Auszubildende schreibt die VLAN-Nummer in die Subnetz-ID. VLAN 10 bekommt 2001:db8:4a00:2110::/64, VLAN 40 2001:db8:4a00:2140::/64, VLAN 99 2001:db8:4a00:2199::/64. Die Ziffern sind zwar hexadezimal gemeint, man liest die VLAN-Nummer aber direkt ab. Bei einem /56 klappt das nur für VLAN-Nummern bis 99; bei einem /48 sind bis zu vier Ziffern frei.</p>
+<p>Die Alternative für kleine Standorte ist eine sprechende Subnetz-ID: Die Auszubildende schreibt die VLAN-Nummer in die Subnetz-ID. VLAN 10 bekommt 2001:db8:4a00:2110::/64, VLAN 40 2001:db8:4a00:2140::/64, VLAN 99 2001:db8:4a00:2199::/64. Die Ziffern sind zwar hexadezimal gemeint, man liest die VLAN-Nummer aber direkt ab. Das Stammhaus hat entsprechend 2001:db8:4a00:1000::/56, das Server-VLAN 50 also 2001:db8:4a00:1050::/64. Bei einem /56 klappt das nur für VLAN-Nummern bis 99; bei einem /48 sind bis zu vier Ziffern frei.</p>
 <p>Jedes /64 hat 2⁶⁴ ≈ 1,8 · 10¹⁹ Adressen. Kleiner als /64 teilt man Netze mit Endgeräten nicht, denn die automatische Adressbildung (Kapitel 9.3.3) setzt einen 64 Bit langen Geräteteil voraus.</p>
 
 <h3>Welche Adressart wofür</h3>

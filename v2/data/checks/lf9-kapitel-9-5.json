@@ -1,0 +1,125 @@
+{
+  "titel": "Check 9.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "DHCP-Relay",
+      "frage": "Im neuen VLAN 60 im Stammhaus bekommen alle Geräte eine Adresse aus 169.254.0.0/16, in den anderen VLANs funktioniert DHCP. Der Server steht in einem anderen Netz. Was fehlt vermutlich?",
+      "optionen": [
+        "Das DHCP-Relay am Gateway des VLAN 60",
+        "Ein zweiter DNS-Server im VLAN 60",
+        "Eine Default-Route auf dem DHCP-Server",
+        "Ein Router Advertisement im VLAN 60"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der DHCP-Discover ist ein Broadcast und bleibt im VLAN. Ohne Relay am Gateway erreicht er den Server nicht, und die Geräte vergeben sich APIPA-Adressen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Bereich wählen",
+      "frage": "Woran erkennt ein zentraler DHCP-Server, aus welchem Bereich er einem Client über ein Relay eine Adresse geben muss?",
+      "optionen": [
+        "An der Relay-Adresse aus dem Netz des Clients",
+        "An der MAC-Adresse des Clients, die das Relay unverändert weiterreicht",
+        "An dem Hostnamen, den der Client in seiner Anfrage vorschlägt",
+        "An der Uhrzeit, zu der die Anfrage beim Relay eingeht"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Relay trägt seine eigene Adresse im Netz des Clients ein. Daran sieht der Server, aus welchem Netz die Anfrage kommt, und wählt den passenden Bereich."
+    },
+    {
+      "typ": "mc",
+      "thema": "Doppelte Adresse",
+      "frage": "Ein Client hat per DHCP eine Adresse erhalten und stellt per ARP fest, dass ein anderes Gerät sie bereits nutzt. Was tut er?",
+      "optionen": [
+        "Er lehnt die Adresse mit DHCP-Decline ab und fragt neu",
+        "Er nutzt die Adresse trotzdem und meldet nichts",
+        "Er vergibt sich sofort eine statische Adresse aus dem Pool",
+        "Er nutzt die Adresse bis zum Ende der Lease und meldet den Konflikt erst bei der Verlängerung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Antwortet bei der Prüfung ein anderes Gerät, meldet der Client dem Server die Adresse als belegt (DHCP-Decline) und startet eine neue Anfrage."
+    },
+    {
+      "typ": "mc",
+      "thema": "Webserver 403",
+      "frage": "Der Aufruf von https://termine.praxisverbund.example/ liefert den Statuscode 403, obwohl der Server läuft. Das Auflisten von Verzeichnissen ist verboten. Was fehlt vermutlich?",
+      "optionen": [
+        "Das Standarddokument wie index.html im Verzeichnis",
+        "Der MX-Eintrag der Domain",
+        "Das DHCP-Relay im Server-VLAN",
+        "Eine zweite öffentliche IPv4-Adresse für den Webserver im Stammhaus"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Beim Aufruf eines Verzeichnisses liefert der Server das Standarddokument. Fehlt es und ist das Auflisten verboten, antwortet er mit 403."
+    },
+    {
+      "typ": "mc",
+      "thema": "Interner DNS",
+      "frage": "Ein Notebook erreicht Webseiten, findet aber db.intern.praxisverbund.example nicht. Als DNS-Server ist ein öffentlicher Resolver eingetragen. Was ist die Ursache?",
+      "optionen": [
+        "Interne Namen stehen nur im internen DNS-Server",
+        "Der öffentliche DNS-Server ist gerade ausgefallen",
+        "Der Datenbankserver hat keine IPv4-Adresse und ist deshalb nicht im DNS",
+        "Die TTL des Eintrags im Cache des DNS-Servers ist zu lang"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Webseiten gehen, also funktioniert der öffentliche Resolver. Interne Namen kennt nur der interne DNS-Server; das Notebook muss ihn nutzen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Forwarder",
+      "frage": "Was macht ein interner DNS-Server mit einer Anfrage nach einer Webseite außerhalb seiner Zonen, wenn ein Forwarder eingetragen ist?",
+      "optionen": [
+        "Er gibt sie weiter und reicht die erhaltene Antwort an den Client",
+        "Er antwortet sofort, dass der Name nicht existiert, weil er nicht in seinen Zonen steht",
+        "Er legt einen neuen A-Eintrag in seiner Zone an",
+        "Er schickt den Client direkt zu einem Root-Server"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Forwarder übernimmt die Auflösung und liefert eine fertige Antwort. Der interne Server gibt sie an den Client weiter und speichert sie für die Dauer der TTL."
+    },
+    {
+      "typ": "mc",
+      "thema": "STARTTLS",
+      "frage": "Ein Gerät liefert Mails über Port 587 mit STARTTLS ein. Warum stellst du die Verschlüsselung auf „erforderlich“?",
+      "optionen": [
+        "Sonst kann ein Angreifer das Umschalten unterdrücken und alles läuft im Klartext",
+        "Sonst nimmt der Server die Mails des Geräts nur noch über Port 25 ohne Anmeldung an",
+        "Sonst kann das Gerät keine MX-Einträge abfragen",
+        "Sonst werden die Mails beim Empfänger als POP3 abgelegt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei STARTTLS beginnt die Verbindung unverschlüsselt. Besteht der Client nicht auf der Umschaltung, kann ein Angreifer sie verhindern, und Anmeldung und Inhalt gehen im Klartext."
+    },
+    {
+      "typ": "mc",
+      "thema": "Reverse Proxy",
+      "frage": "Mehrere interne Webdienste sollen über eine einzige öffentliche Adresse erreichbar sein, mit Zertifikaten an einer Stelle. Was setzt du ein?",
+      "optionen": [
+        "Einen Reverse Proxy vor den Servern",
+        "Einen Forward Proxy vor den Clients",
+        "Ein DHCP-Relay im Server-VLAN",
+        "Je eine eigene Default-Route pro Webdienst im Router"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Reverse Proxy nimmt alle Anfragen von außen an, hält die Zertifikate und verteilt nach Name oder Pfad auf die internen Server."
+    }
+  ]
+}

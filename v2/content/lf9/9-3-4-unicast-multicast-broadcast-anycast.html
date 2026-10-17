@@ -24,7 +24,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Ein Mitschnitt im Verwaltungs-VLAN am Standort Nord zeigt: ein Paket von 0.0.0.0 an 255.255.255.255 an UDP-Port 67 (ein DHCP-Discover, Broadcast), ein ICMPv6-Paket vom Router an ff02::1 (ein Router Advertisement, Multicast) und eine DNS-Anfrage des PCs an 10.10.0.147 (Unicast an den DNS-Server im Stammhaus).</p>
+  <p>Ein Mitschnitt im Verwaltungs-VLAN am Standort Nord zeigt: ein Paket von 0.0.0.0 an 255.255.255.255 an UDP-Port 67 (ein DHCP-Discover, Broadcast), ein ICMPv6-Paket vom Router an ff02::1 (ein Router Advertisement, Multicast) und eine DNS-Anfrage des PCs an 10.20.0.65 (Unicast an den Router, der als DNS-Server dient).</p>
 </div>
 
 <aside class="note" data-typ="fehler"><p>„IPv6 hat auch Broadcasts, nur unter anderem Namen.“ Nein: IPv6 kennt keinen Broadcast. Aufgaben, die bei IPv4 ein Broadcast erledigt, übernehmen gezielte Multicast-Gruppen, etwa für das Auffinden von Nachbarn.</p></aside>

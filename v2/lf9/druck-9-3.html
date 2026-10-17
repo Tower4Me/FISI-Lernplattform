@@ -575,6 +575,15 @@
             <li><a class="up is-check" data-check="lf9-9-4" href="9-4-check.html"><span class="num">9.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="9-5-1-dhcp-im-unternehmensnetz.html"><span class="num">9.5</span><span>Netzwerkdienste bereitstellen</span><span class="kap-progress" data-ids="9-5-1 9-5-2 9-5-3 9-5-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="9-5-1" href="9-5-1-dhcp-im-unternehmensnetz.html"><span class="num">9.5.1</span><span class="t">DHCP im Unternehmensnetz</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-5-2" href="9-5-2-dns-betreiben.html"><span class="num">9.5.2</span><span class="t">DNS betreiben</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-5-3" href="9-5-3-e-mail-dienste.html"><span class="num">9.5.3</span><span class="t">E-Mail-Dienste</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-5-4" href="9-5-4-webdienste-und-reverse-proxy.html"><span class="num">9.5.4</span><span class="t">Webdienste und Reverse Proxy</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf9-9-5" href="9-5-check.html"><span class="num">9.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html"><span class="num">9.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -662,7 +671,7 @@
 <p>Jedes /58 enthält 2⁶ = 64 Netze mit /64.</p>
 
 <h3 id="u9-3-2-ein-lesbarer-plan">Ein lesbarer Plan<a class="anchor" href="#u9-3-2-ein-lesbarer-plan" aria-hidden="true" tabindex="-1">#</a></h3>
-<p>Die Alternative für kleine Standorte ist eine sprechende Subnetz-ID: Die Auszubildende schreibt die VLAN-Nummer in die Subnetz-ID. VLAN 10 bekommt 2001:db8:4a00:2110::/64, VLAN 40 2001:db8:4a00:2140::/64, VLAN 99 2001:db8:4a00:2199::/64. Die Ziffern sind zwar hexadezimal gemeint, man liest die VLAN-Nummer aber direkt ab. Bei einem /56 klappt das nur für VLAN-Nummern bis 99; bei einem /48 sind bis zu vier Ziffern frei.</p>
+<p>Die Alternative für kleine Standorte ist eine sprechende Subnetz-ID: Die Auszubildende schreibt die VLAN-Nummer in die Subnetz-ID. VLAN 10 bekommt 2001:db8:4a00:2110::/64, VLAN 40 2001:db8:4a00:2140::/64, VLAN 99 2001:db8:4a00:2199::/64. Die Ziffern sind zwar hexadezimal gemeint, man liest die VLAN-Nummer aber direkt ab. Das Stammhaus hat entsprechend 2001:db8:4a00:1000::/56, das Server-VLAN 50 also 2001:db8:4a00:1050::/64. Bei einem /56 klappt das nur für VLAN-Nummern bis 99; bei einem /48 sind bis zu vier Ziffern frei.</p>
 <p>Jedes /64 hat 2⁶⁴ ≈ 1,8 · 10¹⁹ Adressen. Kleiner als /64 teilt man Netze mit Endgeräten nicht, denn die automatische Adressbildung (Kapitel 9.3.3) setzt einen 64 Bit langen Geräteteil voraus.</p>
 
 <h3 id="u9-3-2-welche-adressart-wofuer">Welche Adressart wofür<a class="anchor" href="#u9-3-2-welche-adressart-wofuer" aria-hidden="true" tabindex="-1">#</a></h3>
@@ -750,7 +759,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Ein Mitschnitt im Verwaltungs-VLAN am Standort Nord zeigt: ein Paket von 0.0.0.0 an 255.255.255.255 an UDP-Port 67 (ein DHCP-Discover, Broadcast), ein ICMPv6-Paket vom Router an ff02::1 (ein Router Advertisement, Multicast) und eine DNS-Anfrage des PCs an 10.10.0.147 (Unicast an den DNS-Server im Stammhaus).</p>
+  <p>Ein Mitschnitt im Verwaltungs-VLAN am Standort Nord zeigt: ein Paket von 0.0.0.0 an 255.255.255.255 an UDP-Port 67 (ein DHCP-Discover, Broadcast), ein ICMPv6-Paket vom Router an ff02::1 (ein Router Advertisement, Multicast) und eine DNS-Anfrage des PCs an 10.20.0.65 (Unicast an den Router, der als DNS-Server dient).</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„IPv6 hat auch Broadcasts, nur unter anderem Namen.“ Nein: IPv6 kennt keinen Broadcast. Aufgaben, die bei IPv4 ein Broadcast erledigt, übernehmen gezielte Multicast-Gruppen, etwa für das Auffinden von Nachbarn.</p></aside>

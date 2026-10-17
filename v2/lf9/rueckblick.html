@@ -575,6 +575,15 @@
             <li><a class="up is-check" data-check="lf9-9-4" href="9-4-check.html"><span class="num">9.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="9-5-1-dhcp-im-unternehmensnetz.html"><span class="num">9.5</span><span>Netzwerkdienste bereitstellen</span><span class="kap-progress" data-ids="9-5-1 9-5-2 9-5-3 9-5-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="9-5-1" href="9-5-1-dhcp-im-unternehmensnetz.html"><span class="num">9.5.1</span><span class="t">DHCP im Unternehmensnetz</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-5-2" href="9-5-2-dns-betreiben.html"><span class="num">9.5.2</span><span class="t">DNS betreiben</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-5-3" href="9-5-3-e-mail-dienste.html"><span class="num">9.5.3</span><span class="t">E-Mail-Dienste</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-5-4" href="9-5-4-webdienste-und-reverse-proxy.html"><span class="num">9.5.4</span><span class="t">Webdienste und Reverse Proxy</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf9-9-5" href="9-5-check.html"><span class="num">9.5</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">9.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -633,8 +642,21 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.4</a></p>
 </section>
+<section class="rb-kapitel" id="k-9-5"><h2><span class="num">9.5</span> Netzwerkdienste bereitstellen</h2>
+<ul class="rb-list">
+<li><span class="num">9.5.1</span><div><a href="9-5-1-dhcp-im-unternehmensnetz.html">DHCP im Unternehmensnetz</a><ul><li><strong>Je VLAN ein Bereich</strong> mit Pool, Lease-Zeit, Optionen und Reservierungen.</li>
+  <li><strong>DHCP-Relay</strong> am Gateway leitet Anfragen als Unicast an einen Server in einem anderen Netz; ohne Relay erhalten Clients APIPA-Adressen.</li></ul></div></li>
+<li><span class="num">9.5.2</span><div><a href="9-5-2-dns-betreiben.html">DNS betreiben</a><ul><li><strong>Zone:</strong> SOA mit Seriennummer, NS, dazu A, AAAA, CNAME (nur auf Namen), MX, TXT (SPF); Rückwärtszonen mit PTR.</li>
+  <li><strong>Auflösung:</strong> interner Server ist autoritativ für eigene Zonen, sonst iterativ oder über Forwarder; bedingte Weiterleitung je Domain; interne Clients brauchen einen DNS-Server, der die internen Namen kennt.</li></ul></div></li>
+<li><span class="num">9.5.3</span><div><a href="9-5-3-e-mail-dienste.html">E-Mail-Dienste</a><ul><li><strong>Weg:</strong> Einlieferung per SMTP-Submission mit Anmeldung, Zustellung zum Server aus dem MX-Eintrag per SMTP auf Port 25, Abholen per IMAP oder POP3.</li>
+  <li><strong>STARTTLS</strong> schaltet auf dem normalen Port um und muss erzwungen werden; <strong>implizites TLS</strong> (465, 993, 995) ist von Anfang an verschlüsselt und für Clients empfohlen.</li></ul></div></li>
+<li><span class="num">9.5.4</span><div><a href="9-5-4-webdienste-und-reverse-proxy.html">Webdienste und Reverse Proxy</a><ul><li><strong>Webserver:</strong> HTTP(S) auf 80/443, virtuelle Hosts, Standarddokument (fehlt es und ist das Auflisten verboten, 403), Zertifikat auf den Aufrufnamen.</li>
+  <li><strong>Reverse Proxy:</strong> ein Eingang vor internen Servern mit TLS, Lastverteilung, Zwischenspeicher und verborgener Struktur; der Forward Proxy steht vor den Clients.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-9-5.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.5</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="9-4-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.4</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="9-5-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.5</span>Check</span></a></nav>
 </main>
 </div>
 </body>

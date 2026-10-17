@@ -5202,6 +5202,113 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "9.5",
+          "titel": "Netzwerkdienste bereitstellen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "9.5.1",
+              "titel": "DHCP im Unternehmensnetz",
+              "slug": "dhcp-im-unternehmensnetz",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dienste planen, installieren und konfigurieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 1 (DORA, DHCP-Relay)",
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 2 (IP-Konflikt, APIPA)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 2 (APIPA, fehlendes DHCP-Relay)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 4 (Discover als Broadcast, Adressprüfung nach der Zuweisung)"
+                ],
+                "extern": [
+                  "RFC 2131 (DHCP, DHCPDECLINE, giaddr), RFC 1542 (Relay), RFC 5227 (Adresskonflikterkennung per ARP)"
+                ]
+              },
+              "material": [
+                "dhcp-dora",
+                "apipa"
+              ],
+              "begriffe": [
+                "dhcp",
+                "vlan"
+              ]
+            },
+            {
+              "nummer": "9.5.2",
+              "titel": "DNS betreiben",
+              "slug": "dns-betreiben",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dienste planen, installieren und konfigurieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 4 (Forwarder, iterative Auflösung, fehlender A-Record, SPF)",
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 2 (interner statt öffentlicher DNS)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 3 (nslookup, falscher CNAME)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 2 (DNS-Weiterleitung, intern oder öffentlich)"
+                ],
+                "extern": [
+                  "RFC 1034, RFC 1035 (DNS, Zonen, SOA), RFC 2181 (CNAME-Regeln), RFC 7208 (SPF), RFC 2606 (.example)"
+                ]
+              },
+              "material": [
+                "dns-grundlagen"
+              ],
+              "begriffe": [
+                "dns"
+              ]
+            },
+            {
+              "nummer": "9.5.3",
+              "titel": "E-Mail-Dienste",
+              "slug": "e-mail-dienste",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dienste mit externen Ressourcen planen und einrichten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 2 (Mail-Client mit IMAP, STARTTLS, Anmeldung)"
+                ],
+                "extern": [
+                  "RFC 5321 (SMTP), RFC 6409 (Submission 587), RFC 8314 (implizites TLS, 465/993/995), RFC 9051 (IMAP4rev2), RFC 1939 (POP3)"
+                ]
+              },
+              "material": [
+                "anwendungsprotokolle"
+              ],
+              "begriffe": [
+                "email-dienste",
+                "tcp-udp",
+                "dns"
+              ]
+            },
+            {
+              "nummer": "9.5.4",
+              "titel": "Webdienste und Reverse Proxy",
+              "slug": "webdienste-und-reverse-proxy",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dienste und Infrastruktur mit internen und externen Ressourcen planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 3 (Funktionen eines Reverse Proxy)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 3 (Default-Dokument des Webservers fehlt)"
+                ],
+                "extern": [
+                  "RFC 9110 (HTTP-Semantik, Statuscodes), Dokumentation Apache/nginx (DirectoryIndex, index)"
+                ]
+              },
+              "material": [
+                "website-aufruf-hosting"
+              ],
+              "begriffe": [
+                "nat",
+                "tcp-udp"
+              ]
+            }
+          ]
         }
       ]
     }

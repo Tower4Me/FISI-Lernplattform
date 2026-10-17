@@ -1,0 +1,42 @@
+<p class="lead">Der Verbund hat eine Website für Tierhalter, und die Web-API der Termin-App läuft im Stammhaus (Kapitel 9.4.4). Später sollen weitere Dienste von außen erreichbar werden. Port 443 der einen öffentlichen Adresse kann der Router aber nur an ein einziges internes Ziel weiterleiten. Deshalb stellt das Systemhaus einen einzigen Eingang davor: einen Reverse Proxy.</p>
+
+<h3>Webserver und Hosting</h3>
+<p>Ein <strong>Webserver</strong> (etwa Apache, nginx, IIS) nimmt HTTP-Anfragen an, auf Port 80 oder mit HTTPS auf Port 443 (Ports und URL: LF3, Kapitel 3.5.5), und liefert Dateien oder die Ausgabe einer Anwendung zurück. Wichtige Einstellungen:</p>
+<ul>
+  <li><strong>Virtuelle Hosts</strong>: Ein Server bedient mehrere Domains; er unterscheidet sie am Namen in der Anfrage (Host-Kopfzeile, bei HTTPS schon beim Verbindungsaufbau).</li>
+  <li><strong>Standarddokument</strong>: Datei, die beim Aufruf eines Verzeichnisses geliefert wird, meist index.html. Fehlt sie und ist das Auflisten des Verzeichnisses verboten, antwortet der Server mit 403 (Forbidden).</li>
+  <li><strong>Zertifikat</strong> für HTTPS, ausgestellt auf den Namen, unter dem die Seite aufgerufen wird.</li>
+</ul>
+<p>Wo die Website läuft, ist eine Frage interner und externer Ressourcen (Kapitel 9.1.4): auf einem Server, den sich viele Kunden des Anbieters teilen (Shared Hosting), auf einem gemieteten Server, in der Cloud oder auf einem eigenen Server. Eine reine Informationsseite liegt meist günstiger und sicherer beim Anbieter als im eigenen Haus.</p>
+
+<h3>Reverse Proxy</h3>
+<p>Ein <strong>Reverse Proxy</strong> steht vor einem oder mehreren internen Servern und nimmt alle Anfragen aus dem Internet stellvertretend an. Er leitet sie an den passenden Server weiter und gibt dessen Antwort zurück. Der Client sieht nur den Proxy.</p>
+<ul>
+  <li><strong>Ein Eingang:</strong> Nur der Proxy braucht eine Weiterleitung im Router. Nach Name oder Pfad verteilt er auf die Server dahinter.</li>
+  <li><strong>TLS an einer Stelle:</strong> Der Proxy hält die Zertifikate und entschlüsselt; die Server dahinter müssen das nicht selbst erledigen.</li>
+  <li><strong>Lastverteilung:</strong> Er kann Anfragen auf mehrere gleiche Server verteilen und einen ausgefallenen überspringen.</li>
+  <li><strong>Zwischenspeicher:</strong> Häufig abgerufene Inhalte liefert er selbst aus.</li>
+  <li><strong>Schutz:</strong> Interne Adressen und Server bleiben verborgen; der Proxy kann auffällige Anfragen filtern.</li>
+</ul>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Forward Proxy</th><th>Reverse Proxy</th></tr></thead>
+    <tbody>
+      <tr><th>steht vor</th><td>den Clients eines Netzes</td><td>den Servern eines Netzes</td></tr>
+      <tr><th>handelt im Auftrag</th><td>der internen Nutzer, die ins Internet wollen</td><td>der Server, die aus dem Internet erreicht werden</td></tr>
+      <tr><th>typischer Zweck</th><td>Zugriffe ins Internet filtern und zwischenspeichern</td><td>Dienste veröffentlichen, TLS, Lastverteilung</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus stellt den Reverse Proxy 10.10.0.149 in das Server-VLAN und ändert die Weiterleitung im Router: 198.51.100.10:443 geht jetzt an den Proxy statt direkt an den API-Server. In der öffentlichen Zone beim Anbieter zeigt termine.praxisverbund.example auf 198.51.100.10. Der Proxy hält das Zertifikat für diesen Namen und gibt Anfragen an den Pfad /api/ an 10.10.0.148 weiter. Kommt später ein zweiter Dienst dazu, ergänzt die Auszubildende nur eine Regel im Proxy; der Router bleibt unverändert.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Reverse Proxy schützt die Mitarbeitenden beim Surfen.“ Das leistet ein Forward Proxy. Der Reverse Proxy steht auf der anderen Seite und vertritt Server gegenüber Anfragen aus dem Internet.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Webserver:</strong> HTTP(S) auf 80/443, virtuelle Hosts, Standarddokument (fehlt es und ist das Auflisten verboten, 403), Zertifikat auf den Aufrufnamen.</li>
+  <li><strong>Reverse Proxy:</strong> ein Eingang vor internen Servern mit TLS, Lastverteilung, Zwischenspeicher und verborgener Struktur; der Forward Proxy steht vor den Clients.</li>
+</ul>

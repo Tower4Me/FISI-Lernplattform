@@ -1,0 +1,45 @@
+<p class="lead">Im Büro der Hausverwaltung aus LF3 verteilte der Router die Adressen für ein einziges Netz. Im Praxisverbund gibt es pro Standort fünf VLANs mit eigenen Netzen, Telefone mit besonderen Einstellungen und Gäste, die nur kurz bleiben. DHCP muss jetzt viele Netze bedienen, über Router hinweg funktionieren und auch dann laufen, wenn die Verbindung zum Stammhaus ausfällt. Den Ablauf DORA kennst du aus LF3, Kapitel 3.5.1.</p>
+
+<h3>Ein Bereich je Netz</h3>
+<p>Für jedes VLAN-Netz legst du im DHCP-Server einen eigenen <strong>Bereich</strong> (Scope) an. Er enthält:</p>
+<ul>
+  <li>den Adresspool und Ausnahmen für fest vergebene Adressen,</li>
+  <li>die Lease-Zeit: im Gäste-VLAN kurz, etwa zwei Stunden, damit Adressen schnell wieder frei werden; in der Verwaltung lang, etwa acht Tage,</li>
+  <li>Optionen wie Standardgateway, DNS-Server, DNS-Suffix und Zeitserver; für Telefone etwa die Adresse des Servers, von dem sie ihre Einstellungen laden,</li>
+  <li>Reservierungen für Geräte, die immer dieselbe Adresse brauchen.</li>
+</ul>
+
+<h3>DHCP-Relay</h3>
+<p>Ein DHCP-Discover ist ein Broadcast und bleibt im eigenen Netz (Kapitel 9.3.4). Steht der DHCP-Server in einem anderen Netz, braucht jedes VLAN an seinem Gateway ein <strong>DHCP-Relay</strong> (bei manchen Herstellern „IP Helper“):</p>
+<ol>
+  <li>Das Gateway empfängt den Broadcast des Clients.</li>
+  <li>Es schickt ihn als Unicast an den DHCP-Server und trägt dabei seine eigene Adresse im Netz des Clients in das Feld giaddr (Gateway-Adresse) ein.</li>
+  <li>An dieser Adresse erkennt der Server, aus welchem Netz die Anfrage kommt, und wählt den passenden Bereich.</li>
+  <li>Die Antwort geht über das Relay zurück an den Client.</li>
+</ol>
+<p>Fehlt das Relay in einem VLAN, bekommen die Geräte dort keine Adresse und vergeben sich eine APIPA-Adresse (LF3, Kapitel 3.4.5), während alle anderen VLANs normal funktionieren.</p>
+
+<h3>Doppelte Adressen vermeiden</h3>
+<ul>
+  <li>Viele Server prüfen vor dem Angebot mit einem ping, ob die Adresse schon benutzt wird.</li>
+  <li>Der Client prüft nach der Zuweisung per ARP, ob jemand anderes die Adresse hat. Antwortet ein Gerät, lehnt er die Adresse ab (DHCP-Decline) und fragt neu.</li>
+  <li>Fest vergebene Adressen gehören außerhalb des Pools oder in eine Reservierung.</li>
+  <li>Nur ein DHCP-Server je Netz, oder mehrere, die sich abstimmen. Ein fremder DHCP-Server wie der mitgebrachte Router aus LF3, Kapitel 3.5.1 verteilt falsche Gateways.</li>
+</ul>
+
+<h3>Zentral oder am Standort</h3>
+<p>Ein zentraler Server ist bequem zu verwalten, hängt aber an der Verbindung zum Stammhaus. Fällt der VPN-Tunnel aus, bekommen neue Geräte am Standort keine Adresse mehr. Deshalb arbeitet an Außenstellen oft der Router selbst als DHCP-Server, oder ein zweiter DHCP-Server am Standort teilt sich mit dem zentralen den Pool und vertritt ihn.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Stammhaus vergibt der Server 10.10.0.147 die Adressen für alle VLANs; das Relay auf dem Kern-Switch zeigt auf ihn. Die Router in Nord und Süd sind selbst DHCP-Server für ihre Netze, damit die Praxis bei einem Tunnelausfall weiterarbeiten kann (Anforderung aus Kapitel 9.1.1). Im Gäste-VLAN in Nord gilt: Pool 10.20.0.10 bis 10.20.0.62, Gateway 10.20.0.1, öffentlicher DNS-Server statt des internen, Lease-Zeit zwei Stunden. Die internen VLANs in Nord bekommen den Router als DNS-Server (Kapitel 9.5.2).</p>
+</div>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie Switches fremde DHCP-Server mit DHCP-Snooping aussperren, wird in LF11b ausführlicher behandelt.</p></aside>
+
+<aside class="note" data-typ="fehler"><p>„Das Relay leitet die Anfrage einfach als Broadcast ins Servernetz weiter.“ Nein: Das Relay schickt sie als Unicast direkt an die eingetragene Serveradresse und vermerkt das Netz, aus dem sie kommt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Je VLAN ein Bereich</strong> mit Pool, Lease-Zeit, Optionen und Reservierungen.</li>
+  <li><strong>DHCP-Relay</strong> am Gateway leitet Anfragen als Unicast an einen Server in einem anderen Netz; ohne Relay erhalten Clients APIPA-Adressen.</li>
+</ul>

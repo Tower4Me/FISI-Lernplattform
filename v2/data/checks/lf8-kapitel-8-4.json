@@ -1,0 +1,125 @@
+{
+  "titel": "Check 8.4",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "ETL-Schritt",
+      "frage": "Beim Übernehmen wird aus „03.04.2025“ der Wert 2025-04-03 und aus „Canis“ der Wert „Hund“. In welchem Schritt geschieht das?",
+      "optionen": [
+        "Transformieren",
+        "Extrahieren",
+        "Laden",
+        "Sichern"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Beim Transformieren werden Daten geprüft, bereinigt und vereinheitlicht. Extrahieren liest aus der Quelle, Laden schreibt ins Ziel."
+    },
+    {
+      "typ": "mc",
+      "thema": "Schlüssel zuordnen",
+      "frage": "Jeder Standort nummeriert seine Tiere ab 1. Wie gehst du in der zentralen Datenbank damit um?",
+      "optionen": [
+        "Eigene Nummern vergeben, alte je Quelle in einer Schlüsseltabelle",
+        "Die Nummern aller Standorte unverändert übernehmen",
+        "Nur die Tiere eines Standorts übernehmen, damit keine Nummer doppelt ist",
+        "Den Standort als Präfix vor die alte Nummer setzen und diese als Primärschlüssel nutzen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Unverändert übernommen gäbe es dieselbe Nummer mehrfach. Mit eigenen Nummern und einer Schlüsseltabelle lassen sich spätere Änderungen aus der Quelle wieder zuordnen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Migration prüfen",
+      "frage": "Nach dem Probelauf einer Migration enthält die Quelle 2.480 Datensätze, das Ziel 2.471. Was ist der nächste Schritt?",
+      "optionen": [
+        "Die fehlenden neun Datensätze im Protokoll suchen und die Ursache klären",
+        "Die echte Übernahme starten, weil die Abweichung unter einem Prozent liegt",
+        "Das alte System sofort abschalten, damit keine neuen Daten hinzukommen",
+        "Die neun Datensätze nach der echten Übernahme nachtragen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Abgleich der Anzahl zeigt, dass Datensätze verloren gegangen sind. Erst wenn die Ursache geklärt ist und die Zahlen stimmen, folgt die echte Übernahme."
+    },
+    {
+      "typ": "mc",
+      "thema": "NoSQL-Art",
+      "frage": "Eine Webanwendung soll Sitzungsdaten sehr schnell über eine Sitzungskennung ablegen und wieder finden. Welche Art von NoSQL-Datenbank passt am besten?",
+      "optionen": [
+        "Schlüssel-Wert-Speicher",
+        "Graphdatenbank",
+        "Spaltenorientierte Datenbank",
+        "Dokumentenorientierte Datenbank mit Verschachtelung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Schlüssel-Wert-Speicher findet einen Wert sehr schnell über seinen eindeutigen Schlüssel. Mehr braucht es für Sitzungsdaten nicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Relational oder NoSQL",
+      "frage": "Welche Daten des Praxisverbunds gehören am ehesten in eine relationale Datenbank?",
+      "optionen": [
+        "Tiere, Besitzer und Impfungen mit festen Beziehungen",
+        "Messwerte der Kühlschränke im Minutentakt über Jahre",
+        "Freundschaftsbeziehungen in einem Tierhalter-Forum",
+        "Zwischengespeicherte Seiten der Website für schnellen Abruf"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Tiere, Besitzer und Impfungen haben ein festes Schema und eng verknüpfte Beziehungen, die stimmen müssen. Dafür sind Tabellen mit Fremdschlüsseln und ACID-Transaktionen gemacht."
+    },
+    {
+      "typ": "mc",
+      "thema": "SQL-Injection",
+      "frage": "Ein Dienst setzt die Tiernummer aus einer Web-Anfrage direkt als Text in einen SQL-Befehl ein. Was schützt gegen eingeschleusten SQL-Code?",
+      "optionen": [
+        "Vorbereitete Abfragen mit Platzhaltern",
+        "Ein längeres Kennwort für das Datenbankkonto",
+        "Eine Versionsnummer im Pfad der API",
+        "Das Ergebnis als JSON statt als CSV ausliefern"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei einer vorbereiteten Abfrage gehen Befehl und Wert getrennt ans DBMS. Der Wert wird nie als Teil des Befehls ausgeführt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rechte entziehen",
+      "frage": "Das Konto etl_import soll keine Tiere mehr löschen dürfen. Welcher Befehl ist richtig?",
+      "optionen": [
+        "REVOKE DELETE ON tier FROM etl_import",
+        "GRANT DELETE ON tier TO etl_import",
+        "DROP USER etl_import",
+        "DELETE FROM tier WHERE konto = 'etl_import'"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "REVOKE entzieht ein Recht, hier DELETE auf die Tabelle tier. GRANT würde es erteilen, DROP USER löschte das ganze Konto."
+    },
+    {
+      "typ": "mc",
+      "thema": "Pseudonymisierung",
+      "frage": "In der Auswertung sind die Namen der Besitzer durch Kennungen ersetzt, die Zuordnungsliste liegt getrennt beim Verbund. Wie sind diese Daten einzuordnen?",
+      "optionen": [
+        "Pseudonymisiert, die DSGVO gilt weiter",
+        "Anonymisiert, die DSGVO gilt nicht mehr",
+        "Verschlüsselt, daher frei weitergebbar",
+        "Anonymisiert, weil kein Name mehr in der Auswertung steht"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Mit der Zuordnungsliste lässt sich der Personenbezug wiederherstellen. Die Daten sind pseudonymisiert und bleiben personenbezogen."
+    }
+  ]
+}

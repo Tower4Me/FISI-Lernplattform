@@ -1,0 +1,45 @@
+<p class="lead">In der zentralen Datenbank liegen jetzt die Daten aller drei Standorte an einem Ort. Gelangen sie in falsche Hände oder gehen verloren, trifft es den ganzen Verbund. Deshalb legst du fest, wer was darf, schützt die Daten bei Übertragung und Speicherung und sicherst sie regelmäßig.</p>
+
+<h3>Rechte vergeben mit SQL</h3>
+<p>Jedes Programm und jede Person meldet sich mit einem eigenen Konto am DBMS an. Rechte vergibst du mit der DCL (Kapitel 8.2.3):</p>
+<pre><code>CREATE USER auswertung IDENTIFIED BY '…';
+GRANT SELECT ON impfungen_je_art TO auswertung;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON tier TO etl_import;
+REVOKE DELETE ON tier FROM etl_import;</code></pre>
+<p>Die Schreibweise von <code>CREATE USER</code> gilt für MariaDB und MySQL; PostgreSQL schreibt <code>CREATE USER auswertung WITH PASSWORD '…'</code>. <code>GRANT</code> und <code>REVOKE</code> sehen in allen gleich aus.</p>
+<ul>
+  <li><code>GRANT</code> erteilt Rechte wie <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> auf Tabellen oder Sichten.</li>
+  <li><code>REVOKE</code> entzieht sie wieder.</li>
+  <li>Das Konto <code>auswertung</code> darf nur die Sicht lesen, nicht die Tabellen dahinter. So sieht es keine Besitzerdaten.</li>
+</ul>
+<p>Bei vielen Konten fasst du Rechte zu <strong>Rollen</strong> zusammen, etwa <code>praxisteam</code> oder <code>leitung</code>. Du gibst die Rechte der Rolle und die Rolle den Konten:</p>
+<pre><code>CREATE ROLE leitung;
+GRANT SELECT ON impfungen_je_art TO leitung;
+GRANT leitung TO auswertung;</code></pre>
+<p>In MariaDB wirkt eine Rolle erst, wenn sie aktiviert ist, etwa dauerhaft mit <code>SET DEFAULT ROLE leitung FOR auswertung</code>. Wechselt jemand die Aufgabe, tauschst du nur die Rolle. Für jedes Konto gilt das Prinzip der minimalen Rechte.</p>
+
+<h3>Weitere Schutzmaßnahmen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Maßnahme</th><th>Wogegen</th><th>Umsetzung</th></tr></thead>
+    <tbody>
+      <tr><th>Pseudonymisieren</th><td>unnötiger Personenbezug in Auswertungen</td><td>Namen durch Kennungen ersetzen; die Zuordnung liegt getrennt und geschützt. Die Daten bleiben personenbezogen.</td></tr>
+      <tr><th>Anonymisieren</th><td>jeden Personenbezug</td><td>Daten so zusammenfassen oder verändern, dass niemand mehr auf eine Person schließen kann, auch nicht mit Zusatzwissen; kleine Gruppen vermeiden. Dann gilt die DSGVO nicht mehr.</td></tr>
+      <tr><th>Transport verschlüsseln</th><td>Mitlesen im Netz</td><td>TLS für Datenbankverbindungen, HTTPS für die API</td></tr>
+      <tr><th>Speicher verschlüsseln</th><td>Zugriff auf gestohlene Platten oder Sicherungen</td><td>Verschlüsselung der Datenbankdateien und der Sicherungen</td></tr>
+      <tr><th>Protokollieren</th><td>unbemerkter Missbrauch</td><td>Anmeldungen und Zugriffe auf sensible Tabellen aufzeichnen und auswerten</td></tr>
+      <tr><th>Sichern</th><td>Verlust durch Fehler, Defekt oder Schadsoftware</td><td>regelmäßige Sicherung nach 3-2-1-Regel, Wiederherstellung testen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Grundlagen zu Pseudonymisierung, Verschlüsselung und Datensicherung kennst du aus LF4, Kapitel 4.2.2, 4.5.4 und 4.6.2. Bei Datenbanken kommt hinzu: Eine Sicherung muss einen stimmigen Stand enthalten. Kopierst du die Dateien einer laufenden Datenbank einfach weg, passen sie oft nicht zusammen. Nutze deshalb die Sicherungswerkzeuge des DBMS, die einen konsistenten Abzug erzeugen, etwa einen Datenbankabzug (Dump).</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für den Verbund legt die Auszubildende vier Konten an: <code>etl_import</code> darf in die Tabellen einfügen und ändern, aber nichts löschen; <code>auswertung</code> darf nur Sichten lesen; <code>api_dienst</code> darf nur die Impfdaten lesen, die die App braucht; die Administration hat ein persönliches Konto pro Person. Jede Nacht erzeugt das DBMS einen verschlüsselten Abzug, der auf das NAS und wöchentlich außer Haus kopiert wird. Einmal im Quartal stellt sie einen Abzug probehalber auf dem Testserver wieder her.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Pseudonymisierte Daten sind keine personenbezogenen Daten mehr.“ Doch: Wer die getrennt gespeicherte Zuordnung hat, kann den Bezug wiederherstellen; für ihn gilt die DSGVO weiter. Erst anonymisierte Daten fallen heraus.</p></aside>
+
+<p class="merksatz">Mit GRANT und REVOKE vergibst du minimale Rechte an Konten und Rollen; Pseudonymisierung, Verschlüsselung bei Übertragung und Speicherung, Protokollierung und konsistente, getestete Sicherungen schützen die zusammengeführten Daten.</p>

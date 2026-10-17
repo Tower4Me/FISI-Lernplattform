@@ -1,0 +1,60 @@
+<p class="lead">Nicht alle Daten passen gut in Tabellen. Die Bestellungen des Futterlieferanten kommen als verschachteltes JSON mit wechselnden Feldern. Die Kühlschranksensoren liefern jede Minute einen Messwert. Für solche Fälle gibt es Datenbanken, die ohne feste Tabellen arbeiten. Sie heißen zusammengefasst <strong>NoSQL</strong>, heute meist als „not only SQL“ gedeutet.</p>
+
+<h3>Warum NoSQL</h3>
+<p>Relationale Datenbanken verlangen ein festes Schema und verteilen zusammengehörige Daten auf mehrere Tabellen. Das sichert Konsistenz, ist aber nicht immer passend:</p>
+<ul>
+  <li>Die Struktur der Daten ändert sich häufig oder ist von Datensatz zu Datensatz verschieden.</li>
+  <li>Es fallen sehr große Mengen an, die auf viele Server verteilt werden sollen (horizontale Skalierung).</li>
+  <li>Die Daten werden meist als Ganzes gelesen, etwa eine komplette Bestellung.</li>
+</ul>
+
+<h3>Vier Arten</h3>
+<div class="reiter" data-reiter>
+  <div class="reiter-panel" data-label="Dokument">
+    <p>Eine <strong>dokumentenorientierte Datenbank</strong> speichert jeden Datensatz als Dokument, meist in JSON oder einem verwandten Format. Ein Dokument kann verschachtelt sein, und Dokumente derselben Sammlung dürfen unterschiedliche Felder haben.</p>
+<pre><code>{ "bestellnr": "B-2025-0412",
+  "standort": "Nord",
+  "positionen": [
+    { "artikel": "Nierendiät Katze 2 kg", "menge": 6 },
+    { "artikel": "Welpenfutter 10 kg", "menge": 2 } ] }</code></pre>
+    <p>Passt für: Bestellungen, Produktkataloge, Inhalte von Webseiten. Beispiel: MongoDB.</p>
+  </div>
+  <div class="reiter-panel" data-label="Schlüssel-Wert">
+    <p>Ein <strong>Schlüssel-Wert-Speicher</strong> (Key-Value-Store) legt zu jedem eindeutigen Schlüssel einen Wert ab. Der Wert ist für die Datenbank meist nur ein Block; gesucht wird nur über den Schlüssel, das aber sehr schnell.</p>
+    <p>Passt für: Sitzungsdaten einer Webanwendung, Zwischenspeicher (Cache), Einstellungen. Beispiel: Redis.</p>
+  </div>
+  <div class="reiter-panel" data-label="Spalten">
+    <p>Eine <strong>spaltenorientierte Datenbank</strong> (Wide-Column-Store) speichert Zeilen mit einem Schlüssel. Jede Zeile kann viele eigene Spalten haben, die zu Spaltenfamilien zusammengefasst sind, und die Daten lassen sich über viele Server verteilen.</p>
+    <p>Passt für: sehr große Datenmengen, viele Schreibvorgänge, etwa Messwerte vieler Sensoren über Jahre. Beispiel: Apache Cassandra.</p>
+  </div>
+  <div class="reiter-panel" data-label="Graph">
+    <p>Eine <strong>Graphdatenbank</strong> speichert Knoten (etwa Personen, Tiere, Praxen) und Kanten, die Beziehungen zwischen ihnen darstellen. Abfragen folgen den Kanten direkt, ohne Tabellen zu verknüpfen.</p>
+    <p>Passt für: stark vernetzte Daten, etwa soziale Netzwerke, Empfehlungen, Netzwerktopologien. Beispiel: Neo4j.</p>
+  </div>
+</div>
+
+<h3>Relational oder NoSQL</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Relationale Datenbank</th><th>NoSQL-Datenbank</th></tr></thead>
+    <tbody>
+      <tr><th>Struktur</th><td>festes Schema, Tabellen</td><td>flexibel, je nach Art Dokumente, Schlüssel-Wert-Paare, Spalten oder Graphen</td></tr>
+      <tr><th>Abfrage</th><td>SQL, genormt</td><td>je nach Produkt eigene Abfragesprache oder Schnittstelle</td></tr>
+      <tr><th>Konsistenz</th><td>Transaktionen mit ACID (Kapitel 8.3.5)</td><td>oft lockerer: Änderungen sind erst nach kurzer Zeit überall sichtbar (letztendliche Konsistenz)</td></tr>
+      <tr><th>Wachstum</th><td>meist durch einen stärkeren Server</td><td>meist durch mehr Server</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Viele Betriebe nutzen beides nebeneinander. Die Grenzen verschwimmen: Relationale Systeme wie PostgreSQL können JSON speichern und abfragen, manche NoSQL-Systeme bieten Transaktionen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Behandlungen, Tiere und Impfungen bleiben in der relationalen Datenbank: Sie hängen eng zusammen und müssen stimmen. Die Rohdaten der Kühlschranksensoren, jede Minute ein Wert über Jahre, legt das Systemhaus in einer spaltenorientierten NoSQL-Datenbank ab; für solche Messreihen gibt es auch eigene Zeitreihendatenbanken. In die zentrale Datenbank kommt nur eine Zusammenfassung je Tag.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„NoSQL heißt: keine Struktur und kein SQL.“ Die Daten haben sehr wohl eine Struktur, sie ist nur nicht für alle Datensätze vorgeschrieben. Manche NoSQL-Systeme verstehen sogar eine SQL-ähnliche Abfragesprache.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>NoSQL-Arten:</strong> Dokument (verschachteltes JSON), Schlüssel-Wert (schneller Zugriff über Schlüssel), Spalten (riesige verteilte Mengen), Graph (vernetzte Beziehungen).</li>
+  <li><strong>Relational</strong> bei festem Schema und strenger Konsistenz, <strong>NoSQL</strong> bei wechselnder Struktur, sehr großen Mengen und Verteilung auf viele Server.</li>
+</ul>

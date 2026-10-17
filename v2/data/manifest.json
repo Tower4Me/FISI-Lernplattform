@@ -4622,6 +4622,103 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "8.4",
+          "titel": "Daten zusammenführen und bereitstellen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "8.4.1",
+              "titel": "Daten übernehmen",
+              "slug": "daten-uebernehmen",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Daten aus heterogenen Quellen zusammenführen und übernehmen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 g (Datenübernahmen)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2021/22 (Datenbankmigration in Schritten, Vorteile textbasierter Exportformate)",
+                  "AP2 FISI Winter 2024/25 Aufgabe 1 (Austauschformate)"
+                ],
+                "extern": [
+                  "Lehrbuchwissen ETL und Datenmigration"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "datenuebernahme",
+                "datenformate",
+                "datenqualitaet"
+              ]
+            },
+            {
+              "nummer": "8.4.2",
+              "titel": "NoSQL-Datenbanken",
+              "slug": "nosql-datenbanken",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Heterogene Datenquellen auswählen, Bereitstellungskonzept",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Aufgabe 1 (Arten von NoSQL-Datenbanken)"
+                ],
+                "extern": [
+                  "Herstellerdokumentation MongoDB, Redis, Apache Cassandra, Neo4j; PostgreSQL-Dokumentation JSON-Typen"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "nosql",
+                "sql"
+              ]
+            },
+            {
+              "nummer": "8.4.3",
+              "titel": "Daten bereitstellen",
+              "slug": "daten-bereitstellen",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Konzept zur Bereitstellung der Daten unter Beachtung der Informationssicherheit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 c",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "OWASP Top 10 (Injection), OWASP SQL Injection Prevention Cheat Sheet",
+                  "OpenAPI Specification (OpenAPI Initiative)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "mqtt",
+                "sql",
+                "datenquellen"
+              ]
+            },
+            {
+              "nummer": "8.4.4",
+              "titel": "Zugriff schützen",
+              "slug": "zugriff-schuetzen",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Bereitstellung unter Beachtung der Informationssicherheit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9 (Zugriffsrechte)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) GRANT, REVOKE, Rollen; MariaDB CREATE USER, mariadb-dump",
+                  "DSGVO Art. 4 Nr. 5, Erwägungsgrund 26"
+                ]
+              },
+              "material": [
+                "sql-dcl"
+              ],
+              "begriffe": [
+                "sql",
+                "personenbezogene-daten",
+                "verschluesselung",
+                "datensicherung",
+                "authentifizierung"
+              ]
+            }
+          ]
         }
       ]
     }

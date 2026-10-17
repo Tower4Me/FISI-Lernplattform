@@ -43,7 +43,8 @@
         "3-2-1-Regel: drei Kopien, zwei Medienarten, eine außer Haus; mindestens eine Kopie offline bzw. unveränderbar.",
         "Vollsicherung: alles; differenziell: Änderungen seit letzter Vollsicherung (Restore: Voll + letzte Diff); inkrementell: Änderungen seit letzter Sicherung (Restore: Voll + alle Inkremente).",
         "RAID ist keine Datensicherung (überbrückt je nach Level Plattenausfälle, nicht RAID 0; schützt nicht vor Löschen oder Verschlüsselung).",
-        "Wiederherstellung regelmäßig testen."
+        "Wiederherstellung regelmäßig testen.",
+        "Datenbanken mit den Werkzeugen des DBMS konsistent sichern (Dump), nicht laufende Dateien kopieren."
       ],
       "vorkommen": [
         {
@@ -69,6 +70,10 @@
         {
           "id": "7-5-1",
           "tiefe": "Sicherung der Konfiguration"
+        },
+        {
+          "id": "8-4-4",
+          "tiefe": "konsistenter Datenbankabzug (Dump)"
         }
       ]
     },
@@ -176,6 +181,10 @@
         {
           "id": "8-1-3",
           "tiefe": "Zweckbindung, Datenminimierung, Betroffenenrechte in Kopien"
+        },
+        {
+          "id": "8-4-4",
+          "tiefe": "Pseudonymisieren und Anonymisieren in Auswertungen"
         }
       ]
     },
@@ -401,6 +410,14 @@
         {
           "id": "8-1-2",
           "tiefe": "eigenes Lesekonto, Schlüssel im Kennworttresor"
+        },
+        {
+          "id": "8-4-3",
+          "tiefe": "API-Schlüssel/Token je Anfrage"
+        },
+        {
+          "id": "8-4-4",
+          "tiefe": "eigenes Konto je Programm und Person, Rollen"
         }
       ]
     },
@@ -430,6 +447,10 @@
         {
           "id": "7-5-2",
           "tiefe": "TLS für MQTT"
+        },
+        {
+          "id": "8-4-4",
+          "tiefe": "Transport und Speicher der Datenbank"
         }
       ]
     },
@@ -1791,6 +1812,10 @@
         {
           "id": "8-1-1",
           "tiefe": "Einordnung strukturiert/semistrukturiert/unstrukturiert"
+        },
+        {
+          "id": "8-4-1",
+          "tiefe": "Formatumwandlung bei der Übernahme"
         }
       ]
     },
@@ -2735,6 +2760,10 @@
         {
           "id": "8-1-2",
           "tiefe": "Rückverweis REST als Zugriffsweg"
+        },
+        {
+          "id": "8-4-3",
+          "tiefe": "eigene REST-API bereitstellen"
         }
       ]
     },
@@ -2802,6 +2831,10 @@
         {
           "id": "8-1-2",
           "tiefe": "Zugriffswege, Voll- und Deltaabzug"
+        },
+        {
+          "id": "8-4-3",
+          "tiefe": "Bereitstellungswege Export, Sicht, API"
         }
       ]
     },
@@ -2820,6 +2853,10 @@
         {
           "id": "8-3-5",
           "tiefe": "Dublette per Transaktion zusammenführen"
+        },
+        {
+          "id": "8-4-1",
+          "tiefe": "Bereinigung im Transformieren"
         }
       ]
     },
@@ -2836,7 +2873,9 @@
         "WHERE filtert Zeilen vor dem Gruppieren, HAVING Gruppen danach; Nicht-Aggregatspalten im SELECT müssen ins GROUP BY; Reihenfolge SELECT FROM WHERE GROUP BY HAVING ORDER BY.",
         "INNER JOIN nur Zeilen mit Partner; LEFT JOIN alle Zeilen links, fehlende Partner NULL; zwei Tabellen ohne Verknüpfungsbedingung (FROM a, b; CROSS JOIN) ergeben das kartesische Produkt (m × n Zeilen); n Tabellen brauchen n − 1 Bedingungen.",
         "Sicht (View) = gespeicherte Abfrage ohne eigene Daten; vereinfacht, schränkt Spalten/Zeilen ein.",
-        "UPDATE/DELETE ohne WHERE treffen alle Zeilen; Transaktion START TRANSACTION/BEGIN … COMMIT/ROLLBACK; ACID = Atomarität, Konsistenz, Isolation, Dauerhaftigkeit; Autocommit ohne begonnene Transaktion."
+        "UPDATE/DELETE ohne WHERE treffen alle Zeilen; Transaktion START TRANSACTION/BEGIN … COMMIT/ROLLBACK; ACID = Atomarität, Konsistenz, Isolation, Dauerhaftigkeit; Autocommit ohne begonnene Transaktion.",
+        "DCL: GRANT erteilt, REVOKE entzieht Rechte (SELECT, INSERT, UPDATE, DELETE) auf Tabellen/Sichten; Rollen bündeln Rechte; minimale Rechte je Konto.",
+        "SQL-Injection: Eingaben nie als Text in SQL einbauen; vorbereitete Abfragen (Prepared Statements) mit Platzhaltern."
       ],
       "vorkommen": [
         {
@@ -2866,6 +2905,18 @@
         {
           "id": "8-3-5",
           "tiefe": "INSERT/UPDATE/DELETE, Transaktion, ACID"
+        },
+        {
+          "id": "8-4-2",
+          "tiefe": "Abgrenzung relational/NoSQL"
+        },
+        {
+          "id": "8-4-3",
+          "tiefe": "SQL-Injection, Prepared Statements"
+        },
+        {
+          "id": "8-4-4",
+          "tiefe": "DCL GRANT/REVOKE, Rollen"
         }
       ]
     },
@@ -2882,6 +2933,35 @@
         {
           "id": "8-2-2",
           "tiefe": "1. bis 3. NF am Beispiel Impfliste"
+        }
+      ]
+    },
+    {
+      "begriff": "datenuebernahme",
+      "kernfakten": [
+        "ETL: Extrahieren (aus Quelle lesen), Transformieren (prüfen, bereinigen, vereinheitlichen, Struktur), Laden (ins Ziel schreiben, meist in Transaktion).",
+        "Umwandlungen: Format (Kodierung, Trenn-/Dezimalzeichen, ISO 8601), Datentyp, Werte über Zuordnungstabelle, Struktur, Schlüssel (eigene Nummern plus Schlüsseltabelle je Quelle), Dubletten.",
+        "Migration: sichern, analysieren, Zuordnung, Probelauf auf Testsystem, Abgleich (Anzahl, Stichprobe, Summen), Einfrieren der Quelle, echte Übernahme, Freigabe, Rückweg offen bis neues System sicher läuft.",
+        "Textbasierte Formate (CSV, JSON, XML) herstellerunabhängig, mit Editor prüfbar, breit lesbar."
+      ],
+      "vorkommen": [
+        {
+          "id": "8-4-1",
+          "tiefe": "ETL und Migration"
+        }
+      ]
+    },
+    {
+      "begriff": "nosql",
+      "kernfakten": [
+        "NoSQL = not only SQL; ohne festes Tabellenschema, oft horizontal skalierbar (mehr Server).",
+        "Dokument (JSON, verschachtelt, Felder variabel; MongoDB), Schlüssel-Wert (Zugriff nur über Schlüssel, sehr schnell; Redis), spaltenorientiert/Wide Column (sehr große verteilte Mengen; Cassandra), Graph (Knoten und Kanten; Neo4j).",
+        "Relational: festes Schema, SQL, ACID; NoSQL oft letztendliche Konsistenz, eigene Abfragesprachen; Grenzen verschwimmen (JSON in PostgreSQL)."
+      ],
+      "vorkommen": [
+        {
+          "id": "8-4-2",
+          "tiefe": "Arten und Abgrenzung"
         }
       ]
     }

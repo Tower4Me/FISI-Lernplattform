@@ -1,0 +1,45 @@
+<p class="lead">Die Quellen sind analysiert, die zentrale Datenbank steht. Jetzt müssen die Daten aus drei Praxisdatenbanken, der alten Impfliste, dem Laborportal und der Lieferanten-API hinein. Dabei passen weder Formate noch Nummern noch Schreibweisen zusammen. Damit die Übernahme wiederholbar und nachprüfbar bleibt, gehst du in festen Schritten vor.</p>
+
+<h3>Extrahieren, Transformieren, Laden</h3>
+<p>Der übliche Ablauf heißt nach seinen drei Schritten <strong>ETL</strong>:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schritt</th><th>Was passiert</th><th>Im Praxisverbund</th></tr></thead>
+    <tbody>
+      <tr><th>Extrahieren (Extract)</th><td>Daten aus der Quelle lesen, über die Zugriffswege aus Kapitel 8.1.2</td><td>nächtlicher Deltaabzug aus den Praxisdatenbanken, CSV vom Laborportal</td></tr>
+      <tr><th>Transformieren (Transform)</th><td>Daten prüfen, bereinigen, vereinheitlichen und in die Zielstruktur bringen</td><td>„Canis“ wird „Hund“, Komma wird Dezimalpunkt, Datumsformat auf ISO 8601, Dubletten zusammenführen</td></tr>
+      <tr><th>Laden (Load)</th><td>Daten in das Ziel schreiben, meist in einer Transaktion</td><td><code>INSERT</code> und <code>UPDATE</code> in die zentrale Datenbank</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Dafür gibt es eigene ETL-Werkzeuge. Für kleinere Aufgaben reichen ein Skript, etwa in Python, und die Importfunktion des DBMS.</p>
+
+<h3>Typische Umwandlungen</h3>
+<ul>
+  <li><strong>Format:</strong> Kodierung (UTF-8), Trennzeichen, Dezimalzeichen und Datumsformat abstimmen (LF5, Kapitel 5.2.2).</li>
+  <li><strong>Datentyp:</strong> Text in Zahl oder Datum umwandeln; Werte, die sich nicht umwandeln lassen, aussortieren und melden.</li>
+  <li><strong>Werte vereinheitlichen</strong> über eine <strong>Zuordnungstabelle</strong>, etwa jede Schreibweise einer Tierart auf einen festen Wert.</li>
+  <li><strong>Struktur:</strong> verschachteltes JSON auf Tabellen verteilen, Listen in Zeilen auflösen wie bei der 1. Normalform (Kapitel 8.2.2).</li>
+  <li><strong>Schlüssel:</strong> Jeder Standort zählt seine Nummern ab 1. Die zentrale Datenbank vergibt eigene Nummern und merkt sich in einer Schlüsseltabelle, welche Nummer welchem Datensatz in welcher Quelle entspricht. Nur so lassen sich spätere Änderungen aus der Quelle wieder zuordnen.</li>
+  <li><strong>Dubletten:</strong> mögliche Doppelte über Merkmale wie Name und Telefonnummer finden, im Zweifel von Menschen entscheiden lassen, dann zusammenführen (Kapitel 8.3.5).</li>
+</ul>
+
+<h3>Einmalige Übernahme: die Migration</h3>
+<p>Wird ein altes System abgelöst, werden seine Daten einmalig vollständig übernommen. Eine solche <strong>Datenmigration</strong> planst du in Schritten:</p>
+<ol>
+  <li>Bestand sichern und Quelle analysieren (Kapitel 8.1),</li>
+  <li>Zuordnung festlegen: welches Feld wohin, mit welcher Umwandlung,</li>
+  <li>Probelauf auf einem Testsystem, Ergebnis prüfen: Anzahl der Datensätze in Quelle und Ziel vergleichen, Stichproben, Summen,</li>
+  <li>Zeitraum mit den Nutzern abstimmen, in dem die Quelle nicht mehr geändert wird,</li>
+  <li>echte Übernahme, erneut prüfen, Freigabe durch die Fachabteilung,</li>
+  <li>altes System erst abschalten, wenn das neue sicher läuft; Rückweg bis dahin offen halten.</li>
+</ol>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Beim Probelauf mit der alten Impfliste vom Standort Süd zählt die Auszubildende 1.126 Impfungen in der Liste, aber nur 1.119 in der Testdatenbank. Das Protokoll ihres Skripts zeigt sieben Zeilen mit dem Datum „31.04.2024“, das es nicht gibt. Die Praxis schlägt die richtigen Daten in den Papierakten nach. Danach stimmen die Zahlen, und die Übernahme kann stattfinden.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Textbasierte Austauschformate wie CSV, JSON und XML eignen sich für Übernahmen gut: Sie sind unabhängig vom Hersteller, lassen sich mit einem Editor prüfen und von fast jedem Programm lesen.</p></aside>
+
+<p class="merksatz">Daten werden in drei Schritten übernommen: extrahieren, transformieren (Format, Datentyp, Werte, Struktur, Schlüssel, Dubletten) und laden; eine Migration planst du mit Sicherung, Probelauf, Abgleich der Zahlen und offenem Rückweg.</p>

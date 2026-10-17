@@ -1,0 +1,47 @@
+<p class="lead">Die Daten liegen jetzt zusammengeführt in der zentralen Datenbank. Nutzen sollen sie ganz verschiedene Empfänger: die Praxisleitung mit ihrem Auswertungsprogramm, das Steuerbüro mit einer monatlichen Liste der Futterkosten und künftig eine App für Terminerinnerungen. Jeder Empfänger bekommt die Daten auf dem Weg, der zu ihm passt, und nur die Daten, die er braucht.</p>
+
+<h3>Wege der Bereitstellung</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Weg</th><th>So funktioniert es</th><th>Passt für</th></tr></thead>
+    <tbody>
+      <tr><th>Datei-Export</th><td>ein Skript erzeugt zeitgesteuert eine Datei (CSV, JSON, XML) und legt sie ab oder schickt sie</td><td>Empfänger ohne direkten Zugang, feste Berichte, Archiv</td></tr>
+      <tr><th>Sicht mit Lesekonto</th><td>der Empfänger fragt eine Sicht (Kapitel 8.3.4) direkt per SQL ab</td><td>Auswertungsprogramme im eigenen Netz</td></tr>
+      <tr><th>Web-API</th><td>ein Dienst beantwortet HTTPS-Anfragen und liefert JSON; die Datenbank selbst bleibt im internen Netz</td><td>Apps, Partner, Zugriff über das Internet</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Gemeinsam ist allen Wegen: Der Empfänger bekommt eine festgelegte Auswahl, nie den Zugang zu allen Tabellen. Ändert sich die interne Struktur, bleibt die Schnittstelle nach außen gleich.</p>
+
+<h3>Eine Web-API entwerfen</h3>
+<p>Wie REST mit Ressourcen, Methoden und Statuscodes arbeitet, kennst du aus LF7, Kapitel 7.3.3. Jetzt bist du auf der anderen Seite und stellst selbst eine Schnittstelle bereit. Für die Termin-App plant die Auszubildende:</p>
+<pre><code>GET /api/v1/tiere/31/impfungen
+→ 200 OK
+[ { "impfstoff": "Tollwut", "datum": "2025-03-04", "faellig": "2026-03-04" },
+  { "impfstoff": "Staupe",  "datum": "2025-03-04", "faellig": "2026-03-04" } ]</code></pre>
+<ul>
+  <li><strong>Nur lesen</strong>, solange die App nichts ändern muss: nur <code>GET</code>.</li>
+  <li><strong>Anmeldung:</strong> Jede Anfrage trägt einen Zugangsschlüssel oder ein Token. Der Dienst prüft bei jeder Anfrage, ob das Tier zur angemeldeten Besitzerin gehört, und antwortet sonst mit einem Fehler (403 oder 404). Sonst könnte man durch Ändern der Nummer im Pfad fremde Daten abrufen.</li>
+  <li><strong>Version im Pfad</strong> (<code>v1</code>): Ändert sich die Schnittstelle später, läuft die alte Version weiter, bis alle Apps umgestellt sind.</li>
+  <li><strong>Begrenzung:</strong> höchstens eine bestimmte Zahl von Anfragen je Minute, große Ergebnisse seitenweise.</li>
+  <li><strong>Beschreibung:</strong> Pfade, Parameter, Antwortformat und Fehlercodes stehen in einer Dokumentation, oft im Format OpenAPI. Danach können andere ohne Rückfrage entwickeln.</li>
+</ul>
+
+<h3>Eingaben nie ungeprüft in SQL einbauen</h3>
+<p>Ein Dienst hinter der API setzt Werte aus der Anfrage in SQL-Abfragen ein, etwa die Tiernummer. Wird der Text der Anfrage einfach in den SQL-Befehl geklebt, kann ein Angreifer eigenen SQL-Code einschleusen. Diese <strong>SQL-Injection</strong> gehört zu den häufigsten Angriffen auf Webanwendungen.</p>
+<p>Gefährlich ist Programmcode wie dieser (vereinfacht), der die Eingabe an den Befehl anhängt:</p>
+<pre><code>befehl = "SELECT * FROM impfung WHERE tier_id = " + eingabe</code></pre>
+<p>Schickt ein Angreifer als Eingabe <code>31 OR 1=1</code>, entsteht dieser SQL-Befehl, und weil <code>1=1</code> immer zutrifft, liefert er die Impfungen aller Tiere:</p>
+<pre><code>SELECT * FROM impfung WHERE tier_id = 31 OR 1=1</code></pre>
+<p>Richtig ist eine Abfrage mit Platzhalter, deren Wert getrennt übergeben wird:</p>
+<pre><code>SELECT * FROM impfung WHERE tier_id = ?</code></pre>
+<p>Bei einer <strong>vorbereiteten Abfrage</strong> (Prepared Statement) schickt das Programm Befehl und Wert getrennt an das DBMS. Der Wert wird nur als Wert behandelt, nie als Teil des Befehls.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Steuerbüro bekommt keinen Zugang zur Datenbank. Ein Skript erzeugt am Monatsersten eine CSV-Datei mit Rechnungsnummer, Datum, Lieferant, Netto- und Bruttobetrag der Futterbestellungen des Vormonats und legt sie verschlüsselt im Austauschordner ab. Die Praxisleitung liest dagegen die Sicht <code>impfungen_je_art</code> mit ihrem Auswertungsprogramm direkt.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Für die App ist es am einfachsten, die Datenbank ins Internet zu stellen.“ Damit wäre die Datenbank direkt angreifbar, und jede App bräuchte ein Datenbankkonto. Eine API davor nimmt nur festgelegte Anfragen an und gibt nur festgelegte Daten heraus.</p></aside>
+
+<p class="merksatz">Du stellst Daten per Datei-Export, Sicht mit Lesekonto oder Web-API bereit, immer mit festgelegter Auswahl; eine API braucht Anmeldung, Versionierung, Begrenzung, Dokumentation und vorbereitete Abfragen gegen SQL-Injection.</p>

@@ -1,0 +1,39 @@
+<p class="lead">Die Web-API der Termin-App (LF9, Kapitel 9.5.4) bekommt eine neue Version. Das Entwicklerteam liefert sie mit dem Satz „Bei mir läuft sie.“ Auf dem Server fehlt dann eine Bibliothek, eine andere hat die falsche Version. <strong>Container</strong> lösen dieses Problem: Die Anwendung kommt mit allem, was sie braucht, in einem Paket, das überall gleich läuft.</p>
+
+<h3>Container und virtuelle Maschine</h3>
+<p>Ein Container enthält nur die Anwendung und ihre Abhängigkeiten, etwa Bibliotheken und Laufzeitumgebung. Ein eigenes Betriebssystem bringt er nicht mit: Alle Container auf einem Host teilen sich dessen Betriebssystemkern (Kernel). Der Kernel trennt sie voneinander, sodass jeder Container nur seine eigenen Prozesse, Dateien und Netzwerkschnittstellen sieht.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Virtuelle Maschine</th><th>Container</th></tr></thead>
+    <tbody>
+      <tr><th>enthält</th><td>vollständiges Gast-Betriebssystem plus Anwendung</td><td>nur Anwendung und Abhängigkeiten</td></tr>
+      <tr><th>Größe</th><td>meist mehrere GB</td><td>oft einige MB bis wenige hundert MB</td></tr>
+      <tr><th>Start</th><td>meist Sekunden bis Minuten, das Betriebssystem bootet</td><td>Sekunden, es startet nur ein Prozess</td></tr>
+      <tr><th>Trennung</th><td>stark, eigener Kernel je VM</td><td>schwächer, gemeinsamer Kernel</td></tr>
+      <tr><th>Betriebssystem</th><td>beliebig, auch Windows-Gast auf Linux-Host</td><td>muss zum Kernel des Hosts passen</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Image, Container, Registry</h3>
+<ul>
+  <li>Ein <strong>Image</strong> ist die unveränderliche Vorlage: Anwendung, Bibliotheken, Einstellungen. Es wird aus einer Bauanleitung erzeugt und mit einem Tag gekennzeichnet, meist der Versionsnummer, etwa termin-api:2.3.</li>
+  <li>Ein <strong>Container</strong> ist ein laufendes Exemplar eines Images. Aus einem Image können viele gleiche Container starten.</li>
+  <li>Eine <strong>Registry</strong> speichert und verteilt Images, öffentlich oder im eigenen Betrieb.</li>
+</ul>
+<p>Die bekannteste Software dafür ist Docker. Daten, die bleiben sollen, liegen nicht im Container, sondern auf einem eingebundenen Speicherbereich (Volume). So kannst du einen Container jederzeit löschen und durch einen mit neuerem Image ersetzen. Laufen viele Container auf mehreren Hosts, verteilt und überwacht eine Orchestrierung wie Kubernetes sie.</p>
+
+<h3>Wann was?</h3>
+<p>Eine VM wählst du, wenn ein eigenes Betriebssystem nötig ist, etwa für den Verzeichnisdienst oder eine Fachanwendung, die nur unter Windows läuft, oder wenn Kunden oder Bereiche streng voneinander getrennt sein müssen. Container passen zu Anwendungen, die schnell, oft und in vielen gleichen Exemplaren bereitgestellt werden, besonders Webanwendungen. Häufig wird beides kombiniert: Die Container laufen in einer VM.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus richtet im Stammhaus eine Linux-VM als Container-Host ein. Die Web-API läuft dort als Container aus dem Image termin-api:2.3. Die Termine selbst holt sie aus der zentralen Datenbank; im Volume liegen Konfiguration und Protokolle, die ein Update überstehen müssen. Für das Update auf Version 2.4 lädt die Auszubildende das neue Image, startet einen Container daraus mit demselben Volume und entfernt den alten. Läuft etwas schief, startet sie wieder 2.3; Konfiguration und Protokolle bleiben erhalten.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Weil Container sich den Kernel teilen, kann eine Lücke im Kernel alle Container eines Hosts betreffen. Für Anwendungen mit hohem Schutzbedarf ist eine eigene VM die stärkere Trennung.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Container</strong> bündeln Anwendung und Abhängigkeiten, teilen sich den Kernel des Hosts, sind klein und starten in Sekunden; <strong>VMs</strong> haben ein eigenes Betriebssystem und trennen stärker.</li>
+  <li><strong>Image</strong> = Vorlage, <strong>Container</strong> = laufendes Exemplar, dauerhafte Daten gehören in ein Volume.</li>
+</ul>

@@ -80,7 +80,8 @@ def load_site():
         lf["kapitel"] = []
         for k_m in lf_m["kapitel"]:
             k = {"nummer": k_m["nummer"], "titel": k_m["titel"], "id": num_id(k_m["nummer"]), "unterpunkte": []}
-            if not k["nummer"].startswith(lf["nummer"] + "."):
+            # Kapitel von LF10b bis LF12b ohne Zweigbuchstaben: 10.1, nicht 10b.1
+            if not k["nummer"].startswith(lf["nummer"].rstrip("b") + "."):
                 raise BuildError(f"Kapitel {k['nummer']} passt nicht zu {lf['id']}")
             for u_m in k_m["unterpunkte"]:
                 u = dict(u_m)

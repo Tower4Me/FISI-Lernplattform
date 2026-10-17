@@ -5492,6 +5492,114 @@
           ]
         }
       ]
+    },
+    {
+      "id": "lf10b",
+      "in_arbeit": true,
+      "kapitel": [
+        {
+          "nummer": "10.1",
+          "titel": "Serverdienste und Plattformen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "10.1.1",
+              "titel": "Server und Serverdienste",
+              "slug": "server-und-serverdienste",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Serverdienste und Plattformen; Auswahl nach Verfügbarkeit, Skalierbarkeit, Administrierbarkeit, Wirtschaftlichkeit, Sicherheit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 1 (Vorteile zentral bereitgestellter Anwendungen)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 1 (Server nach Datenblatt auswählen)"
+                ],
+                "extern": [
+                  "EIA-310 (19-Zoll-Rack, 1 HE = 1,75 Zoll = 44,45 mm)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "netzwerk-grundlagen",
+                "sla"
+              ]
+            },
+            {
+              "nummer": "10.1.2",
+              "titel": "Virtualisierung",
+              "slug": "virtualisierung",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Serverdienste und Plattformen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 4 (Hypervisor Typ 1 und Typ 2)",
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 1 (Hypervisor, Cluster)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 1 (Vor- und Nachteile der Virtualisierung, Hypervisor-Typen)"
+                ],
+                "extern": [
+                  "Herstellerdokumentation VMware ESXi, Microsoft Hyper-V, Proxmox VE, Oracle VirtualBox"
+                ]
+              },
+              "material": [
+                "virtualisierung-hypervisor"
+              ],
+              "begriffe": [
+                "virtualisierung",
+                "datensicherung"
+              ]
+            },
+            {
+              "nummer": "10.1.3",
+              "titel": "Container",
+              "slug": "container",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Serverdienste und Plattformen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 1 (Container und VM im Vergleich)"
+                ],
+                "extern": [
+                  "Docker-Dokumentation (Images, Container, Volumes), Kubernetes-Dokumentation (Überblick)"
+                ]
+              },
+              "material": [
+                "container-docker"
+              ],
+              "begriffe": [
+                "virtualisierung"
+              ]
+            },
+            {
+              "nummer": "10.1.4",
+              "titel": "Cloud oder eigener Betrieb",
+              "slug": "cloud-oder-eigener-betrieb",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Auswahl nach Verfügbarkeit, Skalierbarkeit, Wirtschaftlichkeit, Sicherheit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 1 (On-Premises und Public Cloud)",
+                  "AP2 FISI Sommer 2024 Teil 1 Aufgabe 1 (Vor- und Nachteile der Cloud, Auswahlkriterien Anbieter)",
+                  "AP2 FISI Winter 2024/25 Teil 1 Aufgabe 1 (Vorteile der Cloud, Abrechnungsmodelle)"
+                ],
+                "extern": [
+                  "NIST SP 800-145 (Definition Cloud Computing, Service- und Bereitstellungsmodelle); DSGVO Art. 28 (Auftragsverarbeitung)"
+                ]
+              },
+              "material": [
+                "cloud-grundlagen"
+              ],
+              "begriffe": [
+                "cloud",
+                "sla",
+                "datenschutz"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,51 @@
+<p class="lead">Das Netz des Praxisverbunds steht (LF9). Im Server-VLAN des Stammhauses laufen Datenbank, DNS und DHCP, die Web-API der Termin-App und der Reverse Proxy aber auf einzelnen, teils alten Geräten ohne jede Redundanz. Fällt der Datenbankserver aus, kann kein Standort mehr Behandlungen erfassen. Das Systemhaus soll eine neue Serverumgebung planen. Dafür musst du wissen, welche Dienste ein Betrieb braucht und was einen Server von einem Arbeitsplatzrechner unterscheidet.</p>
+
+<h3>Dienste statt Geräte</h3>
+<p>Ein <strong>Serverdienst</strong> ist ein Programm, das im Netz auf Anfragen wartet und sie für viele Clients beantwortet (Client-Server-Prinzip, LF3, Kapitel 3.1.1). Welcher Rechner ihn ausführt, ist für den Client zweitrangig; er kennt nur Name und Port. Typische Dienste im Betrieb:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Dienst</th><th>Aufgabe</th><th>im Praxisverbund</th></tr></thead>
+    <tbody>
+      <tr><th>Verzeichnisdienst</th><td>Benutzer, Gruppen und Geräte zentral verwalten, Anmeldung prüfen</td><td>neu: eine Anmeldung für alle drei Standorte (Kapitel 10.5.1)</td></tr>
+      <tr><th>Dateiserver</th><td>gemeinsame Ablage mit Rechten je Gruppe</td><td>Vorlagen, Röntgenbilder, Verwaltung; bisher auf dem NAS</td></tr>
+      <tr><th>Datenbankserver</th><td>Daten für Mehrbenutzer-Anwendungen</td><td>zentrale Praxisdatenbank aus LF8</td></tr>
+      <tr><th>Anwendungsserver</th><td>Fachanwendung oder Schnittstelle, die Clients über das Netz nutzen</td><td>Web-API der Termin-App hinter dem Reverse Proxy (LF9, Kapitel 9.5.4)</td></tr>
+      <tr><th>Druckserver</th><td>Drucker und Warteschlangen zentral bereitstellen</td><td>Etiketten- und Rezeptdrucker</td></tr>
+      <tr><th>DHCP, DNS</th><td>Adressen und Namen</td><td>im Stammhaus; Nord und Süd über ihre Router (LF9, Kapitel 9.5)</td></tr>
+      <tr><th>Web- und Maildienst</th><td>Webseiten, Postfächer</td><td>Website und Postfächer beim Anbieter</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ein Gerät kann mehrere Dienste tragen, ein Dienst kann auf mehrere Geräte verteilt sein. Üblich ist heute, jeden wichtigen Dienst in einer eigenen virtuellen Maschine zu betreiben (Kapitel 10.1.2). Dann stört ein Update am Druckserver nicht die Datenbank.</p>
+
+<h3>Was einen Server ausmacht</h3>
+<p>Ein Server läuft rund um die Uhr, viele Menschen hängen an ihm, und ein Ausfall kostet Geld. Darauf ist seine Hardware ausgelegt:</p>
+<ul>
+  <li><strong>Bauform</strong>: meist <strong>Rack-Server</strong> für 19-Zoll-Schränke (LF3, Kapitel 3.3.3); kleine Betriebe nutzen auch Tower-Server.</li>
+  <li><strong>Redundanz</strong>: zwei Netzteile, mehrere Netzwerkanschlüsse, Festplatten im RAID-Verbund (Kapitel 10.2.2), Lüfter und Platten im laufenden Betrieb tauschbar (Hot Swap).</li>
+  <li><strong>ECC-Arbeitsspeicher</strong>: erkennt und korrigiert einzelne Bitfehler, die sonst Daten unbemerkt verfälschen (LF2, Kapitel 2.2.3).</li>
+  <li><strong>Fernverwaltung</strong> (Out-of-Band-Management): Ein eigener Controller mit eigenem Netzanschluss, der BMC, erlaubt Einschalten, Konsole und Hardwarestatus übers Netz, auch wenn das Betriebssystem hängt. Hersteller nennen ihn etwa iLO oder iDRAC.</li>
+  <li><strong>Server-Betriebssystem</strong> und Lizenzen für den Mehrbenutzerbetrieb (Kapitel 10.5.3), Herstellersupport mit festen Reaktionszeiten.</li>
+</ul>
+
+<h3>Auswahl nach Kriterien</h3>
+<p>Der Rahmenlehrplan nennt fünf Gesichtspunkte, nach denen du Plattform und Dienste auswählst. Sie ziehen sich durch dieses Lernfeld:</p>
+<ul>
+  <li><strong>Verfügbarkeit</strong>: Wie lange darf der Dienst ausfallen (Kapitel 10.3)?</li>
+  <li><strong>Skalierbarkeit</strong>: Kann die Lösung mit mehr Standorten und Daten mitwachsen?</li>
+  <li><strong>Administrierbarkeit</strong>: Wie viel Aufwand machen Einrichtung, Updates und Überwachung?</li>
+  <li><strong>Wirtschaftlichkeit</strong>: Anschaffung, Lizenzen, Strom und Betreuung über die Nutzungsdauer.</li>
+  <li><strong>Sicherheit</strong>: Schutz der Daten, Rechte, Sicherung, Standort der Daten.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende listet für das Stammhaus auf: Verzeichnisdienst (neu), Dateiablage, Praxisdatenbank, Web-API der Termin-App, Reverse Proxy, Druckdienst, DHCP und DNS. Die Praxis arbeitet von 7 bis 20 Uhr und hat Notdienst; länger als vier Stunden darf die Datenbank nicht ausfallen. Ein einzelner Server schafft das nur mit Herstellerservice, der innerhalb von vier Stunden vor Ort ist. Sie schlägt deshalb zwei Rack-Server mit je zwei Netzteilen, ECC-Speicher und Fernverwaltung vor, auf denen die Dienste in getrennten virtuellen Maschinen laufen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Server“ meint nicht nur ein Gerät. Im Alltag heißt sowohl die Hardware als auch das Programm, das einen Dienst anbietet, Server. Achte im Gespräch darauf, was gemeint ist.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Serverdienst</strong>: beantwortet Anfragen vieler Clients; Server-Hardware ist auf Dauerbetrieb und Ausfallsicherheit ausgelegt (Redundanz, ECC, Fernverwaltung).</li>
+  <li><strong>Auswahl</strong> nach Verfügbarkeit, Skalierbarkeit, Administrierbarkeit, Wirtschaftlichkeit und Sicherheit.</li>
+</ul>

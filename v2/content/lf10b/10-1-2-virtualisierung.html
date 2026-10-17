@@ -1,0 +1,53 @@
+<p class="lead">Sieben Dienste, jeder auf eigener Hardware: Das wären sieben Geräte, die meist zu einem Bruchteil ausgelastet sind, sieben Netzteile und sieben Wartungsverträge. <strong>Virtualisierung</strong> lässt viele getrennte Server auf einer gemeinsamen Hardware laufen. Jeder verhält sich, als hätte er einen eigenen Rechner.</p>
+
+<h3>Wie es funktioniert</h3>
+<p>Eine Software, der <strong>Hypervisor</strong>, teilt Prozessor, Arbeitsspeicher, Speicher und Netzwerk eines physischen Rechners (Host) auf mehrere <strong>virtuelle Maschinen</strong> (VMs, Gäste) auf. Jede VM hat ein eigenes Betriebssystem und sieht nur die Hardware, die ihr zugeteilt ist, etwa 4 Kerne und 16 GiB RAM. Abstürze und Updates in einer VM betreffen die anderen nicht.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Typ 1 (Bare Metal)</th><th>Typ 2 (Hosted)</th></tr></thead>
+    <tbody>
+      <tr><th>läuft</th><td>direkt auf der Hardware, ohne Betriebssystem darunter</td><td>als Programm auf einem normalen Betriebssystem</td></tr>
+      <tr><th>Leistung</th><td>wenig Verlust, kein Host-Betriebssystem dazwischen</td><td>mehr Verlust, das Host-Betriebssystem braucht selbst Ressourcen</td></tr>
+      <tr><th>Einsatz</th><td>Server im Betrieb und im Rechenzentrum</td><td>Test- und Schulungsumgebungen auf dem eigenen PC</td></tr>
+      <tr><th>Beispiele</th><td>VMware ESXi, Microsoft Hyper-V, Proxmox VE (KVM)</td><td>VirtualBox, VMware Workstation</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="grafik">
+  <svg viewBox="0 0 640 200" role="img" aria-label="Schichten: Typ 1 mit Hardware, Hypervisor und VMs; Typ 2 mit Hardware, Host-Betriebssystem, Hypervisor als Programm und VMs">
+    <text x="160" y="18" text-anchor="middle" font-weight="600">Typ 1</text>
+    <rect class="g-box" x="40" y="32" width="115" height="40" rx="6"/><text x="97" y="57" text-anchor="middle">VM Datenbank</text>
+    <rect class="g-box" x="165" y="32" width="115" height="40" rx="6"/><text x="222" y="57" text-anchor="middle">VM Dateien</text>
+    <rect class="g-accent" x="40" y="82" width="240" height="40" rx="6"/><text x="160" y="107" text-anchor="middle">Hypervisor</text>
+    <rect class="g-box" x="40" y="132" width="240" height="40" rx="6"/><text x="160" y="157" text-anchor="middle">Hardware</text>
+    <text x="480" y="18" text-anchor="middle" font-weight="600">Typ 2</text>
+    <rect class="g-box" x="360" y="32" width="115" height="32" rx="6"/><text x="417" y="53" text-anchor="middle">VM Test</text>
+    <rect class="g-box" x="485" y="32" width="115" height="32" rx="6"/><text x="542" y="53" text-anchor="middle">VM Schulung</text>
+    <rect class="g-accent" x="360" y="72" width="240" height="32" rx="6"/><text x="480" y="93" text-anchor="middle">Hypervisor (Programm)</text>
+    <rect class="g-info" x="360" y="112" width="240" height="32" rx="6"/><text x="480" y="133" text-anchor="middle">Host-Betriebssystem</text>
+    <rect class="g-box" x="360" y="152" width="240" height="32" rx="6"/><text x="480" y="173" text-anchor="middle">Hardware</text>
+  </svg>
+  <figcaption>Typ 1 sitzt direkt auf der Hardware, Typ 2 braucht ein Host-Betriebssystem darunter.</figcaption>
+</figure>
+
+<h3>Vorteile und Nachteile</h3>
+<ul>
+  <li><strong>Bessere Auslastung</strong>: wenige gut ausgelastete Hosts statt vieler kaum genutzter Geräte; das spart Anschaffung, Platz und Strom.</li>
+  <li><strong>Schnell bereitstellen</strong>: eine neue VM entsteht aus einer Vorlage in Minuten.</li>
+  <li><strong>Unabhängig von der Hardware</strong>: Eine VM lässt sich auf einen anderen Host verschieben, bei mehreren Hosts sogar im laufenden Betrieb (Live-Migration). So kannst du einen Host warten, ohne dass Dienste ausfallen.</li>
+  <li><strong>Snapshot</strong>: Der Zustand einer VM wird eingefroren; misslingt ein Update, kehrst du dorthin zurück.</li>
+  <li><strong>Nachteile</strong>: Fällt ein Host aus, fallen alle seine VMs aus (Klumpenrisiko). Die VMs teilen sich die Hardware und können sich gegenseitig bremsen, besonders bei Überbuchung: Den VMs sind dann zusammen mehr Kerne oder mehr Arbeitsspeicher zugeteilt, als physisch vorhanden ist. Hypervisor und Verwaltung brauchen Fachwissen und kosten teils Lizenzen.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für das Stammhaus plant die Auszubildende zwei Hosts mit Typ-1-Hypervisor und einem gemeinsamen Speicher, auf den beide zugreifen (Kapitel 10.2.3). Auf ihnen laufen VMs für Verzeichnisdienst, Dateiserver, Datenbank, Druckdienst, DHCP und DNS, Reverse Proxy und einen Container-Host für die Web-API der Termin-App. Fällt ein Host aus, startet die Verwaltung dessen VMs auf dem anderen neu (Kapitel 10.3.1); der gemeinsame Speicher muss dafür selbst ausfallsicher sein. Für Schulungen nutzt sie auf ihrem Notebook einen Typ-2-Hypervisor.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Snapshot ist eine Datensicherung.“ Ein Snapshot liegt auf demselben Speicher wie die VM und geht mit ihm verloren. Er hilft vor einem Update, ersetzt aber keine Sicherung auf einem getrennten Medium (Kapitel 10.4.2). Lange aufbewahrte Snapshots wachsen zudem und bremsen die VM.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Hypervisor Typ 1</strong> läuft direkt auf der Hardware (Server), <strong>Typ 2</strong> als Programm auf einem Betriebssystem (Test, Schulung).</li>
+  <li><strong>Virtualisierung</strong> bringt Auslastung, schnelle Bereitstellung, Live-Migration und Snapshots; ein Host-Ausfall trifft aber alle seine VMs.</li>
+</ul>

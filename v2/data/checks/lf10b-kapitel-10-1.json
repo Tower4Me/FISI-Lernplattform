@@ -1,0 +1,126 @@
+{
+  "titel": "Check 10.1",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Abrechnung",
+      "frage": "Ein Betrieb bucht beim Cloud-Anbieter feste Speicherpakete und erweitert sie stufenweise, sobald der Bedarf wächst. Welches Abrechnungsmodell ist das?",
+      "optionen": [
+        "Pay per Use",
+        "Pay as you grow",
+        "Kauf mit Abschreibung",
+        "Device-CAL"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Bei Pay as you grow werden Pakete gebucht und bei Bedarf erweitert. Bei Pay per Use zahlt der Betrieb genau die tatsächlich genutzte Menge."
+    },
+    {
+      "typ": "mc",
+      "thema": "Hypervisor-Typen",
+      "frage": "Eine Trainerin startet auf ihrem Windows-Notebook VirtualBox, um Schulungs-VMs laufen zu lassen. Um welche Art von Hypervisor handelt es sich?",
+      "optionen": [
+        "Typ 1 (Bare Metal)",
+        "Typ 2 (Hosted)",
+        "Container-Laufzeit",
+        "Typ 1 mit Live-Migration"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "VirtualBox läuft als Programm auf einem Betriebssystem, also Typ 2. Typ 1 läuft direkt auf der Hardware eines Servers."
+    },
+    {
+      "typ": "mc-multi",
+      "thema": "Vorteile der Virtualisierung",
+      "frage": "Welche Vorteile bietet es, mehrere Dienste als VMs auf einem gemeinsamen Host zu betreiben? (Zwei Antworten)",
+      "optionen": [
+        "Die Hardware wird besser ausgelastet",
+        "Eine VM lässt sich auf einen anderen Host verschieben",
+        "Fällt der Host aus, laufen die VMs ohne Unterbrechung weiter",
+        "Eine Datensicherung auf getrennten Medien wird überflüssig"
+      ],
+      "richtig": [
+        0,
+        1
+      ],
+      "erklaerung": "Virtualisierung verbessert die Auslastung und löst Dienste von der Hardware. Fällt der Host aus, fallen aber alle seine VMs aus, und eine Sicherung bleibt nötig."
+    },
+    {
+      "typ": "mc",
+      "thema": "Snapshot",
+      "frage": "Vor einem Update erstellt eine Kollegin einen Snapshot der Datenbank-VM und meint, damit sei die Sicherung erledigt. Was stimmt?",
+      "optionen": [
+        "Richtig, ein Snapshot ist eine vollständige Sicherung auf einem zweiten Medium",
+        "Richtig, solange der Snapshot mehrere Wochen aufbewahrt wird",
+        "Falsch, ein Snapshot liegt auf demselben Speicher und geht mit ihm verloren",
+        "Falsch, ein Snapshot speichert nur die Einstellungen des Hypervisors"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Ein Snapshot friert den Zustand der VM auf demselben Speicher ein. Er hilft, ein misslungenes Update zurückzunehmen, ersetzt aber keine Sicherung auf einem getrennten Medium."
+    },
+    {
+      "typ": "mc",
+      "thema": "Container",
+      "frage": "Warum starten Container deutlich schneller als virtuelle Maschinen?",
+      "optionen": [
+        "Sie nutzen den Kernel des Hosts und booten kein eigenes Betriebssystem",
+        "Sie benötigen einen Typ-1-Hypervisor als Unterbau",
+        "Sie speichern ihre Daten dauerhaft im Image und müssen sie nicht erst laden",
+        "Sie verzichten auf Netzwerkschnittstellen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein Container startet nur einen Prozess auf dem gemeinsamen Kernel des Hosts. Eine VM muss erst ihr eigenes Gast-Betriebssystem hochfahren."
+    },
+    {
+      "typ": "mc",
+      "thema": "Image und Volume",
+      "frage": "Die Web-API soll auf Version 2.4 aktualisiert werden; Konfiguration und Protokolle müssen erhalten bleiben. Wie gehst du vor?",
+      "optionen": [
+        "Im laufenden Container die Programmdateien von Hand austauschen",
+        "Den alten Container stoppen und aus demselben Image neu starten",
+        "Neuen Container aus dem Image 2.4 starten und das bisherige Volume einbinden",
+        "Die Konfiguration ins neue Image einbauen und das Volume löschen"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Images sind unveränderliche Vorlagen; was ein Update überstehen muss, liegt im Volume. Ein Neustart aus demselben Image bringt keine neue Version."
+    },
+    {
+      "typ": "mc",
+      "thema": "Servicemodelle",
+      "frage": "Ein Betrieb mietet beim Anbieter einen virtuellen Server und installiert Betriebssystem-Updates und Anwendung selbst. Welches Modell ist das?",
+      "optionen": [
+        "SaaS",
+        "PaaS",
+        "IaaS",
+        "SaaS mit Abo je Benutzer"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Bei IaaS stellt der Anbieter nur die Infrastruktur bereit; Betriebssystem, Updates und Anwendung verwaltet der Kunde. Bei PaaS übernimmt der Anbieter zusätzlich die Plattform, bei SaaS die ganze Anwendung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Cloud oder eigener Betrieb",
+      "frage": "Welches Argument spricht dafür, die Praxisdatenbank im eigenen Haus statt in der Public Cloud zu betreiben?",
+      "optionen": [
+        "Eigene Server lassen sich schneller erweitern als Cloud-Ressourcen",
+        "Der Hersteller übernimmt im eigenen Haus Updates und Wartung",
+        "Die Praxis arbeitet weiter, auch wenn der Anbieter nicht erreichbar ist",
+        "Die Anschaffungskosten sind niedriger als bei der Cloud"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Cloud-Dienste hängen an Anbieter und Internetverbindung; eigene Server sind im lokalen Netz auch ohne sie erreichbar. Dafür kosten sie Anschaffung und eigenen Betrieb und lassen sich langsamer erweitern."
+    }
+  ]
+}

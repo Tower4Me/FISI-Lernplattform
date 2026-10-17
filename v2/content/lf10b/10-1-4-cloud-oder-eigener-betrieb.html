@@ -1,0 +1,51 @@
+<p class="lead">Die Inhaberin des Praxisverbunds fragt: „Warum kaufen wir überhaupt Server? Andere mieten das doch in der Cloud.“ Eine gute Frage, die sich nicht pauschal beantworten lässt. Du vergleichst den eigenen Betrieb (On-Premises) mit Cloud-Angeboten und begründest eine Empfehlung.</p>
+
+<h3>Servicemodelle</h3>
+<p>Beim <strong>Cloud Computing</strong> stehen Rechenleistung, Speicher oder fertige Anwendungen als Dienst über ein Netz bereit: selbst und bei Bedarf buchbar, aus einem gemeinsamen Pool, schnell größer oder kleiner einstellbar und nach Verbrauch gemessen. Bei der Public Cloud kommt das von einem Anbieter über das Internet. Die Servicemodelle unterscheiden sich darin, wie viel der Anbieter übernimmt:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Modell</th><th>Anbieter stellt bereit</th><th>du kümmerst dich um</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th>IaaS (Infrastructure as a Service)</th><td>virtuelle Server, Speicher, Netz</td><td>Betriebssystem, Updates, Anwendung, Daten</td><td>gemietete VM für die Praxissoftware</td></tr>
+      <tr><th>PaaS (Platform as a Service)</th><td>zusätzlich Betriebssystem, Laufzeit, Datenbankdienst</td><td>eigene Anwendung und Daten</td><td>verwaltete Datenbank, Plattform für die Terminbuchung</td></tr>
+      <tr><th>SaaS (Software as a Service)</th><td>fertige Anwendung samt Betrieb</td><td>Benutzer, Einstellungen, Daten</td><td>E-Mail und Office im Browser</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Je weiter unten in der Tabelle, desto weniger Verwaltung bleibt bei dir, desto weniger kannst du aber auch selbst bestimmen. Für die Daten und ihren rechtmäßigen Umgang bleibt der Betrieb in jedem Modell verantwortlich.</p>
+<p>Nach Bereitstellung unterscheidet man <strong>Public Cloud</strong> (Anbieter-Infrastruktur, von vielen Kunden geteilt), <strong>Private Cloud</strong> (nur für ein Unternehmen, im eigenen Haus oder bei einem Anbieter), <strong>Community Cloud</strong> (gemeinsam für mehrere Organisationen mit gleichen Anforderungen, etwa Praxen eines Verbands) und <strong>Hybrid Cloud</strong> (Kombination, etwa Datenbank im eigenen Haus, Mail in der Public Cloud).</p>
+
+<h3>Abrechnung</h3>
+<ul>
+  <li><strong>Pay per Use</strong>: Du zahlst die tatsächlich genutzte Menge, etwa Stunden einer VM oder Gigabyte im Monat. Ideal bei schwankendem Bedarf.</li>
+  <li><strong>Pay as you grow</strong>: Du buchst Pakete oder Stufen und erweiterst sie, wenn der Bedarf wächst; keine Vorab-Investition in Reserven.</li>
+  <li><strong>Abo je Benutzer</strong>: bei SaaS üblich, fester Preis pro Person und Monat.</li>
+</ul>
+<p>Statt einer großen Anschaffung (Investition) entstehen laufende Kosten. Über mehrere Jahre kann die Cloud teurer oder günstiger sein; das zeigt nur ein Vergleich der Gesamtkosten über die Nutzungsdauer (LF2, Kapitel 2.6.1).</p>
+
+<h3>Vergleich</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>On-Premises</th><th>Public Cloud</th></tr></thead>
+    <tbody>
+      <tr><th>Kosten</th><td>hohe Anschaffung, dann Strom, Wartung, Personal</td><td>keine Anschaffung, laufende Gebühren</td></tr>
+      <tr><th>Skalierung</th><td>neue Hardware kaufen, dauert Wochen</td><td>in Minuten mehr oder weniger buchen</td></tr>
+      <tr><th>Kontrolle</th><td>volle Kontrolle über Daten, Hardware, Zeitpunkt von Updates</td><td>Anbieter bestimmt Technik und Änderungen, Abhängigkeit vom Anbieter</td></tr>
+      <tr><th>Verfügbarkeit</th><td>so gut wie die eigene Redundanz</td><td>hohe Verfügbarkeit im Rechenzentrum, aber nur mit funktionierender Internetverbindung erreichbar</td></tr>
+      <tr><th>Datenschutz</th><td>Daten bleiben im Haus</td><td>Auftragsverarbeitung nach DSGVO, Standort der Rechenzentren prüfen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei der Auswahl eines Anbieters zählen außerdem die zugesicherte Verfügbarkeit im SLA (LF6, Kapitel 6.2), Rechenzentren in der EU, Zertifizierungen, Support, Kündigungsfristen und wie du deine Daten beim Wechsel wieder herausbekommst.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende empfiehlt eine hybride Lösung: Praxisdatenbank, Dateiablage und die Web-API der Termin-App bleiben auf den eigenen Hosts im Stammhaus, weil Praxissoftware und Röntgenbilder große Datenmengen im lokalen Netz bewegen und das Stammhaus auch ohne Internet weiterarbeiten soll. E-Mail und Office kommen als SaaS mit Rechenzentrum in der EU und Vertrag zur Auftragsverarbeitung. Ob ein Rechenzentrum statt eigener Server in Frage kommt, hat sie in LF9, Kapitel 9.1.4 schon verglichen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Bei SaaS ist der Anbieter für den Datenschutz verantwortlich.“ Der Anbieter verarbeitet die Daten im Auftrag; verantwortlich gegenüber den Tierhaltern bleibt die Praxis (Art. 28 DSGVO). Sie muss den Anbieter sorgfältig auswählen und einen Vertrag zur Auftragsverarbeitung schließen. Dass auch Cloud-Daten eine Sicherung brauchen, weißt du aus LF5, Kapitel 5.2.3.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>IaaS</strong> liefert Infrastruktur, <strong>PaaS</strong> zusätzlich die Plattform, <strong>SaaS</strong> die fertige Anwendung; die Verantwortung für die Daten bleibt beim Kunden.</li>
+  <li><strong>Cloud</strong>: keine Anschaffung, schnell skalierbar, nach Nutzung bezahlt, aber abhängig von Anbieter und Internet; <strong>On-Premises</strong>: volle Kontrolle, dafür Investition und eigener Betrieb.</li>
+</ul>

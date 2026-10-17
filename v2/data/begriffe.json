@@ -193,6 +193,10 @@
         {
           "id": "8-5-2",
           "tiefe": "AV-Vertrag bei Werkzeugwahl"
+        },
+        {
+          "id": "9-7-3",
+          "tiefe": "Protokolle mit IP/MAC, Löschfrist"
         }
       ]
     },
@@ -509,6 +513,10 @@
         {
           "id": "8-4-4",
           "tiefe": "minimale Rechte je Konto"
+        },
+        {
+          "id": "9-7-1",
+          "tiefe": "Netzgeräte verwalten"
         }
       ]
     },
@@ -1416,6 +1424,10 @@
         {
           "id": "8-5-4",
           "tiefe": "Abnahmeprotokoll, Soll-Ist-Vergleich"
+        },
+        {
+          "id": "9-7-3",
+          "tiefe": "Messprotokolle als Nachweis"
         }
       ]
     },
@@ -1488,7 +1500,8 @@
       "begriff": "netzwerkdokumentation",
       "kernfakten": [
         "Physischer Plan: Räume, Dosen, Patchfeld, Kabelwege; logischer Plan: Geräte, IP-Adressen, Netze, Dienste.",
-        "Dokumentation: Geräteliste (Name, IP, MAC, Standort), Portbelegung Dose–Patchfeld–Switch, Adressbereiche (fest/DHCP), Zugangsdaten nur Verweis; aktuell halten."
+        "Dokumentation: Geräteliste (Name, IP, MAC, Standort), Portbelegung Dose–Patchfeld–Switch, Adressbereiche (fest/DHCP), Zugangsdaten nur Verweis; aktuell halten.",
+        "Mehrstandortnetz zusätzlich: Adress- und VLAN-Plan, Geräteliste mit Firmware, versionierte Konfigurationen, Messprotokolle; Zugangsdaten im Tresor."
       ],
       "vorkommen": [
         {
@@ -1502,6 +1515,10 @@
         {
           "id": "7-4-1",
           "tiefe": "Dokumentation nach Erweiterung anpassen"
+        },
+        {
+          "id": "9-7-3",
+          "tiefe": "Unterlagen für Mehrstandortnetz"
         }
       ]
     },
@@ -1588,6 +1605,14 @@
         {
           "id": "9-2-2",
           "tiefe": "Trunk zu Access Point und Router"
+        },
+        {
+          "id": "9-7-1",
+          "tiefe": "Grundeinstellungen, sichere Verwaltung"
+        },
+        {
+          "id": "9-7-2",
+          "tiefe": "Portzähler"
         }
       ]
     },
@@ -1717,6 +1742,10 @@
         {
           "id": "9-5-1",
           "tiefe": "Bereiche je VLAN, Relay, Decline, zentral oder am Standort"
+        },
+        {
+          "id": "9-7-2",
+          "tiefe": "Fehlerbild APIPA"
         }
       ]
     },
@@ -1741,6 +1770,10 @@
         {
           "id": "9-5-3",
           "tiefe": "MX"
+        },
+        {
+          "id": "9-7-2",
+          "tiefe": "Fehlerbild DNS über Tunnel"
         }
       ]
     },
@@ -3206,6 +3239,10 @@
         {
           "id": "5-5-3",
           "tiefe": "nur genannt"
+        },
+        {
+          "id": "9-7-1",
+          "tiefe": "Konfigurationen versionieren"
         }
       ]
     },

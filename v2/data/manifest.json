@@ -5414,6 +5414,83 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "9.7",
+          "titel": "Einrichten, prüfen, dokumentieren",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "9.7.1",
+              "titel": "Komponenten konfigurieren",
+              "slug": "komponenten-konfigurieren",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Installieren, konfigurieren, Standards einhalten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 1 (Switch-Management absichern, als Ausblick)"
+                ],
+                "extern": [
+                  "RFC 4251 (SSH), RFC 5905 (NTP), RFC 5424 (Syslog), RFC 3414 (SNMPv3)"
+                ]
+              },
+              "material": [
+                "ssh"
+              ],
+              "begriffe": [
+                "netzwerkkomponenten",
+                "haertung",
+                "versionsverwaltung"
+              ]
+            },
+            {
+              "nummer": "9.7.2",
+              "titel": "Messen und Fehler finden",
+              "slug": "messen-und-fehler-finden",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Messen, prüfen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 2 (Paketmitschnitt, Hop Limit)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 3 (Fehlersuche anhand von Ausgaben)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 3 (ping, nslookup, Duplex, ping blockiert)"
+                ],
+                "extern": [
+                  "DIN EN 50173/ISO/IEC 11801 (Verkabelungsmessung), RFC 8200 (Hop Limit), RFC 791 (TTL)"
+                ]
+              },
+              "material": [
+                "netzwerk-diagnose"
+              ],
+              "begriffe": [
+                "netzwerkkomponenten",
+                "dns",
+                "dhcp"
+              ]
+            },
+            {
+              "nummer": "9.7.3",
+              "titel": "Dokumentieren und bewerten",
+              "slug": "dokumentieren-und-bewerten",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dokumentieren; Bewertung nach Anforderungen, Datensicherheit und Datenschutz",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "DSGVO Art. 5 Abs. 1 lit. e (Speicherbegrenzung); EuGH C-582/14 (dynamische IP-Adressen personenbezogen)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "netzwerkdokumentation",
+                "personenbezogene-daten",
+                "abnahme"
+              ]
+            }
+          ]
         }
       ]
     }

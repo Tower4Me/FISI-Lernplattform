@@ -1,0 +1,41 @@
+<p class="lead">Switches, Router und Access Points für drei Standorte sind geliefert. Jedes Gerät bekommt dieselben Grundeinstellungen, sonst sucht später jemand stundenlang, warum ein Switch anders reagiert als die anderen. Außerdem muss das Systemhaus die Geräte aus der Ferne verwalten können, ohne dass Unbefugte dasselbe tun.</p>
+
+<h3>Grundeinstellungen nach Standard</h3>
+<p>Für jedes Netzgerät legt das Systemhaus eine Vorlage fest. Ein Auszug:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Einstellung</th><th>Vorgabe</th><th>Wozu</th></tr></thead>
+    <tbody>
+      <tr><th>Gerätename</th><td>Standort, Art, Nummer, etwa nord-sw01, stamm-rt01</td><td>Gerät in Plänen, Protokollen und Warnungen sofort erkennen</td></tr>
+      <tr><th>Portbeschreibung</th><td>Dose oder Gegenstelle, etwa „D1.07 Empfang“, „Uplink nord-rt01“</td><td>bei Fehlern das richtige Kabel finden</td></tr>
+      <tr><th>Uhrzeit</th><td>von einem Zeitserver (NTP)</td><td>Protokolle verschiedener Geräte lassen sich vergleichen</td></tr>
+      <tr><th>Protokolle</th><td>zusätzlich an einen zentralen Protokollserver (Syslog)</td><td>Ereignisse bleiben auch nach Neustart oder Ausfall erhalten</td></tr>
+      <tr><th>Überwachung</th><td>SNMP in Version 3 an das Überwachungssystem</td><td>Auslastung, Fehler und Ausfälle früh erkennen; v1 und v2c senden den Zugangsschlüssel (Community) im Klartext, v3 meldet sich an und verschlüsselt</td></tr>
+      <tr><th>Firmware</th><td>aktuelle, vom Hersteller unterstützte Fassung</td><td>bekannte Lücken schließen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Neben den eigenen Vorgaben gelten Normen und Herstellerangaben, etwa für die Verkabelung (LF3, Kapitel 3.3.3) und die IEEE-Normen, nach denen Geräte verschiedener Hersteller zusammenarbeiten, etwa IEEE 802.3 (Ethernet, PoE), 802.1Q (VLAN) und 802.11 (WLAN).</p>
+
+<h3>Sicher verwalten</h3>
+<ul>
+  <li><strong>SSH statt Telnet</strong> für die Kommandozeile, <strong>HTTPS statt HTTP</strong> für die Weboberfläche. Telnet und HTTP übertragen Kennwörter im Klartext. SSH nutzt Port 22 und kann statt eines Kennworts einen Schlüssel prüfen.</li>
+  <li><strong>Eigenes Management-VLAN</strong> (hier VLAN 99): Nur Geräte der Administration erreichen die Verwaltungsadressen der Netzgeräte.</li>
+  <li><strong>Persönliche Konten</strong> statt eines gemeinsamen admin-Kontos; voreingestellte Kennwörter sofort ändern.</li>
+  <li>Nicht genutzte Ports abschalten oder einem leeren VLAN zuordnen.</li>
+</ul>
+
+<h3>Konfiguration sichern und ändern</h3>
+<p>Nach jeder Änderung sicherst du die Konfiguration außerhalb des Geräts. Fällt ein Switch aus, spielst du sie auf das Ersatzgerät und er läuft in Minuten. Viele Systemhäuser legen die Konfigurationen in einer Versionsverwaltung ab (LF8, Kapitel 8.5.1); so ist jede Änderung mit Datum und Grund nachvollziehbar. Konfigurationen enthalten aber Geheimnisse wie Kennwort-Hashes, SNMP-Schlüssel und WLAN-Passphrasen. Diese entfernst du vor dem Ablegen oder speicherst sie verschlüsselt, verweist auf den Kennworttresor und gibst das Repository nur der Administration frei. Änderungen im laufenden Betrieb planst du, testest sie wenn möglich vorher und hältst einen Weg zurück bereit.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Bevor die Geräte für Nord ausgeliefert werden, richtet die Auszubildende sie in der Werkstatt ein: Namen nach Vorlage, Management-Adressen in 10.20.0.128/28, Verwaltung nur per SSH und HTTPS aus VLAN 99 und über den VPN-Zugang der Administration (Kapitel 9.6.1), NTP und Syslog auf den Server im Stammhaus, alle Ports ohne Gerät abgeschaltet und in VLAN 998, das sonst nirgends verwendet wird. Die fertigen Konfigurationen legt sie ohne Kennwörter im Repository des Systemhauses ab. Vor Ort muss sie nur noch Kabel stecken und messen.</p>
+</div>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie du Netzgeräte darüber hinaus härtest und Zugriffe zentral über einen Anmeldeserver steuerst, wird in LF11b ausführlicher behandelt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Standard:</strong> einheitliche Namen, Portbeschreibungen, NTP, Syslog, SNMPv3, aktuelle Firmware.</li>
+  <li><strong>Verwaltung</strong> nur verschlüsselt (SSH, HTTPS) aus einem Management-VLAN mit persönlichen Konten; Konfiguration nach jeder Änderung extern und nachvollziehbar sichern.</li>
+</ul>

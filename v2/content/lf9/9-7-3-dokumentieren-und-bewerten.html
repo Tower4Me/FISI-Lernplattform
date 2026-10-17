@@ -1,0 +1,35 @@
+<p class="lead">Das Netz läuft. Damit das so bleibt, auch wenn die Auszubildende im Urlaub ist oder ein anderes Systemhaus übernimmt, muss alles nachvollziehbar dokumentiert sein. Zum Abschluss prüft das Team, ob das Ergebnis die Anforderungen erfüllt und wie es um Datensicherheit und Datenschutz steht.</p>
+
+<h3>Was dokumentiert wird</h3>
+<p>Logischen und physischen Netzplan, Portbelegung und Geräteliste kennst du aus LF3, Kapitel 3.1.3. Für ein Netz mit mehreren Standorten werden sie erweitert, und neue Unterlagen kommen hinzu:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Unterlage</th><th>Inhalt</th></tr></thead>
+    <tbody>
+      <tr><th>Netzpläne (erweitert)</th><td>logisch zusätzlich Standorte, Tunnel, VLANs und IP-Netze mit Gateways (wie die Grafik in Kapitel 9.4.1); physisch zusätzlich Glasfaserstrecken zwischen den Schränken</td></tr>
+      <tr><th>Portbelegung und Geräteliste (erweitert)</th><td>zusätzlich VLAN je Port, Firmware und Management-Adresse je Gerät</td></tr>
+      <tr><th>Adress- und VLAN-Plan (neu)</th><td>Netze, Bereiche für DHCP und feste Adressen, Reservierungen, IPv6-Präfixe</td></tr>
+      <tr><th>Konfigurationen (neu)</th><td>gesicherte, versionierte Fassungen jedes Geräts ohne Kennwörter (Kapitel 9.7.1)</td></tr>
+      <tr><th>Messprotokolle (neu)</th><td>Kabelmessung, Durchsatz, WLAN-Ausleuchtung als Nachweis bei der Abnahme</td></tr>
+      <tr><th>Betriebsanleitung</th><td>Abläufe für häufige Aufgaben und Störungen, Ansprechpartner (LF8, Kapitel 8.5.3)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Zugangsdaten stehen nicht in der Dokumentation, sondern in einem Kennworttresor; die Dokumentation verweist nur darauf. Jede Änderung am Netz zieht eine Änderung der Dokumentation nach sich, sonst ist sie bald wertlos.</p>
+
+<h3>Das Ergebnis bewerten</h3>
+<p>Die Bewertung folgt drei Fragen aus dem Rahmenlehrplan:</p>
+<ul>
+  <li><strong>Anforderungen:</strong> Soll-Ist-Vergleich mit den messbaren Anforderungen aus Kapitel 9.1.1, belegt durch die Messprotokolle, ähnlich dem Prüfprotokoll aus LF3, Kapitel 3.7.3.</li>
+  <li><strong>Datensicherheit:</strong> Sind Bereiche wie geplant getrennt? Sind Tunnel verschlüsselt, Verwaltungszugänge geschützt, Konfigurationen gesichert? Was passiert bei Ausfall einer Leitung oder eines Geräts?</li>
+  <li><strong>Datenschutz:</strong> Protokolle von Routern, DHCP-Server und Captive Portal enthalten IP- und MAC-Adressen, die sich Personen zuordnen lassen. Deshalb legst du fest, was protokolliert wird, wer es lesen darf und wann es gelöscht wird (Speicherbegrenzung nach Art. 5 DSGVO, LF8, Kapitel 8.1.3).</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Bei der Abnahme in Nord legt die Auszubildende vor: vier Telefonate und eine Videosprechstunde gleichzeitig mit höchstens 38 ms Verzögerung in eine Richtung und 0,1 % Verlust, Anforderung erfüllt. Gäste erreichen keine internen Netze, durch Test mit einem Smartphone nachgewiesen. Offen bleibt: Die Protokolle des Captive Portals werden noch 90 Tage aufbewahrt, obwohl sieben Tage für die Fehlersuche reichen. Sie vermerkt die Änderung als offenen Punkt mit Frist im Abnahmeprotokoll.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Ein guter Test für die Dokumentation: Kann eine Kollegin, die nicht beteiligt war, damit einen defekten Switch tauschen und richtig konfigurieren? Wenn ja, ist die Dokumentation vollständig genug.</p></aside>
+
+<p class="merksatz">Dokumentiert werden logischer und physischer Plan, Adress- und VLAN-Plan, Portbelegung, Geräte, Konfigurationen und Messprotokolle; bewertet wird nach Anforderungen, Datensicherheit und Datenschutz.</p>

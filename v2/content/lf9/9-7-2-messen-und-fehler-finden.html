@@ -1,0 +1,53 @@
+<p class="lead">Das Netz in Nord ist aufgebaut. Bevor die Praxis es nutzt, misst die Auszubildende, ob es die Anforderungen erfüllt, und sie muss Fehler finden können, wenn später etwas nicht geht. Die Befehle auf dem Client kennst du aus LF3, Kapitel 3.7.2, das Vorgehen von unten nach oben aus LF3, Kapitel 3.7.3. Im Unternehmensnetz kommen weitere Messmittel und typische Fehlerbilder hinzu.</p>
+
+<h3>Messen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Was</th><th>womit</th><th>Ergebnis</th></tr></thead>
+    <tbody>
+      <tr><th>Verkabelung</th><td>Kabelmessgerät nach Norm</td><td>Verdrahtung, Länge, Dämpfung, Übersprechen (NEXT) je Strecke; Protokoll als Nachweis der Klasse, etwa EA bei Bauteilen der Kategorie 6A</td></tr>
+      <tr><th>Ports</th><td>Anzeige im verwalteten Switch</td><td>Geschwindigkeit, Duplex, Fehlerzähler, PoE-Leistung je Port</td></tr>
+      <tr><th>Durchsatz</th><td>Messprogramm zwischen zwei Rechnern, etwa iperf</td><td>tatsächliche Datenrate zwischen zwei Punkten, etwa durch den VPN-Tunnel</td></tr>
+      <tr><th>Latenz, Jitter, Verlust</th><td>ping über längere Zeit, Statistik der Telefonanlage</td><td>ping zeigt die Hin- und Rückzeit, eine Richtung ist etwa die Hälfte; Jitter und Verlust je Gespräch liefert die Telefonanlage; Vergleich mit Kapitel 9.6.2</td></tr>
+      <tr><th>WLAN</th><td>Ausleuchtungs-App, WLAN-Scan</td><td>Signal je Raum, Kanäle, fremde Netze (Kapitel 9.6.4)</td></tr>
+      <tr><th>Datenverkehr</th><td>Mitschnitt mit einem Analyseprogramm wie Wireshark</td><td>welche Pakete tatsächlich fließen, mit allen Kopffeldern</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Einen Mitschnitt lesen</h3>
+<p>Ein Mitschnitt zeigt jedes Paket mit Absender, Ziel, Protokoll und Kopffeldern. Zwei Beispiele, was du daraus ablesen kannst:</p>
+<ul>
+  <li><strong>Zahl der Router:</strong> Jeder Router verringert die TTL (IPv4) oder das Hop Limit (IPv6) um eins. Kommt ein Paket mit Hop Limit 61 an und hat der Absender mit 64 begonnen, lagen 3 Router auf dem Weg. Übliche Startwerte sind 64, 128 und 255.</li>
+  <li><strong>Namensauflösung:</strong> DNS-Anfrage vom Client an Port 53 des DNS-Servers, Antwort mit A- oder AAAA-Eintrag. Fehlt die Antwort, liegt das Problem beim DNS-Server oder auf dem Weg dorthin.</li>
+</ul>
+
+<p>Im geswitchten Netz sieht ein Rechner nur seinen eigenen Verkehr und Broadcasts. Für den Verkehr anderer Geräte richtest du am Switch einen Spiegelport (Port Mirroring) ein. Ein Mitschnitt kann personenbezogene Daten enthalten: Schneide nur im Auftrag mit, filtere gezielt und lösche die Datei nach der Analyse.</p>
+
+<h3>Typische Fehlerbilder</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Beobachtung</th><th>Ursache prüfen</th></tr></thead>
+    <tbody>
+      <tr><th>Adresse aus 169.254.0.0/16</th><td>kein DHCP im VLAN: Relay, Server, Bereich voll (Kapitel 9.5.1)</td></tr>
+      <tr><th>Adresse aus dem falschen Netz</th><td>Port im falschen VLAN oder fremder DHCP-Server</td></tr>
+      <tr><th>Gateway erreichbar, andere VLANs nicht</th><td>Inter-VLAN-Routing, Regeln, Gateway des Ziels (Kapitel 9.4.2)</td></tr>
+      <tr><th>IP-Adressen erreichbar, Namen nicht</th><td>DNS-Server eingetragen und erreichbar? Eintrag in der Zone? (Kapitel 9.5.2)</td></tr>
+      <tr><th>Verbindung steht, aber sehr langsam mit Fehlern am Port</th><td>Duplex-Mismatch, Kabel (Kapitel 9.2.1)</td></tr>
+      <tr><th>ping scheitert, Webseite des Ziels geht</th><td>eine Firewall verwirft ICMP; ping allein beweist keinen Ausfall</td></tr>
+      <tr><th>kleine Seiten gehen, große Übertragungen hängen</th><td>MTU im Tunnel (Kapitel 9.6.1)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Am Empfang in Nord laden Webseiten, aber die Praxissoftware findet die Datenbank db.intern.praxisverbund.example nicht. ipconfig zeigt 10.20.0.70/27, Gateway und DNS-Server 10.20.0.65, also den Router in Nord. nslookup auf den internen Namen endet mit einer Zeitüberschreitung, ping auf eine öffentliche Adresse im Internet klappt, ping auf den DNS-Server im Stammhaus (10.10.0.147) nicht. Der Router leitet Anfragen für die interne Zone an das Stammhaus weiter (Kapitel 9.5.2); der Weg dorthin ist offenbar unterbrochen. Im Syslog findet die Auszubildende den Grund: Der Tunnel zum Stammhaus wurde nach einem Neustart des Anbieter-Routers nicht wieder aufgebaut. Sie baut ihn neu auf und lässt die Überwachung künftig bei einem abgebauten Tunnel alarmieren.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„ping geht nicht, also ist das Gerät aus.“ Viele Firewalls und Server beantworten ping absichtlich nicht. Prüfe zusätzlich den eigentlichen Dienst, etwa mit Test-NetConnection und dem Port (LF3, Kapitel 3.7.2).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Messen:</strong> Verkabelung nach Norm, Portzähler, Durchsatz, Latenz und Jitter, WLAN-Ausleuchtung, Mitschnitt; Ergebnisse mit den Anforderungen vergleichen.</li>
+  <li><strong>Fehler finden:</strong> von unten nach oben; Adresse, VLAN, Gateway, Routing, DNS, Port und MTU gezielt ausschließen; TTL bzw. Hop Limit lässt bei bekanntem Startwert auf die Zahl der Router schließen.</li>
+</ul>

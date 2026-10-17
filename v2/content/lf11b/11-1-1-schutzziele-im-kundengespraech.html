@@ -1,0 +1,36 @@
+<p class="lead">Die Inhaberin des Praxisverbunds sagt im Gespräch: „Machen Sie unser Netz einfach absolut sicher.“ Das kann niemand. Deine Aufgabe ist eine andere: mit ihr klären, was geschützt werden muss, wovor und wie stark, und dann Maßnahmen vorschlagen, deren Aufwand zum Nutzen passt.</p>
+
+<h3>Mehr Verbindungen, mehr Angriffsfläche</h3>
+<p>Mit LF9 und LF10b ist das Netz gewachsen: Tunnel zwischen drei Standorten, VPN-Zugänge für den Notdienst, eine Web-API im Internet, Gäste-WLAN, Server im Stammhaus. Jede dieser Verbindungen ist nützlich und zugleich ein möglicher Weg für Angreifer. Die Summe aller erreichbaren Dienste, Zugänge und Schnittstellen heißt <strong>Angriffsfläche</strong>. Informationssicherheit in vernetzten Systemen heißt deshalb auch: die Angriffsfläche kennen und so klein halten, wie es der Betrieb zulässt.</p>
+
+<h3>Schutzziele gemeinsam klären</h3>
+<p>Die Schutzziele Vertraulichkeit, Integrität und Verfügbarkeit sowie Authentizität und Verbindlichkeit kennst du aus LF4, Kapitel 4.1.2 und 4.1.3. Im Kundengespräch übersetzt du sie in Fragen, die der Kunde beantworten kann:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schutzziel</th><th>Frage an den Kunden</th><th>Antwort im Praxisverbund</th></tr></thead>
+    <tbody>
+      <tr><th>Vertraulichkeit</th><td>Wer darf welche Daten sehen, und was passiert, wenn Fremde sie sehen?</td><td>Befunde und Adressen nur für Personal; Bekanntwerden schadet dem Vertrauen und kann eine Meldepflicht auslösen (Kapitel 11.6.2)</td></tr>
+      <tr><th>Integrität</th><td>Was passiert, wenn Daten unbemerkt falsch sind?</td><td>falsche Dosierung in der Medikation wäre gefährlich</td></tr>
+      <tr><th>Verfügbarkeit</th><td>Wie lange darf ein Dienst ausfallen?</td><td>Datenbank höchstens vier Stunden, auch im Notdienst</td></tr>
+      <tr><th>Authentizität</th><td>Muss sicher sein, mit wem oder womit man kommuniziert?</td><td>Termin-App und VPN müssen echt sein, sonst geben Nutzer Zugangsdaten an Fälscher</td></tr>
+      <tr><th>Verbindlichkeit</th><td>Muss nachweisbar sein, wer etwas getan hat?</td><td>Änderungen an Befunden und Medikation einer Person zuordnen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wie stark jedes Ziel geschützt werden muss, legst du mit der Schutzbedarfsfeststellung fest (LF4, Kapitel 4.4). Die vier Stunden für die Datenbank sind das RTO aus LF10b, Kapitel 10.4.2.</p>
+<p>Das Ergebnis hältst du schriftlich fest; es ist die Grundlage für die Risikobewertung (Kapitel 11.1.3) und das Sicherheitskonzept (Kapitel 11.7.2).</p>
+
+<h3>Relative Sicherheit</h3>
+<p>Dass es keine absolute Sicherheit gibt, kennst du aus LF4, Kapitel 4.6.5. Gleichzeitig kostet jede Maßnahme Geld, Zeit und oft Bequemlichkeit: Ein langes Kennwort und ein zweiter Faktor schützen besser, nerven aber bei jeder Anmeldung. Sicherheit ist deshalb <strong>relativ</strong>: so viel, wie der Schutzbedarf verlangt und der Betrieb tragen kann. Bewährt hat sich, mehrere Schutzschichten zu kombinieren (gestaffelte Verteidigung): Fällt eine aus, hält die nächste.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende erklärt der Inhaberin: „Absolut sicher wäre ein Netz ohne Internet, ohne VPN und ohne Termin-App. Dann könnten aber weder Notdienst noch Kunden arbeiten.“ Gemeinsam legen sie fest: Die Verfügbarkeit der Datenbank und die Vertraulichkeit der Befunde haben Vorrang; für das Gäste-WLAN reicht ein einfacher Schutz. Das Systemhaus plant mehrere Schichten: Firewall, getrennte Netze, Anmeldung mit zweitem Faktor, Sicherung, Schulung des Personals.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Wir haben eine Firewall, also sind wir sicher.“ Eine einzelne Maßnahme deckt nur einen Teil der Angriffswege ab. Phishing-Mails, gestohlene Zugangsdaten oder ein infizierter USB-Stick gehen an der Firewall vorbei.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Angriffsfläche</strong>: alle erreichbaren Dienste und Zugänge; jede Verbindung vergrößert sie. Schutzziele klärst du mit Fragen, die der Kunde beantworten kann.</li>
+  <li><strong>Relative Sicherheit</strong>: kein absoluter Schutz, sondern so viel, wie Schutzbedarf und Aufwand rechtfertigen, umgesetzt in mehreren Schichten.</li>
+</ul>

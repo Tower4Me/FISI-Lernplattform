@@ -144,6 +144,10 @@
         {
           "id": "6-2-2",
           "tiefe": "Verfügbarkeit als SLA-Kennzahl in Prozent"
+        },
+        {
+          "id": "11-1-1",
+          "tiefe": "Schutzziele im Kundengespräch als Fragen"
         }
       ]
     },
@@ -314,6 +318,10 @@
         {
           "id": "4-3-1",
           "tiefe": "Begriffe und Raster zum Aufnehmen"
+        },
+        {
+          "id": "11-1-2",
+          "tiefe": "Angreifertypen, Angriffsablauf"
         }
       ]
     },
@@ -324,7 +332,8 @@
         "Wurm: eigenständiges Programm, verbreitet sich selbst über Netzwerke, oft über Sicherheitslücken; manche auch per Mail.",
         "Trojaner: als nützliches Programm getarnt, führt verdeckt Schadfunktionen aus (z. B. Hintertür); verbreitet sich nicht selbst.",
         "Spyware/Keylogger: spähen Daten bzw. Tastatureingaben aus.",
-        "Verbreitungswege: Mailanhänge/Links, unsichere Downloads, Wechseldatenträger, ungepatchte Lücken."
+        "Verbreitungswege: Mailanhänge/Links, unsichere Downloads, Wechseldatenträger, ungepatchte Lücken.",
+        "Rootkit versteckt sich im System; Bot = übernommener Rechner im Botnetz (Spam, DDoS); Ransomware oft mit doppelter Erpressung (Schlüssel und Nichtveröffentlichung)."
       ],
       "vorkommen": [
         {
@@ -334,6 +343,10 @@
         {
           "id": "4-6-1",
           "tiefe": "Schutz durch Updates, Härtung, minimale Rechte"
+        },
+        {
+          "id": "11-1-2",
+          "tiefe": "Rootkit, Bot/Botnetz, doppelte Erpressung"
         }
       ]
     },
@@ -364,7 +377,9 @@
       "kernfakten": [
         "Risiko ergibt sich aus Eintrittswahrscheinlichkeit und Schadenshöhe (Faustformel Produkt).",
         "Qualitative Bewertung über Risikomatrix mit betrieblich festgelegten Stufen.",
-        "Schutzbedarfsfeststellung bewertet nur die Schadensauswirkung, nicht die Wahrscheinlichkeit."
+        "Schutzbedarfsfeststellung bewertet nur die Schadensauswirkung, nicht die Wahrscheinlichkeit.",
+        "Quantitativ: erwarteter Schaden pro Jahr = Schaden je Ereignis × Häufigkeit pro Jahr (ALE); Nutzen einer Maßnahme = vorher − nachher − Kosten pro Jahr.",
+        "Relative Sicherheit: kein absoluter Schutz; Aufwand nach Schutzbedarf, mehrere Schutzschichten."
       ],
       "vorkommen": [
         {
@@ -382,6 +397,14 @@
         {
           "id": "4-6-5",
           "tiefe": "relative Sicherheit, Restrisiko"
+        },
+        {
+          "id": "11-1-1",
+          "tiefe": "relative Sicherheit, Angriffsfläche"
+        },
+        {
+          "id": "11-1-3",
+          "tiefe": "erwarteter Schaden in Euro, Nutzen einer Maßnahme"
         }
       ]
     },
@@ -434,6 +457,10 @@
         {
           "id": "4-5-1",
           "tiefe": "Umgang mit Risiken nach der Analyse"
+        },
+        {
+          "id": "11-1-3",
+          "tiefe": "Restrisiko nach Maßnahmen"
         }
       ]
     },
@@ -470,6 +497,10 @@
         {
           "id": "10-5-1",
           "tiefe": "zentrale Anmeldung, Single Sign-on"
+        },
+        {
+          "id": "11-1-2",
+          "tiefe": "zweiter Faktor für VPN"
         }
       ]
     },
@@ -3736,6 +3767,10 @@
         {
           "id": "10-7-3",
           "tiefe": "Fehlschlag geplanter Aufgaben melden"
+        },
+        {
+          "id": "11-1-2",
+          "tiefe": "Anzeichen eines Angriffs"
         }
       ]
     },

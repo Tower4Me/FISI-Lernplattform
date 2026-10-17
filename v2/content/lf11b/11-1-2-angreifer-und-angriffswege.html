@@ -1,0 +1,50 @@
+<p class="lead">Wer greift eine Tierarztpraxis an, und warum? Nur wer Angreifer und ihre Wege kennt, setzt Maßnahmen an den richtigen Stellen an. Die Arten von Schadsoftware, Phishing und das Erkennen und Melden von Vorfällen am eigenen Arbeitsplatz kennst du aus LF4, Kapitel 4.3.2, 4.3.3 und 4.6.4. Hier geht es um die Sicht der Administration auf ein ganzes Netz.</p>
+
+<h3>Wer angreift</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Angreifer</th><th>Ziel</th><th>Vorgehen</th></tr></thead>
+    <tbody>
+      <tr><th>Organisierte Kriminelle</th><td>Geld</td><td>Erpressung mit Ransomware, Datendiebstahl, Betrug; arbeitsteilig, oft mit gekauften Werkzeugen</td></tr>
+      <tr><th>Gelegenheitstäter (Scriptkiddies)</th><td>Neugier, Anerkennung</td><td>fertige Werkzeuge gegen bekannte Lücken, wahllos</td></tr>
+      <tr><th>Innentäter</th><td>Rache, Geld, Bequemlichkeit</td><td>nutzen vorhandene Rechte; auch unbeabsichtigt durch Fehler</td></tr>
+      <tr><th>Hacktivisten</th><td>politische Botschaft</td><td>Überlastung, Verunstaltung von Webseiten, Veröffentlichung von Daten</td></tr>
+      <tr><th>Staatliche Gruppen</th><td>Spionage, Sabotage</td><td>gezielt, lange unentdeckt; trifft vor allem Behörden und kritische Infrastruktur</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Nach Absicht unterscheidet man außerdem <strong>White Hats</strong>, die Lücken im Auftrag suchen und melden (Kapitel 11.7.1), <strong>Black Hats</strong>, die sie ausnutzen, und <strong>Grey Hats</strong> dazwischen, die ohne Auftrag eindringen, aber nicht schaden wollen. Auch das ist ohne Erlaubnis strafbar (§ 202a StGB, Ausspähen von Daten). Für einen kleinen Betrieb sind Kriminelle und Gelegenheitstäter die wichtigste Gefahr: Sie suchen nicht gezielt die Praxis, sondern jedes Netz mit einer offenen Lücke.</p>
+
+<h3>Wie ein Angriff abläuft</h3>
+<p>Größere Angriffe verlaufen meist in Schritten:</p>
+<ol>
+  <li><strong>Erkunden</strong>: Mailadressen, erreichbare Dienste und Versionen ermitteln, etwa per Portscan.</li>
+  <li><strong>Eindringen</strong>: über eine Phishing-Mail, ein erratenes oder gestohlenes Kennwort, eine ungepatchte Lücke im VPN-Gateway oder einen kompromittierten Dienstleister.</li>
+  <li><strong>Festsetzen</strong>: eine Hintertür einrichten, etwa ein eigenes Konto oder ein <strong>Rootkit</strong>, das sich im System vor Virenschutz und Administration versteckt.</li>
+  <li><strong>Ausbreiten</strong>: weitere Rechner und Administratorrechte erobern (seitliche Bewegung), bis Server und Sicherungen erreichbar sind.</li>
+  <li><strong>Zuschlagen</strong>: Daten abziehen, dann verschlüsseln und doppelt erpressen: für den Schlüssel und dafür, die Daten nicht zu veröffentlichen.</li>
+</ol>
+<p>Jeder Schritt bietet eine Chance zur Abwehr: weniger erreichbare Dienste, Patches, zweiter Faktor, getrennte Netze, wenig Rechte, Überwachung, Sicherungen außerhalb der Reichweite. Übernommene Rechner werden oft zu <strong>Bots</strong>, die ein Angreifer zu einem Botnetz zusammenschließt und für Spam oder Überlastungsangriffe (DDoS) missbraucht.</p>
+
+<h3>Anzeichen im Netz</h3>
+<p>Die Administration sieht Spuren, die einzelne Nutzer nicht bemerken:</p>
+<ul>
+  <li>Anmeldungen zu ungewöhnlichen Zeiten oder aus fremden Ländern, viele fehlgeschlagene Anmeldungen</li>
+  <li>neue Konten mit Administratorrechten, die niemand angelegt hat</li>
+  <li>abgeschalteter Virenschutz, gelöschte Protokolle</li>
+  <li>große Datenmengen, die nachts ins Internet fließen</li>
+  <li>Sicherungsaufträge, die plötzlich fehlschlagen oder gelöscht wurden</li>
+</ul>
+<p>Solche Muster erkennt ein Monitoring (LF10b, Kapitel 10.6.1), das zentrale Protokolle auswertet.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Monitoring meldet um 3 Uhr nachts: Das VPN-Konto einer Tierärztin hat sich aus dem Ausland angemeldet, meldet sich danach an mehreren Servern an und nutzt eine noch ungepatchte Lücke; kurz darauf entsteht ein neues Konto in der Gruppe der Administratoren. Die Rufbereitschaft sperrt beide Konten, trennt den VPN-Zugang und informiert das Systemhaus. Die Auswertung zeigt: Das Kennwort stammte aus einem Datenleck eines Onlineshops, die Ärztin hatte es mehrfach verwendet, ein zweiter Faktor fehlte. Der Verbund führt für alle VPN-Zugänge einen zweiten Faktor ein. Außerdem wird das fehlende Update sofort eingespielt (LF10b, Kapitel 10.5.4).</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Wir sind zu klein, uns greift niemand an.“ Viele Angriffe laufen automatisiert und wahllos. Sie treffen jedes Netz mit einer bekannten Lücke oder einem schwachen Kennwort, unabhängig von der Größe des Betriebs.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Angreifer</strong>: vor allem Kriminelle (Erpressung) und Gelegenheitstäter, dazu Innentäter, Hacktivisten, staatliche Gruppen; White, Grey und Black Hats nach Absicht.</li>
+  <li><strong>Ablauf</strong>: erkunden, eindringen, festsetzen, ausbreiten, zuschlagen; jeder Schritt ist eine Chance zur Abwehr und hinterlässt Spuren im Netz.</li>
+</ul>

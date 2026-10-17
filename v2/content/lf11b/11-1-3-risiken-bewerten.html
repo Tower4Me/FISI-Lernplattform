@@ -1,0 +1,37 @@
+<p class="lead">Die Inhaberin des Praxisverbunds hat für Sicherheit in diesem Jahr ein festes Budget. Das Systemhaus schlägt zehn Maßnahmen vor, bezahlbar sind fünf. Welche? In LF4, Kapitel 4.3.4 hast du Risiken in Stufen eingeordnet. Für eine Investitionsentscheidung reicht „hoch“ oder „mittel“ oft nicht; dann rechnest du Risiken in Euro.</p>
+
+<h3>Risiko in Euro pro Jahr</h3>
+<p>Für jedes Szenario schätzt du zwei Werte:</p>
+<ul>
+  <li><strong>Schaden je Ereignis</strong>: Was kostet ein Vorfall? Ausfallzeit, Wiederherstellung, Dienstleister, Bußgelder, verlorene Aufträge.</li>
+  <li><strong>Häufigkeit pro Jahr</strong>: Wie oft tritt er im Mittel ein? „Einmal in fünf Jahren“ heißt 0,2 pro Jahr.</li>
+</ul>
+<p>Die Häufigkeit pro Jahr tritt an die Stelle der Eintrittswahrscheinlichkeit aus LF4, Kapitel 4.3.4. Sie kann auch größer als 1 sein, etwa bei drei erfolgreichen Phishing-Angriffen pro Jahr.</p>
+<p class="formel">erwarteter Schaden pro Jahr = Schaden je Ereignis × Häufigkeit pro Jahr</p>
+<p>In englischen Unterlagen heißen die Werte Single Loss Expectancy (SLE, Schaden je Ereignis), Annualized Rate of Occurrence (ARO, Häufigkeit pro Jahr) und Annualized Loss Expectancy (ALE = SLE × ARO). Die Zahlen sind Schätzungen, oft aus Erfahrungswerten, Branchenberichten und Gesprächen mit dem Kunden. Ihr Nutzen liegt im Vergleich: Sie machen Szenarien und Maßnahmen gegeneinander abwägbar.</p>
+<p>Der BSI-Standard 200-3 bewertet Risiken ohne Euro, in Stufen: Häufigkeit selten, mittel, häufig, sehr häufig; Auswirkung vernachlässigbar, begrenzt, beträchtlich, existenzbedrohend. Die Rechnung in Euro ergänzt ihn, wenn über Geld entschieden wird.</p>
+
+<h3>Lohnt sich eine Maßnahme?</h3>
+<p>Eine Maßnahme senkt die Häufigkeit, den Schaden oder beides. Sie lohnt sich wirtschaftlich, wenn der eingesparte erwartete Schaden größer ist als ihre Kosten pro Jahr:</p>
+<p class="formel">Nutzen pro Jahr = erwarteter Schaden vorher − erwarteter Schaden nachher − Kosten der Maßnahme pro Jahr</p>
+<p>Einmalige Anschaffungskosten verteilst du auf die Nutzungsdauer, etwa 6.000 € auf drei Jahre = 2.000 € pro Jahr. Reicht das Budget nicht für alle Maßnahmen, die sich lohnen, beginnst du mit denen, die je eingesetztem Euro den meisten erwarteten Schaden einsparen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Szenario Ransomware: Verschlüsselt Schadsoftware die Server, stehen alle drei Standorte etwa drei Tage, weil vor dem Zurückspielen alle Systeme geprüft und neu aufgesetzt werden müssen. Mit Umsatzausfall, Dienstleister und Wiederherstellung schätzt das Systemhaus 60.000 € je Ereignis, Häufigkeit einmal in fünf Jahren: 60.000 € × 0,2 = 12.000 € pro Jahr. Die Maßnahme „Endpunktschutz mit Überwachung rund um die Uhr, dazu täglich statt wöchentlich eine Kopie auf ein unveränderbares Sicherungsziel“ kostet 4.000 € pro Jahr. Sie halbiert die Häufigkeit (0,1) und senkt den Schaden durch schnelle Wiederherstellung auf 20.000 €: 20.000 € × 0,1 = 2.000 € pro Jahr. Nutzen: 12.000 € − 2.000 € − 4.000 € = 6.000 € pro Jahr. Die Maßnahme lohnt sich.</p>
+</div>
+
+<h3>Grenzen der Rechnung</h3>
+<ul>
+  <li>Schäden an der Gesundheit von Tieren, an Ruf und Vertrauen lassen sich schlecht in Euro fassen. Gelangen etwa Adressen und Befunde von Tierhaltern an Fremde, kostet das Vertrauen, das kein Bußgeldbetrag abbildet.</li>
+  <li>Seltene Ereignisse mit sehr großem Schaden erscheinen in der Rechnung klein, können den Betrieb aber vernichten. Hier entscheidet die Leitung oft unabhängig vom Erwartungswert.</li>
+  <li>Gesetzliche Pflichten setzen eine Untergrenze. Art. 32 DSGVO verlangt Maßnahmen, die dem Risiko für die betroffenen Personen angemessen sind; die Kosten dürfen dabei berücksichtigt werden. Eine Rechnung, nach der sich eine Maßnahme nicht lohnt, befreit aber nicht von dieser Pflicht.</li>
+</ul>
+<p>Was nach den Maßnahmen bleibt, ist das <strong>Restrisiko</strong>. Die Leitung entscheidet, ob sie es trägt, versichert oder weiter senkt (Risikostrategien, LF4, Kapitel 4.5.1), und dokumentiert die Entscheidung.</p>
+
+<aside class="note" data-typ="fehler"><p>„Häufigkeit 0,2 heißt, es passiert erst in fünf Jahren.“ Die Zahl ist ein Mittelwert über viele Jahre und Betriebe. Der Vorfall kann morgen eintreten oder zehn Jahre ausbleiben.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Erwarteter Schaden pro Jahr</strong> = Schaden je Ereignis × Häufigkeit pro Jahr; eine Maßnahme lohnt sich, wenn sie mehr erwarteten Schaden einspart, als sie pro Jahr kostet.</li>
+  <li><strong>Grenzen</strong>: Ruf und Vertrauen schwer bezifferbar, seltene Katastrophen und gesetzliche Pflichten gesondert betrachten; das Restrisiko trägt und dokumentiert die Leitung.</li>
+</ul>

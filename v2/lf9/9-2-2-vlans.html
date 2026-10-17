@@ -694,6 +694,15 @@
             <li><a class="up is-check" data-check="lf11b-11-3" href="../lf11b/11-3-check.html"><span class="num">11.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="../lf11b/11-4-1-firewalls.html"><span class="num">11.4</span><span>Netze absichern</span><span class="kap-progress" data-ids="11-4-1 11-4-2 11-4-3 11-4-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="11-4-1" href="../lf11b/11-4-1-firewalls.html"><span class="num">11.4.1</span><span class="t">Firewalls</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-4-2" href="../lf11b/11-4-2-dmz.html"><span class="num">11.4.2</span><span class="t">DMZ</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-4-3" href="../lf11b/11-4-3-switches-absichern.html"><span class="num">11.4.3</span><span class="t">Switches absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-4-4" href="../lf11b/11-4-4-wlan-absichern.html"><span class="num">11.4.4</span><span class="t">WLAN im Unternehmen absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf11b-11-4" href="../lf11b/11-4-check.html"><span class="num">11.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="../lf11b/rueckblick.html"><span class="num">11b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -779,7 +788,7 @@
   <p>Am Switch in Nord sind die Ports der PCs Access-Ports in VLAN 10, die Röntgenstation steckt in VLAN 20. Die Telefone hängen zwischen Wand und PC und nutzen VLAN 30 als Voice-VLAN. Die Ports zu den Access Points sind Trunks mit VLAN 10, 40 und 99, der Uplink zum Router ein Trunk mit allen VLANs. Als Native VLAN dient auf allen Trunks die ungenutzte ID 999.</p>
 </div>
 
-<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du Switches gegen Angriffe wie VLAN-Hopping schützt und Geräte mit 802.1X und einem RADIUS-Server anmeldest, wird in LF11b ausführlicher behandelt.</p></aside>
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie du Switches gegen Angriffe wie VLAN-Hopping schützt und Geräte mit 802.1X und einem RADIUS-Server anmeldest, wird in <a href="../lf11b/11-4-3-switches-absichern.html">LF11b, Kapitel 11.4.3</a> ausführlicher behandelt.</p></aside>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Zwei Geräte im selben VLAN, aber in verschiedenen IP-Netzen, reden direkt miteinander.“ Nein: Jedes Gerät prüft mit seiner Maske, ob das Ziel im eigenen IP-Netz liegt. Ein VLAN und sein IP-Netz gehören zusammen; beides muss passen.</p></aside>
 

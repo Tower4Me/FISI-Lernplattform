@@ -35,7 +35,7 @@
   <p>Im Stammhaus vergibt der Server 10.10.0.147 die Adressen für alle VLANs; das Relay auf dem Kern-Switch zeigt auf ihn. Die Router in Nord und Süd sind selbst DHCP-Server für ihre Netze, damit die Praxis bei einem Tunnelausfall weiterarbeiten kann (Anforderung aus Kapitel 9.1.1). Im Gäste-VLAN in Nord gilt: Pool 10.20.0.10 bis 10.20.0.62, Gateway 10.20.0.1, öffentlicher DNS-Server statt des internen, Lease-Zeit zwei Stunden. Die internen VLANs in Nord bekommen den Router als DNS-Server (Kapitel 9.5.2).</p>
 </div>
 
-<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie Switches fremde DHCP-Server mit DHCP-Snooping aussperren, wird in LF11b ausführlicher behandelt.</p></aside>
+<aside class="note" data-typ="vertiefung"><p>Wie Switches fremde DHCP-Server mit DHCP-Snooping aussperren, wird in <a href="../lf11b/11-4-3-switches-absichern.html">LF11b, Kapitel 11.4.3</a> ausführlicher behandelt.</p></aside>
 
 <aside class="note" data-typ="fehler"><p>„Das Relay leitet die Anfrage einfach als Broadcast ins Servernetz weiter.“ Nein: Das Relay schickt sie als Unicast direkt an die eingetragene Serveradresse und vermerkt das Netz, aus dem sie kommt.</p></aside>
 

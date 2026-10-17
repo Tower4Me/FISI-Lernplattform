@@ -1,0 +1,54 @@
+<p class="lead">Zwischen den VLANs des Praxisverbunds und zum Internet hin entscheiden bisher nur ein paar Zugriffslisten, was durchdarf (LF9, Kapitel 9.4.2: der Router in Nord und Süd, der Kern-Switch im Stammhaus). Das Systemhaus schlägt eine richtige <strong>Firewall</strong> vor. Sie ersetzt im Stammhaus den Internetrouter, schließt die Tunnel zu Nord und Süd ab und übernimmt auch das Routing zwischen den VLANs: Der Kern-Switch reicht die VLANs per Trunk an die Firewall weiter, statt selbst zu routen. Sie setzt eine Sicherheitsrichtlinie technisch um: Nur ausdrücklich erlaubter Verkehr kommt zwischen den Netzbereichen durch.</p>
+
+<h3>Arten von Firewalls</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>prüft</th><th>Stärke, Grenze</th></tr></thead>
+    <tbody>
+      <tr><th>Paketfilter (zustandslos)</th><td>jedes Paket einzeln nach Adressen, Protokoll und Ports</td><td>schnell; kennt keine Verbindungen, Antworten müssen eigens erlaubt werden</td></tr>
+      <tr><th>Stateful Packet Inspection (SPI)</th><td>zusätzlich den Zustand jeder Verbindung in einer Tabelle</td><td>lässt Antworten zu erlaubten Verbindungen automatisch zu, verwirft unpassende Pakete; Standard heute</td></tr>
+      <tr><th>Proxy (Application Level Gateway)</th><td>den Inhalt einer Anwendung, etwa HTTP; baut eigene Verbindungen zum Ziel auf</td><td>kann Inhalte filtern; je Protokoll eigener Proxy nötig</td></tr>
+      <tr><th>Next Generation Firewall (NGFW)</th><td>SPI plus Erkennung von Anwendungen, Angriffsmuster (IDS/IPS), Virenprüfung, Benutzerbezug</td><td>umfassend; teuer, braucht Pflege und Rechenleistung</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ein <strong>IDS</strong> (Intrusion Detection System) erkennt Angriffsmuster und meldet sie, ein <strong>IPS</strong> (Intrusion Prevention System) blockiert sie zusätzlich.</p>
+
+<h3>Das Regelwerk</h3>
+<p>Jede Regel nennt Quelle, Ziel, Protokoll und Port sowie die Aktion (erlauben oder verwerfen). Die meisten Firewalls gehen die Regeln von oben nach unten durch; die <strong>erste passende Regel</strong> entscheidet. Am Ende steht eine Regel, die alles verwirft, was vorher nicht erlaubt wurde (Default Deny). Genaue Regeln gehören deshalb nach oben, allgemeine nach unten.</p>
+<div class="vergleich">
+  <table>
+    <caption>Auszug aus dem Regelwerk der Firewall im Stammhaus</caption>
+    <thead><tr><th>Nr.</th><th>Quelle</th><th>Ziel</th><th>Dienst</th><th>Aktion</th></tr></thead>
+    <tbody>
+      <tr><th>1</th><td>Internet</td><td>Reverse Proxy in der DMZ 10.10.0.162 (Kapitel 11.4.2)</td><td>TCP 443</td><td>erlauben</td></tr>
+      <tr><th>2</th><td>Reverse Proxy</td><td>Web-API 10.10.0.148</td><td>TCP 443</td><td>erlauben</td></tr>
+      <tr><th>3</th><td>Verwaltung VLAN 10 (alle Standorte)</td><td>Datenbank 10.10.0.146</td><td>TCP 3306 (MariaDB)</td><td>erlauben</td></tr>
+      <tr><th>4</th><td>Gäste VLAN 40</td><td>Internet</td><td>TCP 80, 443; UDP 53</td><td>erlauben</td></tr>
+      <tr><th>5</th><td>Gäste VLAN 40</td><td>alle internen Netze</td><td>alle</td><td>verwerfen</td></tr>
+      <tr><th>6</th><td>alle</td><td>alle</td><td>alle</td><td>verwerfen (Default Deny)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Dank SPI braucht keine Regel die Antworten: Ist eine Verbindung nach Regel 1 aufgebaut, lässt die Firewall die Antwortpakete des Proxys zurück ins Internet automatisch durch.</p>
+<p>Mit dem Router zieht auch NAT auf die Firewall um: PAT für ausgehenden Verkehr und die Weiterleitung von 198.51.100.10:443, die jetzt auf den Reverse Proxy in der DMZ zeigt (LF9, Kapitel 9.4.4).</p>
+
+<h3>TLS-Inspection</h3>
+<p>Der meiste Verkehr ist heute verschlüsselt; ein Virenscanner in der Firewall sieht dann nur Adressen und Servernamen, nicht den Inhalt. Bei der <strong>TLS-Inspection</strong> bricht die NGFW die Verbindung auf: Sie baut selbst die TLS-Verbindung zum Webserver auf und gibt sich gegenüber dem Client als dieser Server aus, mit einem Zertifikat, das sie spontan erzeugt und mit einer eigenen CA signiert. Damit die Clients nicht warnen, muss das Stammzertifikat dieser CA auf allen Firmengeräten verteilt sein (Kapitel 11.3.2).</p>
+<ul>
+  <li><strong>Nutzen</strong>: Schadsoftware und Datenabfluss werden auch in verschlüsseltem Verkehr erkannt.</li>
+  <li><strong>Risiken</strong>: Die Firewall sieht alle Inhalte, auch Kennwörter, und wird zum lohnenden Angriffsziel; manche Anwendungen funktionieren nicht, weil sie nur das echte Zertifikat akzeptieren; der Client sieht das echte Serverzertifikat nicht mehr; prüft die Firewall es nachlässig, merkt niemand einen gefälschten Server.</li>
+  <li><strong>Recht</strong>: Die Beschäftigten werden vorab informiert (Datenschutz). Gibt es einen Betriebsrat, bestimmt er mit, weil sich mit der Firewall Verhalten und Leistung überwachen lassen (§ 87 Abs. 1 Nr. 6 BetrVG); meist regelt das eine Betriebsvereinbarung. Ist private Nutzung erlaubt, ist die Rechtslage umstritten; viele Betriebe verbieten sie deshalb oder holen eine Einwilligung ein. Seiten von Banken oder Gesundheitsdiensten nimmt man üblicherweise aus.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Kollege fügt für einen Test die Regel „alle → Datenbank, alle Dienste, erlauben“ ganz oben ein und vergisst sie. Ab sofort kommen auch Gäste aus VLAN 40 an die Datenbank, denn die erste passende Regel gewinnt: Für Verbindungen zur Datenbank kommt Regel 5 nicht mehr zum Zug. Die Auszubildende findet den Fehler beim monatlichen Durchsehen des Regelwerks, löscht die Regel und lässt Änderungen künftig nur mit Ticket und Ablaufdatum zu.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ausgehend lassen wir alles durch, gefährlich ist nur, was von außen kommt.“ Schadsoftware nimmt von innen Kontakt zu ihren Servern auf und schleust Daten hinaus. Auch ausgehender Verkehr gehört geregelt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Firewall-Arten</strong>: Paketfilter prüft Pakete einzeln, SPI zusätzlich den Verbindungszustand, Proxy den Anwendungsinhalt, NGFW kombiniert SPI mit Anwendungserkennung, IDS/IPS und Virenprüfung.</li>
+  <li><strong>Regelwerk</strong>: von oben nach unten, erste passende Regel gewinnt, am Ende Default Deny; TLS-Inspection braucht ein verteiltes Stammzertifikat und hat technische und rechtliche Grenzen.</li>
+</ul>

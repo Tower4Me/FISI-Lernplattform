@@ -1,0 +1,39 @@
+<p class="lead">Im Wartezimmer in Nord hängt der Infobildschirm an einer Netzwerkdose im Verwaltungs-VLAN. Zieht jemand das Kabel ab und steckt seinen Laptop ein, ist er mitten im Verwaltungsnetz. Ungenutzte Ports sind zwar abgeschaltet (LF9, Kapitel 9.7.1), belegte Ports schützt das aber nicht. Ein Angreifer kann im lokalen Netz außerdem einen falschen DHCP-Server betreiben oder versuchen, in fremde VLANs zu springen. Der Switch ist die erste Stelle, an der du das verhindern kannst. VLANs und Trunks kennst du aus LF9, Kapitel 9.2.2.</p>
+
+<h3>Port Security</h3>
+<p>Mit <strong>Port Security</strong> legt der Switch fest, welche oder wie viele MAC-Adressen an einem Port erlaubt sind, etwa genau eine, die er sich beim ersten Gerät merkt. Steckt jemand ein anderes Gerät an, schaltet der Switch den Port ab oder verwirft dessen Rahmen und meldet den Vorfall. Das hilft gegen spontanes Einstecken, aber nicht gegen Angreifer, die die erlaubte MAC-Adresse mitlesen und fälschen.</p>
+
+<h3>802.1X: Anmeldung am Port</h3>
+<p>Stärker ist <strong>IEEE 802.1X</strong>: Ein Gerät muss sich anmelden, bevor der Port mehr durchlässt als die Anmeldung selbst.</p>
+<ul>
+  <li><strong>Supplicant</strong>: das Gerät, das sich anmelden will, mit Zertifikat oder Benutzerdaten.</li>
+  <li><strong>Authenticator</strong>: der Switch (oder Access Point), der die Anmeldedaten weiterreicht.</li>
+  <li><strong>Authentication Server</strong>: meist ein RADIUS-Server, der prüft und entscheidet, auf Wunsch auch, in welches VLAN das Gerät kommt.</li>
+</ul>
+<p>So kann ein Firmen-PC an jeder Dose sein Verwaltungs-VLAN bekommen, ein fremdes Gerät landet in einem Gäste- oder Quarantäne-VLAN oder bekommt gar keinen Zugang. Geräte ohne 802.1X-Fähigkeit, etwa ältere Drucker, lässt man über ihre MAC-Adresse zu (MAC-Authentifizierung), was schwächer ist und auf diese Geräte beschränkt bleibt.</p>
+
+<h3>Weitere Schutzfunktionen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Angriff</th><th>Wie er funktioniert</th><th>Gegenmaßnahme</th></tr></thead>
+    <tbody>
+      <tr><th>falscher DHCP-Server</th><td>Ein Gerät verteilt Adressen mit eigenem Gateway und DNS-Server und leitet so Verkehr über sich</td><td><strong>DHCP-Snooping</strong>: DHCP-Antworten nur von vertrauenswürdigen Ports, etwa dem Uplink zum Router</td></tr>
+      <tr><th>VLAN-Hopping durch Trunk-Aushandlung</th><td>Das Gerät gibt sich als Switch aus und bekommt einen Trunk mit allen VLANs</td><td>automatische Trunk-Aushandlung abschalten, Endgeräteports fest als Access-Port</td></tr>
+      <tr><th>VLAN-Hopping durch doppeltes Tag</th><td>Der Angreifer hängt an einem Port im Native VLAN des Trunks und schickt einen Rahmen mit zwei Tags: außen das Native VLAN, innen das Ziel-VLAN. Der erste Switch entfernt das äußere Tag, der nächste stellt den Rahmen ins Ziel-VLAN zu. Antworten kommen nicht zurück.</td><td>Native VLAN auf eine ungenutzte ID legen, die kein Endgerät hat</td></tr>
+      <tr><th>gefälschte ARP-Antworten</th><td>Ein Gerät gibt sich als Gateway aus und liest Verkehr mit (LF3, Kapitel 3.5.3)</td><td>Dynamic ARP Inspection auf Basis der DHCP-Snooping-Tabelle</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Dazu kommen die Grundregeln aus LF9, Kapitel 9.7.1: ungenutzte Ports abschalten, Verwaltung nur verschlüsselt aus dem Management-VLAN, persönliche Konten. Auch die Anmeldung der Administration an den Netzgeräten läuft zentral über RADIUS oder TACACS+: Die persönlichen Konten liegen dann im Verzeichnisdienst, und jede Anmeldung wird protokolliert.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus führt im Verbund 802.1X ein. Die Firmen-PCs melden sich mit Gerätezertifikaten der internen CA an (Kapitel 11.3.2), der RADIUS-Server weist ihnen VLAN 10 zu. Drucker kommen per MAC-Authentifizierung in VLAN 10. Die Telefone melden sich per MAC-Authentifizierung an und kommen ins Voice-VLAN 30; der PC dahinter meldet sich am selben Port selbst an. Ein unbekanntes Gerät an der Dose des Infobildschirms im Wartezimmer landet im Gäste-VLAN 40 und kommt nur ins Internet. Auf allen Switches läuft DHCP-Snooping, vertrauenswürdig ist nur der Uplink. Das Native VLAN bleibt auf der ungenutzten ID 999 (LF9, Kapitel 9.2.2), an allen Endgeräteports ist die automatische Trunk-Aushandlung aus. Der RADIUS-Server läuft als VM im Stammhaus. Fällt der Tunnel aus, bleiben angemeldete Geräte verbunden; damit sich in Nord und Süd trotzdem jemand neu anmelden kann, lassen die Switches bei nicht erreichbarem Server bekannte Firmengeräte in VLAN 10 zu.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein MAC-Filter reicht, dann kommt niemand ins Netz.“ MAC-Adressen lassen sich mitlesen und am eigenen Gerät einstellen. Port Security und MAC-Authentifizierung sind deshalb nur eine niedrige Hürde; echte Anmeldung leistet 802.1X mit Zertifikat.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Port Security</strong> begrenzt MAC-Adressen je Port; <strong>802.1X</strong> verlangt eine Anmeldung (Supplicant, Switch als Authenticator, RADIUS-Server) und kann das VLAN zuweisen.</li>
+  <li><strong>DHCP-Snooping</strong> sperrt fremde DHCP-Server, gegen <strong>VLAN-Hopping</strong> helfen feste Access-Ports und ein ungenutztes Native VLAN.</li>
+</ul>

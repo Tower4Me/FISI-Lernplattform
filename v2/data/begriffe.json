@@ -1886,6 +1886,10 @@
         {
           "id": "9-7-2",
           "tiefe": "Fehlerbild APIPA"
+        },
+        {
+          "id": "11-4-3",
+          "tiefe": "DHCP-Snooping gegen falsche DHCP-Server"
         }
       ]
     },
@@ -1935,6 +1939,10 @@
         {
           "id": "9-3-4",
           "tiefe": "ARP-Anfrage als Broadcast"
+        },
+        {
+          "id": "11-4-3",
+          "tiefe": "Dynamic ARP Inspection"
         }
       ]
     },
@@ -2012,6 +2020,10 @@
         {
           "id": "9-6-4",
           "tiefe": "Planung, Kanalplan, Gäste-WLAN, Scan auswerten"
+        },
+        {
+          "id": "11-4-4",
+          "tiefe": "Enterprise mit RADIUS, Angriffe"
         }
       ]
     },
@@ -3502,6 +3514,10 @@
         {
           "id": "9-6-4",
           "tiefe": "SSID je VLAN, Trunk zum AP"
+        },
+        {
+          "id": "11-4-3",
+          "tiefe": "VLAN-Hopping, Native VLAN absichern"
         }
       ]
     },
@@ -3571,6 +3587,10 @@
         {
           "id": "9-6-1",
           "tiefe": "NAT-Traversal"
+        },
+        {
+          "id": "11-4-1",
+          "tiefe": "NAT und Port-Weiterleitung ziehen auf die Firewall um"
         }
       ]
     },
@@ -3901,6 +3921,77 @@
         {
           "id": "11-3-2",
           "tiefe": "CSR, ACME, eigene CA, Fehler, Widerruf"
+        },
+        {
+          "id": "11-4-1",
+          "tiefe": "Ersatzzertifikate bei TLS-Inspection"
+        },
+        {
+          "id": "11-4-4",
+          "tiefe": "Gerätezertifikate für EAP-TLS"
+        },
+        {
+          "id": "11-4-3",
+          "tiefe": "Gerätezertifikate für 802.1X am Switch"
+        }
+      ]
+    },
+    {
+      "begriff": "firewall",
+      "kernfakten": [
+        "Paketfilter (zustandslos, je Paket Adressen/Protokoll/Ports), SPI (Zustandstabelle, Antworten automatisch erlaubt), Proxy/Application Level Gateway (Inhalt je Protokoll), NGFW (SPI + Anwendungserkennung, IDS/IPS, Virenprüfung, Benutzerbezug); IDS meldet, IPS blockiert.",
+        "Regelwerk: Quelle, Ziel, Protokoll/Port, Aktion; meist von oben nach unten, erste passende Regel gewinnt; am Ende Default Deny; genaue Regeln oben; auch ausgehenden Verkehr regeln.",
+        "TLS-Inspection: NGFW bricht TLS auf, signiert Ersatzzertifikat mit eigener CA, deren Stammzertifikat auf den Firmengeräten verteilt sein muss; Firewall sieht alle Inhalte; Beschäftigte informieren, Mitbestimmung des Betriebsrats (§ 87 Abs. 1 Nr. 6 BetrVG), private Nutzung rechtlich umstritten, sensible Seiten ausnehmen."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-4-2",
+          "tiefe": "Zugriffslisten am Router als Vorstufe"
+        },
+        {
+          "id": "11-4-1",
+          "tiefe": "Arten, Regelwerk, TLS-Inspection"
+        },
+        {
+          "id": "11-4-2",
+          "tiefe": "Zonen und Regeln der DMZ"
+        }
+      ]
+    },
+    {
+      "begriff": "dmz",
+      "kernfakten": [
+        "DMZ: eigener Netzbereich für von außen erreichbare Systeme (Reverse Proxy, Webserver, Mail-Gateway, VPN-Zugang); von außen nur in die DMZ, aus der DMZ nur eng begrenzte Wege nach innen; schützenswerte Daten bleiben intern.",
+        "Bauformen: eine Firewall mit drei Schnittstellen (günstig) oder zwei Firewalls hintereinander, möglichst verschiedener Hersteller (sicherer)."
+      ],
+      "vorkommen": [
+        {
+          "id": "11-4-2",
+          "tiefe": "Prinzip, Bauformen, Platzierung"
+        }
+      ]
+    },
+    {
+      "begriff": "radius-8021x",
+      "kernfakten": [
+        "IEEE 802.1X: Supplicant (Gerät), Authenticator (Switch/Access Point), Authentication Server (meist RADIUS); Port lässt vor der Anmeldung nur die Anmeldung durch; RADIUS kann VLAN zuweisen; Geräte ohne 802.1X per MAC-Authentifizierung (schwach).",
+        "Port Security begrenzt MAC-Adressen je Port (fälschbar); DHCP-Snooping erlaubt DHCP-Antworten nur von vertrauenswürdigen Ports; Dynamic ARP Inspection; gegen VLAN-Hopping feste Access-Ports ohne Trunk-Aushandlung und Native VLAN auf ungenutzter ID.",
+        "RADIUS (Remote Authentication Dial-In User Service) setzt AAA um (Authentication, Authorization, Accounting), UDP 1812/1813; WPA2/3-Enterprise mit Schlüssel je Sitzung; EAP-TLS (Zertifikat auf Client und Server) am sichersten, PEAP/EAP-TTLS (Kennwort im TLS-Tunnel) nur mit streng geprüftem Serverzertifikat.",
+        "WLAN-Angriffe: Offline-Raten bei WPA2-Personal (WPA3-SAE/Enterprise), Evil Twin (Serverzertifikat prüfen), Rogue AP (802.1X, Erkennung), Deauthentication (PMF 802.11w, bei WPA3 Pflicht), Jamming nicht verhinderbar.",
+        "Anmeldung der Administration an Netzgeräten zentral über RADIUS oder TACACS+; Fallback bei nicht erreichbarem RADIUS-Server an Außenstandorten planen."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-2-2",
+          "tiefe": "dynamische VLAN-Zuordnung nennen"
+        },
+        {
+          "id": "11-4-3",
+          "tiefe": "802.1X am Switch, Port Security, Snooping, VLAN-Hopping"
+        },
+        {
+          "id": "11-4-4",
+          "tiefe": "AAA, EAP-Verfahren, WLAN-Angriffe"
         }
       ]
     }

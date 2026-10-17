@@ -1,0 +1,47 @@
+<p class="lead">Im Praxisverbund funken an drei Standorten Access Points, das interne WLAN nutzt bisher ein gemeinsames Kennwort (WPA3-Personal). Eine ausgeschiedene Aushilfe kennt es noch, und auf mehreren Smartphones des Personals ist es gespeichert. Die Verfahren WPA2 und WPA3 sowie Personal und Enterprise kennst du aus LF3, Kapitel 3.6.2. Jetzt richtest du die Anmeldung je Person ein und schützt das WLAN gegen typische Angriffe.</p>
+
+<h3>AAA mit RADIUS</h3>
+<p>Bei <strong>WPA2- oder WPA3-Enterprise</strong> meldet sich jede Person oder jedes Gerät einzeln an. Der Access Point fragt dafür einen <strong>RADIUS-Server</strong>, wie der Switch bei 802.1X (Kapitel 11.4.3). RADIUS (Remote Authentication Dial-In User Service) setzt das Prinzip <strong>AAA</strong> um:</p>
+<ul>
+  <li><strong>Authentication</strong>: Wer bist du? Prüfung von Zertifikat oder Benutzerdaten, oft gegen den Verzeichnisdienst (LF10b, Kapitel 10.5.1).</li>
+  <li><strong>Authorization</strong>: Was darfst du? Etwa welches VLAN, zu welchen Zeiten.</li>
+  <li><strong>Accounting</strong>: Was hast du getan? Protokoll, wer wann verbunden war.</li>
+</ul>
+<p>RADIUS nutzt UDP 1812 für die Anmeldung und 1813 für das Accounting. Weil die Schlüssel aus der persönlichen Anmeldung entstehen, kann eine Person den Verkehr einer anderen nicht entschlüsseln, auch wenn beide im selben WLAN sind. Bei WPA2-Personal gelingt das jedem, der das gemeinsame Kennwort kennt und den Verbindungsaufbau mitschneidet. Verlässt jemand den Betrieb, sperrst du nur sein Konto.</p>
+
+<h3>Anmeldeverfahren (EAP)</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Verfahren</th><th>Client weist sich aus mit</th><th>Bewertung</th></tr></thead>
+    <tbody>
+      <tr><th>EAP-TLS</th><td>eigenem Zertifikat; der Server ebenfalls</td><td>am sichersten, kein Kennwort; braucht Zertifikate auf allen Geräten (eigene CA)</td></tr>
+      <tr><th>PEAP oder EAP-TTLS</th><td>Benutzername und Kennwort in einem TLS-Tunnel, der Server weist sich mit Zertifikat aus</td><td>einfacher einzuführen; sicher nur, wenn die Geräte das Serverzertifikat streng prüfen</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Angriffe auf WLANs</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Angriff</th><th>Ablauf</th><th>Gegenmaßnahme</th></tr></thead>
+    <tbody>
+      <tr><th>Kennwort durchprobieren</th><td>Bei WPA2-Personal wird ein Verbindungsaufbau mitgeschnitten und das Kennwort offline geraten</td><td>WPA3 (SAE) oder Enterprise; bei Personal sehr langes Kennwort</td></tr>
+      <tr><th>Evil Twin</th><td>Ein gefälschter Access Point mit gleicher SSID lockt Geräte an und fängt Anmeldedaten ab</td><td>Serverzertifikat zentral vorgeben und prüfen lassen; EAP-TLS</td></tr>
+      <tr><th>Rogue Access Point</th><td>Jemand steckt einen eigenen Access Point ins Firmennetz und öffnet eine Hintertür</td><td>802.1X an den Switch-Ports, Erkennung fremder Access Points durch das WLAN-System</td></tr>
+      <tr><th>Deauthentication</th><td>Gefälschte Abmelderahmen trennen Geräte, etwa um einen Verbindungsaufbau mitzuschneiden oder zu stören</td><td>geschützte Verwaltungsrahmen (PMF, IEEE 802.11w), bei WPA3 Pflicht</td></tr>
+      <tr><th>Störsender (Jamming)</th><td>Funkstörung legt das WLAN lahm</td><td>nicht verhinderbar; wichtige Geräte zusätzlich per Kabel</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus stellt das interne WLAN auf WPA3-Enterprise mit EAP-TLS um. Die Firmen-Notebooks und -Tablets bekommen per Geräteverwaltung ein Gerätezertifikat der internen CA und die Vorgabe, nur das Serverzertifikat des eigenen RADIUS-Servers zu akzeptieren. Der RADIUS-Server weist Notebooks und Tablets VLAN 10 zu. Private Smartphones des Personals nutzen künftig das Gäste-WLAN. Das WLAN-System meldet zwei Wochen später einen fremden Access Point mit der SSID „Praxis-Intern“ vor dem Stammhaus; die Geräte verbinden sich nicht, weil er kein passendes Zertifikat hat.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Bei der Zertifikatswarnung im WLAN einfach Verbinden tippen.“ Genau so funktioniert ein Evil Twin: Das Gerät schickt dann Benutzername und eine Antwort an den Angreifer, aus der er das Kennwort oft offline errechnen kann. Bei PEAP muss die Prüfung des Serverzertifikats fest eingestellt sein, nicht dem Nutzer überlassen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>WPA2/3-Enterprise</strong>: Anmeldung je Person oder Gerät über RADIUS (AAA: Authentication, Authorization, Accounting); EAP-TLS mit Zertifikaten ist am sichersten.</li>
+  <li><strong>Angriffe</strong>: Kennwort offline raten (WPA3/Enterprise), Evil Twin (Serverzertifikat prüfen), Rogue AP (802.1X, Erkennung), Deauthentication (PMF).</li>
+</ul>

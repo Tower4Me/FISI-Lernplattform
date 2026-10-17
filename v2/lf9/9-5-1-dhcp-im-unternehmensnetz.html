@@ -694,6 +694,15 @@
             <li><a class="up is-check" data-check="lf11b-11-3" href="../lf11b/11-3-check.html"><span class="num">11.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="../lf11b/11-4-1-firewalls.html"><span class="num">11.4</span><span>Netze absichern</span><span class="kap-progress" data-ids="11-4-1 11-4-2 11-4-3 11-4-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="11-4-1" href="../lf11b/11-4-1-firewalls.html"><span class="num">11.4.1</span><span class="t">Firewalls</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-4-2" href="../lf11b/11-4-2-dmz.html"><span class="num">11.4.2</span><span class="t">DMZ</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-4-3" href="../lf11b/11-4-3-switches-absichern.html"><span class="num">11.4.3</span><span class="t">Switches absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="11-4-4" href="../lf11b/11-4-4-wlan-absichern.html"><span class="num">11.4.4</span><span class="t">WLAN im Unternehmen absichern</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf11b-11-4" href="../lf11b/11-4-check.html"><span class="num">11.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="../lf11b/rueckblick.html"><span class="num">11b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -744,7 +753,7 @@
   <p>Im Stammhaus vergibt der Server 10.10.0.147 die Adressen für alle VLANs; das Relay auf dem Kern-Switch zeigt auf ihn. Die Router in Nord und Süd sind selbst DHCP-Server für ihre Netze, damit die Praxis bei einem Tunnelausfall weiterarbeiten kann (Anforderung aus Kapitel 9.1.1). Im Gäste-VLAN in Nord gilt: Pool 10.20.0.10 bis 10.20.0.62, Gateway 10.20.0.1, öffentlicher DNS-Server statt des internen, Lease-Zeit zwei Stunden. Die internen VLANs in Nord bekommen den Router als DNS-Server (Kapitel 9.5.2).</p>
 </div>
 
-<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie Switches fremde DHCP-Server mit DHCP-Snooping aussperren, wird in LF11b ausführlicher behandelt.</p></aside>
+<aside class="note note-vertiefung"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>Vertiefung</p><p>Wie Switches fremde DHCP-Server mit DHCP-Snooping aussperren, wird in <a href="../lf11b/11-4-3-switches-absichern.html">LF11b, Kapitel 11.4.3</a> ausführlicher behandelt.</p></aside>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Das Relay leitet die Anfrage einfach als Broadcast ins Servernetz weiter.“ Nein: Das Relay schickt sie als Unicast direkt an die eingetragene Serveradresse und vermerkt das Netz, aus dem sie kommt.</p></aside>
 

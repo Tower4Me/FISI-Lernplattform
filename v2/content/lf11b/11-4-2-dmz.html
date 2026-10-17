@@ -1,0 +1,36 @@
+<p class="lead">Der Reverse Proxy der Termin-App nimmt Anfragen aus dem ganzen Internet an (LF9, Kapitel 9.5.4). Bisher steht er im Server-VLAN neben der Datenbank. Findet ein Angreifer eine Lücke im Proxy, sitzt er mitten im internen Netz. Eine <strong>DMZ</strong> (demilitarisierte Zone) verhindert das: ein eigener Netzbereich für Systeme, die von außen erreichbar sein müssen, getrennt vom Internet und vom internen Netz.</p>
+
+<h3>Das Prinzip</h3>
+<p>Die Firewall regelt den Verkehr zwischen drei Zonen. Grundregel: Von außen darf man nur in die DMZ, nie direkt ins interne Netz. Aus der DMZ darf nur das ins interne Netz, was der Dienst zwingend braucht.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>von \ nach</th><th>Internet</th><th>DMZ</th><th>internes Netz</th></tr></thead>
+    <tbody>
+      <tr><th>Internet</th><td>–</td><td>nur die veröffentlichten Dienste, etwa TCP 443 zum Proxy</td><td>gesperrt</td></tr>
+      <tr><th>DMZ</th><td>nur Nötiges, etwa Updates</td><td>–</td><td>nur einzelne Ziele und Ports, etwa Proxy zur Web-API</td></tr>
+      <tr><th>internes Netz</th><td>nach Regelwerk</td><td>Verwaltung der DMZ-Systeme</td><td>–</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Wird ein System in der DMZ übernommen, kommt der Angreifer von dort nur über die wenigen erlaubten Wege weiter, und die Firewall protokolliert jeden Versuch.</p>
+
+<h3>Bauformen</h3>
+<ul>
+  <li><strong>Eine Firewall mit drei Schnittstellen</strong> (Internet, DMZ, intern): günstig und für kleinere Betriebe üblich. Wird die Firewall selbst überwunden, fällt der Schutz für beide Zonen.</li>
+  <li><strong>Zwei hintereinander geschaltete Firewalls</strong>, die DMZ liegt dazwischen: Ein Angreifer muss zwei Systeme überwinden, besonders sicher, wenn sie von verschiedenen Herstellern stammen. Teurer und aufwendiger.</li>
+</ul>
+
+<h3>Was in die DMZ gehört</h3>
+<p>In die DMZ gehören Systeme, die direkt aus dem Internet angesprochen werden: Reverse Proxy, öffentlicher Webserver, Mail-Gateway, das Mails annimmt und prüft, VPN-Zugänge. Daten mit hohem Schutzbedarf wie die Praxisdatenbank gehören nicht hinein; der Dienst in der DMZ holt sich nur, was er braucht, über eine eng erlaubte Verbindung.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Systemhaus richtet an der neuen Firewall im Stammhaus eine dritte Schnittstelle für die DMZ ein: VLAN 70 mit 10.10.0.160/28 aus dem freien Bereich des Adressplans (LF9, Kapitel 9.3.1). Der Reverse Proxy läuft weiter als VM auf den Hosts aus LF10b, Kapitel 10.1.2; die Hosts bekommen VLAN 70 nur für diese VM, ihre Adresse wechselt von 10.10.0.149 auf 10.10.0.162. Die Adressen der übrigen Server bleiben hier zur Übersicht die aus LF9. Erlaubt sind nur: Internet zum Proxy auf TCP 443 (die Weiterleitung von 198.51.100.10:443 zeigt jetzt auf 10.10.0.162), Proxy zur Web-API 10.10.0.148 auf TCP 443, Proxy ins Internet auf TCP 443 für Updates und die ACME-Erneuerung (Kapitel 11.3.2) mit DNS über einen öffentlichen Resolver, Verwaltung aus dem Management-VLAN 99 zum Proxy per SSH. Die Web-API bleibt im Server-VLAN; aus der DMZ darf nur sie angesprochen werden, nicht die Datenbank. Ein Test von der DMZ aus zeigt: Der Proxy erreicht weder die Datenbank noch die PCs der Verwaltung.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Webserver steht in der DMZ, also kann er auch die Datenbank direkt abfragen.“ Genau diese Verbindung soll die DMZ verhindern oder auf das Nötigste beschränken. Die Datenbank bleibt intern, und zwischen DMZ und intern erlaubt die Firewall nur einzelne, begründete Wege.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>DMZ</strong>: eigener Netzbereich für Systeme, die von außen erreichbar sind; von außen nur in die DMZ, aus der DMZ nur eng begrenzte Wege nach innen.</li>
+  <li><strong>Bauformen</strong>: eine Firewall mit drei Schnittstellen (günstig) oder zwei Firewalls hintereinander (sicherer); schützenswerte Daten bleiben im internen Netz.</li>
+</ul>

@@ -6330,6 +6330,115 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "11.4",
+          "titel": "Netze absichern",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "11.4.1",
+              "titel": "Firewalls",
+              "slug": "firewalls",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 3 (Proxy mit TLS-Inspection, Root-Zertifikat verteilen)",
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 1 (SPI, Firewall-Regeln für Web- und Mailserver)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 3 (SPI und Paketfilter, Regelwerk mit Ports, NGFW-Funktionen)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium NET.3.2 Firewall; RFC 9293 (TCP-Verbindungszustände); § 87 Abs. 1 Nr. 6 BetrVG (gesetze-im-internet.de)"
+                ]
+              },
+              "material": [
+                "firewall-funktionen"
+              ],
+              "begriffe": [
+                "firewall",
+                "zertifikat-pki",
+                "nat"
+              ]
+            },
+            {
+              "nummer": "11.4.2",
+              "titel": "DMZ",
+              "slug": "dmz",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 3 (DMZ erklären, Server zwischen DMZ und LAN aufteilen)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 2 (DMZ)"
+                ],
+                "extern": [
+                  "BSI IT-Grundschutz-Kompendium NET.1.1 Netzarchitektur und -design (P-A-P-Struktur, DMZ)"
+                ]
+              },
+              "material": [
+                "firewall-dmz"
+              ],
+              "begriffe": [
+                "dmz",
+                "firewall"
+              ]
+            },
+            {
+              "nummer": "11.4.3",
+              "titel": "Switches absichern",
+              "slug": "switches-absichern",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 2 (Port Security und 802.1X)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 1 (Native VLAN, VLAN-Hopping, Switch-Management absichern)"
+                ],
+                "extern": [
+                  "IEEE 802.1X-2020; RFC 3580 (802.1X mit RADIUS, VLAN-Zuweisung); BSI IT-Grundschutz-Kompendium NET.3.1 Router und Switches"
+                ]
+              },
+              "material": [
+                "aaa-radius-tacacs"
+              ],
+              "begriffe": [
+                "radius-8021x",
+                "vlan",
+                "dhcp",
+                "arp",
+                "zertifikat-pki"
+              ]
+            },
+            {
+              "nummer": "11.4.4",
+              "titel": "WLAN im Unternehmen absichern",
+              "slug": "wlan-absichern",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 2 (AAA, RADIUS statt PSK)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 1 (WPA2/3-Enterprise mit Vorteilen)"
+                ],
+                "extern": [
+                  "RFC 2865 und 2866 (RADIUS, UDP 1812/1813); RFC 5216 (EAP-TLS); IEEE 802.11w (PMF); Wi-Fi Alliance WPA3 Specification; BSI IT-Grundschutz-Kompendium NET.2.1 WLAN-Betrieb und NET.2.2 WLAN-Nutzung"
+                ]
+              },
+              "material": [
+                "aaa-radius-tacacs"
+              ],
+              "begriffe": [
+                "radius-8021x",
+                "wlan",
+                "zertifikat-pki"
+              ]
+            }
+          ]
         }
       ]
     }

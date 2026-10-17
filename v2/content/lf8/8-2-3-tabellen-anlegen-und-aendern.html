@@ -48,7 +48,8 @@ CREATE TABLE impfung (
   FOREIGN KEY (tier_id) REFERENCES tier (tier_id),
   FOREIGN KEY (impfstoff_id) REFERENCES impfstoff (impfstoff_id)
 );</code></pre>
-<p>Je Spalte stehen Name, Datentyp und Constraints (Kapitel 8.2.1). Ein Primärschlüssel aus einer Spalte kann direkt hinter ihr stehen; ein zusammengesetzter Schlüssel muss als eigene Zeile <code>PRIMARY KEY (…)</code> am Ende. Die Tabelle <code>impfstoff</code> legst du vor <code>impfung</code> an, denn ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Ebenso kommt <code>besitzer</code> vor <code>tier</code>.</p>
+<p>Je Spalte stehen Name, Datentyp und Constraints (Kapitel 8.2.1). Ein Primärschlüssel aus einer Spalte kann direkt hinter ihr stehen; ein zusammengesetzter Schlüssel steht als eigene Angabe <code>PRIMARY KEY (…)</code>, üblicherweise am Ende. Die Tabelle <code>impfstoff</code> legst du vor <code>impfung</code> an, denn ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Ebenso kommt <code>besitzer</code> vor <code>tier</code>.</p>
+<p>Wo die Fremdschlüssel stehen, folgt aus den Kardinalitäten (LF5, Kapitel 5.3.2 und 5.3.3): Besitzer zu Tier ist 1:n, deshalb steht der Fremdschlüssel in <code>tier</code>. Tier zu Impfstoff ist n:m, deshalb gibt es die Zwischentabelle <code>impfung</code>.</p>
 
 <h3>Referenzielle Integrität</h3>
 <p>Mit <code>FOREIGN KEY … REFERENCES</code> prüft das DBMS die <strong>referenzielle Integrität</strong>: Ein Tier mit einer Besitzernummer, die es nicht gibt, lässt sich nicht speichern. Was beim Löschen einer Besitzerin mit Tieren passiert, legst du mit einer Regel fest:</p>
@@ -66,8 +67,8 @@ CREATE TABLE impfung (
 
 <h3>Ändern und löschen</h3>
 <pre><code>ALTER TABLE tier ADD COLUMN chipnummer CHAR(15) UNIQUE;
-ALTER TABLE tier DROP COLUMN geburtsdatum;
-DROP TABLE impfung;</code></pre>
+ALTER TABLE impfstoff DROP COLUMN hersteller;
+DROP TABLE impfliste_alt;</code></pre>
 <p><code>ALTER TABLE</code> ändert die Struktur einer bestehenden Tabelle, etwa um eine Spalte hinzuzufügen oder zu entfernen. <code>DROP TABLE</code> löscht die Tabelle mitsamt allen Daten. Rückgängig machen lässt sich das meist nicht; sichere die Daten vorher.</p>
 
 <div class="beispiel">

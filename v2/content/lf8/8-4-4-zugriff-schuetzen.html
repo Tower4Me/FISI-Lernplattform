@@ -37,9 +37,9 @@ GRANT leitung TO auswertung;</code></pre>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Für den Verbund legt die Auszubildende vier Konten an: <code>etl_import</code> darf in die Tabellen einfügen und ändern, aber nichts löschen; <code>auswertung</code> darf nur Sichten lesen; <code>api_dienst</code> darf nur die Impfdaten lesen, die die App braucht; die Administration hat ein persönliches Konto pro Person. Jede Nacht erzeugt das DBMS einen verschlüsselten Abzug, der auf das NAS und wöchentlich außer Haus kopiert wird. Einmal im Quartal stellt sie einen Abzug probehalber auf dem Testserver wieder her.</p>
+  <p>Für den Verbund legt die Auszubildende vier Konten an: <code>etl_import</code> darf in die Tabellen einfügen und ändern, aber nichts löschen; <code>auswertung</code> darf nur Sichten lesen; <code>api_dienst</code> darf nur die Impfdaten lesen, die die App braucht; die Administration hat ein persönliches Konto pro Person. Jede Nacht erzeugt das DBMS einen verschlüsselten Abzug, der auf das NAS (LF2, Kapitel 2.2.4) und wöchentlich außer Haus kopiert wird. Einmal im Quartal stellt sie einen Abzug probehalber auf dem Testserver wieder her.</p>
 </div>
 
 <aside class="note" data-typ="fehler"><p>„Pseudonymisierte Daten sind keine personenbezogenen Daten mehr.“ Doch: Wer die getrennt gespeicherte Zuordnung hat, kann den Bezug wiederherstellen; für ihn gilt die DSGVO weiter. Erst anonymisierte Daten fallen heraus.</p></aside>
 
-<p class="merksatz">Mit GRANT und REVOKE vergibst du minimale Rechte an Konten und Rollen; Pseudonymisierung, Verschlüsselung bei Übertragung und Speicherung, Protokollierung und konsistente, getestete Sicherungen schützen die zusammengeführten Daten.</p>
+<p class="merksatz">Jedes Konto bekommt mit GRANT nur die nötigen Rechte, am besten über Rollen. Verschlüsselung, Protokolle und getestete Sicherungen schützen den Bestand.</p>

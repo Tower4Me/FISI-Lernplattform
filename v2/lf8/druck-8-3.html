@@ -555,7 +555,7 @@
 <p>Die Abfragen in diesem Kapitel arbeiten mit einem kleinen Ausschnitt der zentralen Datenbank:</p>
 <div class="vergleich">
   <table>
-    <caption>Tabelle tier</caption>
+    <caption>Tabelle tier (Nummern zentral vergeben)</caption>
     <thead><tr><th>tier_id</th><th>name</th><th>tierart</th><th>geburtsdatum</th><th>gewicht_kg</th><th>besitzer_id</th></tr></thead>
     <tbody>
       <tr><th>10</th><td>Mimi</td><td>Katze</td><td>2019-05-14</td><td>4.20</td><td>1</td></tr>
@@ -634,7 +634,7 @@ LIMIT 2;</code></pre>
     </tbody>
   </table>
 </div>
-<p>Felder ohne Wert (<code>NULL</code>) lassen die Funktionen aus. Deshalb teilt <code>AVG</code> hier durch 4, nicht durch 5. Mit <code>WHERE</code> kannst du vorher filtern: <code>SELECT COUNT(*) FROM tier WHERE tierart = 'Hund'</code> ergibt 3.</p>
+<p>Felder ohne Wert (<code>NULL</code>) lassen die Funktionen aus. Deshalb teilt <code>AVG</code> hier durch 4, nicht durch 5. Mit <code>WHERE</code> kannst du vorher filtern: <code>SELECT COUNT(*) FROM tier WHERE tierart = 'Hund'</code> ergibt 3. Mehrere Bedingungen verknüpfst du mit <code>AND</code>: <code>SELECT COUNT(*) FROM tier WHERE tierart = 'Hund' AND geburtsdatum &gt;= '2020-01-01'</code> ergibt 2 (Luna, Rocky). <code>COUNT(DISTINCT tierart)</code> zählt verschiedene Werte und ergibt 3.</p>
 
 <h3 id="u8-3-2-gruppieren-mit-group-by">Gruppieren mit GROUP BY<a class="anchor" href="#u8-3-2-gruppieren-mit-group-by" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Mit <code>GROUP BY</code> bildet das DBMS für jeden Wert einer Spalte eine Gruppe und rechnet die Aggregatfunktion je Gruppe:</p>
@@ -674,7 +674,7 @@ FROM impfung
 WHERE datum BETWEEN '2025-01-01' AND '2025-12-31'
 GROUP BY impfstoff_id
 ORDER BY anzahl DESC;</code></pre>
-  <p>Ergebnis mit den Daten aus Kapitel 8.3.3: Impfstoff 3 viermal, Impfstoff 5 und 7 je einmal. Statt der Nummer soll später die Bezeichnung des Impfstoffs erscheinen. Dafür brauchst du eine zweite Tabelle im selben Ergebnis (Kapitel 8.3.3).</p>
+  <p>Ergebnis mit den Daten aus Kapitel 8.3.3: Impfstoff 3 viermal, Impfstoff 5, 6 und 7 je einmal. Statt der Nummer soll später die Bezeichnung des Impfstoffs erscheinen. Dafür brauchst du eine zweite Tabelle im selben Ergebnis (Kapitel 8.3.3).</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„<code>WHERE COUNT(*) &gt;= 2</code> zeigt nur Tierarten mit mindestens zwei Tieren.“ Das ist ein Fehler: Wenn <code>WHERE</code> ausgewertet wird, gibt es die Gruppen noch nicht. Bedingungen auf Aggregate gehören in <code>HAVING</code>.</p></aside>
@@ -692,8 +692,8 @@ ORDER BY anzahl DESC;</code></pre>
     <tbody>
       <tr><th>1</th><td>Weber</td><td>Leipzig</td></tr>
       <tr><th>2</th><td>Yilmaz</td><td>Halle</td></tr>
-      <tr><th>7</th><td>Schäfer</td><td>Rosenheim</td></tr>
-      <tr><th>8</th><td>Brandt</td><td>Rosenheim</td></tr>
+      <tr><th>7</th><td>Schäfer</td><td>Borna</td></tr>
+      <tr><th>8</th><td>Brandt</td><td>Borna</td></tr>
     </tbody>
   </table>
 </div>
@@ -705,6 +705,7 @@ ORDER BY anzahl DESC;</code></pre>
     <tbody>
       <tr><th>3</th><td>Tollwut</td></tr>
       <tr><th>5</th><td>Staupe</td></tr>
+      <tr><th>6</th><td>Katzenschnupfen</td></tr>
       <tr><th>7</th><td>RHD</td></tr>
       <tr><th>8</th><td>Katzenseuche</td></tr>
     </tbody>
@@ -716,6 +717,7 @@ ORDER BY anzahl DESC;</code></pre>
     <thead><tr><th>tier_id</th><th>impfstoff_id</th><th>datum</th></tr></thead>
     <tbody>
       <tr><th>10</th><td>3</td><td>2025-04-02</td></tr>
+      <tr><th>10</th><td>6</td><td>2025-04-02</td></tr>
       <tr><th>11</th><td>3</td><td>2025-06-20</td></tr>
       <tr><th>12</th><td>7</td><td>2025-02-11</td></tr>
       <tr><th>31</th><td>3</td><td>2025-03-04</td></tr>
@@ -776,7 +778,7 @@ WHERE gewicht_kg &gt; (SELECT AVG(gewicht_kg) FROM tier);</code></pre>
 <pre><code>SELECT bezeichnung
 FROM impfstoff
 WHERE impfstoff_id NOT IN (SELECT impfstoff_id FROM impfung);</code></pre>
-<p>Die innere Abfrage liefert alle Impfstoffnummern, die schon verwendet wurden (3, 5, 7). Ergebnis: Katzenseuche, der einzige Impfstoff ohne Impfung. Dieselbe Frage lässt sich auch mit einem <code>LEFT JOIN</code> und <code>IS NULL</code> beantworten (Kapitel 8.3.3); beide Wege sind üblich.</p>
+<p>Die innere Abfrage liefert alle Impfstoffnummern, die schon verwendet wurden (3, 5, 6, 7). Ergebnis: Katzenseuche, der einzige Impfstoff ohne Impfung. Dieselbe Frage lässt sich auch mit einem <code>LEFT JOIN</code> und <code>IS NULL</code> beantworten (Kapitel 8.3.3); beide Wege sind üblich.</p>
 <p>Daneben gibt es <code>EXISTS</code>: Es prüft für jede Zeile der äußeren Abfrage, ob die Unterabfrage mindestens eine Zeile liefert. Die Unterabfrage bezieht sich dazu auf die äußere Zeile:</p>
 <pre><code>SELECT name
 FROM besitzer b
@@ -795,7 +797,7 @@ INNER JOIN impfstoff s ON i.impfstoff_id = s.impfstoff_id;
 SELECT tierart, COUNT(*) AS anzahl
 FROM impfungen_je_art
 GROUP BY tierart;</code></pre>
-<p>Ergebnis: Hund 4, Kaninchen 1, Katze 1.</p>
+<p>Ergebnis: Hund 4, Kaninchen 1, Katze 2.</p>
 <p>Sichten haben drei Vorteile:</p>
 <ul>
   <li><strong>Einfacher:</strong> Wer auswertet, muss die Verknüpfungen nicht kennen.</li>
@@ -816,7 +818,7 @@ GROUP BY tierart;</code></pre>
 </ul></div>
 </section>
 <section class="print-up" id="u-8-3-5"><h2><span class="num">8.3.5</span> Daten ändern und Transaktionen</h2>
-<p class="lead">Beim Prüfen der Datenqualität (Kapitel 8.1.4) ist eine Dublette aufgefallen: Frau Yilmaz steht in der zentralen Datenbank zweimal, als Nummer 2 aus der Praxissoftware des Stammhauses und als Nummer 9 vom Standort Nord. Unter Nummer 9 sind zwei ihrer Tiere eingetragen, die nicht zum Ausschnitt aus Kapitel 8.3.1 gehören. Du sollst die beiden Einträge zusammenführen. Dafür fügst du Daten ein, änderst und löschst sie und sorgst dafür, dass dabei nichts halb erledigt bleibt.</p>
+<p class="lead">Beim Prüfen der Datenqualität (Kapitel 8.1.4) ist eine Dublette aufgefallen: Frau Yilmaz steht in der zentralen Datenbank zweimal, unter der zentralen Nummer 2 (Datensatz aus dem Stammhaus) und der zentralen Nummer 9 (Datensatz vom Standort Nord). Unter Nummer 9 sind zwei ihrer Tiere eingetragen, die nicht zum Ausschnitt aus Kapitel 8.3.1 gehören. Du sollst die beiden Einträge zusammenführen. Dafür fügst du Daten ein, änderst und löschst sie und sorgst dafür, dass dabei nichts halb erledigt bleibt.</p>
 
 <h3 id="u8-3-5-einfuegen-aendern-loeschen">Einfügen, ändern, löschen<a class="anchor" href="#u8-3-5-einfuegen-aendern-loeschen" aria-hidden="true" tabindex="-1">#</a></h3>
 <pre><code>INSERT INTO besitzer (besitzer_id, name, ort, telefon)
@@ -863,7 +865,7 @@ COMMIT;</code></pre>
   <p>Die Auszubildende führt zuerst <code>SELECT * FROM tier WHERE besitzer_id = 9</code> aus und sieht zwei Tiere. Dann startet sie die Transaktion. Das <code>UPDATE</code> meldet „2 Zeilen geändert“, das <code>DELETE</code> „1 Zeile gelöscht“. Beides passt zur Erwartung, also schließt sie mit <code>COMMIT</code> ab. Hätte das <code>UPDATE</code> 200 Zeilen gemeldet, hätte sie mit <code>ROLLBACK</code> abgebrochen.</p>
 </div>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>INSERT fügt ein, UPDATE ändert und DELETE löscht, immer mit passender WHERE-Bedingung; eine Transaktion bündelt zusammengehörige Befehle, die mit COMMIT gemeinsam gelten oder mit ROLLBACK gemeinsam verworfen werden (ACID).</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>INSERT fügt ein, UPDATE ändert, DELETE löscht; UPDATE und DELETE nie ohne WHERE. Eine Transaktion lässt zusammengehörige Befehle mit COMMIT gemeinsam gelten oder mit ROLLBACK gemeinsam verfallen.</p></div>
 </section>
 </div>
 </main>

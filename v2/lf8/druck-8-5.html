@@ -549,7 +549,7 @@
 </header>
 <div class="content">
 <section class="print-up" id="u-8-5-1"><h2><span class="num">8.5.1</span> Versionsverwaltung mit Git</h2>
-<p class="lead">An der zentralen Datenbank arbeiten drei Leute: die Auszubildende schreibt das Importskript, ein Kollege die Sichten und Auswertungen, eine Kollegin im Homeoffice die Web-API. Alle ändern Dateien im selben Projekt. Ohne Ordnung überschreibt bald jemand die Arbeit eines anderen, und niemand weiß mehr, welcher Stand läuft. Eine <strong>Versionsverwaltung</strong> verhindert das.</p>
+<p class="lead">An der zentralen Datenbank arbeiten drei Leute. Die Auszubildende hat Modell, Sichten und API-Entwurf erstellt und schreibt das Importskript, ein Kollege baut die Auswertungen, eine Kollegin im Homeoffice programmiert die Web-API. Alle ändern Dateien im selben Projekt. Ohne Ordnung überschreibt bald jemand die Arbeit eines anderen, und niemand weiß mehr, welcher Stand läuft. Eine <strong>Versionsverwaltung</strong> verhindert das.</p>
 
 <h3 id="u8-5-1-was-eine-versionsverwaltung-leistet">Was eine Versionsverwaltung leistet<a class="anchor" href="#u8-5-1-was-eine-versionsverwaltung-leistet" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
@@ -585,7 +585,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Nach einer Änderung am Importskript fehlen in der Nacht plötzlich alle Laborwerte. Mit <code>git log</code> findet die Auszubildende den Commit vom Vortag, „Labor-CSV: Trennzeichen auf Komma“. Das Labor liefert aber weiterhin Semikolon. Sie nimmt die Änderung mit einem neuen Commit zurück (<code>git revert</code>) und stellt ihn als Pull Request (Kapitel 8.5.2). Nach kurzer Prüfung wird er übernommen, und der nächste Lauf übernimmt die Werte wieder.</p>
+  <p>Nach einer Änderung am Importskript fehlen seit dem Vormittag alle neuen Laborwerte. Mit <code>git log</code> findet die Auszubildende den Commit vom Vortag, „Labor-CSV: Trennzeichen auf Komma“. Das Labor liefert aber weiterhin Semikolon. Sie nimmt die Änderung mit einem neuen Commit zurück (<code>git revert</code>) und stellt ihn als Pull Request (Kapitel 8.5.2). Nach kurzer Prüfung wird er übernommen, und der nächste Lauf übernimmt die Werte wieder.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Git ist dasselbe wie eine Datensicherung.“ Git verwaltet die Stände von Quelltext und Konfiguration, die bewusst committet wurden. Datenbanken, Nutzerdaten und alles, was nicht committet ist, sichert es nicht. Die Datensicherung bleibt nötig.</p></aside>
@@ -637,10 +637,10 @@
 
 <aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Ein Code-Review lohnt sich nicht nur bei Anfängern. Auch erfahrene Entwickler übersehen Fehler in ihrem eigenen Code. Das Review dient außerdem dazu, dass das Wissen nicht an einer Person hängt.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Ortsunabhängig arbeitet ein Team über Tickets, Branches und Pull Requests mit automatischen Tests und Code-Review; Werkzeuge wählst du nach Funktion, Datenschutz, Kosten und Vorwissen, Absprachen stehen schriftlich im Ticket.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Ein verteiltes Team arbeitet über Tickets, Branches und Pull Requests. Nichts kommt ohne automatische Tests und Code-Review in main.</p></div>
 </section>
 <section class="print-up" id="u-8-5-3"><h2><span class="num">8.5.3</span> Dokumentation zur Handhabung</h2>
-<p class="lead">Das Systemhaus übergibt die zentrale Datenbank an den Praxisverbund und betreibt sie weiter. Nachts und am Wochenende übernimmt ein Partnerunternehmen des Systemhauses die Bereitschaft; dessen Techniker sprechen teils kein Deutsch. Wenn nachts der Import abbricht, muss er ohne Rückfrage verstehen, was das System tut und was zu tun ist. Das leistet eine Dokumentation zur Handhabung.</p>
+<p class="lead">Das Systemhaus übergibt die zentrale Datenbank an den Praxisverbund und betreibt sie weiter. Nachts und am Wochenende übernimmt ein Partnerunternehmen des Systemhauses die Bereitschaft; dessen Techniker sprechen teils kein Deutsch. Wenn nachts der Import abbricht, muss der Techniker in Bereitschaft ohne Rückfrage verstehen, was das System tut und was zu tun ist. Das leistet eine Dokumentation zur Handhabung.</p>
 
 <h3 id="u8-5-3-was-in-die-uebergabedokumentation-gehoert">Was in die Übergabedokumentation gehört<a class="anchor" href="#u8-5-3-was-in-die-uebergabedokumentation-gehoert" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Die Arten der Dokumentation kennst du aus LF5, Kapitel 5.5.3. Die Übergabedokumentation für den Betrieb ist technische Dokumentation; die Anleitung für die Praxisleitung ist Benutzerdokumentation. Für den Betrieb kommt es auf diese Inhalte an:</p>
@@ -694,7 +694,7 @@ directly in the central database.</code></pre>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Die Dokumentation schreibe ich am Ende in einem Rutsch.“ Dann sind viele Entscheidungen schon vergessen. Halte Installation, Konfiguration und Fehlerlösungen fest, während du sie erarbeitest, und überarbeite sie zur Übergabe.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Die Übergabedokumentation beschreibt Zweck, Installation, Konfiguration ohne Zugangsdaten, Betrieb, Fehlerbehebung, Sicherung, Datenschutz und Ansprechpartner, bei Bedarf auf Englisch in kurzen, eindeutigen Sätzen, und wird von einer unbeteiligten Person getestet.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Die Übergabedokumentation erklärt Zweck, Einrichtung, Betrieb, Fehlerbehebung und Wiederherstellung, nie aber die Zugangsdaten selbst. Eine unbeteiligte Person testet sie.</p></div>
 </section>
 <section class="print-up" id="u-8-5-4"><h2><span class="num">8.5.4</span> Werkzeuge und Ergebnis reflektieren</h2>
 <p class="lead">Die zentrale Datenbank läuft, die Praxisleitung hat ihre erste Auswertung. Bevor das Projekt abgeschlossen wird, schaut das Team zurück: Hat das Ergebnis gehalten, was vereinbart war? Welche Werkzeuge und Vorgehensweisen haben geholfen, welche nicht? Was davon nimmt das Systemhaus in das nächste Projekt mit?</p>

@@ -544,7 +544,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF8</a></li><li><a href="index.html#k-8-2">8.2 Datenbanken mit SQL anlegen</a></li><li aria-current="page">8.2.3</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">8.2.3</span>Tabellen anlegen und ändern</h1>
-  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="8-2-3">
 <p class="lead">Das Tabellenmodell steht. Jetzt legst du die Tabellen in der zentralen Datenbank an. Dafür schreibst du SQL-Befehle, statt dich durch eine Oberfläche zu klicken. Die Befehle lassen sich speichern, prüfen und auf dem Test- und dem echten Server gleich ausführen.</p>
@@ -597,7 +597,8 @@ CREATE TABLE impfung (
   FOREIGN KEY (tier_id) REFERENCES tier (tier_id),
   FOREIGN KEY (impfstoff_id) REFERENCES impfstoff (impfstoff_id)
 );</code></pre>
-<p>Je Spalte stehen Name, Datentyp und Constraints (Kapitel 8.2.1). Ein Primärschlüssel aus einer Spalte kann direkt hinter ihr stehen; ein zusammengesetzter Schlüssel muss als eigene Zeile <code>PRIMARY KEY (…)</code> am Ende. Die Tabelle <code>impfstoff</code> legst du vor <code>impfung</code> an, denn ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Ebenso kommt <code>besitzer</code> vor <code>tier</code>.</p>
+<p>Je Spalte stehen Name, Datentyp und Constraints (Kapitel 8.2.1). Ein Primärschlüssel aus einer Spalte kann direkt hinter ihr stehen; ein zusammengesetzter Schlüssel steht als eigene Angabe <code>PRIMARY KEY (…)</code>, üblicherweise am Ende. Die Tabelle <code>impfstoff</code> legst du vor <code>impfung</code> an, denn ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Ebenso kommt <code>besitzer</code> vor <code>tier</code>.</p>
+<p>Wo die Fremdschlüssel stehen, folgt aus den Kardinalitäten (LF5, Kapitel 5.3.2 und 5.3.3): Besitzer zu Tier ist 1:n, deshalb steht der Fremdschlüssel in <code>tier</code>. Tier zu Impfstoff ist n:m, deshalb gibt es die Zwischentabelle <code>impfung</code>.</p>
 
 <h3 id="referenzielle-integritaet">Referenzielle Integrität<a class="anchor" href="#referenzielle-integritaet" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Mit <code>FOREIGN KEY … REFERENCES</code> prüft das DBMS die <strong>referenzielle Integrität</strong>: Ein Tier mit einer Besitzernummer, die es nicht gibt, lässt sich nicht speichern. Was beim Löschen einer Besitzerin mit Tieren passiert, legst du mit einer Regel fest:</p>
@@ -615,8 +616,8 @@ CREATE TABLE impfung (
 
 <h3 id="aendern-und-loeschen">Ändern und löschen<a class="anchor" href="#aendern-und-loeschen" aria-hidden="true" tabindex="-1">#</a></h3>
 <pre><code>ALTER TABLE tier ADD COLUMN chipnummer CHAR(15) UNIQUE;
-ALTER TABLE tier DROP COLUMN geburtsdatum;
-DROP TABLE impfung;</code></pre>
+ALTER TABLE impfstoff DROP COLUMN hersteller;
+DROP TABLE impfliste_alt;</code></pre>
 <p><code>ALTER TABLE</code> ändert die Struktur einer bestehenden Tabelle, etwa um eine Spalte hinzuzufügen oder zu entfernen. <code>DROP TABLE</code> löscht die Tabelle mitsamt allen Daten. Rückgängig machen lässt sich das meist nicht; sichere die Daten vorher.</p>
 
 <div class="beispiel">

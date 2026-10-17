@@ -7,14 +7,15 @@
 <h3>Ausgangslage</h3>
 <div class="vergleich">
   <table>
-    <caption>Liste Standort Süd (nicht normalisiert)</caption>
+    <caption>Liste Standort Süd (nicht normalisiert, Nummern des Standorts)</caption>
     <thead><tr><th>tier_id</th><th>tiername</th><th>besitzer_id</th><th>besitzer_name</th><th>besitzer_ort</th><th>impfungen</th></tr></thead>
     <tbody>
-      <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3 Tollwut 2025-03-04, 5 Staupe 2025-03-04</td></tr>
-      <tr><th>32</th><td>Rocky</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3 Tollwut 2025-05-12</td></tr>
+      <tr><th>14</th><td>Luna</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3 Tollwut 2025-03-04, 5 Staupe 2025-03-04</td></tr>
+      <tr><th>15</th><td>Rocky</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3 Tollwut 2025-05-12</td></tr>
     </tbody>
   </table>
 </div>
+<p>Die Nummern stammen aus der Liste des Standorts; beim Übernehmen vergibt die zentrale Datenbank eigene (Kapitel 8.4.1). Schon diese zwei Zeilen zeigen die drei Anomalien: Zieht Frau Schäfer um, muss ihr Ort in jeder Zeile geändert werden (Änderungsanomalie). Eine neue Besitzerin ohne Tier lässt sich gar nicht eintragen (Einfügeanomalie). Wird Rocky gelöscht und war er ihr einziges Tier, wären auch ihre Daten weg (Löschanomalie).</p>
 
 <div class="reiter" data-reiter>
   <div class="reiter-panel" data-label="1. Normalform">
@@ -24,9 +25,9 @@
       <table>
         <thead><tr><th>tier_id</th><th>tiername</th><th>besitzer_id</th><th>besitzer_name</th><th>besitzer_ort</th><th>impfstoff_id</th><th>bezeichnung</th><th>datum</th></tr></thead>
         <tbody>
-          <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3</td><td>Tollwut</td><td>2025-03-04</td></tr>
-          <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>5</td><td>Staupe</td><td>2025-03-04</td></tr>
-          <tr><th>32</th><td>Rocky</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3</td><td>Tollwut</td><td>2025-05-12</td></tr>
+          <tr><th>14</th><td>Luna</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3</td><td>Tollwut</td><td>2025-03-04</td></tr>
+          <tr><th>14</th><td>Luna</td><td>6</td><td>Schäfer</td><td>Borna</td><td>5</td><td>Staupe</td><td>2025-03-04</td></tr>
+          <tr><th>15</th><td>Rocky</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3</td><td>Tollwut</td><td>2025-05-12</td></tr>
         </tbody>
       </table>
     </div>

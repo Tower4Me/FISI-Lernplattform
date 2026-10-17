@@ -41,6 +41,6 @@
   <p>Für die Tabelle Tier legt die Auszubildende fest: <code>tier_id INTEGER</code> als Primärschlüssel, <code>name VARCHAR(50) NOT NULL</code>, <code>chipnummer CHAR(15) UNIQUE</code> (Tierchips tragen eine 15-stellige Nummer), <code>gewicht_kg DECIMAL(5,2) CHECK (gewicht_kg &gt; 0)</code> (DECIMAL, damit genau zwei Nachkommastellen gespeichert werden) und <code>geburtsdatum DATE</code>. Eine Chipnummer darf fehlen, weil nicht jedes Tier gechippt ist. Die Spalte bekommt deshalb kein <code>NOT NULL</code>; <code>UNIQUE</code> lässt in den meisten Systemen mehrere leere Werte zu, Microsoft SQL Server allerdings nur einen.</p>
 </div>
 
-<aside class="note" data-typ="fehler"><p>„Postleitzahl und Telefonnummer sind Zahlen, also <code>INTEGER</code>.“ Mit ihnen rechnet niemand, und führende Nullen gingen verloren: aus der Postleitzahl 01067 würde 1067. Solche Kennungen speicherst du als Text, etwa <code>CHAR(5)</code> oder <code>VARCHAR(20)</code>.</p></aside>
+<aside class="note" data-typ="fehler"><p>„Für Geldbeträge nehme ich <code>FLOAT</code>, das hat ja Nachkommastellen.“ Gleitkommazahlen speichern viele Dezimalwerte nur näherungsweise; in Summen über viele Buchungen weicht das Ergebnis dann um Cent ab. Für Beträge nimmst du <code>DECIMAL</code>.</p></aside>
 
-<p class="merksatz">Jede Spalte bekommt einen passenden SQL-Datentyp, etwa INTEGER, DECIMAL, VARCHAR oder DATE; Constraints wie NOT NULL, UNIQUE und CHECK lassen das DBMS weitere Regeln selbst prüfen; DEFAULT setzt einen Standardwert.</p>
+<p class="merksatz">Datentyp und Constraints (NOT NULL, UNIQUE, CHECK) legen fest, welche Werte eine Spalte annimmt; das DBMS prüft sie selbst.</p>

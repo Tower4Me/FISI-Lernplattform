@@ -549,16 +549,16 @@
 <div class="content">
 <section class="rb-kapitel" id="k-8-1"><h2><span class="num">8.1</span> Datenquellen analysieren</h2>
 <ul class="rb-list">
-<li><span class="num">8.1.1</span><div><a href="8-1-1-datenquellen-im-betrieb.html">Datenquellen im Betrieb</a><p>Datenquellen im Betrieb sind heterogen; du ordnest sie als strukturiert, semistrukturiert oder unstrukturiert ein und analysierst Inhalt, Format, Aktualität, Verantwortung, Zugriff und rechtlichen Rahmen.</p></div></li>
+<li><span class="num">8.1.1</span><div><a href="8-1-1-datenquellen-im-betrieb.html">Datenquellen im Betrieb</a><p>Datenquellen sind heterogen: strukturiert, semistrukturiert oder unstrukturiert. Für jede klärst du Inhalt, Format, Aktualität, Verantwortung, Zugriff und Recht.</p></div></li>
 <li><span class="num">8.1.2</span><div><a href="8-1-2-zugriffswege.html">Zugriffswege</a><p>Daten kommen per Dateiübergabe, Datenbankverbindung, Web-API oder Export aus der Anwendung; du wählst den Weg nach Aktualität und Aufwand und greifst mit einem Konto mit minimalen Rechten verschlüsselt zu.</p></div></li>
-<li><span class="num">8.1.3</span><div><a href="8-1-3-rechtlicher-rahmen.html">Rechtlicher Rahmen</a><p>Vor dem Zusammenführen prüfst du Rechtsgrundlage, Zweckbindung und Datenminimierung, stellst sicher, dass Betroffenenrechte auch in den Kopien erfüllbar bleiben, und hältst die Nutzungsbedingungen fremder Datenquellen ein.</p></div></li>
+<li><span class="num">8.1.3</span><div><a href="8-1-3-rechtlicher-rahmen.html">Rechtlicher Rahmen</a><p>Vor dem Zusammenführen prüfst du Rechtsgrundlage, Zweckbindung und Datenminimierung. Betroffenenrechte müssen auch in den Kopien erfüllbar bleiben.</p></div></li>
 <li><span class="num">8.1.4</span><div><a href="8-1-4-datenqualitaet-pruefen.html">Datenqualität prüfen</a><p>Gute Daten sind vollständig, korrekt, einheitlich, eindeutig, aktuell und gültig; du prüfst eine Quelle mit Datenprofil, Regeln und Stichproben und behebst Mängel möglichst an der Quelle.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-8-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 8.1</a></p>
 </section>
 <section class="rb-kapitel" id="k-8-2"><h2><span class="num">8.2</span> Datenbanken mit SQL anlegen</h2>
 <ul class="rb-list">
-<li><span class="num">8.2.1</span><div><a href="8-2-1-datentypen-und-einschraenkungen.html">Datentypen und Einschränkungen</a><p>Jede Spalte bekommt einen passenden SQL-Datentyp, etwa INTEGER, DECIMAL, VARCHAR oder DATE; Constraints wie NOT NULL, UNIQUE und CHECK lassen das DBMS weitere Regeln selbst prüfen; DEFAULT setzt einen Standardwert.</p></div></li>
+<li><span class="num">8.2.1</span><div><a href="8-2-1-datentypen-und-einschraenkungen.html">Datentypen und Einschränkungen</a><p>Datentyp und Constraints (NOT NULL, UNIQUE, CHECK) legen fest, welche Werte eine Spalte annimmt; das DBMS prüft sie selbst.</p></div></li>
 <li><span class="num">8.2.2</span><div><a href="8-2-2-normalisieren.html">Normalisieren</a><p>Normalisieren teilt Tabellen auf, damit jede Angabe nur einmal steht: 1. NF nur atomare Werte, 2. NF keine Abhängigkeit von einem Teil des Schlüssels, 3. NF keine Abhängigkeit zwischen Nicht-Schlüsselattributen.</p></div></li>
 <li><span class="num">8.2.3</span><div><a href="8-2-3-tabellen-anlegen-und-aendern.html">Tabellen anlegen und ändern</a><p>Mit DDL legst du die Struktur fest: CREATE TABLE mit Datentypen, Constraints, Primär- und Fremdschlüssel, ALTER TABLE zum Ändern, DROP TABLE zum Löschen; Fremdschlüssel sichern die referenzielle Integrität.</p></div></li>
 </ul>
@@ -573,25 +573,25 @@
   <li>Zwei Tabellen ohne Verknüpfungsbedingung ergeben das kartesische Produkt (m × n Zeilen).</li></ul></div></li>
 <li><span class="num">8.3.4</span><div><a href="8-3-4-unterabfragen-und-sichten.html">Unterabfragen und Sichten</a><ul><li><strong>Unterabfrage:</strong> ein SELECT in Klammern, dessen Ergebnis die äußere Abfrage als Wert (mit =, &lt;, &gt;) oder als Liste (mit IN, NOT IN) verwendet.</li>
   <li><strong>Sicht:</strong> gespeicherte Abfrage ohne eigene Daten; vereinfacht Auswertungen und zeigt nur ausgewählte Spalten und Zeilen.</li></ul></div></li>
-<li><span class="num">8.3.5</span><div><a href="8-3-5-daten-aendern-und-transaktionen.html">Daten ändern und Transaktionen</a><p>INSERT fügt ein, UPDATE ändert und DELETE löscht, immer mit passender WHERE-Bedingung; eine Transaktion bündelt zusammengehörige Befehle, die mit COMMIT gemeinsam gelten oder mit ROLLBACK gemeinsam verworfen werden (ACID).</p></div></li>
+<li><span class="num">8.3.5</span><div><a href="8-3-5-daten-aendern-und-transaktionen.html">Daten ändern und Transaktionen</a><p>INSERT fügt ein, UPDATE ändert, DELETE löscht; UPDATE und DELETE nie ohne WHERE. Eine Transaktion lässt zusammengehörige Befehle mit COMMIT gemeinsam gelten oder mit ROLLBACK gemeinsam verfallen.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-8-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 8.3</a></p>
 </section>
 <section class="rb-kapitel" id="k-8-4"><h2><span class="num">8.4</span> Daten zusammenführen und bereitstellen</h2>
 <ul class="rb-list">
-<li><span class="num">8.4.1</span><div><a href="8-4-1-daten-uebernehmen.html">Daten übernehmen</a><p>Daten werden in drei Schritten übernommen: extrahieren, transformieren (Format, Datentyp, Werte, Struktur, Schlüssel, Dubletten) und laden; eine Migration planst du mit Sicherung, Probelauf, Abgleich der Zahlen und offenem Rückweg.</p></div></li>
+<li><span class="num">8.4.1</span><div><a href="8-4-1-daten-uebernehmen.html">Daten übernehmen</a><p>Übernehmen heißt ETL: extrahieren, transformieren, laden. Eine Migration braucht Sicherung, Probelauf, Zahlenabgleich und einen offenen Rückweg.</p></div></li>
 <li><span class="num">8.4.2</span><div><a href="8-4-2-nosql-datenbanken.html">NoSQL-Datenbanken</a><ul><li><strong>NoSQL-Arten:</strong> Dokument (verschachteltes JSON), Schlüssel-Wert (schneller Zugriff über Schlüssel), Spalten (riesige verteilte Mengen), Graph (vernetzte Beziehungen).</li>
   <li><strong>Relational</strong> bei festem Schema und strenger Konsistenz, <strong>NoSQL</strong> bei wechselnder Struktur, sehr großen Mengen und Verteilung auf viele Server.</li></ul></div></li>
-<li><span class="num">8.4.3</span><div><a href="8-4-3-daten-bereitstellen.html">Daten bereitstellen</a><p>Du stellst Daten per Datei-Export, Sicht mit Lesekonto oder Web-API bereit, immer mit festgelegter Auswahl; eine API braucht Anmeldung, Versionierung, Begrenzung, Dokumentation und vorbereitete Abfragen gegen SQL-Injection.</p></div></li>
-<li><span class="num">8.4.4</span><div><a href="8-4-4-zugriff-schuetzen.html">Zugriff schützen</a><p>Mit GRANT und REVOKE vergibst du minimale Rechte an Konten und Rollen; Pseudonymisierung, Verschlüsselung bei Übertragung und Speicherung, Protokollierung und konsistente, getestete Sicherungen schützen die zusammengeführten Daten.</p></div></li>
+<li><span class="num">8.4.3</span><div><a href="8-4-3-daten-bereitstellen.html">Daten bereitstellen</a><p>Jeder Empfänger bekommt nur eine festgelegte Auswahl: per Datei-Export, Sicht mit Lesekonto oder Web-API. Eine API braucht Anmeldung und vorbereitete Abfragen gegen SQL-Injection.</p></div></li>
+<li><span class="num">8.4.4</span><div><a href="8-4-4-zugriff-schuetzen.html">Zugriff schützen</a><p>Jedes Konto bekommt mit GRANT nur die nötigen Rechte, am besten über Rollen. Verschlüsselung, Protokolle und getestete Sicherungen schützen den Bestand.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-8-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 8.4</a></p>
 </section>
 <section class="rb-kapitel" id="k-8-5"><h2><span class="num">8.5</span> Arbeitsteilig entwickeln und übergeben</h2>
 <ul class="rb-list">
 <li><span class="num">8.5.1</span><div><a href="8-5-1-versionsverwaltung-mit-git.html">Versionsverwaltung mit Git</a><p>Git speichert jeden Stand als Commit mit Autor und Beschreibung. Branches trennen parallele Arbeit, pull und push gleichen mit dem Server ab, Zugangsdaten bleiben draußen.</p></div></li>
-<li><span class="num">8.5.2</span><div><a href="8-5-2-ortsunabhaengig-zusammenarbeiten.html">Ortsunabhängig zusammenarbeiten</a><p>Ortsunabhängig arbeitet ein Team über Tickets, Branches und Pull Requests mit automatischen Tests und Code-Review; Werkzeuge wählst du nach Funktion, Datenschutz, Kosten und Vorwissen, Absprachen stehen schriftlich im Ticket.</p></div></li>
-<li><span class="num">8.5.3</span><div><a href="8-5-3-dokumentation-zur-handhabung.html">Dokumentation zur Handhabung</a><p>Die Übergabedokumentation beschreibt Zweck, Installation, Konfiguration ohne Zugangsdaten, Betrieb, Fehlerbehebung, Sicherung, Datenschutz und Ansprechpartner, bei Bedarf auf Englisch in kurzen, eindeutigen Sätzen, und wird von einer unbeteiligten Person getestet.</p></div></li>
+<li><span class="num">8.5.2</span><div><a href="8-5-2-ortsunabhaengig-zusammenarbeiten.html">Ortsunabhängig zusammenarbeiten</a><p>Ein verteiltes Team arbeitet über Tickets, Branches und Pull Requests. Nichts kommt ohne automatische Tests und Code-Review in main.</p></div></li>
+<li><span class="num">8.5.3</span><div><a href="8-5-3-dokumentation-zur-handhabung.html">Dokumentation zur Handhabung</a><p>Die Übergabedokumentation erklärt Zweck, Einrichtung, Betrieb, Fehlerbehebung und Wiederherstellung, nie aber die Zugangsdaten selbst. Eine unbeteiligte Person testet sie.</p></div></li>
 <li><span class="num">8.5.4</span><div><a href="8-5-4-werkzeuge-und-ergebnis-reflektieren.html">Werkzeuge und Ergebnis reflektieren</a><p>Du bewertest das Ergebnis mit einem Soll-Ist-Vergleich und dem Abnahmeprotokoll, reflektierst Werkzeuge und Vorgehen im Team und hältst Lessons Learned schriftlich fest, um das nächste Projekt besser zu machen.</p></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-8-5.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 8.5</a></p>

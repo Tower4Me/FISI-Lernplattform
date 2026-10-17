@@ -586,12 +586,12 @@ GRANT leitung TO auswertung;</code></pre>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Für den Verbund legt die Auszubildende vier Konten an: <code>etl_import</code> darf in die Tabellen einfügen und ändern, aber nichts löschen; <code>auswertung</code> darf nur Sichten lesen; <code>api_dienst</code> darf nur die Impfdaten lesen, die die App braucht; die Administration hat ein persönliches Konto pro Person. Jede Nacht erzeugt das DBMS einen verschlüsselten Abzug, der auf das NAS und wöchentlich außer Haus kopiert wird. Einmal im Quartal stellt sie einen Abzug probehalber auf dem Testserver wieder her.</p>
+  <p>Für den Verbund legt die Auszubildende vier Konten an: <code>etl_import</code> darf in die Tabellen einfügen und ändern, aber nichts löschen; <code>auswertung</code> darf nur Sichten lesen; <code>api_dienst</code> darf nur die Impfdaten lesen, die die App braucht; die Administration hat ein persönliches Konto pro Person. Jede Nacht erzeugt das DBMS einen verschlüsselten Abzug, der auf das NAS (LF2, Kapitel 2.2.4) und wöchentlich außer Haus kopiert wird. Einmal im Quartal stellt sie einen Abzug probehalber auf dem Testserver wieder her.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Pseudonymisierte Daten sind keine personenbezogenen Daten mehr.“ Doch: Wer die getrennt gespeicherte Zuordnung hat, kann den Bezug wiederherstellen; für ihn gilt die DSGVO weiter. Erst anonymisierte Daten fallen heraus.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Mit GRANT und REVOKE vergibst du minimale Rechte an Konten und Rollen; Pseudonymisierung, Verschlüsselung bei Übertragung und Speicherung, Protokollierung und konsistente, getestete Sicherungen schützen die zusammengeführten Daten.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Jedes Konto bekommt mit GRANT nur die nötigen Rechte, am besten über Rollen. Verschlüsselung, Protokolle und getestete Sicherungen schützen den Bestand.</p></div>
 </div>
 <nav class="pager" aria-label="Blättern"><a class="prev" href="8-4-3-daten-bereitstellen.html"><span class="dir">Zurück</span><span class="pt"><span class="num">8.4.3</span>Daten bereitstellen</span></a><a class="next" href="8-4-check.html"><span class="dir">Weiter</span><span class="pt"><span class="num">8.4</span>Check</span></a></nav>
 </main>

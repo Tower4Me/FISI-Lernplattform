@@ -547,7 +547,7 @@
   <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>3 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="8-5-1">
-<p class="lead">An der zentralen Datenbank arbeiten drei Leute: die Auszubildende schreibt das Importskript, ein Kollege die Sichten und Auswertungen, eine Kollegin im Homeoffice die Web-API. Alle ändern Dateien im selben Projekt. Ohne Ordnung überschreibt bald jemand die Arbeit eines anderen, und niemand weiß mehr, welcher Stand läuft. Eine <strong>Versionsverwaltung</strong> verhindert das.</p>
+<p class="lead">An der zentralen Datenbank arbeiten drei Leute. Die Auszubildende hat Modell, Sichten und API-Entwurf erstellt und schreibt das Importskript, ein Kollege baut die Auswertungen, eine Kollegin im Homeoffice programmiert die Web-API. Alle ändern Dateien im selben Projekt. Ohne Ordnung überschreibt bald jemand die Arbeit eines anderen, und niemand weiß mehr, welcher Stand läuft. Eine <strong>Versionsverwaltung</strong> verhindert das.</p>
 
 <h3 id="was-eine-versionsverwaltung-leistet">Was eine Versionsverwaltung leistet<a class="anchor" href="#was-eine-versionsverwaltung-leistet" aria-hidden="true" tabindex="-1">#</a></h3>
 <ul>
@@ -583,7 +583,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Nach einer Änderung am Importskript fehlen in der Nacht plötzlich alle Laborwerte. Mit <code>git log</code> findet die Auszubildende den Commit vom Vortag, „Labor-CSV: Trennzeichen auf Komma“. Das Labor liefert aber weiterhin Semikolon. Sie nimmt die Änderung mit einem neuen Commit zurück (<code>git revert</code>) und stellt ihn als Pull Request (Kapitel 8.5.2). Nach kurzer Prüfung wird er übernommen, und der nächste Lauf übernimmt die Werte wieder.</p>
+  <p>Nach einer Änderung am Importskript fehlen seit dem Vormittag alle neuen Laborwerte. Mit <code>git log</code> findet die Auszubildende den Commit vom Vortag, „Labor-CSV: Trennzeichen auf Komma“. Das Labor liefert aber weiterhin Semikolon. Sie nimmt die Änderung mit einem neuen Commit zurück (<code>git revert</code>) und stellt ihn als Pull Request (Kapitel 8.5.2). Nach kurzer Prüfung wird er übernommen, und der nächste Lauf übernimmt die Werte wieder.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Git ist dasselbe wie eine Datensicherung.“ Git verwaltet die Stände von Quelltext und Konfiguration, die bewusst committet wurden. Datenbanken, Nutzerdaten und alles, was nicht committet ist, sichert es nicht. Die Datensicherung bleibt nötig.</p></aside>

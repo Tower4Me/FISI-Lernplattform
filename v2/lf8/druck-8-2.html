@@ -592,9 +592,9 @@
   <p>Für die Tabelle Tier legt die Auszubildende fest: <code>tier_id INTEGER</code> als Primärschlüssel, <code>name VARCHAR(50) NOT NULL</code>, <code>chipnummer CHAR(15) UNIQUE</code> (Tierchips tragen eine 15-stellige Nummer), <code>gewicht_kg DECIMAL(5,2) CHECK (gewicht_kg &gt; 0)</code> (DECIMAL, damit genau zwei Nachkommastellen gespeichert werden) und <code>geburtsdatum DATE</code>. Eine Chipnummer darf fehlen, weil nicht jedes Tier gechippt ist. Die Spalte bekommt deshalb kein <code>NOT NULL</code>; <code>UNIQUE</code> lässt in den meisten Systemen mehrere leere Werte zu, Microsoft SQL Server allerdings nur einen.</p>
 </div>
 
-<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Postleitzahl und Telefonnummer sind Zahlen, also <code>INTEGER</code>.“ Mit ihnen rechnet niemand, und führende Nullen gingen verloren: aus der Postleitzahl 01067 würde 1067. Solche Kennungen speicherst du als Text, etwa <code>CHAR(5)</code> oder <code>VARCHAR(20)</code>.</p></aside>
+<aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Für Geldbeträge nehme ich <code>FLOAT</code>, das hat ja Nachkommastellen.“ Gleitkommazahlen speichern viele Dezimalwerte nur näherungsweise; in Summen über viele Buchungen weicht das Ergebnis dann um Cent ab. Für Beträge nimmst du <code>DECIMAL</code>.</p></aside>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Jede Spalte bekommt einen passenden SQL-Datentyp, etwa INTEGER, DECIMAL, VARCHAR oder DATE; Constraints wie NOT NULL, UNIQUE und CHECK lassen das DBMS weitere Regeln selbst prüfen; DEFAULT setzt einen Standardwert.</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>Datentyp und Constraints (NOT NULL, UNIQUE, CHECK) legen fest, welche Werte eine Spalte annimmt; das DBMS prüft sie selbst.</p></div>
 </section>
 <section class="print-up" id="u-8-2-2"><h2><span class="num">8.2.2</span> Normalisieren</h2>
 <p class="lead">Am Standort Süd liegt neben der Praxissoftware noch eine alte Impfliste aus einer Tabellenkalkulation: eine Zeile je Tier, alle Impfungen in einer Zelle, die Besitzerdaten bei jedem Tier. Bevor diese Daten in die zentrale Datenbank kommen, bringst du sie in eine Struktur ohne Redundanz. Dafür gibt es ein schrittweises Verfahren, das <strong>Normalisieren</strong>.</p>
@@ -606,14 +606,15 @@
 <h3 id="u8-2-2-ausgangslage">Ausgangslage<a class="anchor" href="#u8-2-2-ausgangslage" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
   <table>
-    <caption>Liste Standort Süd (nicht normalisiert)</caption>
+    <caption>Liste Standort Süd (nicht normalisiert, Nummern des Standorts)</caption>
     <thead><tr><th>tier_id</th><th>tiername</th><th>besitzer_id</th><th>besitzer_name</th><th>besitzer_ort</th><th>impfungen</th></tr></thead>
     <tbody>
-      <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3 Tollwut 2025-03-04, 5 Staupe 2025-03-04</td></tr>
-      <tr><th>32</th><td>Rocky</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3 Tollwut 2025-05-12</td></tr>
+      <tr><th>14</th><td>Luna</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3 Tollwut 2025-03-04, 5 Staupe 2025-03-04</td></tr>
+      <tr><th>15</th><td>Rocky</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3 Tollwut 2025-05-12</td></tr>
     </tbody>
   </table>
 </div>
+<p>Die Nummern stammen aus der Liste des Standorts; beim Übernehmen vergibt die zentrale Datenbank eigene (Kapitel 8.4.1). Schon diese zwei Zeilen zeigen die drei Anomalien: Zieht Frau Schäfer um, muss ihr Ort in jeder Zeile geändert werden (Änderungsanomalie). Eine neue Besitzerin ohne Tier lässt sich gar nicht eintragen (Einfügeanomalie). Wird Rocky gelöscht und war er ihr einziges Tier, wären auch ihre Daten weg (Löschanomalie).</p>
 
 <div class="reiter" data-reiter>
   <div class="reiter-panel" data-label="1. Normalform">
@@ -623,9 +624,9 @@
       <table>
         <thead><tr><th>tier_id</th><th>tiername</th><th>besitzer_id</th><th>besitzer_name</th><th>besitzer_ort</th><th>impfstoff_id</th><th>bezeichnung</th><th>datum</th></tr></thead>
         <tbody>
-          <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3</td><td>Tollwut</td><td>2025-03-04</td></tr>
-          <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>5</td><td>Staupe</td><td>2025-03-04</td></tr>
-          <tr><th>32</th><td>Rocky</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3</td><td>Tollwut</td><td>2025-05-12</td></tr>
+          <tr><th>14</th><td>Luna</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3</td><td>Tollwut</td><td>2025-03-04</td></tr>
+          <tr><th>14</th><td>Luna</td><td>6</td><td>Schäfer</td><td>Borna</td><td>5</td><td>Staupe</td><td>2025-03-04</td></tr>
+          <tr><th>15</th><td>Rocky</td><td>6</td><td>Schäfer</td><td>Borna</td><td>3</td><td>Tollwut</td><td>2025-05-12</td></tr>
         </tbody>
       </table>
     </div>
@@ -727,7 +728,8 @@ CREATE TABLE impfung (
   FOREIGN KEY (tier_id) REFERENCES tier (tier_id),
   FOREIGN KEY (impfstoff_id) REFERENCES impfstoff (impfstoff_id)
 );</code></pre>
-<p>Je Spalte stehen Name, Datentyp und Constraints (Kapitel 8.2.1). Ein Primärschlüssel aus einer Spalte kann direkt hinter ihr stehen; ein zusammengesetzter Schlüssel muss als eigene Zeile <code>PRIMARY KEY (…)</code> am Ende. Die Tabelle <code>impfstoff</code> legst du vor <code>impfung</code> an, denn ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Ebenso kommt <code>besitzer</code> vor <code>tier</code>.</p>
+<p>Je Spalte stehen Name, Datentyp und Constraints (Kapitel 8.2.1). Ein Primärschlüssel aus einer Spalte kann direkt hinter ihr stehen; ein zusammengesetzter Schlüssel steht als eigene Angabe <code>PRIMARY KEY (…)</code>, üblicherweise am Ende. Die Tabelle <code>impfstoff</code> legst du vor <code>impfung</code> an, denn ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Ebenso kommt <code>besitzer</code> vor <code>tier</code>.</p>
+<p>Wo die Fremdschlüssel stehen, folgt aus den Kardinalitäten (LF5, Kapitel 5.3.2 und 5.3.3): Besitzer zu Tier ist 1:n, deshalb steht der Fremdschlüssel in <code>tier</code>. Tier zu Impfstoff ist n:m, deshalb gibt es die Zwischentabelle <code>impfung</code>.</p>
 
 <h3 id="u8-2-3-referenzielle-integritaet">Referenzielle Integrität<a class="anchor" href="#u8-2-3-referenzielle-integritaet" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Mit <code>FOREIGN KEY … REFERENCES</code> prüft das DBMS die <strong>referenzielle Integrität</strong>: Ein Tier mit einer Besitzernummer, die es nicht gibt, lässt sich nicht speichern. Was beim Löschen einer Besitzerin mit Tieren passiert, legst du mit einer Regel fest:</p>
@@ -745,8 +747,8 @@ CREATE TABLE impfung (
 
 <h3 id="u8-2-3-aendern-und-loeschen">Ändern und löschen<a class="anchor" href="#u8-2-3-aendern-und-loeschen" aria-hidden="true" tabindex="-1">#</a></h3>
 <pre><code>ALTER TABLE tier ADD COLUMN chipnummer CHAR(15) UNIQUE;
-ALTER TABLE tier DROP COLUMN geburtsdatum;
-DROP TABLE impfung;</code></pre>
+ALTER TABLE impfstoff DROP COLUMN hersteller;
+DROP TABLE impfliste_alt;</code></pre>
 <p><code>ALTER TABLE</code> ändert die Struktur einer bestehenden Tabelle, etwa um eine Spalte hinzuzufügen oder zu entfernen. <code>DROP TABLE</code> löscht die Tabelle mitsamt allen Daten. Rückgängig machen lässt sich das meist nicht; sichere die Daten vorher.</p>
 
 <div class="beispiel">

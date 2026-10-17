@@ -547,7 +547,7 @@
   <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>3 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="8-3-5">
-<p class="lead">Beim Prüfen der Datenqualität (Kapitel 8.1.4) ist eine Dublette aufgefallen: Frau Yilmaz steht in der zentralen Datenbank zweimal, als Nummer 2 aus der Praxissoftware des Stammhauses und als Nummer 9 vom Standort Nord. Unter Nummer 9 sind zwei ihrer Tiere eingetragen, die nicht zum Ausschnitt aus Kapitel 8.3.1 gehören. Du sollst die beiden Einträge zusammenführen. Dafür fügst du Daten ein, änderst und löschst sie und sorgst dafür, dass dabei nichts halb erledigt bleibt.</p>
+<p class="lead">Beim Prüfen der Datenqualität (Kapitel 8.1.4) ist eine Dublette aufgefallen: Frau Yilmaz steht in der zentralen Datenbank zweimal, unter der zentralen Nummer 2 (Datensatz aus dem Stammhaus) und der zentralen Nummer 9 (Datensatz vom Standort Nord). Unter Nummer 9 sind zwei ihrer Tiere eingetragen, die nicht zum Ausschnitt aus Kapitel 8.3.1 gehören. Du sollst die beiden Einträge zusammenführen. Dafür fügst du Daten ein, änderst und löschst sie und sorgst dafür, dass dabei nichts halb erledigt bleibt.</p>
 
 <h3 id="einfuegen-aendern-loeschen">Einfügen, ändern, löschen<a class="anchor" href="#einfuegen-aendern-loeschen" aria-hidden="true" tabindex="-1">#</a></h3>
 <pre><code>INSERT INTO besitzer (besitzer_id, name, ort, telefon)
@@ -594,7 +594,7 @@ COMMIT;</code></pre>
   <p>Die Auszubildende führt zuerst <code>SELECT * FROM tier WHERE besitzer_id = 9</code> aus und sieht zwei Tiere. Dann startet sie die Transaktion. Das <code>UPDATE</code> meldet „2 Zeilen geändert“, das <code>DELETE</code> „1 Zeile gelöscht“. Beides passt zur Erwartung, also schließt sie mit <code>COMMIT</code> ab. Hätte das <code>UPDATE</code> 200 Zeilen gemeldet, hätte sie mit <code>ROLLBACK</code> abgebrochen.</p>
 </div>
 
-<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>INSERT fügt ein, UPDATE ändert und DELETE löscht, immer mit passender WHERE-Bedingung; eine Transaktion bündelt zusammengehörige Befehle, die mit COMMIT gemeinsam gelten oder mit ROLLBACK gemeinsam verworfen werden (ACID).</p></div>
+<div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><p>INSERT fügt ein, UPDATE ändert, DELETE löscht; UPDATE und DELETE nie ohne WHERE. Eine Transaktion lässt zusammengehörige Befehle mit COMMIT gemeinsam gelten oder mit ROLLBACK gemeinsam verfallen.</p></div>
 </div>
 <nav class="pager" aria-label="Blättern"><a class="prev" href="8-3-4-unterabfragen-und-sichten.html"><span class="dir">Zurück</span><span class="pt"><span class="num">8.3.4</span>Unterabfragen und Sichten</span></a><a class="next" href="8-3-check.html"><span class="dir">Weiter</span><span class="pt"><span class="num">8.3</span>Check</span></a></nav>
 </main>

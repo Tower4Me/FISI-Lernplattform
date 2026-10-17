@@ -20,7 +20,7 @@
   <li><strong>Datentyp:</strong> Text in Zahl oder Datum umwandeln; Werte, die sich nicht umwandeln lassen, aussortieren und melden.</li>
   <li><strong>Werte vereinheitlichen</strong> über eine <strong>Zuordnungstabelle</strong>, etwa jede Schreibweise einer Tierart auf einen festen Wert.</li>
   <li><strong>Struktur:</strong> verschachteltes JSON auf Tabellen verteilen, Listen in Zeilen auflösen wie bei der 1. Normalform (Kapitel 8.2.2).</li>
-  <li><strong>Schlüssel:</strong> Jeder Standort zählt seine Nummern ab 1. Die zentrale Datenbank vergibt eigene Nummern und merkt sich in einer Schlüsseltabelle, welche Nummer welchem Datensatz in welcher Quelle entspricht. Nur so lassen sich spätere Änderungen aus der Quelle wieder zuordnen.</li>
+  <li><strong>Schlüssel:</strong> Jeder Standort zählt seine Nummern ab 1. Die zentrale Datenbank vergibt eigene Nummern und merkt sich in einer Schlüsseltabelle, welche Nummer welchem Datensatz in welcher Quelle entspricht. So lassen sich spätere Änderungen aus der Quelle sicher zuordnen, auch wenn eine Quelle ihre Nummern ändert.</li>
   <li><strong>Dubletten:</strong> mögliche Doppelte über Merkmale wie Name und Telefonnummer finden, im Zweifel von Menschen entscheiden lassen, dann zusammenführen (Kapitel 8.3.5).</li>
 </ul>
 
@@ -34,12 +34,13 @@
   <li>echte Übernahme, erneut prüfen, Freigabe durch die Fachabteilung,</li>
   <li>altes System erst abschalten, wenn das neue sicher läuft; Rückweg bis dahin offen halten.</li>
 </ol>
+<p>Geht die Datenbank dabei in die Cloud, kommen Vertrag zur Auftragsverarbeitung und Datenstandort hinzu (Kapitel 8.1.3), außerdem eine verschlüsselte Übertragung und die Übertragungsdauer großer Bestände.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
   <p>Beim Probelauf mit der alten Impfliste vom Standort Süd zählt die Auszubildende 1.126 Impfungen in der Liste, aber nur 1.119 in der Testdatenbank. Das Protokoll ihres Skripts zeigt sieben Zeilen mit dem Datum „31.04.2024“, das es nicht gibt. Die Praxis schlägt die richtigen Daten in den Papierakten nach. Danach stimmen die Zahlen, und die Übernahme kann stattfinden.</p>
 </div>
 
-<aside class="note" data-typ="hinweis"><p>Textbasierte Austauschformate wie CSV, JSON und XML eignen sich für Übernahmen gut: Sie sind unabhängig vom Hersteller, lassen sich mit einem Editor prüfen und von fast jedem Programm lesen.</p></aside>
+<aside class="note" data-typ="hinweis"><p>Textbasierte Austauschformate wie CSV, JSON und XML eignen sich für Übernahmen gut: Sie sind unabhängig vom Hersteller, lassen sich mit einem Editor prüfen und von fast jedem Programm lesen. Dafür sind sie größer als Binärformate, kennen keine Datentypen, und Kodierung, Trenn- und Dezimalzeichen müssen abgestimmt sein.</p></aside>
 
-<p class="merksatz">Daten werden in drei Schritten übernommen: extrahieren, transformieren (Format, Datentyp, Werte, Struktur, Schlüssel, Dubletten) und laden; eine Migration planst du mit Sicherung, Probelauf, Abgleich der Zahlen und offenem Rückweg.</p>
+<p class="merksatz">Übernehmen heißt ETL: extrahieren, transformieren, laden. Eine Migration braucht Sicherung, Probelauf, Zahlenabgleich und einen offenen Rückweg.</p>

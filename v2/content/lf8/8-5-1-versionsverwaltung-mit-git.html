@@ -1,4 +1,4 @@
-<p class="lead">An der zentralen Datenbank arbeiten drei Leute: die Auszubildende schreibt das Importskript, ein Kollege die Sichten und Auswertungen, eine Kollegin im Homeoffice die Web-API. Alle ändern Dateien im selben Projekt. Ohne Ordnung überschreibt bald jemand die Arbeit eines anderen, und niemand weiß mehr, welcher Stand läuft. Eine <strong>Versionsverwaltung</strong> verhindert das.</p>
+<p class="lead">An der zentralen Datenbank arbeiten drei Leute. Die Auszubildende hat Modell, Sichten und API-Entwurf erstellt und schreibt das Importskript, ein Kollege baut die Auswertungen, eine Kollegin im Homeoffice programmiert die Web-API. Alle ändern Dateien im selben Projekt. Ohne Ordnung überschreibt bald jemand die Arbeit eines anderen, und niemand weiß mehr, welcher Stand läuft. Eine <strong>Versionsverwaltung</strong> verhindert das.</p>
 
 <h3>Was eine Versionsverwaltung leistet</h3>
 <ul>
@@ -34,7 +34,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Nach einer Änderung am Importskript fehlen in der Nacht plötzlich alle Laborwerte. Mit <code>git log</code> findet die Auszubildende den Commit vom Vortag, „Labor-CSV: Trennzeichen auf Komma“. Das Labor liefert aber weiterhin Semikolon. Sie nimmt die Änderung mit einem neuen Commit zurück (<code>git revert</code>) und stellt ihn als Pull Request (Kapitel 8.5.2). Nach kurzer Prüfung wird er übernommen, und der nächste Lauf übernimmt die Werte wieder.</p>
+  <p>Nach einer Änderung am Importskript fehlen seit dem Vormittag alle neuen Laborwerte. Mit <code>git log</code> findet die Auszubildende den Commit vom Vortag, „Labor-CSV: Trennzeichen auf Komma“. Das Labor liefert aber weiterhin Semikolon. Sie nimmt die Änderung mit einem neuen Commit zurück (<code>git revert</code>) und stellt ihn als Pull Request (Kapitel 8.5.2). Nach kurzer Prüfung wird er übernommen, und der nächste Lauf übernimmt die Werte wieder.</p>
 </div>
 
 <aside class="note" data-typ="fehler"><p>„Git ist dasselbe wie eine Datensicherung.“ Git verwaltet die Stände von Quelltext und Konfiguration, die bewusst committet wurden. Datenbanken, Nutzerdaten und alles, was nicht committet ist, sichert es nicht. Die Datensicherung bleibt nötig.</p></aside>

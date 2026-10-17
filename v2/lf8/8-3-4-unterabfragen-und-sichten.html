@@ -560,7 +560,7 @@ WHERE gewicht_kg &gt; (SELECT AVG(gewicht_kg) FROM tier);</code></pre>
 <pre><code>SELECT bezeichnung
 FROM impfstoff
 WHERE impfstoff_id NOT IN (SELECT impfstoff_id FROM impfung);</code></pre>
-<p>Die innere Abfrage liefert alle Impfstoffnummern, die schon verwendet wurden (3, 5, 7). Ergebnis: Katzenseuche, der einzige Impfstoff ohne Impfung. Dieselbe Frage lässt sich auch mit einem <code>LEFT JOIN</code> und <code>IS NULL</code> beantworten (Kapitel 8.3.3); beide Wege sind üblich.</p>
+<p>Die innere Abfrage liefert alle Impfstoffnummern, die schon verwendet wurden (3, 5, 6, 7). Ergebnis: Katzenseuche, der einzige Impfstoff ohne Impfung. Dieselbe Frage lässt sich auch mit einem <code>LEFT JOIN</code> und <code>IS NULL</code> beantworten (Kapitel 8.3.3); beide Wege sind üblich.</p>
 <p>Daneben gibt es <code>EXISTS</code>: Es prüft für jede Zeile der äußeren Abfrage, ob die Unterabfrage mindestens eine Zeile liefert. Die Unterabfrage bezieht sich dazu auf die äußere Zeile:</p>
 <pre><code>SELECT name
 FROM besitzer b
@@ -579,7 +579,7 @@ INNER JOIN impfstoff s ON i.impfstoff_id = s.impfstoff_id;
 SELECT tierart, COUNT(*) AS anzahl
 FROM impfungen_je_art
 GROUP BY tierart;</code></pre>
-<p>Ergebnis: Hund 4, Kaninchen 1, Katze 1.</p>
+<p>Ergebnis: Hund 4, Kaninchen 1, Katze 2.</p>
 <p>Sichten haben drei Vorteile:</p>
 <ul>
   <li><strong>Einfacher:</strong> Wer auswertet, muss die Verknüpfungen nicht kennen.</li>

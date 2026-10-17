@@ -562,7 +562,7 @@
     </tbody>
   </table>
 </div>
-<p>Felder ohne Wert (<code>NULL</code>) lassen die Funktionen aus. Deshalb teilt <code>AVG</code> hier durch 4, nicht durch 5. Mit <code>WHERE</code> kannst du vorher filtern: <code>SELECT COUNT(*) FROM tier WHERE tierart = 'Hund'</code> ergibt 3.</p>
+<p>Felder ohne Wert (<code>NULL</code>) lassen die Funktionen aus. Deshalb teilt <code>AVG</code> hier durch 4, nicht durch 5. Mit <code>WHERE</code> kannst du vorher filtern: <code>SELECT COUNT(*) FROM tier WHERE tierart = 'Hund'</code> ergibt 3. Mehrere Bedingungen verknüpfst du mit <code>AND</code>: <code>SELECT COUNT(*) FROM tier WHERE tierart = 'Hund' AND geburtsdatum &gt;= '2020-01-01'</code> ergibt 2 (Luna, Rocky). <code>COUNT(DISTINCT tierart)</code> zählt verschiedene Werte und ergibt 3.</p>
 
 <h3 id="gruppieren-mit-group-by">Gruppieren mit GROUP BY<a class="anchor" href="#gruppieren-mit-group-by" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Mit <code>GROUP BY</code> bildet das DBMS für jeden Wert einer Spalte eine Gruppe und rechnet die Aggregatfunktion je Gruppe:</p>
@@ -602,7 +602,7 @@ FROM impfung
 WHERE datum BETWEEN '2025-01-01' AND '2025-12-31'
 GROUP BY impfstoff_id
 ORDER BY anzahl DESC;</code></pre>
-  <p>Ergebnis mit den Daten aus Kapitel 8.3.3: Impfstoff 3 viermal, Impfstoff 5 und 7 je einmal. Statt der Nummer soll später die Bezeichnung des Impfstoffs erscheinen. Dafür brauchst du eine zweite Tabelle im selben Ergebnis (Kapitel 8.3.3).</p>
+  <p>Ergebnis mit den Daten aus Kapitel 8.3.3: Impfstoff 3 viermal, Impfstoff 5, 6 und 7 je einmal. Statt der Nummer soll später die Bezeichnung des Impfstoffs erscheinen. Dafür brauchst du eine zweite Tabelle im selben Ergebnis (Kapitel 8.3.3).</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„<code>WHERE COUNT(*) &gt;= 2</code> zeigt nur Tierarten mit mindestens zwei Tieren.“ Das ist ein Fehler: Wenn <code>WHERE</code> ausgewertet wird, gibt es die Gruppen noch nicht. Bedingungen auf Aggregate gehören in <code>HAVING</code>.</p></aside>

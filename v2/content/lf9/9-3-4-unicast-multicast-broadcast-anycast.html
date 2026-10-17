@@ -1,0 +1,32 @@
+<p class="lead">Nicht jedes Paket geht an genau einen Empfänger. Ein Gerät, das einen DHCP-Server sucht, fragt alle; ein Router teilt sein Präfix allen Geräten im Netz mit; ein öffentlicher DNS-Dienst antwortet von dem Server, der am nächsten liegt. Woran du die Art der Zustellung erkennst, hilft beim Planen und bei der Fehlersuche.</p>
+
+<h3>Vier Arten der Zustellung</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Art</th><th>Empfänger</th><th>IPv4</th><th>IPv6</th></tr></thead>
+    <tbody>
+      <tr><th>Unicast</th><td>genau ein Gerät</td><td>normale Adressen</td><td>normale Adressen</td></tr>
+      <tr><th>Broadcast</th><td>alle Geräte im Netz</td><td>Broadcastadresse des Netzes, etwa 10.20.0.63, oder 255.255.255.255 im eigenen Netzabschnitt</td><td>gibt es nicht</td></tr>
+      <tr><th>Multicast</th><td>alle Mitglieder einer Gruppe</td><td>224.0.0.0 bis 239.255.255.255 (224.0.0.0/4)</td><td>ff00::/8, etwa ff02::1 (alle Geräte), ff02::2 (alle Router)</td></tr>
+      <tr><th>Anycast</th><td>das nächstgelegene von mehreren Geräten mit derselben Adresse</td><td>über Routing gelöst</td><td>als Adressart definiert, technisch ebenfalls über Routing</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Auch auf Schicht 2 gibt es die Unterscheidung: Ein Broadcast-Rahmen geht an die MAC-Adresse ff:ff:ff:ff:ff:ff, Multicast-Rahmen an besondere MAC-Adressen, bei IPv4 beginnend mit 01:00:5e, bei IPv6 mit 33:33.</p>
+
+<h3>Wo du ihnen begegnest</h3>
+<ul>
+  <li><strong>Broadcast:</strong> DHCP-Discover (LF3, Kapitel 3.5.1) und ARP-Anfrage (LF3, Kapitel 3.5.3). Router leiten Broadcasts nicht in andere Netze weiter; deshalb braucht DHCP über Netzgrenzen ein Relay (Kapitel 9.5.1).</li>
+  <li><strong>Multicast:</strong> Router Advertisements (Kapitel 9.3.3), Nachrichten von Routing-Protokollen, Videoübertragungen an viele Empfänger. Ein Sender schickt jedes Paket nur einmal, das Netz vervielfältigt es nur dorthin, wo Gruppenmitglieder sind, wenn Switches und Router Multicast unterstützen. Sonst verteilt ein Switch Multicast wie einen Broadcast.</li>
+  <li><strong>Anycast:</strong> öffentliche DNS-Resolver und die DNS-Root-Server. Viele Server weltweit nutzen dieselbe Adresse, das Routing führt jede Anfrage zum nächstgelegenen.</li>
+</ul>
+<p>Viele Broadcasts belasten alle Geräte eines Netzes, denn jedes muss sie annehmen und prüfen. Das ist ein Grund, große Netze mit VLANs in kleinere Broadcast-Domänen zu teilen (Kapitel 9.2.2).</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Mitschnitt im Verwaltungs-VLAN am Standort Nord zeigt: ein Paket von 0.0.0.0 an 255.255.255.255 an UDP-Port 67 (ein DHCP-Discover, Broadcast), ein ICMPv6-Paket vom Router an ff02::1 (ein Router Advertisement, Multicast) und eine DNS-Anfrage des PCs an 10.10.0.147 (Unicast an den DNS-Server im Stammhaus).</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„IPv6 hat auch Broadcasts, nur unter anderem Namen.“ Nein: IPv6 kennt keinen Broadcast. Aufgaben, die bei IPv4 ein Broadcast erledigt, übernehmen gezielte Multicast-Gruppen, etwa für das Auffinden von Nachbarn.</p></aside>
+
+<p class="merksatz">Unicast geht an einen Empfänger, Broadcast an alle im Netz (nur IPv4), Multicast an eine Gruppe (IPv4 224.0.0.0/4, IPv6 ff00::/8), Anycast an den nächstgelegenen von mehreren mit derselben Adresse.</p>

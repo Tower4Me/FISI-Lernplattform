@@ -1,0 +1,41 @@
+<p class="lead">Bei IPv4 verteilt ein DHCP-Server die Adressen. Bei IPv6 können sich Geräte ihre Adresse auch selbst bilden, sobald der Router ihnen das Präfix mitteilt. Welches Verfahren du wählst, entscheidet darüber, wie viel du zentral steuerst und ob du später nachvollziehen kannst, welches Gerät welche Adresse hatte.</p>
+
+<h3>Router Advertisement und SLAAC</h3>
+<p>IPv6 hat kein ARP und keinen Broadcast. Geräte finden Nachbarn und Router über das <strong>Neighbor Discovery Protocol</strong> (NDP), das mit ICMPv6-Nachrichten arbeitet:</p>
+<ol>
+  <li>Ein Gerät bildet zuerst seine Link-Local-Adresse (fe80::…) und prüft, ob sie frei ist (<strong>Duplicate Address Detection</strong>).</li>
+  <li>Es fragt per <strong>Router Solicitation</strong> an die Multicastadresse aller Router, ob ein Router da ist.</li>
+  <li>Der Router antwortet mit einem <strong>Router Advertisement</strong> (RA). Router schicken RAs außerdem regelmäßig von selbst. Das RA enthält das Präfix des Netzes, seine Gültigkeit und Kennzeichen (Flags), die sagen, ob zusätzlich DHCPv6 genutzt werden soll.</li>
+  <li>Das Gerät hängt an das Präfix einen 64 Bit langen Geräteteil, prüft wieder, ob die Adresse frei ist, und nutzt sie. Als Standardgateway trägt es die Link-Local-Adresse des Routers ein.</li>
+</ol>
+<p>Dieses Verfahren heißt <strong>SLAAC</strong> (Stateless Address Autoconfiguration). „Stateless“ bedeutet: Kein Server merkt sich, wer welche Adresse hat.</p>
+<p>Den Geräteteil bilden Systeme auf zwei Arten: aus der MAC-Adresse (<strong>EUI-64</strong>, LF3, Kapitel 3.4.4) oder, heute bei Clients üblich, zufällig. Zufällige Geräteteile schützen die Privatsphäre, weil ein Gerät nicht in jedem Netz an derselben Endung erkennbar ist.</p>
+
+<h3>DHCPv6</h3>
+<p>Ein <strong>DHCPv6</strong>-Server arbeitet ähnlich wie DHCP bei IPv4. Zwei Flags im Router Advertisement steuern, was die Geräte tun:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Variante</th><th>Flags im RA</th><th>Adresse</th><th>weitere Angaben (DNS-Server)</th></tr></thead>
+    <tbody>
+      <tr><th>nur SLAAC</th><td>M = 0, O = 0</td><td>selbst gebildet</td><td>aus dem RA (Option RDNSS), wenn der Router sie mitschickt</td></tr>
+      <tr><th>SLAAC mit zustandslosem DHCPv6</th><td>M = 0, O = 1</td><td>selbst gebildet</td><td>vom DHCPv6-Server</td></tr>
+      <tr><th>zustandsbehaftetes DHCPv6</th><td>M = 1, Präfix ohne A-Flag (sonst zusätzlich SLAAC)</td><td>vom DHCPv6-Server</td><td>vom DHCPv6-Server</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>M steht für Managed, O für Other. Ob ein Gerät seine Adresse per SLAAC bildet, entscheidet das A-Flag am Präfix im RA; SLAAC und DHCPv6 können parallel laufen. Grund für DHCPv6 mit Adressvergabe: Der Betrieb will zentral festlegen und protokollieren, welches Gerät welche Adresse bekommt. Brauchen Geräte nur Angaben, die ein RA nicht transportiert, genügt zustandsloses DHCPv6. Achtung: Das Standardgateway kommt auch dann aus dem Router Advertisement, nie vom DHCPv6-Server. Android nutzt bisher gar kein DHCPv6 für Adresse oder DNS, sondern SLAAC und RDNSS. In Netzen mit Android-Geräten brauchst du deshalb SLAAC und den DNS-Server im RA.</p>
+
+<h3>Dual Stack</h3>
+<p>Im Übergang laufen IPv4 und IPv6 parallel: Jedes Gerät hat Adressen beider Versionen, das nennt man <strong>Dual Stack</strong>. Kann ein Ziel beide, bevorzugen die Systeme meist IPv6. Daneben gibt es Netze nur mit IPv4 oder nur mit IPv6 (IPv6-only); im zweiten Fall übersetzt ein Gateway bei Bedarf zu IPv4-Zielen.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Am Standort Nord sendet der Router im Gäste-VLAN RAs mit M = 0 und O = 0 und gibt den DNS-Server im RA mit. Smartphones aller Hersteller bekommen so eine Adresse. Im Verwaltungs-VLAN setzt er O = 1: Die PCs bilden ihre Adresse selbst, holen sich DNS-Server und Suchdomäne aber über ein DHCPv6-Relay auf dem Router (Kapitel 9.5.1) vom DHCPv6-Server im Stammhaus. Ein PC zeigt danach neben fe80::… eine Adresse aus 2001:db8:4a00:2110::/64 und als Gateway die fe80-Adresse des Routers.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Das Standardgateway kommt bei IPv6 vom DHCPv6-Server.“ Nein: DHCPv6 kennt keine Option für das Gateway. Ohne Router Advertisement und ohne von Hand eingetragenes Gateway hat ein Gerät kein Standardgateway.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>SLAAC:</strong> Gerät bildet seine Adresse aus dem Präfix im Router Advertisement und einem 64 Bit langen Geräteteil (EUI-64 oder zufällig); Gateway ist die Link-Local-Adresse des Routers.</li>
+  <li><strong>DHCPv6:</strong> M-Flag für zentral vergebene Adressen, O-Flag nur für weitere Angaben; Dual Stack heißt IPv4 und IPv6 parallel.</li>
+</ul>

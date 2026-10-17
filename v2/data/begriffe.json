@@ -1612,7 +1612,9 @@
         "Maske: Einsen Netzanteil, Nullen Hostanteil; CIDR /24 = 255.255.255.0, /25 .128, /26 .192, /27 .224, /28 .240, /30 .252.",
         "Netzadresse Hostbits 0, Broadcast Hostbits 1, Hosts 2^n − 2; Blockgröße = 256 − Maskenoktett; Netzadresse = Adresse UND Maske.",
         "Privat: 10/8, 172.16/12, 192.168/16; Loopback 127.0.0.0/8; APIPA 169.254/16 (genutzt .1.0–.254.255, ARP-Prüfung) bei fehlender DHCP-Adresse (Fehlerzeichen, ipconfig /renew).",
-        "Gateway im eigenen Netz für fremde Ziele; Client-Konfiguration: Adresse, Maske, Gateway, DNS; NAT/PAT ersetzt private Absenderadresse, keine Firewall."
+        "Gateway im eigenen Netz für fremde Ziele; Client-Konfiguration: Adresse, Maske, Gateway, DNS; NAT/PAT ersetzt private Absenderadresse, keine Firewall.",
+        "Subnetting: geliehene Bits n ergeben 2^n Teilnetze; VLSM: größtes Netz zuerst lückenlos; Transfernetz /30 (2 nutzbar) oder /31 (RFC 3021, beide nutzbar).",
+        "Multicast 224.0.0.0/4; Broadcast an Broadcastadresse des Netzes oder 255.255.255.255."
       ],
       "vorkommen": [
         {
@@ -1630,6 +1632,14 @@
         {
           "id": "3-4-5",
           "tiefe": "APIPA"
+        },
+        {
+          "id": "9-3-1",
+          "tiefe": "Subnetting, VLSM, Transfernetze"
+        },
+        {
+          "id": "9-3-4",
+          "tiefe": "Broadcast, Multicast 224.0.0.0/4"
         }
       ]
     },
@@ -1641,7 +1651,11 @@
         "Arten: Global 2000::/3, Unique Local fd (fc00::/7), Link-Local fe80::/10 (immer vorhanden, nicht geroutet, Zonenkennung %), Loopback ::1, Multicast ff00::/8; kein Broadcast; Doku-Präfix 2001:db8::/32.",
         "SLAAC (Präfix und Gateway aus Router-Ankündigung, Gateway oft fe80) oder DHCPv6 (ohne Gateway); Interface-ID per EUI-64 (ff:fe einfügen, 7. Bit von links umdrehen) oder zufällig, dazu temporäre Adressen; NAT bei IPv6 meist nicht nötig.",
         "Standort-Präfix oft /48 (oder /56); Bits 49–64 = 16 Bit Subnetz-ID = 65.536 Subnetze mit /64.",
-        "Vorteile: 2^128 Adressen, Ende-zu-Ende meist ohne NAT (Schutz durch Firewall), Autokonfiguration, Grundheader fest 40 Byte, IPsec im Standard vorgesehen, Multicast statt Broadcast."
+        "Vorteile: 2^128 Adressen, Ende-zu-Ende meist ohne NAT (Schutz durch Firewall), Autokonfiguration, Grundheader fest 40 Byte, IPsec im Standard vorgesehen, Multicast statt Broadcast.",
+        "Anzahl /64 = 2^(64 − Präfixlänge): /48 65.536, /56 256; Teilen mit n Bits ergibt 2^n Teile; Endgerätenetze bleiben /64; 2001:db8::/32 für Dokumentation.",
+        "NDP (ICMPv6) statt ARP: Router Solicitation/Advertisement, DAD; SLAAC aus Präfix im RA plus 64-Bit-Geräteteil (EUI-64 oder zufällig); Gateway = Link-Local des Routers aus RA, nie aus DHCPv6.",
+        "DHCPv6: M-Flag Adressen vom Server, O-Flag nur weitere Angaben; DNS auch per RDNSS im RA; Dual Stack = IPv4 und IPv6 parallel.",
+        "Kein Broadcast; Multicast ff00::/8 (ff02::1 alle Geräte, ff02::2 alle Router); Anycast = nächstgelegener mit gleicher Adresse."
       ],
       "vorkommen": [
         {
@@ -1651,6 +1665,18 @@
         {
           "id": "3-4-5",
           "tiefe": "Link-Local"
+        },
+        {
+          "id": "9-3-2",
+          "tiefe": "Präfix teilen, Anzahl Netze, GUA/ULA"
+        },
+        {
+          "id": "9-3-3",
+          "tiefe": "NDP, SLAAC, DHCPv6 M/O, Dual Stack"
+        },
+        {
+          "id": "9-3-4",
+          "tiefe": "Multicast ff00::/8, kein Broadcast"
         }
       ]
     },
@@ -1665,6 +1691,14 @@
         {
           "id": "3-5-1",
           "tiefe": "DHCP"
+        },
+        {
+          "id": "9-3-3",
+          "tiefe": "DHCPv6"
+        },
+        {
+          "id": "9-3-4",
+          "tiefe": "Discover als Broadcast"
         }
       ]
     },
@@ -1692,6 +1726,10 @@
         {
           "id": "3-5-3",
           "tiefe": "ARP"
+        },
+        {
+          "id": "9-3-4",
+          "tiefe": "ARP-Anfrage als Broadcast"
         }
       ]
     },
@@ -3148,6 +3186,10 @@
         {
           "id": "9-2-2",
           "tiefe": "Grundlagen, 802.1Q, Zuordnung, VLAN-Plan"
+        },
+        {
+          "id": "9-3-1",
+          "tiefe": "je VLAN ein IP-Netz"
         }
       ]
     },

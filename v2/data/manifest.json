@@ -4995,6 +4995,109 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "9.3",
+          "titel": "IP-Adressen planen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "9.3.1",
+              "titel": "IPv4-Netze aufteilen",
+              "slug": "ipv4-netze-aufteilen",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 1 (Subnetz, /31-Transfernetze nach RFC 3021)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 2 (Subnetze für VLANs, Gateways, Transfernetz)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 1 (Maske, Hostanzahl, Gateways)"
+                ],
+                "extern": [
+                  "RFC 1918, RFC 950 (Subnetting), RFC 1878 (VLSM), RFC 3021 (/31)"
+                ]
+              },
+              "material": [
+                "ipv4-subnetting"
+              ],
+              "begriffe": [
+                "ipv4",
+                "vlan"
+              ]
+            },
+            {
+              "nummer": "9.3.2",
+              "titel": "IPv6-Adressplan",
+              "slug": "ipv6-adressplan",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 1 (Präfix in /64 teilen, Adresstypen)",
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 3 (Präfix in vier Teilnetze)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 2 (IPv6-Subnetting, Adressanzahl in /64)"
+                ],
+                "extern": [
+                  "RFC 4291 (Adressarchitektur), RFC 3849 (2001:db8::/32 Dokumentation), RFC 4193 (ULA)"
+                ]
+              },
+              "material": [
+                "ipv6-grundlagen"
+              ],
+              "begriffe": [
+                "ipv6"
+              ]
+            },
+            {
+              "nummer": "9.3.3",
+              "titel": "IPv6 automatisch konfigurieren",
+              "slug": "ipv6-automatisch-konfigurieren",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dienste installieren und konfigurieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 3 (SLAAC, Router Advertisement, Gründe für DHCPv6)",
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 1 (Dual Stack)"
+                ],
+                "extern": [
+                  "RFC 4861 (NDP), RFC 4862 (SLAAC), RFC 8415 (DHCPv6), RFC 8106 (RDNSS), RFC 8981 (zufällige Geräteteile)"
+                ]
+              },
+              "material": [
+                "ipv6-grundlagen"
+              ],
+              "begriffe": [
+                "ipv6",
+                "dhcp"
+              ]
+            },
+            {
+              "nummer": "9.3.4",
+              "titel": "Unicast, Multicast, Broadcast, Anycast",
+              "slug": "unicast-multicast-broadcast-anycast",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Eigenschaften von Netzen und Diensten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 1 (Unicast, Multicast, Broadcast, Multicast-Adressbereich)"
+                ],
+                "extern": [
+                  "RFC 5771 (IPv4-Multicast), RFC 4291 (IPv6-Multicast, Anycast), RFC 1112 (Multicast-MAC 01:00:5e), RFC 2464 (Multicast-MAC 33:33)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "ipv4",
+                "ipv6",
+                "arp",
+                "dhcp"
+              ]
+            }
+          ]
         }
       ]
     }

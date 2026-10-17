@@ -1,0 +1,40 @@
+<p class="lead">Neben IPv4 sollen alle Standorte IPv6 bekommen. Bei IPv6 rechnest du nicht mehr, ob Adressen reichen, sondern ordnest: Welches Netz bekommt welches Präfix, damit man einer Adresse ansieht, wohin sie gehört? Aufbau, Kurzschreibweise und Adressarten kennst du aus LF3, Kapitel 3.4.4.</p>
+
+<h3>Vom Anbieter-Präfix zu den Netzen</h3>
+<p>Der Anbieter gibt dem Standort Nord das Präfix 2001:db8:4a00:2100::/56. (Adressen mit 2001:db8 sind für Beispiele reserviert.) Die ersten 56 Bit sind fest. Bis zur üblichen Netzgröße /64 bleiben 8 Bit, die du selbst vergibst: die <strong>Subnetz-ID</strong>.</p>
+<p class="formel">Anzahl /64-Netze = 2^(64 − Präfixlänge)</p>
+<p>Bei /56 sind das 2⁸ = 256 Netze, wie in LF3, Kapitel 3.4.4. Die 8 Bit stehen in den letzten beiden Hexadezimalziffern des vierten Blocks: Das erste Netz ist 2001:db8:4a00:2100::/64, das letzte 2001:db8:4a00:21ff::/64. Eine Hexadezimalziffer entspricht 4 Bit; Grenzen auf ganzen Ziffern (Vielfachen von 4) sind deshalb am leichtesten zu lesen.</p>
+
+<h3>In gleich große Teile teilen</h3>
+<p>Soll jeder Bereich einen eigenen Block bekommen, etwa je einer für Clients, Medizin, Infrastruktur und Reserve, teilst du das Präfix. Wie bei IPv4 leihst du Bits: Für vier Teile brauchst du 2 Bit, aus /56 werden vier /58. Die 2 Bit sind die obersten der Subnetz-ID, die Teile beginnen also bei den Werten 00, 40, 80 und c0 (binär 00, 01, 10, 11 gefolgt von sechs Nullen):</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Teil</th><th>Präfix</th><th>enthält die /64-Netze</th></tr></thead>
+    <tbody>
+      <tr><th>1</th><td>2001:db8:4a00:2100::/58</td><td>2100 bis 213f</td></tr>
+      <tr><th>2</th><td>2001:db8:4a00:2140::/58</td><td>2140 bis 217f</td></tr>
+      <tr><th>3</th><td>2001:db8:4a00:2180::/58</td><td>2180 bis 21bf</td></tr>
+      <tr><th>4</th><td>2001:db8:4a00:21c0::/58</td><td>21c0 bis 21ff</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Jedes /58 enthält 2⁶ = 64 Netze mit /64.</p>
+
+<h3>Ein lesbarer Plan</h3>
+<p>Die Alternative für kleine Standorte ist eine sprechende Subnetz-ID: Die Auszubildende schreibt die VLAN-Nummer in die Subnetz-ID. VLAN 10 bekommt 2001:db8:4a00:2110::/64, VLAN 40 2001:db8:4a00:2140::/64, VLAN 99 2001:db8:4a00:2199::/64. Die Ziffern sind zwar hexadezimal gemeint, man liest die VLAN-Nummer aber direkt ab. Bei einem /56 klappt das nur für VLAN-Nummern bis 99; bei einem /48 sind bis zu vier Ziffern frei.</p>
+<p>Jedes /64 hat 2⁶⁴ ≈ 1,8 · 10¹⁹ Adressen. Kleiner als /64 teilt man Netze mit Endgeräten nicht, denn die automatische Adressbildung (Kapitel 9.3.3) setzt einen 64 Bit langen Geräteteil voraus.</p>
+
+<h3>Welche Adressart wofür</h3>
+<p>Die Adressarten kennst du aus LF3, Kapitel 3.4.4. Für die Planung zählt: Global-Unicast-Adressen bekommt alles, was ins Internet soll. Unique-Local-Adressen (fc00::/7, genutzt wird fd00::/8) sind sinnvoll für Geräte, die nie ins Internet sollen oder ihre Adresse behalten müssen, wenn der Anbieter wechselt.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Am Standort Nord wechselt der Anbieter nach einer Vertragsänderung das Präfix. Alle Geräte, die ihre Adresse automatisch bilden, übernehmen das neue Präfix von selbst. Damit Röntgenstation und Drucker trotzdem immer unter derselben Adresse erreichbar sind, bekommen sie zusätzlich eine Unique-Local-Adresse aus fd4a:91c3:7e05::/48, einem Präfix, das der Verbund einmal zufällig erzeugt hat.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein /56 lässt sich in 56 Netze teilen.“ Die Zahl hinter dem Schrägstrich ist die Länge des festen Teils, nicht die Zahl der Netze. Bis /64 bleiben 64 − 56 = 8 Bit, also 2⁸ = 256 Netze.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Anzahl /64-Netze</strong> = 2^(64 − Präfixlänge).</li>
+  <li><strong>Teilen:</strong> n geliehene Bits ergeben 2^n Teile; Grenzen auf ganzen Hexadezimalziffern sind am lesbarsten, Netze mit Endgeräten bleiben /64.</li>
+</ul>

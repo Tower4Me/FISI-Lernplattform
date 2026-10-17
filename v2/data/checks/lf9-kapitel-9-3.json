@@ -1,0 +1,125 @@
+{
+  "titel": "Check 9.3",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Teilnetze zählen",
+      "frage": "Das Netz 172.16.8.0/24 soll in gleich große /27-Netze geteilt werden. Wie viele entstehen?",
+      "optionen": [
+        "8",
+        "4",
+        "27",
+        "32"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Von /24 auf /27 werden 3 Bits geliehen, 2³ = 8 Teilnetze. Jedes hat 2⁵ − 2 = 30 nutzbare Adressen."
+    },
+    {
+      "typ": "mc",
+      "thema": "VLSM",
+      "frage": "Ein Netz braucht Platz für 40 Geräte und das Gateway. Welches ist das kleinste Netz, das reicht?",
+      "optionen": [
+        "/26",
+        "/27",
+        "/25",
+        "/28"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Gebraucht werden 41 Adressen. /27 bietet 30, /26 bietet 62 nutzbare Adressen. /25 reicht auch, ist aber doppelt so groß."
+    },
+    {
+      "typ": "mc",
+      "thema": "Netzgrenzen",
+      "frage": "Welche Angaben gehören zum Netz 10.40.0.96/28?",
+      "optionen": [
+        "Hosts .97 bis .110, Broadcast .111",
+        "Hosts .96 bis .111, Broadcast .112",
+        "Hosts .97 bis .126, Broadcast .127",
+        "Hosts .1 bis .14, Broadcast .15"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein /28 hat die Blockgröße 16. Von .96 bis .111 sind Netzadresse .96, Hosts .97 bis .110 und Broadcast .111."
+    },
+    {
+      "typ": "mc",
+      "thema": "RA-Flags",
+      "frage": "Die PCs eines VLANs sollen ihre IPv6-Adresse selbst bilden, den DNS-Server aber von einem DHCPv6-Server holen. Wie setzt der Router die Flags im Router Advertisement?",
+      "optionen": [
+        "M = 0, O = 1",
+        "M = 1, O = 0",
+        "M = 1, O = 1",
+        "M = 0, O = 0"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "M = 0 lässt die Geräte ihre Adresse per SLAAC bilden. O = 1 sagt ihnen, dass sie weitere Angaben wie den DNS-Server per DHCPv6 holen sollen."
+    },
+    {
+      "typ": "mc",
+      "thema": "IPv6-Netze zählen",
+      "frage": "Ein Standort erhält das Präfix 2001:db8:77:a00::/56. Wie viele /64-Netze kann er bilden, und welches ist das letzte?",
+      "optionen": [
+        "256, das letzte ist 2001:db8:77:aff::/64",
+        "56, das letzte ist 2001:db8:77:a38::/64",
+        "65.536, das letzte ist 2001:db8:77:ffff::/64",
+        "8, das letzte ist 2001:db8:77:a07::/64"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bis /64 bleiben 8 Bit, also 2⁸ = 256 Netze. Sie liegen in den letzten beiden Hexadezimalziffern des vierten Blocks, von a00 bis aff."
+    },
+    {
+      "typ": "mc",
+      "thema": "IPv6 vierteln",
+      "frage": "Das Präfix 2001:db8:77:a00::/56 wird in vier gleich große Teile geteilt. Womit beginnt der dritte Teil?",
+      "optionen": [
+        "2001:db8:77:a80::/58",
+        "2001:db8:77:a03::/58",
+        "2001:db8:77:a30::/58",
+        "2001:db8:77:c00::/58"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Für vier Teile werden 2 Bit geliehen, aus /56 werden /58. Die Teile beginnen bei a00, a40, a80 und ac0."
+    },
+    {
+      "typ": "mc",
+      "thema": "SLAAC",
+      "frage": "Ein Notebook hat neben seiner fe80-Adresse keine globale IPv6-Adresse, obwohl das Netz IPv6 nutzt. Was fehlt ihm am ehesten?",
+      "optionen": [
+        "Ein Router Advertisement mit dem Präfix",
+        "Ein DHCP-Discover per Broadcast",
+        "Ein ARP-Eintrag für den Router",
+        "Eine Antwort des DNS-Servers"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Präfix für die globale Adresse erfährt das Gerät aus dem Router Advertisement. Kommt keins an, bleibt nur die Link-Local-Adresse."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zustellart",
+      "frage": "An welche Art von Adresse sendet ein IPv6-Router seine regelmäßigen Router Advertisements?",
+      "optionen": [
+        "An die Multicastadresse ff02::1",
+        "An die Broadcastadresse des Netzes",
+        "Per Unicast an jedes einzelne Gerät",
+        "An eine Anycastadresse aller DNS-Server"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "IPv6 kennt keinen Broadcast. Regelmäßige Router Advertisements gehen an die Multicastgruppe aller Geräte, ff02::1."
+    }
+  ]
+}

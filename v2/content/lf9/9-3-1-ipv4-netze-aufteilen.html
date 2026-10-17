@@ -1,0 +1,47 @@
+<p class="lead">Jedes VLAN aus Kapitel 9.2.2 braucht ein eigenes IP-Netz. Der Praxisverbund gibt jedem Standort ein privates /24-Netz, am Standort Nord 10.20.0.0/24. Daraus schneidest du die Netze für Verwaltung, Medizin, Telefonie, Gäste und Management. Das nennt man <strong>Subnetting</strong>. Wie du für ein einzelnes Netz Netzadresse, Broadcast und Hosts berechnest, kennst du aus LF3, Kapitel 3.4.2.</p>
+
+<h3>Gleich große Teilnetze</h3>
+<p>Beim Subnetting nimmst du Bits aus dem Hostanteil und machst sie zu Netzbits. Jedes zusätzliche Netzbit verdoppelt die Zahl der Teilnetze und halbiert ihre Größe.</p>
+<p class="formel">Anzahl Teilnetze = 2^(neue Präfixlänge − alte Präfixlänge)</p>
+<p>Aus 10.20.0.0/24 werden mit 2 zusätzlichen Bits vier /26-Netze mit je 2⁶ − 2 = 62 Hosts: 10.20.0.0, .64, .128 und .192. Umgekehrt: Brauchst du acht gleich große Netze, nimmst du 3 Bits, denn 2³ = 8, und landest bei /27 mit je 30 Hosts.</p>
+
+<h3>Unterschiedlich große Teilnetze (VLSM)</h3>
+<p>Die Bereiche brauchen selten gleich viele Adressen. Mit <strong>VLSM</strong> (Variable Length Subnet Mask) bekommt jedes Netz die passende Größe:</p>
+<ol>
+  <li>Für jeden Bereich die nötigen Adressen bestimmen: Geräte plus Gateway plus Reserve.</li>
+  <li>Das kleinste Netz wählen, das reicht, also die größte passende Präfixlänge: 2^Hostbits − 2 muss mindestens so groß sein wie der Bedarf.</li>
+  <li>Die Netze nach Größe ordnen, das größte zuerst, und lückenlos hintereinander vergeben. So beginnt jedes Netz an einer Grenze, die zu seiner Blockgröße passt.</li>
+</ol>
+<div class="vergleich">
+  <table>
+    <caption>Standort Nord, 10.20.0.0/24</caption>
+    <thead><tr><th>VLAN</th><th>Bedarf</th><th>Netz</th><th>Hosts</th><th>Gateway</th><th>Broadcast</th></tr></thead>
+    <tbody>
+      <tr><th>40 Gäste</th><td>bis 50 (Leases bleiben nach dem Gehen eine Weile belegt)</td><td>10.20.0.0/26</td><td>.1 bis .62</td><td>10.20.0.1</td><td>10.20.0.63</td></tr>
+      <tr><th>10 Verwaltung</th><td>bis 25</td><td>10.20.0.64/27</td><td>.65 bis .94</td><td>10.20.0.65</td><td>10.20.0.95</td></tr>
+      <tr><th>30 Telefonie</th><td>bis 12</td><td>10.20.0.96/28</td><td>.97 bis .110</td><td>10.20.0.97</td><td>10.20.0.111</td></tr>
+      <tr><th>20 Medizin</th><td>bis 10</td><td>10.20.0.112/28</td><td>.113 bis .126</td><td>10.20.0.113</td><td>10.20.0.127</td></tr>
+      <tr><th>99 Management</th><td>bis 10</td><td>10.20.0.128/28</td><td>.129 bis .142</td><td>10.20.0.129</td><td>10.20.0.143</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Der Bereich 10.20.0.144 bis 10.20.0.255 bleibt frei für spätere Netze. Als Gateway nimmt die Auszubildende einheitlich die erste nutzbare Adresse; einheitliche Regeln erleichtern Betrieb und Fehlersuche.</p>
+
+<h3>Transfernetze</h3>
+<p>Zwischen zwei Routern, etwa zwischen Kern-Switch und Internetrouter im Stammhaus, hängen nur zwei Geräte. Dafür reicht ein kleines <strong>Transfernetz</strong>:</p>
+<ul>
+  <li><strong>/30</strong>: 4 Adressen, davon 2 nutzbar, etwa 10.10.255.0/30 mit .1 und .2. Transfernetze nimmt der Verbund aus einem eigenen Block, 10.10.255.0/24; sie werden nur zwischen Routern im Stammhaus gebraucht.</li>
+  <li><strong>/31</strong>: nur 2 Adressen, beide nutzbar, ohne Netz- und Broadcastadresse (RFC 3021). Das spart Adressen, setzt aber voraus, dass beide Geräte es unterstützen.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Verbund nutzt 10.10.0.0/24 im Stammhaus, 10.20.0.0/24 in Nord und 10.30.0.0/24 in Süd. Weil jeder Standort einen zusammenhängenden Block hat, genügt in den Routern der anderen Standorte ein Eintrag je Standort (Kapitel 9.4.1). Stammhaus und Süd übernehmen den Plan von Nord mit 10.10 bzw. 10.30 statt 10.20, das Gäste-WLAN liegt in Süd also in 10.30.0.0/26. Im Stammhaus kommt aus dem freien Bereich das Server-VLAN 50 mit 10.10.0.144/28 hinzu: Gateway 10.10.0.145, Datenbankserver 10.10.0.146, Server für DNS und DHCP 10.10.0.147.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Für 30 Geräte reicht ein /27, denn 2⁵ = 32.“ Ein /27 hat nur 30 nutzbare Adressen, und eine davon braucht das Gateway. Für 30 Geräte plus Gateway brauchst du ein /26.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Subnetting:</strong> jedes geliehene Bit verdoppelt die Zahl der Teilnetze; Hosts je Netz = 2^Hostbits − 2.</li>
+  <li><strong>VLSM:</strong> Netze nach Bedarf bemessen, größtes zuerst lückenlos vergeben; Transfernetze als /30 oder /31.</li>
+</ul>

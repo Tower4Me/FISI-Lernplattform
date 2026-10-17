@@ -557,6 +557,15 @@
             <li><a class="up is-check" data-check="lf9-9-2" href="9-2-check.html"><span class="num">9.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="9-3-1-ipv4-netze-aufteilen.html"><span class="num">9.3</span><span>IP-Adressen planen</span><span class="kap-progress" data-ids="9-3-1 9-3-2 9-3-3 9-3-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="9-3-1" href="9-3-1-ipv4-netze-aufteilen.html"><span class="num">9.3.1</span><span class="t">IPv4-Netze aufteilen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-3-2" href="9-3-2-ipv6-adressplan.html"><span class="num">9.3.2</span><span class="t">IPv6-Adressplan</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-3-3" href="9-3-3-ipv6-automatisch-konfigurieren.html"><span class="num">9.3.3</span><span class="t">IPv6 automatisch konfigurieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-3-4" href="9-3-4-unicast-multicast-broadcast-anycast.html"><span class="num">9.3.4</span><span class="t">Unicast, Multicast, Broadcast, Anycast</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf9-9-3" href="9-3-check.html"><span class="num">9.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">9.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -590,8 +599,20 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-2.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.2</a></p>
 </section>
+<section class="rb-kapitel" id="k-9-3"><h2><span class="num">9.3</span> IP-Adressen planen</h2>
+<ul class="rb-list">
+<li><span class="num">9.3.1</span><div><a href="9-3-1-ipv4-netze-aufteilen.html">IPv4-Netze aufteilen</a><ul><li><strong>Subnetting:</strong> jedes geliehene Bit verdoppelt die Zahl der Teilnetze; Hosts je Netz = 2^Hostbits − 2.</li>
+  <li><strong>VLSM:</strong> Netze nach Bedarf bemessen, größtes zuerst lückenlos vergeben; Transfernetze als /30 oder /31.</li></ul></div></li>
+<li><span class="num">9.3.2</span><div><a href="9-3-2-ipv6-adressplan.html">IPv6-Adressplan</a><ul><li><strong>Anzahl /64-Netze</strong> = 2^(64 − Präfixlänge).</li>
+  <li><strong>Teilen:</strong> n geliehene Bits ergeben 2^n Teile; Grenzen auf ganzen Hexadezimalziffern sind am lesbarsten, Netze mit Endgeräten bleiben /64.</li></ul></div></li>
+<li><span class="num">9.3.3</span><div><a href="9-3-3-ipv6-automatisch-konfigurieren.html">IPv6 automatisch konfigurieren</a><ul><li><strong>SLAAC:</strong> Gerät bildet seine Adresse aus dem Präfix im Router Advertisement und einem 64 Bit langen Geräteteil (EUI-64 oder zufällig); Gateway ist die Link-Local-Adresse des Routers.</li>
+  <li><strong>DHCPv6:</strong> M-Flag für zentral vergebene Adressen, O-Flag nur für weitere Angaben; Dual Stack heißt IPv4 und IPv6 parallel.</li></ul></div></li>
+<li><span class="num">9.3.4</span><div><a href="9-3-4-unicast-multicast-broadcast-anycast.html">Unicast, Multicast, Broadcast, Anycast</a><p>Unicast geht an einen Empfänger, Broadcast an alle im Netz (nur IPv4), Multicast an eine Gruppe (IPv4 224.0.0.0/4, IPv6 ff00::/8), Anycast an den nächstgelegenen von mehreren mit derselben Adresse.</p></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-9-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.3</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="9-2-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.2</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="9-3-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.3</span>Check</span></a></nav>
 </main>
 </div>
 </body>

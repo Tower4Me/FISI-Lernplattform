@@ -1,0 +1,46 @@
+<p class="lead">Die zentrale Datenbank des Praxisverbunds soll nur Daten aufnehmen, die zusammenpassen: kein Gewicht als Text, kein Tier ohne Namen, keine Impfung mit einem Datum, das es nicht gibt. Solche Regeln legst du beim Anlegen der Tabellen fest. Dann prüft das DBMS jede neue und jede geänderte Zeile selbst.</p>
+
+<h3>SQL-Datentypen</h3>
+<p>Jede Spalte bekommt einen Datentyp. Die Grundidee kennst du aus LF5, Kapitel 5.1.4; in SQL heißen die Typen so:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Datentyp</th><th>Inhalt</th><th>Beispiel in der Praxis</th></tr></thead>
+    <tbody>
+      <tr><th><code>INTEGER</code> (<code>INT</code>)</th><td>ganze Zahl</td><td><code>tier_id</code>, Anzahl Tabletten</td></tr>
+      <tr><th><code>DECIMAL(p,s)</code></th><td>exakte Dezimalzahl mit <code>p</code> Stellen insgesamt, davon <code>s</code> nach dem Komma</td><td>Preis als <code>DECIMAL(8,2)</code>, also bis 999999,99</td></tr>
+      <tr><th><code>FLOAT</code>, <code>DOUBLE</code></th><td>Gleitkommazahl, mit Rundungsfehlern</td><td>Messwerte, bei denen kleine Abweichungen nicht stören</td></tr>
+      <tr><th><code>CHAR(n)</code></th><td>Text mit fester Länge <code>n</code></td><td>Standortkürzel wie <code>NRD</code></td></tr>
+      <tr><th><code>VARCHAR(n)</code></th><td>Text mit höchstens <code>n</code> Zeichen</td><td>Name, Telefonnummer</td></tr>
+      <tr><th><code>TEXT</code></th><td>langer Text</td><td>Befund einer Behandlung</td></tr>
+      <tr><th><code>DATE</code>, <code>TIME</code>, <code>TIMESTAMP</code></th><td>Datum, Uhrzeit, Datum mit Uhrzeit</td><td>Geburtsdatum, Terminbeginn</td></tr>
+      <tr><th><code>BOOLEAN</code></th><td>wahr oder falsch</td><td>Tier verstorben ja/nein</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Namen unterscheiden sich leicht zwischen den Systemen. MariaDB etwa speichert <code>BOOLEAN</code> intern als kleine Ganzzahl, und Datum mit Uhrzeit heißt dort meist <code>DATETIME</code>. Schau bei Bedarf in die Dokumentation des DBMS.</p>
+
+<h3>Einschränkungen (Constraints)</h3>
+<p>Ein Datentyp legt nur die Art des Werts fest. Weitere Regeln heißen <strong>Einschränkungen</strong> oder englisch <strong>Constraints</strong>:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Constraint</th><th>Wirkung</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th><code>NOT NULL</code></th><td>Feld darf nicht leer bleiben</td><td>jedes Tier braucht einen Namen</td></tr>
+      <tr><th><code>UNIQUE</code></th><td>Wert darf in der Spalte nur einmal vorkommen</td><td>Chipnummer eines Tiers</td></tr>
+      <tr><th><code>CHECK</code></th><td>Wert muss eine Bedingung erfüllen</td><td><code>gewicht_kg &gt; 0</code></td></tr>
+      <tr><th><code>DEFAULT</code></th><td>Standardwert, wenn beim Einfügen nichts angegeben ist (streng genommen ein Vorgabewert, kein Constraint)</td><td>Impfdatum ist der heutige Tag: <code>DEFAULT CURRENT_DATE</code></td></tr>
+      <tr><th><code>PRIMARY KEY</code></th><td>Primärschlüssel: eindeutig und nicht leer</td><td><code>tier_id</code></td></tr>
+      <tr><th><code>FOREIGN KEY</code></th><td>Wert muss leer sein oder als Primärschlüssel in einer anderen Tabelle vorkommen</td><td><code>besitzer_id</code> in Tier</td></tr>
+    </tbody>
+  </table>
+</div>
+<p><code>NULL</code> bedeutet „kein Wert“. Das ist etwas anderes als die Zahl 0 oder ein leerer Text: Ein Gewicht von 0 kg ist eine Angabe, ein fehlendes Gewicht ist keine. Wie Primär- und Fremdschlüssel angelegt werden, folgt in Kapitel 8.2.3.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Tabelle Tier legt die Auszubildende fest: <code>tier_id INTEGER</code> als Primärschlüssel, <code>name VARCHAR(50) NOT NULL</code>, <code>chipnummer CHAR(15) UNIQUE</code> (Tierchips tragen eine 15-stellige Nummer), <code>gewicht_kg DECIMAL(5,2) CHECK (gewicht_kg &gt; 0)</code> (DECIMAL, damit genau zwei Nachkommastellen gespeichert werden) und <code>geburtsdatum DATE</code>. Eine Chipnummer darf fehlen, weil nicht jedes Tier gechippt ist. Die Spalte bekommt deshalb kein <code>NOT NULL</code>; <code>UNIQUE</code> lässt in den meisten Systemen mehrere leere Werte zu, Microsoft SQL Server allerdings nur einen.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Postleitzahl und Telefonnummer sind Zahlen, also <code>INTEGER</code>.“ Mit ihnen rechnet niemand, und führende Nullen gingen verloren: aus der Postleitzahl 01067 würde 1067. Solche Kennungen speicherst du als Text, etwa <code>CHAR(5)</code> oder <code>VARCHAR(20)</code>.</p></aside>
+
+<p class="merksatz">Jede Spalte bekommt einen passenden SQL-Datentyp, etwa INTEGER, DECIMAL, VARCHAR oder DATE; Constraints wie NOT NULL, UNIQUE und CHECK lassen das DBMS weitere Regeln selbst prüfen; DEFAULT setzt einen Standardwert.</p>

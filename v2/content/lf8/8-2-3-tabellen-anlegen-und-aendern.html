@@ -1,0 +1,80 @@
+<p class="lead">Das Tabellenmodell steht. Jetzt legst du die Tabellen in der zentralen Datenbank an. Dafür schreibst du SQL-Befehle, statt dich durch eine Oberfläche zu klicken. Die Befehle lassen sich speichern, prüfen und auf dem Test- und dem echten Server gleich ausführen.</p>
+
+<h3>Die Teile von SQL</h3>
+<p><strong>SQL</strong> (Structured Query Language) ist die Standardsprache relationaler Datenbanken. Ihre Befehle werden in Gruppen eingeteilt:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Gruppe</th><th>Zweck</th><th>Befehle</th></tr></thead>
+    <tbody>
+      <tr><th>DDL (Data Definition Language)</th><td>Struktur festlegen</td><td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code></td></tr>
+      <tr><th>DML (Data Manipulation Language)</th><td>Daten einfügen, ändern, löschen</td><td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td></tr>
+      <tr><th>DQL (Data Query Language)</th><td>Daten abfragen</td><td><code>SELECT</code></td></tr>
+      <tr><th>DCL (Data Control Language)</th><td>Rechte vergeben</td><td><code>GRANT</code>, <code>REVOKE</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Manche Lehrbücher zählen <code>SELECT</code> zur DML. Groß- und Kleinschreibung der Befehlswörter ist egal; üblich ist, sie groß zu schreiben. Ein Befehl endet mit einem Semikolon.</p>
+
+<h3>Tabellen anlegen</h3>
+<pre><code>CREATE TABLE besitzer (
+  besitzer_id INTEGER PRIMARY KEY,
+  name        VARCHAR(60) NOT NULL,
+  ort         VARCHAR(40),
+  telefon     VARCHAR(20)
+);
+
+CREATE TABLE tier (
+  tier_id      INTEGER PRIMARY KEY,
+  name         VARCHAR(50) NOT NULL,
+  tierart      VARCHAR(20) NOT NULL,
+  geburtsdatum DATE,
+  gewicht_kg   DECIMAL(5,2) CHECK (gewicht_kg > 0),
+  besitzer_id  INTEGER NOT NULL,
+  FOREIGN KEY (besitzer_id) REFERENCES besitzer (besitzer_id)
+);
+
+CREATE TABLE impfstoff (
+  impfstoff_id INTEGER PRIMARY KEY,
+  bezeichnung  VARCHAR(60) NOT NULL,
+  hersteller   VARCHAR(60)
+);
+
+CREATE TABLE impfung (
+  tier_id      INTEGER,
+  impfstoff_id INTEGER,
+  datum        DATE,
+  charge       VARCHAR(20),
+  PRIMARY KEY (tier_id, impfstoff_id, datum),
+  FOREIGN KEY (tier_id) REFERENCES tier (tier_id),
+  FOREIGN KEY (impfstoff_id) REFERENCES impfstoff (impfstoff_id)
+);</code></pre>
+<p>Je Spalte stehen Name, Datentyp und Constraints (Kapitel 8.2.1). Ein Primärschlüssel aus einer Spalte kann direkt hinter ihr stehen; ein zusammengesetzter Schlüssel muss als eigene Zeile <code>PRIMARY KEY (…)</code> am Ende. Die Tabelle <code>impfstoff</code> legst du vor <code>impfung</code> an, denn ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Ebenso kommt <code>besitzer</code> vor <code>tier</code>.</p>
+
+<h3>Referenzielle Integrität</h3>
+<p>Mit <code>FOREIGN KEY … REFERENCES</code> prüft das DBMS die <strong>referenzielle Integrität</strong>: Ein Tier mit einer Besitzernummer, die es nicht gibt, lässt sich nicht speichern. Was beim Löschen einer Besitzerin mit Tieren passiert, legst du mit einer Regel fest:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Regel</th><th>Wirkung beim Löschen der Besitzerin</th></tr></thead>
+    <tbody>
+      <tr><th>ohne Angabe, <code>NO ACTION</code> oder <code>RESTRICT</code></th><td>Löschen wird abgelehnt, solange noch Tiere auf sie verweisen</td></tr>
+      <tr><th><code>ON DELETE CASCADE</code></th><td>ihre Tiere werden mitgelöscht</td></tr>
+      <tr><th><code>ON DELETE SET NULL</code></th><td>bei ihren Tieren wird <code>besitzer_id</code> leer (geht nur ohne <code>NOT NULL</code>)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Für die Praxis ist die Ablehnung richtig: Tier- und Impfdaten sollen nicht verschwinden, nur weil jemand einen Besitzer löscht.</p>
+
+<h3>Ändern und löschen</h3>
+<pre><code>ALTER TABLE tier ADD COLUMN chipnummer CHAR(15) UNIQUE;
+ALTER TABLE tier DROP COLUMN geburtsdatum;
+DROP TABLE impfung;</code></pre>
+<p><code>ALTER TABLE</code> ändert die Struktur einer bestehenden Tabelle, etwa um eine Spalte hinzuzufügen oder zu entfernen. <code>DROP TABLE</code> löscht die Tabelle mitsamt allen Daten. Rückgängig machen lässt sich das meist nicht; sichere die Daten vorher.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende speichert alle <code>CREATE TABLE</code>-Befehle in einer Skriptdatei. Sie führt das Skript zuerst auf dem Testserver aus. Dort bricht es ab: Die Tabelle <code>impfung</code> stand vor <code>impfstoff</code>. Sie löscht die bereits angelegten Tabellen <code>besitzer</code> und <code>tier</code> wieder, stellt die Reihenfolge um, führt das Skript erneut aus und kann es danach unverändert auf dem echten Server verwenden.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„<code>DROP TABLE</code> und <code>DELETE FROM</code> tun dasselbe.“ <code>DELETE FROM tier</code> löscht die Zeilen, die Tabelle bleibt leer bestehen. <code>DROP TABLE tier</code> entfernt die Tabelle selbst mit Struktur und Daten.</p></aside>
+
+<p class="merksatz">Mit DDL legst du die Struktur fest: CREATE TABLE mit Datentypen, Constraints, Primär- und Fremdschlüssel, ALTER TABLE zum Ändern, DROP TABLE zum Löschen; Fremdschlüssel sichern die referenzielle Integrität.</p>

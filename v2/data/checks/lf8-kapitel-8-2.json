@@ -1,0 +1,109 @@
+{
+  "titel": "Check 8.2",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Datentyp Preis",
+      "frage": "Für den Preis eines Impfstoffs brauchst du Cent-genaue Werte bis 9.999,99 Euro. Welcher Datentyp passt?",
+      "optionen": [
+        "DECIMAL(6,2)",
+        "FLOAT",
+        "DECIMAL(4,2)",
+        "VARCHAR(7)"
+      ],
+      "richtig": [0],
+      "erklaerung": "DECIMAL(6,2) speichert exakt sechs Stellen, davon zwei nach dem Komma, also bis 9999,99. FLOAT hat Rundungsfehler, DECIMAL(4,2) reicht nur bis 99,99, und mit Text lässt sich nicht rechnen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kennungen",
+      "frage": "Welcher Datentyp passt für eine Postleitzahl wie 01067?",
+      "optionen": [
+        "CHAR(5)",
+        "INTEGER",
+        "DECIMAL(5,0)",
+        "BOOLEAN"
+      ],
+      "richtig": [0],
+      "erklaerung": "Mit Postleitzahlen rechnet niemand, und als Zahl ginge die führende Null verloren. Deshalb speicherst du sie als Text fester Länge."
+    },
+    {
+      "typ": "mc",
+      "thema": "Constraint wählen",
+      "frage": "Das DBMS soll ablehnen, dass ein Tier mit einem Gewicht von 0 kg oder weniger gespeichert wird. Welcher Constraint leistet das?",
+      "optionen": [
+        "CHECK (gewicht_kg > 0)",
+        "NOT NULL für gewicht_kg",
+        "UNIQUE für gewicht_kg",
+        "DEFAULT 1 für gewicht_kg"
+      ],
+      "richtig": [0],
+      "erklaerung": "CHECK prüft eine Bedingung für jeden Wert. NOT NULL verhindert nur leere Felder, UNIQUE nur doppelte Werte, DEFAULT setzt einen Wert, wenn keiner angegeben ist."
+    },
+    {
+      "typ": "mc",
+      "thema": "1. Normalform",
+      "frage": "In einer Spalte steht „Tollwut, Staupe, Parvovirose“. Gegen welche Normalform verstößt die Tabelle?",
+      "optionen": [
+        "1. Normalform",
+        "2. Normalform",
+        "3. Normalform",
+        "gegen keine Normalform"
+      ],
+      "richtig": [0],
+      "erklaerung": "Die 1. Normalform verlangt atomare Werte, also genau einen Wert je Feld. Eine Liste in einer Zelle verletzt sie."
+    },
+    {
+      "typ": "mc",
+      "thema": "2. Normalform",
+      "frage": "Tabelle Impfung (tier_id, impfstoff_id, datum, bezeichnung) mit dem Schlüssel aus tier_id, impfstoff_id und datum. Die Bezeichnung hängt nur von impfstoff_id ab. Was liegt vor?",
+      "optionen": [
+        "Eine Teilabhängigkeit, Verstoß gegen die 2. Normalform",
+        "Eine transitive Abhängigkeit, Verstoß gegen die 3. Normalform",
+        "Ein nicht atomarer Wert, Verstoß gegen die 1. Normalform",
+        "Keine Redundanz, weil der Schlüssel eindeutig ist"
+      ],
+      "richtig": [0],
+      "erklaerung": "Die Bezeichnung hängt nur von einem Teil des zusammengesetzten Schlüssels ab. Das ist eine Teilabhängigkeit; sie verletzt die 2. Normalform und wird mit einer eigenen Tabelle Impfstoff behoben."
+    },
+    {
+      "typ": "mc",
+      "thema": "3. Normalform",
+      "frage": "Tabelle Standort (standort_id, name, plz, ort). Der Ort ergibt sich aus der Postleitzahl. Welche Abhängigkeit verletzt hier die 3. Normalform?",
+      "optionen": [
+        "standort_id → plz → ort",
+        "standort_id → name → ort",
+        "ort → plz → standort_id",
+        "name → plz → ort"
+      ],
+      "richtig": [0],
+      "erklaerung": "Der Ort hängt über die Postleitzahl, also ein Nicht-Schlüsselattribut, vom Schlüssel ab. Diese transitive Abhängigkeit verletzt die 3. Normalform."
+    },
+    {
+      "typ": "mc",
+      "thema": "Reihenfolge",
+      "frage": "Ein Skript legt erst die Tabelle tier mit Fremdschlüssel auf besitzer an, dann besitzer. Was passiert?",
+      "optionen": [
+        "Das Anlegen von tier scheitert, weil besitzer noch fehlt",
+        "Beide Tabellen werden angelegt, der Fremdschlüssel fehlt",
+        "Das DBMS ordnet die Befehle selbst um",
+        "Die Tabelle besitzer wird automatisch leer erzeugt"
+      ],
+      "richtig": [0],
+      "erklaerung": "Ein Fremdschlüssel kann nur auf eine Tabelle zeigen, die schon existiert. Deshalb legst du die Tabelle besitzer zuerst an."
+    },
+    {
+      "typ": "mc",
+      "thema": "Löschregel",
+      "frage": "Der Fremdschlüssel besitzer_id in tier wurde ohne ON-DELETE-Regel angelegt. Jemand will eine Besitzerin löschen, auf die noch zwei Tiere verweisen. Was geschieht?",
+      "optionen": [
+        "Das DBMS weist den Befehl zurück",
+        "Die beiden Tiere werden mitgelöscht",
+        "Bei den Tieren wird besitzer_id leer",
+        "Die Besitzerin wird gelöscht, die Tiere bleiben mit ungültigem Verweis"
+      ],
+      "richtig": [0],
+      "erklaerung": "Ohne Angabe gilt NO ACTION: Das Löschen wird abgelehnt, solange noch Datensätze auf die Besitzerin verweisen. Mitlöschen wäre ON DELETE CASCADE, Leeren ON DELETE SET NULL."
+    }
+  ]
+}

@@ -1747,6 +1747,10 @@
         {
           "id": "5-4-2",
           "tiefe": "Rückverweis bei Variablen"
+        },
+        {
+          "id": "8-2-1",
+          "tiefe": "SQL-Datentypen"
         }
       ]
     },
@@ -1840,6 +1844,14 @@
         {
           "id": "5-5-4",
           "tiefe": "Multiplizitäten im Klassendiagramm wie Kardinalitäten gelesen"
+        },
+        {
+          "id": "8-2-2",
+          "tiefe": "Normalisieren führt zu den Tabellen aus 5.3.3"
+        },
+        {
+          "id": "8-2-3",
+          "tiefe": "PK/FK in CREATE TABLE"
         }
       ]
     },
@@ -2800,6 +2812,42 @@
         {
           "id": "8-1-4",
           "tiefe": "Merkmale und Prüfung"
+        }
+      ]
+    },
+    {
+      "begriff": "sql",
+      "kernfakten": [
+        "SQL-Gruppen: DDL (CREATE, ALTER, DROP), DML (INSERT, UPDATE, DELETE), DQL (SELECT; manche zählen es zur DML), DCL (GRANT, REVOKE).",
+        "Datentypen: INTEGER, DECIMAL(p,s) exakt (p Stellen gesamt, s Nachkomma), FLOAT/DOUBLE mit Rundungsfehlern, CHAR(n) fest, VARCHAR(n) variabel, TEXT, DATE/TIME/TIMESTAMP (MariaDB DATETIME), BOOLEAN; Kennungen wie PLZ als Text.",
+        "Constraints: NOT NULL, UNIQUE (mehrere NULL meist erlaubt, SQL Server nur eine), CHECK, DEFAULT, PRIMARY KEY, FOREIGN KEY … REFERENCES; NULL = kein Wert, nicht 0.",
+        "Referenzierte Tabelle zuerst anlegen; ohne ON-DELETE-Regel (NO ACTION/RESTRICT) wird Löschen eines referenzierten Datensatzes abgelehnt; CASCADE löscht mit, SET NULL leert.",
+        "DROP TABLE entfernt Tabelle mit Struktur und Daten; DELETE FROM entfernt Zeilen, Tabelle bleibt."
+      ],
+      "vorkommen": [
+        {
+          "id": "8-2-1",
+          "tiefe": "Datentypen und Constraints"
+        },
+        {
+          "id": "8-2-3",
+          "tiefe": "DDL, referenzielle Integrität"
+        }
+      ]
+    },
+    {
+      "begriff": "normalisierung",
+      "kernfakten": [
+        "Funktionale Abhängigkeit A → B: zu jedem Wert von A genau ein Wert von B.",
+        "1. NF: atomare Werte, keine Listen/Wiederholungsgruppen.",
+        "2. NF: 1. NF und kein Nicht-Schlüsselattribut hängt nur von einem Teil eines zusammengesetzten Schlüssels ab; einspaltiger Schlüssel in 1. NF ist automatisch in 2. NF.",
+        "3. NF: 2. NF und keine transitive Abhängigkeit (Nicht-Schlüsselattribut von anderem Nicht-Schlüsselattribut).",
+        "Denormalisierung bewusst, meist in eigenen Auswertungsdatenbanken."
+      ],
+      "vorkommen": [
+        {
+          "id": "8-2-2",
+          "tiefe": "1. bis 3. NF am Beispiel Impfliste"
         }
       ]
     }

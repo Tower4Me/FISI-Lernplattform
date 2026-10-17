@@ -1,0 +1,78 @@
+<p class="lead">Am Standort Süd liegt neben der Praxissoftware noch eine alte Impfliste aus einer Tabellenkalkulation: eine Zeile je Tier, alle Impfungen in einer Zelle, die Besitzerdaten bei jedem Tier. Bevor diese Daten in die zentrale Datenbank kommen, bringst du sie in eine Struktur ohne Redundanz. Dafür gibt es ein schrittweises Verfahren, das <strong>Normalisieren</strong>.</p>
+
+<h3>Warum normalisieren</h3>
+<p>Redundante Daten führen zu Änderungs-, Einfüge- und Löschanomalien, das kennst du aus LF5, Kapitel 5.3.1. Die <strong>Normalformen</strong> sind Prüfregeln, mit denen du solche Redundanz Schritt für Schritt findest und durch Aufteilen in Tabellen beseitigst. Jede Normalform setzt die vorige voraus. In der Praxis reicht meist die dritte.</p>
+<p>Dafür brauchst du einen Begriff: Ein Attribut B ist von A <strong>funktional abhängig</strong>, wenn zu jedem Wert von A genau ein Wert von B gehört. Zur <code>impfstoff_id</code> gehört genau eine Bezeichnung; man schreibt <code>impfstoff_id → bezeichnung</code>.</p>
+
+<h3>Ausgangslage</h3>
+<div class="vergleich">
+  <table>
+    <caption>Liste Standort Süd (nicht normalisiert)</caption>
+    <thead><tr><th>tier_id</th><th>tiername</th><th>besitzer_id</th><th>besitzer_name</th><th>besitzer_ort</th><th>impfungen</th></tr></thead>
+    <tbody>
+      <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3 Tollwut 2025-03-04, 5 Staupe 2025-03-04</td></tr>
+      <tr><th>32</th><td>Rocky</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3 Tollwut 2025-05-12</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="reiter" data-reiter>
+  <div class="reiter-panel" data-label="1. Normalform">
+    <p><strong>Regel:</strong> Jedes Feld enthält genau einen, nicht weiter zerlegbaren (<strong>atomaren</strong>) Wert; es gibt keine Listen und keine Wiederholungsgruppen in einer Zeile.</p>
+    <p>Die Spalte <code>impfungen</code> enthält eine Liste. Jede Impfung wird zu einer eigenen Zeile, Nummer, Bezeichnung und Datum zu eigenen Spalten:</p>
+    <div class="vergleich">
+      <table>
+        <thead><tr><th>tier_id</th><th>tiername</th><th>besitzer_id</th><th>besitzer_name</th><th>besitzer_ort</th><th>impfstoff_id</th><th>bezeichnung</th><th>datum</th></tr></thead>
+        <tbody>
+          <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3</td><td>Tollwut</td><td>2025-03-04</td></tr>
+          <tr><th>31</th><td>Luna</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>5</td><td>Staupe</td><td>2025-03-04</td></tr>
+          <tr><th>32</th><td>Rocky</td><td>7</td><td>Schäfer</td><td>Rosenheim</td><td>3</td><td>Tollwut</td><td>2025-05-12</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Eine Zeile ist jetzt nur über <code>tier_id</code>, <code>impfstoff_id</code> und <code>datum</code> zusammen eindeutig: Das ist der zusammengesetzte Primärschlüssel. Die Redundanz ist sogar größer geworden.</p>
+  </div>
+  <div class="reiter-panel" data-label="2. Normalform">
+    <p><strong>Regel:</strong> 1. Normalform, und jedes Nicht-Schlüsselattribut hängt vom <strong>ganzen</strong> Primärschlüssel ab, nicht nur von einem Teil davon. Die Regel betrifft nur Tabellen mit zusammengesetztem Schlüssel.</p>
+    <p>Teilabhängigkeiten in der Tabelle oben:</p>
+    <ul>
+      <li><code>tier_id → tiername, besitzer_id, besitzer_name, besitzer_ort</code></li>
+      <li><code>impfstoff_id → bezeichnung</code></li>
+    </ul>
+    <p>Diese Attribute wandern mit dem Teil des Schlüssels, von dem sie abhängen, in eigene Tabellen. Es entstehen drei Tabellen; Impfung bleibt als Zwischentabelle übrig:</p>
+    <ul>
+      <li><strong>Tier</strong> (<u>tier_id</u>, tiername, besitzer_id, besitzer_name, besitzer_ort)</li>
+      <li><strong>Impfstoff</strong> (<u>impfstoff_id</u>, bezeichnung)</li>
+      <li><strong>Impfung</strong> (<u>tier_id</u>, <u>impfstoff_id</u>, <u>datum</u>)</li>
+    </ul>
+  </div>
+  <div class="reiter-panel" data-label="3. Normalform">
+    <p><strong>Regel:</strong> 2. Normalform, und kein Nicht-Schlüsselattribut hängt von einem anderen Nicht-Schlüsselattribut ab. Eine solche Kette über ein Zwischenglied heißt <strong>transitive Abhängigkeit</strong>.</p>
+    <p>In der Tabelle Tier gilt <code>tier_id → besitzer_id → besitzer_name, besitzer_ort</code>. Name und Ort hängen also nur über die Besitzernummer vom Schlüssel ab. Bei Rocky und Luna stünde Frau Schäfers Ort weiterhin doppelt. Die Besitzerdaten bekommen eine eigene Tabelle:</p>
+    <ul>
+      <li><strong>Besitzer</strong> (<u>besitzer_id</u>, name, ort)</li>
+      <li><strong>Tier</strong> (<u>tier_id</u>, name, besitzer_id FK → Besitzer)</li>
+      <li><strong>Impfstoff</strong> (<u>impfstoff_id</u>, bezeichnung)</li>
+      <li><strong>Impfung</strong> (<u>tier_id</u> FK → Tier, <u>impfstoff_id</u> FK → Impfstoff, <u>datum</u>)</li>
+    </ul>
+    <p>Jede Angabe steht jetzt nur einmal. Das Ergebnis hat denselben Aufbau wie die Tabellen aus LF5, Kapitel 5.3.3: Ein gutes ER-Modell führt meist direkt zu Tabellen in der dritten Normalform.</p>
+  </div>
+</div>
+
+<h3>Kurz gefasst</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Normalform</th><th>Prüffrage</th><th>Abhilfe</th></tr></thead>
+    <tbody>
+      <tr><th>1. NF</th><td>Steht in jedem Feld genau ein Wert?</td><td>Listen in Zeilen und Spalten auflösen</td></tr>
+      <tr><th>2. NF</th><td>Hängt jedes Nicht-Schlüsselattribut vom ganzen Schlüssel ab?</td><td>Teilabhängige Attribute in eigene Tabelle</td></tr>
+      <tr><th>3. NF</th><td>Hängt jedes Nicht-Schlüsselattribut direkt vom Schlüssel ab, nicht über ein anderes?</td><td>Transitiv abhängige Attribute in eigene Tabelle</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Eine Tabelle mit einfachem Primärschlüssel kann gegen die 2. Normalform verstoßen.“ Nein: Ein Schlüssel aus nur einer Spalte hat keine Teile, also gibt es keine Teilabhängigkeit. Ist eine solche Tabelle in der 1. Normalform, ist sie auch in der 2.; die 3. Normalform musst du trotzdem prüfen.</p></aside>
+
+<aside class="note" data-typ="hinweis"><p>Für reine Auswertungen wird manchmal bewusst wieder zusammengelegt (<strong>Denormalisierung</strong>), weil Abfragen dann schneller sind. Das geschieht meist in einer eigenen Auswertungsdatenbank; die Daten, mit denen gearbeitet wird, bleiben normalisiert.</p></aside>
+
+<p class="merksatz">Normalisieren teilt Tabellen auf, damit jede Angabe nur einmal steht: 1. NF nur atomare Werte, 2. NF keine Abhängigkeit von einem Teil des Schlüssels, 3. NF keine Abhängigkeit zwischen Nicht-Schlüsselattributen.</p>

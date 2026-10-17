@@ -4423,6 +4423,85 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "8.2",
+          "titel": "Datenbanken mit SQL anlegen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "8.2.1",
+              "titel": "Datentypen und Einschränkungen",
+              "slug": "datentypen-und-einschraenkungen",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Konzept zur Bereitstellung der Daten entwickeln",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Aufgabe 1 (SQL-Datentypen zuordnen)"
+                ],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) Datentypen und Constraints; MariaDB- und PostgreSQL-Dokumentation (BOOLEAN, DATETIME, UNIQUE mit NULL)",
+                  "ISO 11784 (15-stellige Tierkennnummer)"
+                ]
+              },
+              "material": [
+                "datentypen-constraints"
+              ],
+              "begriffe": [
+                "sql",
+                "datentypen"
+              ]
+            },
+            {
+              "nummer": "8.2.2",
+              "titel": "Normalisieren",
+              "slug": "normalisieren",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Konzept zur Bereitstellung der Daten entwickeln",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Aufgabe 1 (Anomalien)",
+                  "AP2 FISI Winter 2021/22 (Normalisierung, ER-Modell in 3NF)"
+                ],
+                "extern": [
+                  "Lehrbuchwissen Normalformen nach Codd (1. bis 3. NF)"
+                ]
+              },
+              "material": [
+                "normalisierung"
+              ],
+              "begriffe": [
+                "normalisierung",
+                "datenbankmodell"
+              ]
+            },
+            {
+              "nummer": "8.2.3",
+              "titel": "Tabellen anlegen und ändern",
+              "slug": "tabellen-anlegen-und-aendern",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Konzept zur Bereitstellung der Daten umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Aufgabe 1 (CREATE TABLE mit PK und FK)",
+                  "AP2 FISI Sommer 2022 Aufgabe 1 (referenzielle Integrität)"
+                ],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) CREATE/ALTER/DROP TABLE, referenzielle Aktionen; MariaDB-Dokumentation"
+                ]
+              },
+              "material": [
+                "sql-ddl"
+              ],
+              "begriffe": [
+                "sql",
+                "datenbankmodell"
+              ]
+            }
+          ]
         }
       ]
     }

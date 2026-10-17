@@ -1,0 +1,44 @@
+<p class="lead">Drei Standorte mit je einem Tunnel lassen sich gut mit statischen Routen verbinden. Bekommt jeder Standort aber einen zweiten Tunnel über den Mobilfunk-Ersatzweg, müsstest du für jeden Ersatzweg eigene statische Routen mit schlechterer Bewertung pflegen; mit mehr Standorten wird das schnell unübersichtlich. Hier helfen <strong>Routing-Protokolle</strong>: Router tauschen selbst aus, welche Netze sie erreichen, und passen ihre Tabellen an.</p>
+
+<h3>Statisch oder dynamisch</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Statisches Routing</th><th>Dynamisches Routing</th></tr></thead>
+    <tbody>
+      <tr><th>Einträge</th><td>von Hand gepflegt</td><td>lernen die Router voneinander</td></tr>
+      <tr><th>bei Ausfall eines Wegs</th><td>bleibt der Eintrag stehen, bis ihn jemand ändert</td><td>Router suchen selbstständig einen anderen Weg</td></tr>
+      <tr><th>neues Netz</th><td>an jedem Router nachtragen</td><td>wird automatisch bekannt gegeben</td></tr>
+      <tr><th>Aufwand</th><td>gering bei wenigen Routern, keine Last durch Protokolle</td><td>Einrichtung und Verständnis nötig, etwas Netzlast</td></tr>
+      <tr><th>passt für</th><td>kleine, stabile Netze, Default-Route zum Anbieter</td><td>viele Router, redundante Wege, wachsende Netze</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Metrik</h3>
+<p>Kennt ein Router mehrere Wege zum selben Netz, wählt er den mit der besten <strong>Metrik</strong>. Was die Metrik misst, legt das Protokoll fest: die Zahl der Router auf dem Weg (Hops), Kosten aus der Bandbreite der Leitungen oder eine Mischung aus Bandbreite und Verzögerung. Der Weg mit dem kleineren Wert gewinnt.</p>
+
+<h3>Zwei Verfahren</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Distanzvektor (Distance Vector)</th><th>Link-State</th></tr></thead>
+    <tbody>
+      <tr><th>Wissen des Routers</th><td>kennt nur die Entfernung und Richtung zu jedem Netz, wie ihm seine Nachbarn mitteilen</td><td>kennt die ganze Topologie und berechnet selbst den besten Weg</td></tr>
+      <tr><th>Austausch</th><td>regelmäßig die eigene Tabelle an die Nachbarn</td><td>Meldungen über den Zustand der eigenen Verbindungen an alle, bei Änderungen sofort</td></tr>
+      <tr><th>Reaktion auf Ausfälle</th><td>langsam, Fehlinformationen können kreisen</td><td>schnell</td></tr>
+      <tr><th>Beispiel</th><td>RIP: Metrik Hops, höchstens 15</td><td>OSPF: Metrik Kosten aus der Bandbreite</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Innerhalb eines Unternehmens ist heute OSPF verbreitet. Zwischen den Netzen der Anbieter im Internet arbeitet BGP, das Wege nach Regeln der Betreiber auswählt; im Unternehmensnetz begegnet es dir selten.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Jeder Standort hat zwei Tunnel zum Stammhaus: einen über die VDSL-Leitung und einen über den Mobilfunk-Ersatzweg. Die Router sprechen OSPF über beide Tunnel. Der Mobilfunk-Tunnel bleibt dafür dauerhaft aufgebaut; die Auszubildende versieht ihn mit höheren Kosten, damit er im Normalfall nicht genutzt wird. Fällt die VDSL-Leitung in Süd aus, meldet der Router den Ausfall, alle Router berechnen neu, und der Verkehr läuft nach kurzer Zeit, mit den Standardwerten von OSPF unter einer Minute, über den Ersatztunnel. Die Default-Route ins Internet bleibt an jedem Standort statisch.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Dynamisches Routing ist immer besser.“ Für ein Netz mit einem Router und einem Anschluss bringt es nur Aufwand. Statische Routen sind dort übersichtlicher und genauso zuverlässig.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Dynamisches Routing:</strong> Router lernen Netze voneinander und weichen bei Ausfällen selbst aus; der Weg mit der kleinsten Metrik gewinnt.</li>
+  <li><strong>Distanzvektor</strong> (RIP, Hops) kennt nur Richtung und Entfernung, <strong>Link-State</strong> (OSPF, Kosten) die ganze Topologie und reagiert schneller.</li>
+</ul>

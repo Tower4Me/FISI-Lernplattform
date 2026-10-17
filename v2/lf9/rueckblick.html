@@ -566,6 +566,15 @@
             <li><a class="up is-check" data-check="lf9-9-3" href="9-3-check.html"><span class="num">9.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="9-4-1-routingtabellen-lesen-und-anlegen.html"><span class="num">9.4</span><span>Routing und Adressumsetzung</span><span class="kap-progress" data-ids="9-4-1 9-4-2 9-4-3 9-4-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="9-4-1" href="9-4-1-routingtabellen-lesen-und-anlegen.html"><span class="num">9.4.1</span><span class="t">Routingtabellen lesen und anlegen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-4-2" href="9-4-2-zwischen-vlans-routen.html"><span class="num">9.4.2</span><span class="t">Zwischen VLANs routen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-4-3" href="9-4-3-dynamisches-routing.html"><span class="num">9.4.3</span><span class="t">Dynamisches Routing</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-4-4" href="9-4-4-nat-pat-und-port-forwarding.html"><span class="num">9.4.4</span><span class="t">NAT, PAT und Port-Forwarding</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf9-9-4" href="9-4-check.html"><span class="num">9.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">9.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -611,8 +620,21 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-3.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.3</a></p>
 </section>
+<section class="rb-kapitel" id="k-9-4"><h2><span class="num">9.4</span> Routing und Adressumsetzung</h2>
+<ul class="rb-list">
+<li><span class="num">9.4.1</span><div><a href="9-4-1-routingtabellen-lesen-und-anlegen.html">Routingtabellen lesen und anlegen</a><ul><li><strong>Routingtabelle:</strong> Ziel (Netz mit Präfix), Gateway (nächster Router im direkt verbundenen Netz), Schnittstelle, Metrik; Default-Route 0.0.0.0/0 für alles andere.</li>
+  <li>Der genaueste passende Eintrag gewinnt (Longest Prefix Match); Hin- und Rückweg müssen auf allen Routern stimmen.</li></ul></div></li>
+<li><span class="num">9.4.2</span><div><a href="9-4-2-zwischen-vlans-routen.html">Zwischen VLANs routen</a><ul><li><strong>Inter-VLAN-Routing:</strong> eigene Router-Schnittstelle je VLAN, Router-on-a-Stick mit Subschnittstellen auf einem Trunk oder Layer-3-Switch mit einer SVI je VLAN.</li>
+  <li>Routing verbindet alle VLANs; Regeln am Router legen fest, welcher Verkehr erlaubt bleibt.</li></ul></div></li>
+<li><span class="num">9.4.3</span><div><a href="9-4-3-dynamisches-routing.html">Dynamisches Routing</a><ul><li><strong>Dynamisches Routing:</strong> Router lernen Netze voneinander und weichen bei Ausfällen selbst aus; der Weg mit der kleinsten Metrik gewinnt.</li>
+  <li><strong>Distanzvektor</strong> (RIP, Hops) kennt nur Richtung und Entfernung, <strong>Link-State</strong> (OSPF, Kosten) die ganze Topologie und reagiert schneller.</li></ul></div></li>
+<li><span class="num">9.4.4</span><div><a href="9-4-4-nat-pat-und-port-forwarding.html">NAT, PAT und Port-Forwarding</a><ul><li><strong>PAT</strong> (ausgehend): Router ersetzt private Quell-IP und Quellport durch öffentliche Adresse und freien Port und merkt sich die Zuordnung.</li>
+  <li><strong>Port-Forwarding/DNAT</strong> (eingehend): feste Weiterleitung von öffentlicher Adresse und Port auf ein internes Ziel; nur das Nötige weiterleiten.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-9-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.4</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="9-3-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.3</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="9-4-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.4</span>Check</span></a></nav>
 </main>
 </div>
 </body>

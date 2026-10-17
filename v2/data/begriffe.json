@@ -1640,6 +1640,10 @@
         {
           "id": "9-3-4",
           "tiefe": "Broadcast, Multicast 224.0.0.0/4"
+        },
+        {
+          "id": "9-4-1",
+          "tiefe": "Routing mit Präfixen"
         }
       ]
     },
@@ -1762,6 +1766,10 @@
         {
           "id": "7-3-4",
           "tiefe": "Kopfgrößen IPv4 und TCP als Zuschlag"
+        },
+        {
+          "id": "9-4-4",
+          "tiefe": "Ports bei PAT"
         }
       ]
     },
@@ -3171,6 +3179,10 @@
         {
           "id": "9-1-3",
           "tiefe": "Zugangstechniken, Business, CGNAT"
+        },
+        {
+          "id": "9-4-4",
+          "tiefe": "CGNAT doppelt übersetzt"
         }
       ]
     },
@@ -3190,6 +3202,10 @@
         {
           "id": "9-3-1",
           "tiefe": "je VLAN ein IP-Netz"
+        },
+        {
+          "id": "9-4-2",
+          "tiefe": "Inter-VLAN-Routing"
         }
       ]
     },
@@ -3204,6 +3220,53 @@
         {
           "id": "9-2-3",
           "tiefe": "Grundlagen und Vergleich"
+        }
+      ]
+    },
+    {
+      "begriff": "routing",
+      "kernfakten": [
+        "Routingtabelle: Ziel (Netz/Präfix), Gateway (nächster Router im direkt verbundenen Netz), Schnittstelle, Metrik; direkt verbundene Netze ohne Gateway.",
+        "Default-Route 0.0.0.0/0 (IPv6 ::/0) für alle Ziele ohne genaueren Eintrag; Standardgateway eines Clients = Default-Route.",
+        "Longest Prefix Match: genauester Eintrag gewinnt; Hin- und Rückweg auf allen Routern prüfen; Summarization durch zusammenhängende Blöcke.",
+        "Inter-VLAN-Routing: eigene Schnittstelle je VLAN, Router-on-a-Stick (Subschnittstellen auf Trunk), Layer-3-Switch mit SVI; Regeln begrenzen erlaubten Verkehr.",
+        "Dynamisch: Router lernen Netze voneinander, weichen bei Ausfall aus; Metrik (Hops, Kosten, Bandbreite/Verzögerung), kleinere gewinnt; Distanzvektor (RIP, Hops, max. 15, langsam) vs. Link-State (OSPF, Kosten aus Bandbreite, ganze Topologie, schnell); BGP zwischen Anbietern."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-4-1",
+          "tiefe": "Routingtabelle, Default-Route, LPM"
+        },
+        {
+          "id": "9-4-2",
+          "tiefe": "Inter-VLAN-Routing"
+        },
+        {
+          "id": "9-4-3",
+          "tiefe": "dynamisches Routing"
+        }
+      ]
+    },
+    {
+      "begriff": "nat",
+      "kernfakten": [
+        "NAT setzt eine Adresse auf eine andere um; PAT (NAT-Overload, Masquerading) zusätzlich Ports, viele interne Geräte teilen eine öffentliche Adresse; NAT-Tabelle ordnet Antworten zu.",
+        "Ausgehend ändert der Router Quell-IP und ggf. Quellport, Antwort: Ziel-IP und Zielport zurück; Prüfsummen neu.",
+        "Port-Forwarding = DNAT: öffentliche Adresse:Port fest auf internes Ziel; Quelle bleibt; nur Nötiges weiterleiten.",
+        "NAT ist keine Firewall; IPv6 ohne NAT, Erreichbarkeit über Firewallregeln; bei CGNAT hilft eigenes Port-Forwarding nicht."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-4-4",
+          "tiefe": "PAT mit Kopffeldern, Port-Forwarding"
+        },
+        {
+          "id": "3-4-3",
+          "tiefe": "Prinzip NAT"
+        },
+        {
+          "id": "9-1-3",
+          "tiefe": "CGNAT"
         }
       ]
     }

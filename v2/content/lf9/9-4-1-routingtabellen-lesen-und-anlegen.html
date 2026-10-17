@@ -1,0 +1,67 @@
+<p class="lead">Ein PC am Standort Nord fragt die Datenbank im Stammhaus ab. Sein Paket muss durch mehrere Router: vom Router in Nord durch den VPN-Tunnel zum Router im Stammhaus und von dort zum Kern-Switch mit dem Servernetz. Jeder Router entscheidet anhand seiner <strong>Routingtabelle</strong>, wohin er ein Paket als Nächstes schickt. Stimmt ein Eintrag nicht, kommt das Paket nie an.</p>
+
+<figure class="grafik">
+  <svg viewBox="0 0 640 230" role="img" aria-label="Netzplan: Im Stammhaus hängen die VLAN-Netze 10.10.0.0/24 am Kern-Switch, der über das Transfernetz 10.10.255.0/30 mit dem Router verbunden ist. Der Router hat die öffentliche Adresse 198.51.100.10 und VPN-Tunnel zu den Routern in Nord (10.20.0.0/24) und Süd (10.30.0.0/24).">
+    <path class="g-line" d="M150 60H250M370 60H450M310 80V150M310 150L180 190M310 150L440 190"/>
+    <rect class="g-box" x="20" y="35" width="130" height="50" rx="6"/>
+    <text x="85" y="57" text-anchor="middle">Kern-Switch</text>
+    <text x="85" y="76" text-anchor="middle">10.10.0.0/24</text>
+    <rect class="g-accent" x="250" y="35" width="120" height="50" rx="6"/>
+    <text x="310" y="57" text-anchor="middle">Router</text>
+    <text x="310" y="76" text-anchor="middle">Stammhaus</text>
+    <rect class="g-box" x="450" y="35" width="170" height="50" rx="6"/>
+    <text x="535" y="57" text-anchor="middle">Internet</text>
+    <text x="535" y="76" text-anchor="middle">Gateway .9</text>
+    <text x="165" y="52" text-anchor="middle">.1</text>
+    <text x="235" y="52" text-anchor="middle">.2</text>
+    <text x="410" y="50" text-anchor="middle">.10</text>
+    <text x="360" y="122">VPN-Tunnel</text>
+    <rect class="g-box" x="90" y="180" width="140" height="40" rx="6"/>
+    <text x="160" y="205" text-anchor="middle">Nord 10.20.0.0/24</text>
+    <rect class="g-box" x="390" y="180" width="140" height="40" rx="6"/>
+    <text x="460" y="205" text-anchor="middle">Süd 10.30.0.0/24</text>
+  </svg>
+  <figcaption>Der Verbund: Transfernetz 10.10.255.0/30 zwischen Kern-Switch (.1) und Router (.2), Internetanschluss im Netz 198.51.100.8/29, Tunnel zu den Standorten.</figcaption>
+</figure>
+
+<h3>Aufbau eines Eintrags</h3>
+<div class="vergleich">
+  <table>
+    <caption>Routingtabelle des Routers im Stammhaus</caption>
+    <thead><tr><th>Ziel</th><th>Gateway (Next Hop)</th><th>Schnittstelle</th><th>Herkunft</th></tr></thead>
+    <tbody>
+      <tr><th>10.10.255.0/30</th><td>direkt verbunden</td><td>LAN</td><td>Schnittstelle</td></tr>
+      <tr><th>198.51.100.8/29</th><td>direkt verbunden</td><td>WAN</td><td>Schnittstelle</td></tr>
+      <tr><th>10.10.0.0/24</th><td>10.10.255.1</td><td>LAN</td><td>statisch</td></tr>
+      <tr><th>10.20.0.0/24</th><td>über Tunnel</td><td>VPN Nord</td><td>statisch</td></tr>
+      <tr><th>10.30.0.0/24</th><td>über Tunnel</td><td>VPN Süd</td><td>statisch</td></tr>
+      <tr><th>0.0.0.0/0</th><td>198.51.100.9</td><td>WAN</td><td>statisch (Default-Route)</td></tr>
+    </tbody>
+  </table>
+</div>
+<ul>
+  <li><strong>Ziel</strong>: Netzadresse mit Präfixlänge oder Subnetzmaske.</li>
+  <li><strong>Gateway</strong>: der nächste Router auf dem Weg. Er muss in einem Netz liegen, mit dem der Router direkt verbunden ist. Bei direkt verbundenen Netzen entfällt es.</li>
+  <li><strong>Schnittstelle</strong>: über welchen Anschluss das Paket hinausgeht.</li>
+  <li><strong>Metrik</strong> (hier nicht gezeigt): Bewertung, falls es mehrere Einträge mit gleichem Ziel und gleicher Präfixlänge gibt; der kleinere Wert gewinnt. Der genaueste Eintrag (siehe unten) geht immer vor.</li>
+</ul>
+<p>Die <strong>Default-Route</strong> 0.0.0.0/0 passt auf jede Adresse. Sie nimmt alles auf, wofür es keinen genaueren Eintrag gibt, hier den Weg ins Internet. Für IPv6 heißt sie ::/0.</p>
+
+<h3>Wie der Router entscheidet</h3>
+<p>Für jedes Paket sucht der Router alle Einträge, deren Netz die Zieladresse enthält, und nimmt den mit der <strong>längsten Präfixlänge</strong>, also den genauesten (Longest Prefix Match). Ein Paket an 10.20.0.70 passt auf 10.20.0.0/24 und auf 0.0.0.0/0; der /24-Eintrag gewinnt, das Paket geht in den Tunnel nach Nord. Ein Paket an den Webserver 203.0.113.80 passt nur auf die Default-Route und geht zum Anbieter.</p>
+<p>Ein Endgerät entscheidet einfacher: Liegt das Ziel nach seiner Maske im eigenen Netz, stellt es direkt zu (LF3, Kapitel 3.4.3); sonst schickt es das Paket an sein Standardgateway. Das Standardgateway ist nichts anderes als eine Default-Route.</p>
+
+<h3>Einträge sparen</h3>
+<p>Weil jeder Standort einen zusammenhängenden /24-Block hat, braucht der Router im Stammhaus für Nord nur einen Eintrag, nicht fünf für die einzelnen VLAN-Netze. Dieses Zusammenfassen heißt <strong>Summarization</strong> und ist der Grund für einen geordneten Adressplan (Kapitel 9.3.1). In den Routern von Nord und Süd steht für das Stammhaus entsprechend 10.10.0.0/16; so ist auch das Transfernetz 10.10.255.0/30 erreichbar, etwa für die Verwaltung des Kern-Switches. Der Kern-Switch im Stammhaus kommt sogar mit seinen direkt verbundenen VLAN-Netzen und einer einzigen Default-Route an 10.10.255.2 aus.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach der Einrichtung kommen Anfragen aus Nord bei der Datenbank an, die Antworten aber nicht zurück. In der Tabelle des Kern-Switches steht als Default-Route das Gateway 10.10.255.1, seine eigene Adresse im Transfernetz. Die Auszubildende korrigiert auf 10.10.255.2, die Adresse des Routers. Danach finden die Antworten den Weg zurück, und Nord und Süd erreichen die Datenbank.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Wenn der Hinweg klappt, klappt auch der Rückweg.“ Jeder Router entscheidet nur für sich. Fehlt auf einem Router der Rückweg, kommt die Anfrage an, die Antwort aber nicht zurück. Prüfe bei Routingproblemen immer beide Richtungen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Routingtabelle:</strong> Ziel (Netz mit Präfix), Gateway (nächster Router im direkt verbundenen Netz), Schnittstelle, Metrik; Default-Route 0.0.0.0/0 für alles andere.</li>
+  <li>Der genaueste passende Eintrag gewinnt (Longest Prefix Match); Hin- und Rückweg müssen auf allen Routern stimmen.</li>
+</ul>

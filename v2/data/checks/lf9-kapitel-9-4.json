@@ -1,0 +1,125 @@
+{
+  "titel": "Check 9.4",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Longest Prefix Match",
+      "frage": "Ein Router hat Einträge für 10.0.0.0/8, 10.20.0.0/16, 10.20.0.0/24 und 0.0.0.0/0. Welcher wird für ein Paket an 10.20.0.70 genutzt?",
+      "optionen": [
+        "10.20.0.0/24",
+        "10.0.0.0/8",
+        "10.20.0.0/16",
+        "0.0.0.0/0"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Alle vier Einträge passen auf die Adresse. Der Router nimmt den genauesten, also den mit der längsten Präfixlänge: /24."
+    },
+    {
+      "typ": "mc",
+      "thema": "Gateway im Eintrag",
+      "frage": "Ein Router ist über das Transfernetz 10.10.255.0/30 mit dem Kern-Switch (10.10.255.1) verbunden. Welches Gateway trägst du im Router für das Netz 10.10.0.0/24 ein?",
+      "optionen": [
+        "10.10.255.1",
+        "10.10.255.2",
+        "10.10.0.1",
+        "0.0.0.0"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Gateway ist der nächste Router auf dem Weg und muss in einem direkt verbundenen Netz liegen. Das ist der Kern-Switch mit 10.10.255.1."
+    },
+    {
+      "typ": "mc",
+      "thema": "Default-Route",
+      "frage": "Wofür steht der Eintrag 0.0.0.0/0 in einer Routingtabelle?",
+      "optionen": [
+        "Für alle Ziele, zu denen keine genauere Route passt",
+        "Für das eigene, direkt angeschlossene Netz des Routers selbst",
+        "Für Pakete, die der Router ohne Antwort verwerfen soll",
+        "Für Broadcasts, die an alle angeschlossenen Netze gehen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Default-Route passt auf jede Adresse. Sie wird genutzt, wenn kein anderer Eintrag genauer passt, etwa für den Weg ins Internet."
+    },
+    {
+      "typ": "mc",
+      "thema": "Router-on-a-Stick",
+      "frage": "Ein Router soll fünf VLANs verbinden, hat aber nur einen freien Anschluss. Wie gehst du vor?",
+      "optionen": [
+        "Subschnittstellen je VLAN auf einem Trunk-Port anlegen",
+        "Fünf Access-Ports im selben VLAN zu einem Bündel zusammenschalten",
+        "Alle Geräte der fünf VLANs in ein gemeinsames IP-Netz legen",
+        "Auf dem Switch Link Aggregation aktivieren"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Beim Router-on-a-Stick hängt der Router an einem Trunk. Jede Subschnittstelle gehört zu einer VLAN-ID und trägt das Gateway dieses Netzes."
+    },
+    {
+      "typ": "mc",
+      "thema": "Fehlerbild",
+      "frage": "Ein PC erreicht sein Gateway, aber keinen Drucker in einem anderen VLAN. Was ist die wahrscheinlichste Ursache?",
+      "optionen": [
+        "Das Routing zwischen den VLANs fehlt oder eine Regel sperrt es",
+        "Das VLAN des PCs fehlt auf dem Trunk zum Router",
+        "Der PC hat eine Adresse aus einem falschen Netz",
+        "Die Netzwerkkarte des PCs ist defekt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Wer sein Gateway erreicht, hat Verbindung, richtiges VLAN und passende Adresse. Scheitert nur der Weg in ein anderes VLAN, fehlt das Inter-VLAN-Routing oder eine Regel verbietet den Verkehr."
+    },
+    {
+      "typ": "mc",
+      "thema": "Link-State",
+      "frage": "Was unterscheidet ein Link-State-Protokoll wie OSPF von einem Distanzvektor-Protokoll wie RIP?",
+      "optionen": [
+        "Jeder Router kennt die ganze Topologie und berechnet den besten Weg selbst",
+        "Jeder Router kennt nur, was ihm seine Nachbarn als Entfernung und Richtung melden",
+        "Die Einträge werden von Hand gepflegt",
+        "Es zählt nur die Zahl der Hops bis höchstens 15"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Link-State-Router kennen die gesamte Topologie und reagieren schnell auf Änderungen. Nur Entfernung und Richtung von Nachbarn zu kennen und Hops bis 15 zu zählen, beschreibt RIP; von Hand gepflegte Einträge sind statisches Routing."
+    },
+    {
+      "typ": "mc",
+      "thema": "PAT",
+      "frage": "Ein PC 10.20.0.70 in Nord sendet von Port 51000 an einen Webserver. Der Router in Nord hat die öffentliche Adresse 198.51.100.20. Welche Quellangaben trägt das Paket nach dem Router?",
+      "optionen": [
+        "198.51.100.20 mit einem vom Router gewählten Port",
+        "10.20.0.70 mit Port 51000",
+        "10.20.0.70 mit einem vom Router neu gewählten freien Port",
+        "Die Adresse des Webservers mit Port 443"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Bei PAT ersetzt der Router die private Quell-IP durch seine öffentliche und wählt bei Bedarf einen freien Quellport. Die Zuordnung merkt er sich in der NAT-Tabelle."
+    },
+    {
+      "typ": "mc",
+      "thema": "Port-Forwarding",
+      "frage": "Ein Webserver im internen Netz soll aus dem Internet erreichbar sein. Was richtest du im Router mit einer öffentlichen IPv4-Adresse ein?",
+      "optionen": [
+        "Eine Weiterleitung von öffentlicher Adresse und Port 443 auf die interne Adresse",
+        "Eine zweite Default-Route im Router, die direkt auf die interne Adresse des Webservers zeigt",
+        "Eine Subschnittstelle für das VLAN des Webservers",
+        "PAT für alle eingehenden Pakete ohne weitere Regel"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Port-Forwarding (DNAT) schreibt die Zieladresse eingehender Pakete auf das interne Ziel um. Ohne diesen Eintrag weiß der Router nicht, wohin eine Anfrage von außen soll."
+    }
+  ]
+}

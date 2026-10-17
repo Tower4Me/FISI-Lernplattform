@@ -1,0 +1,45 @@
+<p class="lead">Nach der Aufteilung in VLANs druckt am Standort Nord niemand mehr: Die PCs liegen in VLAN 10, der Drucker steckt aber versehentlich an einem Port im Medizin-VLAN 20. Geräte verschiedener VLANs erreichen sich nur über einen Router (Kapitel 9.2.2). Diese Aufgabe heißt <strong>Inter-VLAN-Routing</strong>, und es gibt drei Wege, sie zu lösen.</p>
+
+<h3>Drei Bauformen</h3>
+<div class="reiter" data-reiter>
+  <div class="reiter-panel" data-label="Eigene Schnittstellen">
+    <p>Der Router bekommt für jedes VLAN einen eigenen physischen Anschluss, der jeweils an einem Access-Port des Switches hängt. Jede Schnittstelle hat die Gateway-Adresse ihres Netzes.</p>
+    <p>Einfach zu verstehen, aber für fünf VLANs braucht der Router fünf Anschlüsse und der Switch fünf Ports. In der Praxis selten.</p>
+  </div>
+  <div class="reiter-panel" data-label="Router-on-a-Stick">
+    <p>Der Router hängt mit nur einem Kabel an einem Trunk-Port des Switches. Auf diesem einen Anschluss richtet er für jedes VLAN eine <strong>Subschnittstelle</strong> (Subinterface) ein: Sie gehört zu einer VLAN-ID und trägt die Gateway-Adresse dieses Netzes, etwa 10.20.0.65/27 für VLAN 10 und 10.20.0.113/28 für VLAN 20.</p>
+    <p>Ein Paket von VLAN 10 nach VLAN 20 läuft getaggt mit 10 zum Router und getaggt mit 20 zurück zum Switch. Günstig und üblich an kleinen Standorten; das eine Kabel muss aber den gesamten Verkehr zwischen den VLANs zweimal tragen.</p>
+  </div>
+  <div class="reiter-panel" data-label="Layer-3-Switch">
+    <p>Ein Layer-3-Switch (Kapitel 9.2.1) routet selbst. Für jedes VLAN legst du eine virtuelle Schnittstelle an, eine <strong>SVI</strong> (Switch Virtual Interface), mit der Gateway-Adresse des Netzes. Der Verkehr zwischen VLANs verlässt den Switch nicht.</p>
+    <p>Sehr schnell, deshalb Standard im Kern größerer Netze. Im Stammhaus arbeitet der Kern-Switch so, etwa mit der SVI 10.10.0.145 für das Server-VLAN 50. Für das Internet zeigt die Default-Route des Switches auf den Router.</p>
+  </div>
+</div>
+
+<h3>Erreichbarkeit regeln</h3>
+<p>Routing allein verbindet alle VLANs miteinander, damit wäre die Trennung wieder aufgehoben. Deshalb legst du an Router oder Layer-3-Switch fest, welcher Verkehr zwischen den VLANs erlaubt ist, etwa mit Zugriffslisten oder einer Firewall: Gäste dürfen nur ins Internet, Verwaltung darf zum Drucker und zur Datenbank, Medizingeräte nur zu ihrer Auswertestation.</p>
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie du Regeln zwischen Netzen planst und eine Firewall einrichtest, wird in LF11b ausführlicher behandelt.</p></aside>
+
+<h3>Typische Fehlerbilder</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Beobachtung</th><th>wahrscheinliche Ursache</th></tr></thead>
+    <tbody>
+      <tr><th>Gerät erreicht sein Gateway nicht, hat aber eine Adresse aus dem richtigen Netz</th><td>Port im falschen VLAN, oder das VLAN fehlt auf dem Trunk zum Router</td></tr>
+      <tr><th>Gerät erreicht sein Gateway, aber keine Geräte in anderen VLANs</th><td>Routing zwischen den VLANs ist nicht eingeschaltet, eine Regel sperrt den Verkehr, oder dem Zielgerät fehlt das richtige Gateway (Rückweg, Kapitel 9.4.1)</td></tr>
+      <tr><th>Gerät hat eine 169.254er-Adresse</th><td>kein DHCP im VLAN, etwa weil das Relay fehlt (Kapitel 9.5.1)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Am Standort Nord richtet die Auszubildende Router-on-a-Stick ein: Der Router hängt am Trunk-Port 24 und hat Subschnittstellen für die VLANs 10, 20, 30, 40 und 99 mit den Gateway-Adressen aus Kapitel 9.3.1. Den Drucker verlegt sie ins Verwaltungs-VLAN 10, wo er hingehört. Für die Röntgenstation erlaubt eine Regel nur den Zugriff der Auswertestation; Gäste kommen nur ins Internet.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein Layer-2-Switch kann zwischen VLANs vermitteln, wenn man beide VLANs auf denselben Port legt.“ Nein: Ein Layer-2-Switch leitet nur innerhalb eines VLANs weiter. Zwischen VLANs braucht es immer eine Schicht-3-Einheit, also Router oder Layer-3-Switch.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Inter-VLAN-Routing:</strong> eigene Router-Schnittstelle je VLAN, Router-on-a-Stick mit Subschnittstellen auf einem Trunk oder Layer-3-Switch mit einer SVI je VLAN.</li>
+  <li>Routing verbindet alle VLANs; Regeln am Router legen fest, welcher Verkehr erlaubt bleibt.</li>
+</ul>

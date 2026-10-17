@@ -5098,6 +5098,110 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "9.4",
+          "titel": "Routing und Adressumsetzung",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "9.4.1",
+              "titel": "Routingtabellen lesen und anlegen",
+              "slug": "routingtabellen-lesen-und-anlegen",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze planen und konfigurieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 1 (Routingtabelle mit Default-Route)",
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 2 (Routingtabelle)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 1 (vertauschte Gateways korrigieren)",
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 1 (Routingtabelle, lokale Zustellung oder Gateway)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 2 (Default-Route)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 1 (Default-Route)"
+                ],
+                "extern": [
+                  "RFC 1812 (Router, Longest Prefix Match), RFC 5737 (Dokumentationsadressen)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "routing",
+                "ipv4"
+              ]
+            },
+            {
+              "nummer": "9.4.2",
+              "titel": "Zwischen VLANs routen",
+              "slug": "zwischen-vlans-routen",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze konfigurieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 3 (kein Inter-VLAN-Routing, Client im falschen VLAN)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 2 (Routing am Core-Switch)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 1 (Subinterfaces, Router-on-a-Stick)"
+                ],
+                "extern": [
+                  "IEEE 802.1Q; Herstellerdokumentation Layer-3-Switch (SVI)"
+                ]
+              },
+              "material": [
+                "vlan"
+              ],
+              "begriffe": [
+                "routing",
+                "vlan"
+              ]
+            },
+            {
+              "nummer": "9.4.3",
+              "titel": "Dynamisches Routing",
+              "slug": "dynamisches-routing",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Leistungsmerkmale von Netzen, Verfügbarkeit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 2 (dynamisches Routing für Redundanz, Link-State oder Distance-Vector)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 1 (Vorteile dynamischen Routings, Metrik)"
+                ],
+                "extern": [
+                  "RFC 2453 (RIPv2, max. 15 Hops), RFC 2328 (OSPFv2), RFC 4271 (BGP-4)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "routing"
+              ]
+            },
+            {
+              "nummer": "9.4.4",
+              "titel": "NAT, PAT und Port-Forwarding",
+              "slug": "nat-pat-und-port-forwarding",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Dienste und Netze mit externen Ressourcen planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 2 (NAT/PAT, Header vor und nach NAT, Port-Forwarding, CGNAT)",
+                  "AP2 FISI Sommer 2024 Teil 2 Aufgabe 1 (Port-Forwarding)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 2 (NAT/PAT Vor- und Nachteile)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 2 (NAT/PAT)"
+                ],
+                "extern": [
+                  "RFC 3022 (Traditional NAT, NAPT), RFC 5737"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "nat",
+                "internetanschluss",
+                "tcp-udp"
+              ]
+            }
+          ]
         }
       ]
     }

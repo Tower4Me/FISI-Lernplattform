@@ -566,6 +566,15 @@
             <li><a class="up is-check" data-check="lf9-9-3" href="9-3-check.html"><span class="num">9.3</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="9-4-1-routingtabellen-lesen-und-anlegen.html"><span class="num">9.4</span><span>Routing und Adressumsetzung</span><span class="kap-progress" data-ids="9-4-1 9-4-2 9-4-3 9-4-4">0/4</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="9-4-1" href="9-4-1-routingtabellen-lesen-und-anlegen.html"><span class="num">9.4.1</span><span class="t">Routingtabellen lesen und anlegen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-4-2" href="9-4-2-zwischen-vlans-routen.html"><span class="num">9.4.2</span><span class="t">Zwischen VLANs routen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-4-3" href="9-4-3-dynamisches-routing.html"><span class="num">9.4.3</span><span class="t">Dynamisches Routing</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-4-4" href="9-4-4-nat-pat-und-port-forwarding.html"><span class="num">9.4.4</span><span class="t">NAT, PAT und Port-Forwarding</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf9-9-4" href="9-4-check.html"><span class="num">9.4</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html"><span class="num">9.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -619,7 +628,7 @@
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Der Verbund nutzt 10.10.0.0/24 im Stammhaus, 10.20.0.0/24 in Nord und 10.30.0.0/24 in Süd. Weil jeder Standort einen zusammenhängenden Block hat, genügt in den Routern der anderen Standorte ein Eintrag je Standort (Kapitel 9.4.1). Stammhaus und Süd übernehmen den Plan von Nord mit 10.10 bzw. 10.30 statt 10.20, das Gäste-WLAN liegt in Süd also in 10.30.0.0/26. Im Stammhaus kommt aus dem freien Bereich das Server-VLAN 50 mit 10.10.0.144/28 hinzu: Gateway 10.10.0.145, Datenbankserver 10.10.0.146, Server für DNS und DHCP 10.10.0.147.</p>
+  <p>Der Verbund nutzt 10.10.0.0/24 im Stammhaus, 10.20.0.0/24 in Nord und 10.30.0.0/24 in Süd. Weil jeder Standort einen zusammenhängenden Block hat, genügt in den Routern der anderen Standorte ein Eintrag je Standort (Kapitel 9.4.1). Stammhaus und Süd übernehmen den Plan von Nord mit 10.10 bzw. 10.30 statt 10.20, das Gäste-WLAN liegt in Süd also in 10.30.0.0/26. Im Stammhaus kommt aus dem freien Bereich das Server-VLAN 50 mit 10.10.0.144/28 hinzu: Gateway 10.10.0.145, Datenbankserver 10.10.0.146, Server für DNS und DHCP 10.10.0.147, Server der Web-API 10.10.0.148.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Für 30 Geräte reicht ein /27, denn 2⁵ = 32.“ Ein /27 hat nur 30 nutzbare Adressen, und eine davon braucht das Gateway. Für 30 Geräte plus Gateway brauchst du ein /26.</p></aside>

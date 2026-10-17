@@ -1,0 +1,49 @@
+<p class="lead">Die privaten Adressen 10.x.x.x werden im Internet nicht weitergeleitet. Damit die Praxis-PCs trotzdem Webseiten erreichen und die Web-API der Termin-App im Stammhaus von außen erreichbar ist, setzt der Router Adressen und Ports um. Das Prinzip kennst du aus LF3, Kapitel 3.4.3; hier schaust du dir an, was sich im Paket genau ändert.</p>
+
+<h3>Ausgehend: PAT</h3>
+<p>Der Router im Stammhaus hat eine öffentliche IPv4-Adresse, 198.51.100.10. Viele interne Geräte teilen sie sich. Dafür ersetzt der Router bei jedem ausgehenden Paket die private Absenderadresse durch seine öffentliche und, falls nötig, den Absenderport durch einen freien Port. Diese Form heißt <strong>PAT</strong> (Port Address Translation), auch NAT-Overload oder Masquerading. Reines <strong>NAT</strong> ohne Ports setzt dagegen eine Adresse auf genau eine andere um.</p>
+<div class="vergleich">
+  <table>
+    <caption>Ein Seitenaufruf vom Verwaltungs-PC 10.10.0.70 (Kopffelder)</caption>
+    <thead><tr><th>Stelle</th><th>Quell-IP</th><th>Quellport</th><th>Ziel-IP</th><th>Zielport</th></tr></thead>
+    <tbody>
+      <tr><th>innen, vor dem Router</th><td>10.10.0.70</td><td>51000</td><td>203.0.113.80</td><td>443</td></tr>
+      <tr><th>außen, nach dem Router</th><td>198.51.100.10</td><td>62001</td><td>203.0.113.80</td><td>443</td></tr>
+      <tr><th>Antwort außen</th><td>203.0.113.80</td><td>443</td><td>198.51.100.10</td><td>62001</td></tr>
+      <tr><th>Antwort innen</th><td>203.0.113.80</td><td>443</td><td>10.10.0.70</td><td>51000</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>In seiner <strong>NAT-Tabelle</strong> merkt sich der Router, dass Port 62001 zu 10.10.0.70:51000 gehört. Kommt die Antwort, schreibt er Ziel-IP und Zielport zurück. Weil sich Adressen ändern, berechnet er auch die Prüfsummen neu.</p>
+
+<h3>Eingehend: Port-Forwarding</h3>
+<p>Von außen kann niemand ein internes Gerät von sich aus ansprechen, denn es gibt noch keinen Eintrag in der NAT-Tabelle. Soll ein Dienst erreichbar sein, legst du eine feste Weiterleitung an: Pakete an eine öffentliche Adresse und einen Port gehen an eine interne Adresse und einen Port. Das heißt <strong>Port-Forwarding</strong> oder <strong>Destination NAT</strong> (DNAT), weil die Zieladresse umgeschrieben wird.</p>
+<div class="vergleich">
+  <table>
+    <caption>Weiterleitung auf den Server der Web-API, 10.10.0.148</caption>
+    <thead><tr><th>Stelle</th><th>Quell-IP</th><th>Quellport</th><th>Ziel-IP</th><th>Zielport</th></tr></thead>
+    <tbody>
+      <tr><th>außen, vor dem Router</th><td>203.0.113.200</td><td>40500</td><td>198.51.100.10</td><td>443</td></tr>
+      <tr><th>innen, nach dem Router</th><td>203.0.113.200</td><td>40500</td><td>10.10.0.148</td><td>443</td></tr>
+      <tr><th>Antwort innen</th><td>10.10.0.148</td><td>443</td><td>203.0.113.200</td><td>40500</td></tr>
+      <tr><th>Antwort außen</th><td>198.51.100.10</td><td>443</td><td>203.0.113.200</td><td>40500</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Quelle bleibt erhalten; der Server sieht, von wem die Anfrage kommt. Jede Weiterleitung öffnet einen Weg ins interne Netz. Deshalb leitest du nur, was nötig ist, und nie direkt an den Datenbankserver; davor steht ein Dienst wie die Web-API (LF8, Kapitel 8.4.3). Bei der Antwort schreibt der Router die Quelle wieder auf seine öffentliche Adresse zurück.</p>
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Warum öffentlich erreichbare Server besser in einem eigenen Netzbereich (DMZ) stehen, wird in LF11b ausführlicher behandelt.</p></aside>
+
+<h3>NAT und IPv6, CGNAT</h3>
+<p>Mit IPv6 hat jedes Gerät eine öffentliche Adresse, NAT ist dort nicht nötig und unüblich; ein Dienst wird erreichbar, indem die Firewall den Zugriff erlaubt. Bei Carrier-Grade NAT (Kapitel 9.1.3) setzt bereits der Anbieter um, oft zusätzlich zum eigenen Router. Eine Weiterleitung im eigenen Router nützt dann nichts, weil die Anfrage den Router gar nicht erreicht.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Web-API der Termin-App (LF8, Kapitel 8.4.3) läuft auf 10.10.0.148 im Server-VLAN. Die Auszubildende richtet im Router eine Weiterleitung von 198.51.100.10:443 auf 10.10.0.148:443 ein, nur für HTTPS. Den Datenbankserver 10.10.0.146 leitet sie nicht weiter; die API greift intern auf ihn zu. Ein Test von einem Smartphone im Mobilfunknetz zeigt: Die App erreicht die API, ein Zugriff auf andere Ports scheitert.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„NAT ist eine Firewall.“ NAT verhindert nur, dass ohne Eintrag Verbindungen von außen ankommen. Es prüft keine Inhalte, und mit jeder Weiterleitung ist der Dienst dahinter offen. Den Schutz übernimmt die Firewall.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>PAT</strong> (ausgehend): Router ersetzt private Quell-IP und Quellport durch öffentliche Adresse und freien Port und merkt sich die Zuordnung.</li>
+  <li><strong>Port-Forwarding/DNAT</strong> (eingehend): feste Weiterleitung von öffentlicher Adresse und Port auf ein internes Ziel; nur das Nötige weiterleiten.</li>
+</ul>

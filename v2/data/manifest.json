@@ -4502,6 +4502,126 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "8.3",
+          "titel": "Daten mit SQL abfragen und ändern",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "8.3.1",
+              "titel": "Daten abfragen mit SELECT",
+              "slug": "daten-abfragen-mit-select",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Daten für die Weiterverarbeitung bereitstellen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Aufgabe 1 (Top-N mit Bedingung)",
+                  "AP2 FISI Winter 2022/23 Aufgabe 1 (LIKE, Datumsvergleich)"
+                ],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) SELECT, Prädikate, FETCH FIRST; MariaDB LIMIT, SQL Server TOP"
+                ]
+              },
+              "material": [
+                "sql-dml"
+              ],
+              "begriffe": [
+                "sql"
+              ]
+            },
+            {
+              "nummer": "8.3.2",
+              "titel": "Daten zusammenfassen",
+              "slug": "daten-zusammenfassen",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Daten für die Weiterverarbeitung bereitstellen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Aufgabe 1 (Zählen mit WHERE)",
+                  "AP2 FISI Winter 2022/23 Aufgabe 1 (COUNT mit mehreren Bedingungen)"
+                ],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) Aggregatfunktionen, GROUP BY, HAVING; NULL-Behandlung"
+                ]
+              },
+              "material": [
+                "sql-dml"
+              ],
+              "begriffe": [
+                "sql"
+              ]
+            },
+            {
+              "nummer": "8.3.3",
+              "titel": "Tabellen verknüpfen",
+              "slug": "tabellen-verknuepfen",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Daten aus heterogenen Quellen zusammenführen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Aufgabe 1 (INNER JOIN mit LIKE und Datumsvergleich)"
+                ],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) JOIN-Arten"
+                ]
+              },
+              "material": [
+                "sql-join"
+              ],
+              "begriffe": [
+                "sql",
+                "datenbankmodell"
+              ]
+            },
+            {
+              "nummer": "8.3.4",
+              "titel": "Unterabfragen und Sichten",
+              "slug": "unterabfragen-und-sichten",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Konzept zur Bereitstellung der Daten unter Beachtung der Informationssicherheit",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A Nr. 9",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) Unterabfragen, IN, EXISTS, CREATE VIEW"
+                ]
+              },
+              "material": [
+                "sql-subqueries"
+              ],
+              "begriffe": [
+                "sql"
+              ]
+            },
+            {
+              "nummer": "8.3.5",
+              "titel": "Daten ändern und Transaktionen",
+              "slug": "daten-aendern-und-transaktionen",
+              "quellen": {
+                "rahmenlehrplan": "LF8: Daten übernehmen und bereitstellen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 1 g",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Aufgabe 1 (referenzielle Integrität)"
+                ],
+                "extern": [
+                  "ISO/IEC 9075 (SQL) INSERT, UPDATE, DELETE, COMMIT, ROLLBACK; ACID nach Härder/Reuter (1983); MariaDB START TRANSACTION, Autocommit"
+                ]
+              },
+              "material": [
+                "sql-dml",
+                "sql-transaktionen"
+              ],
+              "begriffe": [
+                "sql",
+                "datenqualitaet"
+              ]
+            }
+          ]
         }
       ]
     }

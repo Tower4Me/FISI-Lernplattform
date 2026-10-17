@@ -1,0 +1,68 @@
+<p class="lead">Die Tabellen sind angelegt und gefüllt. Jetzt will die Praxisleitung Antworten: Welche Hunde sind bei uns? Welche Tiere wiegen mehr als 20 kg? Jede dieser Fragen formulierst du als Abfrage mit <code>SELECT</code>. Das DBMS sucht die passenden Zeilen heraus und liefert sie als Ergebnistabelle.</p>
+
+<h3>Die Beispieldaten</h3>
+<p>Die Abfragen in diesem Kapitel arbeiten mit einem kleinen Ausschnitt der zentralen Datenbank:</p>
+<div class="vergleich">
+  <table>
+    <caption>Tabelle tier</caption>
+    <thead><tr><th>tier_id</th><th>name</th><th>tierart</th><th>geburtsdatum</th><th>gewicht_kg</th><th>besitzer_id</th></tr></thead>
+    <tbody>
+      <tr><th>10</th><td>Mimi</td><td>Katze</td><td>2019-05-14</td><td>4.20</td><td>1</td></tr>
+      <tr><th>11</th><td>Bello</td><td>Hund</td><td>2016-08-02</td><td>31.50</td><td>1</td></tr>
+      <tr><th>12</th><td>Fips</td><td>Kaninchen</td><td>2022-03-30</td><td>2.10</td><td>2</td></tr>
+      <tr><th>31</th><td>Luna</td><td>Hund</td><td>2020-11-09</td><td>24.00</td><td>7</td></tr>
+      <tr><th>32</th><td>Rocky</td><td>Hund</td><td>2023-01-17</td><td>NULL</td><td>7</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei Rocky wurde noch kein Gewicht erfasst. <code>NULL</code> heißt: kein Wert eingetragen. Ein leerer Text <code>''</code> oder die Zahl 0 sind dagegen Werte. Die übrigen Tabellen (<code>besitzer</code>, <code>impfstoff</code>, <code>impfung</code>) folgen in Kapitel 8.3.3.</p>
+
+<h3>Aufbau einer Abfrage</h3>
+<pre><code>SELECT name, tierart
+FROM tier
+WHERE tierart = 'Hund'
+ORDER BY name;</code></pre>
+<ul>
+  <li><code>SELECT</code> nennt die Spalten des Ergebnisses; <code>*</code> steht für alle Spalten.</li>
+  <li><code>FROM</code> nennt die Tabelle.</li>
+  <li><code>WHERE</code> filtert die Zeilen; nur Zeilen, für die die Bedingung zutrifft, kommen ins Ergebnis.</li>
+  <li><code>ORDER BY</code> sortiert, aufsteigend (<code>ASC</code>, Standard) oder absteigend (<code>DESC</code>).</li>
+</ul>
+<p>Ergebnis: Bello, Luna, Rocky, jeweils mit der Tierart Hund. Texte und Datumsangaben stehen in einfachen Anführungszeichen, Zahlen ohne.</p>
+
+<h3>Bedingungen formulieren</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Ausdruck</th><th>Bedeutung</th><th>Beispiel</th></tr></thead>
+    <tbody>
+      <tr><th><code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code></th><td>Vergleich (<code>&lt;&gt;</code> heißt ungleich)</td><td><code>gewicht_kg &gt; 20</code></td></tr>
+      <tr><th><code>AND</code>, <code>OR</code>, <code>NOT</code></th><td>Bedingungen verknüpfen; Klammern setzen, wenn AND und OR gemischt werden, denn AND bindet stärker</td><td><code>tierart = 'Hund' AND gewicht_kg &lt; 25</code></td></tr>
+      <tr><th><code>BETWEEN … AND …</code></th><td>Bereich, beide Grenzen eingeschlossen</td><td><code>geburtsdatum BETWEEN '2020-01-01' AND '2022-12-31'</code></td></tr>
+      <tr><th><code>IN (…)</code></th><td>Wert aus einer Liste</td><td><code>tierart IN ('Katze', 'Kaninchen')</code></td></tr>
+      <tr><th><code>LIKE</code></th><td>Textmuster: <code>%</code> beliebig viele Zeichen, <code>_</code> genau ein Zeichen</td><td><code>name LIKE 'L%'</code> findet Luna</td></tr>
+      <tr><th><code>IS NULL</code>, <code>IS NOT NULL</code></th><td>Feld hat keinen Wert oder hat einen</td><td><code>gewicht_kg IS NULL</code> findet Rocky</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Ergebnis gestalten</h3>
+<ul>
+  <li><code>DISTINCT</code> entfernt doppelte Zeilen: <code>SELECT DISTINCT tierart FROM tier</code> liefert jede Tierart einmal: Hund, Kaninchen, Katze (ohne <code>ORDER BY</code> in beliebiger Reihenfolge).</li>
+  <li><code>AS</code> gibt einer Spalte einen anderen Namen im Ergebnis: <code>SELECT name AS tiername</code>.</li>
+  <li>Die ersten n Zeilen: in MariaDB, MySQL und PostgreSQL mit <code>LIMIT n</code> am Ende, in Microsoft SQL Server mit <code>SELECT TOP n</code>, im SQL-Standard mit <code>FETCH FIRST n ROWS ONLY</code>.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Praxisleitung fragt nach den zwei schwersten Hunden. Die Auszubildende schreibt für MariaDB:</p>
+  <pre><code>SELECT name, gewicht_kg
+FROM tier
+WHERE tierart = 'Hund' AND gewicht_kg IS NOT NULL
+ORDER BY gewicht_kg DESC
+LIMIT 2;</code></pre>
+  <p>Ergebnis: Bello mit 31.50 kg, Luna mit 24.00 kg. Ohne <code>IS NOT NULL</code> stünde Rocky in manchen Systemen wie PostgreSQL ganz oben, weil <code>NULL</code> dort beim absteigenden Sortieren zuerst kommt.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„<code>WHERE gewicht_kg = NULL</code> findet Tiere ohne Gewicht.“ Ein Vergleich mit <code>NULL</code> ergibt nie wahr, auch nicht mit <code>=</code>. Leere Felder findest du nur mit <code>IS NULL</code>.</p></aside>
+
+<p class="merksatz">Eine Abfrage nennt mit SELECT die Spalten, mit FROM die Tabelle, filtert mit WHERE (Vergleich, BETWEEN, IN, LIKE, IS NULL) und sortiert mit ORDER BY.</p>

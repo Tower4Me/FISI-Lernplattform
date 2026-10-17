@@ -1,0 +1,51 @@
+<p class="lead">Manche Fragen lassen sich nicht in einem Schritt beantworten. „Welche Tiere sind schwerer als der Durchschnitt?“ setzt voraus, dass du den Durchschnitt erst kennst. Solche Abfragen baust du aus einer inneren und einer äußeren Abfrage. Und wenn eine Abfrage immer wieder gebraucht wird, speicherst du sie als Sicht.</p>
+
+<h3>Unterabfragen</h3>
+<p>Eine <strong>Unterabfrage</strong> ist ein <code>SELECT</code> in Klammern innerhalb einer anderen Abfrage. Das DBMS wertet sie aus und setzt ihr Ergebnis in die äußere Abfrage ein.</p>
+<p><strong>Ein einzelner Wert</strong>, verglichen mit <code>=</code>, <code>&lt;</code> oder <code>&gt;</code>:</p>
+<pre><code>SELECT name, gewicht_kg
+FROM tier
+WHERE gewicht_kg &gt; (SELECT AVG(gewicht_kg) FROM tier);</code></pre>
+<p>Die innere Abfrage liefert 15.45 (Kapitel 8.3.2). Ergebnis: Bello (31.50) und Luna (24.00).</p>
+<p><strong>Eine Liste von Werten</strong>, geprüft mit <code>IN</code> oder <code>NOT IN</code>:</p>
+<pre><code>SELECT bezeichnung
+FROM impfstoff
+WHERE impfstoff_id NOT IN (SELECT impfstoff_id FROM impfung);</code></pre>
+<p>Die innere Abfrage liefert alle Impfstoffnummern, die schon verwendet wurden (3, 5, 7). Ergebnis: Katzenseuche, der einzige Impfstoff ohne Impfung. Dieselbe Frage lässt sich auch mit einem <code>LEFT JOIN</code> und <code>IS NULL</code> beantworten (Kapitel 8.3.3); beide Wege sind üblich.</p>
+<p>Daneben gibt es <code>EXISTS</code>: Es prüft für jede Zeile der äußeren Abfrage, ob die Unterabfrage mindestens eine Zeile liefert. Die Unterabfrage bezieht sich dazu auf die äußere Zeile:</p>
+<pre><code>SELECT name
+FROM besitzer b
+WHERE NOT EXISTS (SELECT * FROM tier t WHERE t.besitzer_id = b.besitzer_id);</code></pre>
+<p>Ergebnis: Brandt, die einzige Besitzerin ohne Tier.</p>
+<aside class="note" data-typ="hinweis"><p>Liefert die Unterabfrage bei <code>NOT IN</code> auch nur einen <code>NULL</code>-Wert, ergibt die ganze Abfrage keine einzige Zeile. Im Beispiel kann das nicht passieren, weil <code>impfstoff_id</code> zum Primärschlüssel von <code>impfung</code> gehört. Bei Spalten, die leer sein dürfen, nimmst du besser <code>NOT EXISTS</code> oder <code>LEFT JOIN</code> mit <code>IS NULL</code>.</p></aside>
+
+<h3>Sichten</h3>
+<p>Eine <strong>Sicht</strong> (englisch <strong>View</strong>) ist eine gespeicherte Abfrage mit einem Namen. Man fragt sie ab wie eine Tabelle, sie speichert aber keine eigenen Daten: Bei jedem Zugriff führt das DBMS die hinterlegte Abfrage auf den aktuellen Tabellen aus.</p>
+<pre><code>CREATE VIEW impfungen_je_art AS
+SELECT t.tierart, s.bezeichnung, i.datum
+FROM impfung i
+INNER JOIN tier t      ON i.tier_id = t.tier_id
+INNER JOIN impfstoff s ON i.impfstoff_id = s.impfstoff_id;
+
+SELECT tierart, COUNT(*) AS anzahl
+FROM impfungen_je_art
+GROUP BY tierart;</code></pre>
+<p>Ergebnis: Hund 4, Kaninchen 1, Katze 1.</p>
+<p>Sichten haben drei Vorteile:</p>
+<ul>
+  <li><strong>Einfacher:</strong> Wer auswertet, muss die Verknüpfungen nicht kennen.</li>
+  <li><strong>Sicherer:</strong> Eine Sicht zeigt nur ausgewählte Spalten und Zeilen. Wer nur die Sicht lesen darf, sieht die übrigen Daten nicht (Kapitel 8.4.4).</li>
+  <li><strong>Stabiler:</strong> Ändert sich der Aufbau der Tabellen, passt du nur die Sicht an; Berichte, die sie nutzen, bleiben gleich.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Praxisleitung soll eine Auswertung ohne Besitzerdaten entstehen (Datenminimierung, Kapitel 8.1.3). Die Auszubildende legt die Sicht <code>impfungen_je_art</code> an. Sie enthält Tierart, Impfstoff und Datum, aber keine Besitzerdaten wie Namen, Wohnorte oder Telefonnummern. Das Auswertungsprogramm der Praxisleitung bekommt nur Leserechte auf diese Sicht.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Eine Sicht ist eine Kopie der Daten.“ Nein: Sie speichert nur die Abfrage. Ändert sich eine Impfung in der Tabelle, zeigt die Sicht beim nächsten Zugriff den neuen Stand.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Unterabfrage:</strong> ein SELECT in Klammern, dessen Ergebnis die äußere Abfrage als Wert (mit =, &lt;, &gt;) oder als Liste (mit IN, NOT IN) verwendet.</li>
+  <li><strong>Sicht:</strong> gespeicherte Abfrage ohne eigene Daten; vereinfacht Auswertungen und zeigt nur ausgewählte Spalten und Zeilen.</li>
+</ul>

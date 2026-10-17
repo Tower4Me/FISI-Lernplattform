@@ -1,0 +1,61 @@
+<p class="lead">Die Praxisleitung braucht selten einzelne Tiere, sondern Zahlen: Wie viele Hunde behandeln wir? Wie schwer sind sie im Schnitt? Dafür fasst du viele Zeilen zu einem Wert zusammen. Das erledigen Aggregatfunktionen, auf Wunsch getrennt nach Gruppen.</p>
+
+<h3>Aggregatfunktionen</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Funktion</th><th>Ergebnis</th><th>Beispiel mit der Tabelle tier (Kapitel 8.3.1)</th></tr></thead>
+    <tbody>
+      <tr><th><code>COUNT(*)</code></th><td>Anzahl Zeilen</td><td><code>SELECT COUNT(*) FROM tier</code> ergibt 5</td></tr>
+      <tr><th><code>COUNT(spalte)</code></th><td>Anzahl Zeilen, in denen die Spalte einen Wert hat</td><td><code>COUNT(gewicht_kg)</code> ergibt 4, Rocky fehlt</td></tr>
+      <tr><th><code>SUM(spalte)</code></th><td>Summe</td><td><code>SUM(gewicht_kg)</code> ergibt 61.80</td></tr>
+      <tr><th><code>AVG(spalte)</code></th><td>Mittelwert der vorhandenen Werte</td><td><code>AVG(gewicht_kg)</code> ergibt 15.45 (61.80 / 4)</td></tr>
+      <tr><th><code>MIN</code>, <code>MAX</code></th><td>kleinster, größter Wert</td><td><code>MAX(gewicht_kg)</code> ergibt 31.50</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Felder ohne Wert (<code>NULL</code>) lassen die Funktionen aus. Deshalb teilt <code>AVG</code> hier durch 4, nicht durch 5. Mit <code>WHERE</code> kannst du vorher filtern: <code>SELECT COUNT(*) FROM tier WHERE tierart = 'Hund'</code> ergibt 3.</p>
+
+<h3>Gruppieren mit GROUP BY</h3>
+<p>Mit <code>GROUP BY</code> bildet das DBMS für jeden Wert einer Spalte eine Gruppe und rechnet die Aggregatfunktion je Gruppe:</p>
+<pre><code>SELECT tierart, COUNT(*) AS anzahl, AVG(gewicht_kg) AS schnitt_kg
+FROM tier
+GROUP BY tierart
+ORDER BY tierart;</code></pre>
+<div class="vergleich">
+  <table>
+    <caption>Ergebnis</caption>
+    <thead><tr><th>tierart</th><th>anzahl</th><th>schnitt_kg</th></tr></thead>
+    <tbody>
+      <tr><th>Hund</th><td>3</td><td>27.75</td></tr>
+      <tr><th>Kaninchen</th><td>1</td><td>2.10</td></tr>
+      <tr><th>Katze</th><td>1</td><td>4.20</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei den Hunden zählt <code>COUNT(*)</code> drei Tiere, <code>AVG</code> teilt aber durch 2: (31.50 + 24.00) / 2 = 27.75, Rockys <code>NULL</code> fällt weg.</p>
+<p>Regel: Jede Spalte im <code>SELECT</code>, die nicht in einer Aggregatfunktion steht, muss auch im <code>GROUP BY</code> stehen. Sonst wäre unklar, welcher der vielen Werte einer Gruppe angezeigt werden soll. MariaDB meldet ohne strenge Einstellung keinen Fehler, sondern zeigt einen beliebigen Wert der Gruppe; halte dich trotzdem an die Regel.</p>
+
+<h3>Gruppen filtern mit HAVING</h3>
+<p><code>WHERE</code> filtert einzelne Zeilen <strong>vor</strong> dem Gruppieren. <code>HAVING</code> filtert die fertigen Gruppen <strong>nach</strong> dem Gruppieren und darf deshalb Aggregatfunktionen enthalten:</p>
+<pre><code>SELECT tierart, COUNT(*) AS anzahl
+FROM tier
+WHERE geburtsdatum &gt;= '2019-01-01'
+GROUP BY tierart
+HAVING COUNT(*) &gt;= 2;</code></pre>
+<p>Zuerst fallen alle Tiere weg, die vor 2019 geboren sind (Bello). Dann wird gruppiert: Hund 2 (Luna, Rocky), Katze 1, Kaninchen 1. Übrig bleibt nur die Gruppe Hund mit 2.</p>
+<p>Die Reihenfolge der Teile ist fest: <code>SELECT … FROM … WHERE … GROUP BY … HAVING … ORDER BY …</code>.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für den Jahresbericht will die Praxisleitung wissen, wie viele Impfungen 2025 je Impfstoff gegeben wurden, sortiert nach Häufigkeit:</p>
+  <pre><code>SELECT impfstoff_id, COUNT(*) AS anzahl
+FROM impfung
+WHERE datum BETWEEN '2025-01-01' AND '2025-12-31'
+GROUP BY impfstoff_id
+ORDER BY anzahl DESC;</code></pre>
+  <p>Ergebnis mit den Daten aus Kapitel 8.3.3: Impfstoff 3 viermal, Impfstoff 5 und 7 je einmal. Statt der Nummer soll später die Bezeichnung des Impfstoffs erscheinen. Dafür brauchst du eine zweite Tabelle im selben Ergebnis (Kapitel 8.3.3).</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„<code>WHERE COUNT(*) &gt;= 2</code> zeigt nur Tierarten mit mindestens zwei Tieren.“ Das ist ein Fehler: Wenn <code>WHERE</code> ausgewertet wird, gibt es die Gruppen noch nicht. Bedingungen auf Aggregate gehören in <code>HAVING</code>.</p></aside>
+
+<p class="merksatz">COUNT, SUM, AVG, MIN und MAX fassen Zeilen zusammen und lassen NULL aus; GROUP BY rechnet sie je Gruppe, WHERE filtert Zeilen vor dem Gruppieren, HAVING die Gruppen danach.</p>

@@ -1852,6 +1852,10 @@
         {
           "id": "8-2-3",
           "tiefe": "PK/FK in CREATE TABLE"
+        },
+        {
+          "id": "8-3-3",
+          "tiefe": "Verknüpfen über FK = PK"
         }
       ]
     },
@@ -2812,6 +2816,10 @@
         {
           "id": "8-1-4",
           "tiefe": "Merkmale und Prüfung"
+        },
+        {
+          "id": "8-3-5",
+          "tiefe": "Dublette per Transaktion zusammenführen"
         }
       ]
     },
@@ -2822,7 +2830,13 @@
         "Datentypen: INTEGER, DECIMAL(p,s) exakt (p Stellen gesamt, s Nachkomma), FLOAT/DOUBLE mit Rundungsfehlern, CHAR(n) fest, VARCHAR(n) variabel, TEXT, DATE/TIME/TIMESTAMP (MariaDB DATETIME), BOOLEAN; Kennungen wie PLZ als Text.",
         "Constraints: NOT NULL, UNIQUE (mehrere NULL meist erlaubt, SQL Server nur eine), CHECK, DEFAULT, PRIMARY KEY, FOREIGN KEY … REFERENCES; NULL = kein Wert, nicht 0.",
         "Referenzierte Tabelle zuerst anlegen; ohne ON-DELETE-Regel (NO ACTION/RESTRICT) wird Löschen eines referenzierten Datensatzes abgelehnt; CASCADE löscht mit, SET NULL leert.",
-        "DROP TABLE entfernt Tabelle mit Struktur und Daten; DELETE FROM entfernt Zeilen, Tabelle bleibt."
+        "DROP TABLE entfernt Tabelle mit Struktur und Daten; DELETE FROM entfernt Zeilen, Tabelle bleibt.",
+        "NULL: Vergleich mit = ergibt nie wahr, nur IS NULL; Aggregatfunktionen lassen NULL aus (COUNT(*) zählt alle Zeilen, COUNT(spalte) nur nicht leere).",
+        "LIKE: % beliebig viele Zeichen, _ genau ein Zeichen; BETWEEN schließt Grenzen ein; Top-N: LIMIT (MariaDB/MySQL/PostgreSQL), TOP (SQL Server), FETCH FIRST (Standard).",
+        "WHERE filtert Zeilen vor dem Gruppieren, HAVING Gruppen danach; Nicht-Aggregatspalten im SELECT müssen ins GROUP BY; Reihenfolge SELECT FROM WHERE GROUP BY HAVING ORDER BY.",
+        "INNER JOIN nur Zeilen mit Partner; LEFT JOIN alle Zeilen links, fehlende Partner NULL; zwei Tabellen ohne Verknüpfungsbedingung (FROM a, b; CROSS JOIN) ergeben das kartesische Produkt (m × n Zeilen); n Tabellen brauchen n − 1 Bedingungen.",
+        "Sicht (View) = gespeicherte Abfrage ohne eigene Daten; vereinfacht, schränkt Spalten/Zeilen ein.",
+        "UPDATE/DELETE ohne WHERE treffen alle Zeilen; Transaktion START TRANSACTION/BEGIN … COMMIT/ROLLBACK; ACID = Atomarität, Konsistenz, Isolation, Dauerhaftigkeit; Autocommit ohne begonnene Transaktion."
       ],
       "vorkommen": [
         {
@@ -2832,6 +2846,26 @@
         {
           "id": "8-2-3",
           "tiefe": "DDL, referenzielle Integrität"
+        },
+        {
+          "id": "8-3-1",
+          "tiefe": "SELECT, WHERE, ORDER BY, LIKE, BETWEEN, IN, IS NULL, LIMIT/TOP"
+        },
+        {
+          "id": "8-3-2",
+          "tiefe": "Aggregate, GROUP BY, HAVING"
+        },
+        {
+          "id": "8-3-3",
+          "tiefe": "INNER/LEFT JOIN, kartesisches Produkt"
+        },
+        {
+          "id": "8-3-4",
+          "tiefe": "Unterabfragen, Sichten"
+        },
+        {
+          "id": "8-3-5",
+          "tiefe": "INSERT/UPDATE/DELETE, Transaktion, ACID"
         }
       ]
     },

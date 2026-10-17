@@ -1,0 +1,41 @@
+<p class="lead">Das Skript, das die Sicherungsmeldungen prüft, soll jeden Morgen um 6 Uhr laufen, bevor die Praxis öffnet, auch am Wochenende und ohne dass sich jemand anmeldet. Dafür hat jedes Betriebssystem einen Dienst, der Aufgaben zeitgesteuert startet.</p>
+
+<h3>Windows: Aufgabenplanung</h3>
+<p>Die <strong>Aufgabenplanung</strong> startet Programme nach Zeitplan oder bei Ereignissen, etwa beim Hochfahren oder bei der Anmeldung. Einrichten lässt sie sich in der grafischen Oberfläche, mit PowerShell oder mit dem Befehl <code>schtasks</code>, hier in der Eingabeaufforderung (<code>^</code> setzt die Zeile fort):</p>
+<pre><code>schtasks /create /tn "Sicherungsbericht" /sc daily /st 06:00 /ru INTERN\svc-bericht /rp * ^
+  /tr "powershell.exe -NoProfile -File C:\Skripte\sicherungsbericht.ps1"</code></pre>
+<ul>
+  <li><code>/tn</code>: Name der Aufgabe</li>
+  <li><code>/sc</code> und <code>/st</code>: Rhythmus (etwa <code>daily</code>, <code>weekly</code>, <code>onstart</code>) und Startzeit</li>
+  <li><code>/ru</code> und <code>/rp</code>: Konto, unter dem die Aufgabe läuft, und sein Kennwort (<code>*</code> fragt es ab, statt es in die Befehlszeile zu schreiben)</li>
+  <li><code>/tr</code>: auszuführender Befehl</li>
+</ul>
+<p>Mit <code>schtasks /query</code> listest du Aufgaben auf, mit <code>/run</code> startest du eine sofort zum Testen, mit <code>/delete</code> entfernst du sie.</p>
+
+<h3>Linux: cron</h3>
+<p>Unter Linux übernimmt das der Dienst <strong>cron</strong>. Jede Zeile der Aufgabentabelle (crontab, bearbeitet mit <code>crontab -e</code>) hat fünf Zeitfelder und den Befehl:</p>
+<pre><code># Minute Stunde Tag Monat Wochentag  Befehl
+  0      6      *   *     *          /opt/skripte/sicherungsbericht.sh
+  30     2      *   *     1-5        /opt/skripte/aufraeumen.sh
+  0      22     1   *     *          /opt/skripte/monatsbericht.sh</code></pre>
+<p><code>*</code> heißt „jeder Wert“. Die erste Zeile läuft täglich um 6:00 Uhr, die zweite montags bis freitags um 2:30 Uhr (Wochentag 1 bis 5, Sonntag ist 0), die dritte am ersten jedes Monats um 22:00 Uhr. Neuere Linux-Systeme bieten zusätzlich Timer von systemd mit ähnlicher Wirkung.</p>
+
+<h3>Damit geplante Aufgaben zuverlässig laufen</h3>
+<ul>
+  <li><strong>Passendes Konto</strong>: ein eigenes Dienstkonto mit genau den nötigen Rechten statt eines persönlichen Kontos, das bei einem Kennwortwechsel oder Austritt die Aufgabe lahmlegt.</li>
+  <li><strong>Vollständige Pfade</strong>: Geplante Aufgaben starten ohne Anmeldung: cron mit stark verkürztem PATH, die Aufgabenplanung meist im Ordner C:\Windows\System32 statt im Skriptordner. Relative Pfade und Programme außerhalb von PATH werden dann nicht gefunden; gib sie mit vollem Pfad an (Kapitel 10.7.1).</li>
+  <li><strong>Protokoll</strong>: Das Skript schreibt, wann es lief und mit welchem Ergebnis, in eine Datei oder das Ereignisprotokoll.</li>
+  <li><strong>Fehlermeldung</strong>: Schlägt es fehl, erfährt es jemand, etwa über das Monitoring (Kapitel 10.6.1). Eine Aufgabe, die still scheitert, ist schlimmer als keine.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Auszubildende legt im Verzeichnis (Kapitel 10.5.1) das Dienstkonto svc-bericht an, das die Sicherungsprotokolle nur lesen und Mails versenden darf. Mit schtasks plant sie auf dem Sicherungsserver den Sicherungsbericht täglich um 6:00 Uhr unter diesem Konto und startet ihn einmal mit <code>/run</code>. Im Protokoll steht „Zugriff verweigert“ auf den Ordner der Protokolle; sie ergänzt das Leserecht für svc-bericht und testet erneut. Auf dem Linux-Container-Host räumt ein cron-Eintrag werktags um 2:30 Uhr alte Images auf.</p>
+</div>
+
+<aside class="note" data-typ="hinweis"><p>Plane Aufgaben nicht alle auf dieselbe volle Stunde. Starten Sicherung, Updates und Berichte gleichzeitig um 2:00 Uhr, bremsen sie sich gegenseitig, und das Speichersystem wird zum Engpass.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Windows</strong> plant mit der Aufgabenplanung bzw. <code>schtasks /create</code> (Name, Rhythmus, Startzeit, Konto, Befehl), <strong>Linux</strong> mit cron: Minute, Stunde, Tag, Monat, Wochentag, Befehl.</li>
+  <li><strong>Zuverlässig</strong> laufen geplante Aufgaben mit eigenem Dienstkonto, vollständigen Pfaden, Protokoll und Fehlermeldung.</li>
+</ul>

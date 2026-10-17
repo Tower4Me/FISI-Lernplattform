@@ -1,0 +1,46 @@
+<p class="lead">Jeden Monat kommen im Praxisverbund neue Mitarbeitende, Aushilfen oder Auszubildende. Für jede Person legt jemand ein Konto an, setzt sie in die richtigen Gruppen, richtet das Postfach ein. Von Hand dauert das, und jedes Mal wird etwas anderes vergessen. Ein Skript erledigt es in Sekunden, jedes Mal gleich und nachvollziehbar.</p>
+
+<h3>Warum automatisieren?</h3>
+<ul>
+  <li><strong>Gleichförmig</strong>: Jede Ausführung läuft gleich ab, Tippfehler und vergessene Schritte entfallen.</li>
+  <li><strong>Schnell</strong>: Aufgaben für hundert Konten oder Server dauern kaum länger als für eines.</li>
+  <li><strong>Dokumentiert</strong>: Das Skript beschreibt selbst, was passiert; mit Versionsverwaltung (LF8, Kapitel 8.5.1) auch, wann es sich geändert hat.</li>
+  <li><strong>Planbar</strong>: Skripte laufen auch nachts ohne Menschen (Kapitel 10.7.3).</li>
+</ul>
+<p>Unter Windows nutzt du die <strong>PowerShell</strong> (Grundlagen in LF3, Kapitel 3.7.2), unter Linux meist die <strong>Bash</strong>. Programmlogik wie Variablen, Verzweigungen und Schleifen kennst du aus LF5, Kapitel 5.4.</p>
+
+<h3>Pipeline</h3>
+<p>Die Pipeline <code>|</code> gibt die Ausgabe eines Befehls an den nächsten weiter. Die PowerShell übergibt dabei <strong>Objekte</strong> mit Eigenschaften, die Bash <strong>Text</strong>:</p>
+<pre><code># PowerShell: alle beendeten Dienste
+Get-Service | Where-Object Status -eq 'Stopped'
+
+# Bash: Zeilen mit "sql" aus der Prozessliste
+ps aux | grep sql</code></pre>
+<p>In der PowerShell filterst du deshalb nach Eigenschaften wie <code>Status</code>, in der Bash nach Textmustern.</p>
+
+<h3>Platzhalter</h3>
+<p>Platzhalter (Wildcards) wählen mehrere Dateien auf einmal aus: <code>*</code> steht für beliebig viele Zeichen, auch keines, <code>?</code> für genau ein Zeichen.</p>
+<pre><code>copy D:\Befunde\*.pdf E:\Uebergabe\                 # Windows-Eingabeaufforderung
+Get-ChildItem D:\Befunde -Recurse -Filter *.pdf     # PowerShell, auch Unterordner
+cp /srv/termin-api/logs/2026-0?-*.log /mnt/export/  # Bash: Protokolle der Monate 01 bis 09</code></pre>
+
+<h3>Wo Programme gefunden werden</h3>
+<p>Tippst du einen Befehl ohne Pfad, sucht das System das Programm in den Ordnern, die in der Umgebungsvariablen <strong>PATH</strong> stehen, der Reihe nach. Steht der Ordner nicht darin, meldet Windows, der Name werde nicht erkannt, Linux „command not found“. Abhilfe: das Programm mit vollständigem Pfad aufrufen oder seinen Ordner in PATH aufnehmen. Anzeigen lässt sich PATH mit <code>$env:Path</code> (PowerShell), <code>echo %PATH%</code> (Eingabeaufforderung) oder <code>echo $PATH</code> (Bash).</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Die Praxisleitungen tragen neue Personen in eine CSV-Datei ein (Kopfzeile <code>Name;Konto;Rolle</code>). Die Auszubildende schreibt ein Skript, das daraus die Konten in der OU des Standorts anlegt und sie ihrer Rollengruppe zuordnet (Kapitel 10.5.1):</p>
+<pre><code>Import-Csv .\neu-nord.csv -Delimiter ';' | ForEach-Object {
+    New-ADUser -Name $_.Name -SamAccountName $_.Konto `
+        -Path 'OU=Nord,DC=intern,DC=praxisverbund,DC=example' -Enabled $false
+    Add-ADGroupMember -Identity $_.Rolle -Members $_.Konto
+}</code></pre>
+  <p><code>$_</code> ist die jeweils aktuelle Zeile der CSV-Datei. Die Konten bleiben deaktiviert, bis die Person ihr Startkennwort persönlich erhalten hat.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Das Skript lief bei mir, also läuft es überall.“ Skripte hängen von Rechten, Pfaden, installierten Modulen und Einstellungen wie der Ausführungsrichtlinie ab. Teste es dort, wo es laufen soll, zuerst mit Testdaten (Kapitel 10.7.4).</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Automatisieren</strong> macht Abläufe gleichförmig, schnell, dokumentiert und planbar; Werkzeuge sind PowerShell (Pipeline mit Objekten) und Bash (Pipeline mit Text).</li>
+  <li><strong>Platzhalter</strong>: <code>*</code> beliebig viele Zeichen, <code>?</code> genau eines; Programme ohne Pfad werden nur in den Ordnern aus PATH gefunden.</li>
+</ul>

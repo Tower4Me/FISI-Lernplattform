@@ -1,0 +1,125 @@
+{
+  "titel": "Check 10.7",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Platzhalter",
+      "frage": "Welche Dateien erfasst das Muster bericht-2026-0?.csv?",
+      "optionen": [
+        "bericht-2026-01.csv bis bericht-2026-09.csv",
+        "alle Berichte des Jahres 2026",
+        "nur bericht-2026-0.csv",
+        "bericht-2026-010.csv bis bericht-2026-012.csv"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das Fragezeichen steht für genau ein beliebiges Zeichen, bei Monatsnummern also 01 bis 09. Ein Stern würde beliebig viele Zeichen erfassen, auch keines."
+    },
+    {
+      "typ": "mc",
+      "thema": "PATH",
+      "frage": "Ein Programm liegt in C:\\Tools\\, der Aufruf nur mit seinem Namen meldet aber, der Befehl werde nicht erkannt. Was ist die Ursache?",
+      "optionen": [
+        "Die Ausführungsrichtlinie verhindert den Start von Programmen aus C:\\Tools",
+        "Der Ordner steht nicht in der Umgebungsvariablen PATH",
+        "Der Ordner C:\\Tools ist nicht im Netzwerk freigegeben",
+        "Der Platzhalter * fehlt im Aufruf"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Ohne Pfad sucht das System nur in den Ordnern aus PATH. Abhilfe: vollständigen Pfad angeben oder den Ordner in PATH aufnehmen."
+    },
+    {
+      "typ": "mc",
+      "thema": "PAP-Symbole",
+      "frage": "Welches Symbol steht im Programmablaufplan für eine Verzweigung mit zwei Ausgängen?",
+      "optionen": [
+        "Oval",
+        "Parallelogramm",
+        "Rechteck",
+        "Raute"
+      ],
+      "richtig": [
+        3
+      ],
+      "erklaerung": "Die Raute ist die Verzweigung. Oval steht für Start und Ende, das Rechteck für eine Anweisung, das Parallelogramm für Ein- oder Ausgabe."
+    },
+    {
+      "typ": "mc",
+      "thema": "Struktogramm",
+      "frage": "Im Nassi-Shneiderman-Diagramm steht die Schleifenbedingung unter dem Rumpf. Was bedeutet das?",
+      "optionen": [
+        "Die Schleife ist fußgesteuert und läuft mindestens einmal",
+        "Die Schleife ist kopfgesteuert und prüft vor jedem einzelnen Durchlauf",
+        "Die Schleife läuft genau einmal",
+        "Die Bedingung wird nur beim letzten Durchlauf geprüft"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Steht die Bedingung unten, wird sie erst nach dem Rumpf geprüft: fußgesteuert. Kopfgesteuerte Schleifen haben die Bedingung oben und laufen unter Umständen gar nicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "cron",
+      "frage": "Wann läuft der cron-Eintrag „15 3 * * 0 /opt/skripte/voll.sh“?",
+      "optionen": [
+        "Täglich um 15:03 Uhr",
+        "Sonntags um 3:15 Uhr",
+        "Am 15. jedes Monats um 3:00 Uhr",
+        "Montags um 3:15 Uhr"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Die Felder lauten Minute, Stunde, Tag, Monat, Wochentag: Minute 15, Stunde 3, jeder Tag und Monat, Wochentag 0 = Sonntag."
+    },
+    {
+      "typ": "mc",
+      "thema": "Geplante Aufgaben",
+      "frage": "Eine geplante Aufgabe läuft unter dem persönlichen Konto eines Administrators. Was ist das Risiko?",
+      "optionen": [
+        "Die Aufgabe erscheint nicht in schtasks /query",
+        "Verlässt er den Betrieb oder ändert sein Kennwort, scheitert die Aufgabe",
+        "Persönliche Konten dürfen in der Aufgabenplanung keine Skripte ausführen",
+        "Die Aufgabe ignoriert die Startzeit aus /st"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Geplante Aufgaben gehören zu einem eigenen Dienstkonto mit genau den nötigen Rechten. Hängen sie an einer Person, scheitern sie bei Kennwortwechsel oder Austritt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Schreibtischtest",
+      "frage": "Ein Skript sucht den höchsten Wert, beginnt mit max ← 0 und durchläuft die Liste ab Index 0. Bei welcher Liste liefert es ein falsches Ergebnis?",
+      "optionen": [
+        "[12, 47, 3, 8]",
+        "[47, 12, 3]",
+        "[3, 12, 47]",
+        "[-4, -9, -2]"
+      ],
+      "richtig": [
+        3
+      ],
+      "erklaerung": "Sind alle Werte negativ, ist keiner größer als der Startwert 0; max bleibt 0 statt −2. Sicherer ist es, max mit dem ersten Element zu beginnen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Bubblesort",
+      "frage": "Die Liste [8, 3, 6, 1] wird mit Bubblesort aufsteigend sortiert. Wie sieht sie nach dem ersten Durchlauf aus?",
+      "optionen": [
+        "[1, 3, 6, 8]",
+        "[3, 8, 1, 6]",
+        "[3, 6, 1, 8]",
+        "[3, 6, 8, 1]"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "8 wandert durch drei Tauschvorgänge ans Ende: [3, 8, 6, 1], [3, 6, 8, 1], [3, 6, 1, 8]. Vollständig sortiert ist die Liste erst nach weiteren Durchläufen."
+    }
+  ]
+}

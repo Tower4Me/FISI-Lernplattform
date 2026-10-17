@@ -2215,6 +2215,18 @@
         {
           "id": "5-5-4",
           "tiefe": "Klassendiagramm als Darstellung von Klassen"
+        },
+        {
+          "id": "10-7-2",
+          "tiefe": "PAP und Struktogramm"
+        },
+        {
+          "id": "10-7-4",
+          "tiefe": "Schreibtischtest Maximum, Startindex"
+        },
+        {
+          "id": "10-7-5",
+          "tiefe": "Bubblesort"
         }
       ]
     },
@@ -2306,6 +2318,10 @@
         {
           "id": "10-6-2",
           "tiefe": "Last- und Performance-Test"
+        },
+        {
+          "id": "10-7-4",
+          "tiefe": "Grenzfälle, Trockenlauf"
         }
       ]
     },
@@ -3373,6 +3389,10 @@
         {
           "id": "9-7-1",
           "tiefe": "Konfigurationen versionieren"
+        },
+        {
+          "id": "10-7-1",
+          "tiefe": "Skripte versionieren"
         }
       ]
     },
@@ -3712,6 +3732,46 @@
         {
           "id": "10-6-2",
           "tiefe": "Lasttest, kritische Zustände"
+        },
+        {
+          "id": "10-7-3",
+          "tiefe": "Fehlschlag geplanter Aufgaben melden"
+        }
+      ]
+    },
+    {
+      "begriff": "automatisierung",
+      "kernfakten": [
+        "Skripte machen Abläufe gleichförmig, schnell, dokumentiert, planbar; PowerShell-Pipeline übergibt Objekte, Bash Text.",
+        "Platzhalter * beliebig viele Zeichen (auch keines), ? genau eines; Programme ohne Pfad nur in Ordnern aus PATH gefunden.",
+        "PAP (DIN 66001): Oval Start/Ende, Rechteck Anweisung, Raute Verzweigung, Parallelogramm Ein-/Ausgabe; Struktogramm (DIN 66261): Blöcke ohne Pfeile, Schleife kopf- oder fußgesteuert.",
+        "Planen: schtasks /create (/tn, /sc, /st, /ru, /tr) bzw. cron (Minute Stunde Tag Monat Wochentag, 0 = Sonntag); eigenes Dienstkonto, volle Pfade, Protokoll, Fehlermeldung.",
+        "Prüfen: Schreibtischtest mit Werttabelle, Grenzfälle, -WhatIf, try/catch, erst Testumgebung; Bubblesort tauscht Nachbarn über Hilfsvariable, innere Schleife bis n − 1 − durchlauf."
+      ],
+      "vorkommen": [
+        {
+          "id": "3-7-2",
+          "tiefe": "erste PowerShell-Skripte"
+        },
+        {
+          "id": "10-7-1",
+          "tiefe": "Pipeline, Platzhalter, PATH, Konten aus CSV"
+        },
+        {
+          "id": "10-7-2",
+          "tiefe": "PAP, Struktogramm"
+        },
+        {
+          "id": "10-7-3",
+          "tiefe": "schtasks, cron"
+        },
+        {
+          "id": "10-7-4",
+          "tiefe": "Schreibtischtest, Testen"
+        },
+        {
+          "id": "10-7-5",
+          "tiefe": "Bubblesort"
         }
       ]
     }

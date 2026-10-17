@@ -1,0 +1,51 @@
+<p class="lead">Der Wochenbericht des Monitorings soll die Server nach Plattenbelegung sortiert zeigen, die vollsten zuerst. Die meisten Sprachen haben dafür einen fertigen Befehl, in der PowerShell etwa <code>Sort-Object</code>. Wie Sortieren im Inneren funktioniert, zeigt ein besonders einfaches Verfahren: <strong>Bubblesort</strong>. Es eignet sich gut, um Schleifen, Arrays und den Schreibtischtest zu üben.</p>
+
+<h3>Die Idee</h3>
+<p>Bubblesort geht die Liste von vorn nach hinten durch und vergleicht jeweils zwei Nachbarn. Stehen sie in der falschen Reihenfolge, tauscht es sie. Nach dem ersten Durchlauf steht das größte Element am Ende, wie eine Blase, die nach oben steigt. Der nächste Durchlauf braucht das letzte Element nicht mehr anzusehen. Nach höchstens n − 1 Durchläufen ist eine Liste mit n Elementen sortiert.</p>
+<pre><code>FUNCTION bubblesort(liste)
+    n ← LENGTH(liste)
+    FOR durchlauf ← 1 TO n - 1
+        FOR i ← 0 TO n - 1 - durchlauf
+            IF liste[i] &gt; liste[i + 1] THEN
+                tmp ← liste[i]
+                liste[i] ← liste[i + 1]
+                liste[i + 1] ← tmp
+            END IF
+        END FOR
+    END FOR
+    RETURN liste
+END FUNCTION</code></pre>
+<p>Für den Tausch brauchst du eine Hilfsvariable <code>tmp</code>. Schreibst du nur <code>liste[i] ← liste[i + 1]</code> und dann <code>liste[i + 1] ← liste[i]</code>, steht danach in beiden Feldern derselbe Wert. Die innere Schleife endet bei <code>n - 1 - durchlauf</code>, damit <code>liste[i + 1]</code> nie über das Ende der Liste hinausgreift und die schon sortierten Elemente am Ende nicht erneut verglichen werden.</p>
+
+<h3>Schreibtischtest eines Durchlaufs</h3>
+<p>Die Liste [72, 91, 65, 88] wird aufsteigend sortiert. Erster Durchlauf (durchlauf = 1, i von 0 bis 2):</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>i</th><th>Vergleich</th><th>Tausch?</th><th>Liste danach</th></tr></thead>
+    <tbody>
+      <tr><th>0</th><td>72 &gt; 91</td><td>nein</td><td>[72, 91, 65, 88]</td></tr>
+      <tr><th>1</th><td>91 &gt; 65</td><td>ja</td><td>[72, 65, 91, 88]</td></tr>
+      <tr><th>2</th><td>91 &gt; 88</td><td>ja</td><td>[72, 65, 88, 91]</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>91 steht jetzt am Ende. Im zweiten Durchlauf (i von 0 bis 1) werden 72 und 65 getauscht: [65, 72, 88, 91]. Der dritte Durchlauf vergleicht nur noch 65 und 72 und tauscht nichts.</p>
+
+<h3>Absteigend und schneller</h3>
+<ul>
+  <li><strong>Absteigend</strong> sortieren: Vergleich umdrehen, <code>liste[i] &lt; liste[i + 1]</code>.</li>
+  <li><strong>Früher aufhören</strong>: Gab es in einem Durchlauf keinen einzigen Tausch, ist die Liste sortiert. Eine Variable <code>getauscht</code> merkt sich das, und die äußere Schleife endet vorzeitig.</li>
+  <li><strong>Aufwand</strong>: Bei n Elementen braucht Bubblesort im ungünstigen Fall etwa n² ÷ 2 Vergleiche. Für 4 Server ist das egal, für 100.000 Datensätze nicht; dort nutzt du die eingebauten, schnelleren Verfahren.</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Im Bericht setzt die Auszubildende einfach <code>Sort-Object Belegung -Descending</code> ein. Ein Kollege hat für die Temperaturanzeige des Probengefrierschranks ein eigenes Bubblesort geschrieben, das mit einer Fehlermeldung abbricht. Ihr Schreibtischtest zeigt: Die innere Schleife läuft bis <code>n - 1</code> statt bis <code>n - 1 - durchlauf</code> und greift beim letzten Vergleich auf <code>liste[n]</code> zu, ein Element hinter dem Ende der Liste, also ein Laufzeitfehler (LF5, Kapitel 5.4.5).</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Nach dem ersten Durchlauf ist die Liste sortiert.“ Ein Durchlauf bringt nur das größte Element sicher ans Ende. Sicher sortiert ist die Liste nach n − 1 Durchläufen oder sobald ein Durchlauf ohne Tausch bleibt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Bubblesort</strong> vergleicht Nachbarn und tauscht sie über eine Hilfsvariable, wenn sie falsch stehen; nach jedem Durchlauf steht das nächstgrößte Element am Ende des noch unsortierten Teils.</li>
+  <li><strong>Grenzen</strong>: innere Schleife bis n − 1 − durchlauf, höchstens n − 1 Durchläufe, Abbruch ohne Tausch; Aufwand etwa n² ÷ 2 Vergleiche.</li>
+</ul>

@@ -5978,6 +5978,135 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "10.7",
+          "titel": "Administration automatisieren",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "10.7.1",
+              "titel": "Skripte auf der Kommandozeile",
+              "slug": "skripte-auf-der-kommandozeile",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Administrationsprozesse automatisieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 4 (copy mit Platzhaltern, Programmaufruf scheitert am PATH)",
+                  "AP2 FISI Winter 2021/22 (PowerShell-Dateisuche mit Parametern)"
+                ],
+                "extern": [
+                  "Microsoft-Dokumentation PowerShell (Pipeline, Get-ChildItem, Import-Csv, ActiveDirectory-Modul New-ADUser); GNU Bash Reference Manual (Pathname Expansion)"
+                ]
+              },
+              "material": [
+                "windows-konsole",
+                "linux-konsole"
+              ],
+              "begriffe": [
+                "automatisierung",
+                "versionsverwaltung"
+              ]
+            },
+            {
+              "nummer": "10.7.2",
+              "titel": "Abläufe darstellen",
+              "slug": "ablaeufe-darstellen",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Administrationsprozesse automatisieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 2 (Ablaufmodell mit Aktionen und Abfragen)"
+                ],
+                "extern": [
+                  "DIN 66001 (Sinnbilder für Programmablaufpläne), DIN 66261 (Nassi-Shneiderman-Struktogramme)"
+                ]
+              },
+              "material": [
+                "pap-programmablaufplan",
+                "struktogramm-nassi-shneiderman",
+                "pseudocode"
+              ],
+              "begriffe": [
+                "programmierung",
+                "automatisierung"
+              ]
+            },
+            {
+              "nummer": "10.7.3",
+              "titel": "Aufgaben planen",
+              "slug": "aufgaben-planen",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Administrationsprozesse automatisieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 3 (geplante Aufgabe mit schtasks anlegen)"
+                ],
+                "extern": [
+                  "Microsoft-Dokumentation schtasks create; crontab(5) man-page"
+                ]
+              },
+              "material": [
+                "windows-konsole",
+                "linux-konsole"
+              ],
+              "begriffe": [
+                "automatisierung",
+                "monitoring"
+              ]
+            },
+            {
+              "nummer": "10.7.4",
+              "titel": "Skripte prüfen",
+              "slug": "skripte-pruefen",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Administrationsprozesse testen und optimieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2024/25 Teil 1 Aufgabe 3 (Schreibtischtest eines Maximum-Algorithmus, Fehler finden und beheben)",
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 3 (Mittelwerte aus einem Array)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 4 (Schreibtischtest einer Array-Verarbeitung)"
+                ],
+                "extern": [
+                  "Microsoft-Dokumentation about_CommonParameters (-WhatIf), about_Try_Catch_Finally"
+                ]
+              },
+              "material": [
+                "pseudocode"
+              ],
+              "begriffe": [
+                "programmierung",
+                "softwaretest",
+                "automatisierung"
+              ]
+            },
+            {
+              "nummer": "10.7.5",
+              "titel": "Listen sortieren",
+              "slug": "listen-sortieren",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Administrationsprozesse automatisieren und optimieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 2 (Bubblesort mit Schleifen und Tausch implementieren)"
+                ],
+                "extern": [
+                  "Knuth, The Art of Computer Programming Bd. 3 (Bubble Sort); Microsoft-Dokumentation Sort-Object"
+                ]
+              },
+              "material": [
+                "pseudocode"
+              ],
+              "begriffe": [
+                "programmierung"
+              ]
+            }
+          ]
         }
       ]
     }

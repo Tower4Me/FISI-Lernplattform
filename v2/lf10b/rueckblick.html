@@ -655,6 +655,16 @@
             <li><a class="up is-check" data-check="lf10b-10-6" href="10-6-check.html"><span class="num">10.6</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="10-7-1-skripte-auf-der-kommandozeile.html"><span class="num">10.7</span><span>Administration automatisieren</span><span class="kap-progress" data-ids="10-7-1 10-7-2 10-7-3 10-7-4 10-7-5">0/5</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="10-7-1" href="10-7-1-skripte-auf-der-kommandozeile.html"><span class="num">10.7.1</span><span class="t">Skripte auf der Kommandozeile</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-7-2" href="10-7-2-ablaeufe-darstellen.html"><span class="num">10.7.2</span><span class="t">Abläufe darstellen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-7-3" href="10-7-3-aufgaben-planen.html"><span class="num">10.7.3</span><span class="t">Aufgaben planen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-7-4" href="10-7-4-skripte-pruefen.html"><span class="num">10.7.4</span><span class="t">Skripte prüfen</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="10-7-5" href="10-7-5-listen-sortieren.html"><span class="num">10.7.5</span><span class="t">Listen sortieren</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf10b-10-7" href="10-7-check.html"><span class="num">10.7</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">10b.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -734,8 +744,23 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-10-6.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.6</a></p>
 </section>
+<section class="rb-kapitel" id="k-10-7"><h2><span class="num">10.7</span> Administration automatisieren</h2>
+<ul class="rb-list">
+<li><span class="num">10.7.1</span><div><a href="10-7-1-skripte-auf-der-kommandozeile.html">Skripte auf der Kommandozeile</a><ul><li><strong>Automatisieren</strong> macht Abläufe gleichförmig, schnell, dokumentiert und planbar; Werkzeuge sind PowerShell (Pipeline mit Objekten) und Bash (Pipeline mit Text).</li>
+  <li><strong>Platzhalter</strong>: <code>*</code> beliebig viele Zeichen, <code>?</code> genau eines; Programme ohne Pfad werden nur in den Ordnern aus PATH gefunden.</li></ul></div></li>
+<li><span class="num">10.7.2</span><div><a href="10-7-2-ablaeufe-darstellen.html">Abläufe darstellen</a><ul><li><strong>PAP</strong>: Oval Start/Ende, Rechteck Anweisung, Raute Verzweigung, Parallelogramm Ein-/Ausgabe, Pfeile; Schleife als Pfeil zurück.</li>
+  <li><strong>Struktogramm</strong>: Blöcke ohne Pfeile, Verzweigung mit Dreieck und Ja-/Nein-Spalte, Schleife als Rahmen, kopf- oder fußgesteuert.</li></ul></div></li>
+<li><span class="num">10.7.3</span><div><a href="10-7-3-aufgaben-planen.html">Aufgaben planen</a><ul><li><strong>Windows</strong> plant mit der Aufgabenplanung bzw. <code>schtasks /create</code> (Name, Rhythmus, Startzeit, Konto, Befehl), <strong>Linux</strong> mit cron: Minute, Stunde, Tag, Monat, Wochentag, Befehl.</li>
+  <li><strong>Zuverlässig</strong> laufen geplante Aufgaben mit eigenem Dienstkonto, vollständigen Pfaden, Protokoll und Fehlermeldung.</li></ul></div></li>
+<li><span class="num">10.7.4</span><div><a href="10-7-4-skripte-pruefen.html">Skripte prüfen</a><ul><li><strong>Schreibtischtest</strong>: Skript Zeile für Zeile durchgehen und Variablenwerte je Schritt in einer Tabelle notieren; typische Fehler sind falscher Startindex und ungeeignete Startwerte.</li>
+  <li><strong>Testen</strong> mit Grenzfällen, Trockenlauf (<code>-WhatIf</code>), Fehlerbehandlung (<code>try</code>/<code>catch</code>) und erst in der Testumgebung.</li></ul></div></li>
+<li><span class="num">10.7.5</span><div><a href="10-7-5-listen-sortieren.html">Listen sortieren</a><ul><li><strong>Bubblesort</strong> vergleicht Nachbarn und tauscht sie über eine Hilfsvariable, wenn sie falsch stehen; nach jedem Durchlauf steht das nächstgrößte Element am Ende des noch unsortierten Teils.</li>
+  <li><strong>Grenzen</strong>: innere Schleife bis n − 1 − durchlauf, höchstens n − 1 Durchläufe, Abbruch ohne Tausch; Aufwand etwa n² ÷ 2 Vergleiche.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-10-7.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 10.7</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="10-6-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.6</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="10-7-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">10.7</span>Check</span></a></nav>
 </main>
 </div>
 </body>

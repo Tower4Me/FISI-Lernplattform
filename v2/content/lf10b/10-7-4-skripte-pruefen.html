@@ -1,0 +1,52 @@
+<p class="lead">Ein Skript, das jede Nacht läuft, macht seine Fehler auch jede Nacht, und oft merkt es niemand. Deshalb prüfst du ein Skript, bevor es in den Betrieb geht: erst auf dem Papier, dann mit Testdaten. Den Schreibtischtest kennst du aus LF5, Kapitel 5.4.5; hier wendest du ihn auf ein Administrationsskript an.</p>
+
+<h3>Ein Skript mit Fehler</h3>
+<p>Das Skript soll aus der Plattenbelegung der vier Server (in Prozent) den höchsten Wert und die Zahl der Server über 80 % ermitteln:</p>
+<pre><code>belegung ← [92, 71, 65, 88]
+max ← 0
+anzahl ← 0
+FOR i ← 1 TO LENGTH(belegung) - 1
+    IF belegung[i] &gt; max THEN
+        max ← belegung[i]
+    END IF
+    IF belegung[i] &gt; 80 THEN
+        anzahl ← anzahl + 1
+    END IF
+END FOR
+OUTPUT max, anzahl</code></pre>
+
+<h3>Schreibtischtest</h3>
+<p>Du gehst das Skript Zeile für Zeile durch und notierst nach jedem Schritt die Werte der Variablen in einer Tabelle:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Schritt</th><th>i</th><th>belegung[i]</th><th>max</th><th>anzahl</th></tr></thead>
+    <tbody>
+      <tr><th>Start</th><td>–</td><td>–</td><td>0</td><td>0</td></tr>
+      <tr><th>1. Durchlauf</th><td>1</td><td>71</td><td>71</td><td>0</td></tr>
+      <tr><th>2. Durchlauf</th><td>2</td><td>65</td><td>71</td><td>0</td></tr>
+      <tr><th>3. Durchlauf</th><td>3</td><td>88</td><td>88</td><td>1</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Ausgegeben werden 88 und 1, richtig wären 92 und 2. Die Tabelle zeigt die Ursache: <code>i</code> beginnt bei 1, das erste Element mit dem Index 0 wird nie angesehen. Korrektur: <code>FOR i ← 0 TO LENGTH(belegung) - 1</code>.</p>
+<p>Ein zweiter, versteckter Fehler: <code>max ← 0</code> klappt nur, solange mindestens ein Wert nicht negativ ist. Sind alle Werte negativ, etwa wenn dasselbe Skript später die Temperaturen des Gefrierschranks für Laborproben mit −18 und −21 auswertet, bleibt max fälschlich 0. Sicherer ist <code>max ← belegung[0]</code>, wobei die Liste nicht leer sein darf.</p>
+
+<h3>Mit Testdaten prüfen</h3>
+<ul>
+  <li><strong>Grenzfälle</strong> durchspielen: leere Liste, ein einziges Element, Wert genau auf der Grenze (80 %), größter Wert am Anfang und am Ende (Grenzwertanalyse, LF5, Kapitel 5.6.1).</li>
+  <li><strong>Trockenlauf</strong>: Viele PowerShell-Befehle, die etwas ändern, kennen den Parameter <code>-WhatIf</code>. Er zeigt nur an, was passieren würde.</li>
+  <li><strong>Fehler behandeln</strong>: Mit <code>try</code> und <code>catch</code> fängt das Skript Fehler ab, protokolliert sie und meldet sich, statt mittendrin abzubrechen. <code>catch</code> greift nur bei Fehlern, die die Ausführung beenden; Cmdlets gibst du dafür <code>-ErrorAction Stop</code> mit.</li>
+  <li><strong>Erst Testumgebung</strong>, dann wenige echte Systeme, dann alle (wie beim Patch-Management, Kapitel 10.5.4).</li>
+</ul>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Skript zum Anlegen der Konten (Kapitel 10.7.1) prüft die Auszubildende zuerst in einer Test-OU mit einer CSV-Datei mit drei Testpersonen, darunter eine mit einer Rolle, die es nicht gibt. Das Skript meldet einen Fehler; das Konto ist angelegt, steckt aber in keiner Gruppe, und im Protokoll steht nichts davon. Sie ergänzt <code>try</code> und <code>catch</code> (mit <code>-ErrorAction Stop</code>), damit fehlerhafte Zeilen protokolliert werden, und lässt das Skript erst danach auf die echte OU los.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Bei meinen Testdaten stimmt das Ergebnis, also ist das Skript richtig.“ Der Startindexfehler oben bleibt unbemerkt, solange das erste Element weder der größte Wert ist noch über 80 % liegt. Wähle Testdaten deshalb gezielt so, dass sie Grenzfälle treffen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Schreibtischtest</strong>: Skript Zeile für Zeile durchgehen und Variablenwerte je Schritt in einer Tabelle notieren; typische Fehler sind falscher Startindex und ungeeignete Startwerte.</li>
+  <li><strong>Testen</strong> mit Grenzfällen, Trockenlauf (<code>-WhatIf</code>), Fehlerbehandlung (<code>try</code>/<code>catch</code>) und erst in der Testumgebung.</li>
+</ul>

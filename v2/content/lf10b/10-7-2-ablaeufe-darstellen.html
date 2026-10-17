@@ -1,0 +1,72 @@
+<p class="lead">Bevor die Auszubildende ein Skript schreibt, das jeden Morgen die Sicherungsmeldungen auswertet, will der Ausbilder den Ablauf sehen, ohne PowerShell lesen zu müssen. Dafür gibt es zwei genormte grafische Darstellungen: den <strong>Programmablaufplan</strong> (PAP) und das <strong>Struktogramm</strong>. Pseudocode für denselben Zweck kennst du aus LF5, Kapitel 5.4.2.</p>
+
+<h3>Der Ablauf</h3>
+<pre><code>fehler ← 0
+FOR i ← 0 TO LENGTH(protokoll) - 1
+    IF protokoll[i]["status"] == "Fehler" THEN
+        fehler ← fehler + 1
+    END IF
+END FOR
+IF fehler &gt; 0 THEN
+    OUTPUT "Fehlerhafte Sicherungen: ", fehler   // als Mail an den Support
+END IF</code></pre>
+
+<h3>Programmablaufplan</h3>
+<p>Der PAP (Symbole nach DIN 66001) zeigt den Ablauf als Fluss mit Pfeilen. <strong>Oval</strong>: Start und Ende. <strong>Rechteck</strong>: Anweisung. <strong>Raute</strong>: Verzweigung mit zwei beschrifteten Ausgängen. <strong>Parallelogramm</strong>: Ein- oder Ausgabe. Eine Schleife entsteht, indem ein Pfeil zu einer früheren Raute zurückführt.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 640 580" role="img" aria-label="Programmablaufplan: Start, fehler gleich 0, Raute weitere Meldung; ja: Meldung lesen, Raute Status gleich Fehler, bei ja fehler gleich fehler plus 1, bei nein und danach zurück zur ersten Raute; nein bei weitere Meldung: Raute fehler größer 0, bei ja Mail an Support, dann Ende">
+    <path class="g-line" d="M320 50V70M320 106V118M320 182V196M320 236V248M320 312V340M240 280H200M120 298V340H320M320 340H600V113H320M240 150H40V420H240M320 452V466M320 506V522M400 420H520V546H365"/>
+    <path class="g-line" d="M316 66L320 72L324 66M316 114L320 120L324 114M316 192L320 198L324 192M316 244L320 250L324 244M326 109L320 113L326 117M236 416L242 420L236 424M316 462L320 468L324 462M316 518L320 524L324 518M369 542L363 546L369 550M204 276L198 280L204 284"/>
+    <rect class="g-accent" x="270" y="14" width="100" height="36" rx="18"/><text x="320" y="37" text-anchor="middle">Start</text>
+    <rect class="g-box" x="250" y="72" width="140" height="34" rx="4"/><text x="320" y="94" text-anchor="middle" class="g-mono">fehler ← 0</text>
+    <polygon class="g-box" points="320,120 400,150 320,182 240,150"/><text x="320" y="146" text-anchor="middle">weitere</text><text x="320" y="162" text-anchor="middle">Meldung?</text>
+    <text x="332" y="194" class="g-muted">ja</text><text x="214" y="142" class="g-muted">nein</text>
+    <polygon class="g-info" points="262,198 398,198 378,236 242,236"/><text x="320" y="222" text-anchor="middle">Meldung lesen</text>
+    <polygon class="g-box" points="320,250 400,280 320,312 240,280"/><text x="320" y="276" text-anchor="middle">Status =</text><text x="320" y="292" text-anchor="middle">Fehler?</text>
+    <text x="214" y="272" class="g-muted">ja</text><text x="332" y="326" class="g-muted">nein</text>
+    <rect class="g-box" x="40" y="262" width="160" height="36" rx="4"/><text x="120" y="285" text-anchor="middle" class="g-mono">fehler ← fehler + 1</text>
+    <polygon class="g-box" points="320,388 400,420 320,452 240,420"/><text x="320" y="425" text-anchor="middle">fehler &gt; 0?</text>
+    <text x="332" y="464" class="g-muted">ja</text><text x="410" y="412" class="g-muted">nein</text>
+    <polygon class="g-info" points="252,468 408,468 388,506 232,506"/><text x="320" y="492" text-anchor="middle">Mail an Support</text>
+    <rect class="g-accent" x="275" y="526" width="90" height="36" rx="18"/><text x="320" y="549" text-anchor="middle">Ende</text>
+  </svg>
+  <figcaption>PAP: Die Schleife führt über die rechte Linie vor die Raute „weitere Meldung?“ zurück.</figcaption>
+</figure>
+
+<h3>Struktogramm</h3>
+<p>Das Struktogramm (Nassi-Shneiderman-Diagramm, DIN 66261) kommt ohne Pfeile aus. Der Ablauf besteht aus Blöcken, die von oben nach unten gelesen werden. Eine <strong>Verzweigung</strong> ist ein Block mit Dreieck und zwei Spalten für ja und nein. Eine <strong>Schleife</strong> umschließt ihren Rumpf mit einem Rahmen: steht die Bedingung oben, ist sie kopfgesteuert (prüft vor jedem Durchlauf), steht sie unten, fußgesteuert (Rumpf läuft mindestens einmal). Sprünge gibt es nicht, das erzwingt eine klare Struktur.</p>
+<figure class="grafik">
+  <svg viewBox="0 0 560 380" role="img" aria-label="Struktogramm: Block fehler gleich 0; Schleife für jede Meldung im Protokoll mit Rumpf Meldung lesen und Verzweigung Status gleich Fehler, ja fehler plus 1, nein leer; danach Verzweigung fehler größer 0, ja Mail an Support senden, nein leer">
+    <rect class="g-box" x="20" y="10" width="520" height="40"/><text x="280" y="35" text-anchor="middle" class="g-mono">fehler ← 0</text>
+    <rect class="g-box" x="20" y="50" width="520" height="200"/><text x="280" y="75" text-anchor="middle">für jede Meldung im Protokoll</text>
+    <rect class="g-box" x="50" y="90" width="490" height="40"/><text x="295" y="115" text-anchor="middle">Meldung lesen</text>
+    <rect class="g-box" x="50" y="130" width="490" height="120"/>
+    <path class="g-line" d="M50 130L295 180L540 130M50 180H540M295 180V250"/>
+    <text x="295" y="158" text-anchor="middle">Status = Fehler?</text><text x="62" y="174" class="g-muted">ja</text><text x="508" y="174" class="g-muted">nein</text>
+    <text x="172" y="220" text-anchor="middle" class="g-mono">fehler ← fehler + 1</text><text x="417" y="220" text-anchor="middle">∅</text>
+    <rect class="g-box" x="20" y="250" width="520" height="120"/>
+    <path class="g-line" d="M20 250L280 300L540 250M20 300H540M280 300V370"/>
+    <text x="280" y="278" text-anchor="middle">fehler &gt; 0?</text><text x="32" y="294" class="g-muted">ja</text><text x="508" y="294" class="g-muted">nein</text>
+    <text x="150" y="340" text-anchor="middle">Mail an Support senden</text><text x="410" y="340" text-anchor="middle">∅</text>
+  </svg>
+  <figcaption>Struktogramm: Die Schleife umschließt ihren Rumpf, ∅ steht für einen leeren Zweig.</figcaption>
+</figure>
+
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>PAP</th><th>Struktogramm</th></tr></thead>
+    <tbody>
+      <tr><th>Darstellung</th><td>Symbole mit Pfeilen</td><td>ineinander geschachtelte Blöcke</td></tr>
+      <tr><th>Schleife</th><td>Pfeil zurück zu einer Raute</td><td>Rahmen um den Rumpf, Bedingung oben oder unten</td></tr>
+      <tr><th>Stärke</th><td>Abläufe auf einen Blick, auch für Fachfremde</td><td>erzwingt strukturierte Abläufe ohne Sprünge</td></tr>
+      <tr><th>Schwäche</th><td>bei großen Abläufen unübersichtlich, Sprünge kreuz und quer möglich</td><td>Änderungen erfordern oft Neuzeichnen</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Im Struktogramm zeichne ich einen Pfeil zurück für die Schleife.“ Pfeile gibt es nur im PAP. Im Struktogramm umschließt der Schleifenblock seinen Rumpf; der Rücksprung ist darin enthalten.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>PAP</strong>: Oval Start/Ende, Rechteck Anweisung, Raute Verzweigung, Parallelogramm Ein-/Ausgabe, Pfeile; Schleife als Pfeil zurück.</li>
+  <li><strong>Struktogramm</strong>: Blöcke ohne Pfeile, Verzweigung mit Dreieck und Ja-/Nein-Spalte, Schleife als Rahmen, kopf- oder fußgesteuert.</li>
+</ul>

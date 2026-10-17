@@ -888,6 +888,10 @@
         {
           "id": "5-6-3",
           "tiefe": "Soll-Ist-Vergleich, nichtfunktionale Anforderungen messbar formulieren"
+        },
+        {
+          "id": "9-1-1",
+          "tiefe": "Netzanforderungen im Kundengespräch, messbar"
         }
       ]
     },
@@ -1065,6 +1069,10 @@
         {
           "id": "7-3-4",
           "tiefe": "Speicherbedarf der Messwerte in MiB/GiB"
+        },
+        {
+          "id": "9-1-2",
+          "tiefe": "GiB und Mbit/s"
         }
       ]
     },
@@ -1073,7 +1081,9 @@
       "kernfakten": [
         "t = Datenmenge in Bit ÷ Datenrate in Bit/s; Datenmenge binär × 8, Datenrate dezimal.",
         "Durchsatz < Bandbreite (Overhead, geteilte Leitung, WLAN); Upload oft langsamer (asymmetrisch).",
-        "Umgestellt: Datenrate = Datenmenge ÷ Zeit."
+        "Umgestellt: Datenrate = Datenmenge ÷ Zeit.",
+        "Overhead: MTU 1500 Byte, IPv4+TCP je 20 Byte, Nutzdaten 1460 Byte; auf der Leitung 1538 Byte (Ethernet-Kopf+FCS 18, Präambel+IFG 20); Nutzanteil etwa 94,9 %.",
+        "Latenz = Laufzeit, Verarbeitung, Warteschlangen; Jitter = Schwankung; Sprache: Einweg höchstens 150 ms (ITU-T G.114)."
       ],
       "vorkommen": [
         {
@@ -1083,6 +1093,10 @@
         {
           "id": "7-3-4",
           "tiefe": "Datenrate vieler Sensoren, Byte zu Bit"
+        },
+        {
+          "id": "9-1-2",
+          "tiefe": "mit Overhead 1460/1538, Bandbreitenbedarf"
         }
       ]
     },
@@ -1195,6 +1209,10 @@
         {
           "id": "7-5-3",
           "tiefe": "Akkus statt Einwegbatterien, Batterierückgabe"
+        },
+        {
+          "id": "9-1-4",
+          "tiefe": "Nachhaltigkeit von Netzkonzepten"
         }
       ]
     },
@@ -1209,6 +1227,10 @@
         {
           "id": "2-5-5",
           "tiefe": "Verfahren"
+        },
+        {
+          "id": "9-1-4",
+          "tiefe": "Netzkonzepte vergleichen"
         }
       ]
     },
@@ -1434,6 +1456,10 @@
         {
           "id": "3-1-1",
           "tiefe": "Grundbegriffe"
+        },
+        {
+          "id": "9-1-1",
+          "tiefe": "Ist-Aufnahme"
         }
       ]
     },
@@ -2227,6 +2253,10 @@
         {
           "id": "6-6-1",
           "tiefe": "SLA-Einhaltung, SLA-Bericht"
+        },
+        {
+          "id": "9-1-3",
+          "tiefe": "Entstörzeit beim Anschluss"
         }
       ]
     },
@@ -3066,6 +3096,21 @@
         {
           "id": "5-5-3",
           "tiefe": "nur genannt"
+        }
+      ]
+    },
+    {
+      "begriff": "internetanschluss",
+      "kernfakten": [
+        "DSL (ADSL/VDSL) über Kupfer, meist asymmetrisch, entfernungsabhängig; Kabel (DOCSIS) geteiltes Segment; Glasfaser FTTH meist GPON (passive Splitter, geteiltes Medium); Mobilfunk LTE/5G schwankend, höhere Latenz, oft Volumen.",
+        "Geschäftsanschluss: feste öffentliche IPv4/festes IPv6-Präfix, zugesicherte Entstörzeit (SLA), oft symmetrisch.",
+        "CGNAT: Anbieter setzt viele Kunden auf wenige öffentliche IPv4 um; ausgehend ok, eingehend nicht möglich (Shared Address Space 100.64.0.0/10, RFC 6598).",
+        "Vertrag nennt maximale, normalerweise verfügbare und minimale Datenrate."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-1-3",
+          "tiefe": "Zugangstechniken, Business, CGNAT"
         }
       ]
     }

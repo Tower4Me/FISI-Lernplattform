@@ -4810,6 +4810,109 @@
           ]
         }
       ]
+    },
+    {
+      "id": "lf9",
+      "in_arbeit": true,
+      "kapitel": [
+        {
+          "nummer": "9.1",
+          "titel": "Anforderungen erfassen und Anschluss wählen",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "9.1.1",
+              "titel": "Anforderungen an ein Netzwerk",
+              "slug": "anforderungen-an-ein-netzwerk",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Anforderungen an das Netzwerk im Kundengespräch ermitteln",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 2 (Planungsaspekte)"
+                ],
+                "extern": []
+              },
+              "material": [],
+              "begriffe": [
+                "anforderungen",
+                "netzwerk-grundlagen"
+              ]
+            },
+            {
+              "nummer": "9.1.2",
+              "titel": "Bandbreite, Latenz und Übertragungsdauer",
+              "slug": "bandbreite-latenz-und-uebertragungsdauer",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Eigenschaften und Leistungsmerkmale von Netzwerken",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 1 (Latenz)",
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 4 (Bandbreite, Übertragungsdauer)",
+                  "AP2 FISI Winter 2021/22 (Übertragungsdauer mit MTU und Overhead)"
+                ],
+                "extern": [
+                  "ITU-T G.114 (Einweg-Verzögerung, Empfehlung bis 150 ms)",
+                  "IEEE 802.3 (Rahmenaufbau, Präambel, Interframe Gap)"
+                ]
+              },
+              "material": [
+                "datenmengen-uebertragung",
+                "qos"
+              ],
+              "begriffe": [
+                "uebertragungsdauer",
+                "praefixe"
+              ]
+            },
+            {
+              "nummer": "9.1.3",
+              "titel": "Internetanschlüsse",
+              "slug": "internetanschluesse",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze und Infrastruktur mit externen Ressourcen planen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 2 (Business-Anschluss, GPON, LTE mit CGNAT)",
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 1 (Zugangsmedien)"
+                ],
+                "extern": [
+                  "RFC 6598 (Shared Address Space für CGNAT)",
+                  "Bundesnetzagentur: Breitbandmessung (vertragliche Datenraten)"
+                ]
+              },
+              "material": [
+                "internetzugang-dsl"
+              ],
+              "begriffe": [
+                "internetanschluss",
+                "sla"
+              ]
+            },
+            {
+              "nummer": "9.1.4",
+              "titel": "Konzepte vergleichen",
+              "slug": "konzepte-vergleichen",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Konzepte nach Nachhaltigkeit, Technik und Wirtschaftlichkeit vergleichen; interne und externe Ressourcen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [],
+                "extern": []
+              },
+              "material": [
+                "green-it"
+              ],
+              "begriffe": [
+                "nutzwertanalyse",
+                "green-it"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

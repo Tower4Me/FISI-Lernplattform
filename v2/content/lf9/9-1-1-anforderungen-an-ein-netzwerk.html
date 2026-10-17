@@ -1,0 +1,31 @@
+<p class="lead">Der Praxisverbund aus LF8 hat seine Daten zusammengeführt. Jetzt sollen auch die Netze der drei Standorte zusammenwachsen: Die zentrale Datenbank im Stammhaus in Leipzig muss von Nord und Süd aus erreichbar sein, die Telefone sollen über das Netz laufen, und im Wartezimmer wünschen sich Kunden WLAN. Bevor das Systemhaus ein Gerät auswählt, klärt es mit dem Kunden, was das Netz leisten muss.</p>
+
+<h3>Was du im Kundengespräch erfragst</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Bereich</th><th>Leitfragen</th></tr></thead>
+    <tbody>
+      <tr><th>Standorte und Räume</th><td>Welche Gebäude, Etagen, Räume? Wo stehen Netzwerkschrank und Anschlussdosen? Wie weit liegen Gebäude auseinander?</td></tr>
+      <tr><th>Geräte und Nutzer</th><td>Wie viele PCs, Telefone, Drucker, Medizingeräte, WLAN-Geräte heute? Wie viele in drei bis fünf Jahren?</td></tr>
+      <tr><th>Dienste und Anwendungen</th><td>Welche Programme nutzen das Netz, etwa Praxissoftware, zentrale Datenbank, Telefonie, Videosprechstunde? Wo laufen sie?</td></tr>
+      <tr><th>Leistung</th><td>Welche Datenmengen fallen an? Welche Dienste sind zeitkritisch?</td></tr>
+      <tr><th>Verfügbarkeit</th><td>Wie lange darf das Netz ausfallen? Was passiert, wenn das Internet weg ist?</td></tr>
+      <tr><th>Sicherheit und Datenschutz</th><td>Welche Bereiche müssen getrennt sein, etwa Gäste, Medizingeräte, Verwaltung? Wer darf von außen zugreifen?</td></tr>
+      <tr><th>Betrieb</th><td>Wer betreut das Netz später? Welche Vorgaben des Kunden gelten (Hersteller, Namensregeln)?</td></tr>
+      <tr><th>Rahmen</th><td>Budget, Termine, bauliche Grenzen, Wünsche zu Energieverbrauch und Nachhaltigkeit</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die Antworten hältst du als Anforderungen fest, wie im Lastenheft aus LF2, Kapitel 2.1.2. Funktionale Anforderungen sagen, was das Netz können soll („Gäste-WLAN im Wartezimmer“). Nicht-funktionale sagen, wie gut („Telefonie ohne hörbare Aussetzer“, „Ausfall höchstens vier Stunden“). Damit sie später prüfbar sind, machst du sie messbar.</p>
+
+<h3>Ist-Aufnahme</h3>
+<p>Selten beginnt ein Netz bei null. Am Anfang steht deshalb eine Bestandsaufnahme: vorhandene Verkabelung und ihre Kategorie (LF3, Kapitel 3.3), Switches, Router und Access Points mit Modell und Alter, bestehende Adressbereiche, Internetanschluss, Netzwerkpläne. Was fehlt oder veraltet ist, ergibt zusammen mit den Anforderungen den Handlungsbedarf.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für den Standort Nord notiert die Auszubildende: 8 PCs, 2 Drucker, 6 Telefone, ein Röntgengerät mit eigener Auswertestation, ein Laborgerät mit Netzwerkanschluss, im Wartezimmer bis zu 15 Gäste-Smartphones. In drei Jahren kommen zwei Behandlungsräume dazu. Die Praxissoftware greift auf die zentrale Datenbank im Stammhaus zu; fällt die Verbindung aus, muss die Praxis mindestens Termine einsehen können. Medizingeräte und Gäste dürfen die PCs der Verwaltung nicht erreichen. Vorhanden sind Cat-5e-Kabel aus dem Jahr 2008 und ein nicht verwaltbarer Switch.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Das Netz soll schnell und sicher sein.“ So lässt sich nichts prüfen. Eine Anforderung wie „gleichzeitig vier Telefonate und eine Videosprechstunde ohne Aussetzer“ kannst du bei der Abnahme messen.</p></aside>
+
+<p class="merksatz">Im Kundengespräch klärst du Standorte, Geräte, Dienste, Leistung, Verfügbarkeit, Sicherheit, Betrieb und Rahmen, nimmst den Ist-Stand auf und formulierst daraus messbare Anforderungen.</p>

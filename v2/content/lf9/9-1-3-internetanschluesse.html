@@ -1,0 +1,35 @@
+<p class="lead">Jeder Standort braucht einen Internetanschluss, über den auch der VPN-Tunnel zum Stammhaus läuft. Die Angebote der Anbieter unterscheiden sich nicht nur in der Geschwindigkeit, sondern in Technik, Verlässlichkeit und darin, ob der Anschluss von außen erreichbar ist. Für einen Betrieb ist das oft wichtiger als die Zahl auf dem Prospekt.</p>
+
+<h3>Zugangstechniken</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Technik</th><th>So funktioniert es</th><th>Merkmale</th></tr></thead>
+    <tbody>
+      <tr><th>DSL (ADSL, VDSL)</th><td>Daten über die Kupfer-Telefonleitung bis zum Verteiler am Straßenrand oder zur Vermittlungsstelle</td><td>meist asymmetrisch; je länger die Kupferstrecke, desto geringer die Datenrate</td></tr>
+      <tr><th>Kabel (DOCSIS)</th><td>über das Fernsehkabelnetz</td><td>hohe Download-Raten; die Bandbreite im Segment teilen sich alle Anschlüsse, abends oft weniger</td></tr>
+      <tr><th>Glasfaser (FTTH)</th><td>Glasfaser bis ins Gebäude, meist als GPON: Eine Faser wird über passive Splitter auf viele Anschlüsse aufgeteilt</td><td>sehr hohe Raten, kaum entfernungsabhängig; GPON ist ein geteiltes Medium, Business-Varianten oft mit eigener Faser</td></tr>
+      <tr><th>Mobilfunk (LTE, 5G)</th><td>über Funk zum Mast des Anbieters</td><td>schnell verfügbar, gut als Ersatzweg; Datenrate schwankt, höhere Latenz, oft Datenvolumen begrenzt</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Privat- oder Geschäftsanschluss</h3>
+<p>Ein <strong>Geschäftsanschluss</strong> (Business-Anschluss) unterscheidet sich vom Privatanschluss vor allem in diesen Punkten:</p>
+<ul>
+  <li><strong>Feste öffentliche IPv4-Adresse</strong> oder ein festes IPv6-Präfix, damit VPN-Gateway oder Server von außen erreichbar sind,</li>
+  <li><strong>vertraglich zugesicherte Entstörzeit</strong> (SLA, LF6, Kapitel 6.2.1), etwa Entstörung innerhalb von acht Stunden statt „im Laufe der nächsten Werktage“,</li>
+  <li>oft <strong>symmetrische</strong> Datenraten, also gleich viel Upload wie Download,</li>
+  <li>Rechnung an das Unternehmen, Ansprechpartner für Geschäftskunden.</li>
+</ul>
+
+<h3>Carrier-Grade NAT</h3>
+<p>Viele Mobilfunk- und manche Festnetzanschlüsse bekommen keine eigene öffentliche IPv4-Adresse mehr. Der Anbieter setzt die Adressen vieler Kunden in seinem Netz auf wenige öffentliche um, das heißt <strong>Carrier-Grade NAT</strong> (CGNAT). Ausgehende Verbindungen funktionieren normal. Verbindungen von außen zu einem Gerät des Kunden sind über IPv4 aber nicht möglich, denn die öffentliche Adresse gehört nicht ihm allein. Ein VPN-Gateway hinter CGNAT kann deshalb keine Verbindungen annehmen; es kann nur selbst eine Verbindung zu einer Gegenstelle mit öffentlicher Adresse aufbauen, oder man nutzt IPv6. Wie NAT arbeitet, folgt in Kapitel 9.4.4.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Das Stammhaus bekommt einen Glasfaser-Geschäftsanschluss mit 500 Mbit/s symmetrisch, fester IPv4-Adresse und Entstörung innerhalb von acht Stunden, denn hier laufen Datenbank und VPN-Gateway. Die Standorte Nord und Süd erhalten VDSL-Geschäftsanschlüsse mit 250 Mbit/s Download und 40 Mbit/s Upload; das deckt den Bedarf aus Kapitel 9.1.2 mit Reserve. Fällt dort die Leitung aus, schaltet der Router automatisch auf einen Mobilfunk-Ersatzweg um. Weil dieser hinter CGNAT liegt, bauen die Standorte den Tunnel selbst zum Stammhaus auf.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Bis zu 250 Mbit/s“ heißt nicht, dass immer 250 Mbit/s ankommen. Der Vertrag nennt meist auch eine normalerweise verfügbare und eine minimale Datenrate. Für die Planung zählen diese Werte und der Upload.</p></aside>
+
+<p class="merksatz">DSL, Kabel, Glasfaser und Mobilfunk unterscheiden sich in Datenrate, Symmetrie, geteiltem Medium und Latenz; ein Geschäftsanschluss bietet feste öffentliche Adressen und zugesicherte Entstörzeiten, hinter CGNAT ist ein Gerät von außen nicht erreichbar.</p>

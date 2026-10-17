@@ -549,6 +549,14 @@
             <li><a class="up is-check" data-check="lf9-9-1" href="9-1-check.html"><span class="num">9.1</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
           </ul>
         </li>
+        <li class="kap"><a class="kap-head" href="9-2-1-switches-im-unternehmensnetz.html"><span class="num">9.2</span><span>Switching und VLANs</span><span class="kap-progress" data-ids="9-2-1 9-2-2 9-2-3">0/3</span></a>
+          <ul class="nav-up">
+            <li><a class="up" data-id="9-2-1" href="9-2-1-switches-im-unternehmensnetz.html"><span class="num">9.2.1</span><span class="t">Switches im Unternehmensnetz</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-2-2" href="9-2-2-vlans.html"><span class="num">9.2.2</span><span class="t">VLANs</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up" data-id="9-2-3" href="9-2-3-redundanz-mit-stp-und-link-aggregation.html"><span class="num">9.2.3</span><span class="t">Redundanz mit STP und Link Aggregation</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+            <li><a class="up is-check" data-check="lf9-9-2" href="9-2-check.html"><span class="num">9.2</span><span class="t">Check</span><svg class="icon done" aria-hidden="true"><use href="#i-check"/></svg></a></li>
+          </ul>
+        </li>
         <li class="kap"><a class="kap-head up is-rueckblick" href="rueckblick.html" aria-current="page"><span class="num">9.R</span><span class="t">Rückblick</span></a></li>
       </ul>
     </li>
@@ -572,8 +580,18 @@
 </ul>
 <p class="no-print"><a class="btn" href="druck-9-1.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.1</a></p>
 </section>
+<section class="rb-kapitel" id="k-9-2"><h2><span class="num">9.2</span> Switching und VLANs</h2>
+<ul class="rb-list">
+<li><span class="num">9.2.1</span><div><a href="9-2-1-switches-im-unternehmensnetz.html">Switches im Unternehmensnetz</a><p>Im Unternehmensnetz nutzt du verwaltbare Switches: Zugangs-Switches für Endgeräte mit PoE, über SFP- oder SFP+-Uplinks an einen Kern-Switch angebunden, der als Layer-3-Switch auch routen kann.</p></div></li>
+<li><span class="num">9.2.2</span><div><a href="9-2-2-vlans.html">VLANs</a><ul><li><strong>VLAN:</strong> logisches Netz und eigene Broadcast-Domäne auf gemeinsamer Hardware; zwischen VLANs nur über Router oder Layer-3-Switch.</li>
+  <li><strong>Access-Port</strong> untagged für ein VLAN, <strong>Trunk</strong> tagged nach IEEE 802.1Q (4 Byte, VLAN-ID 12 Bit) für mehrere VLANs; Native VLAN läuft ohne Tag.</li></ul></div></li>
+<li><span class="num">9.2.3</span><div><a href="9-2-3-redundanz-mit-stp-und-link-aggregation.html">Redundanz mit STP und Link Aggregation</a><ul><li><strong>STP/RSTP:</strong> wählt eine Root Bridge und blockiert Ports, bis keine Schleife mehr besteht; ein Ersatzweg wird bei Ausfall aktiv.</li>
+  <li><strong>Link Aggregation (LACP):</strong> bündelt parallele Leitungen zu einer logischen; mehr Gesamtbandbreite und Ausfallsicherheit, ein einzelner Datenstrom bleibt auf einer Leitung.</li></ul></div></li>
+</ul>
+<p class="no-print"><a class="btn" href="druck-9-2.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 9.2</a></p>
+</section>
 </div>
-<nav class="pager" aria-label="Blättern"><a class="prev" href="9-1-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.1</span>Check</span></a></nav>
+<nav class="pager" aria-label="Blättern"><a class="prev" href="9-2-check.html"><span class="dir">Zurück</span><span class="pt"><span class="num">9.2</span>Check</span></a></nav>
 </main>
 </div>
 </body>

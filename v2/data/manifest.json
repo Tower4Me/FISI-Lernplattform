@@ -4880,7 +4880,8 @@
                 ],
                 "extern": [
                   "RFC 6598 (Shared Address Space für CGNAT)",
-                  "Bundesnetzagentur: Breitbandmessung (vertragliche Datenraten)", "Verordnung (EU) 2015/2120 Art. 4 Abs. 1 lit. d (Datenraten im Vertrag)"
+                  "Bundesnetzagentur: Breitbandmessung (vertragliche Datenraten)",
+                  "Verordnung (EU) 2015/2120 Art. 4 Abs. 1 lit. d (Datenraten im Vertrag)"
                 ]
               },
               "material": [
@@ -4908,6 +4909,89 @@
               "begriffe": [
                 "nutzwertanalyse",
                 "green-it"
+              ]
+            }
+          ]
+        },
+        {
+          "nummer": "9.2",
+          "titel": "Switching und VLANs",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "9.2.1",
+              "titel": "Switches im Unternehmensnetz",
+              "slug": "switches-im-unternehmensnetz",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Eigenschaften und Leistungsmerkmale von Netzwerkkomponenten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 1 (SFP und SFP+)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 3 (Fehler bei Duplex oder Speed)"
+                ],
+                "extern": [
+                  "IEEE 802.3 (Autonegotiation, Duplex), SFF-8431 (SFP+)"
+                ]
+              },
+              "material": [
+                "switching-verfahren",
+                "netzwerkkomponenten",
+                "poe"
+              ],
+              "begriffe": [
+                "netzwerkkomponenten",
+                "verkabelung",
+                "mac-adresse"
+              ]
+            },
+            {
+              "nummer": "9.2.2",
+              "titel": "VLANs",
+              "slug": "vlans",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Netze planen, Sicherheitsmerkmale von Komponenten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 2 Aufgabe 2 (Zweck, Tagging)",
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 1 (Vorteile, statisch und 802.1X)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 3 (Uplinks getaggt, Layer 2)",
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 1 (portbasiert/dynamisch, Native VLAN)"
+                ],
+                "extern": [
+                  "IEEE 802.1Q (Tag 4 Byte, PCP 3 Bit, VID 12 Bit)",
+                  "IEEE 802.1X (portbasierte Zugangskontrolle)"
+                ]
+              },
+              "material": [
+                "vlan"
+              ],
+              "begriffe": [
+                "vlan",
+                "netzwerkkomponenten"
+              ]
+            },
+            {
+              "nummer": "9.2.3",
+              "titel": "Redundanz mit STP und Link Aggregation",
+              "slug": "redundanz-mit-stp-und-link-aggregation",
+              "quellen": {
+                "rahmenlehrplan": "LF9: Leistungsmerkmale, Verfügbarkeit von Netzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 1 (STP und Link Aggregation)",
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 1 (Link Aggregation, Port von STP blockiert)"
+                ],
+                "extern": [
+                  "IEEE 802.1D (STP, RSTP), IEEE 802.1w, IEEE 802.1AX (Link Aggregation, LACP)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "stp-lacp",
+                "topologie"
               ]
             }
           ]

@@ -1473,6 +1473,10 @@
         {
           "id": "3-1-2",
           "tiefe": "Grundformen"
+        },
+        {
+          "id": "9-2-3",
+          "tiefe": "redundante Wege"
         }
       ]
     },
@@ -1540,6 +1544,10 @@
         {
           "id": "3-3-3",
           "tiefe": "Struktur"
+        },
+        {
+          "id": "9-2-1",
+          "tiefe": "SFP-Module, DAC"
         }
       ]
     },
@@ -1548,7 +1556,9 @@
       "kernfakten": [
         "NIC, Switch (managed/unmanaged), Router, Access Point, Firewall; Hub/Repeater veraltet.",
         "PoE: 802.3af 15,4 W (12,95 W am Gerät), at 30 W (25,5 W), bt 60/90 W (51/71,3 W); PoE-Budget; Gerät muss PoE können, Injektor wenn Switch ohne PoE.",
-        "Energy Efficient Ethernet 802.3az; bedarfsgerecht dimensionieren, Ports/WLAN zeitgesteuert abschalten."
+        "Energy Efficient Ethernet 802.3az; bedarfsgerecht dimensionieren, Ports/WLAN zeitgesteuert abschalten.",
+        "Switching: Store-and-Forward (prüft FCS), Cut-Through (nach Zieladresse), Fragment-Free (nach 64 Byte).",
+        "Layer-2-Switch leitet im Netz, Layer-3-Switch routet zusätzlich (Kern-Switch); SFP 1 Gbit/s, SFP+ 10 Gbit/s; Duplex-Mismatch bei einseitig fester Einstellung."
       ],
       "vorkommen": [
         {
@@ -1566,6 +1576,14 @@
         {
           "id": "7-4-3",
           "tiefe": "PoE-Leistung je Port am Switch"
+        },
+        {
+          "id": "9-2-1",
+          "tiefe": "Access/Core, Layer 2/3, SFP/SFP+, Duplex"
+        },
+        {
+          "id": "9-2-2",
+          "tiefe": "Trunk zu Access Point und Router"
         }
       ]
     },
@@ -1580,6 +1598,10 @@
         {
           "id": "3-3-5",
           "tiefe": "MAC, Switch"
+        },
+        {
+          "id": "9-2-1",
+          "tiefe": "MAC-Tabelle, Switching-Verfahren"
         }
       ]
     },
@@ -3111,6 +3133,35 @@
         {
           "id": "9-1-3",
           "tiefe": "Zugangstechniken, Business, CGNAT"
+        }
+      ]
+    },
+    {
+      "begriff": "vlan",
+      "kernfakten": [
+        "VLAN = logisches Netz auf gemeinsamer Hardware, eigene Broadcast-Domäne; zwischen VLANs nur über Router/Layer-3-Switch; je VLAN ein IP-Netz.",
+        "VLAN-ID 1 bis 4094 (12 Bit, 0 und 4095 reserviert); Access-Port untagged (ein VLAN), Trunk tagged (mehrere VLANs); IEEE 802.1Q-Tag 4 Byte zwischen Absenderadresse und Typfeld, PCP 3 Bit, VID 12 Bit; Schicht 2.",
+        "Native VLAN läuft ungetaggt über den Trunk, an beiden Enden gleich, auf ungenutzte ID legen.",
+        "Zuordnung portbasiert (statisch) oder dynamisch (MAC, IEEE 802.1X mit zentralem Server); Voice-VLAN: Telefon getaggt, PC dahinter untagged."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-2-2",
+          "tiefe": "Grundlagen, 802.1Q, Zuordnung, VLAN-Plan"
+        }
+      ]
+    },
+    {
+      "begriff": "stp-lacp",
+      "kernfakten": [
+        "Schleifen ohne STP: Broadcast-Sturm (Ethernet-Rahmen ohne Lebensdauer), MAC-Tabelle springt.",
+        "STP (IEEE 802.1D): Switches tauschen BPDUs, Root Bridge = kleinste Bridge-ID (Priorität + MAC), günstigster Weg nach Pfadkosten, übrige Ports blockiert; STP 30 bis 50 s, RSTP (802.1w, 2004 in 802.1D, heute in 802.1Q) wenige Sekunden; Root Bridge per Priorität festlegen.",
+        "Link Aggregation (IEEE 802.1AX, früher 802.3ad), LACP (Link Aggregation Control Protocol): parallele Leitungen zwischen zwei Geräten als eine logische, mehr Gesamtbandbreite, Ausfallsicherheit; ein einzelner Datenstrom nutzt nur eine Leitung; STP sieht das Bündel als eine Leitung."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-2-3",
+          "tiefe": "Grundlagen und Vergleich"
         }
       ]
     }

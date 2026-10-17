@@ -1,0 +1,42 @@
+<p class="lead">Am Standort Nord ersetzt das Systemhaus den alten, nicht verwaltbaren Switch. Ein Unternehmensnetz braucht mehr als freie Ports: Es soll Bereiche trennen, Telefone mit Strom versorgen, schnelle Verbindungen zum Netzwerkschrank haben und sich aus der Ferne überwachen lassen. Welcher Switch passt, ergibt sich aus seiner Rolle im Netz.</p>
+
+<h3>Wie ein Switch weiterleitet</h3>
+<p>Ein Switch lernt aus jedem eingehenden Rahmen, welche MAC-Adresse an welchem Port hängt, und trägt sie in seine MAC-Adresstabelle ein (LF3, Kapitel 3.3.5). Rahmen an bekannte Adressen schickt er nur an den passenden Port; Rahmen an unbekannte Adressen und Broadcasts schickt er an alle anderen Ports. Wann er einen Rahmen weitergibt, hängt vom Verfahren ab:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Verfahren</th><th>Arbeitsweise</th><th>Folge</th></tr></thead>
+    <tbody>
+      <tr><th>Store-and-Forward</th><td>nimmt den ganzen Rahmen an, prüft die Prüfsumme, leitet dann weiter</td><td>fehlerhafte Rahmen werden verworfen; etwas mehr Verzögerung; heute der Normalfall</td></tr>
+      <tr><th>Cut-Through</th><td>leitet weiter, sobald die Zieladresse gelesen ist</td><td>sehr geringe Verzögerung, fehlerhafte Rahmen laufen mit</td></tr>
+      <tr><th>Fragment-Free</th><td>wartet die ersten 64 Byte ab, dann weiter</td><td>64 Byte sind die Mindestlänge eines Ethernet-Rahmens; kürzere Reste aus Kollisionen bei Halbduplex werden so ausgefiltert; Kompromiss aus beiden</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Rollen im Netz</h3>
+<p>Größere Netze bauen Switches in Ebenen auf. An der <strong>Zugangsebene</strong> (Access) hängen die Endgeräte. Diese Switches sind über <strong>Uplinks</strong> mit einem zentralen <strong>Kern-Switch</strong> (Core) verbunden, an dem auch Server und Router hängen. In sehr großen Netzen liegt dazwischen noch eine Verteilebene (Distribution). Kleine und mittlere Betriebe kommen meist mit zwei Ebenen aus.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Merkmal</th><th>Wozu</th></tr></thead>
+    <tbody>
+      <tr><th>verwaltbar (managed)</th><td>VLANs, Überwachung der Ports, Fernzugriff, Konfiguration sichern; im Unternehmen Standard</td></tr>
+      <tr><th>Layer-2- oder Layer-3-Switch</th><td>Ein Layer-2-Switch leitet nur innerhalb eines Netzes weiter. Ein Layer-3-Switch kann zusätzlich zwischen Netzen routen (Kapitel 9.4.2) und eignet sich als Kern-Switch.</td></tr>
+      <tr><th>PoE und PoE-Budget</th><td>Strom für Telefone, Access Points, Kameras (LF3, Kapitel 3.3.4)</td></tr>
+      <tr><th>Uplink-Ports mit SFP oder SFP+</th><td>Steckplätze für Module: SFP für 1 Gbit/s, SFP+ für 10 Gbit/s, je nach Modul für Glasfaser oder Kupfer</td></tr>
+      <tr><th>Portgeschwindigkeit</th><td>1 Gbit/s für Arbeitsplätze, 2,5 Gbit/s und mehr für aktuelle Access Points</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Die meisten SFP+-Ports nehmen auch SFP-Module auf und arbeiten dann mit 1 Gbit/s; das Datenblatt sagt, ob der Switch das kann. Umgekehrt läuft ein SFP+-Modul nicht in einem reinen SFP-Port. Beide Enden einer Strecke brauchen zueinander passende Module: gleiche Faserart (LF3, Kapitel 3.3.2) und passende Wellenlänge des Lichts, etwa 850 nm bei Multimode und 1310 nm bei Singlemode. Für kurze Strecken im selben Schrank gibt es fertige Kupferkabel mit angebauten Modulen (Direct Attach Copper, DAC).</p>
+
+<h3>Geschwindigkeit und Duplex</h3>
+<p>Beim Verbinden handeln die beiden Ports Geschwindigkeit und Duplex automatisch aus (Autonegotiation). Bei Vollduplex senden und empfangen beide Seiten gleichzeitig, bei Halbduplex abwechselnd, wie früher am Hub. Wird eine Seite fest eingestellt und die andere nicht, bekommt die aushandelnde Seite keine Antwort, erkennt nur die Geschwindigkeit und fällt nach IEEE 802.3 auf Halbduplex zurück. Die fest eingestellte Seite sendet weiter im Vollduplex. Dieser <strong>Duplex-Mismatch</strong> lässt die Verbindung stehen, sie ist aber sehr langsam und verliert Rahmen. Deshalb lässt du entweder beide Seiten aushandeln oder stellst beide gleich ein.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für den Standort Nord wählt die Auszubildende einen verwaltbaren Layer-2-Switch mit 24 Gigabit-Ports, PoE+ mit 370 W Budget und zwei SFP+-Ports. Die sechs Telefone brauchen je etwa 5 W, die zwei Access Points je etwa 20 W, zusammen 70 W; das Budget reicht auch für die geplanten Räume. 1 Gbit/s genügt für die zwei Access Points im Wartezimmer; die SFP+-Ports bleiben Reserve für eine spätere Glasfaserstrecke. Im Stammhaus übernimmt ein Layer-3-Switch die Rolle des Kerns. Die beiden Access-Switches dort hängen über 10-Gbit/s-Glasfaser an ihm.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein SFP+-Modul passt in jeden SFP+-Port.“ Mechanisch ja, aber manche Hersteller lassen über eine Codierung im Modul nur eigene oder freigegebene Module zu. Prüfe die Kompatibilitätsliste des Switches.</p></aside>
+
+<p class="merksatz">Im Unternehmensnetz nutzt du verwaltbare Switches: Zugangs-Switches für Endgeräte mit PoE, über SFP- oder SFP+-Uplinks an einen Kern-Switch angebunden, der als Layer-3-Switch auch routen kann.</p>

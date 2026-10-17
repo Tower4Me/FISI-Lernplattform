@@ -1,0 +1,79 @@
+<p class="lead">Am Standort Nord hängen Verwaltungs-PCs, Röntgengerät, Telefone und Gäste-Smartphones am selben Switch. Trotzdem dürfen Gäste und Medizingeräte die Verwaltung nicht erreichen, und die Telefone sollen bevorzugt werden. Statt für jeden Bereich eigene Switches zu kaufen, teilst du einen Switch in mehrere logische Netze: <strong>VLANs</strong> (Virtual Local Area Networks).</p>
+
+<h3>Was ein VLAN leistet</h3>
+<p>Ein VLAN ist ein logisches Netz auf gemeinsamer Hardware. Geräte in verschiedenen VLANs verhalten sich, als hingen sie an getrennten Switches:</p>
+<ul>
+  <li>Jedes VLAN ist eine eigene <strong>Broadcast-Domäne</strong>. Broadcasts bleiben im VLAN, das entlastet die anderen.</li>
+  <li>Geräte verschiedener VLANs erreichen sich nur über einen Router oder Layer-3-Switch (Kapitel 9.4.2). Dort lässt sich regeln, wer wen erreichen darf.</li>
+  <li>Bereiche lassen sich unabhängig vom Ort ordnen: Ein Behandlungsraum im ersten Stock gehört zum selben VLAN wie einer im Erdgeschoss.</li>
+  <li>Jedes VLAN bekommt ein eigenes IP-Netz (Kapitel 9.3.1).</li>
+</ul>
+
+<h3>Access-Ports und Trunks</h3>
+<p>Jedes VLAN trägt eine Nummer, die <strong>VLAN-ID</strong> von 1 bis 4094. Die 12 Bit der ID ergeben 4096 Werte; 0 und 4095 sind reserviert. Ein Port kann auf zwei Arten konfiguriert sein:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Access-Port (untagged)</th><th>Trunk-Port (tagged)</th></tr></thead>
+    <tbody>
+      <tr><th>gehört zu</th><td>genau einem VLAN</td><td>mehreren VLANs</td></tr>
+      <tr><th>Rahmen</th><td>ohne Markierung, das Endgerät merkt nichts vom VLAN</td><td>jeder Rahmen trägt eine Markierung mit der VLAN-ID</td></tr>
+      <tr><th>Einsatz</th><td>PCs, Drucker, Medizingeräte</td><td>Verbindungen zwischen Switches, zu Router, Access Point oder Server mit mehreren Netzen</td></tr>
+    </tbody>
+  </table>
+</div>
+<figure class="grafik">
+  <svg viewBox="0 0 640 220" role="img" aria-label="Ein Switch mit zwei Access-Ports: PC in VLAN 10 und Röntgenstation in VLAN 20, beide ohne Tag. Ein Trunk zum Router trägt die Rahmen beider VLANs mit Tag.">
+    <path class="g-line" d="M170 55H280M170 165H280M380 110H480"/>
+    <rect class="g-box" x="30" y="35" width="140" height="40" rx="6"/>
+    <text x="100" y="60" text-anchor="middle">PC (VLAN 10)</text>
+    <rect class="g-box" x="30" y="145" width="140" height="40" rx="6"/>
+    <text x="100" y="170" text-anchor="middle">Röntgen (VLAN 20)</text>
+    <rect class="g-accent" x="280" y="35" width="100" height="150" rx="8"/>
+    <text x="330" y="115" text-anchor="middle">Switch</text>
+    <rect class="g-box" x="480" y="90" width="120" height="40" rx="6"/>
+    <text x="540" y="115" text-anchor="middle">Router</text>
+    <text x="225" y="45" text-anchor="middle">untagged</text>
+    <text x="225" y="155" text-anchor="middle">untagged</text>
+    <text x="430" y="100" text-anchor="middle">Trunk</text>
+    <text x="430" y="138" text-anchor="middle">10 und 20</text>
+    <text x="430" y="162" text-anchor="middle">tagged</text>
+  </svg>
+  <figcaption>Endgeräte hängen an Access-Ports und senden ohne Tag. Über den Trunk zum Router laufen die Rahmen beider VLANs, jeder mit seiner VLAN-ID markiert.</figcaption>
+</figure>
+<p>Die Markierung heißt <strong>Tag</strong> und ist nach <strong>IEEE 802.1Q</strong> genormt. Der Switch fügt 4 Byte in den Ethernet-Rahmen ein, zwischen Absenderadresse und Typfeld. Darin stehen unter anderem eine Priorität mit 3 Bit für die Dienstgüte (Kapitel 9.6.3) und die VLAN-ID mit 12 Bit. Das Tag gehört zu Schicht 2; Router und IP-Adressen spielen dafür keine Rolle.</p>
+<p>Auf einem Trunk kann ein VLAN ohne Tag laufen, das <strong>Native VLAN</strong>. Beide Enden müssen dasselbe Native VLAN haben, sonst landen Rahmen im falschen Netz. Aus Sicherheitsgründen legt man es auf eine ungenutzte VLAN-ID.</p>
+<aside class="note" data-typ="hinweis"><p>„Trunk“ und „Native VLAN“ sind verbreitete Begriffe, aber nicht bei allen Herstellern gleich. Manche sprechen von getaggten und ungetaggten Ports und nennen das VLAN ohne Tag PVID; bei manchen heißt ausgerechnet ein Leitungsbündel nach Kapitel 9.2.3 „Trunk“.</p></aside>
+
+<h3>Wie ein Gerät seinem VLAN zugeordnet wird</h3>
+<ul>
+  <li><strong>Portbasiert (statisch):</strong> Der Port ist fest einem VLAN zugeordnet. Einfach, aber wer umsteckt, landet im VLAN der neuen Dose.</li>
+  <li><strong>Dynamisch:</strong> Der Switch ordnet das VLAN beim Anmelden zu, etwa nach der MAC-Adresse oder nach einer Anmeldung mit IEEE 802.1X, bei der ein zentraler Server Benutzer oder Gerät prüft und das VLAN mitteilt. Geräte finden ihr VLAN an jeder Dose.</li>
+</ul>
+<p>Ein IP-Telefon mit eingebautem Mini-Switch ist ein Sonderfall: Der PC hängt am Telefon, das Telefon am Switch-Port. Der Port ist Access-Port im VLAN des PCs und trägt zusätzlich das Sprach-VLAN (<strong>Voice-VLAN</strong>) getaggt für das Telefon.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der VLAN-Plan für alle drei Standorte:</p>
+  <div class="vergleich">
+    <table>
+      <thead><tr><th>VLAN-ID</th><th>Name</th><th>Geräte</th></tr></thead>
+      <tbody>
+        <tr><th>10</th><td>Verwaltung</td><td>PCs an Empfang und Büro, Drucker</td></tr>
+        <tr><th>20</th><td>Medizin</td><td>Röntgengerät mit Auswertestation, Laborgerät</td></tr>
+        <tr><th>30</th><td>Telefonie</td><td>IP-Telefone</td></tr>
+        <tr><th>40</th><td>Gäste</td><td>WLAN im Wartezimmer</td></tr>
+        <tr><th>99</th><td>Management</td><td>Verwaltungszugänge von Switches und Access Points</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Am Switch in Nord sind die Ports der PCs Access-Ports in VLAN 10, die Röntgenstation steckt in VLAN 20. Die Telefone hängen zwischen Wand und PC und nutzen VLAN 30 als Voice-VLAN. Die Ports zu den Access Points sind Trunks mit VLAN 10, 40 und 99, der Uplink zum Router ein Trunk mit allen VLANs. Als Native VLAN dient auf allen Trunks die ungenutzte ID 999.</p>
+</div>
+
+<aside class="note" data-typ="vertiefung" data-ziel="lf11b"><p>Wie du Switches gegen Angriffe wie VLAN-Hopping schützt und Geräte mit 802.1X und einem RADIUS-Server anmeldest, wird in LF11b ausführlicher behandelt.</p></aside>
+
+<aside class="note" data-typ="fehler"><p>„Zwei Geräte im selben VLAN, aber in verschiedenen IP-Netzen, reden direkt miteinander.“ Nein: Jedes Gerät prüft mit seiner Maske, ob das Ziel im eigenen IP-Netz liegt. Ein VLAN und sein IP-Netz gehören zusammen; beides muss passen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>VLAN:</strong> logisches Netz und eigene Broadcast-Domäne auf gemeinsamer Hardware; zwischen VLANs nur über Router oder Layer-3-Switch.</li>
+  <li><strong>Access-Port</strong> untagged für ein VLAN, <strong>Trunk</strong> tagged nach IEEE 802.1Q (4 Byte, VLAN-ID 12 Bit) für mehrere VLANs; Native VLAN läuft ohne Tag.</li>
+</ul>

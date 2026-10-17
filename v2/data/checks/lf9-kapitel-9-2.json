@@ -1,0 +1,125 @@
+{
+  "titel": "Check 9.2",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Switching-Verfahren",
+      "frage": "Ein Switch soll fehlerhafte Rahmen nicht weitergeben. Welches Verfahren leistet das?",
+      "optionen": [
+        "Store-and-Forward",
+        "Cut-Through",
+        "Fragment-Free",
+        "Flooding"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Store-and-Forward nimmt den ganzen Rahmen an und prüft die Prüfsumme, bevor er weiterleitet. Cut-Through leitet schon nach der Zieladresse weiter, Fragment-Free nach 64 Byte."
+    },
+    {
+      "typ": "mc",
+      "thema": "SFP+",
+      "frage": "Ein Kern-Switch soll mit 10 Gbit/s über Glasfaser an einen Access-Switch angebunden werden. Was brauchst du an beiden Enden?",
+      "optionen": [
+        "Je ein SFP+-Modul, beide passend zu Faserart und Wellenlänge",
+        "Je ein PoE-Injektor zwischen Switch und Faser",
+        "Je ein SFP-Modul für 1 Gbit/s, das reicht auch für eine 10-Gbit/s-Strecke",
+        "Je ein Medienkonverter auf Twisted Pair ohne Modul"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "SFP+ steht für 10 Gbit/s. Beide Enden brauchen zueinander passende Module für die Faserart und die Wellenlänge; ein SFP-Modul liefert nur 1 Gbit/s."
+    },
+    {
+      "typ": "mc",
+      "thema": "Duplex",
+      "frage": "Ein Switch-Port ist fest auf 100 Mbit/s eingestellt, das angeschlossene Gerät handelt automatisch aus. Die Verbindung steht, verliert aber viele Rahmen. Was ist die Ursache?",
+      "optionen": [
+        "Das Gerät fällt auf Halbduplex zurück, der Port bleibt bei Vollduplex",
+        "Gerät und Port einigen sich beide auf Halbduplex und bleiben dabei stabil",
+        "Der Port drosselt das Gerät auf 10 Mbit/s",
+        "Der Port wird vom Switch per STP blockiert"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die aushandelnde Seite bekommt keine Antwort, erkennt nur die Geschwindigkeit und fällt auf Halbduplex zurück. Die fest eingestellte Seite bleibt bei Vollduplex; dieser Duplex-Mismatch verursacht die Verluste."
+    },
+    {
+      "typ": "mc",
+      "thema": "VLAN-Zweck",
+      "frage": "Was erreichst du, wenn du Gäste-WLAN und Verwaltungs-PCs am selben Switch in verschiedene VLANs legst?",
+      "optionen": [
+        "Getrennte Broadcast-Domänen; Verkehr zwischen beiden nur über einen Router",
+        "Höhere Datenrate für beide Bereiche",
+        "Gäste erhalten automatisch eine öffentliche IP-Adresse und sind dadurch abgeschottet",
+        "Die Geräte brauchen keine IP-Adressen mehr"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Jedes VLAN ist eine eigene Broadcast-Domäne. Geräte verschiedener VLANs erreichen sich nur über einen Router oder Layer-3-Switch, wo sich der Zugriff regeln lässt."
+    },
+    {
+      "typ": "mc",
+      "thema": "802.1Q",
+      "frage": "Wie viele Byte fügt ein Switch nach IEEE 802.1Q in einen Rahmen auf dem Trunk ein, und wie viele Bit hat darin die VLAN-ID?",
+      "optionen": [
+        "4 Byte, VLAN-ID mit 12 Bit",
+        "2 Byte, VLAN-ID mit 16 Bit",
+        "8 Byte, VLAN-ID mit 32 Bit",
+        "4 Byte, VLAN-ID mit 8 Bit"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Das 802.1Q-Tag ist 4 Byte lang. Die VLAN-ID hat 12 Bit, also 4096 Werte; 0 und 4095 sind reserviert, nutzbar sind 1 bis 4094."
+    },
+    {
+      "typ": "mc",
+      "thema": "Port-Typ",
+      "frage": "Ein Access Point strahlt zwei SSIDs aus: Verwaltung (VLAN 10) und Gäste (VLAN 40). Wie konfigurierst du den Switch-Port, an dem er hängt?",
+      "optionen": [
+        "Als Trunk mit VLAN 10 und 40 getaggt",
+        "Als Access-Port in VLAN 10",
+        "Als Access-Port in VLAN 40",
+        "Als Access-Port ohne VLAN-Zuordnung, den Rest regelt der Access Point"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Über das eine Kabel laufen Rahmen zweier VLANs. Damit Switch und Access Point sie unterscheiden, müssen sie getaggt sein; das leistet ein Trunk."
+    },
+    {
+      "typ": "mc",
+      "thema": "Spanning Tree",
+      "frage": "Zwei Switches sind zur Ausfallsicherheit über zwei nicht gebündelte Kabel verbunden. Was tut RSTP im Normalbetrieb?",
+      "optionen": [
+        "Es blockiert einen Port, damit keine Schleife entsteht",
+        "Es nutzt beide Kabel gleichzeitig für doppelte Bandbreite",
+        "Es schaltet einen der beiden Switches ab",
+        "Es teilt die VLANs auf die beiden Kabel auf"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Spanning Tree blockiert Ports, bis keine Schleife mehr besteht. Fällt der aktive Weg aus, wird der blockierte Port aktiv."
+    },
+    {
+      "typ": "mc",
+      "thema": "Link Aggregation",
+      "frage": "Ein Server ist mit zwei gebündelten 1-Gbit/s-Leitungen per LACP angebunden. Mit welcher Datenrate kopiert ein einzelner Client eine große Datei höchstens?",
+      "optionen": [
+        "Mit 1 Gbit/s",
+        "Mit 2 Gbit/s, sobald LACP aktiv ist",
+        "Mit 1,5 Gbit/s",
+        "Mit 0,5 Gbit/s je Leitung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Ein einzelner Datenstrom läuft über eine Leitung des Bündels. Erst viele gleichzeitige Datenströme verteilen sich auf beide und nutzen bis zu 2 Gbit/s."
+    }
+  ]
+}

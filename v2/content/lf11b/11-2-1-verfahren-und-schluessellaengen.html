@@ -1,0 +1,40 @@
+<p class="lead">Die Notebooks der Tierärztinnen sollen verschlüsselt werden, die IPsec-Tunnel zwischen den Standorten (LF9, Kapitel 9.6.1) sind es schon, die Termin-App nutzt HTTPS. Überall steckt Kryptografie dahinter, aber nicht jedes Verfahren ist gleich gut. Das Prinzip von symmetrischer, asymmetrischer und hybrider Verschlüsselung kennst du aus LF4, Kapitel 4.5.4. Jetzt bewertest du konkrete Verfahren und Schlüssellängen.</p>
+
+<h3>Symmetrische Verfahren</h3>
+<p>Beide Seiten nutzen denselben geheimen Schlüssel. Die Verfahren sind schnell und eignen sich für große Datenmengen, etwa ganze Festplatten oder den Datenstrom im VPN.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Verfahren</th><th>Schlüssellänge</th><th>Bewertung</th></tr></thead>
+    <tbody>
+      <tr><th>DES</th><td>56 Bit</td><td>veraltet; durch Ausprobieren aller Schlüssel heute in Stunden bis wenigen Tagen zu knacken</td></tr>
+      <tr><th>3DES</th><td>168 Bit (3 × 56), wirksam nur 112 Bit</td><td>veraltet, langsam; nicht mehr einsetzen</td></tr>
+      <tr><th>AES</th><td>128, 192 oder 256 Bit</td><td>Standard für Festplatten, VPN, WLAN und TLS; nach heutigem Stand sicher</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Jedes zusätzliche Bit verdoppelt die Zahl möglicher Schlüssel. 128 Bit ergeben rund 3,4 · 10³⁸ Möglichkeiten; selbst mit allen Rechnern der Welt ist das Durchprobieren aussichtslos.</p>
+
+<p>Symmetrisch braucht jedes Paar von Partnern einen eigenen Schlüssel. Bei n Partnern sind das n · (n − 1) ÷ 2 Schlüssel, bei 10 Personen also 45. Asymmetrisch reicht ein Schlüsselpaar je Person, bei 10 Personen also 10 Paare.</p>
+
+<h3>Asymmetrische Verfahren</h3>
+<p>Jede Seite hat ein Schlüsselpaar aus öffentlichem und privatem Schlüssel. Asymmetrische Verfahren sind langsam; sie dienen dazu, Schlüssel sicher zu vereinbaren und Signaturen zu erstellen, nicht zum Verschlüsseln großer Datenmengen.</p>
+<ul>
+  <li><strong>RSA</strong> beruht darauf, dass sich das Produkt zweier sehr großer Primzahlen kaum in seine Faktoren zerlegen lässt. Das BSI empfiehlt mindestens 3000 Bit.</li>
+  <li><strong>Elliptische Kurven</strong> (ECC) erreichen dieselbe Sicherheit mit viel kürzeren Schlüsseln, etwa 256 Bit statt über 3000 Bit bei RSA. Das spart Rechenzeit, besonders auf kleinen Geräten.</li>
+  <li><strong>Diffie-Hellman</strong> (DH, mit elliptischen Kurven ECDH) verschlüsselt nichts. Zwei Seiten berechnen damit über eine abhörbare Leitung einen gemeinsamen geheimen Schlüssel, ohne ihn je zu übertragen. Diffie-Hellman allein prüft aber nicht, wer auf der anderen Seite sitzt: Ein Angreifer in der Mitte könnte mit beiden Seiten je einen Schlüssel vereinbaren. Deshalb signiert der Server seinen Teil mit seinem privaten Schlüssel, und das Zertifikat belegt, wem der Schlüssel gehört.</li>
+</ul>
+
+<h3>Hybrid und Forward Secrecy</h3>
+<p>In der Praxis werden die Verfahren kombiniert: Asymmetrisch werden die Partner geprüft und ein Sitzungsschlüssel vereinbart, symmetrisch mit AES werden die Daten verschlüsselt. Wird für jede Sitzung ein neuer Schlüssel per Diffie-Hellman erzeugt und danach verworfen, spricht man von <strong>Forward Secrecy</strong>: Selbst wer später den privaten Schlüssel eines Servers stiehlt, kann früher mitgeschnittene Sitzungen nicht entschlüsseln.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Notebooks der Tierärztinnen vergleicht die Auszubildende drei Angebote: Werkzeug A nutzt DES, Werkzeug B RSA für die ganze Platte, Werkzeug C AES mit 256 Bit, den Schlüssel im TPM-Chip geschützt. A ist veraltet, B wäre für ganze Festplatten viel zu langsam, weil asymmetrische Verfahren dafür nicht gedacht sind. Sie wählt C. Den Wiederherstellungsschlüssel legt sie zentral ab (LF4, Kapitel 4.5.4).</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Ein RSA-Schlüssel mit 2048 Bit ist sicherer als AES mit 256 Bit, weil die Zahl größer ist.“ Schlüssellängen verschiedener Verfahren lassen sich nicht direkt vergleichen. RSA mit 2048 Bit entspricht nur etwa 112 Bit symmetrischer Stärke. AES-128 entspricht etwa RSA mit 3072 Bit, AES-256 erst etwa RSA mit 15360 Bit.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Symmetrisch</strong>: AES (128 bis 256 Bit) für große Datenmengen; DES und 3DES veraltet. <strong>Asymmetrisch</strong>: RSA (mindestens 3000 Bit) oder ECC für Schlüsselvereinbarung und Signaturen.</li>
+  <li><strong>Diffie-Hellman</strong> vereinbart einen gemeinsamen Schlüssel ohne ihn zu übertragen; neue Schlüssel je Sitzung ergeben Forward Secrecy.</li>
+</ul>

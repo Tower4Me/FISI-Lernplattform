@@ -1,0 +1,44 @@
+<p class="lead">Wenn ein Tierhalter in der Termin-App einen Termin bucht, laufen Name, Telefonnummer und Grund des Besuchs über das Internet. <strong>TLS</strong> (Transport Layer Security) schützt diese Verbindung, erkennbar an HTTPS. Dasselbe Verfahren sichert Mailverbindungen mit STARTTLS (LF9, Kapitel 9.5.3), viele VPNs und die Verwaltung von Netzgeräten über HTTPS.</p>
+
+<h3>Was TLS leistet</h3>
+<ul>
+  <li><strong>Vertraulichkeit</strong>: Die Daten werden symmetrisch verschlüsselt, meist mit AES.</li>
+  <li><strong>Integrität</strong>: Jedes Paket trägt einen Prüfwert; Veränderungen fallen auf.</li>
+  <li><strong>Authentizität</strong>: Der Server weist sich mit einem Zertifikat aus (Kapitel 11.3); auf Wunsch auch der Client.</li>
+</ul>
+
+<h3>Der Verbindungsaufbau (Handshake)</h3>
+<p>Bevor Daten fließen, handeln Client und Server die Verbindung aus. Vereinfacht bei TLS 1.3:</p>
+<ol>
+  <li>Der <strong>Client</strong> schickt die TLS-Versionen und Verfahren, die er beherrscht, und seinen Teil eines Diffie-Hellman-Schlüsseltauschs.</li>
+  <li>Der <strong>Server</strong> wählt Version und Verfahren und schickt seinen Diffie-Hellman-Teil. Beide berechnen daraus dieselben <strong>Sitzungsschlüssel</strong>; ab hier ist alles verschlüsselt.</li>
+  <li>Verschlüsselt schickt der Server sein Zertifikat und eine Signatur über den bisherigen Handshake. Sie beweist, dass er den passenden privaten Schlüssel besitzt.</li>
+  <li>Der Client <strong>prüft Zertifikat und Signatur</strong>: Ist das Zertifikat gültig, für diesen Namen ausgestellt und von einer vertrauenswürdigen Stelle signiert? Danach fließen die Daten symmetrisch verschlüsselt.</li>
+</ol>
+<p>Die Kombination der Verfahren heißt <strong>Cipher Suite</strong>. Bei TLS 1.2 nennt sie Schlüsseltausch, Serverprüfung, Verschlüsselung und Prüfwert, etwa TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Bei TLS 1.3 nennt sie nur noch Verschlüsselung und Hashverfahren, etwa TLS_AES_128_GCM_SHA256, weil der Schlüsseltausch dort ohnehin per Diffie-Hellman läuft.</p>
+
+<h3>TLS 1.2 und TLS 1.3</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>TLS 1.2</th><th>TLS 1.3</th></tr></thead>
+    <tbody>
+      <tr><th>Handshake</th><td>zwei Hin-und-Rück-Wege, bevor Daten fließen</td><td>ein Hin-und-Rück-Weg, schnellerer Aufbau</td></tr>
+      <tr><th>Schlüsseltausch</th><td>auch ohne Forward Secrecy möglich (Client verschlüsselt ein Geheimnis mit dem öffentlichen RSA-Schlüssel des Servers)</td><td>nur noch Diffie-Hellman mit Einmalschlüsseln; der RSA-Schlüsseltausch ist entfallen. Damit gibt es Forward Secrecy.</td></tr>
+      <tr><th>Verfahren</th><td>viele, darunter veraltete; Auswahl muss die Administration einschränken</td><td>nur wenige, als sicher geltende Verfahren</td></tr>
+      <tr><th>Zertifikat</th><td>unverschlüsselt übertragen</td><td>schon verschlüsselt übertragen</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>SSL (alle Versionen), TLS 1.0 und TLS 1.1 sind veraltet und unsicher. Auf Servern lässt du nur TLS 1.2 mit sicheren Cipher Suites und TLS 1.3 zu.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Der Reverse Proxy der Termin-App (LF9, Kapitel 9.5.4) nimmt die TLS-Verbindungen aus dem Internet an. Die Auszubildende stellt ihn auf TLS 1.2 und 1.3 ein, schaltet ältere Versionen ab und lässt bei TLS 1.2 nur Cipher Suites mit ECDHE und AES-GCM zu. Ein Test mit einem öffentlichen Prüfdienst zeigt keine Warnungen mehr. Ein altes Tablet am Empfang, das nur TLS 1.0 beherrscht, kann die Seite danach nicht mehr öffnen; es wird ersetzt.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Das Schloss im Browser heißt, die Seite ist seriös.“ Es zeigt nur, dass die Verbindung verschlüsselt ist und das Zertifikat zum Namen passt. Auch Betrüger können für ihre eigene Domain gültige Zertifikate bekommen.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>TLS</strong> sichert Vertraulichkeit, Integrität und Authentizität; im Handshake werden Verfahren ausgehandelt, das Zertifikat geprüft und per Diffie-Hellman ein Sitzungsschlüssel vereinbart.</li>
+  <li><strong>TLS 1.3</strong>: schnellerer Handshake, Forward Secrecy durch Diffie-Hellman, nur sichere Verfahren; SSL, TLS 1.0 und 1.1 abschalten.</li>
+</ul>

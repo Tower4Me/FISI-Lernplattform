@@ -1,0 +1,125 @@
+{
+  "titel": "Check 11.2",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Verfahren für Festplatten",
+      "frage": "Welches Verfahren eignet sich, um die Festplatte eines Notebooks vollständig zu verschlüsseln?",
+      "optionen": [
+        "DES mit 56 Bit",
+        "AES mit 256 Bit",
+        "RSA mit 4096 Bit für alle Daten",
+        "MD5 als Prüfsumme"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Für große Datenmengen nutzt man ein schnelles symmetrisches Verfahren; AES ist der Standard. DES ist veraltet, RSA viel zu langsam für ganze Platten, MD5 verschlüsselt nichts."
+    },
+    {
+      "typ": "mc",
+      "thema": "Diffie-Hellman",
+      "frage": "Was leistet das Diffie-Hellman-Verfahren?",
+      "optionen": [
+        "Es verschlüsselt große Datenmengen besonders schnell",
+        "Es erzeugt Hashwerte für Kennwörter",
+        "Zwei Seiten berechnen einen gemeinsamen Schlüssel, ohne ihn zu übertragen",
+        "Es bestätigt, dass ein öffentlicher Schlüssel wirklich zu einer bestimmten Person gehört"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Diffie-Hellman dient der Schlüsselvereinbarung über eine abhörbare Leitung. Verschlüsselt wird danach symmetrisch; die Zuordnung eines Schlüssels zu einer Person bestätigt ein Zertifikat."
+    },
+    {
+      "typ": "mc",
+      "thema": "Forward Secrecy",
+      "frage": "Ein Angreifer schneidet heute verschlüsselte Verbindungen mit und stiehlt in einem Jahr den privaten Schlüssel des Servers. Was verhindert, dass er die alten Mitschnitte entschlüsselt?",
+      "optionen": [
+        "Ein längerer RSA-Schlüssel auf dem Server, etwa 8192 statt 3072 Bit",
+        "Ein Diffie-Hellman-Austausch je Sitzung, danach verworfen",
+        "Ein Hashwert über jede Datei",
+        "Ein AES-Schlüssel mit 256 statt 128 Bit für die Daten"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Bei Forward Secrecy wird je Sitzung ein neuer Schlüssel per Diffie-Hellman vereinbart und danach verworfen. Der private Schlüssel des Servers hilft dann nicht, alte Sitzungen zu entschlüsseln."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kennwörter speichern",
+      "frage": "Wie speichert eine Anwendung die Kennwörter ihrer Benutzer richtig?",
+      "optionen": [
+        "Mit AES verschlüsselt, den Schlüssel auf demselben Server abgelegt",
+        "Als SHA-1-Wert ohne weitere Zusätze",
+        "Als Hashwert mit Salt und langsamem Verfahren wie Argon2",
+        "Im Klartext in einer gut geschützten Tabelle"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Ein Salt macht vorberechnete Tabellen nutzlos, ein langsames Verfahren verteuert Rateversuche. Verschlüsselte Kennwörter wären mit dem Schlüssel wieder lesbar."
+    },
+    {
+      "typ": "mc",
+      "thema": "Signatur und MAC",
+      "frage": "Ein Hersteller will, dass jeder Kunde selbst prüfen kann, ob ein Update wirklich von ihm stammt. Was setzt er ein?",
+      "optionen": [
+        "Einen MAC mit einem Schlüssel, den alle Kunden kennen",
+        "Eine digitale Signatur mit seinem privaten Schlüssel",
+        "Eine Verschlüsselung mit AES",
+        "Einen MD5-Wert auf der Webseite"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Eine Signatur prüft jeder mit dem öffentlichen Schlüssel, erstellen kann sie nur der Inhaber des privaten Schlüssels. Ein MAC mit allgemein bekanntem Schlüssel könnte jeder fälschen."
+    },
+    {
+      "typ": "mc",
+      "thema": "TLS-Handshake",
+      "frage": "Was prüft der Browser im TLS-Handshake anhand des Zertifikats?",
+      "optionen": [
+        "Ob der Server schnell genug antwortet",
+        "Ob es gültig, für den Namen ausgestellt und vertrauenswürdig signiert ist",
+        "Ob die Seite seriöse Inhalte anbietet",
+        "Ob der private Schlüssel des Servers im Zertifikat steht"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Das Zertifikat belegt, dass der öffentliche Schlüssel zum Servernamen gehört. Über Seriosität der Inhalte sagt es nichts."
+    },
+    {
+      "typ": "mc",
+      "thema": "TLS-Versionen",
+      "frage": "Welche Einstellung ist für einen öffentlich erreichbaren Webserver angemessen?",
+      "optionen": [
+        "TLS 1.1 bis 1.3 mit allen Cipher Suites, die der Server kennt",
+        "TLS 1.0 bis 1.3, damit alte Geräte nicht ausgesperrt werden",
+        "TLS 1.2 mit sicheren Cipher Suites und TLS 1.3",
+        "TLS 1.2 mit allen Cipher Suites, auch ohne ECDHE"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "SSL, TLS 1.0 und 1.1 sind unsicher. Zugelassen werden TLS 1.2 mit sicheren Verfahren und TLS 1.3; Geräte, die das nicht können, werden ersetzt."
+    },
+    {
+      "typ": "mc",
+      "thema": "TLS 1.3",
+      "frage": "Welcher Unterschied von TLS 1.3 zu TLS 1.2 trifft zu?",
+      "optionen": [
+        "TLS 1.3 überträgt das Zertifikat unverschlüsselt",
+        "TLS 1.3 erlaubt mehr veraltete Verfahren",
+        "TLS 1.3 vereinbart Schlüssel nur per Diffie-Hellman und bietet so Forward Secrecy",
+        "TLS 1.3 braucht zwei Hin-und-Rück-Wege, bevor die ersten Daten fließen"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "TLS 1.3 vereinbart Schlüssel nur noch per Diffie-Hellman, braucht nur einen Hin-und-Rück-Weg und überträgt das Zertifikat bereits verschlüsselt."
+    }
+  ]
+}

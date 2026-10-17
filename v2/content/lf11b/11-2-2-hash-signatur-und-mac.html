@@ -1,0 +1,43 @@
+<p class="lead">Verschlüsselung hält Daten geheim, sagt aber nichts darüber, ob sie unterwegs verändert wurden oder von wem sie stammen. Dafür gibt es Hashwerte, digitale Signaturen und Nachrichten-Prüfcodes. Wie Hashwert und Signatur grundsätzlich funktionieren, kennst du aus LF4, Kapitel 4.5.5. Hier geht es um ihren Einsatz im Betrieb.</p>
+
+<h3>Hashfunktionen im Einsatz</h3>
+<ul>
+  <li><strong>Downloads prüfen</strong>: Der Hersteller veröffentlicht den Hashwert einer Firmware-Datei. Stimmt der selbst berechnete Wert überein, ist die Datei vollständig und unverändert, etwa mit <code>Get-FileHash</code> in der PowerShell oder <code>sha256sum</code> unter Linux.</li>
+  <li><strong>Archiv prüfen</strong>: Hashwerte belegen, dass archivierte Dateien unverändert sind (LF10b, Kapitel 10.4.3).</li>
+  <li><strong>Kennwörter speichern</strong>: siehe unten.</li>
+</ul>
+<p>Für Sicherheitszwecke gelten MD5 und SHA-1 als gebrochen: Es lassen sich gezielt zwei verschiedene Dateien mit gleichem Hashwert erzeugen. Verwendet werden SHA-256 oder andere Verfahren der SHA-2- und SHA-3-Familien.</p>
+
+<h3>Kennwörter richtig speichern</h3>
+<p>Ein Server darf Kennwörter nicht im Klartext speichern, sondern nur einen Hashwert davon. Bei der Anmeldung berechnet er den Hashwert der Eingabe und vergleicht. Ein einfacher Hashwert reicht aber nicht: Angreifer, die eine Kennwortdatenbank erbeuten, vergleichen sie mit vorberechneten Tabellen häufiger Kennwörter. Deshalb:</p>
+<ul>
+  <li><strong>Salt</strong>: Vor dem Hashen wird jedem Kennwort ein zufälliger Wert angehängt, der mitgespeichert wird. Gleiche Kennwörter ergeben so verschiedene Hashwerte, vorberechnete Tabellen nützen nichts.</li>
+  <li><strong>Langsame Verfahren</strong> wie bcrypt oder Argon2 brauchen absichtlich viel Rechenzeit. Für eine Anmeldung fällt das nicht auf, Milliarden Rateversuche werden aber teuer.</li>
+</ul>
+
+<h3>Signatur und MAC</h3>
+<p>Ein MAC ist ein Prüfwert aus Nachricht und geheimem Schlüssel. HMAC berechnet ihn mit einer Hashfunktion.</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th></th><th>Digitale Signatur</th><th>MAC (Message Authentication Code, etwa HMAC)</th></tr></thead>
+    <tbody>
+      <tr><th>Schlüssel</th><td>privater Schlüssel signiert, öffentlicher prüft</td><td>gemeinsamer geheimer Schlüssel für Erstellen und Prüfen</td></tr>
+      <tr><th>belegt</th><td>Unverändertheit und Urheber; auch Dritte können prüfen, Urheber kann schwer abstreiten</td><td>Unverändertheit und dass der Absender den Schlüssel kennt; nicht gegenüber Dritten nachweisbar</td></tr>
+      <tr><th>Einsatz</th><td>signierte Software und Updates, S/MIME-Mails, Zertifikate (Kapitel 11.3.1)</td><td>Prüfwert für jedes Paket in TLS und VPN (heute oft im Verschlüsselungsverfahren eingebaut, etwa AES-GCM), Webhook-Nachrichten</td></tr>
+      <tr><th>Geschwindigkeit</th><td>langsam (asymmetrisch)</td><td>schnell (symmetrisch)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Im IPsec-Tunnel zwischen Stammhaus und Nord greift alles ineinander: IKEv2 vereinbart die Schlüssel per Diffie-Hellman, die Gateways weisen sich mit Zertifikat oder Signatur aus, ESP verschlüsselt mit AES und sichert jedes Paket mit einem Prüfwert.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Für die Switches in Nord lädt die Auszubildende ein Firmware-Update herunter. Sie prüft zuerst mit Get-FileHash den SHA-256-Wert gegen die Angabe auf der Herstellerseite, die Werte stimmen überein. Beim Einspielen prüft der Switch zusätzlich die digitale Signatur des Herstellers und hätte eine veränderte Datei abgelehnt. Bei der Termin-App klärt sie mit dem Entwicklerteam, dass Kennwörter mit Argon2 und Salt gespeichert werden.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Kennwörter verschlüsseln wir mit AES in der Datenbank.“ Verschlüsselte Kennwörter lassen sich mit dem Schlüssel wieder lesen; wer Datenbank und Schlüssel erbeutet, hat alle Kennwörter. Kennwörter werden deshalb mit Salt und langsamem Verfahren gehasht, nicht verschlüsselt.</p></aside>
+
+<ul class="merksatz">
+  <li><strong>Hashwerte</strong> prüfen Downloads und Archive; MD5 und SHA-1 sind gebrochen, SHA-256 ist Standard. Kennwörter speicherst du mit Salt und langsamem Verfahren (bcrypt, Argon2).</li>
+  <li><strong>Signatur</strong> (privater/öffentlicher Schlüssel) belegt Urheber auch gegenüber Dritten; <strong>MAC</strong> (gemeinsamer Schlüssel) sichert schnell jedes Paket in TLS und VPN gegen Veränderung.</li>
+</ul>

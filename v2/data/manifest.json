@@ -6189,6 +6189,87 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "11.2",
+          "titel": "Kryptografie anwenden",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "11.2.1",
+              "titel": "Verfahren und Schlüssellängen",
+              "slug": "verfahren-und-schluessellaengen",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 1 Aufgabe 2 (DES, AES und RSA für die Datenträgerverschlüsselung bewerten)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 1 (asymmetrische Verschlüsselung mit Nachteilen)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 4 (Diffie-Hellman in TLS 1.3)"
+                ],
+                "extern": [
+                  "BSI TR-02102-1 (Kryptographische Verfahren: Empfehlungen und Schlüssellängen); NIST SP 800-57 (Vergleich der Schlüssellängen); FIPS 197 (AES)"
+                ]
+              },
+              "material": [
+                "kryptographie-sym-asym"
+              ],
+              "begriffe": [
+                "verschluesselung",
+                "kryptografie"
+              ]
+            },
+            {
+              "nummer": "11.2.2",
+              "titel": "Hash, Signatur und MAC",
+              "slug": "hash-signatur-und-mac",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 4 (CA signiert den Hash, Kollisionsangriff auf MD5)",
+                  "AP2 FISI Winter 2021/22 HS1 (IPsec: symmetrische Verschlüsselung und Hash)"
+                ],
+                "extern": [
+                  "RFC 2104 (HMAC), RFC 9106 (Argon2); BSI TR-02102-1 (Hashfunktionen); NIST SP 800-63B (Speicherung von Kennwörtern)"
+                ]
+              },
+              "material": [
+                "hash-signatur"
+              ],
+              "begriffe": [
+                "hashwert",
+                "kryptografie"
+              ]
+            },
+            {
+              "nummer": "11.2.3",
+              "titel": "TLS",
+              "slug": "tls",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: technische Maßnahmen umsetzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 3 (Schutzziele von TLS, TLS 1.2 und 1.3 vergleichen)",
+                  "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 4 (Rolle der asymmetrischen Verfahren in TLS 1.3)"
+                ],
+                "extern": [
+                  "RFC 8446 (TLS 1.3), RFC 5246 (TLS 1.2), RFC 8996 (TLS 1.0/1.1 abgekündigt); BSI TR-02102-2"
+                ]
+              },
+              "material": [
+                "zertifikate-tls-pki"
+              ],
+              "begriffe": [
+                "kryptografie",
+                "verschluesselung",
+                "email-dienste"
+              ]
+            }
+          ]
         }
       ]
     }

@@ -534,6 +534,14 @@
         {
           "id": "8-4-4",
           "tiefe": "Transport und Speicher der Datenbank"
+        },
+        {
+          "id": "11-2-1",
+          "tiefe": "AES/DES/RSA/ECC bewerten"
+        },
+        {
+          "id": "11-2-3",
+          "tiefe": "TLS"
         }
       ]
     },
@@ -541,7 +549,7 @@
       "begriff": "hashwert",
       "kernfakten": [
         "Hashfunktion: Prüfwert fester Länge, gleiche Daten gleicher Wert, kleine Änderung völlig anderer Wert, nicht umkehrbar, praktisch keine Kollisionen findbar.",
-        "SHA-256 verbreitet; MD5 für Sicherheitszwecke unsicher.",
+        "SHA-256 verbreitet; MD5 und SHA-1 für Sicherheitszwecke unsicher.",
         "Hashwert allein belegt nicht den Urheber.",
         "Digitale Signatur: Hashwert mit privatem Schlüssel des Absenders verschlüsselt; Prüfung mit dessen öffentlichem Schlüssel; belegt Integrität und Authentizität (und Verbindlichkeit), nicht Vertraulichkeit."
       ],
@@ -557,6 +565,10 @@
         {
           "id": "10-4-3",
           "tiefe": "Unveränderbarkeit im Archiv prüfen"
+        },
+        {
+          "id": "11-2-2",
+          "tiefe": "Downloads, Kennwörter, MAC"
         }
       ]
     },
@@ -3565,6 +3577,10 @@
         {
           "id": "3-5-5",
           "tiefe": "Ports, IMAP statt POP3"
+        },
+        {
+          "id": "11-2-3",
+          "tiefe": "STARTTLS nutzt TLS"
         }
       ]
     },
@@ -3600,6 +3616,10 @@
         {
           "id": "9-4-3",
           "tiefe": "OSPF über Tunnel"
+        },
+        {
+          "id": "11-2-2",
+          "tiefe": "IPsec: IKEv2/DH, ESP mit AES und Prüfwert"
         }
       ]
     },
@@ -3807,6 +3827,31 @@
         {
           "id": "10-7-5",
           "tiefe": "Bubblesort"
+        }
+      ]
+    },
+    {
+      "begriff": "kryptografie",
+      "kernfakten": [
+        "Symmetrisch: AES 128/192/256 Bit Standard; DES (56 Bit) und 3DES veraltet. Asymmetrisch: RSA (BSI mind. 3000 Bit), ECC mit kürzeren Schlüsseln (256 Bit); langsam, für Schlüsselvereinbarung und Signaturen.",
+        "Diffie-Hellman/ECDH: gemeinsamer Schlüssel ohne Übertragung; neue Schlüssel je Sitzung = Forward Secrecy.",
+        "Hash: MD5/SHA-1 gebrochen, SHA-256 Standard; Kennwörter mit Salt und langsamem Verfahren (bcrypt, Argon2), nicht verschlüsselt.",
+        "Signatur (privat/öffentlich, Dritte können prüfen) vs. MAC/HMAC (gemeinsamer Schlüssel, schnell, Paketschutz in TLS/VPN).",
+        "TLS: Handshake handelt Verfahren aus, Sitzungsschlüssel per (EC)DH, danach Server-Zertifikat und Signatur verschlüsselt übertragen und geprüft; TLS 1.3: ein Hin-und-Rück-Weg, kein RSA-Schlüsseltausch mehr (Forward Secrecy), Cipher Suite nur Verschlüsselung + Hash; SSL, TLS 1.0/1.1 abschalten.",
+        "DH allein ohne Authentisierung anfällig für Man-in-the-Middle; symmetrisch n·(n−1)/2 Schlüssel für n Partner."
+      ],
+      "vorkommen": [
+        {
+          "id": "11-2-1",
+          "tiefe": "Verfahren, Schlüssellängen, DH, Forward Secrecy"
+        },
+        {
+          "id": "11-2-2",
+          "tiefe": "Hash im Einsatz, Kennwortspeicherung, Signatur vs. MAC"
+        },
+        {
+          "id": "11-2-3",
+          "tiefe": "TLS-Handshake, 1.2 vs. 1.3"
         }
       ]
     }

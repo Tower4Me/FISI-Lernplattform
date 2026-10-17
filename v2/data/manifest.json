@@ -5928,6 +5928,56 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "10.6",
+          "titel": "Überwachen und reagieren",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "10.6.1",
+              "titel": "Monitoring",
+              "slug": "monitoring",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Konzepte für Überwachung; Monitoring",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "RFC 3411 bis 3418 (SNMPv3), RFC 5424 (Syslog); BSI IT-Grundschutz-Kompendium OPS.1.1.1 (Allgemeiner IT-Betrieb)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "monitoring",
+                "ticketsystem",
+                "sla"
+              ]
+            },
+            {
+              "nummer": "10.6.2",
+              "titel": "Tests und kritische Zustände",
+              "slug": "tests-und-kritische-zustaende",
+              "quellen": {
+                "rahmenlehrplan": "LF10b: Tests, Monitoring, Maßnahmen bei kritischen Zuständen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C (Systemintegration)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2022 Teil 1 Aufgabe 1 (Rahmenbedingungen für Performance-Tests)"
+                ],
+                "extern": [
+                  "BSI-Standard 200-4 (Business Continuity Management, Notfallhandbuch)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "monitoring",
+                "softwaretest",
+                "eskalation",
+                "ursachenanalyse"
+              ]
+            }
+          ]
         }
       ]
     }

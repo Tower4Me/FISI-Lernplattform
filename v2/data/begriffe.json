@@ -2302,6 +2302,10 @@
         {
           "id": "5-6-2",
           "tiefe": "Verfahren, Stufen, V-Modell, Regressionstest"
+        },
+        {
+          "id": "10-6-2",
+          "tiefe": "Last- und Performance-Test"
         }
       ]
     },
@@ -2452,6 +2456,10 @@
         {
           "id": "6-4-5",
           "tiefe": "Abschlusseintrag"
+        },
+        {
+          "id": "10-6-1",
+          "tiefe": "Alarm legt Ticket an"
         }
       ]
     },
@@ -2501,6 +2509,10 @@
         {
           "id": "10-4-2",
           "tiefe": "RPO/RTO im SLA"
+        },
+        {
+          "id": "10-6-1",
+          "tiefe": "Verfügbarkeitsbericht"
         }
       ]
     },
@@ -2590,6 +2602,10 @@
         {
           "id": "6-5-4",
           "tiefe": "hierarchisch bei Gutschriftforderung"
+        },
+        {
+          "id": "10-6-2",
+          "tiefe": "Eskalation bei kritischen Zuständen"
         }
       ]
     },
@@ -2640,6 +2656,10 @@
         {
           "id": "6-4-2",
           "tiefe": "5-Why und Ishikawa am Kanzlei-Fall"
+        },
+        {
+          "id": "10-6-2",
+          "tiefe": "nach dem Vorfall"
         }
       ]
     },
@@ -3669,6 +3689,29 @@
         {
           "id": "10-5-4",
           "tiefe": "Ablauf, zentrale Verteilung, Blue-Green"
+        }
+      ]
+    },
+    {
+      "begriff": "monitoring",
+      "kernfakten": [
+        "Überwacht Hardware, Betriebssystem, Netz, Dienste, Sicherungen, Zertifikate; Datenquellen Agent, SNMP (Abfrage UDP 161, Trap UDP 162, MIB; v1/v2c Community-String im Klartext, v3 Benutzerprüfung und optional Verschlüsselung), Prüfung von außen, zentrale Protokolle.",
+        "Schwellwerte Warnung/kritisch, Mindestdauer gegen Fehlalarme; Alarm per Mail, SMS, Ticket; Alarmflut vermeiden; Verläufe für Trends und Verfügbarkeitsberichte.",
+        "Performance-Test: Antwortzeit und Durchsatz; Lasttest: normale und erwartete Spitzenlast; Stresstest: darüber hinaus bis zur Grenze. Rahmen: realistische, getrennte, ungestörte Umgebung, Testdaten, messbare Kriterien, wiederholbar; Ergebnis des bestandenen Tests als Ausgangswert (Baseline).",
+        "Kritische Zustände: Notfallhandbuch auch außerhalb der Systeme, Erreichbarkeit/Eskalation, Wiederanlaufreihenfolge (Netz, Speichersystem, Hosts, Verzeichnis/DNS, Datenbank, Anwendungen; umgekehrt zum Herunterfahren), Information, Ursachenanalyse."
+      ],
+      "vorkommen": [
+        {
+          "id": "9-7-1",
+          "tiefe": "SNMPv3 und Syslog an Netzgeräten"
+        },
+        {
+          "id": "10-6-1",
+          "tiefe": "Monitoring-Konzept"
+        },
+        {
+          "id": "10-6-2",
+          "tiefe": "Lasttest, kritische Zustände"
         }
       ]
     }

@@ -1088,6 +1088,10 @@
         {
           "id": "12-1-1",
           "tiefe": "Anforderungsanalyse im Projekt: Ziele, Ergebnisse, Schulungsbedarf, Rahmen, Muss/Soll/Kann"
+        },
+        {
+          "id": "12-4-1",
+          "tiefe": "Pflichtenheft als Leistungsbeschreibung im Projekt"
         }
       ]
     },
@@ -1530,6 +1534,10 @@
         {
           "id": "2-6-7",
           "tiefe": "Belegfolge vom Angebot bis zur Zahlung"
+        },
+        {
+          "id": "12-4-2",
+          "tiefe": "Vertragsarten im Integrationsprojekt, Angebot bindet"
         }
       ]
     },
@@ -1656,6 +1664,10 @@
         {
           "id": "9-7-3",
           "tiefe": "Messprotokolle als Nachweis"
+        },
+        {
+          "id": "12-4-2",
+          "tiefe": "Werkvertrag im Projekt, Zahlungsplan mit Rest nach Abnahme"
         }
       ]
     },
@@ -4228,7 +4240,8 @@
         "PSP: Projekt > Teilaufgaben > Arbeitspakete (nicht weiter zerlegt, Ergebnis, verantwortliche Person, Aufwand); objekt-, funktions- oder phasenorientiert, oft gemischt; alle Arbeit genau einmal; keine Termine und keine Reihenfolge.",
         "Aufwand = Arbeitszeit (Personenstunden), Dauer = Kalenderzeit ≈ Aufwand ÷ (Personen × verfügbare Stunden pro Tag) + Wartezeiten; Schätzen: Experten, Analogie, Drei-Punkt (O + 4M + P) ÷ 6; Ressourcenplan zeigt Überlast; Meilensteine als Prüfpunkte.",
         "Projektkosten = Personalkosten (Aufwand × Stundensatz) + Sachkosten + Reserve (oft 10–20 %) = Selbstkosten; Gewinn kommt im Angebot dazu; laufende Kosten nach dem Projekt gehören nicht dazu.",
-        "Risikoliste: Risiko, Ursache, Wahrscheinlichkeit, Auswirkung (Stufen), Risikozahl = W × A, vorbeugende Maßnahme, Notfallmaßnahme (Plan B), Verantwortliche; laufend fortschreiben."
+        "Risikoliste: Risiko, Ursache, Wahrscheinlichkeit, Auswirkung (Stufen), Risikozahl = W × A, vorbeugende Maßnahme, Notfallmaßnahme (Plan B), Verantwortliche; laufend fortschreiben.",
+        "Leistungsbeschreibung: Ziel, Leistungsumfang, nicht enthaltene Leistungen, Mitwirkung des Kunden, Annahmen, Termine, Abnahmekriterien, Änderungsverfahren (Änderungsantrag: Aufwand und Folgen bewerten, Kunde gibt frei). Angebot: Preise je Position, Festpreis (Risiko beim Auftragnehmer) oder nach Aufwand (Risiko beim Kunden, ggf. Obergrenze), Zahlungsplan mit Abschlägen für erbrachte Teilleistungen (§ 632a BGB) und Rest nach Abnahme (§ 641), Bindungsfrist."
       ],
       "vorkommen": [
         {
@@ -4258,6 +4271,14 @@
         {
           "id": "12-3-1",
           "tiefe": "Entscheidung durch den Kunden, dokumentiert"
+        },
+        {
+          "id": "12-4-1",
+          "tiefe": "Leistungsbeschreibung"
+        },
+        {
+          "id": "12-4-2",
+          "tiefe": "Angebot, Preismodell, Zahlungsplan"
         }
       ]
     },

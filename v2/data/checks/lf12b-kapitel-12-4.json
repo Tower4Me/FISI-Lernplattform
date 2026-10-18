@@ -1,0 +1,125 @@
+{
+  "titel": "Check 12.4",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Mitwirkung",
+      "frage": "Welche Angabe aus einer Leistungsbeschreibung ist eine Mitwirkungspflicht des Kunden?",
+      "optionen": [
+        "Das Systemhaus liefert fünf eingerichtete PCs mit Praxissoftware",
+        "Die Telefonie ist nicht Bestandteil dieses Auftrags",
+        "Bis Ende Januar benennt die Praxis einen Ansprechpartner für die Datenprüfung",
+        "Die vorhandene Verkabelung wird als nutzbar vorausgesetzt"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Mitwirkung beschreibt, was der Kunde beisteuert und bis wann. Die anderen Angaben gehören zu Leistungsumfang, Abgrenzung und Annahmen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Annahme verletzt",
+      "frage": "Im Festpreisangebot steht als Annahme „vorhandene Verkabelung nutzbar“. Beim Einrichten sind zwei Dosen defekt. Was folgt daraus?",
+      "optionen": [
+        "Das Systemhaus repariert ohne Berechnung, weil ein Festpreis vereinbart ist",
+        "Ein Änderungsantrag mit Aufwand und Folgen, den der Kunde freigibt",
+        "Die Abnahme entfällt, weil die Annahme nicht zutraf",
+        "Der Vertrag ist nichtig und wird neu verhandelt"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Trifft eine Annahme nicht zu, bewertet das Systemhaus Aufwand und Folgen für Termin und Preis. Umgesetzt wird nach Freigabe durch den Kunden."
+    },
+    {
+      "typ": "mc",
+      "thema": "Abgrenzung",
+      "frage": "Warum steht in der Leistungsbeschreibung ausdrücklich, welche Leistungen nicht enthalten sind?",
+      "optionen": [
+        "Damit klar ist, was das Systemhaus nicht schuldet",
+        "Damit der Kunde diese Leistungen selbst erbringen muss",
+        "Weil das Handelsgesetzbuch eine solche Liste vorschreibt",
+        "Damit diese Leistungen später zum Festpreis dazukommen"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Streit entsteht oft bei dem, was nicht beschrieben ist. Die Abgrenzung macht klar, welche Leistungen nicht geschuldet sind; kommen sie doch dazu, ist das eine Änderung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Preismodell",
+      "frage": "Wer trägt beim Festpreis das Risiko, dass die Arbeit länger dauert als geplant?",
+      "optionen": [
+        "Das Systemhaus",
+        "Der Kunde",
+        "Beide je zur Hälfte",
+        "Der Lieferant der Geräte"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Beim Festpreis steht der Preis vorher fest; Mehraufwand geht zulasten des Systemhauses. Nach Aufwand trägt der Kunde dieses Risiko."
+    },
+    {
+      "typ": "mc",
+      "thema": "Preismodell wählen",
+      "frage": "Ein Kunde möchte eine neue Lösung ausprobieren, deren Umfang er selbst noch nicht kennt. Welches Preismodell passt?",
+      "optionen": [
+        "Festpreis für das gesamte Vorhaben",
+        "Abrechnung nach Aufwand, eventuell mit Obergrenze",
+        "Festpreis mit einer Bindungsfrist von einem ganzen Jahr",
+        "Kostenloser Probebetrieb bis zur Entscheidung"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Ein Festpreis braucht eine genau beschriebene Leistung. Bei unklarem Umfang passt die Abrechnung nach Aufwand, mit Obergrenze als Mittelweg."
+    },
+    {
+      "typ": "mc",
+      "thema": "Angebotspreis",
+      "frage": "Selbstkosten des Projekts 10.000 €, Gewinnzuschlag 20 %, Umsatzsteuer 19 %. Wie hoch ist der Bruttopreis?",
+      "optionen": [
+        "12.000 €",
+        "13.900 €",
+        "11.900 €",
+        "14.280 €"
+      ],
+      "richtig": [
+        3
+      ],
+      "erklaerung": "10.000 € × 1,20 = 12.000 € netto; 12.000 € × 1,19 = 14.280 € brutto. Die Zuschläge werden nacheinander gerechnet, nicht addiert."
+    },
+    {
+      "typ": "mc",
+      "thema": "Vertragsart",
+      "frage": "Das Systemhaus schuldet einen eingerichteten, funktionierenden Standort. Welche Vertragsart ist das?",
+      "optionen": [
+        "Dienstvertrag",
+        "Werkvertrag",
+        "Kaufvertrag",
+        "Mietvertrag"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Geschuldet ist ein Erfolg, also ein Werkvertrag. Der Kunde muss das Werk abnehmen; danach ist die restliche Vergütung fällig."
+    },
+    {
+      "typ": "mc",
+      "thema": "Zahlungsplan",
+      "frage": "Welcher Zahlungsplan ist bei einem Integrationsprojekt mit Werkvertrag üblich?",
+      "optionen": [
+        "Zwei Drittel vor Beginn, ein Drittel nach Lieferung der Geräte",
+        "Abschläge nach Meilensteinen, der Rest nach der Abnahme",
+        "Monatliche Raten über die gesamte Nutzungsdauer der Geräte",
+        "Zahlung erst nach Ablauf der Gewährleistung"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Abschlagszahlungen decken erbrachte Teilleistungen ab. Der letzte Teil wird mit der Abnahme fällig."
+    }
+  ]
+}

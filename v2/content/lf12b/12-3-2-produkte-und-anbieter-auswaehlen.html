@@ -1,0 +1,47 @@
+<p class="lead">Die Variante steht fest, jetzt geht es um das konkrete Produkt: welcher Router, welcher Server, welcher Anbieter. In der Praxis und in der Abschlussprüfung sieht das oft gleich aus: Du hast Anforderungen und eine Tabelle mit Angeboten, wählst eines aus und begründest die Wahl. Wie du Datenblätter grundsätzlich liest, kennst du aus LF2, Kapitel 2.5.1. Hier geht es um Geräte und Dienste für Netz und Server.</p>
+
+<h3>So gehst du vor</h3>
+<ol>
+  <li>Aus den Anforderungen messbare Kriterien machen, etwa „VPN-Durchsatz mindestens 250 Mbit/s“ statt „schnell genug“.</li>
+  <li>Jedes Angebot gegen die Muss-Kriterien prüfen. Wer eines verfehlt, scheidet aus, egal wie gut der Rest ist.</li>
+  <li>Unter den übrigen nach Wunsch-Kriterien und Gesamtkosten wählen (Kapitel 12.3.3).</li>
+  <li>Begründen: je Kriterium die Anforderung, den Wert aus dem Datenblatt und die Folgerung. „Router Y erfüllt mit 400 Mbit/s VPN-Durchsatz die geforderten 250 Mbit/s“ ist eine Begründung, „Router Y ist am besten“ nicht.</li>
+</ol>
+
+<h3>Worauf du je Produktart achtest</h3>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Produkt</th><th>typische Kriterien und Fallen</th></tr></thead>
+    <tbody>
+      <tr><th>Router, Firewall, VPN-Gateway</th><td>Durchsatz für die Funktion, die du brauchst: Der VPN-Durchsatz liegt oft weit unter dem beworbenen Firewall-Durchsatz, mit eingeschalteter Angriffserkennung sinkt er weiter. Anzahl gleichzeitiger Tunnel, Anmeldung mit Zertifikaten (LF11b, Kapitel 11.3.2), Ersatzweg über Mobilfunk, Abo für Sicherheitsfunktionen, zugesagte Updates</td></tr>
+      <tr><th>Server</th><td>Prozessorkerne auch wegen der Lizenzkosten (LF10b, Kapitel 10.5.3), maximaler Arbeitsspeicher, Laufwerksschächte und RAID-Controller, redundante Netzteile, Fernwartungsschnittstelle, Vor-Ort-Service mit Reaktionszeit</td></tr>
+      <tr><th>Mobile Device Management</th><td>unterstützte Betriebssysteme, Arbeitsprofil oder Container für Firmendaten, Sperren und Löschen aus der Ferne, Verteilung von Apps und Zertifikaten, Standort der Daten, Preis je Gerät oder je Benutzer</td></tr>
+      <tr><th>Cloud- und Diensteanbieter</th><td>zugesicherte Verfügbarkeit im SLA, Rechenzentren in der EU, Vertrag zur Auftragsverarbeitung, Nachweise wie ISO 27001, Kündigungsfrist und Herausgabe der Daten beim Wechsel (LF10b, Kapitel 10.1.4)</td></tr>
+      <tr><th>Internetanschluss</th><td>normalerweise verfügbare und minimale Datenrate, Upload, feste Adresse, Entstörzeit (LF9, Kapitel 9.1.3)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Bei allen Produkten gilt: Ein Gerät ohne Sicherheitsupdates ist am Netz ein Risiko, auch wenn es noch funktioniert. Prüfe deshalb, wie lange der Hersteller Updates zusagt, und vergleiche das mit der geplanten Nutzungsdauer.</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Grimma bekommt wie Nord und Süd einen VDSL-Geschäftsanschluss mit 250 Mbit/s Download und 40 Mbit/s Upload. Muss-Kriterien für den Router: Site-to-Site-VPN mit Anmeldung über Zertifikate, VPN-Durchsatz mindestens 250 Mbit/s, eingebauter Mobilfunk-Ersatzweg, Sicherheitsupdates für mindestens fünf Jahre.</p>
+  <div class="vergleich">
+    <table>
+      <thead><tr><th></th><th>Router X</th><th>Router Y</th><th>Router Z</th></tr></thead>
+      <tbody>
+        <tr><th>Firewall-Durchsatz</th><td>1 Gbit/s</td><td>2 Gbit/s</td><td>bis zu 3 Gbit/s</td></tr>
+        <tr><th>VPN-Durchsatz (IPsec)</th><td>200 Mbit/s</td><td>400 Mbit/s</td><td>500 Mbit/s</td></tr>
+        <tr><th>VPN-Anmeldung</th><td>Zertifikat oder Schlüssel</td><td>Zertifikat oder Schlüssel</td><td>nur gemeinsamer Schlüssel</td></tr>
+        <tr><th>Mobilfunk</th><td>eingebaut</td><td>eingebaut</td><td>eingebaut</td></tr>
+        <tr><th>Updates zugesagt</th><td>3 Jahre</td><td>5 Jahre ab Kauf</td><td>5 Jahre ab Kauf</td></tr>
+        <tr><th>Preis netto</th><td>650 €</td><td>900 €</td><td>850 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>X scheidet aus: 200 Mbit/s VPN-Durchsatz reichen nicht für 250 Mbit/s, und drei Jahre Updates sind kürzer als die Nutzungsdauer; der hohe Firewall-Durchsatz hilft dabei nicht. Z scheidet aus, weil es keine Anmeldung mit Zertifikaten kann, die der Verbund für alle Gateways nutzt. Übrig bleibt Y, das alle Muss-Kriterien erfüllt. Die Auszubildende empfiehlt Y, obwohl Z günstiger ist.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Der Router mit dem höchsten Durchsatz ist der beste.“ Entscheidend ist der Durchsatz der Funktion, die du nutzt, hier VPN. Und ein K.-o.-Kriterium wie die Anmeldung mit Zertifikaten lässt sich durch keinen noch so guten Wert an anderer Stelle ausgleichen.</p></aside>
+
+<p class="merksatz">Jedes Angebot prüfst du zuerst gegen messbare Muss-Kriterien, auch beim Wert der genutzten Funktion und der Dauer der Updates. Deine Wahl begründest du mit Anforderung, Datenblattwert und Folgerung.</p>

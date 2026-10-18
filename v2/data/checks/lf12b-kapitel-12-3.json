@@ -1,0 +1,125 @@
+{
+  "titel": "Check 12.3",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Gewichte festlegen",
+      "frage": "Wann legst du die Gewichte der Kriterien für den Variantenvergleich fest?",
+      "optionen": [
+        "Mit dem Kunden, bevor die Varianten bewertet werden",
+        "Nach der Bewertung, damit sie zur Empfehlung passen",
+        "Bei der Abnahme, wenn das Ergebnis feststeht",
+        "Durch die Projektleitung allein, ohne den Kunden"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Gewichte und Maßstab werden vorher mit dem Kunden vereinbart. Sonst entsteht der Verdacht, sie seien passend zum Wunschergebnis gewählt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Knappe Entscheidung",
+      "frage": "Zwei Varianten liegen knapp beieinander. Erhöht man das Gewicht der Kosten leicht, dreht sich die Rangfolge. Was tust du?",
+      "optionen": [
+        "Die Variante mit dem höheren Nutzwert ohne Rückfrage bestellen",
+        "Genau diese Gewichtung mit dem Kunden besprechen",
+        "Das Kostengewicht ändern, bis die günstigere Variante vorn liegt",
+        "Die Nutzwertanalyse verwerfen und nach dem Kaufpreis entscheiden"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Hängt die Rangfolge an einer Gewichtung, muss der Kunde wissen, dass diese den Ausschlag gibt. Entscheiden muss er, die Begründung wird dokumentiert."
+    },
+    {
+      "typ": "mc",
+      "thema": "Datenschutz als Kriterium",
+      "frage": "Welche Frage gehört beim Variantenvergleich zur Gruppe Datenschutz und Datensicherheit?",
+      "optionen": [
+        "Wie hoch sind die Stromkosten der Variante pro Jahr insgesamt?",
+        "Passt die Variante in den vereinbarten Zeitplan?",
+        "Muss ein Dienstleister die Daten im Auftrag verarbeiten?",
+        "Wie viele Arbeitsplätze lassen sich später ergänzen?"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Wo die Daten liegen, wer zugreifen kann und ob ein Dienstleister sie im Auftrag verarbeitet, gehört zu Datenschutz und Datensicherheit. Stromkosten zählen zur Wirtschaftlichkeit, der Zeitplan zur Umsetzung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Gerät auswählen",
+      "frage": "Muss-Kriterien: VPN-Durchsatz mindestens 100 Mbit/s, Sicherheitsupdates mindestens fünf Jahre. Gerät A: Firewall 2 Gbit/s, VPN 80 Mbit/s, Updates 5 Jahre. Gerät B: Firewall 800 Mbit/s, VPN 150 Mbit/s, Updates 5 Jahre. Gerät C: Firewall 1 Gbit/s, VPN 300 Mbit/s, Updates 2 Jahre. Welches wählst du?",
+      "optionen": [
+        "Gerät A, wegen des höchsten Firewall-Durchsatzes",
+        "Gerät B, weil A und C je ein K.-o.-Kriterium verfehlen",
+        "Gerät C, wegen des höchsten VPN-Durchsatzes",
+        "Gerät C, wenn der Kunde nach zwei Jahren ein neues kauft"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "A verfehlt den VPN-Durchsatz, C die Dauer der Updates; beide scheiden aus. Der Firewall-Durchsatz ist hier nicht die genutzte Funktion."
+    },
+    {
+      "typ": "mc",
+      "thema": "Begründen",
+      "frage": "Welche Aussage ist eine fachgerechte Begründung für die Wahl eines Servers?",
+      "optionen": [
+        "Server S ist das neueste Modell des Herstellers",
+        "Server S erfüllt mit maximal 256 GB RAM die geforderten 192 GB",
+        "Server S hat in einer Fachzeitschrift sehr gut abgeschnitten",
+        "Server S wird vom Händler für Tierarztpraxen besonders empfohlen"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Eine Begründung nennt Anforderung, Wert aus dem Datenblatt und Folgerung. Werbung, Neuheit oder Empfehlungen ersetzen den Abgleich mit den Anforderungen nicht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Gesamtkosten",
+      "frage": "Variante A: Anschaffung 3.000 €, laufend 500 € pro Jahr. Variante B: Anschaffung 1.500 €, laufend 900 € pro Jahr. Welche ist über vier Jahre günstiger?",
+      "optionen": [
+        "A, um 100 € günstiger",
+        "B, um 100 € günstiger",
+        "B, um 1.500 € günstiger",
+        "Beide kosten gleich viel"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "A: 3.000 € + 4 × 500 € = 5.000 €. B: 1.500 € + 4 × 900 € = 5.100 €. A ist um 100 € günstiger, obwohl die Anschaffung doppelt so teuer ist."
+    },
+    {
+      "typ": "mc",
+      "thema": "Nicht in Euro",
+      "frage": "Eine Variante macht den Kunden stark von einem einzigen Anbieter abhängig. Wie berücksichtigst du das?",
+      "optionen": [
+        "Mit einem geschätzten Betrag in der Kostenrechnung",
+        "Als eigenes Kriterium im Variantenvergleich",
+        "Erst nach Vertragsende bei der Bewertung des Projekts",
+        "Als Rabatt, den der Anbieter im Angebot gewähren soll"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Was sich schlecht in Euro fassen lässt, kommt als eigenes Kriterium in den Variantenvergleich. Erfundene Beträge verfälschen die Kostenrechnung."
+    },
+    {
+      "typ": "mc",
+      "thema": "Englische Lizenzbedingungen",
+      "frage": "In den Lizenzbedingungen steht: „Security updates are provided free of charge for three years. Extended security updates are available as a paid subscription.“ Was bedeutet das?",
+      "optionen": [
+        "Nach drei Jahren gibt es keine Sicherheitsupdates mehr, auch nicht gegen Bezahlung",
+        "Nach drei Jahren gibt es Patches nur noch gegen eine Abogebühr",
+        "Das Gerät darf nach drei Jahren nicht mehr betrieben werden",
+        "Der erweiterte Support ist im Kaufpreis des Geräts bereits enthalten"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Drei Jahre lang gibt es Sicherheitsupdates, danach nur mit einem bezahlten Abo für erweiterten Support. Das gehört als laufende Kosten in den Vergleich."
+    }
+  ]
+}

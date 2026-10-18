@@ -444,6 +444,10 @@
         {
           "id": "11-7-2",
           "tiefe": "Risikoanalyse im Sicherheitskonzept, Information der Leitung"
+        },
+        {
+          "id": "12-2-4",
+          "tiefe": "Projektrisiken: Wahrscheinlichkeit × Auswirkung in Stufen, Plan B"
         }
       ]
     },
@@ -2422,6 +2426,14 @@
         {
           "id": "5-5-2",
           "tiefe": "Vorwärts-/Rückwärtsrechnung, GP, FP, kritischer Pfad, Gantt"
+        },
+        {
+          "id": "12-2-1",
+          "tiefe": "Arbeitspakete werden Vorgänge im Netzplan"
+        },
+        {
+          "id": "12-2-2",
+          "tiefe": "Puffer nutzen bei Überlast, Meilensteine"
         }
       ]
     },
@@ -4188,7 +4200,11 @@
         "Anforderungsanalyse klärt Projektziele, Anforderungen, Ergebnisse, Schulungsbedarf und Rahmenbedingungen; Methoden Interview, Workshop, Begehung/Ist-Aufnahme, Dokumente, Beobachtung; Priorität Muss/Soll/Kann, messbar formulieren, vom Kunden bestätigen (daraus Lastenheft des Kunden); bei Konflikten entscheidet der Auftraggeber.",
         "Projektauftrag: Ausgangslage, messbare Ziele, Abgrenzung, Ergebnisse, Termine/Meilensteine, Budget, Projektleitung mit Befugnissen, Beteiligte, Risiken, Unterschrift von Auftraggeber und Projektleitung. Lastenheft = Anforderungen an das Ergebnis.",
         "Rollen: Auftraggeber (Ziele, Budget, Abnahme, entscheidet), Projektleitung (plant, steuert, berichtet), Team, Key User, Lenkungsausschuss bei großen Projekten, Externe.",
-        "Stakeholder nach Einfluss und Haltung: einflussreiche Befürworter einbinden, einflussreiche Gegner früh beteiligen, übrige informieren und Ablehnende im Blick behalten."
+        "Stakeholder nach Einfluss und Haltung: einflussreiche Befürworter einbinden, einflussreiche Gegner früh beteiligen, übrige informieren und Ablehnende im Blick behalten.",
+        "PSP: Projekt > Teilaufgaben > Arbeitspakete (nicht weiter zerlegt, Ergebnis, verantwortliche Person, Aufwand); objekt-, funktions- oder phasenorientiert, oft gemischt; alle Arbeit genau einmal; keine Termine und keine Reihenfolge.",
+        "Aufwand = Arbeitszeit (Personenstunden), Dauer = Kalenderzeit ≈ Aufwand ÷ (Personen × verfügbare Stunden pro Tag) + Wartezeiten; Schätzen: Experten, Analogie, Drei-Punkt (O + 4M + P) ÷ 6; Ressourcenplan zeigt Überlast; Meilensteine als Prüfpunkte.",
+        "Projektkosten = Personalkosten (Aufwand × Stundensatz) + Sachkosten + Reserve (oft 10–20 %) = Selbstkosten; Gewinn kommt im Angebot dazu; laufende Kosten nach dem Projekt gehören nicht dazu.",
+        "Risikoliste: Risiko, Ursache, Wahrscheinlichkeit, Auswirkung (Stufen), Risikozahl = W × A, vorbeugende Maßnahme, Notfallmaßnahme (Plan B), Verantwortliche; laufend fortschreiben."
       ],
       "vorkommen": [
         {
@@ -4198,6 +4214,22 @@
         {
           "id": "12-1-2",
           "tiefe": "Projektauftrag, Rollen, Stakeholder"
+        },
+        {
+          "id": "12-2-1",
+          "tiefe": "PSP, Arbeitspaket"
+        },
+        {
+          "id": "12-2-2",
+          "tiefe": "Aufwand, Dauer, Schätzung, Ressourcen"
+        },
+        {
+          "id": "12-2-3",
+          "tiefe": "Projektkalkulation"
+        },
+        {
+          "id": "12-2-4",
+          "tiefe": "Risikoliste"
         }
       ]
     }

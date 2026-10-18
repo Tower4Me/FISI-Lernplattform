@@ -1,0 +1,125 @@
+{
+  "titel": "Check 12.2",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Projektstrukturplan",
+      "frage": "Was zeigt ein Projektstrukturplan nicht?",
+      "optionen": [
+        "Die Teilaufgaben des Projekts",
+        "Die Reihenfolge und die Termine der Arbeitspakete",
+        "Die Arbeitspakete mit ihrem PSP-Code",
+        "Arbeit ohne Technik wie Projektleitung und Schulung"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Der PSP zeigt, was zu tun ist, mit allen Arbeitspaketen. Reihenfolge und Abhängigkeiten kommen im Netzplan dazu, Termine im Gantt-Diagramm."
+    },
+    {
+      "typ": "mc",
+      "thema": "Gliederung",
+      "frage": "Ein PSP hat die Teilaufgaben „planen“, „beschaffen“, „installieren“ und „testen“. Wie ist er gegliedert?",
+      "optionen": [
+        "objektorientiert",
+        "funktionsorientiert",
+        "phasenorientiert",
+        "ressourcenorientiert"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Teilaufgaben nach Tätigkeiten ergeben eine funktionsorientierte Gliederung. Objektorientiert gliedert nach Teilen des Ergebnisses, phasenorientiert nach Projektphasen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Aufwand und Dauer",
+      "frage": "Ein Arbeitspaket hat einen Aufwand von 24 Personenstunden. Die zuständige Person hat 4 Stunden am Tag für das Projekt, Wartezeiten gibt es keine. Wie lange dauert es?",
+      "optionen": [
+        "1 Arbeitstag",
+        "3 Arbeitstage",
+        "6 Arbeitstage",
+        "24 Arbeitstage"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Dauer = Aufwand ÷ (Personen × verfügbare Stunden pro Tag) = 24 ÷ (1 × 4) = 6 Arbeitstage."
+    },
+    {
+      "typ": "mc",
+      "thema": "Drei-Punkt-Schätzung",
+      "frage": "Für eine Datenübernahme schätzt du optimistisch 2, wahrscheinlich 5 und pessimistisch 14 Stunden. Welchen Wert ergibt die Drei-Punkt-Schätzung?",
+      "optionen": [
+        "5 Stunden",
+        "6 Stunden",
+        "7 Stunden",
+        "8 Stunden"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "(O + 4 × M + P) ÷ 6 = (2 + 20 + 14) ÷ 6 = 6 Stunden. Der wahrscheinliche Wert zählt vierfach."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kostenarten",
+      "frage": "Welcher Posten gehört nicht in die Projektkosten?",
+      "optionen": [
+        "Die Stunden der Projektleitung für Abstimmungen",
+        "Der Datenexport durch den Hersteller der Altsoftware",
+        "Die Monatsgebühr des Anschlusses ab Betriebsbeginn",
+        "Die Fahrten des Technikers zum neuen Standort"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Laufende Kosten nach dem Projekt sind keine Projektkosten. Sie zählen beim Vergleich der Lösungen über die Nutzungsdauer."
+    },
+    {
+      "typ": "mc",
+      "thema": "Kalkulation",
+      "frage": "Ein Techniker arbeitet 40 Stunden zu 70 Euro, die Sachkosten betragen 5.000 Euro, die Reserve 10 % der Zwischensumme. Wie hoch sind die Selbstkosten des Projekts?",
+      "optionen": [
+        "7.800 Euro",
+        "8.080 Euro",
+        "8.300 Euro",
+        "8.580 Euro"
+      ],
+      "richtig": [
+        3
+      ],
+      "erklaerung": "Personalkosten 40 × 70 € = 2.800 €, Zwischensumme mit Sachkosten 7.800 €, plus 10 % Reserve 780 € ergibt 8.580 €."
+    },
+    {
+      "typ": "mc",
+      "thema": "Risikozahl",
+      "frage": "Um welches Risiko kümmerst du dich zuerst (Wahrscheinlichkeit W und Auswirkung A je 1 bis 3)?",
+      "optionen": [
+        "Lieferung der Monitore verspätet sich: W 3, A 1",
+        "Datenexport kommt zu spät: W 2, A 3",
+        "Techniker fällt aus: W 1, A 2",
+        "Schulungsraum ist belegt: W 2, A 1"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Die Risikozahl ist Wahrscheinlichkeit × Auswirkung. Der Datenexport hat 2 × 3 = 6 und damit den höchsten Wert."
+    },
+    {
+      "typ": "mc",
+      "thema": "Plan B",
+      "frage": "Risiko: Die neuen PCs werden zu spät geliefert. Was ist eine Notfallmaßnahme (Plan B)?",
+      "optionen": [
+        "Die PCs gleich zu Projektbeginn bestellen",
+        "Leih-PCs des Systemhauses übergangsweise nutzen",
+        "Einen Händler mit kurzer Lieferzeit wählen",
+        "Die Lieferzeit im Angebot schriftlich festhalten"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Plan B greift, wenn das Risiko eingetreten ist, etwa mit Leihgeräten. Früh bestellen oder einen schnellen Händler wählen sind vorbeugende Maßnahmen."
+    }
+  ]
+}

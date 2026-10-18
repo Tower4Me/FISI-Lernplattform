@@ -6724,6 +6724,97 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "12.2",
+          "titel": "Projekt planen und kalkulieren",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "12.2.1",
+              "titel": "Projektstrukturplan und Arbeitspakete",
+              "slug": "projektstrukturplan-und-arbeitspakete",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: Projekt mit personellen und technischen Ressourcen planen und kalkulieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Projektmanagement; Zeitplan und Reihenfolge; Termine planen; Ressourcen und Budgetvorgaben)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard Projektstrukturplan (objekt-, funktions-, phasenorientiert; Arbeitspaket; Vollständigkeit), DIN 69901-5 Begriffe"
+                ]
+              },
+              "material": [
+                "projektstrukturplan",
+                "projektphasen-meilensteine"
+              ],
+              "begriffe": [
+                "projektmanagement",
+                "netzplan"
+              ]
+            },
+            {
+              "nummer": "12.2.2",
+              "titel": "Termine und Ressourcen",
+              "slug": "termine-und-ressourcen",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: Projekt mit personellen und technischen Ressourcen planen und kalkulieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Projektmanagement; Zeitplan und Reihenfolge; Termine planen; Ressourcen und Budgetvorgaben)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard Aufwand und Dauer, Ressourcenplanung; Drei-Punkt-Schätzung nach PERT (O + 4M + P) / 6"
+                ]
+              },
+              "material": [
+                "projektphasen-meilensteine",
+                "gantt-diagramm",
+                "netzplan"
+              ],
+              "begriffe": [
+                "projektmanagement",
+                "netzplan"
+              ]
+            },
+            {
+              "nummer": "12.2.3",
+              "titel": "Projektkosten kalkulieren",
+              "slug": "projektkosten-kalkulieren",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: Projekt mit personellen und technischen Ressourcen planen und kalkulieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Projektmanagement; Zeitplan und Reihenfolge; Termine planen; Ressourcen und Budgetvorgaben)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Werte des Beispiels mit Python nachgerechnet"
+                ]
+              },
+              "material": [
+                "zuschlagskalkulation-bab"
+              ],
+              "begriffe": [
+                "projektmanagement"
+              ]
+            },
+            {
+              "nummer": "12.2.4",
+              "titel": "Projektrisiken",
+              "slug": "projektrisiken",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: Projekt mit personellen und technischen Ressourcen planen und kalkulieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Projektmanagement; Zeitplan und Reihenfolge; Termine planen; Ressourcen und Budgetvorgaben)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard Risikoliste (Wahrscheinlichkeit × Auswirkung, vorbeugende Maßnahme, Notfallmaßnahme)"
+                ]
+              },
+              "material": [],
+              "begriffe": [
+                "projektmanagement",
+                "risiko"
+              ]
+            }
+          ]
         }
       ]
     }

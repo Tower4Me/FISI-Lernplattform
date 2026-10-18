@@ -1,0 +1,34 @@
+<p class="lead">Am Umstellungswochenende muss alles zusammenpassen: Netz, VPN, PCs, übernommene Daten. Fällt erst am Montagmorgen auf, dass die Hälfte der Termine fehlt, steht die Praxis. Qualitätssicherung im Projekt sorgt dafür, dass Fehler früh und unter kontrollierten Bedingungen gefunden werden, und dass es einen Weg zurück gibt, falls doch etwas schiefgeht.</p>
+
+<h3>Das Testkonzept</h3>
+<p>Wie du Testfälle aus Anforderungen ableitest und welche Teststufen es gibt, kennst du aus LF5, Kapitel 5.6. In einem Integrationsprojekt legt das Testkonzept fest, was wann, wo und von wem geprüft wird:</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Test</th><th>prüft</th><th>Beispiel Grimma</th></tr></thead>
+    <tbody>
+      <tr><th>Komponententest</th><td>jede Komponente für sich</td><td>PC startet, Router baut den Tunnel auf, Access Point sendet</td></tr>
+      <tr><th>Integrationstest</th><td>das Zusammenspiel</td><td>Praxissoftware in Grimma erreicht die Datenbank im Stammhaus über VPN</td></tr>
+      <tr><th>Ausfalltest</th><td>Verhalten bei Störungen</td><td>VDSL-Kabel ziehen: Schaltet der Router auf Mobilfunk um, und läuft die Software weiter?</td></tr>
+      <tr><th>Datenprüfung</th><td>Vollständigkeit und Richtigkeit übernommener Daten</td><td>Anzahl der Datensätze alt und neu vergleichen, Stichprobe einzelner Tierhalter</td></tr>
+      <tr><th>Abnahmetest</th><td>die Abnahmekriterien, gemeinsam mit dem Kunden</td><td>die Kriterien aus der Leistungsbeschreibung (Kapitel 12.4.1)</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>Getestet wird möglichst vorher, in einer Testumgebung oder einem Probelauf. Ergebnisse hältst du in einem Testprotokoll fest: Testfall, erwartetes und tatsächliches Ergebnis, bestanden oder nicht, Datum, Name. Checklisten und das Vier-Augen-Prinzip helfen bei Arbeitsschritten, die nicht schiefgehen dürfen.</p>
+
+<h3>Die Umstellung planen</h3>
+<ul>
+  <li><strong>Stichtag</strong>: Alles wird auf einmal umgestellt. Schnell und klar, aber riskant, wenn etwas nicht klappt.</li>
+  <li><strong>Parallelbetrieb</strong>: Alt und neu laufen eine Zeit nebeneinander. Sicher, aber doppelte Arbeit, und bei Daten droht ein Durcheinander, welches System gilt.</li>
+  <li><strong>Schrittweise</strong>: zuerst ein Teil, etwa ein Arbeitsplatz als Pilot, dann der Rest.</li>
+</ul>
+<p>Vor einer Stichtagsumstellung steht eine <strong>Go/No-Go-Entscheidung</strong>: Sind alle Voraussetzungen erfüllt? Und es gibt einen <strong>Rückfallplan</strong>: Was tun wir, wenn die Umstellung scheitert, bis wann entscheiden wir das, und wie kommen wir zurück?</p>
+
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Nach dem Probelauf stimmen 1.842 Tierhalter im alten und im neuen System überein, die Stichprobe von 20 Tierhaltern bestätigt der bisherige Praxisinhaber. Der Integrations- und der Ausfalltest laufen an einem Testplatz in Grimma. Umgestellt wird zum Stichtag, weil ein Parallelbetrieb zwei Terminkalender bedeuten würde. Freitag um 14 Uhr entscheidet die Auszubildende mit der Inhaberin anhand einer Checkliste: Go. Samstag folgen die endgültige Übernahme und die Prüfung der Datensätze. Rückfallplan: Zeigt sich bis Samstag 18 Uhr ein schwerer Fehler, wird abgebrochen, und die Praxis arbeitet am Montag mit dem alten System weiter; danach wird nur noch vorwärts korrigiert. Das alte System bleibt danach nur lesend erreichbar, damit Altdaten nachgeschlagen werden können.</p>
+</div>
+
+<aside class="note" data-typ="fehler"><p>„Getestet wird bei der Abnahme.“ Der Abnahmetest bestätigt, was vorher schon geprüft wurde. Wer erst dort Fehler sucht, findet sie vor dem Kunden und ohne Zeit, sie zu beheben.</p></aside>
+
+<p class="merksatz">Qualitätssicherung im Projekt plant Komponenten-, Integrations- und Ausfalltests sowie die Datenprüfung vor dem Abnahmetest und protokolliert sie. Eine Umstellung braucht eine bewusste Strategie, eine Go/No-Go-Entscheidung und einen Rückfallplan.</p>

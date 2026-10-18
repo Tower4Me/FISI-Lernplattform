@@ -1019,6 +1019,10 @@
         {
           "id": "1-6-2",
           "tiefe": "Gestaltung"
+        },
+        {
+          "id": "12-5-3",
+          "tiefe": "Ergebnispräsentation für den Auftraggeber"
         }
       ]
     },
@@ -1668,6 +1672,10 @@
         {
           "id": "12-4-2",
           "tiefe": "Werkvertrag im Projekt, Zahlungsplan mit Rest nach Abnahme"
+        },
+        {
+          "id": "12-5-4",
+          "tiefe": "Abnahme mit Vorbehalt, Übergang in den Betrieb"
         }
       ]
     },
@@ -1763,6 +1771,10 @@
         {
           "id": "9-7-3",
           "tiefe": "Unterlagen für Mehrstandortnetz"
+        },
+        {
+          "id": "12-5-4",
+          "tiefe": "Betriebsdokumentation bei der Übergabe"
         }
       ]
     },
@@ -2509,6 +2521,10 @@
         {
           "id": "10-7-4",
           "tiefe": "Grenzfälle, Trockenlauf"
+        },
+        {
+          "id": "12-5-2",
+          "tiefe": "Testkonzept im Integrationsprojekt: Komponenten-, Integrations-, Ausfall-, Datentest, Abnahmetest"
         }
       ]
     },
@@ -3026,6 +3042,10 @@
         {
           "id": "12-1-2",
           "tiefe": "Umgang mit einflussreichen Gegnern im Projekt"
+        },
+        {
+          "id": "12-5-3",
+          "tiefe": "Schulungskonzept mit Key User"
         }
       ]
     },
@@ -4241,7 +4261,12 @@
         "Aufwand = Arbeitszeit (Personenstunden), Dauer = Kalenderzeit ≈ Aufwand ÷ (Personen × verfügbare Stunden pro Tag) + Wartezeiten; Schätzen: Experten, Analogie, Drei-Punkt (O + 4M + P) ÷ 6; Ressourcenplan zeigt Überlast; Meilensteine als Prüfpunkte.",
         "Projektkosten = Personalkosten (Aufwand × Stundensatz) + Sachkosten + Reserve (oft 10–20 %) = Selbstkosten; Gewinn kommt im Angebot dazu; laufende Kosten nach dem Projekt gehören nicht dazu.",
         "Risikoliste: Risiko, Ursache, Wahrscheinlichkeit, Auswirkung (Stufen), Risikozahl = W × A, vorbeugende Maßnahme, Notfallmaßnahme (Plan B), Verantwortliche; laufend fortschreiben.",
-        "Leistungsbeschreibung: Ziel, Leistungsumfang, nicht enthaltene Leistungen, Mitwirkung des Kunden, Annahmen, Termine, Abnahmekriterien, Änderungsverfahren (Änderungsantrag: Aufwand und Folgen bewerten, Kunde gibt frei). Angebot: Preise je Position, Festpreis (Risiko beim Auftragnehmer) oder nach Aufwand (Risiko beim Kunden, ggf. Obergrenze), Zahlungsplan mit Abschlägen für erbrachte Teilleistungen (§ 632a BGB) und Rest nach Abnahme (§ 641), Bindungsfrist."
+        "Leistungsbeschreibung: Ziel, Leistungsumfang, nicht enthaltene Leistungen, Mitwirkung des Kunden, Annahmen, Termine, Abnahmekriterien, Änderungsverfahren (Änderungsantrag: Aufwand und Folgen bewerten, Kunde gibt frei). Angebot: Preise je Position, Festpreis (Risiko beim Auftragnehmer) oder nach Aufwand (Risiko beim Kunden, ggf. Obergrenze), Zahlungsplan mit Abschlägen für erbrachte Teilleistungen (§ 632a BGB) und Rest nach Abnahme (§ 641), Bindungsfrist.",
+        "Steuerung: Soll-Ist bei Terminen, Kosten, Leistung; Statusbericht mit Ampel (grün im Plan, gelb Abweichung vom Team aufgefangen, rot Termin/Budget/Ziel gefährdet, Eskalation, Auftraggeber entscheidet), Risiken, offene Entscheidungen; Änderungsantrag: erfassen, bewerten, Auftraggeber entscheidet, umsetzen und dokumentieren.",
+        "Qualität: Testkonzept mit Komponenten-, Integrations-, Ausfalltest und Datenprüfung (Zählabgleich, Stichprobe) vor dem Abnahmetest, Testprotokoll; Umstellung zum Stichtag, parallel oder schrittweise; Go/No-Go-Entscheidung, Rückfallplan.",
+        "Ergebnispräsentation für Entscheider (Ziele gegen Ergebnis, Vorführung, Abweichungen, offene Punkte); Schulungskonzept für Anwender (Zielgruppen, Lernziele als beobachtbares Können, Methode mit Üben, Zeitpunkt, Mittel, Erfolgskontrolle).",
+        "Übergabe: Betriebs-, Benutzer-, Projektdokumentation, Übergabe-/Abnahmeprotokoll mit bekannten Mängeln; Zugangsdaten sicher übergeben; Betreuung, Mängelbehebung und Pflege der Doku regeln.",
+        "Befugnis der Projektleitung gilt innerhalb des vereinbarten Umfangs; Änderungen der Leistung entscheidet der Auftraggeber. Reserve ist intern: Mehraufwand beim Festpreis trägt das Systemhaus."
       ],
       "vorkommen": [
         {
@@ -4279,6 +4304,22 @@
         {
           "id": "12-4-2",
           "tiefe": "Angebot, Preismodell, Zahlungsplan"
+        },
+        {
+          "id": "12-5-1",
+          "tiefe": "Projektsteuerung"
+        },
+        {
+          "id": "12-5-2",
+          "tiefe": "Qualitätssicherung, Umstellung"
+        },
+        {
+          "id": "12-5-3",
+          "tiefe": "Präsentation, Schulung"
+        },
+        {
+          "id": "12-5-4",
+          "tiefe": "Übergabe, Dokumentation"
         }
       ]
     },

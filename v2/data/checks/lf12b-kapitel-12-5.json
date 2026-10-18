@@ -1,0 +1,125 @@
+{
+  "titel": "Check 12.5",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Soll-Ist-Vergleich",
+      "frage": "Welche drei Größen vergleichst du in der Projektsteuerung regelmäßig zwischen Plan und tatsächlichem Stand?",
+      "optionen": [
+        "Umsatz, Gewinn und Rabatt",
+        "Termine, Kosten und Leistung",
+        "Aufwand, Dauer und Ressourcen",
+        "Hardware, Software und Lizenzen"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Der Soll-Ist-Vergleich betrachtet Termine, Kosten und den tatsächlich fertigen und geprüften Leistungsstand. Die drei Größen hängen zusammen wie im magischen Dreieck."
+    },
+    {
+      "typ": "mc",
+      "thema": "Statusampel",
+      "frage": "Im Statusbericht steht die Ampel auf Rot. Was bedeutet das?",
+      "optionen": [
+        "Das Team fängt eine Abweichung selbst auf",
+        "Das Projekt ist gefährdet und braucht eine Entscheidung",
+        "Das Projekt wurde vom Auftraggeber abgebrochen",
+        "Das Projekt liegt bei Terminen, Kosten und Leistung im Plan"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Grün heißt im Plan, Gelb heißt Abweichung, die das Team auffängt. Rot heißt, Termin, Budget oder Ziel sind gefährdet; die Projektleitung eskaliert, der Auftraggeber entscheidet."
+    },
+    {
+      "typ": "mc",
+      "thema": "Änderungsantrag",
+      "frage": "Im Festpreisprojekt wünscht die Kundin zusätzlich die Einbindung eines Druckers. Was ist der richtige nächste Schritt?",
+      "optionen": [
+        "Den Drucker sofort ohne Berechnung einbinden, der Aufwand ist gering",
+        "Aufwand und Folgen bewerten und ein Nachtragsangebot vorlegen",
+        "Den Wunsch ablehnen, weil der Vertrag schon geschlossen ist",
+        "Den Drucker einbinden und den Aufwand am Ende mit abrechnen"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Jede Änderung wird erfasst, bewertet und vom Auftraggeber entschieden, beim Festpreis mit Nachtragsangebot. Erst nach der Freigabe wird umgesetzt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Testarten",
+      "frage": "Du ziehst am neuen Standort das VDSL-Kabel und prüfst, ob die Praxissoftware über Mobilfunk weiterläuft. Welcher Test ist das?",
+      "optionen": [
+        "Komponententest",
+        "Ausfalltest",
+        "Abnahmetest",
+        "Datenprüfung"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Ein Ausfalltest prüft das Verhalten bei Störungen, hier das Umschalten auf den Ersatzweg. Ein Komponententest prüft jede Komponente für sich."
+    },
+    {
+      "typ": "mc",
+      "thema": "Datenprüfung",
+      "frage": "Wie prüfst du, ob eine Datenübernahme vollständig und richtig war?",
+      "optionen": [
+        "Anzahl der Datensätze in alt und neu vergleichen und Stichproben prüfen",
+        "Die neue Software starten und auf Fehlermeldungen achten",
+        "Die Dateigröße des Exports mit der des Imports vergleichen",
+        "Die Beschäftigten nach einer Woche fragen, ob etwas fehlt"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Der Zählabgleich zeigt, ob alles angekommen ist, die Stichprobe, ob die Inhalte stimmen. Fehlermeldungen oder Dateigrößen sagen darüber wenig."
+    },
+    {
+      "typ": "mc",
+      "thema": "Umstellung",
+      "frage": "Was spricht bei einer Praxissoftware mit Terminkalender gegen einen Parallelbetrieb von altem und neuem System?",
+      "optionen": [
+        "Ein Parallelbetrieb ist teurer als ein Stichtag",
+        "Zwei Kalender laufen nebeneinander, und unklar ist, welcher gilt",
+        "Ein Rückfallplan ist bei einem Parallelbetrieb dann nicht mehr möglich",
+        "Die alte Software kann dann nicht mehr gestartet werden"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Parallelbetrieb ist sicher, bedeutet aber doppelte Arbeit, und bei Daten wie Terminen droht ein Durcheinander, welches System gilt."
+    },
+    {
+      "typ": "mc",
+      "thema": "Lernziele",
+      "frage": "Welches Lernziel ist für eine Anwenderschulung gut formuliert?",
+      "optionen": [
+        "Die Teilnehmenden kennen die neue Praxissoftware",
+        "Die Teilnehmenden können einen Termin anlegen und verschieben",
+        "Die Teilnehmenden verstehen das neue System gut",
+        "Die Teilnehmenden haben an beiden Schulungsabenden teilgenommen"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Ein gutes Lernziel beschreibt beobachtbares Können. So lässt sich am Ende prüfen, ob die Schulung gewirkt hat."
+    },
+    {
+      "typ": "mc",
+      "thema": "Dokumentation",
+      "frage": "In welchem Dokument stehen Netz- und Adresspläne, Geräte und Konfigurationen für den Support?",
+      "optionen": [
+        "Benutzerdokumentation",
+        "Betriebsdokumentation",
+        "Projektdokumentation",
+        "Übergabe- und Abnahmeprotokoll"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Die Betriebsdokumentation richtet sich an Administration und Support. Die Benutzerdokumentation enthält Kurzanleitungen für Anwender."
+    }
+  ]
+}

@@ -6967,6 +6967,100 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "12.5",
+          "titel": "Umsetzen und übergeben",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "12.5.1",
+              "titel": "Projekt steuern",
+              "slug": "projekt-steuern",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: gewünschte Lösung implementieren (Projektdurchführung steuern)",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Termine überwachen; Qualitätssicherungsmaßnahmen projektbegleitend durchführen und dokumentieren)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard Soll-Ist-Vergleich, Statusbericht mit Ampel, Änderungsmanagement"
+                ]
+              },
+              "material": [
+                "projektphasen-meilensteine"
+              ],
+              "begriffe": [
+                "projektmanagement"
+              ]
+            },
+            {
+              "nummer": "12.5.2",
+              "titel": "Qualität sichern",
+              "slug": "qualitaet-sichern",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: Maßnahmen zur Qualitätssicherung nutzen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Termine überwachen; Qualitätssicherungsmaßnahmen projektbegleitend durchführen und dokumentieren)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard Testkonzept, Umstellungsstrategien (Stichtag, parallel, schrittweise), Go/No-Go, Rückfallplan"
+                ]
+              },
+              "material": [
+                "testverfahren-black-white-box",
+                "pdca-prozessorientiertes-qm"
+              ],
+              "begriffe": [
+                "projektmanagement",
+                "softwaretest"
+              ]
+            },
+            {
+              "nummer": "12.5.3",
+              "titel": "Präsentieren und schulen",
+              "slug": "praesentieren-und-schulen",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: Projektergebnis präsentieren und Schulung durchführen",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Termine überwachen; Qualitätssicherungsmaßnahmen projektbegleitend durchführen und dokumentieren)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard Schulungskonzept mit Lernzielen als beobachtbarem Können"
+                ]
+              },
+              "material": [
+                "change-management",
+                "feedback-retrospektive"
+              ],
+              "begriffe": [
+                "change-management",
+                "praesentation",
+                "projektmanagement"
+              ]
+            },
+            {
+              "nummer": "12.5.4",
+              "titel": "Übergabe und Dokumentation",
+              "slug": "uebergabe-und-dokumentation",
+              "quellen": {
+                "rahmenlehrplan": "LF12b: Produkt und Dokumentation übergeben",
+                "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 1 (Termine überwachen; Qualitätssicherungsmaßnahmen projektbegleitend durchführen und dokumentieren)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "Lehrbuchstandard Dokumentationsarten (Betriebs-, Benutzer-, Projektdokumentation)"
+                ]
+              },
+              "material": [
+                "abnahme-abnahmeprotokoll"
+              ],
+              "begriffe": [
+                "abnahme",
+                "netzwerkdokumentation",
+                "projektmanagement"
+              ]
+            }
+          ]
         }
       ]
     }

@@ -1,0 +1,125 @@
+{
+  "titel": "Check 12.1",
+  "fragen": [
+    {
+      "typ": "mc",
+      "thema": "Schulungsbedarf",
+      "frage": "Eine Kanzlei bekommt neue Buchhaltungssoftware. Welche Frage gehört in der Anforderungsanalyse zum Schulungsbedarf?",
+      "optionen": [
+        "Wie viel Arbeitsspeicher braucht die neue Software?",
+        "Wer arbeitet künftig damit, und was kennen diese Personen schon?",
+        "Bis zu welchem Betrag entscheidet die Projektleitung allein?",
+        "Welcher Anbieter liefert den Internetanschluss der Kanzlei?"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Der Schulungsbedarf ergibt sich daraus, wer künftig mit der Lösung arbeitet und was diese Personen schon können. Er wird früh geklärt, weil er Zeit und Budget braucht."
+    },
+    {
+      "typ": "mc",
+      "thema": "Methoden",
+      "frage": "Inhaberin, Empfang und Ärzte nennen unterschiedliche Wünsche. Welche Methode bringt die Sichten am schnellsten zusammen?",
+      "optionen": [
+        "Ein Workshop mit allen Beteiligten",
+        "Einzelne Interviews im Abstand von Wochen",
+        "Die Handbücher der alten Software lesen",
+        "Eine Begehung der Räume ohne Beschäftigte"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Im Workshop kommen mehrere Sichten gleichzeitig auf den Tisch, Widersprüche fallen sofort auf. Entscheiden muss bei einem Konflikt trotzdem die Auftraggeberin."
+    },
+    {
+      "typ": "mc",
+      "thema": "Priorität",
+      "frage": "Ohne Zugriff auf die zentrale Datenbank wäre das Projekt gescheitert. Wie wird diese Anforderung eingeordnet?",
+      "optionen": [
+        "Kann-Anforderung",
+        "Soll-Anforderung",
+        "Muss-Anforderung",
+        "Rahmenbedingung"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Muss-Anforderungen sind die, ohne die das Projekt gescheitert ist. Für jede Muss-Anforderung wird festgelegt, wie sie bei der Abnahme geprüft wird."
+    },
+    {
+      "typ": "mc",
+      "thema": "Konflikt",
+      "frage": "Der Empfang will die Umstellung an einem Werktag, die Ärzte am Wochenende. Wer entscheidet?",
+      "optionen": [
+        "Das Projektteam nach technischer Machbarkeit",
+        "Die Auftraggeberin des Projekts",
+        "Der Hersteller der Praxissoftware",
+        "Die Gruppe mit den meisten Beschäftigten"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Widersprechen sich Wünsche, entscheidet die Auftraggeberin. Das Projektteam zeigt die Folgen der Möglichkeiten auf."
+    },
+    {
+      "typ": "mc",
+      "thema": "Projektauftrag",
+      "frage": "Was unterscheidet den Projektauftrag vom Lastenheft?",
+      "optionen": [
+        "Der Projektauftrag beschreibt die Anforderungen an das Ergebnis genauer",
+        "Der Projektauftrag legt fest, wer das Vorhaben in welchem Rahmen durchführt",
+        "Der Projektauftrag wird vom Auftragnehmer als Antwort auf das Lastenheft geschrieben",
+        "Der Projektauftrag ersetzt bei kleinen Projekten die Abnahme"
+      ],
+      "richtig": [
+        1
+      ],
+      "erklaerung": "Das Lastenheft beschreibt, was das Ergebnis können soll. Der Projektauftrag regelt Ziele, Abgrenzung, Termine, Budget, Projektleitung mit Befugnissen und Beteiligte."
+    },
+    {
+      "typ": "mc",
+      "thema": "Abgrenzung",
+      "frage": "Während der Einrichtung bittet die Praxis: „Könnt ihr auch noch die Kameras im Lager tauschen?“ Welcher Teil des Projektauftrags hilft hier?",
+      "optionen": [
+        "Die Abgrenzung",
+        "Die Ausgangslage",
+        "Die Liste der Risiken",
+        "Die Rollenbeschreibung"
+      ],
+      "richtig": [
+        0
+      ],
+      "erklaerung": "Die Abgrenzung legt fest, was nicht zum Projekt gehört. Neue Wünsche werden dann bewusst entschieden, statt nebenbei Termin und Budget zu sprengen."
+    },
+    {
+      "typ": "mc",
+      "thema": "Rollen",
+      "frage": "Eine erfahrene Fachangestellte testet die eingerichteten Abläufe und erklärt sie später ihren Kolleginnen. Welche Rolle hat sie?",
+      "optionen": [
+        "Projektleitung im Auftrag des Systemhauses",
+        "Auftraggeberin",
+        "Lenkungsausschuss",
+        "Fachansprechpartnerin (Key User)"
+      ],
+      "richtig": [
+        3
+      ],
+      "erklaerung": "Key User kennen die Abläufe beim Kunden, testen und geben ihr Wissen weiter. Die Projektleitung plant und steuert, die Auftraggeberin nimmt ab."
+    },
+    {
+      "typ": "mc",
+      "thema": "Stakeholder",
+      "frage": "Der Leiter der Buchhaltung hat großen Einfluss und lehnt das Projekt ab. Was ist der beste Umgang?",
+      "optionen": [
+        "Ihn bis zur Abnahme bewusst heraushalten, damit er das Projekt nicht bremst",
+        "Ihn einmal am Ende per Rundmail informieren",
+        "Früh mit ihm sprechen, Bedenken ernst nehmen und ihn beteiligen",
+        "Die Auftraggeberin bitten, ihn vom Projekt abzuziehen"
+      ],
+      "richtig": [
+        2
+      ],
+      "erklaerung": "Einflussreiche Gegner werden früh beteiligt, damit ihre Bedenken gehört werden und nicht zu Widerstand werden. Gruppen mit kleinem Einfluss werden informiert."
+    }
+  ]
+}

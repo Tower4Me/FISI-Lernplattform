@@ -753,7 +753,7 @@
 <section class="rb-kapitel" id="k-11-2"><h2><span class="num">11.2</span> Kryptografie anwenden</h2>
 <ul class="rb-list">
 <li><span class="num">11.2.1</span><div><a href="11-2-1-verfahren-und-schluessellaengen.html">Verfahren und Schlüssellängen</a><ul><li><strong>Symmetrisch</strong>: AES (128 bis 256 Bit) für große Datenmengen; DES und 3DES veraltet. <strong>Asymmetrisch</strong>: RSA (mindestens 3000 Bit) oder ECC für Schlüsselvereinbarung und Signaturen.</li>
-  <li><strong>Diffie-Hellman</strong> vereinbart einen gemeinsamen Schlüssel ohne ihn zu übertragen; neue Schlüssel je Sitzung ergeben Forward Secrecy.</li></ul></div></li>
+  <li><strong>Diffie-Hellman</strong> vereinbart einen gemeinsamen Schlüssel, ohne ihn zu übertragen; neue Schlüssel je Sitzung ergeben Forward Secrecy.</li></ul></div></li>
 <li><span class="num">11.2.2</span><div><a href="11-2-2-hash-signatur-und-mac.html">Hash, Signatur und MAC</a><ul><li><strong>Hashwerte</strong> prüfen Downloads und Archive; MD5 und SHA-1 sind gebrochen, SHA-256 ist Standard. Kennwörter speicherst du mit Salt und langsamem Verfahren (bcrypt, Argon2).</li>
   <li><strong>Signatur</strong> (privater/öffentlicher Schlüssel) belegt Urheber auch gegenüber Dritten; <strong>MAC</strong> (gemeinsamer Schlüssel) sichert schnell jedes Paket in TLS und VPN gegen Veränderung.</li></ul></div></li>
 <li><span class="num">11.2.3</span><div><a href="11-2-3-tls.html">TLS</a><ul><li><strong>TLS</strong> sichert Vertraulichkeit, Integrität und Authentizität; im Handshake werden Verfahren ausgehandelt, das Zertifikat geprüft und per Diffie-Hellman ein Sitzungsschlüssel vereinbart.</li>
@@ -779,7 +779,7 @@
 <li><span class="num">11.4.3</span><div><a href="11-4-3-switches-absichern.html">Switches absichern</a><ul><li><strong>Port Security</strong> begrenzt MAC-Adressen je Port; <strong>802.1X</strong> verlangt eine Anmeldung (Supplicant, Switch als Authenticator, RADIUS-Server) und kann das VLAN zuweisen.</li>
   <li><strong>DHCP-Snooping</strong> sperrt fremde DHCP-Server, gegen <strong>VLAN-Hopping</strong> helfen feste Access-Ports und ein ungenutztes Native VLAN.</li></ul></div></li>
 <li><span class="num">11.4.4</span><div><a href="11-4-4-wlan-absichern.html">WLAN im Unternehmen absichern</a><ul><li><strong>WPA2/3-Enterprise</strong>: Anmeldung je Person oder Gerät über RADIUS (AAA: Authentication, Authorization, Accounting); EAP-TLS mit Zertifikaten ist am sichersten.</li>
-  <li><strong>Angriffe</strong>: Kennwort offline raten (WPA3/Enterprise), Evil Twin (Serverzertifikat prüfen), Rogue AP (802.1X, Erkennung), Deauthentication (PMF).</li></ul></div></li>
+  <li><strong>Angriffe und Abwehr</strong>: Kennwort offline raten → WPA3 (SAE) oder Enterprise; Evil Twin → Serverzertifikat fest prüfen; Rogue AP → 802.1X und Erkennung; Deauthentication → PMF.</li></ul></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-11-4.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 11.4</a></p>
 </section>
@@ -787,8 +787,8 @@
 <ul class="rb-list">
 <li><span class="num">11.5.1</span><div><a href="11-5-1-e-mail-schuetzen.html">E-Mail schützen</a><ul><li><strong>Mailfilter</strong> prüfen in Stufen: Absender, Ruf, Inhalt, Anhänge, Sandbox; Verdachtsfälle gehen in eine Quarantäne, die gesichtet wird.</li>
   <li><strong>SPF</strong> nennt die erlaubten Server, <strong>DKIM</strong> signiert die Mail, <strong>DMARC</strong> verlangt, dass eines davon zur sichtbaren Absenderdomain passt, und legt fest, was sonst passiert.</li></ul></div></li>
-<li><span class="num">11.5.2</span><div><a href="11-5-2-dns-absichern.html">DNS absichern</a><ul><li><strong>Angriffe</strong>: gefälschte Antworten (Spoofing), vergifteter Zwischenspeicher (Cache Poisoning), falscher DNS-Server, übernommenes Domain-Konto.</li>
-  <li><strong>DNSSEC</strong> signiert Einträge (RRSIG, DNSKEY, DS als Kette bis zur Root) und sichert Integrität und Authentizität, nicht Vertraulichkeit; dazu interne Resolver nur für das eigene Netz und DNS nach außen nur von ihnen.</li></ul></div></li>
+<li><span class="num">11.5.2</span><div><a href="11-5-2-dns-absichern.html">DNS absichern</a><ul><li><strong>Angriffe</strong>: gefälschte Antworten (Spoofing), vergifteter Zwischenspeicher (Cache Poisoning), falscher DNS-Server, übernommenes Domain-Konto; dagegen interne Resolver nur für das eigene Netz, DNS nach außen nur von ihnen.</li>
+  <li><strong>DNSSEC</strong> signiert Einträge (RRSIG, DNSKEY, DS als Kette bis zur Root) und sichert Integrität und Authentizität, nicht Vertraulichkeit.</li></ul></div></li>
 <li><span class="num">11.5.3</span><div><a href="11-5-3-systeme-haerten.html">Systeme härten</a><ul><li><strong>Härten</strong> nach Bereichen: Firmware, Betriebssystem, Konten und Rechte, Netz, Programme (Positivliste), Protokollierung, Daten; den Zustand festhalten und regelmäßig prüfen.</li>
   <li><strong>Least Privilege</strong>: nur nötige Rechte, nur so lange wie nötig; <strong>Zero Trust</strong>: jeder Zugriff wird geprüft, auch aus dem internen Netz.</li></ul></div></li>
 <li><span class="num">11.5.4</span><div><a href="11-5-4-mobile-geraete.html">Mobile Geräte</a><ul><li><strong>Im Gerät</strong>: TPM speichert Schlüssel und prüft den Start, Secure Boot startet nur signierte Software, Verschlüsselung schützt gestohlene Geräte; TPM plus PIN sind zwei Faktoren.</li>
@@ -798,10 +798,10 @@
 </section>
 <section class="rb-kapitel" id="k-11-6"><h2><span class="num">11.6</span> Datenschutz im Betrieb</h2>
 <ul class="rb-list">
-<li><span class="num">11.6.1</span><div><a href="11-6-1-videoueberwachung-und-beschaeftigtendaten.html">Videoüberwachung und Beschäftigtendaten</a><ul><li><strong>Videoüberwachung</strong>: berechtigtes Interesse gegen die Interessen der Gefilmten abwägen, bei Beschäftigten nur bei konkretem Verdacht und befristet; fester Zweck, mildere Mittel prüfen, nur nötiger Bereich, Hinweisschild, in der Regel höchstens 72 Stunden speichern, geregelter Zugriff.</li>
+<li><span class="num">11.6.1</span><div><a href="11-6-1-videoueberwachung-und-beschaeftigtendaten.html">Videoüberwachung und Beschäftigtendaten</a><ul><li><strong>Videoüberwachung</strong>: Abwägung nach berechtigtem Interesse; bei Beschäftigten nur bei konkretem Verdacht und befristet; fester Zweck, kleiner Bereich, Hinweisschild, in der Regel höchstens 72 Stunden.</li>
   <li><strong>Beschäftigtendaten</strong> aus Protokollen, Anmeldungen und Postfächern nur zweckgebunden und nach festem Verfahren nutzen; ein Betriebsrat bestimmt bei Überwachungstechnik mit.</li></ul></div></li>
 <li><span class="num">11.6.2</span><div><a href="11-6-2-pflichten-und-datenpanne.html">Pflichten und Datenpanne</a><ul><li><strong>Pflichten</strong>: Verzeichnis von Verarbeitungstätigkeiten, Datenschutzbeauftragte/r ab 20 Personen, Verträge zur Auftragsverarbeitung, angemessene TOM, Löschkonzept, Folgenabschätzung bei hohem Risiko; alles nachweisbar.</li>
-  <li><strong>Datenpanne</strong>: eindämmen, bewerten, Aufsichtsbehörde binnen 72 Stunden ab Kenntnis (außer kein Risiko), Betroffene bei hohem Risiko, jede Verletzung dokumentieren.</li></ul></div></li>
+  <li><strong>Datenpanne</strong>: eindämmen, bewerten, Aufsichtsbehörde unverzüglich, möglichst binnen 72 Stunden ab Kenntnis (außer voraussichtlich kein Risiko), Betroffene bei hohem Risiko, jede Verletzung dokumentieren.</li></ul></div></li>
 </ul>
 <p class="no-print"><a class="btn" href="druck-11-6.html"><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg>Druckfassung 11.6</a></p>
 </section>

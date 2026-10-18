@@ -21,7 +21,7 @@
       "thema": "TPM",
       "frage": "Welche Aufgabe übernimmt das TPM bei der Festplattenverschlüsselung eines Notebooks?",
       "optionen": [
-        "Es speichert den Schlüssel und gibt ihn nur bei unverändertem Start frei",
+        "Es hält den Schlüssel und gibt ihn nur bei unverändertem Start frei",
         "Es prüft die Signatur des Bootloaders und blockiert unsignierte Systeme",
         "Es löscht den Datenträger, sobald das Gerät als verloren gemeldet ist",
         "Es überträgt den Schlüssel bei jedem Start an den Verzeichnisdienst"
@@ -37,7 +37,7 @@
       "frage": "Ein Mailfilter öffnet unbekannte Anhänge zuerst in einer abgeschotteten Umgebung. Welcher Nachteil ist damit verbunden?",
       "optionen": [
         "Bekannte Viren werden nicht mehr erkannt",
-        "Die Zustellung verzögert sich, und manche Schadsoftware verhält sich dort unauffällig",
+        "Zustellung dauert länger, manche Schadsoftware bleibt dort ruhig",
         "Anhänge kommen beim Empfänger nur noch als PDF-Vorschau an",
         "Absender müssen ihre Mails zusätzlich mit DKIM signieren, damit sie zugestellt werden"
       ],

@@ -756,7 +756,7 @@
   <li>Verschlüsselt schickt der Server sein Zertifikat und eine Signatur über den bisherigen Handshake. Sie beweist, dass er den passenden privaten Schlüssel besitzt.</li>
   <li>Der Client <strong>prüft Zertifikat und Signatur</strong>: Ist das Zertifikat gültig, für diesen Namen ausgestellt und von einer vertrauenswürdigen Stelle signiert? Danach fließen die Daten symmetrisch verschlüsselt.</li>
 </ol>
-<p>Die Kombination der Verfahren heißt <strong>Cipher Suite</strong>. Bei TLS 1.2 nennt sie Schlüsseltausch, Serverprüfung, Verschlüsselung und Prüfwert, etwa TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Bei TLS 1.3 nennt sie nur noch Verschlüsselung und Hashverfahren, etwa TLS_AES_128_GCM_SHA256, weil der Schlüsseltausch dort ohnehin per Diffie-Hellman läuft.</p>
+<p>Die Kombination der Verfahren heißt <strong>Cipher Suite</strong>. Bei TLS 1.2 nennt sie Schlüsseltausch, Serverprüfung, Verschlüsselung und Hashverfahren, etwa TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Bei TLS 1.3 nennt sie nur noch Verschlüsselung und Hashverfahren, etwa TLS_AES_128_GCM_SHA256, weil der Schlüsseltausch dort ohnehin per Diffie-Hellman läuft.</p>
 
 <h3 id="tls-1-2-und-tls-1-3">TLS 1.2 und TLS 1.3<a class="anchor" href="#tls-1-2-und-tls-1-3" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">

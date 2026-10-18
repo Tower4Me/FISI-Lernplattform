@@ -741,7 +741,7 @@
 </header>
 <div class="content">
 <section class="print-up" id="u-11-4-1"><h2><span class="num">11.4.1</span> Firewalls</h2>
-<p class="lead">Zwischen den VLANs des Praxisverbunds und zum Internet hin entscheiden bisher nur ein paar Zugriffslisten, was durchdarf (LF9, Kapitel 9.4.2: der Router in Nord und Süd, der Kern-Switch im Stammhaus). Das Systemhaus schlägt eine richtige <strong>Firewall</strong> vor. Sie ersetzt im Stammhaus den Internetrouter, schließt die Tunnel zu Nord und Süd ab und übernimmt auch das Routing zwischen den VLANs: Der Kern-Switch reicht die VLANs per Trunk an die Firewall weiter, statt selbst zu routen. Sie setzt eine Sicherheitsrichtlinie technisch um: Nur ausdrücklich erlaubter Verkehr kommt zwischen den Netzbereichen durch.</p>
+<p class="lead">Zwischen den VLANs des Praxisverbunds und zum Internet hin entscheiden bisher nur ein paar Zugriffslisten, was durchdarf (LF9, Kapitel 9.4.2: der Router in Nord und Süd, der Kern-Switch im Stammhaus). Das Systemhaus schlägt eine richtige <strong>Firewall</strong> vor. Sie ersetzt im Stammhaus den Internetrouter, schließt die Tunnel zu Nord und Süd ab und übernimmt auch das Routing zwischen den VLANs: Der Kern-Switch reicht die VLANs per Trunk an die Firewall weiter, statt selbst zu routen; auch das DHCP-Relay zieht vom Kern-Switch auf die Firewall um. Sie setzt eine Sicherheitsrichtlinie technisch um: Nur ausdrücklich erlaubter Verkehr kommt zwischen den Netzbereichen durch.</p>
 
 <h3 id="u11-4-1-arten-von-firewalls">Arten von Firewalls<a class="anchor" href="#u11-4-1-arten-von-firewalls" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">
@@ -827,6 +827,7 @@
   <p>Das Systemhaus richtet an der neuen Firewall im Stammhaus eine dritte Schnittstelle für die DMZ ein: VLAN 70 mit 10.10.0.160/28 aus dem freien Bereich des Adressplans (LF9, Kapitel 9.3.1). Der Reverse Proxy läuft weiter als VM auf den Hosts aus LF10b, Kapitel 10.1.2; die Hosts bekommen VLAN 70 nur für diese VM, ihre Adresse wechselt von 10.10.0.149 auf 10.10.0.162. Die Adressen der übrigen Server bleiben hier zur Übersicht die aus LF9. Erlaubt sind nur: Internet zum Proxy auf TCP 443 (die Weiterleitung von 198.51.100.10:443 zeigt jetzt auf 10.10.0.162), Proxy zur Web-API 10.10.0.148 auf TCP 443, Proxy ins Internet auf TCP 443 für Updates und die ACME-Erneuerung (Kapitel 11.3.2) mit DNS über einen öffentlichen Resolver, Verwaltung aus dem Management-VLAN 99 zum Proxy per SSH. Die Web-API bleibt im Server-VLAN; aus der DMZ darf nur sie angesprochen werden, nicht die Datenbank. Ein Test von der DMZ aus zeigt: Der Proxy erreicht weder die Datenbank noch die PCs der Verwaltung.</p>
 </div>
 
+<aside class="note note-hinweis"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>Hinweis</p><p>Eine DMZ-VM auf demselben Host wie interne Server spart Geräte. Eine Lücke im Hypervisor würde die Trennung aber aufheben. Bei hohem Schutzbedarf bekommt die DMZ eigene Hardware.</p></aside>
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Der Webserver steht in der DMZ, also kann er auch die Datenbank direkt abfragen.“ Genau diese Verbindung soll die DMZ verhindern oder auf das Nötigste beschränken. Die Datenbank bleibt intern, und zwischen DMZ und intern erlaubt die Firewall nur einzelne, begründete Wege.</p></aside>
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
@@ -861,11 +862,11 @@
     </tbody>
   </table>
 </div>
-<p>Dazu kommen die Grundregeln aus LF9, Kapitel 9.7.1: ungenutzte Ports abschalten, Verwaltung nur verschlüsselt aus dem Management-VLAN, persönliche Konten. Auch die Anmeldung der Administration an den Netzgeräten läuft zentral über RADIUS oder TACACS+: Die persönlichen Konten liegen dann im Verzeichnisdienst, und jede Anmeldung wird protokolliert.</p>
+<p>Dazu kommen die Grundregeln aus LF9, Kapitel 9.7.1: ungenutzte Ports abschalten, Verwaltung nur verschlüsselt aus dem Management-VLAN, persönliche Konten. Auch die Anmeldung der Administration an den Netzgeräten läuft zentral über RADIUS oder TACACS+: Die persönlichen Konten liegen dann im Verzeichnisdienst, und jede Anmeldung wird protokolliert. TACACS+ (TCP 49) schützt den ganzen Paketinhalt und kann jeden Befehl einzeln freigeben; RADIUS verbirgt nur das Kennwort. Ein lokales Notfallkonto, dessen Kennwort im Tresor liegt, bleibt für den Fall, dass der Server ausfällt. Das Prinzip AAA erklärt Kapitel 11.4.4.</p>
 
 <div class="beispiel">
   <p class="block-label">Beispiel</p>
-  <p>Das Systemhaus führt im Verbund 802.1X ein. Die Firmen-PCs melden sich mit Gerätezertifikaten der internen CA an (Kapitel 11.3.2), der RADIUS-Server weist ihnen VLAN 10 zu. Drucker kommen per MAC-Authentifizierung in VLAN 10. Die Telefone melden sich per MAC-Authentifizierung an und kommen ins Voice-VLAN 30; der PC dahinter meldet sich am selben Port selbst an. Ein unbekanntes Gerät an der Dose des Infobildschirms im Wartezimmer landet im Gäste-VLAN 40 und kommt nur ins Internet. Auf allen Switches läuft DHCP-Snooping, vertrauenswürdig ist nur der Uplink. Das Native VLAN bleibt auf der ungenutzten ID 999 (LF9, Kapitel 9.2.2), an allen Endgeräteports ist die automatische Trunk-Aushandlung aus. Der RADIUS-Server läuft als VM im Stammhaus. Fällt der Tunnel aus, bleiben angemeldete Geräte verbunden; damit sich in Nord und Süd trotzdem jemand neu anmelden kann, lassen die Switches bei nicht erreichbarem Server bekannte Firmengeräte in VLAN 10 zu.</p>
+  <p>Das Systemhaus führt im Verbund 802.1X ein. Die Firmen-PCs melden sich mit Gerätezertifikaten der internen CA an (Kapitel 11.3.2), der RADIUS-Server weist ihnen VLAN 10 zu. Drucker kommen per MAC-Authentifizierung in VLAN 10. Die Telefone melden sich per MAC-Authentifizierung an und kommen ins Voice-VLAN 30; der PC dahinter meldet sich am selben Port selbst an. Ein unbekanntes Gerät an der Dose des Infobildschirms im Wartezimmer landet im Gäste-VLAN 40 und kommt nur ins Internet. Auf allen Switches läuft DHCP-Snooping; vertrauenswürdig sind nur die Uplinks und im Stammhaus die Ports zu den Hosts, auf denen der DHCP-Server läuft. Das Native VLAN bleibt auf der ungenutzten ID 999 (LF9, Kapitel 9.2.2), an allen Endgeräteports ist die automatische Trunk-Aushandlung aus. Der RADIUS-Server läuft als VM im Stammhaus. Fällt der Tunnel aus, bleiben angemeldete Geräte verbunden; damit sich in Nord und Süd trotzdem jemand neu anmelden kann, lassen die Switches bei nicht erreichbarem Server Geräte an den Ports der Praxisräume in VLAN 10 zu, bis der Server wieder antwortet; das Risiko ist im Sicherheitskonzept dokumentiert.</p>
 </div>
 
 <aside class="note note-fehler"><p class="note-label"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Häufiger Fehler</p><p>„Ein MAC-Filter reicht, dann kommt niemand ins Netz.“ MAC-Adressen lassen sich mitlesen und am eigenen Gerät einstellen. Port Security und MAC-Authentifizierung sind deshalb nur eine niedrige Hürde; echte Anmeldung leistet 802.1X mit Zertifikat.</p></aside>
@@ -921,7 +922,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>WPA2/3-Enterprise</strong>: Anmeldung je Person oder Gerät über RADIUS (AAA: Authentication, Authorization, Accounting); EAP-TLS mit Zertifikaten ist am sichersten.</li>
-  <li><strong>Angriffe</strong>: Kennwort offline raten (WPA3/Enterprise), Evil Twin (Serverzertifikat prüfen), Rogue AP (802.1X, Erkennung), Deauthentication (PMF).</li>
+  <li><strong>Angriffe und Abwehr</strong>: Kennwort offline raten → WPA3 (SAE) oder Enterprise; Evil Twin → Serverzertifikat fest prüfen; Rogue AP → 802.1X und Erkennung; Deauthentication → PMF.</li>
 </ul></div>
 </section>
 </div>

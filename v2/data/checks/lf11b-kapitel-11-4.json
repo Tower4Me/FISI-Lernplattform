@@ -67,7 +67,7 @@
       "frage": "Der Reverse Proxy in der DMZ wird von einem Angreifer übernommen. Welche Wirkung soll die DMZ jetzt haben?",
       "optionen": [
         "Der Angreifer kann die Datenbank direkt abfragen, aber nichts löschen",
-        "Der Angreifer kommt gar nicht ins interne Netz, weil die DMZ keine Verbindung nach innen hat",
+        "Der Angreifer erreicht alle Server im Server-VLAN, aber keine PCs",
         "Der Angreifer kommt nur über wenige erlaubte Wege ins interne Netz",
         "Die Firewall erkennt die Übernahme und sperrt den Proxy selbstständig"
       ],

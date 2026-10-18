@@ -67,7 +67,7 @@
       "thema": "Eigene CA",
       "frage": "Für den internen Datenbankserver srv-db01, dessen Name im öffentlichen DNS nicht vorkommt, soll ein Zertifikat her. Was passt?",
       "optionen": [
-        "Ein öffentliches Zertifikat, weil öffentliche CAs jeden Namen bestätigen",
+        "Ein öffentliches Zertifikat, weil öffentliche CAs auch interne Namen bestätigen",
         "Ein Zertifikat der eigenen CA, deren Stammzertifikat auf allen Firmengeräten verteilt ist",
         "Gar kein Zertifikat, weil der Server nur aus dem internen Netz erreichbar ist",
         "Ein selbst signiertes Zertifikat, das jeder Nutzer einzeln bestätigt"

@@ -739,7 +739,7 @@
   <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="11-4-1">
-<p class="lead">Zwischen den VLANs des Praxisverbunds und zum Internet hin entscheiden bisher nur ein paar Zugriffslisten, was durchdarf (LF9, Kapitel 9.4.2: der Router in Nord und Süd, der Kern-Switch im Stammhaus). Das Systemhaus schlägt eine richtige <strong>Firewall</strong> vor. Sie ersetzt im Stammhaus den Internetrouter, schließt die Tunnel zu Nord und Süd ab und übernimmt auch das Routing zwischen den VLANs: Der Kern-Switch reicht die VLANs per Trunk an die Firewall weiter, statt selbst zu routen. Sie setzt eine Sicherheitsrichtlinie technisch um: Nur ausdrücklich erlaubter Verkehr kommt zwischen den Netzbereichen durch.</p>
+<p class="lead">Zwischen den VLANs des Praxisverbunds und zum Internet hin entscheiden bisher nur ein paar Zugriffslisten, was durchdarf (LF9, Kapitel 9.4.2: der Router in Nord und Süd, der Kern-Switch im Stammhaus). Das Systemhaus schlägt eine richtige <strong>Firewall</strong> vor. Sie ersetzt im Stammhaus den Internetrouter, schließt die Tunnel zu Nord und Süd ab und übernimmt auch das Routing zwischen den VLANs: Der Kern-Switch reicht die VLANs per Trunk an die Firewall weiter, statt selbst zu routen; auch das DHCP-Relay zieht vom Kern-Switch auf die Firewall um. Sie setzt eine Sicherheitsrichtlinie technisch um: Nur ausdrücklich erlaubter Verkehr kommt zwischen den Netzbereichen durch.</p>
 
 <h3 id="arten-von-firewalls">Arten von Firewalls<a class="anchor" href="#arten-von-firewalls" aria-hidden="true" tabindex="-1">#</a></h3>
 <div class="vergleich">

@@ -40,6 +40,6 @@
 <aside class="note" data-typ="fehler"><p>„DNSSEC verschlüsselt die DNS-Anfragen.“ DNSSEC signiert die Antworten, damit sich Fälschungen erkennen lassen. Vertraulich werden die Anfragen erst mit DNS over TLS oder DNS over HTTPS.</p></aside>
 
 <ul class="merksatz">
-  <li><strong>Angriffe</strong>: gefälschte Antworten (Spoofing), vergifteter Zwischenspeicher (Cache Poisoning), falscher DNS-Server, übernommenes Domain-Konto.</li>
-  <li><strong>DNSSEC</strong> signiert Einträge (RRSIG, DNSKEY, DS als Kette bis zur Root) und sichert Integrität und Authentizität, nicht Vertraulichkeit; dazu interne Resolver nur für das eigene Netz und DNS nach außen nur von ihnen.</li>
+  <li><strong>Angriffe</strong>: gefälschte Antworten (Spoofing), vergifteter Zwischenspeicher (Cache Poisoning), falscher DNS-Server, übernommenes Domain-Konto; dagegen interne Resolver nur für das eigene Netz, DNS nach außen nur von ihnen.</li>
+  <li><strong>DNSSEC</strong> signiert Einträge (RRSIG, DNSKEY, DS als Kette bis zur Root) und sichert Integrität und Authentizität, nicht Vertraulichkeit.</li>
 </ul>

@@ -736,7 +736,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF11b</a></li><li><a href="index.html#k-11-3">11.3 Zertifikate und PKI</a></li><li aria-current="page">11.3.2</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">11.3.2</span>Zertifikate betreiben</h1>
-  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>5 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="11-3-2">
 <p class="lead">Die Termin-App, der Reverse Proxy, das VPN-Gateway, die Weboberflächen der Switches und bald auch die WLAN-Anmeldung brauchen Zertifikate. Jedes muss beantragt, eingespielt und rechtzeitig erneuert werden. Läuft eines ab, steht der Dienst oder die Nutzer sehen Warnungen und gewöhnen sich an, sie wegzuklicken.</p>
@@ -763,6 +763,17 @@
   </table>
 </div>
 <p>Das Stammzertifikat der eigenen CA verteilst du per Gruppenrichtlinie oder Geräteverwaltung auf alle Firmengeräte. Statt Kennwörtern können sich Geräte und Personen dann mit eigenen Zertifikaten anmelden, etwa am VPN oder im WLAN. Der private Schlüssel wird bei der Anmeldung nicht übertragen, er lässt sich also weder erraten noch per Phishing abfragen. Liegt er nicht exportierbar im TPM oder auf einer Chipkarte, kann ihn auch Schadsoftware kaum kopieren (Besitzfaktor, LF4, Kapitel 4.5.3).</p>
+<div class="vergleich">
+  <table>
+    <thead><tr><th>Anmeldeverfahren</th><th>Faktor</th><th>gegen Phishing</th><th>Aufwand</th></tr></thead>
+    <tbody>
+      <tr><th>Kennwort</th><td>Wissen</td><td>nein</td><td>gering</td></tr>
+      <tr><th>Authenticator-App (Einmalcode)</th><td>Besitz</td><td>nein, der Code lässt sich auf einer gefälschten Seite abfangen und sofort weiterverwenden</td><td>gering</td></tr>
+      <tr><th>Hardware-Token (FIDO2)</th><td>Besitz</td><td>ja, die Anmeldung ist an die echte Domain gebunden</td><td>mittel, Token kaufen und verteilen</td></tr>
+      <tr><th>Zertifikat im TPM oder auf Chipkarte</th><td>Besitz</td><td>ja, der private Schlüssel verlässt das Gerät nicht</td><td>mittel, eigene CA nötig</td></tr>
+    </tbody>
+  </table>
+</div>
 
 <h3 id="zertifikate-im-vpn">Zertifikate im VPN<a class="anchor" href="#zertifikate-im-vpn" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Mit einem gemeinsamen Schlüssel (Pre-Shared Key) kennen alle Gegenstellen dasselbe Geheimnis. Verrät es ein Gerät, musst du es überall tauschen. Mit reinen öffentlichen Schlüsseln, wie bei WireGuard, trägst du den Schlüssel jedes Partners einzeln auf jeder Gegenstelle ein. Mit Zertifikaten einer CA vertraut das Gateway nur noch der CA. Ein neues Notebook bekommt ein Zertifikat und kann sich sofort anmelden, ohne dass du am Gateway etwas änderst. Ein verlorenes Notebook sperrst du, indem du sein Zertifikat widerrufst.</p>

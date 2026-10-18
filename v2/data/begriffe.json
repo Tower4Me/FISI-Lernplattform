@@ -4266,7 +4266,9 @@
         "Qualität: Testkonzept mit Komponenten-, Integrations-, Ausfalltest und Datenprüfung (Zählabgleich, Stichprobe) vor dem Abnahmetest, Testprotokoll; Umstellung zum Stichtag, parallel oder schrittweise; Go/No-Go-Entscheidung, Rückfallplan.",
         "Ergebnispräsentation für Entscheider (Ziele gegen Ergebnis, Vorführung, Abweichungen, offene Punkte); Schulungskonzept für Anwender (Zielgruppen, Lernziele als beobachtbares Können, Methode mit Üben, Zeitpunkt, Mittel, Erfolgskontrolle).",
         "Übergabe: Betriebs-, Benutzer-, Projektdokumentation, Übergabe-/Abnahmeprotokoll mit bekannten Mängeln; Zugangsdaten sicher übergeben; Betreuung, Mängelbehebung und Pflege der Doku regeln.",
-        "Befugnis der Projektleitung gilt innerhalb des vereinbarten Umfangs; Änderungen der Leistung entscheidet der Auftraggeber. Reserve ist intern: Mehraufwand beim Festpreis trägt das Systemhaus."
+        "Befugnis der Projektleitung gilt innerhalb des vereinbarten Umfangs; Änderungen der Leistung entscheidet der Auftraggeber. Reserve ist intern: Mehraufwand beim Festpreis trägt das Systemhaus.",
+        "Bewertung nach Zielerreichung, Wirtschaftlichkeit (Nachkalkulation Soll/Ist je Arbeitspaket, Nachträge getrennt), Skalierbarkeit, Verlässlichkeit, jeweils mit Belegen.",
+        "Abschluss: Kundenrückmeldung offen einholen, Kritik erst verstehen, dann prüfen; Reflexion mit konkreten Maßnahmen und Verantwortlichen; Projektabschlussbericht; formaler Abschluss (Bestätigung, Archiv, Projektzugänge entfernen)."
       ],
       "vorkommen": [
         {
@@ -4320,6 +4322,18 @@
         {
           "id": "12-5-4",
           "tiefe": "Übergabe, Dokumentation"
+        },
+        {
+          "id": "12-6-1",
+          "tiefe": "Ergebnis bewerten"
+        },
+        {
+          "id": "12-6-2",
+          "tiefe": "Reflexion, Abschluss"
+        },
+        {
+          "id": "12-6-3",
+          "tiefe": "betriebliche Projektarbeit"
         }
       ]
     },
@@ -4344,6 +4358,24 @@
         {
           "id": "12-3-4",
           "tiefe": "englische Herstellerunterlagen"
+        }
+      ]
+    },
+    {
+      "begriff": "abschlusspruefung",
+      "kernfakten": [
+        "Gestreckte Abschlussprüfung: Teil 1 etwa in der Mitte (20 %, schriftlich 90 Minuten), Teil 2 am Ende.",
+        "FISI Teil 2 (§ 20 ff. FIAusbV): betriebliche Projektarbeit mit Dokumentation höchstens 40 Stunden nach genehmigter Projektbeschreibung (Ausgangssituation, Ziel, Zeitplanung); Präsentation höchstens 15 Minuten, mit Fachgespräch zusammen höchstens 30 Minuten; Prüfungsbereich 50 %, beide Teile je zur Hälfte.",
+        "Weitere Bereiche Teil 2: Konzeption und Administration von IT-Systemen, Analyse und Entwicklung von Netzwerken (je 90 Minuten, 10 %), Wirtschafts- und Sozialkunde (60 Minuten, 10 %)."
+      ],
+      "vorkommen": [
+        {
+          "id": "1-5-1",
+          "tiefe": "gestreckte Prüfung in zwei Teilen"
+        },
+        {
+          "id": "12-6-3",
+          "tiefe": "betriebliche Projektarbeit"
         }
       ]
     }

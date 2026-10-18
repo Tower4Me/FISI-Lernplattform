@@ -6611,6 +6611,61 @@
               ]
             }
           ]
+        },
+        {
+          "nummer": "11.7",
+          "titel": "Sicherheit prüfen und vermitteln",
+          "check": true,
+          "unterpunkte": [
+            {
+              "nummer": "11.7.1",
+              "titel": "Audit, Schwachstellenscan, Penetrationstest",
+              "slug": "audit-schwachstellenscan-und-penetrationstest",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: Sicherheitsniveau prüfen und bewerten",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 2 (Prüffragen nach einem Datenverlust; Sicherheitsprüfung bzw. Audit)"
+                ],
+                "extern": [
+                  "FIRST CVSS v3.1 und v4.0 Specification (Qualitative Severity Rating Scale); CVE Program (cve.org, Format CVE-Jahr-Nummer); BSI Durchführungskonzept für Penetrationstests; § 202a StGB (gesetze-im-internet.de)"
+                ]
+              },
+              "material": [
+                "sicherheitsstandards-isms",
+                "angriffsmethoden"
+              ],
+              "begriffe": [
+                "audit-pentest",
+                "haertung",
+                "risiko"
+              ]
+            },
+            {
+              "nummer": "11.7.2",
+              "titel": "Sicherheitskonzept und Kundeninformation",
+              "slug": "sicherheitskonzept-und-kundeninformation",
+              "quellen": {
+                "rahmenlehrplan": "LF11b: Kunden über die Risikoanalyse informieren; relative Sicherheit diskutieren",
+                "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt A (Informationssicherheit)",
+                "zpa": "",
+                "ihk": [],
+                "extern": [
+                  "BSI-Standard 200-2 IT-Grundschutz-Methodik (Sicherheitskonzeption)"
+                ]
+              },
+              "material": [
+                "sicherheitsstandards-isms"
+              ],
+              "begriffe": [
+                "sicherheitsleitlinie",
+                "risiko",
+                "risikostrategien",
+                "audit-pentest"
+              ]
+            }
+          ]
         }
       ]
     }

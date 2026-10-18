@@ -284,6 +284,10 @@
         {
           "id": "4-2-3",
           "tiefe": "Inhalt und Rolle für die Schutzbedarfsanalyse"
+        },
+        {
+          "id": "11-7-2",
+          "tiefe": "Abgrenzung Leitlinie (Ziele) und Sicherheitskonzept (Umsetzung)"
         }
       ]
     },
@@ -432,6 +436,14 @@
         {
           "id": "11-1-3",
           "tiefe": "erwarteter Schaden in Euro, Nutzen einer Maßnahme"
+        },
+        {
+          "id": "11-7-1",
+          "tiefe": "Dringlichkeit einer Lücke im eigenen Netz"
+        },
+        {
+          "id": "11-7-2",
+          "tiefe": "Risikoanalyse im Sicherheitskonzept, Information der Leitung"
         }
       ]
     },
@@ -488,6 +500,10 @@
         {
           "id": "11-1-3",
           "tiefe": "Restrisiko nach Maßnahmen"
+        },
+        {
+          "id": "11-7-2",
+          "tiefe": "Restrisiken von der Leitung schriftlich bestätigt"
         }
       ]
     },
@@ -659,6 +675,10 @@
         {
           "id": "11-5-4",
           "tiefe": "mobile Geräte"
+        },
+        {
+          "id": "11-7-1",
+          "tiefe": "Konfigurationsprüfung gegen die Härtungsvorlage"
         }
       ]
     },
@@ -4123,6 +4143,26 @@
         {
           "id": "11-5-4",
           "tiefe": "TPM, Secure Boot, MDM, BYOD-Richtlinie"
+        }
+      ]
+    },
+    {
+      "begriff": "audit-pentest",
+      "kernfakten": [
+        "Audit: Abgleich mit Vorgaben (Leitlinie, IT-Grundschutz, ISO 27001) durch Dokumente, Befragung, Stichproben; intern (eigene unabhängige Leute) oder extern (z. B. Zertifizierer); Bericht mit Abweichungen, Maßnahmen, Folgeaudit.",
+        "Schwachstellenscan: automatisch, findet bekannte Lücken an erreichbaren Systemen, auch Fehlalarme; keine Ablauf- oder Kettenschwächen.",
+        "Penetrationstest: gezielter Angriffsversuch durch Fachleute; nur mit schriftlichem Auftrag (Umfang, Art, Zeitraum, Grenzen); Black, Grey, White Box; Bericht und Nachtest.",
+        "CVE-Kennung CVE-Jahr-Nummer (mindestens vierstellig); CVSS 0 bis 10: 0,1 bis 3,9 niedrig, ab 4,0 mittel, ab 7,0 hoch, ab 9,0 kritisch (FIRST CVSS v3.1).",
+        "Sicherheitskonzept: Geltungsbereich mit Bestandsaufnahme, Schutzbedarf, Risikoanalyse, Maßnahmen, Datenschutz, Restrisiken, Notfallvorsorge, Prüfplan; regelmäßig überarbeitet."
+      ],
+      "vorkommen": [
+        {
+          "id": "11-7-1",
+          "tiefe": "Prüfarten, Auftrag für Penetrationstest, Prüfen nach Vorfall"
+        },
+        {
+          "id": "11-7-2",
+          "tiefe": "Sicherheitskonzept, Information der Leitung"
         }
       ]
     }

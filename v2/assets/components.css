@@ -284,6 +284,11 @@ h3:hover .anchor { color: var(--muted); }
 .rb-list ul li { margin: 2px 0; }
 .rb-list a { color: var(--ink); text-decoration: none; font-weight: 600; display: block; margin-bottom: 2px; }
 .rb-list a:hover { color: var(--accent); }
+.header-search { gap: 6px; padding: 0 12px; text-decoration: none; }
+.suche input { width: 100%; min-height: var(--touch); padding: 8px 12px; font: inherit; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-ctl); }
+.suche input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.suche-treffer p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
 .print-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
 
 /* ---------- Mobil ---------- */
@@ -309,6 +314,7 @@ h3:hover .anchor { color: var(--muted); }
   .header-tools { gap: 6px; }
   .theme-switch button { min-width: 40px; padding: 0 8px; }
   .switch .switch-text { display: none; }
+  .header-search .hs-text { display: none; }
   .switch::after { content: "AP1"; font: 600 12px/1 var(--font-mono); }
   .theme-switch .ts-text { display: none; }
   .page-head h1 { font-size: 28px; }

@@ -41,6 +41,7 @@ NOTE_TYPES = {
 }
 
 ICONS = """<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
@@ -214,6 +215,7 @@ def header(root):
   <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
   <a class="brand" href="{root}index.html"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
   <div class="header-tools">
+    <a class="btn header-search" href="{root}suche.html"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span class="hs-text">Suche</span></a>
     <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
     <div class="theme-switch" role="group" aria-label="Farbschema">
       <button type="button" data-theme-value="light" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span class="ts-text">Hell</span></button>
@@ -467,6 +469,36 @@ def build_weitere(site):
     return page("WiSo und weitere Themen", "", site, "\n".join(parts))
 
 
+def suchindex(site, merks, frags_by_id):
+    """Schlanker Index: Titel, Zwischenüberschriften, Merksatz je Unterpunkt."""
+    items = []
+    for lf in site:
+        for k in lf["kapitel"]:
+            for u in k["unterpunkte"]:
+                frag = frags_by_id[u["id"]]
+                h = [[m.group(2), plain_text(m.group(3)).rstrip(" #")] for m in H3_RE.finditer(frag) if m.group(2)]
+                items.append({"n": u["nummer"], "t": u["titel"], "u": f"{lf['id']}/{u['href']}",
+                              "s": u["stufe"], "h": h, "m": plain_text(merks[u["id"]])})
+    return "window.SUCHINDEX = " + json.dumps(items, ensure_ascii=False, separators=(",", ":")) + ";\n"
+
+
+def build_suche(site):
+    main = """<header class="page-head">
+  <h1>Suche</h1>
+  <p class="page-meta"><span>Titel, Zwischenüberschriften und Merksätze aller Unterpunkte</span></p>
+</header>
+<div class="content">
+<form class="suche" role="search" onsubmit="return false">
+  <label for="suche-q" class="visually-hidden">Suchbegriff</label>
+  <input id="suche-q" type="search" placeholder="Begriff, etwa RAID oder Subnetz" autocomplete="off">
+</form>
+<p id="suche-info" class="page-meta" aria-live="polite"></p>
+<ul id="suche-treffer" class="rb-list suche-treffer"></ul>
+<noscript><p>Die Suche braucht JavaScript.</p></noscript>
+</div>"""
+    return page("Suche", "", site, main, scripts=("suchindex.js", "suche.js"))
+
+
 def build_komponenten(site):
     src = (CONTENT / "_komponenten.html").read_text(encoding="utf-8")
     frag, _ = render_fragment(src, "content/_komponenten.html")
@@ -491,6 +523,7 @@ def write(path, text):
 def build():
     site = load_site()
     out = {}
+    merks_all, frags_all = {}, {}
     for lf in site:
         merks, frags = {}, {}
         for k in lf["kapitel"]:
@@ -498,6 +531,7 @@ def build():
                 src = read_fragment(u)
                 frag, merk = render_fragment(src, u["datei"])
                 merks[u["id"]] = merk
+                merks_all[u["id"]], frags_all[u["id"]] = merk, frag
                 # Druckfassung: mehrere Unterpunkte auf einer Seite, daher ids mit Präfix
                 frags[u["id"]] = render_fragment(src, u["datei"], prefix=f"u{u['id']}-")[0]
                 out[f"{lf['id']}/{u['href']}"] = build_unterpunkt(site, lf, k, u, frag, plain_text(frag))
@@ -509,6 +543,8 @@ def build():
     out["index.html"] = build_index(site)
     out["komponenten.html"] = build_komponenten(site)
     out["weitere-themen.html"] = build_weitere(site)
+    out["suche.html"] = build_suche(site)
+    out["assets/suchindex.js"] = suchindex(site, merks_all, frags_all)
 
     # Alte generierte Lernfeld-Ordner entfernen (nur v2/lf*/)
     for d in V2.glob("lf*"):

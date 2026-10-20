@@ -15,9 +15,9 @@
     <tbody>
       <tr><th>Router, Firewall, VPN-Gateway</th><td>Durchsatz für die Funktion, die du brauchst: Der VPN-Durchsatz liegt oft weit unter dem beworbenen Firewall-Durchsatz, mit eingeschalteter Angriffserkennung sinkt er weiter. Anzahl gleichzeitiger Tunnel, Anmeldung mit Zertifikaten (LF11b, Kapitel 11.3.2), Ersatzweg über Mobilfunk, Abo für Sicherheitsfunktionen, zugesagte Updates</td></tr>
       <tr><th>Server</th><td>Prozessorkerne auch wegen der Lizenzkosten (LF10b, Kapitel 10.5.3), maximaler Arbeitsspeicher, Laufwerksschächte und RAID-Controller, redundante Netzteile, Fernwartungsschnittstelle, Vor-Ort-Service mit Reaktionszeit</td></tr>
-      <tr><th>Mobile Device Management</th><td>unterstützte Betriebssysteme, Arbeitsprofil oder Container für Firmendaten, Sperren und Löschen aus der Ferne, Verteilung von Apps und Zertifikaten, Standort der Daten, Preis je Gerät oder je Benutzer</td></tr>
+      <tr><th>Mobile Device Management</th><td>unterstützte Betriebssysteme, Arbeitsprofil oder Container für Firmendaten, Sperren und Löschen aus der Ferne, Verteilung von Apps und Zertifikaten, Standort der Daten, Preis je Gerät oder je Benutzer. Beispiel: Die Tierärzte des Verbunds haben je ein Notebook und ein Tablet (LF11b, Kapitel 11.5.4). Ein MDM, das nur eines der beiden Betriebssysteme verwaltet, scheidet aus. Bei Preis je Benutzer zahlt der Verbund für beide Geräte einer Tierärztin nur einmal, bei Preis je Gerät doppelt.</td></tr>
       <tr><th>Cloud- und Diensteanbieter</th><td>zugesicherte Verfügbarkeit im SLA, Rechenzentren in der EU, Vertrag zur Auftragsverarbeitung, Nachweise wie ISO 27001, Kündigungsfrist und Herausgabe der Daten beim Wechsel (LF10b, Kapitel 10.1.4)</td></tr>
-      <tr><th>Internetanschluss</th><td>normalerweise verfügbare und minimale Datenrate, Upload, feste Adresse, Entstörzeit (LF9, Kapitel 9.1.3)</td></tr>
+      <tr><th>Internetanschluss</th><td>normalerweise verfügbare und minimale Datenrate, Upload, feste Adresse, Entstörzeit; beim Mobilfunk-Ersatzweg meist CGNAT, der Tunnel muss dann vom Standort aus aufgebaut werden (LF9, Kapitel 9.1.3)</td></tr>
     </tbody>
   </table>
 </div>
@@ -44,4 +44,4 @@
 
 <aside class="note" data-typ="fehler"><p>„Der Router mit dem höchsten Durchsatz ist der beste.“ Entscheidend ist der Durchsatz der Funktion, die du nutzt, hier VPN. Und ein K.-o.-Kriterium wie die Anmeldung mit Zertifikaten lässt sich durch keinen noch so guten Wert an anderer Stelle ausgleichen.</p></aside>
 
-<p class="merksatz">Jedes Angebot prüfst du zuerst gegen messbare Muss-Kriterien, auch beim Wert der genutzten Funktion und der Dauer der Updates. Deine Wahl begründest du mit Anforderung, Datenblattwert und Folgerung.</p>
+<p class="merksatz">Prüfe jedes Angebot zuerst gegen messbare Muss-Kriterien, etwa den Durchsatz der genutzten Funktion und die Dauer der Sicherheitsupdates. Begründe deine Wahl mit Anforderung, Datenblattwert und Folgerung.</p>

@@ -63,18 +63,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Begründen",
-      "frage": "Welche Aussage ist eine fachgerechte Begründung für die Wahl eines Servers?",
+      "thema": "Signalwörter in RFCs",
+      "frage": "In einer RFC steht: „Clients SHOULD use TLS 1.3.“ Wie verbindlich ist das nach RFC 2119?",
       "optionen": [
-        "Server S ist das neueste Modell des Herstellers",
-        "Server S erfüllt mit maximal 256 GB RAM die geforderten 192 GB",
-        "Server S hat in einer Fachzeitschrift sehr gut abgeschnitten",
-        "Server S wird vom Händler für Tierarztpraxen besonders empfohlen"
+        "Empfohlen, aber nicht verpflichtend",
+        "Pflicht für eine standardkonforme Umsetzung",
+        "Freigestellt nach Wunsch des Herstellers",
+        "Verboten, solange die RFC gilt"
       ],
       "richtig": [
-        1
+        0
       ],
-      "erklaerung": "Eine Begründung nennt Anforderung, Wert aus dem Datenblatt und Folgerung. Werbung, Neuheit oder Empfehlungen ersetzen den Abgleich mit den Anforderungen nicht."
+      "erklaerung": "SHOULD und RECOMMENDED bedeuten empfohlen. Pflicht sind MUST, REQUIRED und SHALL, freigestellt MAY und OPTIONAL, verboten MUST NOT und SHALL NOT."
     },
     {
       "typ": "mc",
@@ -93,18 +93,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Nicht in Euro",
-      "frage": "Eine Variante macht den Kunden stark von einem einzigen Anbieter abhängig. Wie berücksichtigst du das?",
+      "thema": "Energiekosten",
+      "frage": "Vier alte PCs mit je 95 W werden durch neue mit je 45 W ersetzt. Sie laufen 2.000 Stunden im Jahr, Strom kostet 0,30 € je kWh. Wie viel Strom kosten die neuen PCs im Jahr weniger?",
       "optionen": [
-        "Mit einem geschätzten Betrag in der Kostenrechnung",
-        "Als eigenes Kriterium im Variantenvergleich",
-        "Erst nach Vertragsende bei der Bewertung des Projekts",
-        "Als Rabatt, den der Anbieter im Angebot gewähren soll"
+        "120 €",
+        "60 €",
+        "228 €",
+        "1.200 €"
       ],
       "richtig": [
-        1
+        0
       ],
-      "erklaerung": "Was sich schlecht in Euro fassen lässt, kommt als eigenes Kriterium in den Variantenvergleich. Erfundene Beträge verfälschen die Kostenrechnung."
+      "erklaerung": "Leistungsdifferenz 50 W × 4 PCs × 2.000 h = 400.000 Wh = 400 kWh. 400 kWh × 0,30 € = 120 € weniger im Jahr."
     },
     {
       "typ": "mc",

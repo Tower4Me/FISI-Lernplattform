@@ -30,6 +30,9 @@ CONTENT = V2 / "content"
 
 SITE_TITLE = "FISI Lernplattform"
 PRUEFUNG_HREF = "module/pruefung/simulation-ap1.html"  # relativ zum Repo-Root
+# Alte Einheiten ohne Platz in den Lernfeldern bleiben auf der bisherigen Seite (MATERIALPOOL-MAP)
+WEITERE_MODULE = ["wiso"]
+WEITERE_EINHEITEN = ["break-even-deckungsbeitrag", "impressumspflicht"]
 
 NOTE_TYPES = {
     "hinweis": ("Hinweis", "i-info"),
@@ -260,7 +263,8 @@ def nav(site, root, cur_lf=None, cur_kap=None, cur_href=None):
         lines.append("      </ul>")
         lines.append("    </li>")
     lines.append("  </ul>")
-    lines.append(f'  <div class="nav-extra"><a href="{root}../{PRUEFUNG_HREF}"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Prüfungssimulator</a></div>')
+    lines.append(f'  <div class="nav-extra"><a href="{root}../{PRUEFUNG_HREF}"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Prüfungssimulator</a>'
+                 f'<a href="{root}weitere-themen.html"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>WiSo und weitere Themen</a></div>')
     lines.append("</nav>")
     return "\n".join(lines)
 
@@ -443,6 +447,26 @@ def build_index(site):
     return page("Lernfelder", "", site, "\n".join(parts))
 
 
+def build_weitere(site):
+    alt = json.loads((ROOT / "data" / "manifest.json").read_text(encoding="utf-8"))["modules"]
+    def li(m, u):
+        return f'<li><a href="../module/{m["slug"]}/{u["slug"]}.html">{esc(u["name"])}</a></li>'
+    parts = ["""<header class="page-head">
+  <h1>WiSo und weitere Themen</h1>
+  <p class="page-meta"><span>Einheiten der bisherigen Seite</span></p>
+</header>
+<div class="content">
+<p class="lead">Wirtschafts- und Sozialkunde ist ein eigener Prüfungsbereich der AP2 und gehört zu keinem Lernfeld der Fachrichtung. Diese Einheiten und einige weitere stehen deshalb weiter auf der bisherigen Seite.</p>"""]
+    for m in alt:
+        if m["slug"] in WEITERE_MODULE:
+            parts.append(f"<h3>{esc(m['name'])}</h3>\n<ul>" + "".join(li(m, u) for u in m["units"]) + "</ul>")
+    extra = [li(m, u) for m in alt for u in m["units"] if u["slug"] in WEITERE_EINHEITEN]
+    if extra:
+        parts.append("<h3>Weitere Einheiten</h3>\n<ul>" + "".join(extra) + "</ul>")
+    parts.append("</div>")
+    return page("WiSo und weitere Themen", "", site, "\n".join(parts))
+
+
 def build_komponenten(site):
     src = (CONTENT / "_komponenten.html").read_text(encoding="utf-8")
     frag, _ = render_fragment(src, "content/_komponenten.html")
@@ -484,6 +508,7 @@ def build():
         out[f"{lf['id']}/index.html"] = build_lf_index(site, lf)
     out["index.html"] = build_index(site)
     out["komponenten.html"] = build_komponenten(site)
+    out["weitere-themen.html"] = build_weitere(site)
 
     # Alte generierte Lernfeld-Ordner entfernen (nur v2/lf*/)
     for d in V2.glob("lf*"):

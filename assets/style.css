@@ -788,6 +788,7 @@ body:has(#module-list) .site-search--prominent {
 }
 .theme-switcher__btn:hover,
 .theme-switcher__btn:focus-visible { border-color: var(--link); }
+a.version-switch { text-decoration: none; }
 
 /* ------------------------------------------------------ Icon-Buttons --- */
 /* Runde Icon-Buttons statt Textpillen fuer Farbe/Filter/Fortschritt-Menue

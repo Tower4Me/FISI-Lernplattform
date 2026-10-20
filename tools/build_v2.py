@@ -215,6 +215,7 @@ def header(root):
   <button class="btn nav-toggle" type="button" aria-expanded="false" aria-controls="nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span class="visually-hidden">Navigation</span></button>
   <a class="brand" href="{root}index.html"><span class="brand-mark">FISI</span> <span class="brand-word">Lernplattform</span> <span class="brand-sub">nach Lernfeldern</span></a>
   <div class="header-tools">
+    <a class="btn version-switch" href="{root}../index.html" title="Zur bisherigen Fassung (v1)" aria-label="Zur bisherigen Fassung (v1)">v1</a>
     <a class="btn header-search" href="{root}suche.html"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span class="hs-text">Suche</span></a>
     <label class="switch"><input type="checkbox" id="ap1-only"><span class="switch-text">Nur AP1</span></label>
     <div class="theme-switch" role="group" aria-label="Farbschema">
@@ -266,7 +267,8 @@ def nav(site, root, cur_lf=None, cur_kap=None, cur_href=None):
         lines.append("    </li>")
     lines.append("  </ul>")
     lines.append(f'  <div class="nav-extra"><a href="{root}../{PRUEFUNG_HREF}"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>Prüfungssimulator</a>'
-                 f'<a href="{root}weitere-themen.html"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>WiSo und weitere Themen</a></div>')
+                 f'<a href="{root}weitere-themen.html"><svg class="icon" aria-hidden="true"><use href="#i-list"/></svg>WiSo und weitere Themen</a>'
+                 f'<a href="{root}../index.html"><svg class="icon" aria-hidden="true"><use href="#i-chev"/></svg>Bisherige Fassung (v1)</a></div>')
     lines.append("</nav>")
     return "\n".join(lines)
 

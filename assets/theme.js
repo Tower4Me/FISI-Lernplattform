@@ -177,6 +177,20 @@
     var actions = document.querySelector(".site-header__actions");
     (actions || document.body).appendChild(wrap);
 
+    // Umschalter zur neuen Fassung v2 (Wunsch Ben, bis zum Umstieg).
+    // Basis aus dem eigenen Script-Pfad ("assets/theme.js" bzw. "../../assets/theme.js").
+    var self = document.querySelector('script[src$="assets/theme.js"]');
+    if (self) {
+      var v2 = document.createElement("a");
+      v2.className = "theme-switcher__btn version-switch";
+      v2.href = self.getAttribute("src").replace(/assets\/theme\.js$/, "") + "v2/index.html";
+      v2.textContent = "v2";
+      v2.title = "Zur neuen Fassung (v2)";
+      v2.setAttribute("aria-label", "Zur neuen Fassung (v2)");
+      if (actions) { wrap.parentNode.insertBefore(v2, wrap); }
+      else { v2.style.marginRight = "0.5rem"; wrap.insertBefore(v2, btn); }  // merksaetze.html: feste Ecke
+    }
+
     function toggleMenu() {
       if (menu.hidden) { openMenu(); } else { closeMenu(); }
     }

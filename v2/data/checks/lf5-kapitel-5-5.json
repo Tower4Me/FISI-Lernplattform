@@ -48,18 +48,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Vorgehen auswählen",
-      "frage": "Eine Hundeschule möchte eine App, weiß aber noch nicht genau, welche Funktionen sie braucht, und will Zwischenstände früh ausprobieren. Welches Vorgehen passt am besten?",
+      "thema": "Aggregation und Komposition",
+      "frage": "Im Klassendiagramm einer Werkstattsoftware gehört jede Auftragsposition zu genau einem Werkstattauftrag und wird mit ihm gelöscht. Wie stellst du die Beziehung dar?",
       "optionen": [
-        "Scrum mit kurzen Sprints und einem Review am Ende jedes Sprints",
-        "Wasserfallmodell mit vollständigem Pflichtenheft vor dem Entwurf",
-        "Wasserfallmodell, weil sich Termine und Kosten früh festlegen lassen",
-        "V-Modell, weil jeder Entwurfsphase eine Teststufe zugeordnet ist"
+        "Linie mit gefüllter Raute am Ganzen",
+        "Linie mit hohler Raute am Ganzen",
+        "Linie mit gefüllter Raute am Teil",
+        "Linie mit hohler Dreiecksspitze zum Ganzen"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Bei unklaren, sich ändernden Anforderungen passt ein agiles Vorgehen. Nach jedem Sprint sieht der Kunde ein nutzbares Ergebnis und kann die Planung beeinflussen."
+      "erklaerung": "Die Position existiert nur mit ihrem Auftrag, das ist eine Komposition: gefüllte Raute am Ganzen. Eine hohle Raute (Aggregation) passt, wenn das Teil auch allein bestehen kann."
     },
     {
       "typ": "mc",

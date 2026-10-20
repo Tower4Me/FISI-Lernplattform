@@ -38,7 +38,7 @@ END FUNCTION</code></pre>
     <tbody>
       <tr><th>Syntaxfehler</th><td>Code verletzt die Regeln der Sprache; er lässt sich nicht übersetzen bzw. nicht starten</td><td>fehlende Klammer, falsch geschriebenes Schlüsselwort</td><td>Compiler oder Interpreter meldet ihn mit Zeilennummer</td></tr>
       <tr><th>Laufzeitfehler</th><td>Programm startet, bricht aber bei einer bestimmten Anweisung ab</td><td>Division durch 0, Zugriff auf einen Index, den es nicht gibt</td><td>Fehlermeldung beim Ausführen, oft nur bei bestimmten Daten</td></tr>
-      <tr><th>Logikfehler</th><td>Programm läuft durch, liefert aber ein falsches Ergebnis</td><td>falscher Operator, falsche Bedingung, falscher Startwert</td><td>nur durch Tests mit bekannten Sollwerten, Schreibtischtest, Debugger</td></tr>
+      <tr><th>Logikfehler (auch semantischer Fehler)</th><td>Programm läuft durch, liefert aber ein falsches Ergebnis</td><td>falscher Operator, falsche Bedingung, falscher Startwert</td><td>nur durch Tests mit bekannten Sollwerten, Schreibtischtest, Debugger</td></tr>
     </tbody>
   </table>
 </div>
@@ -64,5 +64,5 @@ END FUNCTION</code></pre>
 
 <ul class="merksatz">
   <li><strong>Schreibtischtest:</strong> Algorithmus mit Testwerten von Hand ausführen und jeden Variablenwert Schritt für Schritt in einer Trace-Tabelle notieren.</li>
-  <li><strong>Fehlerarten:</strong> Syntaxfehler verhindern den Start, Laufzeitfehler brechen das Programm ab, Logikfehler liefern ohne Meldung ein falsches Ergebnis.</li>
+  <li><strong>Fehlerarten:</strong> Syntaxfehler verhindern den Start, Laufzeitfehler brechen das Programm ab, Logikfehler (semantische Fehler) liefern ohne Meldung ein falsches Ergebnis.</li>
 </ul>

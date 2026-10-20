@@ -1126,7 +1126,8 @@
         "Drucker: Kosten pro Seite = Preis Verbrauchsmaterial / Reichweite.",
         "Peripherie: Barcode (1D) und QR-Code (2D) optisch mit Sichtkontakt, billig; RFID per Funk ohne Sicht, mehrere gleichzeitig, teurer.",
         "RAM-Module verschiedener Geschwindigkeit laufen alle mit der des langsamsten.",
-        "Netzanschluss über Kaltgeräteanschluss: genormter dreipoliger Anschluss am Gerät, Kabel mit Kaltgerätekupplung."
+        "Netzanschluss über Kaltgeräteanschluss: genormter dreipoliger Anschluss am Gerät, Kabel mit Kaltgerätekupplung.",
+        "RAM-Kenndaten: DDRx-Zahl = MT/s, PCx-Zahl = MB/s = MT/s × 8 Byte (64-Bit-Bus); echter Takt = MT/s ÷ 2 (zwei Transfers je Takt); CAS-Latenz CL = Takte bis zu den ersten Daten, Zeit = CL ÷ Takt."
       ],
       "vorkommen": [
         {
@@ -1139,7 +1140,7 @@
         },
         {
           "id": "2-2-3",
-          "tiefe": "RAM"
+          "tiefe": "RAM, Kenndaten DDRx/PCx, Datenrate, CL"
         },
         {
           "id": "2-2-4",
@@ -1896,7 +1897,7 @@
         "32 Bit, 4 Oktette 0–255; Stellenwerte 128…1.",
         "Maske: Einsen Netzanteil, Nullen Hostanteil; CIDR /24 = 255.255.255.0, /25 .128, /26 .192, /27 .224, /28 .240, /30 .252.",
         "Netzadresse Hostbits 0, Broadcast Hostbits 1, Hosts 2^n − 2; Blockgröße = 256 − Maskenoktett; Netzadresse = Adresse UND Maske.",
-        "Privat: 10/8, 172.16/12, 192.168/16; Loopback 127.0.0.0/8; APIPA 169.254/16 (genutzt .1.0–.254.255, ARP-Prüfung) bei fehlender DHCP-Adresse (Fehlerzeichen, ipconfig /renew).",
+        "Privat: 10/8, 172.16/12, 192.168/16; Loopback 127.0.0.0/8; APIPA 169.254/16 (genutzt .1.0–.254.255, ARP-Prüfung) bei fehlender DHCP-Adresse oder bei Konflikt der festen Adresse (Fehlerzeichen, ipconfig /renew).",
         "Gateway im eigenen Netz für fremde Ziele; Client-Konfiguration: Adresse, Maske, Gateway, DNS; NAT/PAT ersetzt private Absenderadresse, keine Firewall.",
         "Subnetting: geliehene Bits n ergeben 2^n Teilnetze; VLSM: größtes Netz zuerst lückenlos; Transfernetz /30 (2 nutzbar) oder /31 (RFC 3021, beide nutzbar).",
         "Multicast 224.0.0.0/4; Broadcast an Broadcastadresse des Netzes oder 255.255.255.255."
@@ -1929,6 +1930,10 @@
         {
           "id": "9-4-1",
           "tiefe": "Routing mit Präfixen"
+        },
+        {
+          "id": "9-5-1",
+          "tiefe": "APIPA nach Adresskonflikt"
         }
       ]
     },
@@ -1980,7 +1985,7 @@
         "DORA: Discover (Broadcast), Offer, Request, Acknowledge; Verlängerung bei 50 % per Unicast (Request/Ack), bei 87,5 % per Broadcast; UDP 67 Server / 68 Client; DHCP-Relay; ohne Antwort APIPA.",
         "Reservierung: MAC → feste IP (zufällige WLAN-MAC abschalten); zweiter unabgestimmter DHCP-Server stört.",
         "Je Netz ein Bereich (Pool, Ausnahmen, Lease-Zeit, Optionen, Reservierungen); DHCP-Relay am Gateway schickt Broadcast als Unicast an den Server und trägt eigene Adresse im Client-Netz ein (Bereichswahl); fehlt Relay: APIPA.",
-        "Konflikte: Server prüft vorab per ping, Client nach Zuweisung per ARP und lehnt belegte Adresse mit DHCP-Decline ab."
+        "Konflikte: Server prüft vorab per ping, Client nach Zuweisung per ARP und lehnt belegte Adresse mit DHCP-Decline ab. Feste Adresse belegt: Windows prüft sie beim Start per ARP, nutzt sie nicht (ipconfig /all: „Dupliziert“) und arbeitet mit APIPA-Adresse; zweites Gerät per arp -a finden, feste Adressen außerhalb des Pools oder als Reservierung."
       ],
       "vorkommen": [
         {
@@ -1997,11 +2002,11 @@
         },
         {
           "id": "9-5-1",
-          "tiefe": "Bereiche je VLAN, Relay, Decline, zentral oder am Standort"
+          "tiefe": "Bereiche je VLAN, Relay, Decline, Konflikt mit fester Adresse führt zu APIPA, zentral oder am Standort"
         },
         {
           "id": "9-7-2",
-          "tiefe": "Fehlerbild APIPA"
+          "tiefe": "Fehlerbild APIPA: fehlendes DHCP oder Adresskonflikt"
         },
         {
           "id": "11-4-3",
@@ -2016,7 +2021,8 @@
         "Ablauf: Cache/hosts, eingetragener DNS-Server (Router als Forwarder), Resolver fragt iterativ Root, TLD, zuständigen Server; Client rekursiv; TTL, ipconfig /flushdns.",
         "A (IPv4), AAAA (IPv6), CNAME (Alias), MX (Mail), PTR (Adresse → Name); Fehlerbild: IP erreichbar, Name nicht.",
         "Zone mit SOA (Seriennummer bei Änderung erhöhen) und NS; CNAME zeigt nur auf Namen, daneben keine weiteren Einträge; TXT für SPF; Rückwärtszone in-addr.arpa mit PTR.",
-        "Interner Server autoritativ für eigene Zonen, sonst selbst iterativ oder über Forwarder; bedingte Weiterleitung je Domain; interne Namen nur im internen DNS."
+        "Interner Server autoritativ für eigene Zonen, sonst selbst iterativ oder über Forwarder; bedingte Weiterleitung je Domain; interne Namen nur im internen DNS.",
+        "Mehrere A/AAAA zu einem Namen: Round Robin (wechselnde Reihenfolge, grobe Lastverteilung, ohne Ausfallerkennung) oder standortabhängige Antwort; abweichende Antworten auch durch Zwischenspeicher bis TTL-Ablauf, verschiedene Resolver bzw. interne und öffentliche Zone, A statt AAAA."
       ],
       "vorkommen": [
         {
@@ -2025,7 +2031,7 @@
         },
         {
           "id": "9-5-2",
-          "tiefe": "Zonen, SOA, CNAME-Regeln, PTR, Forwarder, intern/öffentlich, nslookup"
+          "tiefe": "Zonen, SOA, CNAME-Regeln, PTR, Forwarder, intern/öffentlich, Round Robin und abweichende Antworten, nslookup"
         },
         {
           "id": "9-5-3",
@@ -2059,6 +2065,10 @@
         {
           "id": "9-3-4",
           "tiefe": "ARP-Anfrage als Broadcast"
+        },
+        {
+          "id": "9-5-1",
+          "tiefe": "Adresskonflikt per ARP erkennen, zweites Gerät mit arp -a finden"
         },
         {
           "id": "11-4-3",
@@ -2373,7 +2383,7 @@
         "Pseudocode-Stil der Plattform: Zuweisung ←, Vergleich == !=, AND OR NOT, IF … THEN … ELSE IF … ELSE … END IF, FOR i ← 0 TO n - 1, WHILE … DO … END WHILE, DO … WHILE, FUNCTION … RETURN … END FUNCTION, LENGTH() (Liste: Elemente, Text: Zeichen), + verbindet auch Texte, DIV, MOD.",
         "WHILE kopfgesteuert (evtl. 0 Durchläufe), DO-WHILE fußgesteuert (mind. 1), FOR Zählschleife; bei ELSE IF gewinnt der erste zutreffende Zweig; PAP/Struktogramm in LF10b.",
         "Array (feste Größe)/Liste Index meist ab 0 bis n − 1 (Plattform: ab 0); Dictionary Schlüssel-Wert; Call by Value = Kopie, Call by Reference = Verweis aufs Original; Java: int als Kopie, Objekte/Arrays Verweis als Wert; Python immer Verweis als Wert (Zahlen/Texte unveränderlich); echtes Call by Reference z. B. C++ (&), C# (ref).",
-        "Fehlerarten: Syntax (kein Start), Laufzeit (Abbruch, z. B. Index außerhalb, Division durch 0), Logik (falsches Ergebnis ohne Meldung); Schreibtischtest mit Trace-Tabelle; Debugger: Haltepunkt, Einzelschritt, Variablen beobachten.",
+        "Fehlerarten: Syntax (kein Start), Laufzeit (Abbruch, z. B. Index außerhalb, Division durch 0), Logik, auch semantischer Fehler (falsches Ergebnis ohne Meldung); Schreibtischtest mit Trace-Tabelle; Debugger: Haltepunkt, Einzelschritt, Variablen beobachten.",
         "OOP: Klasse = Bauplan mit Attributen und Methoden, Objekt = Instanz; Kapselung = Attribute nur über Methoden ändern; Vererbung = Unterklasse übernimmt alles und ergänzt.",
         "Zweidimensionales Array: erster Index Zeile, zweiter Spalte; Durchlauf mit verschachtelten Schleifen (innere läuft je äußerem Schritt vollständig).",
         "Kriterien der Sprachauswahl: Anforderungen und Plattform, Know-how im Team, Bibliotheken und Werkzeuge, Verbreitung und Zukunftssicherheit."
@@ -2397,7 +2407,7 @@
         },
         {
           "id": "5-4-5",
-          "tiefe": "Schreibtischtest, Fehlerarten"
+          "tiefe": "Schreibtischtest, Fehlerarten, Logikfehler = semantischer Fehler"
         },
         {
           "id": "5-5-4",
@@ -3054,7 +3064,8 @@
       "kernfakten": [
         "Anwendungsfalldiagramm: Akteur (Strichmännchen, Rolle) außerhalb der Systemgrenze (Rechteck), Anwendungsfall (Ellipse), Assoziation (Linie); «include» gestrichelt zum eingeschlossenen Fall, immer ausgeführt; «extend» gestrichelt vom erweiternden zum Basisfall, nur unter Bedingung.",
         "Aktivitätsdiagramm: Startknoten gefüllter Kreis, Endknoten Kreis mit Punkt, Aktion abgerundetes Rechteck, Raute für Verzweigung und Zusammenführung (auch für Rückwege) mit [Wächterbedingung], Balken für Gabelung/Vereinigung (gleichzeitig).",
-        "Klassendiagramm: Rechteck Name/Attribute/Methoden; Sichtbarkeit - privat, + öffentlich, # geschützt; Assoziation mit Multiplizitäten 1, 0..1, 1..*, * (ER-n entspricht *); Vererbung hohle Dreiecksspitze zur Oberklasse."
+        "Klassendiagramm: Rechteck Name/Attribute/Methoden; Sichtbarkeit - privat, + öffentlich, # geschützt; Assoziation mit Multiplizitäten 1, 0..1, 1..*, * (ER-n entspricht *); Vererbung hohle Dreiecksspitze zur Oberklasse.",
+        "Aggregation: Teil-Ganzes, Teil kann allein bestehen, hohle Raute am Ganzen; Komposition: Teil existiert nur mit dem Ganzen (wird mit ihm gelöscht), gefüllte Raute am Ganzen, Multiplizität am Ganzen höchstens 1 (meist 1)."
       ],
       "vorkommen": [
         {
@@ -3063,7 +3074,7 @@
         },
         {
           "id": "5-5-4",
-          "tiefe": "Notation der drei Diagramme"
+          "tiefe": "Notation der drei Diagramme, Aggregation und Komposition"
         }
       ]
     },
@@ -3686,12 +3697,13 @@
         "Default-Route 0.0.0.0/0 (IPv6 ::/0) für alle Ziele ohne genaueren Eintrag; Standardgateway eines Clients = Default-Route.",
         "Longest Prefix Match: genauester Eintrag gewinnt; Hin- und Rückweg auf allen Routern prüfen; Summarization durch zusammenhängende Blöcke.",
         "Inter-VLAN-Routing: eigene Schnittstelle je VLAN, Router-on-a-Stick (Subschnittstellen auf Trunk), Layer-3-Switch mit SVI; Regeln begrenzen erlaubten Verkehr.",
-        "Dynamisch: Router lernen Netze voneinander, weichen bei Ausfall aus; Metrik (Hops, Kosten, Bandbreite/Verzögerung), kleinere gewinnt; Distanzvektor (RIP, Hops, max. 15, langsam) vs. Link-State (OSPF, Kosten aus Bandbreite, ganze Topologie, schnell); BGP zwischen Anbietern."
+        "Dynamisch: Router lernen Netze voneinander, weichen bei Ausfall aus; Metrik (Hops, Kosten, Bandbreite/Verzögerung), kleinere gewinnt; Distanzvektor (RIP, Hops, max. 15, langsam) vs. Link-State (OSPF, Kosten aus Bandbreite, ganze Topologie, schnell); BGP zwischen Anbietern.",
+        "Route auf Windows-Client: route print zeigt Tabelle; route -p add Ziel mask Maske Gateway (ohne -p nur bis Neustart, mit -p unter „Ständige Routen“); PowerShell New-NetRoute."
       ],
       "vorkommen": [
         {
           "id": "9-4-1",
-          "tiefe": "Routingtabelle, Default-Route, LPM"
+          "tiefe": "Routingtabelle, Default-Route, LPM, route add auf dem Client"
         },
         {
           "id": "9-4-2",
@@ -3821,12 +3833,13 @@
         "VoIP: SIP-Signalisierung 5060/5061 (TLS), Sprache RTP über UDP (SRTP verschlüsselt); G.711 und G.722 64 kbit/s, Opus variabel; SIP-Trunk.",
         "G.711 mit 20 ms: 50 Pakete/s, 160 Byte Sprache + RTP 12 + UDP 8 + IPv4 20 + Ethernet 18 = 218 Byte, 87,2 kbit/s je Richtung. Mit Präambel und Rahmenabstand 238 Byte = 95,2 kbit/s; durch IPsec-Tunnel (rund 60 Byte mehr) knapp 120 kbit/s, Planungswert 120 kbit/s.",
         "Richtwerte Sprache: Einweg höchstens 150 ms, Jitter unter 30 ms, Verlust unter 1 %; Fax per T.38.",
-        "QoS: klassifizieren, markieren (PCP 3 Bit im VLAN-Tag, DSCP 6 Bit im IP-Kopf, Sprache EF 46), bevorzugt senden mit Obergrenze; wirkt am Engpass (Upload), Shaping knapp unter Anschlussrate; schafft keine Bandbreite."
+        "QoS: klassifizieren, markieren (PCP 3 Bit im VLAN-Tag, DSCP 6 Bit im IP-Kopf, Sprache EF 46), bevorzugt senden mit Obergrenze; wirkt am Engpass (Upload), Shaping knapp unter Anschlussrate; schafft keine Bandbreite.",
+        "Videokonferenz bei knapper Bandbreite: Software senkt zuerst das Video (Auflösung, Bildrate in fps, Zahl gezeigter Teilnehmer), Ton behält Vorrang."
       ],
       "vorkommen": [
         {
           "id": "9-6-2",
-          "tiefe": "VoIP-Bandbreite"
+          "tiefe": "VoIP-Bandbreite, Stellgrößen der Videokonferenz"
         },
         {
           "id": "9-6-3",

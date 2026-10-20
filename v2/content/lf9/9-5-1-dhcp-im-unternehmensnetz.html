@@ -26,6 +26,7 @@
   <li>Fest vergebene Adressen gehören außerhalb des Pools oder in eine Reservierung.</li>
   <li>Nur ein DHCP-Server je Netz, oder mehrere, die sich abstimmen. Ein fremder DHCP-Server wie der mitgebrachte Router aus LF3, Kapitel 3.5.1 verteilt falsche Gateways.</li>
 </ul>
+<p>Auch eine fest eingetragene Adresse prüft Windows per ARP, beim Eintragen und bei jedem Start. Trägt jemand an einem PC in Nord eine Adresse ein, die der Router schon per DHCP an den Drucker vergeben hat, antwortet der Drucker. Der PC nutzt die Adresse dann nicht und arbeitet mit einer APIPA-Adresse aus 169.254.0.0/16 weiter. Windows meldet einen Adresskonflikt; ipconfig /all zeigt die eingetragene Adresse mit dem Zusatz „Dupliziert“ (englisch „Duplicate“) und daneben die APIPA-Adresse. Zur Behebung suchst du das zweite Gerät: Nach einem ping auf die Adresse zeigt arp -a auf einem anderen Rechner im selben Netz die MAC-Adresse, die geantwortet hat. Danach bekommt der PC eine Adresse außerhalb des Pools oder eine Reservierung.</p>
 
 <h3>Zentral oder am Standort</h3>
 <p>Ein zentraler Server ist bequem zu verwalten, hängt aber an der Verbindung zum Stammhaus. Fällt der VPN-Tunnel aus, bekommen neue Geräte am Standort keine Adresse mehr. Deshalb arbeitet an Außenstellen oft der Router selbst als DHCP-Server, oder ein zweiter DHCP-Server am Standort teilt sich mit dem zentralen den Pool und vertritt ihn.</p>

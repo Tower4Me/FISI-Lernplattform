@@ -588,7 +588,8 @@
                 "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 3",
                 "zpa": "",
                 "ihk": [
-                  "AP1 Frühjahr 2022, Aufgabe 2 (RAM-Kanäle)"
+                  "AP1 Frühjahr 2022, Aufgabe 2 (RAM-Kanäle)",
+                  "AP2 FISI Winter 2022/23 Teil 1 Aufgabe 4 (RAM-Kenndaten: Modulbezeichnung, Datenrate, CAS-Latenz)"
                 ],
                 "extern": [
                   "JEDEC DDR4/DDR5"
@@ -2936,7 +2937,8 @@
                 "ausbildungsrahmenplan": "FIAusbV Anlage A Nr. 10",
                 "zpa": "",
                 "ihk": [
-                  "AP1 Herbst 2025 (Schreibtischtest, Logikfehler in Schleife)"
+                  "AP1 Herbst 2025 (Schreibtischtest, Logikfehler in Schleife)",
+                  "AP2 FISI Sommer 2025 Teil 1 Aufgabe 4 (semantischer Fehler)"
                 ],
                 "extern": []
               },
@@ -3035,7 +3037,8 @@
                   "AP1 Frühjahr 2023 (Klassendiagramm)",
                   "AP1 Herbst 2023 (Use-Case-Diagramm Störungsmeldung)",
                   "AP1 Herbst 2024 (Use-Case-Diagramm)",
-                  "AP1 Herbst 2025 (Aktivitätsdiagramm)"
+                  "AP1 Herbst 2025 (Aktivitätsdiagramm)",
+                  "AP2 FISI Sommer 2023 Teil 1 Aufgabe 3 (Aggregation, Komposition)"
                 ],
                 "extern": [
                   "OMG UML 2.5.1: Anwendungsfall-, Aktivitäts- und Klassendiagramm (Notation, Lehrbuchstandard)"
@@ -5117,10 +5120,12 @@
                   "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 1 (vertauschte Gateways korrigieren)",
                   "AP2 FISI Sommer 2024 Teil 2 Aufgabe 1 (Routingtabelle, lokale Zustellung oder Gateway)",
                   "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 2 (Default-Route)",
-                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 1 (Default-Route)"
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 1 (Default-Route)",
+                  "AP2 FISI Winter 2020/21 Ganzheitliche Aufgabe I HS1 (fehlende Route auf einem Client ergänzen) [AO1997]"
                 ],
                 "extern": [
-                  "RFC 1812 (Router, Longest Prefix Match), RFC 5737 (Dokumentationsadressen)"
+                  "RFC 1812 (Router, Longest Prefix Match), RFC 5737 (Dokumentationsadressen)",
+                  "Microsoft-Dokumentation: route, New-NetRoute"
                 ]
               },
               "material": [],
@@ -5217,7 +5222,7 @@
                 "zpa": "",
                 "ihk": [
                   "AP2 FISI Sommer 2023 Teil 2 Aufgabe 1 (DORA, DHCP-Relay)",
-                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 2 (IP-Konflikt, APIPA)",
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 2 (Adresskonflikt, APIPA)",
                   "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 2 (APIPA, fehlendes DHCP-Relay)",
                   "AP2 FISI Sommer 2025 Teil 2 Aufgabe 4 (Discover als Broadcast, Adressprüfung nach der Zuweisung)"
                 ],
@@ -5231,7 +5236,9 @@
               ],
               "begriffe": [
                 "dhcp",
-                "vlan"
+                "vlan",
+                "arp",
+                "ipv4"
               ]
             },
             {
@@ -5246,10 +5253,11 @@
                   "AP2 FISI Sommer 2023 Teil 2 Aufgabe 4 (Forwarder, iterative Auflösung, fehlender A-Record, SPF)",
                   "AP2 FISI Sommer 2024 Teil 2 Aufgabe 2 (interner statt öffentlicher DNS)",
                   "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 3 (nslookup, falscher CNAME)",
-                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 2 (DNS-Weiterleitung, intern oder öffentlich)"
+                  "AP2 FISI Sommer 2025 Teil 2 Aufgabe 2 (DNS-Weiterleitung, intern oder öffentlich)",
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 2 (mehrere A-Einträge, abweichende DNS-Antworten)"
                 ],
                 "extern": [
-                  "RFC 1034, RFC 1035 (DNS, Zonen, SOA), RFC 2181 (CNAME-Regeln), RFC 7208 (SPF), RFC 2606 (.example)"
+                  "RFC 1034, RFC 1035 (DNS, Zonen, SOA), RFC 2181 (CNAME-Regeln), RFC 7208 (SPF), RFC 2606 (.example), RFC 1794 (DNS-Lastverteilung)"
                 ]
               },
               "material": [
@@ -5349,7 +5357,7 @@
                 "ausbildungsrahmenplan": "FIAusbV Anlage Abschnitt C Nr. 2",
                 "zpa": "",
                 "ihk": [
-                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 4 (VoIP-Bandbreite mit Overhead, Videokonferenz, Fax über VoIP)",
+                  "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 4 (VoIP-Bandbreite mit Overhead, Videokonferenz und ihre Stellgrößen, Fax über VoIP)",
                   "AP2 FISI Sommer 2022 Teil 2 Aufgabe 4 (Bandbreite für Videokonferenzen)"
                 ],
                 "extern": [
@@ -5454,7 +5462,8 @@
                 "ihk": [
                   "AP2 FISI Winter 2022/23 Teil 2 Aufgabe 2 (Paketmitschnitt, Hop Limit)",
                   "AP2 FISI Winter 2023/24 Teil 2 Aufgabe 3 (Fehlersuche anhand von Ausgaben)",
-                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 3 (ping, nslookup, Duplex, ping blockiert)"
+                  "AP2 FISI Winter 2024/25 Teil 2 Aufgabe 3 (ping, nslookup, Duplex, ping blockiert)",
+                  "AP2 FISI Sommer 2023 Teil 2 Aufgabe 2 (Adresskonflikt, APIPA)"
                 ],
                 "extern": [
                   "DIN EN 50173/ISO/IEC 11801 (Verkabelungsmessung), RFC 8200 (Hop Limit), RFC 791 (TTL)"
@@ -6460,7 +6469,7 @@
                   "AP2 FISI Sommer 2023 Teil 2 Aufgabe 4 (SPF-Eintrag)"
                 ],
                 "extern": [
-                  "RFC 7208 (SPF); RFC 6376 (DKIM); RFC 7489 (DMARC); BSI IT-Grundschutz-Kompendium APP.5.3 Allgemeiner E-Mail-Client und -Server"
+                  "RFC 7208 (SPF); RFC 6376 (DKIM); RFC 9989 (DMARC, löst RFC 7489 und RFC 9091 ab); BSI IT-Grundschutz-Kompendium APP.5.3 Allgemeiner E-Mail-Client und -Server"
                 ]
               },
               "material": [

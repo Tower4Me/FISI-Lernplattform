@@ -791,7 +791,7 @@
 <nav class="breadcrumb" aria-label="Pfad"><ol><li><a href="index.html">LF9</a></li><li><a href="index.html#k-9-5">9.5 Netzwerkdienste bereitstellen</a></li><li aria-current="page">9.5.1</li></ol></nav>
 <header class="page-head">
   <h1><span class="num">9.5.1</span>DHCP im Unternehmensnetz</h1>
-  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>3 Min. Lesezeit</span></p>
+  <p class="page-meta"><span class="badge badge-ap2">AP2</span><span>4 Min. Lesezeit</span></p>
 </header>
 <div class="content" data-up="9-5-1">
 <p class="lead">Im Büro der Hausverwaltung aus LF3 verteilte der Router die Adressen für ein einziges Netz. Im Praxisverbund gibt es pro Standort fünf VLANs mit eigenen Netzen, Telefone mit besonderen Einstellungen und Gäste, die nur kurz bleiben. DHCP muss jetzt viele Netze bedienen, über Router hinweg funktionieren und auch dann laufen, wenn die Verbindung zum Stammhaus ausfällt. Den Ablauf DORA kennst du aus LF3, Kapitel 3.5.1.</p>
@@ -822,6 +822,7 @@
   <li>Fest vergebene Adressen gehören außerhalb des Pools oder in eine Reservierung.</li>
   <li>Nur ein DHCP-Server je Netz, oder mehrere, die sich abstimmen. Ein fremder DHCP-Server wie der mitgebrachte Router aus LF3, Kapitel 3.5.1 verteilt falsche Gateways.</li>
 </ul>
+<p>Auch eine fest eingetragene Adresse prüft Windows per ARP, beim Eintragen und bei jedem Start. Trägt jemand an einem PC in Nord eine Adresse ein, die der Router schon per DHCP an den Drucker vergeben hat, antwortet der Drucker. Der PC nutzt die Adresse dann nicht und arbeitet mit einer APIPA-Adresse aus 169.254.0.0/16 weiter. Windows meldet einen Adresskonflikt; ipconfig /all zeigt die eingetragene Adresse mit dem Zusatz „Dupliziert“ (englisch „Duplicate“) und daneben die APIPA-Adresse. Zur Behebung suchst du das zweite Gerät: Nach einem ping auf die Adresse zeigt arp -a auf einem anderen Rechner im selben Netz die MAC-Adresse, die geantwortet hat. Danach bekommt der PC eine Adresse außerhalb des Pools oder eine Reservierung.</p>
 
 <h3 id="zentral-oder-am-standort">Zentral oder am Standort<a class="anchor" href="#zentral-oder-am-standort" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Ein zentraler Server ist bequem zu verwalten, hängt aber an der Verbindung zum Stammhaus. Fällt der VPN-Tunnel aus, bekommen neue Geräte am Standort keine Adresse mehr. Deshalb arbeitet an Außenstellen oft der Router selbst als DHCP-Server, oder ein zweiter DHCP-Server am Standort teilt sich mit dem zentralen den Pool und vertritt ihn.</p>

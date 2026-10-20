@@ -38,7 +38,7 @@
   <table>
     <thead><tr><th>Beobachtung</th><th>Ursache prüfen</th></tr></thead>
     <tbody>
-      <tr><th>Adresse aus 169.254.0.0/16</th><td>kein DHCP im VLAN: Relay, Server, Bereich voll (Kapitel 9.5.1)</td></tr>
+      <tr><th>Adresse aus 169.254.0.0/16</th><td>kein DHCP im VLAN: Relay, Server, Bereich voll; bei fest eingetragener Adresse ein Adresskonflikt, ipconfig /all zeigt sie als „Dupliziert“ (Kapitel 9.5.1)</td></tr>
       <tr><th>Adresse aus dem falschen Netz</th><td>Port im falschen VLAN oder fremder DHCP-Server</td></tr>
       <tr><th>Gateway erreichbar, andere VLANs nicht</th><td>Inter-VLAN-Routing, Regeln, Gateway des Ziels (Kapitel 9.4.2)</td></tr>
       <tr><th>IP-Adressen erreichbar, Namen nicht</th><td>DNS-Server eingetragen und erreichbar? Eintrag in der Zone? (Kapitel 9.5.2)</td></tr>

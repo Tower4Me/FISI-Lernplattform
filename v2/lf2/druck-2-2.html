@@ -890,9 +890,23 @@
   <li><strong>Kapazität:</strong> wie viel gleichzeitig im Speicher liegen kann, angegeben in Gigabyte.</li>
   <li><strong>Typ:</strong> Die Generationen DDR4 und DDR5 sind nicht untereinander tauschbar. Die Module haben unterschiedliche Kerben und passen nur in den passenden Steckplatz.</li>
   <li><strong>Bauform:</strong> lange DIMM-Module für Desktop-PCs, kurze SO-DIMM-Module für Notebooks und Mini-PCs. In vielen dünnen Notebooks ist der Speicher fest aufgelötet und lässt sich nicht erweitern.</li>
-  <li><strong>Geschwindigkeit:</strong> Datenrate in MT/s (Millionen Transfers pro Sekunde), zum Beispiel 5600 MT/s. Steckst du Module mit verschiedener Geschwindigkeit zusammen, laufen alle nur so schnell wie das langsamste; der Aufpreis für das schnellere Modul ist dann verschenkt.</li>
+  <li><strong>Geschwindigkeit:</strong> Transfers in MT/s (Millionen Transfers pro Sekunde), zum Beispiel 5600 MT/s. Steckst du Module mit verschiedener Geschwindigkeit zusammen, laufen alle nur so schnell wie das langsamste; der Aufpreis für das schnellere Modul ist dann verschenkt.</li>
   <li><strong>Fehlerkorrektur (ECC):</strong> erkennt und korrigiert einzelne Bitfehler, wichtig für Server und Workstations, braucht passendes Mainboard und passenden Prozessor. DDR5 hat intern eine eigene Fehlerkorrektur (On-Die-ECC); das ersetzt keine ECC-Module.</li>
 </ul>
+
+<h3 id="u2-2-3-kenndaten-lesen">Kenndaten lesen<a class="anchor" href="#u2-2-3-kenndaten-lesen" aria-hidden="true" tabindex="-1">#</a></h3>
+<p>Mit den Kenndaten vergleichst du Module und prüfst, ob ein Modul zum Mainboard passt. Auf Modul und Datenblatt stehen zwei Bezeichnungen für dieselbe Geschwindigkeit:</p>
+<ul>
+  <li><strong>Chip-Bezeichnung</strong> DDRx-Zahl: Die Zahl nennt die Transfers in MT/s, etwa DDR5-4800.</li>
+  <li><strong>Modulbezeichnung</strong> PCx-Zahl: Die Zahl nennt die Datenrate in MB/s, etwa PC5-38400.</li>
+</ul>
+<p>DDR (Double Data Rate) überträgt zweimal je Takt, also zwei Transfers je Takt. Der echte Takt ist deshalb halb so hoch wie die MT/s-Zahl; die MT/s-Zahl heißt oft „effektiver Takt“. Ein Modul überträgt über einen 64 Bit (8 Byte) breiten Datenbus:</p>
+<p class="formel">Datenrate in MB/s = MT/s × 8 Byte</p>
+<p>Die <strong>CAS-Latenz</strong> (CL) gibt an, wie viele Takte das Modul nach einer Leseanfrage braucht, bis die ersten Daten kommen. Kleiner ist schneller, aber nur bei gleichem Takt vergleichbar.</p>
+<div class="beispiel">
+  <p class="block-label">Beispiel</p>
+  <p>Ein Modul trägt die Angabe DDR5-4800 CL40. Datenrate: 4800 MT/s × 8 Byte = 38.400 MB/s, also PC5-38400. Echter Takt: 4800 ÷ 2 = 2400 MHz. Verzögerung: 40 Takte ÷ 2400 MHz ≈ 16,7 ns. Mit zwei Modulen im Dual Channel (nächster Abschnitt) sind theoretisch 76.800 MB/s möglich.</p>
+</div>
 
 <h3 id="u2-2-3-dual-channel">Dual Channel<a class="anchor" href="#u2-2-3-dual-channel" aria-hidden="true" tabindex="-1">#</a></h3>
 <p>Viele Mainboards können zwei Speichermodule gleichzeitig ansprechen (<strong>Dual Channel</strong>). Das verdoppelt die theoretisch mögliche Datenrate zwischen Prozessor und Speicher; spürbar schneller wird der Rechner, aber nicht doppelt so schnell. Dafür setzt du zwei gleiche Module in die Steckplätze ein, die das Handbuch dafür vorsieht, oft farblich markiert und nicht direkt nebeneinander. Zwei Module mit 8 GB sind deshalb meist schneller als ein Modul mit 16 GB.</p>
@@ -906,6 +920,7 @@
 
 <div class="merksatz"><p class="mz-label"><svg class="icon" aria-hidden="true"><use href="#i-mark"/></svg>Merksatz</p><ul>
   <li><strong>RAM:</strong> schnell und flüchtig; zu wenig davon macht den Rechner langsam.</li>
+  <li><strong>Kenndaten:</strong> DDRx-Zahl in MT/s, PCx-Zahl in MB/s = MT/s × 8 Byte; CL = Verzögerung in Takten.</li>
   <li><strong>Dual Channel:</strong> zwei gleiche Module in den vorgesehenen Steckplätzen verdoppeln die mögliche Datenrate.</li>
 </ul></div>
 </section>

@@ -24,6 +24,15 @@ termine  CNAME  api.intern.praxisverbund.example.</code></pre>
 <h3>Interner oder öffentlicher DNS</h3>
 <p>Die internen Namen stehen nur im internen DNS. Fragt ein Client direkt einen öffentlichen DNS-Server, findet er db.intern.praxisverbund.example nicht. Deshalb bekommen alle internen Geräte per DHCP einen DNS-Server, der die internen Namen kennt: im Stammhaus 10.10.0.147, in Nord und Süd den Router; nur das Gäste-VLAN bekommt einen öffentlichen, damit Gäste keine internen Namen sehen. Öffentlich erreichbare Namen wie die Website stehen in der öffentlichen Zone beim Anbieter der Domain.</p>
 
+<h3>Mehrere Adressen zu einem Namen</h3>
+<p>Ein Name darf mehrere A- oder AAAA-Einträge haben, etwa wenn zwei Webserver dieselbe Seite ausliefern. Der DNS-Server gibt alle Adressen zurück und wechselt bei jeder Antwort ihre Reihenfolge (<strong>Round Robin</strong>). Clients beginnen meist mit der ersten Adresse, so verteilt sich die Last grob. Einen ausgefallenen Server erkennt DNS dabei nicht. Große Anbieter antworten außerdem je nach Standort des Fragenden mit der Adresse eines nahen Servers.</p>
+<p>Unterschiedliche Antworten auf denselben Namen sind deshalb nicht automatisch ein Fehler. Weitere Gründe:</p>
+<ul>
+  <li>Der Client oder ein Forwarder nimmt die Antwort aus dem Zwischenspeicher, wo noch ein älterer Eintrag liegt, bis dessen TTL abläuft.</li>
+  <li>Es wurden verschiedene Server gefragt, etwa der interne und ein öffentlicher. Sie haben verschieden zwischengespeichert, bekommen standortabhängige Antworten, oder der interne Server führt für den Namen eine eigene Zone mit anderen Adressen.</li>
+  <li>Eine Anfrage galt dem A-Eintrag (IPv4), die andere dem AAAA-Eintrag (IPv6).</li>
+</ul>
+
 <h3>Prüfen mit nslookup</h3>
 <pre><code>C:\&gt; nslookup termine.intern.praxisverbund.example
 Server:   ns1.intern.praxisverbund.example

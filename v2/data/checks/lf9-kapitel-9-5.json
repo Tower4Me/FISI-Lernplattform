@@ -18,18 +18,18 @@
     },
     {
       "typ": "mc",
-      "thema": "Bereich wählen",
-      "frage": "Woran erkennt ein zentraler DHCP-Server, aus welchem Bereich er einem Client über ein Relay eine Adresse geben muss?",
+      "thema": "Adresskonflikt",
+      "frage": "Am Empfang in Süd hat jemand am PC eine feste IPv4-Adresse eingetragen. Nach dem Neustart zeigt ipconfig /all diese Adresse als „Dupliziert“ und daneben 169.254.12.7. Was ist passiert?",
       "optionen": [
-        "An der Relay-Adresse aus dem Netz des Clients",
-        "An der MAC-Adresse des Clients, die das Relay unverändert weiterreicht",
-        "An dem Hostnamen, den der Client in seiner Anfrage vorschlägt",
-        "An der Uhrzeit, zu der die Anfrage beim Relay eingeht"
+        "Ein anderes Gerät im Netz belegt sie bereits",
+        "Der Bereich des DHCP-Servers hat keine freien Adressen mehr",
+        "Das DHCP-Relay am Gateway von Süd fehlt",
+        "Der DNS-Server im Stammhaus ist nicht erreichbar"
       ],
       "richtig": [
         0
       ],
-      "erklaerung": "Das Relay trägt seine eigene Adresse im Netz des Clients ein. Daran sieht der Server, aus welchem Netz die Anfrage kommt, und wählt den passenden Bereich."
+      "erklaerung": "Windows prüft auch eine feste Adresse per ARP. Antwortet ein anderes Gerät, nutzt der PC sie nicht und arbeitet mit einer APIPA-Adresse weiter; arp -a zeigt die MAC-Adresse des zweiten Geräts."
     },
     {
       "typ": "mc",

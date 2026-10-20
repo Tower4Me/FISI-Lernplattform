@@ -96,7 +96,7 @@
   <div class="reiter-panel" data-label="Klassendiagramm">
     <p>Das <strong>Klassendiagramm</strong> zeigt die <em>Struktur</em> der Software: welche Klassen es gibt, welche Attribute und Methoden sie haben und wie sie zusammenhängen (Klassen und Objekte: Kapitel 5.4.1).</p>
     <figure class="grafik">
-      <svg viewBox="0 0 640 300" role="img" aria-label="Klassendiagramm: Klasse Besitzer mit name, telefon und anrufen, Klasse Tier mit name, gewicht und gewichtErfassen; ein Besitzer besitzt beliebig viele Tiere, ein Tier gehört genau einem Besitzer; Hund und Katze erben von Tier">
+      <svg viewBox="0 0 640 400" role="img" aria-label="Klassendiagramm: Klasse Besitzer mit name, telefon und anrufen, Klasse Tier mit name, gewicht und gewichtErfassen; ein Besitzer besitzt beliebig viele Tiere, ein Tier gehört genau einem Besitzer; Hund und Katze erben von Tier. Darunter Aggregation: Praxis mit hohler Raute an der Praxis zu Tierarzt, eine Praxis hat mindestens einen Tierarzt, ein Tierarzt arbeitet in beliebig vielen Praxen. Komposition: Rechnung mit gefüllter Raute an der Rechnung zu Rechnungsposition, eine Rechnung hat mindestens eine Position, jede Position gehört zu genau einer Rechnung">
         <rect class="g-box" x="20" y="20" width="200" height="110" rx="2"/>
         <path class="g-line" d="M20 48H220M20 100H220" stroke-width="1"/>
         <text x="120" y="39" text-anchor="middle" font-size="14" font-weight="600">Besitzer</text>
@@ -123,13 +123,33 @@
         <path class="g-line" d="M460 234H620M460 262H620" stroke-width="1"/>
         <text x="540" y="225" text-anchor="middle" font-size="14" font-weight="600">Katze</text>
         <text x="470" y="254" class="g-mono" font-size="12">- freigang: Boolean</text>
+        <rect class="g-box" x="20" y="316" width="90" height="36" rx="2"/>
+        <text x="65" y="339" text-anchor="middle" font-size="14" font-weight="600">Praxis</text>
+        <path class="g-line" d="M110 334L123 327L136 334L123 341Z" stroke-width="1.5"/>
+        <path class="g-line" d="M136 334H200" stroke-width="1.5"/>
+        <text x="142" y="354" font-size="12">*</text>
+        <text x="194" y="324" text-anchor="end" font-size="12">1..*</text>
+        <rect class="g-box" x="200" y="316" width="100" height="36" rx="2"/>
+        <text x="250" y="339" text-anchor="middle" font-size="14" font-weight="600">Tierarzt</text>
+        <text x="160" y="384" text-anchor="middle" class="g-muted" font-size="12">Aggregation</text>
+        <rect class="g-box" x="330" y="316" width="90" height="36" rx="2"/>
+        <text x="375" y="339" text-anchor="middle" font-size="14" font-weight="600">Rechnung</text>
+        <path d="M420 334L433 327L446 334L433 341Z" fill="currentColor"/>
+        <path class="g-line" d="M446 334H480" stroke-width="1.5"/>
+        <text x="450" y="354" font-size="12">1</text>
+        <text x="476" y="324" text-anchor="end" font-size="12">1..*</text>
+        <rect class="g-box" x="480" y="316" width="150" height="36" rx="2"/>
+        <text x="555" y="339" text-anchor="middle" font-size="14" font-weight="600">Rechnungsposition</text>
+        <text x="480" y="384" text-anchor="middle" class="g-muted" font-size="12">Komposition</text>
       </svg>
-      <figcaption>Klassen mit Name, Attributen und Methoden. Ein Besitzer besitzt beliebig viele Tiere; Hund und Katze erben alles von Tier (Linie mit hohler Dreiecksspitze zur Oberklasse).</figcaption>
+      <figcaption>Klassen mit Name, Attributen und Methoden. Ein Besitzer besitzt beliebig viele Tiere; Hund und Katze erben alles von Tier (Linie mit hohler Dreiecksspitze zur Oberklasse). Unten: Aggregation mit hohler und Komposition mit gefüllter Raute, die Raute sitzt jeweils am Ganzen.</figcaption>
     </figure>
     <ul>
       <li><strong>Klasse</strong> (Rechteck mit drei Teilen): oben der Name, in der Mitte die Attribute mit Datentyp, unten die Methoden.</li>
       <li><strong>Sichtbarkeit:</strong> <code>-</code> privat (nur die Klasse selbst), <code>+</code> öffentlich, <code>#</code> geschützt (auch Unterklassen). Private Attribute mit öffentlichen Methoden setzen die Kapselung um.</li>
       <li><strong>Assoziation</strong> (Linie) mit <strong>Multiplizitäten</strong>: <code>1</code> genau eins, <code>0..1</code> keins oder eins, <code>1..*</code> mindestens eins, <code>*</code> beliebig viele. Gelesen wird wie beim ER-Modell (Kapitel 5.3.2): Eine Besitzerin besitzt beliebig viele (*) Tiere, ein Tier gehört genau einer Besitzerin. Mit <code>*</code> lässt sich auch eine Besitzerin speichern, die noch kein Tier angemeldet hat.</li>
+      <li><strong>Aggregation</strong> (Linie mit hohler Raute am Ganzen): eine Teil-Ganzes-Beziehung, bei der das Teil auch allein bestehen kann. Eine Praxis hat Tierärzte; eine Tierärztin kann auch für mehrere Praxen arbeiten, und schließt eine Praxis, gibt es die Tierärztin weiterhin.</li>
+      <li><strong>Komposition</strong> (Linie mit gefüllter Raute am Ganzen): Das Teil hängt fest am Ganzen und existiert nur mit ihm. Eine Rechnungsposition gehört zu genau einer Rechnung; wird die Rechnung gelöscht, verschwinden auch ihre Positionen. Am Ganzen steht deshalb höchstens 1, meist genau 1.</li>
       <li><strong>Vererbung</strong> (Linie mit hohler Dreiecksspitze zur Oberklasse): Die Unterklasse übernimmt Attribute und Methoden und ergänzt eigene.</li>
     </ul>
   </div>
@@ -140,5 +160,5 @@
 <ul class="merksatz">
   <li><strong>Anwendungsfalldiagramm:</strong> Akteure außerhalb, Anwendungsfälle als Ellipsen in der Systemgrenze; «include» immer, «extend» nur unter Bedingung.</li>
   <li><strong>Aktivitätsdiagramm:</strong> Start, Aktionen, Raute zum Verzweigen mit [Bedingung] und zum Zusammenführen, Balken für Gleichzeitiges, Ende.</li>
-  <li><strong>Klassendiagramm:</strong> Klasse mit Name, Attributen, Methoden; Linie mit Multiplizitäten, hohle Dreiecksspitze für Vererbung.</li>
+  <li><strong>Klassendiagramm:</strong> Klasse mit Name, Attributen, Methoden; Linie mit Multiplizitäten, hohle Raute am Ganzen für Aggregation, gefüllte für Komposition, hohle Dreiecksspitze für Vererbung.</li>
 </ul>

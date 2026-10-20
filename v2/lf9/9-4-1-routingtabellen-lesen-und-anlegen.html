@@ -847,6 +847,9 @@
 10.20.0.64      255.255.255.224   Auf Verbindung  10.20.0.70        281
 127.0.0.0       255.0.0.0         Auf Verbindung  127.0.0.1         331</code></pre>
 <p>„Auf Verbindung“ heißt direkt verbunden, ohne Gateway. Die erste Zeile ist die Default-Route zum Router in Nord, die zweite das eigene Netz, die dritte die Loopback-Adressen des PCs.</p>
+<p>Selten braucht ein Client eine eigene Route, etwa wenn ein zweiter Router im eigenen Netz ein weiteres Netz anbindet. Soll der PC in Nord ein Testnetz 192.168.99.0/24 hinter dem Router 10.20.0.66 erreichen, trägst du als Administrator ein:</p>
+<pre><code>route -p add 192.168.99.0 mask 255.255.255.0 10.20.0.66</code></pre>
+<p>Ohne <code>-p</code> gilt die Route nur bis zum nächsten Neustart; mit <code>-p</code> bleibt sie erhalten und steht in route print unter „Ständige Routen“. In PowerShell legt <code>New-NetRoute -DestinationPrefix 192.168.99.0/24 -NextHop 10.20.0.66 -InterfaceAlias Ethernet</code> dieselbe Route an.</p>
 <p>Die <strong>Default-Route</strong> 0.0.0.0/0 passt auf jede Adresse. Sie nimmt alles auf, wofür es keinen genaueren Eintrag gibt, hier den Weg ins Internet. Für IPv6 heißt sie ::/0.</p>
 
 <h3 id="wie-der-router-entscheidet">Wie der Router entscheidet<a class="anchor" href="#wie-der-router-entscheidet" aria-hidden="true" tabindex="-1">#</a></h3>

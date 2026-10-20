@@ -802,7 +802,7 @@
   <li>Der Client prüft vorher, ob die gewählte Adresse frei ist (per ARP, Kapitel 3.5.3).</li>
   <li>Der Client fragt weiter regelmäßig beim DHCP-Server nach; sofort geht es mit <code>ipconfig /renew</code>.</li>
   <li>Er kann damit nur andere Geräte erreichen, die ebenfalls eine 169.254er-Adresse haben. Ein Gateway fehlt, also gibt es kein Internet.</li>
-  <li>Im Büro ist eine 169.254er-Adresse fast immer ein <strong>Fehlerzeichen</strong>: Der DHCP-Server ist ausgefallen, sein Adressbereich ist voll, oder das Gerät hängt im falschen Netz.</li>
+  <li>Im Büro ist eine 169.254er-Adresse fast immer ein <strong>Fehlerzeichen</strong>: Der DHCP-Server ist ausgefallen, sein Adressbereich ist voll, oder das Gerät hängt im falschen Netz. Auch eine fest eingetragene Adresse, die schon belegt ist, führt bei Windows zu einer 169.254er-Adresse (LF9, Kapitel 9.5.1).</li>
 </ul>
 
 <h3 id="link-local-bei-ipv6">Link-Local bei IPv6<a class="anchor" href="#link-local-bei-ipv6" aria-hidden="true" tabindex="-1">#</a></h3>

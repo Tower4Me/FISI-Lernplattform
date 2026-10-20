@@ -18,8 +18,11 @@ v2/data/checks/lfN-kapitel-x-y.json   Fragen eines Kapitel-Checks
 v2/content/lfN/<id>-<slug>.html       Inhalt eines Unterpunkts (Fragment) – HIER bearbeiten
 v2/content/_komponenten.html          Inhalt der Demo-Seite v2/komponenten.html
 v2/assets/                     tokens.css, components.css, theme.js, app.js, tabs.js, check.js, fonts/
-v2/index.html, v2/lfN/*.html, v2/komponenten.html   GENERIERT – nie direkt bearbeiten
+v2/index.html, v2/lfN/*.html, v2/komponenten.html, v2/weitere-themen.html   GENERIERT – nie direkt bearbeiten
 ```
+
+`v2/weitere-themen.html` verlinkt alte Einheiten ohne Platz in den Lernfeldern (WiSo-Modul und die
+Einheiten in `WEITERE_EINHEITEN` in `tools/build_v2.py`) auf die bisherige Seite unter `module/`.
 
 ## manifest.json
 
